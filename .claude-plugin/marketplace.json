@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "b4xdaisyuikit-skills",
-  "description": "B4XDaisyUIKit Application Layout Expert skill package for AI coding agents.",
+  "description": "B4XDaisyUIKit Application Layout Expert skill package.",
   "owner": {
     "name": "Mashiane",
     "url": "https://github.com/Mashiane/B4XDaisyUIKit-Skills"
@@ -9,11 +9,8 @@
   "plugins": [
     {
       "name": "b4xdaisyuikit-skills",
-      "description": "Assemble native B4X Android screen layouts using the B4XDaisyUIKit framework.",
-      "source": {
-        "source": "github",
-        "repo": "Mashiane/B4XDaisyUIKit-Skills"
-      },
+      "description": "Assemble native B4X Android screen layouts using B4XDaisyUIKit.",
+      "source": "./",
       "category": "developer-tools"
     }
   ]
