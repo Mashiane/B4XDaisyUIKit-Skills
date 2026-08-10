@@ -1,0 +1,26 @@
+{
+  "name": "b4xdaisyuikit-skills",
+  "version": "1.0.0",
+  "description": "B4XDaisyUIKit Application Layout Expert skill package for AI agents assembling B4X Android/iOS applications.",
+  "author": {
+    "name": "Mashiane",
+    "url": "https://github.com/Mashiane/B4XDaisyUIKit-Skills"
+  },
+  "homepage": "https://github.com/Mashiane/B4XDaisyUIKit-Skills",
+  "repository": "https://github.com/Mashiane/B4XDaisyUIKit-Skills",
+  "license": "MIT",
+  "keywords": [
+    "b4x",
+    "b4a",
+    "b4i",
+    "b4j",
+    "daisyui",
+    "b4xdaisyuikit",
+    "mobile-ui",
+    "layout",
+    "skills"
+  ],
+  "skills": [
+    "../SKILL.md"
+  ]
+}
