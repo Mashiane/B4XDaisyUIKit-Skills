@@ -1,7 +1,7 @@
 {
   "name": "b4xdaisyuikit-skills",
   "version": "1.0.0",
-  "description": "B4XDaisyUIKit Application Layout Expert skill package for AI agents assembling B4X Android/iOS applications.",
+  "description": "B4XDaisyUIKit Application Layout Expert skill package for AI agents assembling B4X applications.",
   "author": {
     "name": "Mashiane",
     "url": "https://github.com/Mashiane/B4XDaisyUIKit-Skills"
@@ -19,8 +19,5 @@
     "mobile-ui",
     "layout",
     "skills"
-  ],
-  "skills": [
-    "../SKILL.md"
   ]
 }

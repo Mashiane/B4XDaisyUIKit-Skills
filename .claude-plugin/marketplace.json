@@ -1,5 +1,5 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "b4xdaisyuikit-skills",
   "description": "B4XDaisyUIKit Application Layout Expert skill package for AI coding agents.",
   "owner": {
@@ -9,8 +9,11 @@
   "plugins": [
     {
       "name": "b4xdaisyuikit-skills",
-      "description": "Assemble native mobile and desktop screen layouts using the B4XDaisyUIKit framework.",
-      "source": "https://github.com/Mashiane/B4XDaisyUIKit-Skills",
+      "description": "Assemble native B4X Android screen layouts using the B4XDaisyUIKit framework.",
+      "source": {
+        "source": "github",
+        "repo": "Mashiane/B4XDaisyUIKit-Skills"
+      },
       "category": "developer-tools"
     }
   ]
