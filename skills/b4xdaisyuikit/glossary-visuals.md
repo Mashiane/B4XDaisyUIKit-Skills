@@ -13,7 +13,8 @@ Interactive step timeline or historical log track. Draws connecting lines, statu
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemClick(Id As String)`: Raised when a timeline segment, card, or icon is tapped. Passes the target Item ID.
 *   **Public Setters / Getters**:
@@ -41,7 +42,8 @@ Online breathing, flashing, or solid status indicator dot. Supports hardware-acc
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   Click triggers are supported recursively if Clickable is set to True.
 *   **Public Setters / Getters**:
@@ -63,7 +65,8 @@ Horizontal indicator bar. Supports custom maximum milestones, animated duration 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Value As Float)`: Fired on progression updates.
 *   **Public Setters / Getters**:
@@ -88,7 +91,8 @@ Circular percentage progression ring. Draws progress arcs, svg icons, and counts
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setValue(Val As Int)`: Core percentage value (0 to 100).
     *   `setMinValue(MinVal As Int)` / `setMaxValue(MaxVal As Int)`: Range bounds.
@@ -112,7 +116,8 @@ Breakpoint-aware countdown timer. Manages separate nested digits blocks and decr
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setOrientation(Value As String)`: Layout axis (`"horizontal"`, `"vertical"`).
     *   `setTargetDate(Value As Long)`: Target epoch date-milliseconds limit.
@@ -137,7 +142,8 @@ Message tooltip indicator that anchors to a target B4XView, displaying custom me
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Shown` / `Hidden`: Transition triggers.
     *   `Click(Tag As Object)`: Raised on tooltip click.
@@ -160,7 +166,8 @@ Speech bubble layout component mapping daisyUI chat components. Uses canvas cach
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `AvatarClick(Payload As Object)`: Raised when clicking profile image.
     *   `BubbleClick(Tag As Object)`: Raised when tapping bubble frame.
@@ -186,7 +193,8 @@ Global notifications orchestrator. Manages stacked alert boxes, progress timers,
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `NotificationClosed(View As B4XView)`: Raised when a stacked toast finishes its duration or gets tapped.
 *   **Public Setters / Getters**:
@@ -208,7 +216,8 @@ Animated loading indicator. Generates spin and fade vectors natively across mult
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setStyle(Value As String)`: Animation type (`"spinner"`, `"dots"`, `"ring"`, `"ball"`, `"bars"`, `"infinity"`).
     *   `setSize(Value As String)`: Dimension scale.
@@ -228,7 +237,8 @@ High-performance typography custom view wrapper parsing daisyUI size tokens, ren
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on text click.
 *   **Public Setters / Getters**:
@@ -253,7 +263,8 @@ Scrolling ticker component rotating a list of B4XDaisyText labels vertically wit
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setDuration(Value As String)`: Rotation speed (e.g. `"3s"` or `"3000ms"`).
     *   `setVariant(Value As String)`: Color variant for all labels.
@@ -270,7 +281,8 @@ Native vector SVG asset rasterizer. Parses paths, overrides colors, and supports
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on tap (if Clickable is True).
 *   **Public Setters / Getters**:
@@ -296,7 +308,8 @@ Margin-aware structural separating rule. Supports vertical/horizontal axis lines
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Fired on divider clicks.
 *   **Public Setters / Getters**:
@@ -318,7 +331,8 @@ Versatile container component inspired by HTML div. Supports margins, custom ele
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Click event.
 *   **Public Setters / Getters**:
@@ -341,7 +355,8 @@ Dual-state interactive swap button. Animates rotations, flips, or fades when swa
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(State As String, Checked As Boolean)`: Toggled click callback.
     *   `Changed(State As String, Checked As Boolean)`: Raised on state updates.
@@ -363,7 +378,8 @@ Highly responsive multi-select filter chip bar wrapping horizontal scroll contai
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemChanged(Id As String, Text As String, Checked As Boolean)`
     *   `Changed(Keys As List)`
@@ -386,7 +402,8 @@ Main card wrapper displaying horizontal or vertical statistics summary panels, a
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setOrientation(Value As String)`: Axis track (`"horizontal"`, `"vertical"`).
     *   `setShadow(Value As String)` / `setRounded(Value As String)`
@@ -404,7 +421,8 @@ Metric node child added programmatically inside `B4XDaisyStat`. Features side-po
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on metric panel click.
 *   **Public Setters / Getters**:

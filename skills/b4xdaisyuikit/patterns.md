@@ -28,6 +28,7 @@ The fundamental layout pattern for all mobile screens in B4XDaisyUIKit. Since co
 ```b4x
 ' y accumulation formula:
 y = y + Component.GetComputedHeight + gap
+
 ```
 
 #### Ground-Truth Assembly Sequence:
@@ -54,24 +55,31 @@ Sub collapseItem_StateChanged(Open As Boolean)
     previousHeight = currentH
     pageScroll.AutoFit
 End Sub
+
 ```
 
-### 3. Recursive Form Validation Pipeline (`EV_COMP_BGS`)
-The submit routine crawls panels to locate failing inputs, triggering error classes and height shifts dynamically [15]:
+### 3. Form Validation Pipeline (`EV_COMP_BGS`)
+The submit routine validates the required inputs, triggering error UI and height shifts dynamically [15].
+
+Call `Validate()` on each required component directly and branch on its boolean. This is the B4XPage demo methodology — evidence: `B4XPageRange.bas:492-504`, `B4XPageRating.bas:510-522`. Do NOT route submit validation through `B4XDaisyVariants.ValidateControls(List)` or `ValidateRequiredControls(Parent)`. See [negative-knowledge.md](negative-knowledge.md) §3a for why `ValidateRequiredControls` is broken and why the direct per-component pattern is preferred over `ValidateControls`.
 
 ```b4x
 Private Sub btnSubmit_Click(Tag As Object)
-    ' Execute recursive validation over all host panel child views (PT_VALIDATION_FLOW)
-    Dim isFormClean As Boolean = B4XDaisyVariants.ValidateRequiredControls(pnlHost)
-    
-    If isFormClean = False Then
+    ' Validate each required input directly. Validate() sets the error UI
+    ' (red border + error text + height shift) and returns True when valid/none.
+    Dim okEmail As Boolean = inputEmail.Validate
+    Dim okPass  As Boolean = inputPassword.Validate
+    If okEmail = False Or okPass = False Then
         ' Required fields show error text, grow in height, and trigger dynamic auto-height shifts
         pageScroll.AutoFit
-        B4XPages.MainPage.ShowToastError(\"Please resolve field errors.\", True)
+        B4XPages.MainPage.ShowToastError("Please resolve field errors.", True)
         Return
     End If
 End Sub
+
 ```
+
+`B4XDaisyInput`, `B4XDaisyCheckbox`, `B4XDaisyToggle`, `B4XDaisySelect`, `B4XDaisyRange`, and `B4XDaisyRating` all expose `Public Sub Validate As Boolean`. Call it on every required field so each renders its own error, then branch on the combined result.
 
 ### 4. Interactive guided Tour Walkthroughs (`PT_TOUR_GUIDE`)
 The onboarding tour guide overlays target viewports and routes connecting arrows using standard spotlight shapes [344, 345]:
@@ -85,4 +93,5 @@ Public Sub TriggerOnboardingTutorial
     hintTour.AddStep(navbar.LogoAvatar.getView, \"Click here to edit your profile details.\", \"circle\", 8dip, 0, \"bottom\")
     hintTour.Start
 End Sub
+
 ```

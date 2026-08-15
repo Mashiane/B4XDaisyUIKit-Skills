@@ -19,6 +19,10 @@ Sub Class_Globals
     ' Layout Infrastructure (Canonical scrolling host)
     Private pageScroll As B4XDaisyPageScroll
     Private pnlHost As B4XView
+    Private pad As Int
+    Private gap As Int
+    Private maxW As Int
+    Private y As Int
     
     ' Dashboard Components
     Private navbar As B4XDaisyNavbar
@@ -55,6 +59,7 @@ End Sub
 Private Sub B4XPage_Appear
     CallSubDelayed(B4XPages.MainPage, "Page_Ready")
 End Sub
+
 ```
 
 ---
@@ -72,10 +77,10 @@ Private Sub RenderPage(W As Int, H As Int)
     ' 1. Wipe previous render views to prevent duplicate elements on Resize
     pageScroll.Clear
     
-    Dim pad As Int = pageScroll.PagePadding
-    Dim gap As Int = pageScroll.YGap
-    Dim maxW As Int = pageScroll.UsableWidth
-    Dim y As Int = pad
+    pad = pageScroll.PagePadding
+    gap = pageScroll.YGap
+    maxW = pageScroll.UsableWidth
+    y = pad
     
     ' 2. Sequential Absolute Stacking Loop
     
@@ -92,7 +97,8 @@ Private Sub RenderPage(W As Int, H As Int)
     mainStats.BorderColor = "neutral"
     
     ' Add individual stat metrics programmatically
-    Dim s1 As B4XDaisyStatItem : s1.Initialize(Me, "s1")
+    Dim s1 As B4XDaisyStatItem
+    s1.Initialize(Me, "s1")
     s1.Title = "Net Revenue"
     s1.Value = "12,450"
     s1.Description = "+14% from last month"
@@ -101,7 +107,8 @@ Private Sub RenderPage(W As Int, H As Int)
     s1.FigureColor = "success"
     mainStats.AddItem(s1)
     
-    Dim s2 As B4XDaisyStatItem : s2.Initialize(Me, "s2")
+    Dim s2 As B4XDaisyStatItem
+    s2.Initialize(Me, "s2")
     s2.Title = "Active Users"
     s2.Value = "1,894"
     s2.Description = "89 online now"
@@ -131,6 +138,7 @@ Private Sub RenderPage(W As Int, H As Int)
     ' 3. Automatic viewport height calculations
     pageScroll.AutoFit
 End Sub
+
 ```
 
 ---

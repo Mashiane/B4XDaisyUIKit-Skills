@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "b4xdaisyuikit-skills",
-  "description": "B4XDaisyUIKit Application Layout Expert skill package.",
+  "description": "Comprehensive native cross-platform UI/UX design and development suite for B4X powered by B4XDaisyUIKit.",
   "owner": {
     "name": "Mashiane",
     "url": "https://github.com/Mashiane/B4XDaisyUIKit-Skills"
@@ -9,7 +9,8 @@
   "plugins": [
     {
       "name": "b4xdaisyuikit-skills",
-      "description": "Assemble native B4X Android screen layouts using B4XDaisyUIKit.",
+      "description": "Assemble native cross-platform B4X screens (Android, iOS, Desktop) using B4XDaisyUIKit (inspired by DaisyUI / Tailwind CSS).",
+      "version": "1.1.0",
       "source": "./",
       "category": "developer-tools"
     }

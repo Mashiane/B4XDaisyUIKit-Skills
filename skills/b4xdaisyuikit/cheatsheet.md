@@ -145,7 +145,8 @@ When setting heights/widths using `.setWidth(String)` or `.setHeight(String)` cu
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize
-    ```
+    
+```
 *   **Public Methods**:
     *   `ClearSvgTextCache`: Purges memory-mapped rasterizations.
     *   `GetCachedSvgText(Path As String, DefaultText As String) As String`: Resolves caching layers.
