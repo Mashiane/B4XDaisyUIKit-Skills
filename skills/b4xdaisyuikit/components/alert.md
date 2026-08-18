@@ -2,11 +2,10 @@
 
 Feedback banner for info, success, warning, or error messages. Supports icons, actions, and directional layouts.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyAlert`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyAlert.bas`
-- **Verified Demos**: `B4XPageAlert.bas`
 - **Web DaisyUI Mapping**: `.alert` → `B4XDaisyAlert`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -58,29 +57,22 @@ y = y + al.GetComputedHeight + gap
 - `ActionClick (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddActionButton(Text As String, Tag As Object) As B4XView`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Base_Resize(Width As Double, Height As Double)`
-- `ClearActions`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `GetVisualColors As Map`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RaiseActionClick(Tag As Object)`
-- `RemoveViewFromParent`
-- `SizeToFit(AvailableWidth As Int)`
-- `View As B4XView`
+- `AddActionButton(sText As String, oTag As Object) As B4XView`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `applyActiveTheme`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `ClearActions`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActionSpacing As Float`
 - `getAlertStyle As String`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getBorderWidth As Float`
+- `GetComputedHeight As Int`
+- `GetContentPanel As B4XView`
 - `getDescription As String`
 - `getDirection As String`
 - `getHeight As Float`
@@ -98,35 +90,43 @@ y = y + al.GetComputedHeight + gap
 - `getTitle As String`
 - `getVariant As String`
 - `getVariantPalette As Map`
+- `GetVisualColors As Map`
 - `getWidth As Float`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RaiseActionClick(oTag As Object)`
+- `RemoveViewFromParent`
 - `resetBorderWidthToTheme`
-- `setActionSpacing(Value As Float)`
-- `setAlertStyle(Value As String)`
-- `setAutoResize(Value As Boolean)`
-- `setBackgroundColor(Color As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBorderColor(Color As Int)`
-- `setBorderColorVariant(VariantName As String)`
-- `setBorderWidth(Value As Float)`
-- `setDescription(Value As String)`
-- `setDirection(Value As String)`
-- `setHeight(Value As Object)`
-- `setIconAsset(Path As String)`
-- `setIconColor(Value As Object)`
-- `setIconSize(Value As Object)`
-- `setIconVisible(Value As Boolean)`
-- `setMessage(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Color As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTitle(Value As String)`
-- `setVariant(Value As String)`
-- `setVariantPalette(Palette As Map)`
-- `setWidth(Value As Object)`
+- `setActionSpacing(fValue As Float)`
+- `setAlertStyle(sValue As String)`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iColor As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBorderColor(iColor As Int)`
+- `setBorderColorVariant(sVariantName As String)`
+- `setBorderWidth(fValue As Float)`
+- `setDescription(sValue As String)`
+- `setDirection(sValue As String)`
+- `setHeight(oValue As Object)`
+- `setIconAsset(sPath As String)`
+- `setIconColor(oValue As Object)`
+- `setIconSize(oValue As Object)`
+- `setIconVisible(bValue As Boolean)`
+- `setMessage(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iColor As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTitle(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVariantPalette(mPalette As Map)`
+- `setWidth(oValue As Object)`
+- `SizeToFit(iAvailableWidth As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Metric display component combining a figure (number/icon/radial), title, description, and optional action buttons.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyStat / statItem`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyStat / statItem.bas`
-- **Verified Demos**: `B4XPageStat / statItem.bas`
 - **Web DaisyUI Mapping**: `.stat / stat-item` → `B4XDaisyStat / statItem`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -46,20 +45,13 @@ y = y + stt.GetComputedHeight + gap
 
 ## 6. Public Methods & APIs
 - `AddItem(Item As B4XDaisyStatItem)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `StartAnimation`
-- `UpdateTheme`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBorderColor As String`
 - `getBorderWidth As String`
+- `GetComputedHeight As Int`
 - `getContentHeight As Int`
 - `getContentWidth As Int`
 - `getHeight As String`
@@ -71,17 +63,26 @@ y = y + stt.GetComputedHeight + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setBorderColor(Value As String)`
-- `setBorderWidth(Value As String)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setOrientation(Value As String)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBorderColor(sValue As String)`
+- `setBorderWidth(sValue As String)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOrientation(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `StartAnimation`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

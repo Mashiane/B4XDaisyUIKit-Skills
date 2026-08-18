@@ -2,11 +2,10 @@
 
 Single radio button control with label text. Group multiple radio buttons by `GroupName`.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyRadio`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyRadio.bas`
-- **Verified Demos**: `B4XPageFocus.bas, B4XPageRadio.bas`
 - **Web DaisyUI Mapping**: `.radio` → `B4XDaisyRadio`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -67,23 +66,12 @@ y = y + r2.getComputedHeight + gap
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getChecked As Boolean`
@@ -108,33 +96,45 @@ y = y + r2.getComputedHeight + gap
 - `getTop As Int`
 - `getValue As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBackgroundColor(Color As Int)`
-- `setBorderColor(Color As Int)`
-- `setChecked(Value As Boolean)`
-- `setCheckedBackgroundColor(Color As Int)`
-- `setCheckedBorderColor(Color As Int)`
-- `setCheckedTextColor(Color As Int)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFocus(Value As Boolean)`
-- `setGroupName(Value As String)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setPosition(Value As String)`
-- `setRequired(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Color As Int)`
-- `setTop(Value As Int)`
-- `setValue(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setBackgroundColor(iColor As Int)`
+- `setBorderColor(iColor As Int)`
+- `setChecked(bValue As Boolean)`
+- `setCheckedBackgroundColor(iColor As Int)`
+- `setCheckedBorderColor(iColor As Int)`
+- `setCheckedTextColor(iColor As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFocus(bValue As Boolean)`
+- `setGroupName(sValue As String)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setPosition(sValue As String)`
+- `setRequired(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iColor As Int)`
+- `setTop(iValue As Int)`
+- `setValue(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

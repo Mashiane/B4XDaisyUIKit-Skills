@@ -2,11 +2,10 @@
 
 Displays a user image, SVG, or initials in a circular/shaped frame with optional ring, online status indicator, and mask shapes.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyAvatar`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyAvatar.bas`
-- **Verified Demos**: `B4XPageAvatar.bas, B4XPageAvatarGroup.bas, B4XPageDropdown.bas, B4XPageEnjoyHint.bas, B4XPageIndicator.bas, B4XPageList.bas, B4XPageMask.bas, B4XPageNavbar.bas, B4XPageScrollDemo.bas, B4XPageStack.bas, B4XPageStackPhotos.bas, B4XPageStat.bas`
 - **Web DaisyUI Mapping**: `.avatar` → `B4XDaisyAvatar`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -65,24 +64,15 @@ y = y + av.GetComputedHeight + gap
 - `Click`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `applyActiveTheme`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Release`
-- `RemoveViewFromParent`
-- `ResizeToParent(b4xV As B4XView)`
-- `SendToBack`
-- `SetBitmapAndFill (ImageView As B4XView, Bmp As B4XBitmap)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
-- `applyActiveTheme`
 - `getAvatar As String`
 - `getAvatarHeight As Float`
 - `getAvatarMask As String`
@@ -97,6 +87,7 @@ y = y + av.GetComputedHeight + gap
 - `getCenterOnParent As Boolean`
 - `getChatImage As Boolean`
 - `getClickable As Boolean`
+- `GetComputedHeight As Int`
 - `getGlass As Boolean`
 - `getHeight As Float`
 - `getImage As String`
@@ -122,59 +113,67 @@ y = y + av.GetComputedHeight + gap
 - `getUseVariantStatusColors As Boolean`
 - `getVariant As String`
 - `getVariantPalette As Map`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setAvatar(Path As String)`
-- `setAvatarBitmap(bmp As B4XBitmap, Tag As Object)`
-- `setAvatarBorder(Color As Int, Width As Float)`
-- `setAvatarBorderInset(Inset As Float)`
-- `setAvatarHeight(Value As Object)`
-- `setAvatarMask(MaskName As String)`
-- `setAvatarOnlineColor(OnlineColor As Int)`
-- `setAvatarOnlineColorVariant(VariantName As String)`
-- `setAvatarSize(Size As Object)`
-- `setAvatarStatus(Mode As String)`
-- `setAvatarStatusColors(OnlineColor As Int, OfflineColor As Int)`
-- `setAvatarType(Value As String)`
-- `setAvatarWidth(Value As Object)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBlurRadius(Value As Int)`
-- `setCenterOnParent(Value As Boolean)`
-- `setChatImage(Value As Boolean)`
-- `setClickable(Value As Boolean)`
-- `setGlass(Value As Boolean)`
-- `setGlobalMask(MaskName As String)`
-- `setHeight(Value As Object)`
-- `setImage(Path As String)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setMask(Value As String)`
-- `setOfflineColor(OfflineColor As Int)`
-- `setOnlineColor(OnlineColor As Int)`
-- `setOnlineColorVariant(VariantName As String)`
-- `setPadding(Value As String)`
-- `setPlaceHolder(Value As String)`
-- `setResizeMode(Value As String)`
-- `setRingColor(Color As Int)`
-- `setRingColorVariant(VariantName As String)`
-- `setRingOffset(Offset As Float)`
-- `setRingWidth(Width As Float)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setShowOnline(Show As Boolean)`
-- `setStatus(Mode As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setUseVariantStatusColors(Enabled As Boolean)`
-- `setVariant(Value As String)`
-- `setVariantPalette(Palette As Map)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Release`
+- `RemoveViewFromParent`
+- `ResizeToParent(vB4xV As B4XView)`
+- `SendToBack`
+- `setAvatar(sPath As String)`
+- `setAvatarBitmap(bmpBmp As B4XBitmap, oTag As Object)`
+- `setAvatarBorder(iColor As Int, fWidth As Float)`
+- `setAvatarBorderInset(fInset As Float)`
+- `setAvatarHeight(oValue As Object)`
+- `setAvatarMask(sMaskName As String)`
+- `setAvatarOnlineColor(iOnlineColor As Int)`
+- `setAvatarOnlineColorVariant(sVariantName As String)`
+- `setAvatarSize(oSize As Object)`
+- `setAvatarStatus(sMode As String)`
+- `setAvatarStatusColors(iOnlineColor As Int, iOfflineColor As Int)`
+- `setAvatarType(sValue As String)`
+- `setAvatarWidth(oValue As Object)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `SetBitmapAndFill(vImageView As B4XView, bmpBmp As B4XBitmap)`
+- `setBlurRadius(iValue As Int)`
+- `setCenterOnParent(bValue As Boolean)`
+- `setChatImage(bValue As Boolean)`
+- `setClickable(bValue As Boolean)`
+- `setGlass(bValue As Boolean)`
+- `setGlobalMask(sMaskName As String)`
+- `setHeight(oValue As Object)`
+- `setImage(sPath As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setMask(sValue As String)`
+- `setOfflineColor(iOfflineColor As Int)`
+- `setOnlineColor(iOnlineColor As Int)`
+- `setOnlineColorVariant(sVariantName As String)`
+- `setPadding(sValue As String)`
+- `setPlaceHolder(sValue As String)`
+- `setResizeMode(sValue As String)`
+- `setRingColor(iColor As Int)`
+- `setRingColorVariant(sVariantName As String)`
+- `setRingOffset(fOffset As Float)`
+- `setRingWidth(fWidth As Float)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setShowOnline(bShow As Boolean)`
+- `setStatus(sMode As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setUseVariantStatusColors(bEnabled As Boolean)`
+- `setVariant(sValue As String)`
+- `setVariantPalette(mPalette As Map)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 DaisyUI animated interactive toggle button with multi-color particle bursts, pure `File.DirAssets` asset loading (no `res/raw` required), and full DaisyUI size scale.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyShineButton`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyShineButton.bas`
-- **Verified Demos**: `B4XPageShineButton.bas`
 - **Web DaisyUI Mapping**: `.shine-button` → `B4XDaisyShineButton`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -118,19 +117,11 @@ End Sub
 - `Click`: Fired when button is tapped.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
 - `ApplyAllProperties`
-- `Base_Resize(Width As Double, Height As Double)`
-- `CreateView(SizeDip As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `SetShapeBitmap(Bmp As Bitmap)`
-- `SetShapeResource(ResourceName As String)`
-- `SetSvg(Dir As String, FileName As String)`
-- `SetSvgAsset(FileName As String)`
-- `SetSvgContent(SvgMarkup As String)`
-- `ShowAnim`
-- `TriggerShine`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CreateView(iSizeDip As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAllowRandomColor As Boolean`
 - `getAnimDuration As Int`
 - `getBigShineColor As Int`
@@ -148,22 +139,32 @@ End Sub
 - `getSvgAsset As String`
 - `getVariant As String`
 - `getVisible As Boolean`
-- `setAllowRandomColor(Value As Boolean)`
-- `setAnimDuration(Value As Int)`
-- `setBigShineColor(Color As Int)`
-- `setBtnColor(Color As Int)`
-- `setBtnFillColor(Color As Int)`
-- `setChecked(Value As Boolean)`
-- `setClickAnimDuration(Value As Int)`
-- `setEnableFlashing(Value As Boolean)`
-- `setShape(Value As String)`
-- `setShineCount(Value As Int)`
-- `setShineDistanceMultiple(Value As Float)`
-- `setShineTurnAngle(Value As Float)`
-- `setSize(Value As String)`
-- `setSmallShineColor(Color As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `setAllowRandomColor(bValue As Boolean)`
+- `setAnimDuration(iValue As Int)`
+- `setBigShineColor(iColor As Int)`
+- `setBtnColor(iColor As Int)`
+- `setBtnFillColor(iColor As Int)`
+- `setChecked(bValue As Boolean)`
+- `setClickAnimDuration(iValue As Int)`
+- `setEnableFlashing(bValue As Boolean)`
+- `setShape(sValue As String)`
+- `SetShapeBitmap(Bmp As Bitmap)`
+- `SetShapeResource(sResourceName As String)`
+- `setShineCount(iValue As Int)`
+- `setShineDistanceMultiple(fValue As Float)`
+- `setShineTurnAngle(fValue As Float)`
+- `setSize(sValue As String)`
+- `setSmallShineColor(iColor As Int)`
+- `SetSvg(sDir As String, sFileName As String)`
+- `SetSvgAsset(sFileName As String)`
+- `SetSvgContent(sSvgMarkup As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `ShowAnim`
+- `TriggerShine`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

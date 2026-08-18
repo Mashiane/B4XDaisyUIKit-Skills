@@ -2,11 +2,10 @@
 
 Two-handled continuous and discrete range slider inspired by noUiSlider for selecting numerical spans, price intervals, temperature boundaries, or timeline windows with connecting progress fill, dual tooltips, and live value readouts.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDualRange`
 - **Status**: `Verified`
 - **Library Source**: `B4XDaisyDualRange.bas`
-- **Verified Demos**: `B4XPageDualRange.bas`
 - **Web DaisyUI Mapping**: `.range` (dual thumbs) → `B4XDaisyDualRange`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -79,52 +78,101 @@ End Sub
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `Blur`
 - `BringToFront`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getComputedHeight As Int`
+- `getEnabled As Boolean`
+- `getErrorText As String`
+- `getHeight As String`
+- `getHintText As String`
+- `getIconLeft As String`
+- `getIconRight As String`
+- `getIconSize As Int`
+- `getIsValid As Boolean`
+- `getLabelAbove As String`
+- `getLabelVisible As Boolean`
+- `getLeft As Int`
+- `getLowerValue As Int`
+- `getMaxValue As Int`
+- `getMinDistance As Int`
+- `getMinValue As Int`
+- `getProgressColor As Int`
+- `getRequired As Boolean`
+- `getRole As String`
+- `getShowFill As Boolean`
+- `getShowTooltip As Boolean`
+- `getShowValue As Boolean`
+- `getSize As String`
+- `getStepValue As Int`
+- `getTag As Object`
+- `getThumbColor As Int`
+- `getTooltipOpen As Boolean`
+- `getTooltipPosition As String`
+- `getTop As Int`
+- `getTrackColor As Int`
+- `getUpperValue As Int`
+- `getValue As Int`
+- `getValue1 As Int`
+- `getValue2 As Int`
+- `getValuePrefix As String`
+- `getValues As Int`
+- `getValueSeparator As String`
+- `getValueSuffix As String`
+- `getVariant As String`
+- `getWidth As String`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
 - `Refresh`
+- `Release`
 - `RemoveViewFromParent`
 - `RequestFocus`
 - `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFocus(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setHintText(sValue As String)`
+- `setIconLeft(sValue As String)`
+- `setIconRight(sValue As String)`
+- `setIconSize(iValue As Int)`
+- `setLabelAbove(sValue As String)`
+- `setLabelVisible(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLowerValue(iValue As Int)`
+- `setMaxValue(iValue As Int)`
+- `setMinDistance(iValue As Int)`
+- `setMinValue(iValue As Int)`
+- `setProgressColor(iValue As Int)`
+- `setRequired(bValue As Boolean)`
+- `setShowFill(bValue As Boolean)`
+- `setShowTooltip(bValue As Boolean)`
+- `setShowValue(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStepValue(iValue As Int)`
+- `setTag(oValue As Object)`
+- `setThumbColor(iValue As Int)`
+- `setTooltipOpen(bValue As Boolean)`
+- `setTooltipPosition(sValue As String)`
+- `setTop(iValue As Int)`
+- `setTrackColor(iValue As Int)`
+- `setUpperValue(iValue As Int)`
+- `setValue(iValue As Int)`
+- `setValue1(iValue As Int)`
+- `setValue2(iValue As Int)`
+- `setValuePrefix(sValue As String)`
+- `setValues(iLowerVal As Int, iUpperVal As Int)`
+- `setValueSeparator(sValue As String)`
+- `setValueSuffix(sValue As String)`
+- `setVariant(sValue As String)`
+- `setWidth(sValue As String)`
+- `ShowError(sErrorMessage As String)`
 - `StopAnimation`
 - `UpdateTheme`
 - `Validate As Boolean`
-- `getComputedHeight As Int`
-- `getEnabled As Boolean` / `setEnabled(Value As Boolean)`
-- `getErrorText As String` / `setErrorText(Value As String)`
-- `getHintText As String` / `setHintText(Value As String)`
-- `getIsValid As Boolean`
-- `getLabelAbove As String` / `setLabelAbove(Value As String)`
-- `getLabelVisible As Boolean` / `setLabelVisible(Value As Boolean)`
-- `getLowerValue As Int` / `setLowerValue(Value As Int)`
-- `getMaxValue As Int` / `setMaxValue(Value As Int)`
-- `getMinDistance As Int` / `setMinDistance(Value As Int)`
-- `getMinValue As Int` / `setMinValue(Value As Int)`
-- `getProgressColor As Int` / `setProgressColor(Value As Int)`
-- `getRequired As Boolean` / `setRequired(Value As Boolean)`
-- `getRole As String`
-- `getShowFill As Boolean` / `setShowFill(Value As Boolean)`
-- `getShowTooltip As Boolean` / `setShowTooltip(Value As Boolean)`
-- `getShowValue As Boolean` / `setShowValue(Value As Boolean)`
-- `getSize As String` / `setSize(Value As String)`
-- `getStepValue As Int` / `setStepValue(Value As Int)`
-- `getTag As Object` / `setTag(Value As Object)`
-- `getThumbColor As Int` / `setThumbColor(Value As Int)`
-- `getTooltipOpen As Boolean` / `setTooltipOpen(Value As Boolean)`
-- `getTooltipPosition As String` / `setTooltipPosition(Value As String)`
-- `getTrackColor As Int` / `setTrackColor(Value As Int)`
-- `getUpperValue As Int` / `setUpperValue(Value As Int)`
-- `getValue1 As Int` / `setValue1(Value As Int)`
-- `getValue2 As Int` / `setValue2(Value As Int)`
-- `getValuePrefix As String` / `setValuePrefix(Value As String)`
-- `getValueSeparator As String` / `setValueSeparator(Value As String)`
-- `getValueSuffix As String` / `setValueSuffix(Value As String)`
-- `getValues As Int()` / `setValues(LowerVal As Int, UpperVal As Int)`
-- `getVariant As String` / `setVariant(Value As String)`
-- `getView As B4XView`
+- `View As B4XView`
+

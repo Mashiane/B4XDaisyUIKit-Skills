@@ -2,11 +2,10 @@
 
 Step-by-step progress indicator with numbered/icon steps, vertical or horizontal layout, and click-to-advance.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySteps`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySteps.bas`
-- **Verified Demos**: `B4XPageSteps.bas`
 - **Web DaisyUI Mapping**: `.steps` → `B4XDaisySteps`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -55,25 +54,19 @@ y = y + stp.GetComputedHeight + gap
 - `StepClick (Index As Int, Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddStep(Text As String, Variant As String)`
-- `AddStepWithContent(Text As String, Variant As String, Content As String)`
-- `AddStepWithIcon(Text As String, Variant As String, Icon As String)`
-- `AddStepWithSvgIcon(Text As String, Variant As String, SvgFileName As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddStep(sText As String, sVariant As String)`
+- `AddStepWithContent(sText As String, sVariant As String, sContent As String)`
+- `AddStepWithIcon(sText As String, sVariant As String, sIcon As String)`
+- `AddStepWithSvgIcon(sText As String, sVariant As String, sSvgFileName As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `ClearSteps`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetSteps(Steps As List)`
-- `UpdateTheme`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As String`
 - `getActiveStep As Int`
 - `getCircleSize As Int`
+- `GetComputedHeight As Int`
 - `getConnectOnClick As Boolean`
 - `getEnabled As Boolean`
 - `getHeight As String`
@@ -86,25 +79,32 @@ y = y + stp.GetComputedHeight + gap
 - `getStepGap As Int`
 - `getTag As Object`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setActiveColor(Value As String)`
-- `setActiveStep(Value As Int)`
-- `setCircleSize(Value As Int)`
-- `setConnectOnClick(Value As Boolean)`
-- `setEnabled(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setOrientation(Value As String)`
-- `setPadding(Value As String)`
-- `setScrollable(Value As Boolean)`
-- `setStepGap(Value As Int)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `SendToBack`
+- `setActiveColor(sValue As String)`
+- `setActiveStep(iValue As Int)`
+- `setCircleSize(iValue As Int)`
+- `setConnectOnClick(bValue As Boolean)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setOrientation(sValue As String)`
+- `setPadding(sValue As String)`
+- `setScrollable(bValue As Boolean)`
+- `setStepGap(iValue As Int)`
+- `SetSteps(lstSteps As List)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

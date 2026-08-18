@@ -297,11 +297,11 @@ spinner.Hide
 
 ```vb
 ' Scroll the page to bring a component into view
-pageScroll.ScrollToView(myInput.getView, True)   ' True = animated
+pageScroll.ScrollToView(myInput.View, True)   ' True = animated
 
 ```
 
-Confirmed: `ScrollToView(View As B4XView, Animated As Boolean)` and `getView As B4XView` on Input.
+Confirmed: `ScrollToView(View As B4XView, Animated As Boolean)` and `View As B4XView` on Input.
 
 ---
 

@@ -2,11 +2,10 @@
 
 Full-screen or container-level sliding navigation drawer with left/right sidebars, collapsible navigation rail mode, backdrop overlay dismiss, edge swipe gesture handling, and hierarchical menu support.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDrawer`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyDrawer.bas`
-- **Verified Demos**: `B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas`
 - **Web DaisyUI Mapping**: `.drawer`, `.drawer-side`, `.drawer-content`, `.drawer-toggle` → `B4XDaisyDrawer`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -78,7 +77,7 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 |---|---|---|---|---|
 | Enabled | Enabled | Boolean | True |  |
 | Visible | Visible | Boolean | True |  |
-| Open | Open | Boolean | False |  |
+| Opened | Opened | Boolean | False |  |
 | AlwaysOpen | Always Open | Boolean | False |  |
 | Side | Side | String | left | left\|right\|both |
 | LeftSideWidth | Left Side Width | String | 300dip |  |
@@ -107,33 +106,105 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 - `StateChanged (Open As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToCenter(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToLeft(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToRight(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
+- `CenterPanel As B4XView`
+- `ClearCenter`
+- `ClearLeft`
+- `ClearRight`
 - `Close`
 - `CloseLeft`
 - `CloseRight`
-- `Collapse`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Expand`
-- `GetActualHeight As Int`
-- `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(vParent As B4XView, oTag As Object) As B4XView`
+- `DarkPanel As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getAlwaysOpen As Boolean`
+- `getAnimated As Boolean`
+- `getBackgroundColorVariant As String`
+- `getCollapsed As Boolean`
+- `getCollapseWidth As String`
+- `getContentBackgroundColor As String`
+- `getDuration As Int`
+- `getEnabled As Boolean`
+- `getGestureEnabled As Boolean`
+- `getHeight As Int`
+- `getIsCollapsed As Boolean`
+- `getIsOpen As Boolean`
+- `getLeft As Int`
+- `getLeftOpen As Boolean`
+- `getLeftSideBackgroundColor As String`
+- `getLeftSideWidth As String`
+- `getNormalWidth As String`
+- `getOpened As Boolean`
+- `getOverlayColor As Int`
+- `getOverlayOpacity As Int`
+- `getPadding As String`
+- `getRailWidth As String`
+- `getRightOpen As Boolean`
+- `getRightSideBackgroundColor As String`
+- `getRightSideWidth As String`
+- `getRounded As String`
+- `getShadow As String`
+- `getSide As String`
+- `getSideBackgroundColor As String`
+- `getSideWidth As String`
+- `getTag As Object`
+- `getTextColorVariant As String`
+- `getTop As Int`
+- `getVisible As Boolean`
+- `getWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `LeftPanel As B4XView`
+- `Open`
 - `OpenLeft`
 - `OpenRight`
+- `Refresh`
 - `RemoveViewFromParent`
+- `Resize(iWidth As Int, iHeight As Int)`
+- `RightPanel As B4XView`
 - `SendToBack`
-- `SetIsCollapsed(Value As Boolean)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetRailMode(Value As Boolean)`
+- `setAlwaysOpen(bValue As Boolean)`
+- `setAnimated(bValue As Boolean)`
+- `setBackgroundColorVariant(sValue As String)`
+- `setCollapsed(bValue As Boolean)`
+- `setCollapseWidth(sValue As String)`
+- `setContentBackgroundColor(sValue As String)`
+- `setDuration(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setGestureEnabled(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setIsCollapsed(bValue As Boolean)`
+- `setIsOpen(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLeftOpen(bValue As Boolean)`
+- `setLeftSideBackgroundColor(sValue As String)`
+- `setLeftSideWidth(sValue As String)`
+- `setNormalWidth(sValue As String)`
+- `setOpened(bValue As Boolean)`
+- `setOverlayColor(oValue As Object)`
+- `setOverlayOpacity(iValue As Int)`
+- `setPadding(sValue As String)`
+- `setRailWidth(sValue As String)`
+- `setRightOpen(bValue As Boolean)`
+- `setRightSideBackgroundColor(sValue As String)`
+- `setRightSideWidth(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSide(sValue As String)`
+- `setSideBackgroundColor(sValue As String)`
+- `setSideWidth(sValue As String)`
+- `SetSideWidthAnimated(fWidth As Float, bSmooth As Boolean)`
+- `setTag(oValue As Object)`
+- `setTextColorVariant(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
 - `Toggle`
-- `ToggleCollapse`
-- `ToggleLeft`
-- `ToggleRight`
-- `getCenterPanel As B4XView`
-- `getContentPanel As B4XView`
-- `getDarkPanel As B4XView`
-- `getLeftPanel As B4XView`
-- `getRightPanel As B4XView`
-- `getView As B4XView`
+- `UpdateTheme`
+- `View As B4XView`
+

@@ -2,11 +2,10 @@
 
 Vertical or horizontal sequence of events with markers, icons, start/end labels, and done states.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyTimeline`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyTimeline.bas`
-- **Verified Demos**: `B4XPageTimeline.bas`
 - **Web DaisyUI Mapping**: `.timeline` → `B4XDaisyTimeline`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -51,34 +50,20 @@ y = y + tl.GetComputedHeight + gap
 - `ItemClick (Id As String)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Id As String, StartText As String, EndText As String) As String`
-- `AddItemBox(Id As String, StartText As String, EndText As String, BoxOnStart As Boolean, BoxOnEnd As Boolean) As String`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddItem(sId As String, sStartText As String, sEndText As String) As String`
+- `AddItemBox(sId As String, sStartText As String, sEndText As String, bBoxOnStart As Boolean, bBoxOnEnd As Boolean) As String`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetContentHeight As Int`
-- `GetItemDone(id As String) As Boolean`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemDashedBorder(id As String, Dashed As Boolean)`
-- `SetItemDone(id As String, bDone As Boolean)`
-- `SetItemEndText(id As String, EndText As String)`
-- `SetItemIconColor(id As String, IconColor As Int)`
-- `SetItemMiddleIcon(id As String, MiddleIcon As Object)`
-- `SetItemStartText(id As String, StartText As String)`
-- `SetItemVariant(id As String, Variant As String)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ToggleItem(id As String)`
-- `UpdateItem(id As String, StartText As String, MiddleIcon As Object, IconColor As Int, EndText As String, IsBox As Boolean, BoxOnStart As Boolean, BoxOnEnd As Boolean, Variant As String, DashedBorder As Boolean)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBoxShadow As String`
 - `getCompact As Boolean`
+- `GetComputedHeight As Int`
+- `GetContentHeight As Int`
 - `getHeight As Int`
+- `GetItemDone(sId As String) As Boolean`
 - `getLeft As Int`
 - `getLineColor As String`
 - `getMarkerColor As String`
@@ -89,23 +74,38 @@ y = y + tl.GetComputedHeight + gap
 - `getTag As Object`
 - `getTextSize As String`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBoxShadow(Value As String)`
-- `setCompact(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setLineColor(Value As String)`
-- `setMarkerColor(Value As String)`
-- `setMarkerSize(Value As Int)`
-- `setOrientation(Value As String)`
-- `setSnapIcon(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBoxShadow(sValue As String)`
+- `setCompact(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `SetItemDashedBorder(sId As String, bDashed As Boolean)`
+- `SetItemDone(sId As String, bDone As Boolean)`
+- `SetItemEndText(sId As String, sEndText As String)`
+- `SetItemIconColor(sId As String, iIconColor As Int)`
+- `SetItemMiddleIcon(sId As String, oMiddleIcon As Object)`
+- `SetItemStartText(sId As String, sStartText As String)`
+- `SetItemVariant(sId As String, sVariant As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLineColor(sValue As String)`
+- `setMarkerColor(sValue As String)`
+- `setMarkerSize(iValue As Int)`
+- `setOrientation(sValue As String)`
+- `setSnapIcon(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ToggleItem(sId As String)`
+- `UpdateItem(sId As String, sStartText As String, oMiddleIcon As Object, iIconColor As Int, sEndText As String, bIsBox As Boolean, bBoxOnStart As Boolean, bBoxOnEnd As Boolean, sVariant As String, bDashedBorder As Boolean)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

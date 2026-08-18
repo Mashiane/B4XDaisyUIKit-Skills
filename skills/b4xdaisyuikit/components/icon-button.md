@@ -2,11 +2,10 @@
 
 Icon-only button (square or circle) for toolbar actions, nav items, and inline controls.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyIconButton`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyIconButton.bas`
-- **Verified Demos**: `B4XPageIconButton.bas, B4XPageList.bas, B4XPageMediaPicker.bas`
 - **Web DaisyUI Mapping**: `.icon-button` → `B4XDaisyIconButton`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -54,22 +53,17 @@ y = y + ib.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(SizeDip As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetComputedWidth As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CreateView(iSizeDip As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActive As Boolean`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getClickable As Boolean`
+- `GetComputedHeight As Int`
+- `GetComputedWidth As Int`
 - `getCustomSize As Int`
 - `getDisabled As Boolean`
 - `getHeight As Int`
@@ -86,31 +80,37 @@ y = y + ib.GetComputedHeight + gap
 - `getTag As Object`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setActive(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBorderColor(Value As Int)`
-- `setClickable(Value As Boolean)`
-- `setCustomSize(Value As Int)`
-- `setDisabled(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setIconAsset(Value As String)`
-- `setIconColor(Value As Int)`
-- `setLeft(Value As Int)`
-- `setLoading(Value As Boolean)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setShape(Value As String)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setActive(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBorderColor(iValue As Int)`
+- `setClickable(bValue As Boolean)`
+- `setCustomSize(iValue As Int)`
+- `setDisabled(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setIconAsset(sValue As String)`
+- `setIconColor(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLoading(bValue As Boolean)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShape(sValue As String)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

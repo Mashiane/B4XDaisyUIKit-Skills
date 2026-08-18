@@ -2,11 +2,10 @@
 
 Keyboard key display component — renders styled keys like `⌘`, `Ctrl`, `Enter`.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyKbd`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyKbd.bas`
-- **Verified Demos**: `B4XPageKbd.bas`
 - **Web DaisyUI Mapping**: `.kbd` → `B4XDaisyKbd`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -43,17 +42,13 @@ y = y + kb.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
+- `GetComputedHeight As Int`
 - `getHeight As Int`
 - `getLeft As Int`
 - `getMargin As String`
@@ -66,20 +61,26 @@ y = y + kb.GetComputedHeight + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAutoResize(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

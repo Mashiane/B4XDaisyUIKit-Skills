@@ -2,11 +2,10 @@
 
 Image display component with resize modes, corner radius, and rounded masking.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyImage`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyImage.bas`
-- **Verified Demos**: `B4XPageMediaPicker.bas`
 - **Web DaisyUI Mapping**: `.image` → `B4XDaisyImage`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -39,18 +38,13 @@ y = y + 120dip + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize (Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `Initialize (Callback As Object, EventName As String)`
-- `Load (Dir As String, FileName As String)`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Update`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBackgroundColor As Int`
 - `getBitmap As B4XBitmap`
 - `getCornersRadius As Int`
@@ -62,17 +56,24 @@ None declared.
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBackgroundColor(Value As Int)`
-- `setBitmap(Bmp As B4XBitmap)`
-- `setCornersRadius (i As Int)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setResizeMode(s As String)`
-- `setRounded (b As Boolean)`
-- `setRoundedImage (b As Boolean)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Load(sDir As String, sFileName As String)`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBitmap(bmpBmp As B4XBitmap)`
+- `setCornersRadius(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setResizeMode(sValue As String)`
+- `setRounded(bValue As Boolean)`
+- `setRoundedImage(bValue As Boolean)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Update`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `Tag As Object`

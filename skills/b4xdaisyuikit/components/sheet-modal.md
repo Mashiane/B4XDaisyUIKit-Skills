@@ -2,11 +2,10 @@
 
 Swipeable bottom/top sheet with drag handle, breakpoints, nested scroll, and backdrop.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySheetModal`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySheetModal.bas`
-- **Verified Demos**: `B4XPageColorWheel.bas, B4XPagePicker.bas, B4XPageSheetModal.bas`
 - **Web DaisyUI Mapping**: `.sheet-modal` → `B4XDaisySheetModal`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -79,17 +78,12 @@ Wait For (sh.Present) sh_DidDismiss(Role As String, Data As Object)
 - `BreakpointDidChange (Breakpoint As Float)`
 
 ## 6. Public Methods & APIs
-- `AddBoxView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddContentView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `Dismiss(Data As Object, Role As String) As ResumableSub`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Present As ResumableSub`
-- `Refresh`
-- `ScrollToTop`
+- `AddBoxView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddContentView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `Dismiss(oData As Object, sRole As String) As ResumableSub`
 - `getAnimated As Boolean`
 - `getAnimationTime As Int`
 - `getAutoHeight As Boolean`
@@ -106,6 +100,7 @@ Wait For (sh.Present) sh_DidDismiss(Role As String, Data As Object)
 - `getBorderWidth As Int`
 - `getBreakpoints As String`
 - `getCanDismiss As Boolean`
+- `GetComputedHeight As Int`
 - `getContentBox As B4XView`
 - `getContentView As B4XView`
 - `getCornerRadius As Int`
@@ -126,40 +121,45 @@ Wait For (sh.Present) sh_DidDismiss(Role As String, Data As Object)
 - `getScrollPanel As B4XView`
 - `getScrollView As B4XView`
 - `getTag As Object`
-- `getView As B4XView`
 - `getWidth As String`
-- `setAnimated(Value As Boolean)`
-- `setAnimationTime(Value As Int)`
-- `setAutoHeight(Value As Boolean)`
-- `setBackdropBreakpoint(Value As Float)`
-- `setBackdropDismiss(Value As Boolean)`
-- `setBackdropOpacity(Value As Int)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundCornerRadius(Value As Int)`
-- `setBackgroundDim(Value As Float)`
-- `setBackgroundScale(Value As Float)`
-- `setBackgroundShadow(Value As Boolean)`
-- `setBackgroundTranslateY(Value As Int)`
-- `setBorderColor(Value As Int)`
-- `setBorderWidth(Value As Int)`
-- `setBreakpoints(Value As String)`
-- `setCanDismiss(Value As Boolean)`
-- `setCurrentBreakpoint(Breakpoint As Float)`
-- `setDuration(Value As Int)`
-- `setExpandToScroll(Value As Boolean)`
-- `setHandle(Value As Boolean)`
-- `setHandleBehavior(Value As String)`
-- `setHeight(Value As String)`
-- `setInitialBreakpoint(Value As Float)`
-- `setIsOpen(Value As Boolean)`
-- `setNestedScrollEnabled(Value As Boolean)`
-- `setPresentingView(View As B4XView)`
-- `setRounded(Value As String)`
-- `setScaleBackground(Value As Boolean)`
-- `setScrollBehavior(Value As String)`
-- `setScrollOffset(Value As Int)`
-- `setTag(Value As Object)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Present As ResumableSub`
+- `Refresh`
+- `ScrollToTop`
+- `setAnimated(bValue As Boolean)`
+- `setAnimationTime(iValue As Int)`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackdropBreakpoint(fValue As Float)`
+- `setBackdropDismiss(bValue As Boolean)`
+- `setBackdropOpacity(iValue As Int)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundCornerRadius(iValue As Int)`
+- `setBackgroundDim(fValue As Float)`
+- `setBackgroundScale(fValue As Float)`
+- `setBackgroundShadow(bValue As Boolean)`
+- `setBackgroundTranslateY(iValue As Int)`
+- `setBorderColor(iValue As Int)`
+- `setBorderWidth(iValue As Int)`
+- `setBreakpoints(sValue As String)`
+- `setCanDismiss(bValue As Boolean)`
+- `setCurrentBreakpoint(fBreakpoint As Float)`
+- `setDuration(iValue As Int)`
+- `setExpandToScroll(bValue As Boolean)`
+- `setHandle(bValue As Boolean)`
+- `setHandleBehavior(sValue As String)`
+- `setHeight(sValue As String)`
+- `setInitialBreakpoint(fValue As Float)`
+- `setIsOpen(bValue As Boolean)`
+- `setNestedScrollEnabled(bValue As Boolean)`
+- `setPresentingView(vTargetView As B4XView)`
+- `setRounded(sValue As String)`
+- `setScaleBackground(bValue As Boolean)`
+- `setScrollBehavior(sValue As String)`
+- `setScrollOffset(iValue As Int)`
+- `setTag(oValue As Object)`
+- `setWidth(sValue As String)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

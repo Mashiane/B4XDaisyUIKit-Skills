@@ -2,11 +2,10 @@
 
 Circular progress ring with animated value, SVG center icon, and custom colors.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyRadialProgress`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyRadialProgress.bas`
-- **Verified Demos**: `B4XPageRadialProgress.bas, B4XPageStat.bas`
 - **Web DaisyUI Mapping**: `.radial-progress` → `B4XDaisyRadialProgress`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,25 +58,16 @@ y = y + rp.GetComputedHeight + gap
 - `None`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `DrawComponent`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetValueAnimated(NewValue As Float, Duration As Int)`
-- `StartTimer(DurationMs As Int)`
-- `StopAnimation`
-- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getBorderWidth As String`
+- `GetComputedHeight As Int`
 - `getCountUpSpeed As Int`
 - `getDisplayType As String`
 - `getDuration As Int`
@@ -100,31 +90,41 @@ y = y + rp.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setBackgroundColor(NewBackgroundColor As Int)`
-- `setBorderColor(NewBorderColor As Int)`
-- `setBorderWidth(NewBorderWidth As String)`
-- `setCountUpSpeed(NewCountUpSpeed As Int)`
-- `setDisplayType(DType As String)`
-- `setDuration(NewCountUpSpeed As Int)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setMaxValue(MaxVal As Int)`
-- `setMinValue(MinVal As Int)`
-- `setPrefix(NewPrefix As String)`
-- `setSize(Value As Object)`
-- `setStepValue(StepVal As Int)`
-- `setSuffix(NewSuffix As String)`
-- `setSvgAsset(NewSvgAsset As String)`
-- `setText(NewText As String)`
-- `setTextColor(NewTextColor As Int)`
-- `setTextCountUp(NewTextCountUp As Boolean)`
-- `setThickness(NewThickness As String)`
-- `setTop(Value As Int)`
-- `setTrackColor(NewTrackColor As Int)`
-- `setValue(Val As Int)`
-- `setVariant(NewVariant As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iNewBackgroundColor As Int)`
+- `setBorderColor(iNewBorderColor As Int)`
+- `setBorderWidth(sNewBorderWidth As String)`
+- `setCountUpSpeed(iNewCountUpSpeed As Int)`
+- `setDisplayType(sDType As String)`
+- `setDuration(iNewCountUpSpeed As Int)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxValue(iMaxVal As Int)`
+- `setMinValue(iMinVal As Int)`
+- `setPrefix(sNewPrefix As String)`
+- `setSize(oValue As Object)`
+- `setStepValue(iStepVal As Int)`
+- `setSuffix(sNewSuffix As String)`
+- `setSvgAsset(sNewSvgAsset As String)`
+- `setText(sNewText As String)`
+- `setTextColor(iNewTextColor As Int)`
+- `setTextCountUp(bNewTextCountUp As Boolean)`
+- `setThickness(sNewThickness As String)`
+- `setTop(iValue As Int)`
+- `setTrackColor(iNewTrackColor As Int)`
+- `setValue(iValue As Int)`
+- `SetValueAnimated(fNewValue As Float, iDuration As Int)`
+- `setVariant(sNewVariant As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `StartTimer(iDurationMs As Int)`
+- `StopAnimation`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

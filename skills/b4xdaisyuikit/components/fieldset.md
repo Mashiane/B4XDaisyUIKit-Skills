@@ -2,11 +2,10 @@
 
 Bordered container with a legend caption for grouping form controls (checkboxes, radios, toggles, inputs).
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyFieldset`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyFieldset.bas`
-- **Verified Demos**: `B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageFieldset.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas`
 - **Web DaisyUI Mapping**: `.fieldset` → `B4XDaisyFieldset`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,28 +58,22 @@ y = y + fs.GetComputedHeight + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddContentView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ApplyDesignerProps(Props As Map)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddContentView(vView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `ApplyDesignerProps(mProps As Map)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BeginUpdate`
 - `BringToFront`
 - `ClearContent`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `EndUpdate`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `getAutoHeight As Boolean`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getBorderSize As Int`
 - `getBorderStyle As String`
+- `GetComputedHeight As Int`
+- `GetContentPanel As B4XView`
 - `getHeight As Int`
 - `getInputBorder As Boolean`
 - `getLabelAbove As Boolean`
@@ -98,31 +91,39 @@ None declared.
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
 - `isRounded As Boolean`
 - `isRoundedBox As Boolean`
-- `setAutoHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Object)`
-- `setBorderColor(Value As Object)`
-- `setBorderSize(Value As Int)`
-- `setBorderStyle(s As String)`
-- `setHeight(Value As Int)`
-- `setInputBorder(Value As Boolean)`
-- `setLabelAbove(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setLegend(l As String)`
-- `setLegendBold(Value As Boolean)`
-- `setLegendSize(s As String)`
-- `setPadding(Value As Int)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setRoundedBox(b As Boolean)`
-- `setShadow(s As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(v As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackgroundColor(oValue As Object)`
+- `setBorderColor(oValue As Object)`
+- `setBorderSize(iValue As Int)`
+- `setBorderStyle(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setInputBorder(bValue As Boolean)`
+- `setLabelAbove(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLegend(sL As String)`
+- `setLegendBold(bValue As Boolean)`
+- `setLegendSize(sValue As String)`
+- `setPadding(iValue As Int)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sV As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 None declared.

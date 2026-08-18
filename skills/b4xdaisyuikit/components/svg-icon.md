@@ -2,11 +2,10 @@
 
 Renders an SVG from assets, inline string, or file path. Supports color tinting, sizing, variant colors, and shaped masks.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySvgIcon`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySvgIcon.bas`
-- **Verified Demos**: `B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas`
 - **Web DaisyUI Mapping**: `.svg-icon` → `B4XDaisySvgIcon`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,24 +47,19 @@ y = y + ico.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize (Width As Double, Height As Double)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `GetContentView As B4XView`
-- `Initialize (Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `ResizeToParent(ParentView As B4XView)`
-- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getBorderWidth As Float`
 - `getClickable As Boolean`
 - `getColor As Int`
+- `GetComputedHeight As Int`
+- `GetContentView As B4XView`
 - `getHeight As Float`
 - `getLastRenderer As String`
 - `getPadding As Float`
@@ -76,28 +70,33 @@ y = y + ico.GetComputedHeight + gap
 - `getSvgContent As String`
 - `getTag As Object`
 - `getVariant As String`
-- `getView As B4XView`
 - `getWidth As Float`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBorderColor(Value As Int)`
-- `setBorderColorVariant(VariantName As String)`
-- `setBorderWidth(Value As Float)`
-- `setClickable(Value As Boolean)`
-- `setColor(Value As Int)`
-- `setColorVariant(VariantName As String)`
-- `setHeight(Value As Object)`
-- `setPadding(Value As Float)`
-- `setPreserveColors(Value As Boolean)`
-- `setPreserveOriginalColors(Value As Boolean)`
-- `setRoundedBox(Value As Boolean)`
-- `setSize(Value As Object)`
-- `setSvgAsset(Path As String)`
-- `setSvgContent(Content As String)`
-- `setSvgFile(Dir As String, FileName As String)`
-- `setTag(Value As Object)`
-- `setVariant(Value As String)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `ResizeToParent(vParentView As B4XView)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBorderColor(iValue As Int)`
+- `setBorderColorVariant(sVariantName As String)`
+- `setBorderWidth(fValue As Float)`
+- `setClickable(bValue As Boolean)`
+- `setColor(iValue As Int)`
+- `setColorVariant(sVariantName As String)`
+- `setHeight(oValue As Object)`
+- `setPadding(fValue As Float)`
+- `setPreserveColors(bValue As Boolean)`
+- `setPreserveOriginalColors(bValue As Boolean)`
+- `setRoundedBox(bValue As Boolean)`
+- `setSize(oValue As Object)`
+- `setSvgAsset(sPath As String)`
+- `setSvgContent(sContent As String)`
+- `setSvgFile(sDir As String, sFileName As String)`
+- `setTag(oValue As Object)`
+- `setVariant(sValue As String)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

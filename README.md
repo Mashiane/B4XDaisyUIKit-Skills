@@ -3,9 +3,9 @@
 > **Supercharge Claude Code & AI Coding Agents to build 100% native B4X (B4A Android, B4i iOS, B4J Desktop) apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.1.0-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.1.2-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Library Parity](https://img.shields.io/badge/Components-102_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
+[![Library Parity](https://img.shields.io/badge/Components-104_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 
 ---
 
@@ -15,7 +15,7 @@
 
 ### 🌟 What this enables:
 * 🎯 **100% Native Code Generation**: Converts web-oriented Tailwind CSS and DaisyUI concepts into robust native B4X views, layouts, and event handlers.
-* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 102 native component classes and 89 live `B4XPage` reference implementations.
+* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 104 native component classes and 94 live `B4XPage` reference implementations.
 * ⚡ **One-Shot Greenfield Scaffolding**: Automatically scaffolds complete ready-to-build apps with loaders, SweetAlert dialogs, navigation models, and automated build scripts (`install.ps1`).
 * 📦 **Zero-Configuration Asset Pipeline**: Pure `File.DirAssets` bundling delivered automatically via `B4XDaisyUIKit.b4xlib` with no `res/` folder required.
 

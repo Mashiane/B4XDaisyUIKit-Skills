@@ -2,11 +2,10 @@
 
 Full-screen or container-level backdrop dimming overlay for modal dialogs, loading spinners, and side drawers.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyOverlay`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyOverlay.bas`
-- **Verified Demos**: `B4XPageOverlay.bas`
 - **Web DaisyUI Mapping**: `.overlay` → `B4XDaisyOverlay`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -39,25 +38,20 @@ ovl.Visible = True
 - `Closed (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddChild(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AttachTo(Target As B4XView) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddChild(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AttachTo(vTarget As B4XView) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Close`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `GetHostView As B4XView`
-- `Initialize(Callback As Object, EventName As String)`
-- `Open`
-- `Resize(Width As Int, Height As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `getCloseOnClick As Boolean`
+- `GetComputedHeight As Int`
 - `getHeight As Int`
+- `GetHostView As B4XView`
 - `getIsAttached As Boolean`
 - `getIsOpen As Boolean`
 - `getLeft As Int`
@@ -69,17 +63,24 @@ ovl.Visible = True
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setCloseOnClick(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setOpacity(Value As Float)`
-- `setOverlayColor(Value As Int)`
-- `setPassThrough(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Open`
+- `Resize(iWidth As Int, iHeight As Int)`
+- `SendToBack`
+- `setCloseOnClick(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOpacity(fValue As Float)`
+- `setOverlayColor(iValue As Int)`
+- `setPassThrough(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

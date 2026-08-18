@@ -2,11 +2,10 @@
 
 Animated glow / shimmer border effect that wraps a child view. Styles include glow, rainbow, dual-color, holographic, gold, and silver.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyAura`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyAura.bas`
-- **Verified Demos**: `B4XPageAura.bas`
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,24 +47,14 @@ y = y + aur.GetComputedHeight + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `StartRotation`
-- `StopRotation`
-- `SyncRotation`
-- `Wrap(Child As B4XView) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoStart As Boolean`
 - `getBackgroundColor As Int`
 - `getColor As Int`
+- `GetComputedHeight As Int`
 - `getContainer As B4XView`
 - `getContentContainer As B4XView`
 - `getDuration As Int`
@@ -77,21 +66,32 @@ None declared.
 - `getTag As Object`
 - `getTextColor As Int`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
-- `setAutoStart(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setColor(Value As Int)`
-- `setDuration(Value As Int)`
-- `setLeft(Value As Int)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoStart(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setColor(iValue As Int)`
+- `setDuration(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `StartRotation`
+- `StopRotation`
+- `SyncRotation`
+- `View As B4XView`
+- `Wrap(vChild As B4XView) As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

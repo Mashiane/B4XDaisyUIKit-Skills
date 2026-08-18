@@ -2,11 +2,10 @@
 
 Mockup macOS/Windows style application frame with title bar, window traffic light controls, and body container.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyWindow`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyWindow.bas`
-- **Verified Demos**: `B4XPageWindow.bas`
 - **Web DaisyUI Mapping**: `.window` → `B4XDaisyWindow`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -47,32 +46,26 @@ y = y + 180dip + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddContentView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddHeaderView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddContentView(vView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddHeaderView(vView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `ClearContent`
 - `ClearHeader`
 - `Content As B4XView`
 - `ContentHeight As Int`
 - `ContentWidth As Int`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetHeaderPanel As B4XView`
-- `Initialize(Callback As Object, EventName As String)`
-- `RefreshContent`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoHeight As Boolean`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getBorderSize As Int`
+- `GetComputedHeight As Int`
 - `getContentPadding As String`
 - `getHeaderHeight As Int`
+- `GetHeaderPanel As B4XView`
 - `getHeight As String`
 - `getLeft As Int`
 - `getRounded As String`
@@ -85,24 +78,31 @@ None declared.
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setAutoHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Object)`
-- `setBorderColor(Value As Object)`
-- `setBorderSize(Value As Int)`
-- `setContentPadding(Value As String)`
-- `setHeaderHeight(Value As Int)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setShowControls(Value As Boolean)`
-- `setShowHeader(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setToolBarTitle(Value As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RefreshContent`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackgroundColor(oValue As Object)`
+- `setBorderColor(oValue As Object)`
+- `setBorderSize(iValue As Int)`
+- `setContentPadding(sValue As String)`
+- `setHeaderHeight(iValue As Int)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setShowControls(bValue As Boolean)`
+- `setShowHeader(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setToolBarTitle(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 None declared.

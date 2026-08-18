@@ -2,11 +2,10 @@
 
 Segmented control (tab-bar style) for single-option selection from a small set of choices.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySegment`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySegment.bas`
-- **Verified Demos**: `B4XPageSegment.bas, B4XPageTagSphere.bas`
 - **Web DaisyUI Mapping**: `.segment` → `B4XDaisySegment`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -49,25 +48,16 @@ y = y + seg.GetComputedHeight + gap
 - `Changed (Value As String)`
 
 ## 6. Public Methods & APIs
-- `AddButton(Value As String, Text As String, IconPath As String)`
-- `AddIcon(Value As String, IconPath As String)`
-- `AddLabel(Value As String, Text As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddButton(sValue As String, sText As String, sIconPath As String)`
+- `AddIcon(sValue As String, sIconPath As String)`
+- `AddLabel(sValue As String, sText As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Clear`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `GetButtonEnabled(Value As String) As Boolean`
-- `GetValue As String`
-- `Initialize (Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveButton(Value As String)`
-- `SetButtonColor(Value As String, Color As Int)`
-- `SetButtonEnabled(Value As String, Enabled As Boolean)`
-- `SetButtonIconColor(Value As String, Color As Int)`
-- `SetButtonTextColor(Value As String, Color As Int)`
-- `SetValue(NewValue As String)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As String`
 - `getBackgroundColor As Object`
+- `GetButtonEnabled(sValue As String) As Boolean`
 - `getButtonLayout As String`
 - `getButtonSize As String`
 - `getDisabled As Boolean`
@@ -75,15 +65,26 @@ y = y + seg.GetComputedHeight + gap
 - `getScrollable As Boolean`
 - `getShadow As String`
 - `getTextSize As String`
-- `setActiveColor(Value As String)`
-- `setBackgroundColor(Value As Object)`
-- `setButtonLayout(Value As String)`
-- `setButtonSize(Value As String)`
-- `setDisabled(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setScrollable(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setTextSize(Value As String)`
+- `GetValue As String`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveButton(sValue As String)`
+- `setActiveColor(sValue As String)`
+- `setBackgroundColor(oValue As Object)`
+- `SetButtonColor(sValue As String, iColor As Int)`
+- `SetButtonEnabled(sValue As String, bEnabled As Boolean)`
+- `SetButtonIconColor(sValue As String, iColor As Int)`
+- `setButtonLayout(sValue As String)`
+- `setButtonSize(sValue As String)`
+- `SetButtonTextColor(sValue As String, iColor As Int)`
+- `setDisabled(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setScrollable(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setTextSize(sValue As String)`
+- `SetValue(sNewValue As String)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

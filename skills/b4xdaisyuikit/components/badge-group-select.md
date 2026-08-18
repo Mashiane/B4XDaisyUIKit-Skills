@@ -2,11 +2,10 @@
 
 A group of badge chips that act as a multi-select or single-select tag picker. Uses a fieldset-style bordered container with a legend caption.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyBadgeGroupSelect`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyBadgeGroupSelect.bas`
-- **Verified Demos**: `B4XPageBadge.bas, B4XPageBadgeGroupSelect.bas`
 - **Web DaisyUI Mapping**: `.badge-group-select` → `B4XDaisyBadgeGroupSelect`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -67,33 +66,18 @@ y = y + bgs.GetComputedHeight + gap
 - `Changed (SelectedIds As List)`
 
 ## 6. Public Methods & APIs
-- `AddBadgeItem(Id As String, Text As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddBadgeItem(sId As String, sText As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
-- `CheckItem(Id As String)`
+- `CheckItem(sId As String)`
 - `ClearBadgeItems`
 - `ClearError`
 - `ClearSelection`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsItemSelected(Id As String) As Boolean`
-- `IsReady As Boolean`
-- `ReceiveFocus`
-- `Refresh`
-- `RemoveBadgeItem(Id As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemChecked(Id As String, Checked As Boolean)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UncheckItem(Id As String)`
-- `Validate As Boolean`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoHeight As Boolean`
 - `getBackgroundColor As Int`
 - `getBadgeCheckedColor As Int`
@@ -107,6 +91,7 @@ y = y + bgs.GetComputedHeight + gap
 - `getBorderSize As Int`
 - `getBorderStyle As String`
 - `getChecked As String`
+- `GetComputedHeight As Int`
 - `getErrorText As String`
 - `getGap As Int`
 - `getHeight As Int`
@@ -132,46 +117,61 @@ y = y + bgs.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsItemSelected(sId As String) As Boolean`
+- `IsReady As Boolean`
 - `isRounded As Boolean`
 - `isRoundedBox As Boolean`
-- `setAutoHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Object)`
-- `setBadgeCheckedColor(Value As Object)`
-- `setBadgeCheckedTextColor(Value As Object)`
-- `setBadgeColor(Value As String)`
-- `setBadgeHeight(Value As String)`
-- `setBadgeSelectionMode(Value As String)`
-- `setBadgeSize(Value As String)`
-- `setBadgeStyle(Value As String)`
-- `setBorderColor(Value As Object)`
-- `setBorderSize(Value As Int)`
-- `setBorderStyle(Value As String)`
-- `setChecked(CheckedIds As String)`
-- `setErrorText(Value As String)`
-- `setGap(Value As Int)`
-- `setHeight(Value As Int)`
-- `setHintText(Value As String)`
-- `setInputBorder(Value As Boolean)`
-- `setItems(Items As Object)`
-- `setItemsSpec(Value As String)`
-- `setLabelAbove(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setLegend(Value As String)`
-- `setLegendBold(Value As Boolean)`
-- `setLegendSize(Value As String)`
-- `setPadding(Value As Int)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setRowGap(Value As Int)`
-- `setSelected(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `ReceiveFocus`
+- `Refresh`
+- `RemoveBadgeItem(sId As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackgroundColor(oValue As Object)`
+- `setBadgeCheckedColor(oValue As Object)`
+- `setBadgeCheckedTextColor(oValue As Object)`
+- `setBadgeColor(sValue As String)`
+- `setBadgeHeight(sValue As String)`
+- `setBadgeSelectionMode(sValue As String)`
+- `setBadgeSize(sValue As String)`
+- `setBadgeStyle(sValue As String)`
+- `setBorderColor(oValue As Object)`
+- `setBorderSize(iValue As Int)`
+- `setBorderStyle(sValue As String)`
+- `setChecked(sCheckedIds As String)`
+- `setErrorText(sValue As String)`
+- `setGap(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setInputBorder(bValue As Boolean)`
+- `SetItemChecked(sId As String, bChecked As Boolean)`
+- `setItems(oItems As Object)`
+- `setItemsSpec(sValue As String)`
+- `setLabelAbove(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLegend(sValue As String)`
+- `setLegendBold(bValue As Boolean)`
+- `setLegendSize(sValue As String)`
+- `setPadding(iValue As Int)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setRowGap(iValue As Int)`
+- `setSelected(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UncheckItem(sId As String)`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

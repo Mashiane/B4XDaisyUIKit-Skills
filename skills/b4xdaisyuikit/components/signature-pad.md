@@ -2,11 +2,10 @@
 
 Interactive drawing surface for capturing handwritten signatures with stroke smoothing, clear/save buttons, and Base64 export.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySignaturePad`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySignaturePad.bas`
-- **Verified Demos**: `B4XPageSignaturePad.bas`
 - **Web DaisyUI Mapping**: `.signature-pad` → `B4XDaisySignaturePad`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -58,26 +57,18 @@ y = y + sig.GetComputedHeight + gap
 - `Changed`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getBackgroundColor As Int`
 - `GetBase64 As String`
 - `GetBitmap As B4XBitmap`
-- `GetComputedHeight As Int`
-- `GetComputedWidth As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsBase64(Value As String) As Boolean`
-- `IsEmpty As Boolean`
-- `Refresh`
-- `Release`
-- `SetBase64(Base64String As String)`
-- `SetBitmap(Bmp As B4XBitmap)`
-- `UpdateTheme`
-- `getBackgroundColor As Int`
 - `getBitMapFormat As String`
 - `getBitMapQuality As Int`
+- `GetComputedHeight As Int`
+- `GetComputedWidth As Int`
 - `getDisallowParentIntercept As Boolean`
 - `getEnabled As Boolean`
 - `getFieldsetMode As Boolean`
@@ -95,31 +86,40 @@ y = y + sig.GetComputedHeight + gap
 - `getStrokeJoin As String`
 - `getVariant As String`
 - `getVelocityFilterWeight As Float`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBackgroundColor(Value As Int)`
-- `setBitMapFormat(Value As String)`
-- `setBitMapQuality(Value As Int)`
-- `setDisallowParentIntercept(Value As Boolean)`
-- `setEnabled(Value As Boolean)`
-- `setFieldsetMode(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setHintColor(Value As Int)`
-- `setHintText(Value As String)`
-- `setMaxWidth(Value As Float)`
-- `setMinHeight(Value As Int)`
-- `setMinWidth(Value As Float)`
-- `setPenColor(Value As Int)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setStrokeCap(Value As String)`
-- `setStrokeJoin(Value As String)`
-- `setVariant(Value As String)`
-- `setVelocityFilterWeight(Value As Float)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsBase64(sValue As String) As Boolean`
+- `IsEmpty As Boolean`
+- `Refresh`
+- `Release`
+- `setBackgroundColor(iValue As Int)`
+- `SetBase64(sBase64String As String)`
+- `SetBitmap(bmpBmp As B4XBitmap)`
+- `setBitMapFormat(sValue As String)`
+- `setBitMapQuality(iValue As Int)`
+- `setDisallowParentIntercept(bValue As Boolean)`
+- `setEnabled(bValue As Boolean)`
+- `setFieldsetMode(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setHintColor(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setMaxWidth(fValue As Float)`
+- `setMinHeight(iValue As Int)`
+- `setMinWidth(fValue As Float)`
+- `setPenColor(iValue As Int)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setStrokeCap(sValue As String)`
+- `setStrokeJoin(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVelocityFilterWeight(fValue As Float)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `StrokeColor As Int`

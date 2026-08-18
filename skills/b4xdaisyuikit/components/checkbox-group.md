@@ -2,11 +2,10 @@
 
 Group of checkbox options with legend header, direction, required count, and unified validation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCheckboxGroup`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCheckboxGroup.bas`
-- **Verified Demos**: `B4XPageCheckboxGroup.bas`
 - **Web DaisyUI Mapping**: `.checkbox-group` → `B4XDaisyCheckboxGroup`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -68,33 +67,17 @@ y = y + cg.GetComputedHeight + gap
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Id As String, Text As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddItem(sId As String, sText As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
-- `CheckItem(Id As String)`
+- `CheckItem(sId As String)`
 - `Clear`
 - `ClearError`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsItemChecked(Id As String) As Boolean`
-- `IsReady As Boolean`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveItem(Id As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemChecked(Id As String, Checked As Boolean)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UncheckItem(Id As String)`
-- `Validate As Boolean`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAlignment As String`
 - `getAutoHeight As Boolean`
 - `getBackgroundColor As Int`
@@ -104,6 +87,7 @@ y = y + cg.GetComputedHeight + gap
 - `getCheckboxColor As String`
 - `getCheckboxSize As String`
 - `getChecked As String`
+- `GetComputedHeight As Int`
 - `getDirection As String`
 - `getErrorText As String`
 - `getGap As Int`
@@ -126,44 +110,59 @@ y = y + cg.GetComputedHeight + gap
 - `getTextColor As Int`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsItemChecked(sId As String) As Boolean`
+- `IsReady As Boolean`
 - `isRounded As Boolean`
 - `isRoundedBox As Boolean`
-- `setAlignment(Value As String)`
-- `setAutoHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBorderColor(Value As Int)`
-- `setBorderSize(Value As Int)`
-- `setBorderStyle(Value As String)`
-- `setCheckboxColor(Value As String)`
-- `setCheckboxSize(Value As String)`
-- `setChecked(CheckedIds As String)`
-- `setDirection(Value As String)`
-- `setErrorText(Value As String)`
-- `setGap(Value As Int)`
-- `setHeight(Value As Int)`
-- `setHintText(Value As String)`
-- `setInputBorder(Value As Boolean)`
-- `setItems(Items As Map)`
-- `setLabelAbove(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setLegend(Value As String)`
-- `setLegendBold(Value As Boolean)`
-- `setLegendSize(Value As String)`
-- `setPadding(Value As Int)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setRowGap(Value As Int)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveItem(sId As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAlignment(sValue As String)`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBorderColor(iValue As Int)`
+- `setBorderSize(iValue As Int)`
+- `setBorderStyle(sValue As String)`
+- `setCheckboxColor(sValue As String)`
+- `setCheckboxSize(sValue As String)`
+- `setChecked(sCheckedIds As String)`
+- `setDirection(sValue As String)`
+- `setErrorText(sValue As String)`
+- `setGap(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setInputBorder(bValue As Boolean)`
+- `SetItemChecked(sId As String, bChecked As Boolean)`
+- `setItems(mItems As Map)`
+- `setLabelAbove(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLegend(sValue As String)`
+- `setLegendBold(bValue As Boolean)`
+- `setLegendSize(sValue As String)`
+- `setPadding(iValue As Int)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setRowGap(iValue As Int)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UncheckItem(sId As String)`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

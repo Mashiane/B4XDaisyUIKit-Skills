@@ -2,11 +2,10 @@
 
 File upload picker control with label, accepted extensions, file info display, and validation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyFileInput`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyFileInput.bas`
-- **Verified Demos**: `B4XPageAvatar.bas, B4XPageFileInput.bas, B4XPageFocus.bas`
 - **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -64,34 +63,23 @@ y = y + fi.GetComputedHeight + gap
 - `AppendClick`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `Clear`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetBitmap As B4XBitmap`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAccept As String`
 - `getAlpha As Float`
 - `getAppendIcon As String`
 - `getBackgroundColor As Int`
+- `GetBitmap As B4XBitmap`
 - `getBorderColor As Int`
 - `getButtonColor As Int`
 - `getButtonText As String`
 - `getButtonTextColor As Int`
+- `GetComputedHeight As Int`
 - `getEnabled As Boolean`
 - `getErrorText As String`
 - `getExceedsSize As Boolean`
@@ -129,49 +117,61 @@ y = y + fi.GetComputedHeight + gap
 - `getTop As Int`
 - `getTypeface As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAccept(Value As String)`
-- `setAlpha(Value As Float)`
-- `setAppendIcon(Value As String)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBorderColor(Value As Int)`
-- `setButtonColor(Value As Int)`
-- `setButtonText(Value As String)`
-- `setButtonTextColor(Value As Int)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFileBase64(Value As String)`
-- `setFileDate(Value As Long)`
-- `setFileName(Value As String)`
-- `setFileSize(Value As Long)`
-- `setFocus(Value As Boolean)`
-- `setGravity(Value As String)`
-- `setHeight(Value As Int)`
-- `setHintText(Value As String)`
-- `setLabelAbove(Value As String)`
-- `setLeft(Value As Int)`
-- `setMaxSize(Value As Int)`
-- `setMimeType(Value As String)`
-- `setPadding(Value As String)`
-- `setPlaceholder(Value As String)`
-- `setPlaceholderColor(Value As Int)`
-- `setRadius(Value As String)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTop(Value As Int)`
-- `setTypeface(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setAccept(sValue As String)`
+- `setAlpha(fValue As Float)`
+- `setAppendIcon(sValue As String)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBorderColor(iValue As Int)`
+- `setButtonColor(iValue As Int)`
+- `setButtonText(sValue As String)`
+- `setButtonTextColor(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFileBase64(sValue As String)`
+- `setFileDate(lValue As Long)`
+- `setFileName(sValue As String)`
+- `setFileSize(lValue As Long)`
+- `setFocus(bValue As Boolean)`
+- `setGravity(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setLabelAbove(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxSize(iValue As Int)`
+- `setMimeType(sValue As String)`
+- `setPadding(sValue As String)`
+- `setPlaceholder(sValue As String)`
+- `setPlaceholderColor(iValue As Int)`
+- `setRadius(sValue As String)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTop(iValue As Int)`
+- `setTypeface(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

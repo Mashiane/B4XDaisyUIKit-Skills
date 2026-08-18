@@ -2,11 +2,10 @@
 
 Animated rotating headline text that smoothly cycles through a list of phrases.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyTextRotate`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyTextRotate.bas`
-- **Verified Demos**: `B4XPageTextRotate.bas`
 - **Web DaisyUI Mapping**: `.text-rotate` → `B4XDaisyTextRotate`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -44,39 +43,40 @@ None declared.
 
 ## 6. Public Methods & APIs
 - `AddItem(dt As B4XDaisyText)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetComputedHeight As Int`
-- `GetItems As List`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItems(ItemList As List)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Start`
-- `Stop`
-- `UpdateTheme`
 - `getDuration As String`
 - `getHeight As Int`
+- `GetItems As List`
 - `getLeft As Int`
 - `getTag As Object`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setDuration(Value As String)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setDuration(sValue As String)`
+- `setHeight(iValue As Int)`
+- `SetItems(lstItemList As List)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Start`
+- `Stop`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

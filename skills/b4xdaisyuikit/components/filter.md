@@ -2,11 +2,10 @@
 
 Horizontal or vertical row of filter chip buttons for single or multi-select category filtering.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyFilter`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyFilter.bas`
-- **Verified Demos**: `B4XPageFilter.bas`
 - **Web DaisyUI Mapping**: `.filter` → `B4XDaisyFilter`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -58,23 +57,17 @@ y = y + flt.GetComputedHeight + gap
 - `ItemChanged (Id As String, Text As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `UpdateTheme`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveKey As String`
 - `getChecked As String`
 - `getCheckedKeys As List`
 - `getCloseIcon As String`
 - `getCloseType As String`
+- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getEnabled As Boolean`
 - `getFilterStyle As String`
@@ -98,35 +91,43 @@ y = y + flt.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `isItemChecked(Key As String) As Boolean`
-- `setActiveKey(Value As String)`
-- `setChecked(CheckedKeys As String)`
-- `setCloseIcon(Value As String)`
-- `setCloseType(Value As String)`
-- `setDuration(Value As Int)`
-- `setEnabled(Value As Boolean)`
-- `setFilterStyle(Value As String)`
-- `setHeight(Value As String)`
-- `setItemChecked(Key As String, Checked As Boolean)`
-- `setItems(Value As Map)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setMultiSelect(Value As Boolean)`
-- `setOptions(Value As String)`
-- `setOptionsList(Value As List)`
-- `setOptionsMap(Value As Map)`
-- `setOrientation(Value As String)`
-- `setPadding(Value As String)`
-- `setResetPosition(Value As String)`
-- `setResetText(Value As String)`
-- `setRounded(Value As String)`
-- `setSelectedIds(Ids As List)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `isItemChecked(sKey As String) As Boolean`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setActiveKey(sValue As String)`
+- `setChecked(sCheckedKeys As String)`
+- `setCloseIcon(sValue As String)`
+- `setCloseType(sValue As String)`
+- `setDuration(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setFilterStyle(sValue As String)`
+- `setHeight(sValue As String)`
+- `setItemChecked(sKey As String, bChecked As Boolean)`
+- `setItems(mValue As Map)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setMultiSelect(bValue As Boolean)`
+- `setOptions(sValue As String)`
+- `setOptionsList(lstValue As List)`
+- `setOptionsMap(mValue As Map)`
+- `setOrientation(sValue As String)`
+- `setPadding(sValue As String)`
+- `setResetPosition(sValue As String)`
+- `setResetText(sValue As String)`
+- `setRounded(sValue As String)`
+- `setSelectedIds(lstIds As List)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

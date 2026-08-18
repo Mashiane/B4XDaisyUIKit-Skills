@@ -2,11 +2,10 @@
 
 CSS stacking component for layered views — offset cards, image stacks, avatar piles, and decorative layered effects.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyStack`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyStack.bas`
-- **Verified Demos**: `B4XPageStack.bas, B4XPageStackPhotos.bas`
 - **Web DaisyUI Mapping**: `.stack` → `B4XDaisyStack`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -56,30 +55,23 @@ y = y + stk.GetComputedHeight + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddColorLayer(BackColor As Int, Text As String, TextColor As Int, CornerRadius As Float) As B4XView`
-- `AddLayer(ChildView As B4XView) As Int`
-- `AddLayerWithTag(ChildView As B4XView, Tag As Object) As Int`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddColorLayer(iBackColor As Int, sText As String, iTextColor As Int, fCornerRadius As Float) As B4XView`
+- `AddLayer(vChildView As B4XView) As Int`
+- `AddLayerWithTag(vChildView As B4XView, oTag As Object) As Int`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `RemoveLayerAt(Index As Int) As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayers(Views As List)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoFillLayers As Boolean`
+- `GetComputedHeight As Int`
 - `getDirection As String`
 - `getHeight As Float`
-- `getLayer(Index As Int) As B4XView`
+- `getLayer(iIndex As Int) As B4XView`
 - `getLayerCount As Int`
-- `getLayerTag(Index As Int) As Object`
+- `getLayerTag(iIndex As Int) As Object`
 - `getLayoutAnimationMs As Int`
 - `getLeft As Int`
 - `getMargin As String`
@@ -92,23 +84,31 @@ None declared.
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setAutoFillLayers(Value As Boolean)`
-- `setDirection(Value As String)`
-- `setHeight(Value As Object)`
-- `setLayerTag(Index As Int, Tag As Object)`
-- `setLayoutAnimationMs(Value As Int)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setSize(Width As Int, Height As Int)`
-- `setStepPrimary(Value As Object)`
-- `setStepSecondary(Value As Object)`
-- `setStrictDaisyParity(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveLayerAt(iIndex As Int) As Boolean`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoFillLayers(bValue As Boolean)`
+- `setDirection(sValue As String)`
+- `setHeight(oValue As Object)`
+- `SetLayers(lstViews As List)`
+- `setLayerTag(iIndex As Int, oTag As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLayoutAnimationMs(iValue As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setSize(iWidth As Int, iHeight As Int)`
+- `setStepPrimary(oValue As Object)`
+- `setStepSecondary(oValue As Object)`
+- `setStrictDaisyParity(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

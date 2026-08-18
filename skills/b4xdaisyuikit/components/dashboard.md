@@ -2,11 +2,10 @@
 
 Pre-composed metrics summary dashboard card layout combining multiple KPI cards, headers, and sparkline trends.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDashboard`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyDashboard.bas`
-- **Verified Demos**: `B4XPageDashboard.bas`
 - **Web DaisyUI Mapping**: `.dashboard` → `B4XDaisyDashboard`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,35 +47,17 @@ dsb.AddButtonWithSvgPath("users", "Users", "users-solid.svg")
 - `Changed (PageIndex As Int, PageCount As Int)`
 
 ## 6. Public Methods & APIs
-- `AddButton(Id As String, Label As String, ImagePath As String, SvgPath As String)`
-- `AddButtonWithImagePath(Id As String, Label As String, FullImagePath As String) As Boolean`
-- `AddButtonWithSvgPath(Id As String, Label As String, FullSvgPath As String) As Boolean`
-- `AddItem(Id As String, Label As String, Image As String)`
-- `AddToParent(Parent As B4XView)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddButton(sId As String, sLabel As String, sImagePath As String, sSvgPath As String)`
+- `AddButtonWithImagePath(sId As String, sLabel As String, sFullImagePath As String) As Boolean`
+- `AddButtonWithSvgPath(sId As String, sLabel As String, sFullSvgPath As String) As Boolean`
+- `AddItem(sId As String, sLabel As String, sImage As String)`
+- `AddToParent(vParent As B4XView)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
 - `ClearButtons`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `Refresh(SortAsc As Boolean)`
-- `RemoveButton(ButtonId As String) As Boolean`
-- `RemoveViewFromParent`
-- `Resize(Width As Int, Height As Int)`
-- `SendToBack`
-- `SetButtons(NewButtons As List)`
-- `SetCurrentPage(Index As Int)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SortByTitleAsc`
-- `SortByTitleDesc`
-- `UpdateButton(ButtonId As String, Updates As Map) As Boolean`
-- `UpdateButtonBadge(ButtonId As String, NewBadgeValue As Object) As Boolean`
-- `UpdateButtonImage(ButtonId As String, NewImagePath As String) As Boolean`
-- `UpdateButtonLabel(ButtonId As String, NewLabel As String) As Boolean`
-- `UpdateButtonValue(ButtonId As String, Key As String, Value As Object) As Boolean`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveIndicatorColor As Int`
 - `getAutoGrid As Boolean`
 - `getBackgroundImage As String`
@@ -85,6 +66,7 @@ dsb.AddButtonWithSvgPath("users", "Users", "users-solid.svg")
 - `getCellSpacing As Float`
 - `getCellSpacingY As Float`
 - `getColumnsPerPage As Int`
+- `GetComputedHeight As Int`
 - `getCurrentPage As Int`
 - `getGridTopOffset As Float`
 - `getHeight As String`
@@ -99,27 +81,46 @@ dsb.AddButtonWithSvgPath("users", "Users", "users-solid.svg")
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setActiveIndicatorColor(Value As Int)`
-- `setActiveIndicatorColorVariant(VariantName As String)`
-- `setAutoGrid(Value As Boolean)`
-- `setBackgroundImage(Path As String)`
-- `setCellSpacing(Value As Int)`
-- `setCellSpacingY(Value As Int)`
-- `setColumnsPerPage(Value As Int)`
-- `setGridTopOffset(Value As Int)`
-- `setHeight(Value As Object)`
-- `setInactiveIndicatorColor(Value As Int)`
-- `setInactiveIndicatorColorVariant(VariantName As String)`
-- `setLeft(Value As Int)`
-- `setMinCellHeight(Value As Int)`
-- `setMinCellWidth(Value As Int)`
-- `setPagePadding(Value As Int)`
-- `setRowsPerPage(Value As Int)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `Refresh(bSortAsc As Boolean)`
+- `RemoveButton(sButtonId As String) As Boolean`
+- `RemoveViewFromParent`
+- `Resize(iWidth As Int, iHeight As Int)`
+- `SendToBack`
+- `setActiveIndicatorColor(iValue As Int)`
+- `setActiveIndicatorColorVariant(sVariantName As String)`
+- `setAutoGrid(bValue As Boolean)`
+- `setBackgroundImage(sPath As String)`
+- `SetButtons(lstNewButtons As List)`
+- `setCellSpacing(iValue As Int)`
+- `setCellSpacingY(iValue As Int)`
+- `setColumnsPerPage(iValue As Int)`
+- `SetCurrentPage(iIndex As Int)`
+- `setGridTopOffset(iValue As Int)`
+- `setHeight(oValue As Object)`
+- `setInactiveIndicatorColor(iValue As Int)`
+- `setInactiveIndicatorColorVariant(sVariantName As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMinCellHeight(iValue As Int)`
+- `setMinCellWidth(iValue As Int)`
+- `setPagePadding(iValue As Int)`
+- `setRowsPerPage(iValue As Int)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `SortByTitleAsc`
+- `SortByTitleDesc`
+- `UpdateButton(sButtonId As String, mUpdates As Map) As Boolean`
+- `UpdateButtonBadge(sButtonId As String, oNewBadgeValue As Object) As Boolean`
+- `UpdateButtonImage(sButtonId As String, sNewImagePath As String) As Boolean`
+- `UpdateButtonLabel(sButtonId As String, sNewLabel As String) As Boolean`
+- `UpdateButtonValue(sButtonId As String, sKey As String, oValue As Object) As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

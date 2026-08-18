@@ -2,11 +2,10 @@
 
 Animated content switcher between two states (on/off/indeterminate) — for icon toggles, dark mode switches, etc.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySwap`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySwap.bas`
-- **Verified Demos**: `B4XPageSwap.bas`
 - **Web DaisyUI Mapping**: `.swap` → `B4XDaisySwap`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -61,23 +60,13 @@ y = y + sw.GetComputedHeight + gap
 - `Changed (State As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetIndeterminateView(v As B4XView)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetOffView(v As B4XView)`
-- `SetOnView(v As B4XView)`
-- `Toggle`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getChecked As Boolean`
+- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getHeight As Float`
 - `getIndeterminateColor As Int`
@@ -99,30 +88,41 @@ y = y + sw.GetComputedHeight + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setChecked(Value As Boolean)`
-- `setDuration(Value As Int)`
-- `setHeight(Value As Object)`
-- `setIndeterminateColor(Value As Object)`
-- `setIndeterminateColorVariant(VariantName As String)`
-- `setIndeterminateText(Value As String)`
-- `setIndeterminateTextColorVariant(VariantName As String)`
-- `setLeft(Value As Int)`
-- `setOffColor(Value As Object)`
-- `setOffColorVariant(VariantName As String)`
-- `setOffText(Value As String)`
-- `setOffTextColorVariant(VariantName As String)`
-- `setOnColor(Value As Object)`
-- `setOnColorVariant(VariantName As String)`
-- `setOnText(Value As String)`
-- `setOnTextColorVariant(VariantName As String)`
-- `setState(Value As String)`
-- `setSwapStyle(Value As String)`
-- `setSwapType(Value As String)`
-- `setTag(Value As Object)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setChecked(bValue As Boolean)`
+- `setDuration(iValue As Int)`
+- `setHeight(oValue As Object)`
+- `setIndeterminateColor(oValue As Object)`
+- `setIndeterminateColorVariant(sVariantName As String)`
+- `setIndeterminateText(sValue As String)`
+- `setIndeterminateTextColorVariant(sVariantName As String)`
+- `SetIndeterminateView(vView As B4XView)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOffColor(oValue As Object)`
+- `setOffColorVariant(sVariantName As String)`
+- `setOffText(sValue As String)`
+- `setOffTextColorVariant(sVariantName As String)`
+- `SetOffView(vView As B4XView)`
+- `setOnColor(oValue As Object)`
+- `setOnColorVariant(sVariantName As String)`
+- `setOnText(sValue As String)`
+- `setOnTextColorVariant(sVariantName As String)`
+- `SetOnView(vView As B4XView)`
+- `setState(sValue As String)`
+- `setSwapStyle(sValue As String)`
+- `setSwapType(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `Toggle`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

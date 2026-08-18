@@ -2,11 +2,10 @@
 
 Linear progress bar with optional tooltip, label, animated fill, and icon ends.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyProgress`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyProgress.bas`
-- **Verified Demos**: `B4XPageProgress.bas`
 - **Web DaisyUI Mapping**: `.progress` → `B4XDaisyProgress`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -63,21 +62,13 @@ y = y + pb.GetComputedHeight + gap
 - `Changed (Value As Float)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize (Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize (Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
-- `SetTrackColor(Color As Int)`
-- `SetValueColor(Color As Int)`
-- `StartTimer(DurationMs As Int)`
-- `StopAnimation`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAnimated As Boolean`
+- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getHeight As Int`
 - `getIconLeft As String`
@@ -100,34 +91,43 @@ y = y + pb.GetComputedHeight + gap
 - `getTop As Int`
 - `getValue As Float`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAnimated(Value As Boolean)`
-- `setDuration(Value As Int)`
-- `setHeight(Value As Int)`
-- `setIconLeft(s As String)`
-- `setIconRight(s As String)`
-- `setIconSize(v As Int)`
-- `setIndeterminate(b As Boolean)`
-- `setLabelAbove(s As String)`
-- `setLabelVisible(b As Boolean)`
-- `setLeft(Value As Int)`
-- `setMaxValue(MaxValue As Float)`
-- `setMinValue(v As Float)`
-- `setNumberTextColor(c As Int)`
-- `setShowNumberInline(b As Boolean)`
-- `setShowTooltip(b As Boolean)`
-- `setSize(Size As String)`
-- `setStepValue(v As Float)`
-- `setTag(Tag As Object)`
-- `setTooltipOpen(b As Boolean)`
-- `setTooltipPosition(s As String)`
-- `setTop(Value As Int)`
-- `setValue(Value As Float)`
-- `setVariant(VariantName As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAnimated(bValue As Boolean)`
+- `setDuration(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `setIconLeft(sValue As String)`
+- `setIconRight(sValue As String)`
+- `setIconSize(iV As Int)`
+- `setIndeterminate(bValue As Boolean)`
+- `setLabelAbove(sValue As String)`
+- `setLabelVisible(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeftPos As Int, iTopPos As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxValue(fMaxValue As Float)`
+- `setMinValue(fV As Float)`
+- `setNumberTextColor(iC As Int)`
+- `setShowNumberInline(bValue As Boolean)`
+- `setShowTooltip(bValue As Boolean)`
+- `setSize(sSize As String)`
+- `setStepValue(fV As Float)`
+- `setTag(oTag As Object)`
+- `setTooltipOpen(bValue As Boolean)`
+- `setTooltipPosition(sValue As String)`
+- `setTop(iValue As Int)`
+- `SetTrackColor(iColor As Int)`
+- `setValue(fValue As Float)`
+- `SetValueColor(iColor As Int)`
+- `setVariant(sVariantName As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `StartTimer(iDurationMs As Int)`
+- `StopAnimation`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

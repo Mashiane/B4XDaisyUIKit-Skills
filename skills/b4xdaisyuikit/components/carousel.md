@@ -2,11 +2,10 @@
 
 Horizontal swipeable carousel slider for image slides, banners, cards, and full-width content items.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCarousel`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCarousel.bas`
-- **Verified Demos**: `B4XPageCarousel.bas`
 - **Web DaisyUI Mapping**: `.carousel` → `B4XDaisyCarousel`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,28 +58,16 @@ y = y + 200dip + gap
 
 ## 6. Public Methods & APIs
 - `AddItem(Item As B4XDaisyCarouselItem)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Pause`
-- `Refresh`
-- `RemoveItem(Item As B4XDaisyCarouselItem)`
-- `RemoveViewFromParent`
-- `Resume`
-- `ScrollToItem(Index As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `StartAutoPlay`
-- `StopAutoPlay`
-- `UpdateTheme`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoPlay As Boolean`
 - `getAutoPlayInterval As Int`
 - `getBackgroundColor As String`
+- `GetComputedHeight As Int`
 - `getContentPadding As Int`
 - `getCurrentIndex As Int`
 - `getEnabled As Boolean`
@@ -106,33 +93,47 @@ y = y + 200dip + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setAutoPlay(Value As Boolean)`
-- `setAutoPlayInterval(Value As Int)`
-- `setBackgroundColor(Value As String)`
-- `setContentPadding(Value As Int)`
-- `setEnabled(Value As Boolean)`
-- `setGap(Value As String)`
-- `setHeight(Value As String)`
-- `setIndicatorActiveColor(Value As Int)`
-- `setIndicatorBackgroundColor(Value As Int)`
-- `setIndicatorButtons(Value As Boolean)`
-- `setIndicatorDotGap(Value As Int)`
-- `setIndicatorDotSize(Value As Int)`
-- `setIndicatorInactiveColor(Value As Int)`
-- `setIndicatorOffset(Value As Int)`
-- `setItemGap(Value As Int)`
-- `setLeft(Value As Int)`
-- `setNavigationButtons(Value As Boolean)`
-- `setOrientation(Value As String)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setSnap(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Pause`
+- `Refresh`
+- `RemoveItem(Item As B4XDaisyCarouselItem)`
+- `RemoveViewFromParent`
+- `Resume`
+- `ScrollToItem(iIndex As Int)`
+- `SendToBack`
+- `setAutoPlay(bValue As Boolean)`
+- `setAutoPlayInterval(iValue As Int)`
+- `setBackgroundColor(sValue As String)`
+- `setContentPadding(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setGap(sValue As String)`
+- `setHeight(sValue As String)`
+- `setIndicatorActiveColor(iValue As Int)`
+- `setIndicatorBackgroundColor(iValue As Int)`
+- `setIndicatorButtons(bValue As Boolean)`
+- `setIndicatorDotGap(iValue As Int)`
+- `setIndicatorDotSize(iValue As Int)`
+- `setIndicatorInactiveColor(iValue As Int)`
+- `setIndicatorOffset(iValue As Int)`
+- `setItemGap(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setNavigationButtons(bValue As Boolean)`
+- `setOrientation(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setSnap(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `StartAutoPlay`
+- `StopAutoPlay`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -377,3 +377,41 @@ Dim ok As Boolean = okName And okEmail
 pageScroll.AutoFit
 
 ```
+
+
+## 8. Subroutine Parameter & Variable Naming Standards (Hungarian Type Prefixes)
+To eliminate variable-to-subroutine name shadowing (e.g. `System.Exception: Variable name cannot be the same as a sub name`), all subroutine parameters and local variables must use strict type-based Hungarian prefixes:
+
+| Data Type | Prefix | Canonical Parameter Examples |
+| :--- | :--- | :--- |
+| **`String`** | `s` | `sText`, `sTitle`, `sValue`, `sIconName`, `sVariant`, `sPlacement` |
+| **`Int`** | `i` | `iLeft`, `iTop`, `iWidth`, `iHeight`, `iIndex`, `iDuration`, `iColor` |
+| **`Long`** | `l` | `lDuration`, `lTicks`, `lValueMillis`, `lTimestamp` |
+| **`Float`** | `f` | `fAlpha`, `fGrow`, `fShrink`, `fRatio`, `fSize`, `fBorderWidth` |
+| **`Double`** | `d` | `dWidth`, `dHeight`, `dRatio`, `dValue` |
+| **`Boolean`** | `b` | `bValue`, `bVisible`, `bEnabled`, `bAnimated`, `bOpened` |
+| **`Object`** | `o` | `oCallback`, `oTag`, `oValue`, `oTarget`, `oItem` |
+| **`B4XView`** | `v` | `vParent`, `vChild`, `vTarget`, `vHost`, `vContent` |
+| **`Map`** | `m` / `map` | `mProps`, `mapMargin`, `mParams`, `mOptions` |
+| **`List`** | `lst` | `lstItems`, `lstPoints`, `lstRecords`, `lstPal` |
+| **`B4XBitmap`** | `bmp` | `bmpImage`, `bmpMask`, `bmpAvatar` |
+| **`B4XCanvas`** | `cvs` | `cvsTarget`, `cvsCanvas` |
+| **`B4XRect`** | `rc` | `rcBase`, `rcContent`, `rcOuter` |
+| **`B4XFont`** | `fnt` | `fntCustom`, `fntFont` |
+| **`Label`** | `lbl` | `lblTarget`, `lblBase`, `lblText` |
+| **`JavaObject`** | `jo` | `joDrawable`, `joPaint`, `joView` |
+
+### Critical Naming Rules:
+1. **Never use property/getter/setter names as parameter variables** (e.g. write `Sub setItem1(vItem As B4XView)` instead of `Sub setItem1(View As B4XView)`).
+2. **Never shadow class global variables** (e.g. if `Private mMargin As String` exists, name a map parameter `mapMargin As Map`, not `mMargin`).
+
+## 9. Structured Try / Catch / End Try Error Handling
+Empty `Catch` blocks are prohibited. Every `Catch` block must log the failure using the canonical `<ClassName>.<SubName>: ` prefix:
+```vb
+Try
+    ' ... operation ...
+Catch
+    Log("B4XDaisy<Component>.<SubName>: " & LastException.Message)
+End Try
+```
+*(Exception: `DisallowParentIntercept` climbing to `ViewRootImpl` where platform exceptions are expected and silently exited).*

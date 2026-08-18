@@ -2,11 +2,10 @@
 
 Dropdown option picker with search, multi-select, placeholder, and validation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySelect`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySelect.bas`
-- **Verified Demos**: `B4XPageEnjoyHint.bas, B4XPageFieldset.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageSelect.bas`
 - **Web DaisyUI Mapping**: `.select` → `B4XDaisySelect`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -58,41 +57,27 @@ y = y + sel.GetComputedHeight + gap
 - `Click(Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Value As String, Text As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddItem(sValue As String, sText As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `Clear`
 - `ClearError`
 - `Close`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `LoadCountries`
-- `LoadMonths`
-- `Open`
-- `ReceiveFocus`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `Toggle`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As String`
 - `getAlpha As Float`
 - `getBackgroundColor As Int`
+- `GetComputedHeight As Int`
 - `getEnabled As Boolean`
 - `getErrorText As String`
 - `getHeight As Int`
 - `getHintText As String`
 - `getIsOpen As Boolean`
 - `getIsValid As Boolean`
-- `getItemValues As List`
 - `getItems As List`
+- `getItemValues As List`
 - `getLabelAbove As String`
 - `getLeft As Int`
 - `getMaxDropdownRows As Int`
@@ -110,37 +95,52 @@ y = y + sel.GetComputedHeight + gap
 - `getTop As Int`
 - `getValue As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setActiveColor(Value As String)`
-- `setAlpha(Value As Float)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFocus(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setHintText(Value As String)`
-- `setItems(KeyValues As Map)`
-- `setLabelAbove(Value As String)`
-- `setLeft(Value As Int)`
-- `setMaxDropdownRows(Value As Int)`
-- `setPlaceholder(Value As String)`
-- `setRadius(Value As String)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setSelectedIndex(Value As Int)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTop(Value As Int)`
-- `setValue(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `LoadCountries`
+- `LoadMonths`
+- `Open`
+- `ReceiveFocus`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setActiveColor(sValue As String)`
+- `setAlpha(fValue As Float)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFocus(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setItems(mKeyValues As Map)`
+- `setLabelAbove(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxDropdownRows(iValue As Int)`
+- `setPlaceholder(sValue As String)`
+- `setRadius(sValue As String)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setSelectedIndex(iValue As Int)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTop(iValue As Int)`
+- `setValue(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `Toggle`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

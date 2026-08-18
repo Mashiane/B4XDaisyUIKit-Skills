@@ -2,11 +2,10 @@
 
 Floating hint bubble anchored to a target view, shown on tap/hover with auto-positioning.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyTooltip`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyTooltip.bas`
-- **Verified Demos**: `B4XPageTooltip.bas`
 - **Web DaisyUI Mapping**: `.tooltip` → `B4XDaisyTooltip`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -55,28 +54,18 @@ y = y + tip.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AttachTo(Target As B4XView)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AttachTo(vTarget As B4XView)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `DetachTarget`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `Hide`
-- `HideAnimated(DurationMs As Int)`
-- `Initialize (Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetCustomContent(View As B4XView)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Show`
-- `ShowAnimated(Duration As Int)`
 - `getAlignment As String`
 - `getAutoResize As Boolean`
 - `getClickToClose As Boolean`
+- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getHeight As Int`
 - `getLeft As Int`
@@ -86,23 +75,34 @@ y = y + tip.GetComputedHeight + gap
 - `getTextWrapped As Boolean`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAlignment(Value As String)`
-- `setAutoResize(Value As Boolean)`
-- `setClickToClose(Value As Boolean)`
-- `setDuration(Value As Int)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setMessage(Value As String)`
-- `setPosition(Value As String)`
-- `setShowArrow(Value As Boolean)`
-- `setTextWrapped(Value As Boolean)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(b As Boolean)`
-- `setWidth(Value As Int)`
+- `Hide`
+- `HideAnimated(iDurationMs As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAlignment(sValue As String)`
+- `setAutoResize(bValue As Boolean)`
+- `setClickToClose(bValue As Boolean)`
+- `SetCustomContent(vCustomView As B4XView)`
+- `setDuration(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMessage(sValue As String)`
+- `setPosition(sValue As String)`
+- `setShowArrow(bValue As Boolean)`
+- `setTextWrapped(bValue As Boolean)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Show`
+- `ShowAnimated(iDuration As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Horizontally stacked row of overlapping avatars with an optional "limit" count bubble (e.g. "+5 more").
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyAvatarGroup`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyAvatarGroup.bas`
-- **Verified Demos**: `B4XPageAvatar.bas, B4XPageAvatarGroup.bas`
 - **Web DaisyUI Mapping**: `.avatar-group` → `B4XDaisyAvatarGroup`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -55,21 +54,16 @@ None declared.
 
 ## 6. Public Methods & APIs
 - `AddAvatar(Avatar As B4XDaisyAvatar) As Int`
-- `AddAvatarView(ChildView As B4XView, Tag As Object) As Int`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddAvatarView(vChildView As B4XView, oTag As Object) As Int`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `applyActiveTheme`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
-- `applyActiveTheme`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAvatarSize As Object`
+- `GetComputedHeight As Int`
 - `getCount As Int`
 - `getHeight As Float`
 - `getLeft As Int`
@@ -81,17 +75,23 @@ None declared.
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setAvatarSize(Value As Object)`
-- `setHeight(Value As Object)`
-- `setLeft(Value As Int)`
-- `setLimitTo(Value As Int)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setSpacing(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAvatarSize(oValue As Object)`
+- `setHeight(oValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLimitTo(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setSpacing(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

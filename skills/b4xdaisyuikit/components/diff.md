@@ -2,11 +2,10 @@
 
 Visual comparison viewer with a draggable split slider to compare two images or text views side by side.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDiff`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyDiff.bas`
-- **Verified Demos**: `B4XPageDiff.bas`
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -52,18 +51,12 @@ y = y + 220dip + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `UpdateTheme`
 - `getDiffType As String`
 - `getEnabled As Boolean`
 - `getHeight As String`
@@ -83,30 +76,37 @@ None declared.
 - `getTextSize As String`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setDiffType(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setImage1(Value As String)`
-- `setImage2(Value As String)`
-- `setItem1(View As B4XView)`
-- `setItem2(View As B4XView)`
-- `setLeft(Value As Int)`
-- `setPosition(Value As Float)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setText1(Value As String)`
-- `setText1Color(Value As String)`
-- `setText2(Value As String)`
-- `setText2Color(Value As String)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setDiffType(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setImage1(sValue As String)`
+- `setImage2(sValue As String)`
+- `setItem1(vAView As B4XView)`
+- `setItem2(vAView As B4XView)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setPosition(fValue As Float)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText1(sValue As String)`
+- `setText1Color(sValue As String)`
+- `setText2(sValue As String)`
+- `setText2Color(sValue As String)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

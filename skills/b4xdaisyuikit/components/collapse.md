@@ -2,11 +2,10 @@
 
 Expandable/collapsible content disclosure panel with arrow indicator and smooth animations.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCollapse`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCollapse.bas`
-- **Verified Demos**: `B4XPageAccordion.bas, B4XPageCollapse.bas`
 - **Web DaisyUI Mapping**: `.collapse` → `B4XDaisyCollapse`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -28,7 +27,7 @@ y = y + col.GetComputedHeight + gap
 ## 4. Designer Properties
 | Key | Display name | Type | Default | Allowed values |
 |---|---|---|---|---|
-| Open | Open | Boolean | False |  |
+| Opened | Opened | Boolean | False |  |
 | Icon | Icon | String | none | none|arrow|plus |
 | Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
 | Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
@@ -52,23 +51,16 @@ y = y + col.GetComputedHeight + gap
 - `StateChanged (Open As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `CollapseContent As B4XDaisyCollapseContent`
 - `CollapseTitle As B4XDaisyCollapseTitle`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `RefreshContent`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Toggle`
-- `UpdateTheme`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBorderColor As String`
 - `getBorderStyle As String`
 - `getBorderWidth As String`
+- `GetComputedHeight As Int`
 - `getContentView As B4XView`
 - `getGroupName As String`
 - `getHeight As Int`
@@ -76,6 +68,7 @@ y = y + col.GetComputedHeight + gap
 - `getIconPosition As String`
 - `getLeft As Int`
 - `getOpen As Boolean`
+- `getOpened As Boolean`
 - `getRounded As String`
 - `getShadow As String`
 - `getTag As Object`
@@ -91,30 +84,40 @@ y = y + col.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setBorderColor(Value As String)`
-- `setBorderStyle(Value As String)`
-- `setBorderWidth(Value As String)`
-- `setGroupName(Value As String)`
-- `setHeight(Value As Int)`
-- `setIcon(Value As String)`
-- `setIconPosition(Value As String)`
-- `setLeft(Value As Int)`
-- `setOpen(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTitleBackgroundColor(Value As Int)`
-- `setTitleColor(Value As Int)`
-- `setTitleIconColor(Value As Int)`
-- `setTitleIconName(Value As String)`
-- `setTitleSize(Value As String)`
-- `setTitleText(Value As String)`
-- `setTitleTextColor(Value As Int)`
-- `setTitleVariant(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RefreshContent`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBorderColor(sValue As String)`
+- `setBorderStyle(sValue As String)`
+- `setBorderWidth(sValue As String)`
+- `setGroupName(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setIcon(sValue As String)`
+- `setIconPosition(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOpen(bValue As Boolean)`
+- `setOpened(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTitleBackgroundColor(iValue As Int)`
+- `setTitleColor(iValue As Int)`
+- `setTitleIconColor(iValue As Int)`
+- `setTitleIconName(sValue As String)`
+- `setTitleSize(sValue As String)`
+- `setTitleText(sValue As String)`
+- `setTitleTextColor(iValue As Int)`
+- `setTitleVariant(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `Toggle`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `Content As B4XDaisyCollapseContent`

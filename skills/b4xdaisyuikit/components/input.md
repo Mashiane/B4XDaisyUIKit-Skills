@@ -2,11 +2,10 @@
 
 Single-line text input field with label, placeholder, icons, prefix/suffix, and validation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyInput`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyInput.bas`
-- **Verified Demos**: `B4XPageColorWheel.bas, B4XPageEnjoyHint.bas, B4XPageFieldset.bas, B4XPageFocus.bas, B4XPageInput.bas, B4XPageNavScrollDock.bas, B4XPageScrollDemo.bas, B4XPageSheetModal.bas, B4XPageTextarea.bas`
 - **Web DaisyUI Mapping**: `.input` → `B4XDaisyInput`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -94,30 +93,15 @@ y = y + inp.GetComputedHeight + gap
 - `Clear`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `CheckValidation As Boolean`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `GetValidationError As String`
-- `Initialize(Callback As Object, EventName As String)`
-- `ReceiveFocus`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `Revalidate`
-- `SelectAll`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetSelection(StartPos As Int, Length As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
 - `getAllCaps As Boolean`
 - `getAlpha As Float`
 - `getAppendColor As Int`
@@ -126,7 +110,9 @@ y = y + inp.GetComputedHeight + gap
 - `getAutoHeight As Boolean`
 - `getBackgroundColor As Int`
 - `getClearIcon As String`
+- `GetComputedHeight As Int`
 - `getCursorVisible As Boolean`
+- `getDateFormat As String`
 - `getEditText As B4XView`
 - `getEnabled As Boolean`
 - `getErrorText As String`
@@ -138,6 +124,7 @@ y = y + inp.GetComputedHeight + gap
 - `getIconRight As String`
 - `getImeOptions As String`
 - `getInputType As String`
+- `getIs24Hours As Boolean`
 - `getIsBlank As Boolean`
 - `getIsFocused As Boolean`
 - `getIsValid As Boolean`
@@ -146,10 +133,12 @@ y = y + inp.GetComputedHeight + gap
 - `getLabelRight As String`
 - `getLeft As Int`
 - `getLetterSpacing As Float`
+- `getMaxDate As String`
 - `getMaxLength As Int`
 - `getMaxLengthErrorText As String`
 - `getMaxLines As Int`
 - `getMaxValue As String`
+- `getMinDate As String`
 - `getMinLength As Int`
 - `getMinLengthErrorText As String`
 - `getMinLines As Int`
@@ -174,76 +163,99 @@ y = y + inp.GetComputedHeight + gap
 - `getTag As Object`
 - `getText As String`
 - `getTextColor As Int`
+- `getTimeFormat As String`
 - `getTop As Int`
 - `getTypeface As String`
+- `GetValidationError As String`
 - `getValidationPattern As String`
 - `getValidationState As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAllCaps(Value As Boolean)`
-- `setAlpha(Value As Float)`
-- `setAppendColor(Value As Int)`
-- `setAppendIcon(Value As String)`
-- `setAppendIconColor(Value As Int)`
-- `setAutoHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setClearIcon(Value As String)`
-- `setCursorVisible(Value As Boolean)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFloatingLabel(Value As Boolean)`
-- `setFocus(Value As Boolean)`
-- `setGravity(Value As String)`
-- `setHeight(Value As Int)`
-- `setHintText(Value As String)`
-- `setIconLeft(Value As String)`
-- `setIconRight(Value As String)`
-- `setImeOptions(Value As String)`
-- `setInputType(Value As String)`
-- `setLabelAbove(Value As String)`
-- `setLabelLeft(Value As String)`
-- `setLabelRight(Value As String)`
-- `setLeft(Value As Int)`
-- `setLetterSpacing(Value As Float)`
-- `setMaxLength(Value As Int)`
-- `setMaxLengthErrorText(Value As String)`
-- `setMaxLines(Value As Int)`
-- `setMaxValue(Value As String)`
-- `setMinLength(Value As Int)`
-- `setMinLengthErrorText(Value As String)`
-- `setMinLines(Value As Int)`
-- `setMinValue(Value As String)`
-- `setNoAutoFill(Value As Boolean)`
-- `setPadding(Value As String)`
-- `setPasswordChar(Value As String)`
-- `setPatternErrorText(Value As String)`
-- `setPlaceholder(Value As String)`
-- `setPlaceholderColor(Value As Int)`
-- `setRadius(Value As String)`
-- `setReadOnly(Value As Boolean)`
-- `setRequired(Value As Boolean)`
-- `setRequiredErrorText(Value As String)`
-- `setRounded(Value As String)`
-- `setSearchIcon(Value As String)`
-- `setShadow(Value As String)`
-- `setShowClearButton(Value As String)`
-- `setSingleLine(Value As Boolean)`
-- `setSize(Value As String)`
-- `setStepValue(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTop(Value As Int)`
-- `setTypeface(Value As String)`
-- `setValidationPattern(Value As String)`
-- `setValidationState(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `Revalidate`
+- `SelectAll`
+- `SendToBack`
+- `setAllCaps(bValue As Boolean)`
+- `setAlpha(fValue As Float)`
+- `setAppendColor(iValue As Int)`
+- `setAppendIcon(sValue As String)`
+- `setAppendIconColor(iValue As Int)`
+- `setAutoHeight(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setClearIcon(sValue As String)`
+- `setCursorVisible(bValue As Boolean)`
+- `setDateFormat(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFloatingLabel(bValue As Boolean)`
+- `setFocus(bValue As Boolean)`
+- `setGravity(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setIconLeft(sValue As String)`
+- `setIconRight(sValue As String)`
+- `setImeOptions(sValue As String)`
+- `setInputType(sValue As String)`
+- `setIs24Hours(bValue As Boolean)`
+- `setLabelAbove(sValue As String)`
+- `setLabelLeft(sValue As String)`
+- `setLabelRight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLetterSpacing(fValue As Float)`
+- `setMaxDate(sValue As String)`
+- `setMaxLength(iValue As Int)`
+- `setMaxLengthErrorText(sValue As String)`
+- `setMaxLines(iValue As Int)`
+- `setMaxValue(sValue As String)`
+- `setMinDate(sValue As String)`
+- `setMinLength(iValue As Int)`
+- `setMinLengthErrorText(sValue As String)`
+- `setMinLines(iValue As Int)`
+- `setMinValue(sValue As String)`
+- `setNoAutoFill(bValue As Boolean)`
+- `setPadding(sValue As String)`
+- `setPasswordChar(sValue As String)`
+- `setPatternErrorText(sValue As String)`
+- `setPlaceholder(sValue As String)`
+- `setPlaceholderColor(iValue As Int)`
+- `setRadius(sValue As String)`
+- `setReadOnly(bValue As Boolean)`
+- `setRequired(bValue As Boolean)`
+- `setRequiredErrorText(sValue As String)`
+- `setRounded(sValue As String)`
+- `setSearchIcon(sValue As String)`
+- `SetSelection(iStartPos As Int, iLength As Int)`
+- `setShadow(sValue As String)`
+- `setShowClearButton(sValue As String)`
+- `setSingleLine(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStepValue(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTimeFormat(sValue As String)`
+- `setTop(iValue As Int)`
+- `setTypeface(sValue As String)`
+- `setValidationPattern(sValue As String)`
+- `setValidationState(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowDatePicker`
+- `ShowError(sErrorMessage As String)`
+- `ShowTimePicker`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

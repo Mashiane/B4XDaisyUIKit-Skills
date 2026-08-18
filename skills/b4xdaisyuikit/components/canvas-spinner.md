@@ -2,11 +2,10 @@
 
 Smooth vector loading spinner with multiple animation styles (dots, ring, bars, ball, infinity).
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCanvasSpinner`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCanvasSpinner.bas`
-- **Verified Demos**: `B4XPageCanvasSpinner.bas`
 - **Web DaisyUI Mapping**: `.canvas-spinner` → `B4XDaisyCanvasSpinner`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -40,22 +39,16 @@ y = y + 40dip + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddChild(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AttachTo(Target As B4XView) As B4XView`
-- `Base_Resize (Width As Double, Height As Double)`
+- `AddChild(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AttachTo(vTarget As B4XView) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Hide`
-- `Initialize(Callback As Object, EventName As String)`
-- `Resize(Width As Int, Height As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Show(Target As B4XView)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getColor1 As Int`
 - `getColor2 As Int`
 - `getColor3 As Int`
+- `GetComputedHeight As Int`
 - `getHeight As Int`
 - `getLeft As Int`
 - `getOverlayColor As Int`
@@ -65,18 +58,26 @@ None declared.
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setColor1(c As Int)`
-- `setColor2(c As Int)`
-- `setColor3(c As Int)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setOverlayColor(c As Int)`
-- `setOverlayOpacity(o As Float)`
-- `setSize(s As String)`
-- `setStrokeWidth(s As Float)`
-- `setTop(Value As Int)`
-- `setVisible(b As Boolean)`
-- `setWidth(Value As Int)`
+- `Hide`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Resize(iWidth As Int, iHeight As Int)`
+- `SendToBack`
+- `setColor1(iC As Int)`
+- `setColor2(iC As Int)`
+- `setColor3(iC As Int)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOverlayColor(iC As Int)`
+- `setOverlayOpacity(fO As Float)`
+- `setSize(sValue As String)`
+- `setStrokeWidth(fS As Float)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Show(vTarget As B4XView)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

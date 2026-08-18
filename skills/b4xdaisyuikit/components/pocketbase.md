@@ -2,11 +2,10 @@
 
 Integrated REST & RealTime backend client for connecting B4XDaisy apps to PocketBase databases, authentication, file storage, and live SSE subscriptions.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyPocketbase`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyPocketbase.bas`
-- **Verified Demos**: `B4XPagePocketbase.bas`
 - **Web DaisyUI Mapping**: `.pocketbase` → `B4XDaisyPocketbase`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,10 +47,11 @@ None declared.
 - `AfterSend (response As Object, data As Object)`
 
 ## 6. Public Methods & APIs
-- `GetJWTPayload(Token As String) As Map`
-- `Initialize(Module As Object, eventName As String, url As String, TableName As String) As B4XDaisyPocketBase`
-- `IsRecordValid(m As Map, props As List) As Boolean`
+- `GetJWTPayload(sToken As String) As Map`
+- `Initialize(oModule As Object, sEventName As String, sUrl As String, sTableName As String) As B4XDaisyPocketBase`
+- `IsRecordValid(mMap As Map, lstProps As List) As Boolean`
 - `ListKeys As ResumableSub`
+
 
 ## 7. Public Fields
 - `CountRecords As Boolean`

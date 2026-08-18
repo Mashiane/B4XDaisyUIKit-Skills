@@ -2,11 +2,10 @@
 
 The primary action trigger. Supports text, icons, loading states, sizes, variants, and styles.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyButton`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyButton.bas`
-- **Verified Demos**: `B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDock.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageHero.bas, B4XPageInput.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavbar.bas, B4XPageNavScrollDock.bas, B4XPageOverlay.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageScrollDemo.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageStat.bas, B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas, B4XPageToast.bas, B4XPageTooltip.bas`
 - **Web DaisyUI Mapping**: `.button` → `B4XDaisyButton`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -62,21 +61,11 @@ y = y + btn.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetEstimateContentWidth As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActive As Boolean`
 - `getBackgroundColor As Int`
 - `getBlock As Boolean`
@@ -84,8 +73,10 @@ y = y + btn.GetComputedHeight + gap
 - `getButtonSizeDip As Int`
 - `getCircle As Boolean`
 - `getClass As String`
+- `GetComputedHeight As Int`
 - `getDisabled As Boolean`
 - `getEnabled As Boolean`
+- `GetEstimateContentWidth As Int`
 - `getGlass As Boolean`
 - `getHeight As String`
 - `getIconColor As Int`
@@ -107,43 +98,51 @@ y = y + btn.GetComputedHeight + gap
 - `getTextColor As Int`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWide As Boolean`
 - `getWidth As String`
-- `setActive(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBlock(Value As Boolean)`
-- `setBorderColor(Value As Int)`
-- `setButtonSizeDip(Value As Int)`
-- `setCircle(Value As Boolean)`
-- `setClass(Value As String)`
-- `setDisabled(Value As Boolean)`
-- `setEnabled(Value As Boolean)`
-- `setFocus(Value As Boolean)`
-- `setGlass(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setIconColor(Value As Int)`
-- `setIconName(Value As String)`
-- `setIconSize(Value As Int)`
-- `setLeft(Value As Int)`
-- `setLoading(Value As Boolean)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setSquare(Value As Boolean)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextAlignment(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWide(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setActive(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBlock(bValue As Boolean)`
+- `setBorderColor(iValue As Int)`
+- `setButtonSizeDip(iValue As Int)`
+- `setCircle(bValue As Boolean)`
+- `setClass(sValue As String)`
+- `setDisabled(bValue As Boolean)`
+- `setEnabled(bValue As Boolean)`
+- `setFocus(bValue As Boolean)`
+- `setGlass(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setIconColor(iValue As Int)`
+- `setIconName(sValue As String)`
+- `setIconSize(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLoading(bValue As Boolean)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setSquare(bValue As Boolean)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextAlignment(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWide(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

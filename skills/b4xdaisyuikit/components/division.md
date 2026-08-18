@@ -2,11 +2,10 @@
 
 Generic styled container (div equivalent) supporting box-model styling, background colors, borders, shadows, and click handling.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDivision`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyDivision.bas`
-- **Verified Demos**: `B4XPageDivider.bas, B4XPageIndicator.bas, B4XPageSkeleton.bas, B4XPageStack.bas`
 - **Web DaisyUI Mapping**: `.division` → `B4XDaisyDivision`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -18,20 +17,19 @@ div.BackgroundColor = 0xFFF3F4F6
 div.Rounded = "rounded-xl"
 div.Shadow = "sm"
 
-' Add inner views to division content
+' Add inner views to division container
 Dim innerTxt As B4XDaisyText
 innerTxt.Initialize(Me, "innerTxt")
+innerTxt.AddToParent(div.View, 16dip, 16dip, maxW - 32dip, 40dip)
 innerTxt.Text = "Content wrapped in a styled division container"
-div.GetContentPanel.AddView(innerTxt.getView, 16dip, 16dip, maxW - 32dip, 40dip)
 y = y + div.GetComputedHeight + gap
-
 ```
 
 ## 3. Native Composition Rules & Gotchas
 - Generic styled container (`<div>` equivalent) for backgrounds, borders, padding, and shadows.
-- Mount child views into `div.GetContentPanel`.
+- Mount child views directly into `div.View` using `child.AddToParent(div.View, ...)` or `div.AddViewToContent(child.View, ...)`.
 - Set `IsSkeleton = True` to switch the container into an animated shimmer loading placeholder.
-- Use `BackgroundColorVariant` and `BorderColorVariant` to adhere to semantic theme tokens.
+- Use `Variant` (`"primary"`, `"neutral"`, `"accent"`, etc.) to adhere to semantic theme tokens.
 
 ## 4. Designer Properties
 | Key | Display name | Type | Default | Allowed values |
@@ -61,20 +59,12 @@ y = y + div.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Base_Resize (Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize (Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `StartAnimation`
-- `StopAnimation`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoReliefByStyle As Boolean`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
@@ -82,6 +72,7 @@ y = y + div.GetComputedHeight + gap
 - `getBorderReliefStrength As Int`
 - `getBorderStyle As String`
 - `getBorderWidth As Int`
+- `GetComputedHeight As Int`
 - `getHeight As Object`
 - `getIsSkeleton As Boolean`
 - `getLeft As Int`
@@ -99,33 +90,41 @@ y = y + div.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Object`
-- `setAutoReliefByStyle(Value As Boolean)`
-- `setAutoResize(Value As Boolean)`
-- `setBackgroundColor(Color As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBorderColor(Value As Int)`
-- `setBorderColorVariant(VariantName As String)`
-- `setBorderReliefStrength(Value As Int)`
-- `setBorderStyle(Value As String)`
-- `setBorderWidth(Value As Int)`
-- `setHeight(Value As Object)`
-- `setIsSkeleton(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setPlaceContentCenter(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Text As String)`
-- `setTextColor(Color As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTextSize(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoReliefByStyle(bValue As Boolean)`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iColor As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBorderColor(iValue As Int)`
+- `setBorderColorVariant(sVariantName As String)`
+- `setBorderReliefStrength(iValue As Int)`
+- `setBorderStyle(sValue As String)`
+- `setBorderWidth(iValue As Int)`
+- `setHeight(oValue As Object)`
+- `setIsSkeleton(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setPlaceContentCenter(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sText As String)`
+- `setTextColor(iColor As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTextSize(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `StartAnimation`
+- `StopAnimation`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

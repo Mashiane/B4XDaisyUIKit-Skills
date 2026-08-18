@@ -2,11 +2,10 @@
 
 Horizontal slider for numeric value selection with optional fill, tooltip, label, and step markers.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyRange`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyRange.bas`
-- **Verified Demos**: `B4XPageCanvasSpinner.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageRange.bas, B4XPageSignaturePad.bas, B4XPageTagSphere.bas`
 - **Web DaisyUI Mapping**: `.range` → `B4XDaisyRange`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -72,24 +71,12 @@ y = y + rng.getComputedHeight + gap
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `StopAnimation`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getComputedHeight As Int`
 - `getDisallowParentIntercept As Boolean`
 - `getEnabled As Boolean`
@@ -106,9 +93,9 @@ y = y + rng.getComputedHeight + gap
 - `getMaxValue As Int`
 - `getMinValue As Int`
 - `getProgressColor As Int`
-- `getRTL As Boolean`
 - `getRequired As Boolean`
 - `getRole As String`
+- `getRTL As Boolean`
 - `getShowFill As Boolean`
 - `getShowTooltip As Boolean`
 - `getShowValue As Boolean`
@@ -124,43 +111,56 @@ y = y + rng.getComputedHeight + gap
 - `getValuePrefix As String`
 - `getValueSuffix As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setDisallowParentIntercept(Value As Boolean)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFocus(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setHintText(Value As String)`
-- `setIconLeft(Value As String)`
-- `setIconRight(Value As String)`
-- `setIconSize(Value As Int)`
-- `setLabelAbove(Value As String)`
-- `setLabelVisible(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setMaxValue(Value As Int)`
-- `setMinValue(Value As Int)`
-- `setProgressColor(Value As Int)`
-- `setRTL(Value As Boolean)`
-- `setRequired(Value As Boolean)`
-- `setShowFill(Value As Boolean)`
-- `setShowTooltip(Value As Boolean)`
-- `setShowValue(Value As Boolean)`
-- `setSize(Value As String)`
-- `setStepValue(Value As Int)`
-- `setTag(Value As Object)`
-- `setThumbColor(Value As Int)`
-- `setTooltipOpen(Value As Boolean)`
-- `setTooltipPosition(Value As String)`
-- `setTop(Value As Int)`
-- `setTrackColor(Value As Int)`
-- `setValue(Value As Int)`
-- `setValuePrefix(Value As String)`
-- `setValueSuffix(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setDisallowParentIntercept(bValue As Boolean)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFocus(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setHintText(sValue As String)`
+- `setIconLeft(sValue As String)`
+- `setIconRight(sValue As String)`
+- `setIconSize(iValue As Int)`
+- `setLabelAbove(sValue As String)`
+- `setLabelVisible(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxValue(iValue As Int)`
+- `setMinValue(iValue As Int)`
+- `setProgressColor(iValue As Int)`
+- `setRequired(bValue As Boolean)`
+- `setRTL(bValue As Boolean)`
+- `setShowFill(bValue As Boolean)`
+- `setShowTooltip(bValue As Boolean)`
+- `setShowValue(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStepValue(iValue As Int)`
+- `setTag(oValue As Object)`
+- `setThumbColor(iValue As Int)`
+- `setTooltipOpen(bValue As Boolean)`
+- `setTooltipPosition(sValue As String)`
+- `setTop(iValue As Int)`
+- `setTrackColor(iValue As Int)`
+- `setValue(iValue As Int)`
+- `setValuePrefix(sValue As String)`
+- `setValueSuffix(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `ShowError(sErrorMessage As String)`
+- `StopAnimation`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

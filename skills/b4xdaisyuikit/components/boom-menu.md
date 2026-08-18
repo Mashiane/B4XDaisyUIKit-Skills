@@ -2,11 +2,10 @@
 
 Multi-directional animated radial/boom button menu that explodes child buttons in circular, grid, or line patterns.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyBoomMenu`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyBoomMenu.bas`
-- **Verified Demos**: `B4XPageBoomMenu.bas`
 - **Web DaisyUI Mapping**: `.boom-menu` → `B4XDaisyBoomMenu`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -76,34 +75,19 @@ bm.AddButton("action2", "heart-solid.svg", xui.Color_Blue)
 - `DidHide`
 
 ## 6. Public Methods & APIs
-- `AddButton(Text As String, IconName As String, TagValue As Object) As Int`
-- `AddButtonEx(Text As String, IconName As String, TagValue As Object, Visible As Boolean) As Int`
-- `AddHamButton(Title As String, SubText As String, IconName As String, TagValue As Object) As Int`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddButton(sText As String, sIconName As String, oTagValue As Object) As Int`
+- `AddButtonEx(sText As String, sIconName As String, oTagValue As Object, bVisible As Boolean) As Int`
+- `AddHamButton(sTitle As String, sSubText As String, sIconName As String, oTagValue As Object) As Int`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Boom`
-- `BuildRuntimeProps As Map`
-- `ClearButtons`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetButtonCount As Int`
-- `GetButtonTag(Index As Int) As Object`
-- `GetButtonView(Index As Int) As B4XView`
-- `GetState As String`
-- `Initialize(Callback As Object, EventName As String)`
-- `Reboom`
-- `Refresh`
-- `RemoveButton(Index As Int)`
-- `RemoveViewFromParent`
-- `Reposition(Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetButtonSubText(Index As Int, SubText As String)`
-- `SetButtonTag(Index As Int, TagValue As Object)`
-- `SetButtonVisible(Index As Int, Value As Boolean)`
-- `Toggle`
-- `UpdateTheme`
 - `boombackdrop_Click`
 - `boombtn_Click`
-- `boombutton_Click(Tag As Object)`
-- `boomtrigger_Click(Tag As Object)`
+- `boombutton_Click(oTag As Object)`
+- `boomtrigger_Click(oTag As Object)`
+- `BuildRuntimeProps As Map`
+- `ClearButtons`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoBoom As Boolean`
 - `getAutoCloseOnActionClick As Boolean`
 - `getAutoCloseOnBackgroundClick As Boolean`
@@ -113,11 +97,14 @@ bm.AddButton("action2", "heart-solid.svg", xui.Color_Blue)
 - `getBoomType As String`
 - `getButtonColor As Int`
 - `getButtonCornerRadiusDip As Int`
+- `GetButtonCount As Int`
 - `getButtonGapDip As Int`
 - `getButtonPlace As String`
 - `getButtonPlaceAlignment As String`
 - `getButtonSizeDip As Int`
+- `GetButtonTag(iIndex As Int) As Object`
 - `getButtonType As String`
+- `GetButtonView(iIndex As Int) As B4XView`
 - `getDuration As Int`
 - `getEaseType As String`
 - `getEnabled As Boolean`
@@ -129,6 +116,7 @@ bm.AddButton("action2", "heart-solid.svg", xui.Color_Blue)
 - `getHideEaseType As String`
 - `getIsInitialized As Boolean`
 - `getOpen As Boolean`
+- `getOpened As Boolean`
 - `getOrderType As String`
 - `getPieceColor As Int`
 - `getPieceCornerRadiusDip As Int`
@@ -142,51 +130,66 @@ bm.AddButton("action2", "heart-solid.svg", xui.Color_Blue)
 - `getRotateDegree As Int`
 - `getRotateTrigger As Boolean`
 - `getShadowLevel As String`
+- `GetState As String`
 - `getTriggerIconName As String`
 - `getTriggerSizeDip As Int`
 - `getTriggerText As String`
 - `getVisible As Boolean`
-- `setAutoBoom(Value As Boolean)`
-- `setAutoCloseOnActionClick(Value As Boolean)`
-- `setAutoCloseOnBackgroundClick(Value As Boolean)`
-- `setBackdropColor(Value As Int)`
-- `setBackdropEnabled(Value As Boolean)`
-- `setBoomDelay(Value As Int)`
-- `setBoomType(Value As String)`
-- `setButtonColor(Value As Int)`
-- `setButtonCornerRadiusDip(Value As Int)`
-- `setButtonGapDip(Value As Int)`
-- `setButtonPlace(Value As String)`
-- `setButtonPlaceAlignment(Value As String)`
-- `setButtonSizeDip(Value As Int)`
-- `setButtonType(Value As String)`
-- `setDuration(Value As Int)`
-- `setEaseType(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setHamButtonHeightDip(Value As Int)`
-- `setHamButtonWidthDip(Value As Int)`
-- `setHamImageSizeDip(Value As Int)`
-- `setHamSubSize(Value As Int)`
-- `setHamTitleSize(Value As Int)`
-- `setHideEaseType(Value As String)`
-- `setOpen(Value As Boolean)`
-- `setOrderType(Value As String)`
-- `setPieceColor(Value As Int)`
-- `setPieceCornerRadiusDip(Value As Int)`
-- `setPieceHMarginDip(Value As Float)`
-- `setPieceIMarginDip(Value As Float)`
-- `setPiecePlace(Value As String)`
-- `setPieceSizeDip(Value As Int)`
-- `setPieceVMarginDip(Value As Float)`
-- `setReboomDelay(Value As Int)`
-- `setRotateButtons(Value As Boolean)`
-- `setRotateDegree(Value As Int)`
-- `setRotateTrigger(Value As Boolean)`
-- `setShadowLevel(Value As String)`
-- `setTriggerIconName(Value As String)`
-- `setTriggerSizeDip(Value As Int)`
-- `setTriggerText(Value As String)`
-- `setVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Reboom`
+- `Refresh`
+- `RemoveButton(iIndex As Int)`
+- `RemoveViewFromParent`
+- `Reposition(iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setAutoBoom(bValue As Boolean)`
+- `setAutoCloseOnActionClick(bValue As Boolean)`
+- `setAutoCloseOnBackgroundClick(bValue As Boolean)`
+- `setBackdropColor(iValue As Int)`
+- `setBackdropEnabled(bValue As Boolean)`
+- `setBoomDelay(iValue As Int)`
+- `setBoomType(sValue As String)`
+- `setButtonColor(iValue As Int)`
+- `setButtonCornerRadiusDip(iValue As Int)`
+- `setButtonGapDip(iValue As Int)`
+- `setButtonPlace(sValue As String)`
+- `setButtonPlaceAlignment(sValue As String)`
+- `setButtonSizeDip(iValue As Int)`
+- `SetButtonSubText(iIndex As Int, sSubText As String)`
+- `SetButtonTag(iIndex As Int, oTagValue As Object)`
+- `setButtonType(sValue As String)`
+- `SetButtonVisible(iIndex As Int, bValue As Boolean)`
+- `setDuration(iValue As Int)`
+- `setEaseType(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setHamButtonHeightDip(iValue As Int)`
+- `setHamButtonWidthDip(iValue As Int)`
+- `setHamImageSizeDip(iValue As Int)`
+- `setHamSubSize(iValue As Int)`
+- `setHamTitleSize(iValue As Int)`
+- `setHideEaseType(sValue As String)`
+- `setOpen(bValue As Boolean)`
+- `setOpened(bValue As Boolean)`
+- `setOrderType(sValue As String)`
+- `setPieceColor(iValue As Int)`
+- `setPieceCornerRadiusDip(iValue As Int)`
+- `setPieceHMarginDip(fValue As Float)`
+- `setPieceIMarginDip(fValue As Float)`
+- `setPiecePlace(sValue As String)`
+- `setPieceSizeDip(iValue As Int)`
+- `setPieceVMarginDip(fValue As Float)`
+- `setReboomDelay(iValue As Int)`
+- `setRotateButtons(bValue As Boolean)`
+- `setRotateDegree(iValue As Int)`
+- `setRotateTrigger(bValue As Boolean)`
+- `setShadowLevel(sValue As String)`
+- `setTriggerIconName(sValue As String)`
+- `setTriggerSizeDip(iValue As Int)`
+- `setTriggerText(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `Toggle`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 None declared.

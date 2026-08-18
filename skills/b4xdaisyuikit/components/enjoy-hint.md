@@ -1,50 +1,63 @@
 # enjoy-hint (`B4XDaisyEnjoyHint`)
 
-Interactive onboarding and feature tour guide that highlights views on screen with a spotlight mask and step tooltip explanations.
+Interactive onboarding and feature tour guide that spotlights views on screen with a dark backdrop mask, directional arrows, and step tooltip explanations.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyEnjoyHint`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyEnjoyHint.bas`
-- **Verified Demos**: `B4XPageEnjoyHint.bas`
+- **Reference Page**: `B4XPageEnjoyHint.bas`
 - **Web DaisyUI Mapping**: `.enjoy-hint` → `B4XDaisyEnjoyHint`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim tour As B4XDaisyEnjoyHint
-tour.Initialize(Me, "tour")
-tour.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+Dim enjoyHint As B4XDaisyEnjoyHint
+enjoyHint.Initialize(Me, "enjoyHint", Root)
 
-' Add tour steps
-tour.AddStep("step1", btnAdd.getView, "Tap here to create a new task.", "circle", "top")
-tour.AddStep("step2", searchInput.getView, "Search existing records quickly.", "rect", "bottom")
-tour.AddStep("step3", btnSettings.getView, "Configure your workspace preferences.", "circle", "left")
+' Customize button labels
+enjoyHint.BtnNextText = "Next"
+enjoyHint.BtnSkipText = "Skip"
+enjoyHint.BtnPrevText = "Previous"
+enjoyHint.BtnFinishText = "Done"
 
-' Start the tour
-tour.StartTour
+' Add tour steps: (TargetView, Message, Shape, Margin, TimeoutMs, ArrowPosition)
+enjoyHint.AddStep(refAvatar.View, "This is your profile picture. Tap to change it.", "circle", 8dip, 0, "center")
+enjoyHint.AddStep(refNameInput.View, "Enter your full name here.", "rect", 4dip, 0, "left")
+enjoyHint.AddStep(refEmailInput.View, "Provide a valid email address.", "rect", 4dip, 0, "left")
+enjoyHint.AddStep(refSaveBtn.View, "Save your changes here.", "rect", 4dip, 0, "right")
 
+' Run the tour
+enjoyHint.RunWithResume
+```
+
+### Stop / Dismiss Tour
+```b4x
+enjoyHint.EndTour
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Interactive step-by-step onboarding walkthrough that spotlights UI elements.
-- Mount over `Root` so the spotlight dim overlay covers the entire screen.
-- Add steps via `AddStep(Id, TargetView, Description, Shape, Position)`.
-- `TargetView` must be an initialized, positioned `B4XView` on screen.
-- Start the tour using `tour.StartTour`.
+- Mount over `Root` during `Initialize(Me, "enjoyHint", Root)` so the backdrop overlay dims the full window.
+- The target view must be an initialized, laid-out `B4XView` (`view.View`).
+- `Shape` options: `"rect"`, `"circle"`.
+- `ArrowPosition` options: `"top"`, `"bottom"`, `"left"`, `"right"`, `"center"`.
+- Always dismiss with `enjoyHint.EndTour` on `B4XPage_Resize` or page exit if the tour is active.
 
 ## 4. Designer Properties
-None declared.
+None declared (runtime overlay helper).
 
 ## 5. Declared Events
-None declared.
+- `OnNextClick`
+- `OnSkipClick`
+- `OnPrevClick`
+- `OnFinishClick`
 
 ## 6. Public Methods & APIs
-- `AddStep(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ArrowPosition As String)`
-- `AddStep2(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ShowNext As Boolean, ShowSkip As Boolean, ShowPrev As Boolean, CloseOnOverlay As Boolean, ExplicitLeft As Int, ExplicitTop As Int, ExplicitRight As Int, ExplicitBottom As Int, PositionMode As String, ShadowColor As Int, Opacity As Float, ArrowPosition As String)`
-- `EndTour`
-- `Initialize (Callback As Object, EventName As String, Root As B4XView)`
-- `Recalc`
+- `Initialize(oCallback As Object, sEventName As String, vRoot As B4XView)`
+- `AddStep(vTarget As B4XView, sMessage As String, sShape As String, iMargin As Int, iTimeoutMs As Int, sArrowPosition As String)`
+- `AddStep2(vTarget As B4XView, sMessage As String, sShape As String, iMargin As Int, iTimeoutMs As Int, bShowNext As Boolean, bShowSkip As Boolean, bShowPrev As Boolean, bCloseOnOverlay As Boolean, iExplicitLeft As Int, iExplicitTop As Int, iExplicitRight As Int, iExplicitBottom As Int, sPositionMode As String, iShadowColor As Int, fOpacity As Float, sArrowPosition As String)`
 - `RunWithResume`
+- `EndTour`
+- `Recalc`
 
 ## 7. Public Fields
 - `BtnFinishText As String`

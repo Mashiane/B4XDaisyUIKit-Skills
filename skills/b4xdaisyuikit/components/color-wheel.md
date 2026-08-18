@@ -2,11 +2,10 @@
 
 Interactive circular color picker wheel with hue/saturation spectrum, lightness slider, and hex value preview.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyColorWheel`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyColorWheel.bas`
-- **Verified Demos**: `B4XPageColorWheel.bas`
 - **Web DaisyUI Mapping**: `.color-wheel` → `B4XDaisyColorWheel`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -40,25 +39,20 @@ y = y + 200dip + gap
 - `Changed (Color As Int)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AttachTo(Target As B4XView)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AttachTo(vTarget As B4XView)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getCenterOnParent As Boolean`
 - `getColor As Int`
-- `getHSL As Float`
-- `getHSV As Float`
 - `getHandleDiameter As Int`
 - `getHandleSize As Int`
 - `getHeight As Int`
 - `getHex As String`
+- `getHSL As Float`
+- `getHSV As Float`
 - `getIndicatorHeight As Int`
 - `getInitialColor As Int`
 - `getLeft As Int`
@@ -66,34 +60,40 @@ y = y + 200dip + gap
 - `getShadow As String`
 - `getShowColorIndicator As Boolean`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWheelDiameter As Int`
 - `getWheelReflectsSaturation As Boolean`
 - `getWheelThickness As Int`
 - `getWidth As Int`
-- `setCenterOnParent(Value As Boolean)`
-- `setColor(NewColor As Int)`
-- `setHSL(hsl() As Float`
-- `setHSV(hsv() As Float`
-- `setHSV3(Hue As Float, Saturation As Float, Value As Float)`
-- `setHandleDiameter(Size As Int)`
-- `setHandleSize(Size As Int)`
-- `setHeight(Value As Int)`
-- `setHex(hexStr As String)`
-- `setIndicatorHeight(HeightDip As Int)`
-- `setInitialColor(Value As Int)`
-- `setLeft(Value As Int)`
-- `setRGB(rgb() As Int`
-- `setShadow(Value As String)`
-- `setShowColorIndicator(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWheelDiameter(Diameter As Int)`
-- `setWheelReflectsSaturation(Value As Boolean)`
-- `setWheelThickness(Thickness As Int)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `SendToBack`
+- `setCenterOnParent(bValue As Boolean)`
+- `setColor(iNewColor As Int)`
+- `setHandleDiameter(iSize As Int)`
+- `setHandleSize(iSize As Int)`
+- `setHeight(iValue As Int)`
+- `setHex(sHexStr As String)`
+- `setHSL(oHsl() As Float`
+- `setHSV(oHsv() As Float`
+- `setHSV3(fHue As Float, fSaturation As Float, fValue As Float)`
+- `setIndicatorHeight(iHeightDip As Int)`
+- `setInitialColor(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setRGB(oRgb() As Int`
+- `setShadow(sValue As String)`
+- `setShowColorIndicator(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWheelDiameter(iDiameter As Int)`
+- `setWheelReflectsSaturation(bValue As Boolean)`
+- `setWheelThickness(iThickness As Int)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Accordion groups multiple collapse panels — only one can be open at a time
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyAccordion`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyAccordion.bas`
-- **Verified Demos**: `B4XPageAccordion.bas`
 - **Web DaisyUI Mapping**: `.accordion` → `B4XDaisyAccordion`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -50,24 +49,12 @@ y = y + acc.GetComputedHeight + gap
 
 ## 6. Public Methods & APIs
 - `AddItem(Item As B4XDaisyCollapse)`
-- `AddItemBasic(ItemTag As Object, Icon As String, Title As String) As B4XDaisyCollapse`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddItemBasic(oItemTag As Object, sIcon As String, sTitle As String) As B4XDaisyCollapse`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetComputedHeight As Int`
-- `HandleChildRequestOpen(RequestedChild As B4XDaisyCollapse)`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemActive(ItemTag As Object, Value As Boolean)`
-- `SetItemTitle(ItemTag As Object, Title As String)`
-- `SetItemTitleIcon(ItemTag As Object, IconName As String)`
-- `SetItemVariant(ItemTag As Object, Variant As String)`
-- `SetItemVisible(ItemTag As Object, Value As Boolean)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `UpdateTheme`
 - `getGroupName As String`
 - `getHeight As Int`
 - `getIcon As String`
@@ -81,19 +68,33 @@ y = y + acc.GetComputedHeight + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setGroupName(Value As String)`
-- `setHeight(Value As Int)`
-- `setIcon(Value As String)`
-- `setIconPosition(Value As String)`
-- `setLeft(Value As Int)`
-- `setOpenOnlyOne(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setSpaceY(Value As Int)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `HandleChildRequestOpen(RequestedChild As B4XDaisyCollapse)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setGroupName(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setIcon(sValue As String)`
+- `setIconPosition(sValue As String)`
+- `SetItemActive(oItemTag As Object, bValue As Boolean)`
+- `SetItemTitle(oItemTag As Object, sTitle As String)`
+- `SetItemTitleIcon(oItemTag As Object, sIconName As String)`
+- `SetItemVariant(oItemTag As Object, sVariant As String)`
+- `SetItemVisible(oItemTag As Object, bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOpenOnlyOne(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSpaceY(iValue As Int)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Visual separator line with optional text label, horizontal or vertical orientation, and theme color variants.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyDivider`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyDivider.bas`
-- **Verified Demos**: `B4XPageDivider.bas`
 - **Web DaisyUI Mapping**: `.divider` → `B4XDaisyDivider`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,20 +47,14 @@ y = y + 20dip + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
 - `getBackgroundColor As Int`
+- `GetComputedHeight As Int`
 - `getDebugBorders As Boolean`
 - `getDirection As String`
 - `getGap As Float`
@@ -79,26 +72,33 @@ y = y + 20dip + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setDebugBorders(Value As Boolean)`
-- `setDirection(Value As String)`
-- `setGap(Value As Object)`
-- `setHeight(Value As Object)`
-- `setLeft(Value As Int)`
-- `setLineThickness(Value As Object)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setPlacement(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setDebugBorders(bValue As Boolean)`
+- `setDirection(sValue As String)`
+- `setGap(oValue As Object)`
+- `setHeight(oValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLineThickness(oValue As Object)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setPlacement(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

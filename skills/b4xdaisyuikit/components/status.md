@@ -2,11 +2,10 @@
 
 Small inline status dot/indicator for presence, connection, or availability states.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyStatus`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyStatus.bas`
-- **Verified Demos**: `B4XPageStatus.bas`
 - **Web DaisyUI Mapping**: `.status` → `B4XDaisyStatus`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -47,20 +46,16 @@ sts.Size = "sm"
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
-- `CenterInParent(Parent As B4XView)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `View As B4XView`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CenterInParent(vParent As B4XView)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAnimation As String`
 - `getBackgroundColor As Int`
 - `getClickable As Boolean`
+- `GetComputedHeight As Int`
 - `getDepth As Float`
 - `getHeight As Float`
 - `getMargin As String`
@@ -71,21 +66,26 @@ None declared.
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setAnimation(Value As String)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setClickable(Value As Boolean)`
-- `setDepth(Value As Float)`
-- `setHeight(Value As Object)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RemoveViewFromParent`
+- `setAnimation(sValue As String)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setClickable(bValue As Boolean)`
+- `setDepth(fValue As Float)`
+- `setHeight(oValue As Object)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

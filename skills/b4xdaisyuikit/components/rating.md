@@ -2,11 +2,10 @@
 
 Star/icon rating control with half-star support, custom icon shapes, and read-only mode.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyRating`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyRating.bas`
-- **Verified Demos**: `B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageRating.bas`
 - **Web DaisyUI Mapping**: `.rating` → `B4XDaisyRating`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -61,24 +60,12 @@ y = y + rt.getComputedHeight + gap
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `Blur`
 - `BringToFront`
 - `ClearError`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetItemColors(ItemColorList As List)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowError(ErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As Int`
 - `getAllowClear As Boolean`
 - `getComputedHeight As Int`
@@ -103,35 +90,48 @@ y = y + rt.getComputedHeight + gap
 - `getTop As Int`
 - `getValue As Float`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setActiveColor(Value As Int)`
-- `setAllowClear(Value As Boolean)`
-- `setBackgroundColorVariant(Variant As String)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFocus(Value As Boolean)`
-- `setGap(Value As Int)`
-- `setHalf(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setHintText(Value As String)`
-- `setIconStyle(Value As String)`
-- `setInactiveColor(Value As Int)`
-- `setLabelAbove(Value As String)`
-- `setLabelVisible(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setMaxValue(Value As Int)`
-- `setReadOnly(Value As Boolean)`
-- `setRequired(Value As Boolean)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColorVariant(Variant As String)`
-- `setTop(Value As Int)`
-- `setValue(Value As Float)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setActiveColor(iValue As Int)`
+- `setAllowClear(bValue As Boolean)`
+- `setBackgroundColorVariant(sVariant As String)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFocus(bValue As Boolean)`
+- `setGap(iValue As Int)`
+- `setHalf(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setHintText(sValue As String)`
+- `setIconStyle(sValue As String)`
+- `setInactiveColor(iValue As Int)`
+- `SetItemColors(lstItemColorList As List)`
+- `setLabelAbove(sValue As String)`
+- `setLabelVisible(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxValue(iValue As Int)`
+- `setReadOnly(bValue As Boolean)`
+- `setRequired(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColorVariant(sVariant As String)`
+- `setTop(iValue As Int)`
+- `setValue(fValue As Float)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

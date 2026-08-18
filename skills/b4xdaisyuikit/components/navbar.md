@@ -2,11 +2,10 @@
 
 App top bar with logo/title, action items, menu trigger, and optional search.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyNavbar`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyNavbar.bas`
-- **Verified Demos**: `B4XPageColorWheel.bas, B4XPageEnjoyHint.bas, B4XPageFabNavbar.bas, B4XPageNavbar.bas, B4XPageNavScrollDock.bas, B4XPagePDFView.bas, B4XPagePicker.bas, B4XPageSheetModal.bas`
 - **Web DaisyUI Mapping**: `.navbar` → `B4XDaisyNavbar`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -61,55 +60,50 @@ nv.BackLabel = "Back"
 - `Back (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddAvatarToEnd(ID As String, ImagePath As String, SizeDip As Int, Mask As String) As B4XDaisyAvatar`
-- `AddAvatarToStart(ID As String, ImagePath As String, SizeDip As Int, Mask As String) As B4XDaisyAvatar`
-- `AddBackButton(SizeDip As Int, Label As String)`
-- `AddButtonIconToCenter(ID As String, SizeDip As Int, Icon As String, Color As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddButtonIconToEnd(ID As String, SizeDip As Int, Icon As String, Color As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddButtonIconToStart(ID As String, SizeDip As Int, Icon As String, Color As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddButtonToCenter(ID As String, ButtonText As String, Variant As String, WidthDip As Int, HeightDip As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddButtonToEnd(ID As String, ButtonText As String, Variant As String, WidthDip As Int, HeightDip As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddButtonToStart(ID As String, ButtonText As String, Variant As String, WidthDip As Int, HeightDip As Int, Ghost As Boolean) As B4XDaisyButton`
-- `AddFabToCenter(ID As String, OverlayHost As B4XView, SizeDip As Int) As B4XDaisyFab`
-- `AddFabToEnd(ID As String, OverlayHost As B4XView, SizeDip As Int) As B4XDaisyFab`
-- `AddFabToStart(ID As String, OverlayHost As B4XView, SizeDip As Int) As B4XDaisyFab`
-- `AddHamburger(SizeDip As Int)`
-- `AddLogo(ImagePath As String, WidthDip As Int, HeightDip As Int, Mask As String) As B4XDaisyAvatar`
-- `AddSVGIconToEnd(ID As String, AssetPath As String, SizeDip As Int, Color As Int) As B4XDaisySvgIcon`
-- `AddSVGIconToStart(ID As String, AssetPath As String, SizeDip As Int, Color As Int) As B4XDaisySvgIcon`
-- `AddTitleToCenter(Title As String)`
-- `AddTitleToEnd(Title As String)`
-- `AddTitleToStart(Title As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddViewToCenter(v As B4XView, Width As Int, Height As Int)`
-- `AddViewToEnd(v As B4XView, Width As Int, Height As Int)`
-- `AddViewToStart(v As B4XView, Width As Int, Height As Int)`
-- `BackBtn_Click(Tag As Object)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddAvatarToEnd(sID As String, sImagePath As String, iSizeDip As Int, sMask As String) As B4XDaisyAvatar`
+- `AddAvatarToStart(sID As String, sImagePath As String, iSizeDip As Int, sMask As String) As B4XDaisyAvatar`
+- `AddBackButton(iSizeDip As Int, sLabel As String)`
+- `AddButtonIconToCenter(sID As String, iSizeDip As Int, sIcon As String, iColor As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddButtonIconToEnd(sID As String, iSizeDip As Int, sIcon As String, iColor As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddButtonIconToStart(sID As String, iSizeDip As Int, sIcon As String, iColor As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddButtonToCenter(sID As String, sButtonText As String, sVariant As String, iWidthDip As Int, iHeightDip As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddButtonToEnd(sID As String, sButtonText As String, sVariant As String, iWidthDip As Int, iHeightDip As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddButtonToStart(sID As String, sButtonText As String, sVariant As String, iWidthDip As Int, iHeightDip As Int, bGhost As Boolean) As B4XDaisyButton`
+- `AddFabToCenter(sID As String, vOverlayHost As B4XView, iSizeDip As Int) As B4XDaisyFab`
+- `AddFabToEnd(sID As String, vOverlayHost As B4XView, iSizeDip As Int) As B4XDaisyFab`
+- `AddFabToStart(sID As String, vOverlayHost As B4XView, iSizeDip As Int) As B4XDaisyFab`
+- `AddHamburger(iSizeDip As Int)`
+- `AddLogo(sImagePath As String, iWidthDip As Int, iHeightDip As Int, sMask As String) As B4XDaisyAvatar`
+- `AddSVGIconToEnd(sID As String, sAssetPath As String, iSizeDip As Int, iColor As Int) As B4XDaisySvgIcon`
+- `AddSVGIconToStart(sID As String, sAssetPath As String, iSizeDip As Int, iColor As Int) As B4XDaisySvgIcon`
+- `AddTitleToCenter(sTitle As String)`
+- `AddTitleToEnd(sTitle As String)`
+- `AddTitleToStart(sTitle As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddViewToCenter(vView As B4XView, iWidth As Int, iHeight As Int)`
+- `AddViewToEnd(vView As B4XView, iWidth As Int, iHeight As Int)`
+- `AddViewToStart(vView As B4XView, iWidth As Int, iHeight As Int)`
+- `BackBtn_Click(oTag As Object)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `ClearCenterSlot`
 - `ClearEndSlot`
 - `ClearStartSlot`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetCenterPanel As B4XView`
-- `GetComputedHeight As Int`
-- `GetEndPanel As B4XView`
-- `GetStartPanel As B4XView`
-- `Hamburger_Changed(State As String, Checked As Boolean)`
-- `Initialize(Callback As Object, EventName As String)`
-- `LogoAvatar_Click`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getBackgroundColor As Int`
 - `getBackLabel As String`
 - `getBackNudge As Int`
 - `getBackSize As Int`
 - `getBackVisible As Boolean`
-- `getBackgroundColor As Int`
+- `GetCenterPanel As B4XView`
+- `GetComputedHeight As Int`
+- `GetEndPanel As B4XView`
 - `getGlass As Boolean`
 - `getGlassSize As String`
+- `getHamburgerChecked As Boolean`
 - `getHamburgerSize As Int`
+- `getHamburgerSwap As B4XDaisySwap`
 - `getHamburgerVisible As Boolean`
 - `getHeight As Float`
 - `getLeft As Int`
@@ -122,6 +116,7 @@ nv.BackLabel = "Back"
 - `getPadding As Int`
 - `getRounded As String`
 - `getShadow As String`
+- `GetStartPanel As B4XView`
 - `getTag As Object`
 - `getTextColor As Int`
 - `getTitle As String`
@@ -129,40 +124,49 @@ nv.BackLabel = "Back"
 - `getTitleVisible As Boolean`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setBackLabel(Value As String)`
-- `setBackNudge(Value As Int)`
-- `setBackSize(Value As Int)`
-- `setBackVisible(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setGlass(Value As Boolean)`
-- `setGlassSize(Value As String)`
-- `setHamburgerSize(Value As Int)`
-- `setHamburgerVisible(Value As Boolean)`
-- `setHeight(Value As Object)`
-- `setLeft(Value As Int)`
-- `setLogoHeight(Value As Int)`
-- `setLogoImage(Value As String)`
-- `setLogoMask(Value As String)`
-- `setLogoPosition(Value As String)`
-- `setLogoVisible(Value As Boolean)`
-- `setLogoWidth(Value As Int)`
-- `setPadding(Value As Int)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTitle(Value As String)`
-- `setTitlePosition(Value As String)`
-- `setTitleVisible(Value As Boolean)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Hamburger_Changed(sState As String, bChecked As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `LogoAvatar_Click`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBackLabel(sValue As String)`
+- `setBackNudge(iValue As Int)`
+- `setBackSize(iValue As Int)`
+- `setBackVisible(bValue As Boolean)`
+- `setGlass(bValue As Boolean)`
+- `setGlassSize(sValue As String)`
+- `setHamburgerChecked(bValue As Boolean)`
+- `setHamburgerSize(iValue As Int)`
+- `setHamburgerVisible(bValue As Boolean)`
+- `setHeight(oValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLogoHeight(iValue As Int)`
+- `setLogoImage(sValue As String)`
+- `setLogoMask(sValue As String)`
+- `setLogoPosition(sValue As String)`
+- `setLogoVisible(bValue As Boolean)`
+- `setLogoWidth(iValue As Int)`
+- `setPadding(iValue As Int)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTitle(sValue As String)`
+- `setTitlePosition(sValue As String)`
+- `setTitleVisible(bValue As Boolean)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `ToggleHamburger`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `BackButton As B4XDaisyButton`

@@ -2,11 +2,10 @@
 
 Versatile content container with optional image, title, body, and action areas. Layout modes control image placement.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCard`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCard.bas`
-- **Verified Demos**: `B4XPageAura.bas, B4XPageCard.bas, B4XPageMediaPicker.bas`
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -66,33 +65,22 @@ y = y + crd.GetComputedHeight + gap
 
 ## 6. Public Methods & APIs
 - `AddAction(btn As B4XDaisyButton)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `ClearImage`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetActualHeight As Int`
-- `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `HideActions`
-- `HideImage`
-- `HideTitle`
-- `Initialize(Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetImage(Image As B4XBitmap)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ShowActions`
-- `ShowImage`
-- `ShowTitle`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActionsContainer As B4XView`
 - `getActionsCount As Int`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `getBackgroundColor As Int`
 - `getBodyContainer As B4XView`
 - `getBodyPartContainer As B4XView`
 - `getCardActions As B4XView`
 - `getCardBody As B4XView`
 - `getCardTitle As B4XView`
+- `GetComputedHeight As Int`
 - `getContainer As B4XView`
 - `getFigureContainer As B4XView`
 - `getHeight As String`
@@ -111,28 +99,42 @@ y = y + crd.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setHeight(Value As String)`
-- `setImageClasses(Value As String)`
-- `setImageHeight(Value As String)`
-- `setImagePath(Value As String)`
-- `setImageWidth(Value As String)`
-- `setLayoutMode(Value As String)`
-- `setLeft(Value As Int)`
-- `setPlaceItemsCenter(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTitle(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `HideActions`
+- `HideImage`
+- `HideTitle`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setHeight(sValue As String)`
+- `SetImage(bmpImage As B4XBitmap)`
+- `setImageClasses(sValue As String)`
+- `setImageHeight(sValue As String)`
+- `setImagePath(sValue As String)`
+- `setImageWidth(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLayoutMode(sValue As String)`
+- `setLeft(iValue As Int)`
+- `setPlaceItemsCenter(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTitle(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowActions`
+- `ShowImage`
+- `ShowTitle`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

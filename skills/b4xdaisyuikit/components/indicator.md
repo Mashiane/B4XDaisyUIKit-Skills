@@ -2,11 +2,10 @@
 
 Small badge or dot indicator overlaid on a parent view (notification count, online status dot, etc.).
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyIndicator`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyIndicator.bas`
-- **Verified Demos**: `B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas`
 - **Web DaisyUI Mapping**: `.indicator` → `B4XDaisyIndicator`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -54,29 +53,20 @@ ind.AttachTo(myButton.getView)
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AttachTo(Target As B4XView)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AttachTo(vTarget As B4XView)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `Decrement As Int`
-- `DecrementBy(Amount As Int) As Int`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `DecrementBy(iAmount As Int) As Int`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `DetachTarget`
-- `GetComputedHeight As Int`
-- `Increment As Int`
-- `IncrementBy(Amount As Int) As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `RefreshPlacement`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getCapValue As Int`
 - `getClickable As Boolean`
+- `GetComputedHeight As Int`
 - `getCounter As Boolean`
 - `getHeight As Int`
 - `getHorizontalPlacement As String`
@@ -95,29 +85,39 @@ ind.AttachTo(myButton.getView)
 - `getVerticalPlacement As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setCapValue(Value As Int)`
-- `setClickable(Value As Boolean)`
-- `setCounter(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setHorizontalPlacement(Value As String)`
-- `setIconAsset(Value As String)`
-- `setLeft(Value As Int)`
-- `setOffsetX(Value As Object)`
-- `setOffsetY(Value As Object)`
-- `setRounded(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTop(Value As Int)`
-- `setValue(Value As Int)`
-- `setVariant(Value As String)`
-- `setVerticalPlacement(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Increment As Int`
+- `IncrementBy(iAmount As Int) As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RefreshPlacement`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setCapValue(iValue As Int)`
+- `setClickable(bValue As Boolean)`
+- `setCounter(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setHorizontalPlacement(sValue As String)`
+- `setIconAsset(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOffsetX(oValue As Object)`
+- `setOffsetY(oValue As Object)`
+- `setRounded(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTop(iValue As Int)`
+- `setValue(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVerticalPlacement(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Non-blocking notification overlay with severity variants, auto-dismiss, and positioning.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyToast`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyToast.bas`
-- **Verified Demos**: `B4XPageCard.bas, B4XPageTagSphere.bas, B4XPageToast.bas`
 - **Web DaisyUI Mapping**: `.toast` → `B4XDaisyToast`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -46,32 +45,18 @@ toast.SuccessWithDuration("Saved!", 3000)
 - `NotificationClosed (View As B4XView)`
 
 ## 6. Public Methods & APIs
-- `ApplyDesignerProps(Props As Map)`
-- `AttachTo(View As B4XView)`
-- `AttachWithDuration(View As B4XView, DurationMs As Int)`
-- `Base_Resize (Width As Int, Height As Int)`
+- `ApplyDesignerProps(mProps As Map)`
+- `AttachTo(vHostView As B4XView)`
+- `AttachWithDuration(vHostView As B4XView, iDurationMs As Int)`
+- `Base_Resize(iWidth As Int, iHeight As Int)`
 - `BringToFront`
 - `Clear`
 - `CreateView As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `Detach(View As B4XView)`
-- `Error(Message As String)`
-- `ErrorWithDuration(Message As String, DurationMs As Int)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Detach(vHostView As B4XView)`
+- `Error(sMessage As String)`
+- `ErrorWithDuration(sMessage As String, iDurationMs As Int)`
 - `GetComputedHeight As Int`
-- `Hide`
-- `Info(Message As String)`
-- `InfoWithDuration(Message As String, DurationMs As Int)`
-- `Initialize (Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetPosition(Horizontal As String, Vertical As String)`
-- `SetRoot(Root1 As B4XView)`
-- `Show`
-- `Success(Message As String)`
-- `SuccessWithDuration(Message As String, DurationMs As Int)`
-- `Warning(Message As String)`
-- `WarningWithDuration(Message As String, DurationMs As Int)`
 - `getHeight As Int`
 - `getHorizontalAlignment As String`
 - `getLeft As Int`
@@ -80,14 +65,30 @@ toast.SuccessWithDuration("Saved!", 3000)
 - `getVerticalAlignment As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setHeight(Value As Int)`
-- `setHorizontalAlignment(Value As String)`
-- `setLeft(Value As Int)`
-- `setShowProgress(Value As Boolean)`
-- `setTop(Value As Int)`
-- `setVerticalAlignment(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Hide`
+- `Info(sMessage As String)`
+- `InfoWithDuration(sMessage As String, iDurationMs As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setHeight(iValue As Int)`
+- `setHorizontalAlignment(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `SetPosition(sHorizontal As String, sVertical As String)`
+- `SetRoot(vRoot1 As B4XView)`
+- `setShowProgress(bValue As Boolean)`
+- `setTop(iValue As Int)`
+- `setVerticalAlignment(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Show`
+- `Success(sMessage As String)`
+- `SuccessWithDuration(sMessage As String, iDurationMs As Int)`
+- `View As B4XView`
+- `Warning(sMessage As String)`
+- `WarningWithDuration(sMessage As String, iDurationMs As Int)`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

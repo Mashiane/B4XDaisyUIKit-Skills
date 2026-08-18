@@ -2,11 +2,10 @@
 
 Centered dialog overlay with title, content panel, backdrop, and action buttons.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyModal`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyModal.bas`
-- **Verified Demos**: `B4XPageColorWheel.bas, B4XPageModal.bas, B4XPagePicker.bas`
 - **Web DaisyUI Mapping**: `.modal` → `B4XDaisyModal`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -75,29 +74,22 @@ mdl.Show
 
 ## 6. Public Methods & APIs
 - `AddAction(btn As B4XDaisyButton)`
-- `AddActionButton(buttonID As String, buttonText As String, buttonColor As String) As B4XDaisyButton`
-- `AddToContent(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddActionButton(sButtonID As String, sButtonText As String, sButtonColor As String) As B4XDaisyButton`
+- `AddToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BodyWidth As Int`
 - `BringToFront`
 - `ClearActions`
 - `ClearBody`
 - `Close`
-- `CreateView(Parent As B4XView, Tag As Object)`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Show`
-- `ShowModal`
-- `getActionType As String`
+- `CreateView(vParent As B4XView, oTag As Object)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActionsContainer As B4XView`
 - `getActionsCount As Int`
 - `getActionsJustify As String`
 - `getActionsVariant As String`
+- `getActionType As String`
 - `getAnimated As Boolean`
 - `getBackdropColor As String`
 - `getBackdropOpacity As Int`
@@ -112,6 +104,7 @@ mdl.Show
 - `getCancelVariant As String`
 - `getCancelVisible As Boolean`
 - `getClickOutsideToClose As Boolean`
+- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getEnabled As Boolean`
 - `getFullScreen As Boolean`
@@ -134,54 +127,61 @@ mdl.Show
 - `getTitleColor As String`
 - `getTitleTextColor As String`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
 - `getYesButton As B4XDaisyButton`
 - `getYesCaption As String`
 - `getYesVariant As String`
 - `getYesVisible As Boolean`
-- `setActionType(Value As String)`
-- `setActionsJustify(Value As String)`
-- `setActionsVariant(Value As String)`
-- `setAnimated(Value As Boolean)`
-- `setBackdropColor(Value As String)`
-- `setBackdropOpacity(Value As Int)`
-- `setBackgroundColor(Value As String)`
-- `setBorderColor(Value As String)`
-- `setBorderWidth(Value As String)`
-- `setButtonsSize(Value As String)`
-- `setButtonsWidth(Value As String)`
-- `setCancelCaption(Value As String)`
-- `setCancelVariant(Value As String)`
-- `setCancelVisible(Value As Boolean)`
-- `setClickOutsideToClose(Value As Boolean)`
-- `setDuration(Value As Int)`
-- `setEnabled(Value As Boolean)`
-- `setFullScreen(Value As Boolean)`
-- `setGlassSize(Value As String)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setNoCaption(Value As String)`
-- `setNoVariant(Value As String)`
-- `setNoVisible(Value As Boolean)`
-- `setPadding(Value As String)`
-- `setPlacement(Value As String)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setShowCloseButton(Value As Boolean)`
-- `setSidebar(Value As Boolean)`
-- `setSidebarSide(Value As String)`
-- `setTag(Value As Object)`
-- `setTitle(Value As String)`
-- `setTitleColor(Value As String)`
-- `setTitleTextColor(Value As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
-- `setYesCaption(Value As String)`
-- `setYesVariant(Value As String)`
-- `setYesVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `SendToBack`
+- `setActionsJustify(sValue As String)`
+- `setActionsVariant(sValue As String)`
+- `setActionType(sValue As String)`
+- `setAnimated(bValue As Boolean)`
+- `setBackdropColor(sValue As String)`
+- `setBackdropOpacity(iValue As Int)`
+- `setBackgroundColor(sValue As String)`
+- `setBorderColor(sValue As String)`
+- `setBorderWidth(sValue As String)`
+- `setButtonsSize(sValue As String)`
+- `setButtonsWidth(sValue As String)`
+- `setCancelCaption(sValue As String)`
+- `setCancelVariant(sValue As String)`
+- `setCancelVisible(bValue As Boolean)`
+- `setClickOutsideToClose(bValue As Boolean)`
+- `setDuration(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setFullScreen(bValue As Boolean)`
+- `setGlassSize(sValue As String)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setNoCaption(sValue As String)`
+- `setNoVariant(sValue As String)`
+- `setNoVisible(bValue As Boolean)`
+- `setPadding(sValue As String)`
+- `setPlacement(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setShowCloseButton(bValue As Boolean)`
+- `setSidebar(bValue As Boolean)`
+- `setSidebarSide(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTitle(sValue As String)`
+- `setTitleColor(sValue As String)`
+- `setTitleTextColor(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `setYesCaption(sValue As String)`
+- `setYesVariant(sValue As String)`
+- `setYesVisible(bValue As Boolean)`
+- `Show`
+- `ShowModal`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 None declared.

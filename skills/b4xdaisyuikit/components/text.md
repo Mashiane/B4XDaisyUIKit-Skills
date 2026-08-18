@@ -2,11 +2,10 @@
 
 Versatile text label with heading levels, color variants, typography utilities, and skeleton loading state.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyText`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyText.bas`
-- **Verified Demos**: `B4XPageAccordion.bas, B4XPageAlert.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageCarousel.bas, B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageCollapse.bas, B4XPageCountdown.bas, B4XPageDiff.bas, B4XPageDock.bas, B4XPageDropdown.bas, B4XPageFieldset.bas, B4XPageFileInput.bas, B4XPageFilter.bas, B4XPageHero.bas, B4XPageHover3d.bas, B4XPageIconButton.bas, B4XPageInfoCard.bas, B4XPageInput.bas, B4XPageKbd.bas, B4XPageLabel.bas, B4XPageLink.bas, B4XPageList.bas, B4XPageMediaPicker.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavbar.bas, B4XPageOverlay.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageSelect.bas, B4XPageSignaturePad.bas, B4XPageSkeleton.bas, B4XPageStack.bas, B4XPageStat.bas, B4XPageSteps.bas, B4XPageSweetAlert.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageText.bas, B4XPageTextarea.bas, B4XPageTextRotate.bas, B4XPageTimeline.bas, B4XPageToast.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas, B4XPageTooltip.bas, B4XPageWindow.bas`
 - **Web DaisyUI Mapping**: `.text` → `B4XDaisyText`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -75,27 +74,11 @@ y = y + txt.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetPreferredHeight(MaxContentWidth As Int) As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `MeasureTextHeight As Float`
-- `MeasureTextWidth As Float`
-- `RefreshText`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetColorAndBorder(CBackgroundColor As Int, CBorderW As Float, CBorderC As Int, CornerRadius As Float)`
-- `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
-- `SetTextAlignment(Vertical As String, Horizontal As String)`
-- `StartAnimation`
-- `StopAnimation`
-- `UpdateTheme`
-- `View As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
@@ -103,6 +86,7 @@ y = y + txt.GetComputedHeight + gap
 - `getCapitalize As Boolean`
 - `getClickable As Boolean`
 - `getColor As Int`
+- `GetComputedHeight As Int`
 - `getEllipsize As String`
 - `getEnabled As Boolean`
 - `getFontBold As Boolean`
@@ -117,6 +101,7 @@ y = y + txt.GetComputedHeight + gap
 - `getLowerCase As Boolean`
 - `getMargin As String`
 - `getPadding As Float`
+- `GetPreferredHeight(iMaxContentWidth As Int) As Int`
 - `getRoundedBox As Boolean`
 - `getShadowColor As Int`
 - `getShadowDx As Float`
@@ -136,47 +121,62 @@ y = y + txt.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `setAutoResize(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBorderColor(Value As Int)`
-- `setBorderWidth(Value As Float)`
-- `setCapitalize(Value As Boolean)`
-- `setClickable(Value As Boolean)`
-- `setColor(BackgroundColor As Int)`
-- `setEllipsize(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setFontBold(Value As Boolean)`
-- `setHAlign(Value As String)`
-- `setHeading(Value As String)`
-- `setHeight(Value As Object)`
-- `setIsSkeleton(Value As Boolean)`
-- `setItalic(Value As Boolean)`
-- `setLeft(Value As Int)`
-- `setLetterSpacing(Value As Float)`
-- `setLink(Value As Boolean)`
-- `setLowerCase(Value As Boolean)`
-- `setMargin(Value As String)`
-- `setPadding(Value As Float)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadowColor(Value As Int)`
-- `setShadowDx(Value As Float)`
-- `setShadowDy(Value As Float)`
-- `setShadowRadius(Value As Float)`
-- `setSingleLine(Value As Boolean)`
-- `setStrikethrough(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setTextSize(Value As Object)`
-- `setTop(Value As Int)`
-- `setUnderline(Value As Boolean)`
-- `setUpperCase(Value As Boolean)`
-- `setUrl(Value As String)`
-- `setVAlign(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `MeasureTextHeight As Float`
+- `MeasureTextWidth As Float`
+- `RefreshText`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBorderColor(iValue As Int)`
+- `setBorderWidth(fValue As Float)`
+- `setCapitalize(bValue As Boolean)`
+- `setClickable(bValue As Boolean)`
+- `setColor(iBackgroundColor As Int)`
+- `SetColorAndBorder(iCBackgroundColor As Int, fCBorderW As Float, iCBorderC As Int, fCornerRadius As Float)`
+- `setEllipsize(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setFontBold(bValue As Boolean)`
+- `setHAlign(sValue As String)`
+- `setHeading(sValue As String)`
+- `setHeight(oValue As Object)`
+- `setIsSkeleton(bValue As Boolean)`
+- `setItalic(bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeftPos As Int, iTopPos As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setLetterSpacing(fValue As Float)`
+- `setLink(bValue As Boolean)`
+- `setLowerCase(bValue As Boolean)`
+- `setMargin(sValue As String)`
+- `setPadding(fValue As Float)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadowColor(iValue As Int)`
+- `setShadowDx(fValue As Float)`
+- `setShadowDy(fValue As Float)`
+- `setShadowRadius(fValue As Float)`
+- `setSingleLine(bValue As Boolean)`
+- `setStrikethrough(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `SetTextAlignment(sVertical As String, sHorizontal As String)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTextSize(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setUnderline(bValue As Boolean)`
+- `setUpperCase(bValue As Boolean)`
+- `setUrl(sValue As String)`
+- `setVAlign(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `StartAnimation`
+- `StopAnimation`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

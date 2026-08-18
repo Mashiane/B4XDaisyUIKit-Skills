@@ -2,11 +2,10 @@
 
 Full-width banner section with optional image background, overlay, content, and directional layout for landing-style pages.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyHero`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyHero.bas`
-- **Verified Demos**: `B4XPageHero.bas`
 - **Web DaisyUI Mapping**: `.hero` → `B4XDaisyHero`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -61,22 +60,17 @@ y = y + hr.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
 - `getBackgroundColorVariant As String`
 - `getBackgroundImage As String`
+- `GetComputedHeight As Int`
 - `getContentAlignment As String`
+- `GetContentPanel As B4XView`
 - `getDirection As String`
 - `getGap As String`
 - `getHeight As String`
@@ -94,28 +88,35 @@ y = y + hr.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setAutoResize(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(Value As String)`
-- `setBackgroundImage(Value As String)`
-- `setContentAlignment(Value As String)`
-- `setDirection(Value As String)`
-- `setGap(Value As String)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setOverlayColor(Value As Int)`
-- `setOverlayVisible(Value As Boolean)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sValue As String)`
+- `setBackgroundImage(sValue As String)`
+- `setContentAlignment(sValue As String)`
+- `setDirection(sValue As String)`
+- `setGap(sValue As String)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOverlayColor(iValue As Int)`
+- `setOverlayVisible(bValue As Boolean)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -2,11 +2,10 @@
 
 Tilt-responsive card wrapper that creates a 3D perspective effect when touched/hovered. Supports shine overlay, scaling, and custom content.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyHover3d`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyHover3d.bas`
-- **Verified Demos**: `B4XPageHover3d.bas`
 - **Web DaisyUI Mapping**: `.hover3d` → `B4XDaisyHover3d`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -65,20 +64,13 @@ y = y + h3d.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveAllViews`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `UpdateTheme`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getBackgroundColor As Int`
+- `GetComputedHeight As Int`
 - `getContentBackgroundColor As Int`
 - `getContentPadding As String`
 - `getContentPanel As B4XView`
@@ -103,31 +95,40 @@ y = y + h3d.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setContentBackgroundColor(Value As Int)`
-- `setContentPadding(Value As String)`
-- `setContentRounded(Value As String)`
-- `setContentShadow(Value As String)`
-- `setContentType(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setImage(Value As String)`
-- `setLeft(Value As Int)`
-- `setMargin(Value As String)`
-- `setMaxTilt(Value As Float)`
-- `setPadding(Value As String)`
-- `setPerspective(Value As Float)`
-- `setResetDuration(Value As Int)`
-- `setRounded(Value As String)`
-- `setScaleOnHover(Value As Float)`
-- `setShadow(Value As String)`
-- `setShineEffect(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveAllViews`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setContentBackgroundColor(iValue As Int)`
+- `setContentPadding(sValue As String)`
+- `setContentRounded(sValue As String)`
+- `setContentShadow(sValue As String)`
+- `setContentType(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `setImage(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setMaxTilt(fValue As Float)`
+- `setPadding(sValue As String)`
+- `setPerspective(fValue As Float)`
+- `setResetDuration(iValue As Int)`
+- `setRounded(sValue As String)`
+- `setScaleOnHover(fValue As Float)`
+- `setShadow(sValue As String)`
+- `setShineEffect(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

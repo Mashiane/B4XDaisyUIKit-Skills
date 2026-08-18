@@ -64,10 +64,10 @@ Since custom view modules reside inside the compiled `.b4xlib` archive, this map
 | `.stat` / `.info-card` | `B4XDaisyInfoCard` | `Title`, `Value`, `Description`, `IconAsset`, `Variant` | Single KPI metric card with icon, value highlight, and trend label. |
 | `.input`, `input[type="text"]`| `B4XDaisyInput` | `Text`, `Placeholder`, `LabelAbove`, `IconLeft`, `InputType`, `Validate` | Single-line text input with icons, floating label, and inline validation. |
 | `.kbd` | `B4XDaisyKbd` | `KeyText`, `Size`, `Variant`, `Clickable` | Keyboard shortcut key pill badge (e.g. ⌘K, Ctrl+C). |
-| `.link` | `B4XDaisyLink` | `Text`, `Variant`, `HoverUnderline`, `Url`, `Click` | Hyperlink text element with underline on hover and custom action. |
+| `.link` | `B4XDaisyText` *(Link=True)* | `Link`, `Underline`, `Url`, `setTextColorVariant` | Hyperlink text element with underline on hover and custom action. |
 | `.list` | `B4XDaisyList` | `AddItem`, `AddItemWithIcon`, `RemoveItem`, `ItemClick` | High-performance scrolling list with leading icons, titles, and chevrons. |
 | `.loading` | `B4XDaisyLoading` | `LoadingType`, `Variant`, `Size`, `Color` | Spinner indicator supporting dots, ring, ball, bars, and infinity styles. |
-| `.mask` | `B4XDaisyMask` | `Mask` (`circle`, `squircle`, `hexagon`, `heart`, `diamond`, `star`) | Vector shape clipping masks for avatars, images, and containers. |
+| `.mask` | `B4XDaisyAvatar` *(Mask)* | `SetAvatarMask` (`squircle`, `hexagon`, `heart`, `diamond`, `star`) | Vector shape clipping masks for avatars, images, and containers. |
 | `.menu` | `B4XDaisyMenu` | `AddMenuItem`, `AddSubMenu`, `ActiveId`, `MenuClick` | Multi-level vertical menu list with sub-items and collapsible categories. |
 | `.modal` | `B4XDaisyModal` | `Title`, `Message`, `Show`, `Dismiss`, `ConfirmText`, `CancelText` | Centered alert or confirmation popup dialog with action buttons. |
 | `.navbar` | `B4XDaisyNavbar` | `Title`, `ShowBackButton`, `AddStartAction`, `AddEndAction`, `Variant` | Top application navigation bar with title, back arrow, and action icons. |
@@ -89,7 +89,7 @@ Since custom view modules reside inside the compiled `.b4xlib` archive, this map
 | `.sheet-modal` | `B4XDaisySheetModal` | `Title`, `HeightPercent`, `Show`, `Dismiss`, `GetContentPanel` | Draggable bottom sheet modal with custom height and content slot. |
 | `.btn` (shine) / `.shine-button` | `B4XDaisyShineButton` | `Shape`, `Size`, `Variant`, `Checked`, `TriggerShine`, `SetSvgAsset` | Interactive like/heart/favorite toggle button with particle burst animations. |
 | `.signature-pad` | `B4XDaisySignaturePad` | `PenColor`, `PenWidth`, `Clear`, `GetBitmap`, `IsBlank` | Touch-drawing canvas for capturing digital signatures. |
-| `.skeleton` | `B4XDaisySkeleton` | `Shape`, `Width`, `Height`, `StartAnimation`, `StopAnimation` | Shimmering placeholder box for loading states before content arrives. |
+| `.skeleton` | `B4XDaisyDivision` *(Skeleton)* | `BackgroundColor` (`0xFFF3F4F6`), `Rounded`, `IsSkeleton` | Shimmering placeholder box for loading states before content arrives. |
 | `.stack` | `B4XDaisyStack` | `AddLayer`, `StackOffset`, `CardPerspective`, `TopLayerClick` | Visual deck of cards with offset layers and tap-to-cycle gestures. |
 | `.stat` | `B4XDaisyStat` | `AddStatBasic`, `SetStatIcon`, `SetStatBadge` | Metric card container with title, figure, and sub-text description. |
 | `.stat-item` / `.stat-value`| `B4XDaisyStatItem` | `Title`, `Value`, `Description`, `IconAsset`, `BadgeText` | Individual metric cell within a `B4XDaisyStat` container. |
@@ -103,7 +103,7 @@ Since custom view modules reside inside the compiled `.b4xlib` archive, this map
 | `.tag-sphere` / `3D tags` | `B4XDaisyTagSphere` | `Tags`, `Radius`, `AutoRotate`, `Speed`, `TagClick` | Interactive 3D spinning tag cloud sphere responding to drag gestures. |
 | `.text-rotate` | `B4XDaisyTextRotate` | `Words`, `Interval`, `AnimationType`, `TextColor`, `Start` | Text rotator cycling through headline words with vertical flip animations. |
 | `<p>`, `<span>`, `<h1>-<h6>`| `B4XDaisyText` | `Text`, `HeadingType`, `Variant`, `TextAlignment`, `Bold`, `Wrap` | Full typography component for titles, headings, body text, and labels. |
-| `.textarea`, `<textarea>` | `B4XDaisyTextarea` | `Text`, `Placeholder`, `LabelAbove`, `MaxLength`, `ShowCounter`, `Validate` | Multi-line text field with character count, auto-grow, and validation. |
+| `.textarea`, `<textarea>` | `B4XDaisyInput` *(SingleLine=False)* | `SingleLine=False`, `MaxLines`, `AutoHeight`, `LabelAbove`, `Placeholder`, `Validate` | Multi-line text field with character count, auto-grow, and validation. |
 | `.timeline` | `B4XDaisyTimeline` | `AddItem`, `Orientation`, `Snap`, `AddItemBasic` | Chronological activity feed and milestone tracker with status icons. |
 | `.toast` | `B4XDaisyToast` | `Show`, `Message`, `Variant`, `DurationMs`, `Position` | Non-blocking popup toast notification with auto-dismiss timer. |
 | `.toggle` | `B4XDaisyToggle` | `Checked`, `Text`, `Position`, `Variant`, `Size`, `Validate` | Switch toggle for binary on/off settings and preferences. |

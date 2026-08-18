@@ -2,11 +2,10 @@
 
 Page selector bar for multi-page data display.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyPagination`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyPagination.bas`
-- **Verified Demos**: `B4XPagePagination.bas`
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -52,29 +51,21 @@ y = y + 40dip + gap
 - `Changed (PageIndex As Int, ItemId As String)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
 - `BringToFront`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetActualPageCount As Int`
-- `GetItemCount As Int`
-- `GetItemIdAt(Index As Int) As String`
-- `GoToPage(Index As Int)`
-- `Initialize(Callback As Object, EventName As String)`
-- `NextPage`
-- `PrevPage`
-- `Refresh`
-- `SendToBack`
-- `SetItemDisabled(Id As String, Disabled As Boolean)`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As String`
 - `getActiveIndex As Int`
+- `GetActualPageCount As Int`
 - `getCircle As Boolean`
 - `getDisabled As Boolean`
 - `getEqualWidth As Boolean`
 - `getFirstText As String`
 - `getGapX As Int`
 - `getHeight As Int`
+- `GetItemCount As Int`
+- `GetItemIdAt(iIndex As Int) As String`
 - `getLastText As String`
 - `getLeft As Int`
 - `getNextText As String`
@@ -88,32 +79,41 @@ y = y + 40dip + gap
 - `getStyle As String`
 - `getTag As Object`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setActiveColor(Value As String)`
-- `setActiveIndex(Value As Int)`
-- `setCircle(Value As Boolean)`
-- `setDisabled(Value As Boolean)`
-- `setEqualWidth(Value As Boolean)`
-- `setFirstText(Value As String)`
-- `setGapX(Value As Int)`
-- `setHeight(Value As Int)`
-- `setLastText(Value As String)`
-- `setLeft(Value As Int)`
-- `setNextText(Value As String)`
-- `setPageCount(Value As Int)`
-- `setPrevText(Value As String)`
-- `setShadow(Value As String)`
-- `setShowFirstLast(Value As Boolean)`
-- `setShowPageNumbers(Value As Boolean)`
-- `setShowPrevNext(Value As Boolean)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `GoToPage(iIndex As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `NextPage`
+- `PrevPage`
+- `Refresh`
+- `SendToBack`
+- `setActiveColor(sValue As String)`
+- `setActiveIndex(iValue As Int)`
+- `setCircle(bValue As Boolean)`
+- `setDisabled(bValue As Boolean)`
+- `setEqualWidth(bValue As Boolean)`
+- `setFirstText(sValue As String)`
+- `setGapX(iValue As Int)`
+- `setHeight(iValue As Int)`
+- `SetItemDisabled(sId As String, bDisabled As Boolean)`
+- `setLastText(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setNextText(sValue As String)`
+- `setPageCount(iValue As Int)`
+- `setPrevText(sValue As String)`
+- `setShadow(sValue As String)`
+- `setShowFirstLast(bValue As Boolean)`
+- `setShowPageNumbers(bValue As Boolean)`
+- `setShowPrevNext(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

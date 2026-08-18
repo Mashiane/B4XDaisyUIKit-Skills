@@ -2,11 +2,10 @@
 
 Standard loading spinner indicator supporting multiple variants and sizes.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyLoading`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyLoading.bas`
-- **Verified Demos**: `B4XPageLoading.bas`
 - **Web DaisyUI Mapping**: `.loading` → `B4XDaisyLoading`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -41,31 +40,33 @@ y = y + 40dip + gap
 None declared.
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize (Width As Double, Height As Double)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView (Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize (Callback As Object, EventName As String)`
-- `RemoveViewFromParent`
-- `StartAnimation`
-- `StopAnimation`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getClickable As Boolean`
 - `getColor As Int`
+- `GetComputedHeight As Int`
 - `getSize As String`
 - `getSpeed As Int`
 - `getStyle As String`
 - `getTag As Object`
 - `getVariant As String`
 - `getVisible As Boolean`
-- `setClickable(Value As Boolean)`
-- `setColor(Value As Int)`
-- `setSize(Value As String)`
-- `setSpeed(Value As Int)`
-- `setStyle(Value As String)`
-- `setTag(Tag As Object)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `setClickable(bValue As Boolean)`
+- `setColor(iValue As Int)`
+- `setSize(sValue As String)`
+- `setSpeed(iValue As Int)`
+- `setStyle(sValue As String)`
+- `setTag(oTag As Object)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `StartAnimation`
+- `StopAnimation`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

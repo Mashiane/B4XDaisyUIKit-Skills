@@ -2,11 +2,10 @@
 
 Tabbed panel selector with content panels, icon tabs, scrollable overflow, and placement.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyTab`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyTab.bas`
-- **Verified Demos**: `B4XPageTab.bas`
 - **Web DaisyUI Mapping**: `.tab` → `B4XDaisyTab`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,34 +58,18 @@ y = y + tb.GetComputedHeight + gap
 - `TabClick (Index As Int)`
 
 ## 6. Public Methods & APIs
-- `AddTab(Text As String)`
-- `AddTabWithIcon(Text As String, IconText As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddTab(sText As String)`
+- `AddTabWithIcon(sText As String, sIconText As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `ClearTabs`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `GetTabContent(Index As Int) As B4XView`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `ResizeTab`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `SetTabContent(Index As Int, Content As B4XView)`
-- `SetTabContentText(Index As Int, Text As String)`
-- `SetTabDisabled(Index As Int, Disabled As Boolean)`
-- `SetTabTitle(Index As Int, Text As String)`
-- `SetTabTitleColor(Index As Int, Color As Int)`
-- `SetTabTitleTextColor(Index As Int, Color As Int)`
-- `SetTabVariant(Index As Int, Variant As String)`
-- `SetTabs(TabsList As List)`
-- `UpdateTheme`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getActiveColor As String`
 - `getActiveIndex As Int`
 - `getAlignment As String`
+- `GetComputedHeight As Int`
 - `getEnabled As Boolean`
 - `getHeight As String`
 - `getLeft As Int`
@@ -94,26 +77,43 @@ y = y + tb.GetComputedHeight + gap
 - `getScrollable As Boolean`
 - `getSize As String`
 - `getStyle As String`
+- `GetTabContent(iIndex As Int) As B4XView`
 - `getTabCount As Int`
 - `getTag As Object`
 - `getTop As Int`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `setActiveColor(Value As String)`
-- `setActiveIndex(Value As Int)`
-- `setAlignment(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setHeight(Value As String)`
-- `setLeft(Value As Int)`
-- `setPlacement(Value As String)`
-- `setScrollable(Value As Boolean)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As String)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `ResizeTab`
+- `SendToBack`
+- `setActiveColor(sValue As String)`
+- `setActiveIndex(iValue As Int)`
+- `setAlignment(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setPlacement(sValue As String)`
+- `setScrollable(bValue As Boolean)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `SetTabContent(iIndex As Int, vContent As B4XView)`
+- `SetTabContentText(iIndex As Int, sText As String)`
+- `SetTabDisabled(iIndex As Int, bDisabled As Boolean)`
+- `SetTabs(lstTabsList As List)`
+- `SetTabTitle(iIndex As Int, sText As String)`
+- `SetTabTitleColor(iIndex As Int, iColor As Int)`
+- `SetTabTitleTextColor(iIndex As Int, iColor As Int)`
+- `SetTabVariant(iIndex As Int, sVariant As String)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(sValue As String)`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

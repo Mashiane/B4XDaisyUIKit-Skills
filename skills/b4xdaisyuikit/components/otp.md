@@ -2,11 +2,10 @@
 
 Multi-box One-Time-Password (PIN / 2FA) verification entry component with auto-focus advance, masking, and completion event.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyOtp`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyOtp.bas`
-- **Verified Demos**: `B4XPageOtp.bas`
 - **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOtp`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -58,21 +57,17 @@ y = y + 56dip + gap
 - `DescriptionClick`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetComputedHeight As Int`
-- `HandleDeleteKey`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
 - `getDescription As String`
 - `getEnabled As Boolean`
 - `getErrorText As String`
 - `getFill As String`
-- `getFocusVariant As String`
 - `getFocused As Boolean`
+- `getFocusVariant As String`
 - `getGap As Int`
 - `getHintText As String`
 - `getInputType As String`
@@ -91,31 +86,36 @@ y = y + 56dip + gap
 - `getValidationState As String`
 - `getValue As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
-- `setDescription(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setErrorText(Value As String)`
-- `setFill(Value As String)`
-- `setFocus(Index As Int)`
-- `setFocusVariant(Value As String)`
-- `setGap(Value As Int)`
-- `setHintText(Value As String)`
-- `setInputType(Value As String)`
-- `setLabelAbove(Value As String)`
-- `setLength(Value As Int)`
-- `setPattern(Value As String)`
-- `setReadOnly(Value As Boolean)`
-- `setRequired(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setSeparators(Value As String)`
-- `setShape(Value As String)`
-- `setSize(Value As String)`
-- `setTag(Value As Object)`
-- `setValidationState(Value As String)`
-- `setValue(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
+- `HandleDeleteKey`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `setDescription(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFill(sValue As String)`
+- `setFocus(iIndex As Int)`
+- `setFocusVariant(sValue As String)`
+- `setGap(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setInputType(sValue As String)`
+- `setLabelAbove(sValue As String)`
+- `setLength(iValue As Int)`
+- `setPattern(sValue As String)`
+- `setReadOnly(bValue As Boolean)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setSeparators(sValue As String)`
+- `setShape(sValue As String)`
+- `setSize(sValue As String)`
+- `setTag(oValue As Object)`
+- `setValidationState(sValue As String)`
+- `setValue(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

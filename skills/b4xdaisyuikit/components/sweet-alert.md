@@ -2,11 +2,10 @@
 
 Rich dialog box with icon, text, input fields, confirm/cancel/deny buttons, and timer auto-close.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisySweetAlert`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisySweetAlert.bas`
-- **Verified Demos**: `B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas`
 - **Web DaisyUI Mapping**: `.sweet-alert` → `B4XDaisySweetAlert`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -108,27 +107,20 @@ End If
 
 ## 6. Public Methods & APIs
 - `BringToFront`
+- `btnCancel_Click(oTag As Object)`
+- `btnClose_Click(oTag As Object)`
+- `btnConfirm_Click(oTag As Object)`
+- `btnDeny_Click(oTag As Object)`
 - `Close`
-- `CloseWithReason(Reason As String)`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
+- `CloseWithReason(sReason As String)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActiveInputValue As Object`
-- `GetDismissReason As Map`
-- `Initialize(Callback As Object, Parent As B4XView, EventName As String)`
-- `Refresh`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Show`
-- `ShowAsync As ResumableSub`
-- `Update(Config As Map)`
-- `btnCancel_Click(Tag As Object)`
-- `btnClose_Click(Tag As Object)`
-- `btnConfirm_Click(Tag As Object)`
-- `btnDeny_Click(Tag As Object)`
 - `getAllowOutsideClick As Boolean`
 - `getBackgroundColor As Int`
 - `getCancelButtonText As String`
 - `getConfirmButtonText As String`
 - `getDenyButtonText As String`
+- `GetDismissReason As Map`
 - `getFooter As String`
 - `getHeight As Int`
 - `getIcon As String`
@@ -160,44 +152,53 @@ End If
 - `getVisible As Boolean`
 - `getWidth As Int`
 - `hideLoading`
-- `setAllowOutsideClick(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setCancelButtonText(Value As String)`
-- `setConfirmButtonText(Value As String)`
-- `setDenyButtonText(Value As String)`
-- `setFooter(Value As String)`
-- `setHeight(Value As Int)`
-- `setIcon(Value As String)`
-- `setIconColor(Value As Int)`
-- `setIconSize(Value As Int)`
-- `setInputErrorMessage(Value As String)`
-- `setInputLabel(Value As String)`
-- `setInputMax(Value As Int)`
-- `setInputMin(Value As Int)`
-- `setInputMultiple(Value As Boolean)`
-- `setInputOptions(Options As Map)`
-- `setInputPlaceholder(Value As String)`
-- `setInputRequired(Value As Boolean)`
-- `setInputStep(Value As Int)`
-- `setInputType(Value As String)`
-- `setInputValidator(Callback As Object, SubName As String)`
-- `setInputValue(Value As Object)`
-- `setLeft(Value As Int)`
-- `setParent(Parent As B4XView)`
-- `setReverseButtons(Value As Boolean)`
-- `setRounded(Value As String)`
-- `setShowCancelButton(Value As Boolean)`
-- `setShowCloseButton(Value As Boolean)`
-- `setShowConfirmButton(Value As Boolean)`
-- `setShowDenyButton(Value As Boolean)`
-- `setText(Value As String)`
-- `setTextColor(Value As Int)`
-- `setTimerMs(Value As Int)`
-- `setTitle(Value As String)`
-- `setTop(Value As Int)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, vParent As B4XView, sEventName As String)`
+- `Refresh`
+- `SendToBack`
+- `setAllowOutsideClick(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setCancelButtonText(sValue As String)`
+- `setConfirmButtonText(sValue As String)`
+- `setDenyButtonText(sValue As String)`
+- `setFooter(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setIcon(sValue As String)`
+- `setIconColor(iValue As Int)`
+- `setIconSize(iValue As Int)`
+- `setInputErrorMessage(sValue As String)`
+- `setInputLabel(sValue As String)`
+- `setInputMax(iValue As Int)`
+- `setInputMin(iValue As Int)`
+- `setInputMultiple(bValue As Boolean)`
+- `setInputOptions(mOptions As Map)`
+- `setInputPlaceholder(sValue As String)`
+- `setInputRequired(bValue As Boolean)`
+- `setInputStep(iValue As Int)`
+- `setInputType(sValue As String)`
+- `setInputValidator(oCallback As Object, sSubName As String)`
+- `setInputValue(oValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setParent(vParent As B4XView)`
+- `setReverseButtons(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShowCancelButton(bValue As Boolean)`
+- `setShowCloseButton(bValue As Boolean)`
+- `setShowConfirmButton(bValue As Boolean)`
+- `setShowDenyButton(bValue As Boolean)`
+- `setText(sValue As String)`
+- `setTextColor(iValue As Int)`
+- `setTimerMs(iValue As Int)`
+- `setTitle(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Show`
+- `ShowAsync As ResumableSub`
 - `showLoading`
+- `Update(mConfig As Map)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

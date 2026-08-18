@@ -2,11 +2,10 @@
 
 Visual countdown clock box showing days, hours, minutes, and seconds with flip or roll digit animations.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyCountdown`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyCountdown.bas`
-- **Verified Demos**: `B4XPageCountdown.bas`
 - **Web DaisyUI Mapping**: `.countdown` → `B4XDaisyCountdown`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -50,33 +49,23 @@ None declared.
 
 ## 6. Public Methods & APIs
 - `AddItem(Item As B4XDaisyCountdownItem)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsRunning As Boolean`
-- `Refresh`
-- `RemoveItem(Item As B4XDaisyCountdownItem)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `Start`
-- `Stop`
-- `UpdateTheme`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoStart As Boolean`
 - `getAutoWidth As Boolean`
 - `getBackgroundColor As String`
 - `getBorder As Boolean`
+- `GetComputedHeight As Int`
 - `getCountDownType As String`
 - `getFormat As String`
 - `getGap As String`
 - `getHeight As Int`
 - `getIsInitialized As Boolean`
-- `getItem(Index As Int) As B4XDaisyCountdownItem`
+- `getItem(iIndex As Int) As B4XDaisyCountdownItem`
 - `getItemsCount As Int`
 - `getLabelPosition As String`
 - `getLabels As String`
@@ -91,32 +80,43 @@ None declared.
 - `getTextSize As String`
 - `getTop As Int`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAutoStart(Value As Boolean)`
-- `setAutoWidth(Value As Boolean)`
-- `setBackgroundColor(Value As String)`
-- `setBorder(Value As Boolean)`
-- `setCountDownType(t As String)`
-- `setFormat(f As String)`
-- `setGap(Value As String)`
-- `setHeight(Value As Int)`
-- `setLabelPosition(Value As String)`
-- `setLabels(Value As String)`
-- `setLeft(Value As Int)`
-- `setOrientation(Value As String)`
-- `setOutline(Value As Boolean)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setShadow(Value As String)`
-- `setTag(Value As Object)`
-- `setTargetDate(Value As String)`
-- `setTextSize(Value As String)`
-- `setTop(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsRunning As Boolean`
+- `Refresh`
+- `RemoveItem(Item As B4XDaisyCountdownItem)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAutoStart(bValue As Boolean)`
+- `setAutoWidth(bValue As Boolean)`
+- `setBackgroundColor(sValue As String)`
+- `setBorder(bValue As Boolean)`
+- `setCountDownType(sT As String)`
+- `setFormat(sF As String)`
+- `setGap(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setLabelPosition(sValue As String)`
+- `setLabels(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setOrientation(sValue As String)`
+- `setOutline(bValue As Boolean)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTargetDate(sValue As String)`
+- `setTextSize(sValue As String)`
+- `setTop(iValue As Int)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `Start`
+- `Stop`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

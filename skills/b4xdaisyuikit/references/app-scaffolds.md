@@ -425,7 +425,7 @@ them so body content can never slide under either bar. This mirrors
 `B4XPageNavScrollDock.bas` in the B4A demo project.
 
 **Additional manifest refs
-** `B4XDaisyNavbar.Initialize(Callback, EventName)` [M], `B4XDaisyNavbar.AddToParent(...)` [M], `B4XDaisyNavbar.BringToFront` [M], `B4XDaisyNavbar.getView As B4XView` [M], `B4XDaisyNavbar.Title / Variant / BackVisible / BackLabel / BackSize` [P] (set `BackVisible = True` + `BackLabel` + `BackSize` instead of `AddBackButton`; the designer property builds the back button at design time, so do not call `AddBackButton` in code), `B4XDaisyDock.Initialize(Callback, EventName)` [M], `B4XDaisyDock.AddItem(Id, Text, SvgAssetFile) As Int` [M], `B4XDaisyDock.Size / ActiveIndex` [P], `B4XDaisyDock.View As B4XView` [M], `B4XDaisyPageScroll.SendToBack` [M], `B4XDaisyPageScroll.Base_Resize(Width, Height)` [M]
+** `B4XDaisyNavbar.Initialize(Callback, EventName)` [M], `B4XDaisyNavbar.AddToParent(...)` [M], `B4XDaisyNavbar.BringToFront` [M], `B4XDaisyNavbar.View As B4XView` [M], `B4XDaisyNavbar.Title / Variant / BackVisible / BackLabel / BackSize` [P] (set `BackVisible = True` + `BackLabel` + `BackSize` instead of `AddBackButton`; the designer property builds the back button at design time, so do not call `AddBackButton` in code), `B4XDaisyDock.Initialize(Callback, EventName)` [M], `B4XDaisyDock.AddItem(Id, Text, SvgAssetFile) As Int` [M], `B4XDaisyDock.Size / ActiveIndex` [P], `B4XDaisyDock.View As B4XView` [M], `B4XDaisyPageScroll.SendToBack` [M], `B4XDaisyPageScroll.Base_Resize(Width, Height)` [M]
 
 
 ```vb

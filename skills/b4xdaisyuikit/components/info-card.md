@@ -2,11 +2,10 @@
 
 Summary card displaying icon, title, metric value, and sub-text description with color theme accents.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyInfoCard`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyInfoCard.bas`
-- **Verified Demos**: `B4XPageInfoCard.bas`
 - **Web DaisyUI Mapping**: `.info-card` → `B4XDaisyInfoCard`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -56,19 +55,10 @@ y = y + ic.GetComputedHeight + gap
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `StartAnimation`
-- `StopAnimation`
-- `UpdateTheme`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAnimated As Boolean`
 - `getBackgroundColor As Int`
 - `getComputedHeight As Int`
@@ -96,36 +86,46 @@ y = y + ic.GetComputedHeight + gap
 - `getUseGrouping As Boolean`
 - `getValue As String`
 - `getVariant As String`
-- `getView As B4XView`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `setAnimated(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setDecimal(Value As String)`
-- `setDecimalPlaces(Value As Int)`
-- `setDuration(Value As Int)`
-- `setEffect(Value As String)`
-- `setEnabled(Value As Boolean)`
-- `setHeight(Value As Int)`
-- `setIcon(Value As String)`
-- `setIconColor(Value As Int)`
-- `setIconTextColor(Value As Int)`
-- `setInforType(Value As String)`
-- `setLeft(Value As Int)`
-- `setPrefix(Value As String)`
-- `setSeparator(Value As String)`
-- `setShadow(Value As String)`
-- `setStartFrom(Value As Float)`
-- `setSuffix(Value As String)`
-- `setTag(Value As Object)`
-- `setTextColor(Value As Int)`
-- `setTitle(Value As String)`
-- `setTop(Value As Int)`
-- `setUseGrouping(Value As Boolean)`
-- `setValue(Value As String)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `setAnimated(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setDecimal(sValue As String)`
+- `setDecimalPlaces(iValue As Int)`
+- `setDuration(iValue As Int)`
+- `setEffect(sValue As String)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(iValue As Int)`
+- `setIcon(sValue As String)`
+- `setIconColor(iValue As Int)`
+- `setIconTextColor(iValue As Int)`
+- `setInforType(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setPrefix(sValue As String)`
+- `setSeparator(sValue As String)`
+- `setShadow(sValue As String)`
+- `setStartFrom(fValue As Float)`
+- `setSuffix(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTitle(sValue As String)`
+- `setTop(iValue As Int)`
+- `setUseGrouping(bValue As Boolean)`
+- `setValue(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `StartAnimation`
+- `StopAnimation`
+- `UpdateTheme`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

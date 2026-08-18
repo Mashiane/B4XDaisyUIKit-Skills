@@ -4,11 +4,10 @@ Native Flexbox layout container and item models.
 
 > **Important architectural note:** Sequential coordinate accumulation inside **`B4XDaisyPageScroll`** is the primary, verified layout engine for B4XDaisyUIKit. `B4XDaisyFlexPanel` is documented for completeness but should not replace standard sequential `AddToParent` accumulation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyFlexLayout`, `B4XDaisyFlexItem`, `B4XDaisyFlexPanel`
 - **Status**: `Documented-only`
 - **Library Source**: `B4XDaisyFlexLayout.bas, B4XDaisyFlexItem.bas, B4XDaisyFlexPanel.bas`
-- **Verified Demos**: `B4XPageInput.bas`
 - **Web DaisyUI Mapping**: `.flex`, `.flex-row`, `.flex-col`, `.flex-wrap` → `B4XDaisyFlexPanel`
 
 ## 2. Verified B4X Syntax & Recipe

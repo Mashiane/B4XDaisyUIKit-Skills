@@ -2,11 +2,10 @@
 
 Bottom sheet with a list of action buttons (iOS-style menu). Supports icons, roles, and both iOS and Material Design modes.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyActionSheet`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyActionSheet.bas`
-- **Verified Demos**: `B4XPageActionSheet.bas`
 - **Web DaisyUI Mapping**: `.action-sheet` → `B4XDaisyActionSheet`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -56,27 +55,17 @@ Wait For (sheet.Present) sheet_DidPresent
 - `ButtonClick (ButtonId As String, Data As Object)`
 
 ## 6. Public Methods & APIs
-- `AddButton(Id As String, Text As String, Role As String, Icon As String)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `Dismiss(Data As Object, Role As String) As ResumableSub`
-- `Initialize(Callback As Object, EventName As String)`
-- `Present As ResumableSub`
-- `SetButtonColor(ButtonId As String, ColorVariant As String)`
-- `SetButtonColorByIndex(Index As Int, ColorVariant As String)`
-- `SetButtonData(ButtonId As String, Data As Object)`
-- `SetButtonDataByIndex(Index As Int, Data As Object)`
-- `SetButtonIcon(ButtonId As String, IconName As String)`
-- `SetButtonIconByIndex(Index As Int, IconName As String)`
-- `SetButtonIconColor(ButtonId As String, ColorVariant As String)`
-- `SetButtonIconColorByIndex(Index As Int, ColorVariant As String)`
+- `AddButton(sId As String, sText As String, sRole As String, sIcon As String)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `Dismiss(oData As Object, sRole As String) As ResumableSub`
 - `getAnimated As Boolean`
 - `getBackdropDismiss As Boolean`
 - `getBackdropOpacity As String`
 - `getBackgroundColor As String`
 - `getButtonGhosted As Boolean`
-- `getButtonSize As String`
 - `getButtonsColor As String`
+- `getButtonSize As String`
 - `getHeader As String`
 - `getHeaderBold As Boolean`
 - `getIsOpen As Boolean`
@@ -87,23 +76,35 @@ Wait For (sheet.Present) sheet_DidPresent
 - `getTextAlignment As String`
 - `getTextColor As String`
 - `getTranslucent As Boolean`
-- `setAnimated(Value As Boolean)`
-- `setBackdropDismiss(Value As Boolean)`
-- `setBackdropOpacity(Value As String)`
-- `setBackgroundColor(Value As String)`
-- `setButtonGhosted(Value As Boolean)`
-- `setButtonSize(Value As String)`
-- `setButtonsColor(Value As String)`
-- `setHeader(Value As String)`
-- `setHeaderBold(Value As Boolean)`
-- `setIsOpen(Value As Boolean)`
-- `setKeyboardClose(Value As Boolean)`
-- `setMode(Value As String)`
-- `setOutline(Value As Boolean)`
-- `setSubHeader(Value As String)`
-- `setTextAlignment(Value As String)`
-- `setTextColor(Value As String)`
-- `setTranslucent(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Present As ResumableSub`
+- `setAnimated(bValue As Boolean)`
+- `setBackdropDismiss(bValue As Boolean)`
+- `setBackdropOpacity(sValue As String)`
+- `setBackgroundColor(sValue As String)`
+- `SetButtonColor(sButtonId As String, sColorVariant As String)`
+- `SetButtonColorByIndex(iIndex As Int, sColorVariant As String)`
+- `SetButtonData(sButtonId As String, oData As Object)`
+- `SetButtonDataByIndex(iIndex As Int, oData As Object)`
+- `setButtonGhosted(bValue As Boolean)`
+- `SetButtonIcon(sButtonId As String, sIconName As String)`
+- `SetButtonIconByIndex(iIndex As Int, sIconName As String)`
+- `SetButtonIconColor(sButtonId As String, sColorVariant As String)`
+- `SetButtonIconColorByIndex(iIndex As Int, sColorVariant As String)`
+- `setButtonsColor(sValue As String)`
+- `setButtonSize(sValue As String)`
+- `setHeader(sValue As String)`
+- `setHeaderBold(bValue As Boolean)`
+- `setIsOpen(bValue As Boolean)`
+- `setKeyboardClose(bValue As Boolean)`
+- `setMode(sValue As String)`
+- `setOutline(bValue As Boolean)`
+- `setSubHeader(sValue As String)`
+- `setTextAlignment(sValue As String)`
+- `setTextColor(sValue As String)`
+- `setTranslucent(bValue As Boolean)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

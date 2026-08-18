@@ -2,11 +2,10 @@
 
 Compact label used for status, counts, or tags. Can show numeric counters, be toggled, closable, or include an avatar icon.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyBadge`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyBadge.bas`
-- **Verified Demos**: `B4XPageAlert.bas, B4XPageBadge.bas, B4XPageCard.bas, B4XPageTooltip.bas, B4XPageWindow.bas`
 - **Web DaisyUI Mapping**: `.badge` → `B4XDaisyBadge`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -68,19 +67,13 @@ y = y + bdg.GetComputedHeight + gap
 - `Checked (Id As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(Callback As Object, EventName As String)`
-- `IsReady As Boolean`
-- `Release`
-- `RemoveViewFromParent`
-- `View As B4XView`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `decrement As Int`
-- `decrementBy(Amount As Int) As Int`
+- `decrementBy(iAmount As Int) As Int`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAvatarImage As String`
 - `getAvatarPosition As String`
 - `getAvatarText As String`
@@ -95,6 +88,7 @@ y = y + bdg.GetComputedHeight + gap
 - `getClickable As Boolean`
 - `getClosable As Boolean`
 - `getCloseIconAsset As String`
+- `GetComputedHeight As Int`
 - `getHeight As Float`
 - `getIconAsset As String`
 - `getId As String`
@@ -110,48 +104,54 @@ y = y + bdg.GetComputedHeight + gap
 - `getTextCentered As Boolean`
 - `getTextColor As Int`
 - `getToggle As Boolean`
-- `getValue As Int`
+- `getValue As String`
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
 - `increment As Int`
-- `incrementBy(Amount As Int) As Int`
-- `setAvatarImage(Value As String)`
-- `setAvatarPosition(Value As String)`
-- `setAvatarText(Value As String)`
-- `setAvatarVisible(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundColorVariant(VariantName As String)`
-- `setBadgeStyle(Value As String)`
-- `setBorderColor(Value As Int)`
-- `setBorderColorVariant(VariantName As String)`
-- `setCapValue(Value As Int)`
-- `setChecked(Value As Boolean)`
-- `setCheckedColor(Value As Int)`
-- `setCheckedTextColor(Value As Int)`
-- `setClickable(Value As Boolean)`
-- `setClosable(Value As Boolean)`
-- `setCloseIconAsset(Value As String)`
-- `setHeight(Value As Object)`
-- `setIconAsset(Value As String)`
-- `setId(Value As String)`
-- `setMargin(Value As String)`
-- `setPadding(Value As String)`
-- `setRounded(Value As String)`
-- `setRoundedBox(Value As Boolean)`
-- `setShadow(Value As String)`
-- `setSize(Value As String)`
-- `setStyle(Value As String)`
-- `setTag(Value As Object)`
-- `setText(Value As String)`
-- `setTextCentered(Value As Boolean)`
-- `setTextColor(Value As Int)`
-- `setTextColorVariant(VariantName As String)`
-- `setToggle(Value As Boolean)`
-- `setValue(Value As Int)`
-- `setVariant(Value As String)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Object)`
+- `incrementBy(iAmount As Int) As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `Release`
+- `RemoveViewFromParent`
+- `setAvatarImage(sValue As String)`
+- `setAvatarPosition(sValue As String)`
+- `setAvatarText(sValue As String)`
+- `setAvatarVisible(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBadgeStyle(sValue As String)`
+- `setBorderColor(iValue As Int)`
+- `setBorderColorVariant(sVariantName As String)`
+- `setCapValue(iValue As Int)`
+- `setChecked(bValue As Boolean)`
+- `setCheckedColor(iValue As Int)`
+- `setCheckedTextColor(iValue As Int)`
+- `setClickable(bValue As Boolean)`
+- `setClosable(bValue As Boolean)`
+- `setCloseIconAsset(sValue As String)`
+- `setHeight(oValue As Object)`
+- `setIconAsset(sValue As String)`
+- `setId(sValue As String)`
+- `setMargin(sValue As String)`
+- `setPadding(sValue As String)`
+- `setRounded(sValue As String)`
+- `setRoundedBox(bValue As Boolean)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setText(sValue As String)`
+- `setTextCentered(bValue As Boolean)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setToggle(bValue As Boolean)`
+- `setValue(oValue As Object)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(oValue As Object)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

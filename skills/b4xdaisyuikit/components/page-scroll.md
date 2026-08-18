@@ -2,11 +2,10 @@
 
 The canonical scrolling viewport container for all B4XDaisyUIKit pages, providing padding metrics, Y-gap spacing, and auto-fit calculation.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyPageScroll`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyPageScroll.bas`
-- **Verified Demos**: `B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageBoomMenu.bas, B4XPageCanvasSpinner.bas, B4XPageColorWheel.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageMediaPicker.bas, B4XPageNavScrollDock.bas, B4XPageOTP.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageScrollDemo.bas, B4XPageSegment.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas`
 - **Web DaisyUI Mapping**: `.page-scroll` → `B4XDaisyPageScroll`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -80,23 +79,15 @@ End Sub
 - `ScrollEnd`
 
 ## 6. Public Methods & APIs
-- `AddDivider(Y As Int) As Int`
-- `AddSectionTitle(Text As String, Y As Int, Center As Boolean) As Int`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddDivider(iY As Int) As Int`
+- `AddSectionTitle(sText As String, iY As Int, bCenter As Boolean) As Int`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
 - `AutoFit`
-- `Base_Resize(Width As Double, Height As Double)`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `Clear`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `Refresh`
-- `ScrollToBottom(Animated As Boolean)`
-- `ScrollToPosition(Position As Int, Animated As Boolean)`
-- `ScrollToTop(Animated As Boolean)`
-- `ScrollToView(View As B4XView, Animated As Boolean)`
-- `SendToBack`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoFitHeight As Boolean`
 - `getBackgroundColor As Int`
 - `getBackgroundVariant As String`
@@ -116,20 +107,31 @@ End Sub
 - `getVisible As Boolean`
 - `getWidth As Int`
 - `getYGap As Int`
-- `setAutoFitHeight(Value As Boolean)`
-- `setBackgroundColor(Value As Int)`
-- `setBackgroundVariant(Value As String)`
-- `setHeight(Value As Int)`
-- `setLeft(Value As Int)`
-- `setPagePadding(Value As Int)`
-- `setRootColor(Value As Int)`
-- `setScrollEnabled(Value As Boolean)`
-- `setTag(Value As Object)`
-- `setTop(Value As Int)`
-- `setTransparent(Value As Boolean)`
-- `setVisible(Value As Boolean)`
-- `setWidth(Value As Int)`
-- `setYGap(Value As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Resize(dWidth As Double, dHeight As Double)`
+- `ScrollToBottom(bAnimated As Boolean)`
+- `ScrollToPosition(iPosition As Int, bAnimated As Boolean)`
+- `ScrollToTop(bAnimated As Boolean)`
+- `ScrollToView(vTargetView As B4XView, bAnimated As Boolean)`
+- `SendToBack`
+- `setAutoFitHeight(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundVariant(sValue As String)`
+- `setHeight(iValue As Int)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setPagePadding(iValue As Int)`
+- `setRootColor(iValue As Int)`
+- `setScrollEnabled(bValue As Boolean)`
+- `setTag(oValue As Object)`
+- `setTop(iValue As Int)`
+- `setTransparent(bValue As Boolean)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `setYGap(iValue As Int)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`

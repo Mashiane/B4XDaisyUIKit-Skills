@@ -1,47 +1,66 @@
 # file-handler (`B4XDaisyFileHandler`)
 
-Helper utility class for handling device file selection, media picking, file reading, MIME types, and Base64 conversion.
+Cross-platform helper service for device file loading, MIME-filtered file picking, file saving, audio recording, and temporary storage management.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyFileHandler`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyFileHandler.bas`
-- **Verified Demos**: `B4XPageMediaPicker.bas`
 - **Web DaisyUI Mapping**: `.file-handler` → `B4XDaisyFileHandler`
+- **Companion View**: For visual file input buttons, see [file-input.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/file-input.md) (`B4XDaisyFileInput`).
 
 ## 2. Verified B4X Syntax & Recipe
+
+### Load Any File via ResumableSub
 ```b4x
 Dim fh As B4XDaisyFileHandler
-fh.Initialize(Me, "fh")
+fh.Initialize
 
-' Pick an image or file
-fh.PickImage
+Wait For (fh.Load) Complete (Result As LoadResult)
+If Result.Success Then
+    Log("Loaded file: " & Result.RealFileName)
+    Dim inStr As InputStream = File.OpenInput(Result.Dir, Result.FileName)
+    ' Process file content...
+End If
+```
 
+### Load Image / Document with MIME Filter
+```b4x
+Dim fh As B4XDaisyFileHandler
+fh.Initialize
+
+' Pick image only
+Wait For (fh.LoadWithFilter("image/*", "Select Image")) Complete (Result As LoadResult)
+If Result.Success Then
+    Dim bmp As B4XBitmap = xui.LoadBitmap(Result.Dir, Result.FileName)
+    imgProfile.SetBitmap(bmp)
+End If
+```
+
+### Save Stream to Local Device
+```b4x
+Dim fh As B4XDaisyFileHandler
+fh.Initialize
+
+Dim inStream As InputStream = File.OpenInput(File.DirAssets, "report.pdf")
+Wait For (fh.SaveAs(inStream, "application/pdf", "Save Export")) Complete (Success As Boolean)
+If Success Then
+    Log("PDF successfully saved")
+End If
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Helper utility service for picking device photos, documents, and Base64 conversion.
-- Call `PickImage` for photo gallery or `PickFile(MimeType)` for document picking.
-- Handle results in the `FileSelected (Dir As String, FileName As String, MimeType As String)` event.
-- Use `FileToBase64` and `Base64ToFile` for cloud uploads and caching.
+- `B4XDaisyFileHandler` methods are asynchronous and return `ResumableSub` types; always invoke using `Wait For (...) Complete (...)`.
+- `LoadResult` contains `.Success`, `.Dir`, `.FileName`, `.RealFileName`, `.MimeType`.
+- Call `fh.DeleteTemporaryFiles` during cleanup to purge cached temporary file copies.
 
-## 4. Designer Properties
-None declared.
-
-## 5. Declared Events
-None declared.
-
-## 6. Public Methods & APIs
-- `CheckForReceivedFiles As LoadResult`
-- `DeleteTemporaryFiles`
-- `Initialize`
-- `Load (ParentPage As Object, AnchorView As Object) As ResumableSub`
-- `Load As ResumableSub`
-- `LoadWithFilter (MimeType As String, Title As String) As ResumableSub`
-- `RecordAudio As ResumableSub`
-- `SaveAs (Source As InputStream, MimeType As String, Title As String) As ResumableSub`
-- `SaveAs(ParentPage As Object, AnchorView As Object, Text As String) As ResumableSub`
-- `UrlToLoadResult(url As String) As LoadResult`
-
-## 7. Public Fields
-None declared.
+## 4. Public Methods & APIs
+| Method | Returns | Description |
+|---|---|---|
+| `Initialize` | | Initializes the file handler instance |
+| `Load` | `ResumableSub (LoadResult)` | Opens default system file picker |
+| `LoadWithFilter(sMimeType, sTitle)` | `ResumableSub (LoadResult)` | Opens file picker filtered by MIME type (e.g. `"image/*"`, `"application/pdf"`) |
+| `SaveAs(Source As InputStream, sMimeType, sTitle)` | `ResumableSub (Boolean)` | Prompts user to save input stream to device storage |
+| `RecordAudio` | `ResumableSub (LoadResult)` | Prompts native audio recorder |
+| `CheckForReceivedFiles` | `LoadResult` | Checks for files shared from other apps |
+| `DeleteTemporaryFiles` | | Deletes cached temporary files created during picker operations |

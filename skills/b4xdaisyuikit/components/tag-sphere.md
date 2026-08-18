@@ -2,11 +2,10 @@
 
 Rotating 3D tag cloud of text labels or avatar images. Interactive touch-to-rotate with depth-based scaling.
 
-## 1. Overview & Verification Status
+## 1. Overview
 - **Class**: `B4XDaisyTagSphere`
 - **Status**: `Demonstrated`
 - **Library Source**: `B4XDaisyTagSphere.bas`
-- **Verified Demos**: `B4XPageTagSphere.bas`
 - **Web DaisyUI Mapping**: `.tag-sphere` → `B4XDaisyTagSphere`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -53,16 +52,14 @@ y = y + 300dip + gap
 - `DrawTag (Info As Map)`
 
 ## 6. Public Methods & APIs
-- `AddRotation(DeltaX As Float, DeltaY As Float)`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `Base_Resize(Width As Double, Height As Double)`
-- `CreateView(Width As Int, Height As Int) As B4XView`
-- `DesignerCreateView(Base As Object, Lbl As Label, Props As Map)`
-- `Initialize(Callback As Object, EventName As String)`
-- `Redraw`
-- `addTag(Tag As String)`
-- `addTagsAt(StartIndex As Int, Tags As List)`
+- `AddRotation(fDeltaX As Float, fDeltaY As Float)`
+- `addTag(sTag As String)`
+- `addTagsAt(iStartIndex As Int, lstTags As List)`
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
 - `clearTags`
+- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `getAutoRotate As Boolean`
 - `getAutoSpeed As Float`
 - `getAvatarBorderColor As Int`
@@ -80,24 +77,28 @@ y = y + 300dip + gap
 - `getTextColor As Int`
 - `getTextSize As Float`
 - `getVisible As Boolean`
-- `removeTag(Tag As String) As Boolean`
-- `removeTagAt(Index As Int) As Boolean`
-- `setAutoRotate(Value As Boolean)`
-- `setAutoSpeed(Value As Float)`
-- `setAvatarBorderColor(Value As Int)`
-- `setAvatarBorderWidth(Value As Float)`
-- `setBitmaps(Bitmaps As List)`
-- `setBitmaps2(Bitmaps As List, WidthDip As Float, HeightDip As Float)`
-- `setCircularAvatars(Value As Boolean)`
-- `setEasing(Value As String)`
-- `setImageSize(WidthDip As Float, HeightDip As Float)`
-- `setItems(Tags As List)`
-- `setRadius(Value As Float)`
-- `setRotateOnTouch(Value As Boolean)`
-- `setSensitivity(Value As Int)`
-- `setTextColor(Value As Int)`
-- `setTextSize(Value As Float)`
-- `setVisible(Value As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Redraw`
+- `removeTag(sTag As String) As Boolean`
+- `removeTagAt(iIndex As Int) As Boolean`
+- `setAutoRotate(bValue As Boolean)`
+- `setAutoSpeed(fValue As Float)`
+- `setAvatarBorderColor(iValue As Int)`
+- `setAvatarBorderWidth(fValue As Float)`
+- `setBitmaps(lstBitmaps As List)`
+- `setBitmaps2(lstBitmaps As List, fWidthDip As Float, fHeightDip As Float)`
+- `setCircularAvatars(bValue As Boolean)`
+- `setEasing(sValue As String)`
+- `setImageSize(fWidthDip As Float, fHeightDip As Float)`
+- `setItems(lstTags As List)`
+- `setRadius(fValue As Float)`
+- `setRotateOnTouch(bValue As Boolean)`
+- `setSensitivity(iValue As Int)`
+- `setTextColor(iValue As Int)`
+- `setTextSize(fValue As Float)`
+- `setVisible(bValue As Boolean)`
+- `View As B4XView`
+
 
 ## 7. Public Fields
 - `mBase As B4XView`
