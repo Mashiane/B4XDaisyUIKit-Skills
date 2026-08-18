@@ -13,7 +13,7 @@ Interactive onboarding and feature tour guide that highlights views on screen wi
 ```b4x
 Dim tour As B4XDaisyEnjoyHint
 tour.Initialize(Me, "tour")
-tour.AddToParent(Activity.RootPanel, 0, 0, Activity.RootPanel.Width, Activity.RootPanel.Height)
+tour.AddToParent(Root, 0, 0, Root.Width, Root.Height)
 
 ' Add tour steps
 tour.AddStep("step1", btnAdd.getView, "Tap here to create a new task.", "circle", "top")
@@ -27,7 +27,7 @@ tour.StartTour
 
 ## 3. Native Composition Rules & Gotchas
 - Interactive step-by-step onboarding walkthrough that spotlights UI elements.
-- Mount over `Activity.RootPanel` so the spotlight dim overlay covers the entire screen.
+- Mount over `Root` so the spotlight dim overlay covers the entire screen.
 - Add steps via `AddStep(Id, TargetView, Description, Shape, Position)`.
 - `TargetView` must be an initialized, positioned `B4XView` on screen.
 - Start the tour using `tour.StartTour`.

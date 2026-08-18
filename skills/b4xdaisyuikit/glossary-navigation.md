@@ -368,3 +368,34 @@ Specialized container hosting a grouped stack of collapsible containers (`B4XDai
     *   `AddItemBasic(ItemTag As Object, Icon As String, Title As String) As B4XDaisyCollapse`: Factory that spawns, registers, and returns nested collapse frames.
     *   `SetItemActive(ItemTag As Object, Value As Boolean)`: Forces segment state.
     *   `SetItemTitle(ItemTag As Object, Title As String)`: Updates child headers.
+
+---
+
+### 8. B4XDaisyDrawer
+Full sliding drawer navigation system managing root left/right sidebar panels, content center containers, backdrop overlays, and collapsible navigation rails.
+
+*   **Initialization Sub**:
+    ```b4x
+    Public Sub Initialize(Callback As Object, EventName As String)
+    ```
+*   **Events**:
+    *   `Opened`: Fired when sidebar slide-out completes.
+    *   `Closed`: Fired when sidebar closes.
+    *   `CloseClick(Tag As Object)`: Fired on explicit close button clicks.
+    *   `StateChanged(Open As Boolean)`: Fired on open state toggle.
+*   **Public Setters / Getters**:
+    *   `setSide(Value As String)`: Sidebar position (`"left"`, `"right"`, `"both"`).
+    *   `setLeftSideWidth(Value As String)`: Left sidebar width.
+    *   `setRightSideWidth(Value As String)`: Right sidebar width.
+    *   `setAlwaysOpen(Value As Boolean)`: Permanent docked mode.
+    *   `setRailMode(Value As Boolean)`: Collapsible navigation rail mode.
+    *   `setCollapseWidth(Value As String)`: Width when collapsed in rail mode.
+    *   `setNormalWidth(Value As String)`: Width when expanded in rail mode.
+    *   `setIsCollapsed(Value As Boolean)`: Collapse/expand rail toggle.
+*   **Primary Slot Methods**:
+    *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+    *   `getLeftPanel As B4XView`: Mount container for left sidebar menus.
+    *   `getRightPanel As B4XView`: Mount container for right sidebar widgets.
+    *   `getCenterPanel As B4XView`: Mount container for main screen content and top navbars.
+    *   `ToggleLeft` / `OpenLeft` / `CloseLeft`: Left slide triggers.
+    *   `ToggleRight` / `OpenRight` / `CloseRight`: Right slide triggers.

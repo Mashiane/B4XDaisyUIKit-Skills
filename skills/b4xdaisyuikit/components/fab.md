@@ -13,7 +13,7 @@ Floating Action Button with expandable child actions. Supports multiple layout m
 ```b4x
 Dim fab As B4XDaisyFab
 fab.Initialize(Me, "fab")
-fab.AddToParent(Activity.RootPanel, 0, 0, Activity.RootPanel.Width, Activity.RootPanel.Height)
+fab.AddToParent(Root, 0, 0, Root.Width, Root.Height)
 fab.PlacementMode = "fixed"
 fab.Placement = "bottom-end"
 fab.TriggerVariant = "primary"
@@ -27,7 +27,7 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 
 ## 3. Native Composition Rules & Gotchas
 - Floating Action Button with vertical, flower, or toolbar action expansion menus.
-- Position in the bottom corner of `Activity.RootPanel`.
+- Position in the bottom corner of `Root`.
 - Configure expansion style via `LayoutMode` (`"vertical"`, `"flower"`, `"horizontal"`).
 - Add child actions via `AddAction(Id, IconName, Variant, Tooltip)`.
 

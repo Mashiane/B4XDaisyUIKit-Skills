@@ -128,7 +128,7 @@ End Sub
 Private Sub StartFeatureTour
     Dim tour As B4XDaisyEnjoyHint
     tour.Initialize(Me, "tour")
-    tour.AddToParent(Activity.RootPanel, 0, 0, Activity.RootPanel.Width, Activity.RootPanel.Height)
+    tour.AddToParent(Root, 0, 0, Root.Width, Root.Height)
     
     tour.AddStep("step_otp", otpInput.getView, "Enter your 6-digit SMS verification code here.", "rect", "bottom")
     tour.AddStep("step_verify", btnVerify.getView, "Tap Verify to confirm your identity and enter your dashboard.", "circle", "top")

@@ -43,7 +43,7 @@ Toasts provide non-blocking feedback positioned over the entire screen.
 ' Initialize once in B4XPage_Created
 Private toast As B4XDaisyToast
 toast.Initialize(Me, "toast")
-toast.SetRoot(Activity.RootPanel)
+toast.SetRoot(Root)
 toast.SetPosition("end", "bottom")
 toast.ShowProgress = True
 
@@ -60,14 +60,15 @@ End Sub
 
 ---
 
-## 💬 3. SWEETALERT ASYNC CONFIRMATION DIALOGS
+## 💬 3. SWEETALERT ASYNC CONFIRMATION & INPUT DIALOGS
 
-SweetAlert provides asynchronous modal dialogs with rich icons, custom buttons, and input fields.
+SweetAlert provides asynchronous modal dialogs with rich vector icons, custom action buttons, and complete form input dialog prompts (`B4XPageSweetAlert.bas`, `B4XPageSweetAlertInputs.bas`).
 
+### A. Confirmation Dialog with Async Result:
 ```b4x
 Private Sub btnDelete_Click(Tag As Object)
     Dim swal As B4XDaisySweetAlert
-    swal.Initialize(Me, Activity.RootPanel, "swal")
+    swal.Initialize(Me, Root, "swal")
     swal.Title = "Delete Item?"
     swal.Text = "This action cannot be undone. Are you sure you want to proceed?"
     swal.Icon = "warning"
@@ -76,13 +77,51 @@ Private Sub btnDelete_Click(Tag As Object)
     swal.CancelButtonText = "Cancel"
     swal.AllowOutsideClick = True
 
-    Wait For (swal.ShowAsync) swal_Result(Result As B4XDaisySweetAlertResult)
+    Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
     If Result.IsConfirmed Then
-        ' Perform deletion
         toast.Success("Item deleted successfully.")
     End If
 End Sub
+```
 
+### B. Text / Password / Numeric Prompts:
+```b4x
+Private Sub btnPrompt_Click(Tag As Object)
+    Dim swalInput As B4XDaisySweetAlert
+    swalInput.Initialize(Me, Root, "swalInput")
+    swalInput.Title = "Enter Username"
+    swalInput.Icon = "question"
+    swalInput.InputType = "text" ' Options: text, password, email, number, tel, textarea
+    swalInput.InputPlaceholder = "e.g. jdoe"
+    swalInput.InputRequired = True
+    swalInput.InputErrorMessage = "Username cannot be empty!"
+    swalInput.ShowCancelButton = True
+
+    Wait For (swalInput.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
+    If Result.IsConfirmed Then
+        Log("Captured value: " & Result.Value)
+    End If
+End Sub
+```
+
+### C. Options / RadioGroup / Selection Dialog:
+```b4x
+Private Sub btnSelectTheme_Click(Tag As Object)
+    Dim swalSelect As B4XDaisySweetAlert
+    swalSelect.Initialize(Me, Root, "swalSelect")
+    swalSelect.Title = "Choose Color Theme"
+    swalSelect.Icon = "info"
+    swalSelect.InputType = "radiogroup" ' Options: select, radiogroup, checkboxgroup, togglegroup, range, rating
+
+    Dim options As Map = CreateMap("light": "Light Mode", "dark": "Dark Mode", "cupcake": "Cupcake Theme")
+    swalSelect.setInputOptions(options)
+    swalSelect.ShowCancelButton = True
+
+    Wait For (swalSelect.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
+    If Result.IsConfirmed Then
+        Log("Selected Theme: " & Result.Value)
+    End If
+End Sub
 ```
 
 ---
@@ -95,7 +134,7 @@ Bottom sheets allow progressive disclosure and secondary workflows with drag-to-
 Private Sub OpenFilterSheet
     Dim sheet As B4XDaisySheetModal
     sheet.Initialize(Me, "sheet")
-    sheet.AddToParent(Activity.RootPanel, 0, 0, Activity.RootPanel.Width, Activity.RootPanel.Height)
+    sheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
     sheet.InitialBreakpoint = 0.6
     sheet.Breakpoints = "0|0.3|0.6|1"
     sheet.BackdropBreakpoint = 0.3

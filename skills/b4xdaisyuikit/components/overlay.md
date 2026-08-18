@@ -19,7 +19,7 @@ ovl.Visible = True
 
 ## 3. Native Composition Rules & Gotchas
 - Full-screen dimming backdrop overlay for dialogs, drawers, and loading states.
-- Mount over `Activity.RootPanel` and call `BringToFront`.
+- Mount over `Root` and call `BringToFront`.
 - Configure `Opacity` (0.0 to 1.0) and `DimColor`.
 - Set `DismissOnClick = True` to dismiss on backdrop tap; fires `Dismissed` event.
 

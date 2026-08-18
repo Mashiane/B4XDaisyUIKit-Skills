@@ -95,3 +95,34 @@ Public Sub TriggerOnboardingTutorial
 End Sub
 
 ```
+
+---
+
+## 7. Full-Screen Drawer Shell Pattern
+When an app requires a sidebar drawer with a top navbar hamburger toggle:
+```b4x
+' In B4XPage_Created
+Private mainDrawer As B4XDaisyDrawer
+Private topNavbar As B4XDaisyNavbar
+Private pageScroll As B4XDaisyPageScroll
+
+mainDrawer.Initialize(Me, "mainDrawer")
+mainDrawer.AddToParent(Root, 0, 0, Width, Height)
+
+' 1. Sidebar menu inside LeftPanel
+sideMenu.Initialize(Me, "sideMenu")
+sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 300dip, Height)
+
+' 2. Top navbar inside CenterPanel
+topNavbar.Initialize(Me, "topNavbar")
+topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, 56dip)
+topNavbar.HamburgerVisible = True
+
+' 3. Page content scroll inside CenterPanel
+pageScroll.Initialize(Me, "pageScroll")
+pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Width, Height - 56dip)
+
+Sub topNavbar_HamburgerClick(Tag As Object)
+    mainDrawer.ToggleLeft
+End Sub
+```

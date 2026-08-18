@@ -10,22 +10,59 @@ Rich dialog box with icon, text, input fields, confirm/cancel/deny buttons, and 
 - **Web DaisyUI Mapping**: `.sweet-alert` → `B4XDaisySweetAlert`
 
 ## 2. Verified B4X Syntax & Recipe
+
+### Standard Confirmation Dialog:
 ```b4x
 Dim swal As B4XDaisySweetAlert
-swal.Initialize(Me, Activity.RootPanel, "swal")
-swal.Title = "Delete Item?"
-swal.Text = "This action cannot be undone."
-swal.Icon = "warning"
-swal.ShowCancelButton = True
-swal.ConfirmButtonText = "Yes, delete"
-swal.CancelButtonText = "Cancel"
-swal.AllowOutsideClick = True
+swal.Initialize(Me, Root, "swal")
+swal.setTitle("Delete Item?")
+swal.setText("This action cannot be undone.")
+swal.setIcon("warning")
+swal.setShowCancelButton(True)
+swal.setConfirmButtonText("Yes, delete")
+swal.setCancelButtonText("Cancel")
+swal.setAllowOutsideClick(True)
 
-Wait For (swal.ShowAsync) swal_Result(Result As B4XDaisySweetAlertResult)
-If Result.IsConfirmed Then
-    ' user confirmed
+Wait For (swal.ShowAsync) Complete (res As B4XDaisySweetAlertResult)
+If res.IsConfirmed Then
+    toast.Success("Item deleted successfully.")
 End If
+```
 
+### Async Text / Password / Number Input Prompts:
+```b4x
+Dim swalInput As B4XDaisySweetAlert
+swalInput.Initialize(Me, Root, "swalInput")
+swalInput.setTitle("Enter Password")
+swalInput.setIcon("warning")
+swalInput.setInputType("password")
+swalInput.setInputPlaceholder("Enter secure password...")
+swalInput.setInputRequired(True)
+swalInput.setInputErrorMessage("Password cannot be empty!")
+swalInput.setShowCancelButton(True)
+
+Wait For (swalInput.ShowAsync) Complete (res As B4XDaisySweetAlertResult)
+If res.IsConfirmed Then
+    toast.Success("Password confirmed: " & res.Value)
+End If
+```
+
+### Async Select / RadioGroup / Checkbox Selection Dialog:
+```b4x
+Dim swalSelect As B4XDaisySweetAlert
+swalSelect.Initialize(Me, Root, "swalSelect")
+swalSelect.setTitle("Select Shipping Method")
+swalSelect.setIcon("question")
+swalSelect.setInputType("radiogroup") ' or "select", "checkboxgroup", "togglegroup", "range", "rating"
+
+Dim options As Map = CreateMap("std": "Standard (3-5 days)", "exp": "Express (1-2 days)", "same": "Same Day")
+swalSelect.setInputOptions(options)
+swalSelect.setShowCancelButton(True)
+
+Wait For (swalSelect.ShowAsync) Complete (res As B4XDaisySweetAlertResult)
+If res.IsConfirmed Then
+    Log("User picked: " & res.Value)
+End If
 ```
 
 ## 3. Native Composition Rules & Gotchas

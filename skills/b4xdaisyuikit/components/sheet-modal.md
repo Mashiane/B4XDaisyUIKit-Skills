@@ -13,7 +13,7 @@ Swipeable bottom/top sheet with drag handle, breakpoints, nested scroll, and bac
 ```b4x
 Dim sh As B4XDaisySheetModal
 sh.Initialize(Me, "sh")
-sh.AddToParent(Activity.RootPanel, 0, 0, Activity.RootPanel.Width, Activity.RootPanel.Height)
+sh.AddToParent(Root, 0, 0, Root.Width, Root.Height)
 sh.InitialBreakpoint = 0.5
 sh.Breakpoints = "0|0.25|0.5|1"
 sh.BackdropBreakpoint = 0.5

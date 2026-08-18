@@ -118,8 +118,17 @@ This repository packages **3 specialized skills**:
 
 ## 🤝 Recommended Companion Skills
 
-For core B4X language semantics, database persistence, HTTP networking (`HttpJob`), and Android manifest permissions, pair this UI skill with the official general-purpose B4X skill:
+To achieve production-grade design and complete full-stack functionality, pair this native UI component skill with the following official companion skills:
 
+### 1. Design Intelligence & Aesthetics ([ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill))
+For visual styles, curated 160+ color palettes, accessible contrast ratios, font pairings, mobile thumb-zone ergonomics, and chart choices:
+```bash
+/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@nextlevelbuilder
+```
+
+### 2. Core Language & Backend Logic ([b4x-skill](https://github.com/Jerryk133/b4x-skill))
+For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests:
 ```bash
 /plugin marketplace add Jerryk133/b4x-skill
 /plugin install b4x@b4x-marketplace

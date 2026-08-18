@@ -357,3 +357,72 @@ Private Sub tabs_TabClick(Index As Int)
 End Sub
 
 ```
+
+---
+
+### 5. `B4XDaisyDrawer`
+Full-screen and container-level sliding drawer supporting left and right sidebars, collapsible navigation rail mode, backdrop overlay dismiss, touch gestures, and hierarchical drawer navigation menus (`B4XPageDrawer.bas`, `B4XPageDrawerRail.bas`, `B4XPageDrawerTree.bas`).
+
+*   **Initialization**: `Initialize(Callback As Object, EventName As String)`
+*   **Properties**:
+    *   `Side` [String]: Sidebar placement (`"left"`, `"right"`, `"both"`).
+    *   `LeftSideWidth` [String]: Left drawer width (e.g. `"300dip"`).
+    *   `RightSideWidth` [String]: Right drawer width (e.g. `"300dip"`).
+    *   `AlwaysOpen` [Boolean]: Keeps sidebar docked open side-by-side with center content.
+    *   `RailMode` [Boolean]: Enables compact collapsible navigation rail mode.
+    *   `CollapseWidth` [String]: Width in rail/collapsed mode (default `"60dip"`).
+    *   `NormalWidth` [String]: Width in expanded mode (default `"300dip"`).
+    *   `IsCollapsed` [Boolean]: Sets initial collapsed rail state.
+    *   `GestureEnabled` [Boolean]: Enables swipe-to-open gesture detection.
+    *   `OverlayOpacity` [Int]: Backdrop shade opacity percentage (0–100).
+*   **Key Methods**:
+    *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+    *   `ToggleLeft` / `OpenLeft` / `CloseLeft`: Slides left sidebar.
+    *   `ToggleRight` / `OpenRight` / `CloseRight`: Slides right sidebar.
+    *   `SetIsCollapsed(Value As Boolean)`: Toggles rail expansion.
+    *   `getLeftPanel As B4XView`: Mount target for left sidebar menus.
+    *   `getRightPanel As B4XView`: Mount target for right sidebar widgets.
+    *   `getCenterPanel As B4XView`: Mount target for page navbars and content scroll.
+*   **Events Raised**:
+    *   `_Opened`: Raised when sidebar completes opening animation.
+    *   `_Closed`: Raised when sidebar completes closing animation.
+    *   `_StateChanged(Open As Boolean)`: Raised on open state transition.
+
+#### Fullscreen Drawer with Navbar Hamburger Recipe:
+```b4x
+Private mainDrawer As B4XDaisyDrawer
+Private topNavbar As B4XDaisyNavbar
+Private pageScroll As B4XDaisyPageScroll
+
+Private Sub RenderDrawerPage(Width As Int, Height As Int)
+    Root.RemoveAllViews
+
+    ' 1. Mount drawer root
+    mainDrawer.Initialize(Me, "mainDrawer")
+    mainDrawer.AddToParent(Root, 0, 0, Width, Height)
+    mainDrawer.Side = "left"
+    mainDrawer.LeftSideWidth = "300dip"
+
+    ' 2. Build Sidebar into LeftPanel
+    Dim sideMenu As B4XDaisyMenu
+    sideMenu.Initialize(Me, "sideMenu")
+    sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 300dip, Height)
+    sideMenu.AddItem("home", "Home", "house-solid.svg")
+    sideMenu.AddItem("profile", "Profile", "user-solid.svg")
+    sideMenu.AddItem("settings", "Settings", "gear-solid.svg")
+
+    ' 3. Mount Top Navbar into CenterPanel
+    topNavbar.Initialize(Me, "topNavbar")
+    topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, 56dip)
+    topNavbar.Title = "App Dashboard"
+    topNavbar.HamburgerVisible = True
+
+    ' 4. Mount Content Scroll into CenterPanel
+    pageScroll.Initialize(Me, "pageScroll")
+    pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Width, Height - 56dip)
+End Sub
+
+Private Sub topNavbar_HamburgerClick(Tag As Object)
+    mainDrawer.ToggleLeft
+End Sub
+```

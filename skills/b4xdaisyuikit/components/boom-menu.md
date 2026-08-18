@@ -19,7 +19,7 @@ bm.AddButton("action2", "heart-solid.svg", xui.Color_Blue)
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Mount on `Activity.RootPanel` near a screen corner so expanding buttons do not get clipped.
+- Mount on `Root` near a screen corner so expanding buttons do not get clipped.
 - Match `PiecePlaceType` and `ButtonPlaceType` for balanced geometric radial expansion.
 - Set `ShowDim = True` and `AutoDismiss = True` to dim the backdrop and close on outside taps.
 - Add child buttons using `AddSimpleCircleButton`, `AddTextInsideCircleButton`, or `AddHamButton`.

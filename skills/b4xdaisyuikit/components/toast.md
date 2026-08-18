@@ -14,7 +14,7 @@ Non-blocking notification overlay with severity variants, auto-dismiss, and posi
 ' Initialize once at screen level
 Dim toast As B4XDaisyToast
 toast.Initialize(Me, "toast")
-toast.SetRoot(Activity.RootPanel)
+toast.SetRoot(Root)
 toast.SetPosition("end", "bottom")
 toast.ShowProgress = True
 

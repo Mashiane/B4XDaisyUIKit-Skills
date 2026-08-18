@@ -6,6 +6,22 @@ metadata:
   triggers: b4xdaisy, b4x page, b4a screen, compose ui, daisyui native, form, dashboard, navbar, modal, sweetalert, component recipe, navscrolldock, validate controls, user interface, development, user experience, tailwindcss, native, android, ios, desktop
 ---
 
+## Truth and Accuracy — Apply in Every Response
+
+You are committed to truth and accuracy above everything else, including being helpful. A wrong answer delivered confidently is worse than no answer. Follow these 7 rules in every response:
+
+1. **UNCERTAINTY**: If you are not fully certain about something, say so clearly. Use phrases like "I am not certain, but..." or "You may want to verify this...". Never state guesses as facts.
+2. **SOURCES**: Do not invent paper titles, author names, URLs, or book references. If you cannot name a real, verifiable source, say "I do not have a verified source for this."
+3. **STATISTICS**: Flag any number you are not 100 percent confident in. Say "approximately" and recommend I verify it from a primary source.
+4. **RECENT EVENTS**: Remind me when a topic may have changed since your knowledge cutoff. Do not present outdated info as current.
+5. **PEOPLE and QUOTES**: Never attribute a quote to a real person unless you are certain they said it. If unsure, say "I cannot confirm this quote is accurate."
+6. **CODE and TECHNICAL**: Never invent function names, library methods, or API syntax. If unsure a function exists, tell me to verify it in the current docs.
+7. **LOGIC GAPS**: Do not fill missing context with assumptions. If something is unclear, ask a clarifying question before answering.
+
+If a response would require breaking any of these rules, choose honesty over helpfulness every time.
+
+---
+
 # B4XDaisyUIKit — Native App Builder
 
 B4XDaisyUIKit is a **native B4X custom-view library** for Android (B4A) with B4XPages. It takes visual and semantic inspiration from DaisyUI and Tailwind CSS, but it is not a web framework. Every component is a native Android view. No HTML, no CSS, no WebView.
@@ -40,10 +56,19 @@ For semantic color naming, role definitions, theme tokens, and dynamic palette s
 
 ---
 
-## Recommended Companion Skill
+## Recommended Companion Skills
 
-For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests, pair this UI-focused skill with the official general-purpose B4X companion skill:
+To achieve production-grade design and complete full-stack functionality, pair this native UI component skill with the following official companion skills:
 
+### 1. Design Intelligence & Aesthetics (UI/UX)
+For visual styles, curated 160+ color palettes, accessible contrast ratios, font pairings, mobile thumb-zone ergonomics, and chart choices:
+```bash
+/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+/plugin install ui-ux-pro-max@nextlevelbuilder
+```
+
+### 2. Core Language & Backend Logic (B4X)
+For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests:
 ```bash
 /plugin marketplace add Jerryk133/b4x-skill
 /plugin install b4x@b4x-marketplace
@@ -56,8 +81,8 @@ For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database pe
 Deep, multi-component B4XPage recipes organized by real-world UI domain:
 - **[ch01-dashboards.md](chapters/ch01-dashboards.md)**: Analytics dashboards, Stat metric tiles, charts, and progress bars.
 - **[ch02-interactive-forms.md](chapters/ch02-interactive-forms.md)**: User profiles, multi-input forms, validation, and fieldsets.
-- **[ch03-navigation.md](chapters/ch03-navigation.md)**: Top Navbars, Bottom Docks, Drawer Menus, Breadcrumbs, and Tabs.
-- **[ch04-feedback.md](chapters/ch04-feedback.md)**: Toast alerts, SweetAlert popups, Modals, Action Sheets, and Tooltips.
+- **[ch03-navigation.md](chapters/ch03-navigation.md)**: Top Navbars, Bottom Docks, Sliding Navigation Drawers (`B4XDaisyDrawer`), Collapsible Rails, Tree Menus, Breadcrumbs, and Tabs.
+- **[ch04-feedback.md](chapters/ch04-feedback.md)**: Toast alerts, SweetAlert async confirmation & input dialogs (`B4XDaisySweetAlert`), Modals, Action Sheets, and Tooltips.
 - **[ch05-media-cards.md](chapters/ch05-media-cards.md)**: Interactive cards, image galleries, and hero banners.
 - **[ch06-data-display.md](chapters/ch06-data-display.md)**: Accordions, Collapses, Timelines, Step wizards, and Lists.
 - **[ch07-onboarding-security.md](chapters/ch07-onboarding-security.md)**: Feature tours (`EnjoyHint`), 6-digit OTP verification, Drum wheel pickers, and radial boom buttons.
