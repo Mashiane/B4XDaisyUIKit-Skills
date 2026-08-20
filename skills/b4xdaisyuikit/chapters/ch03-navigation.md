@@ -17,7 +17,8 @@ Exposes the top-level main screen header, hosting navigation icons, system back 
     *   `Title` [String]: Centralized screen caption text [547].
     *   `TitleVisible` [Boolean]: Displays or hides the header title [547].
     *   `BackVisible` [Boolean]: Enables the navigation back button on the start slot [548].
-    *   `BackLabel` [String]: Text displayed alongside the back icon [548].
+    *   `BackLabel` [String]: Text displayed alongside the back icon; empty = icon-only [548].
+    *   `BackSize` [Int]: Back button size in dip (default 48) [548].
     *   `HamburgerVisible` [Boolean]: Enables a hamburger toggle button on the start slot [548].
     *   `Glass` [Boolean]: Enables a blurred translucent background [547].
 *   **Programmatic Mount Methods**:
@@ -29,6 +30,18 @@ Exposes the top-level main screen header, hosting navigation icons, system back 
 *   **Events Raised**:
     *   `_Back(Tag As Object)`: Raised when the user clicks the navigation back button [544, 551].
     *   `_Click(Payload As Object)`: Raised when slots are tapped [544].
+
+> **Back button: prefer the designer property, not `AddBackButton`.** The back
+> button is driven by three designer properties: `BackVisible`, `BackLabel`,
+> `BackSize`. When the navbar is laid out in the visual designer with
+> `BackVisible = True`, the back button is built during `DesignerCreateView`
+> and the `_Back` event fires on tap with no runtime code. Do NOT also call
+> `AddBackButton` in `B4XPage_Created`; it re-creates the view and doubles the
+> wiring. For code-only pages (no designer, mounted via `AddToParent`), set the
+> same properties at runtime: `navbar.BackVisible = True`,
+> `navbar.BackLabel = "Home"`, `navbar.BackSize = 40dip` (optional, default 48).
+> Reserve `AddBackButton(SizeDip, Label)` for the rare case where you need to
+> (re)build the back button with an explicit size after creation.
 
 ---
 
@@ -92,6 +105,7 @@ An absolute vertical coordinate stacking template establishing a top navbar and 
 +------------------------------------------+
 |               B4XDaisyDock               | [364] Anchored dynamically at bottom
 +------------------------------------------+
+
 ```
 
 ---
@@ -115,7 +129,11 @@ Sub Class_Globals
     ' Navigation Components
     Private navbar As B4XDaisyNavbar
     Private dockMenu As B4XDaisyDock
-    
+
+    ' Bar heights (dip) — navbar pinned top, dock pinned bottom, scroll inset between
+    Private NAVBAR_H As Int = 56dip
+    Private DOCK_H   As Int = 64dip
+
     ' Flat Sequential Content Views
     Private sectionTitle As B4XView
     Private inputField1 As B4XDaisyInput
@@ -130,94 +148,74 @@ Private Sub B4XPage_Created(Root1 As B4XView)
     Root = Root1
     Root.Color = xui.Color_White
     Root.RemoveAllViews
-    
-    ' 1. Initialize PageScroll viewport host over full screen bounds
+
+    ' 1. Inset PageScroll between navbar (top) and dock (bottom), sent to back
     pageScroll.Initialize(Me, "pageScroll")
-    pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+    pageScroll.AddToParent(Root, 0, NAVBAR_H, Root.Width, Root.Height - NAVBAR_H - DOCK_H)
+    pageScroll.SendToBack
     pnlHost = pageScroll.Panel
-    
-    ' 2. Instantiate controls programmatically
-    BuildPageLayout
-End Sub
 
-Private Sub B4XPage_Resize(Width As Int, Height As Int)
-    If pageScroll.IsInitialized Then pageScroll.Base_Resize(Width, Height)
-    ' Force absolute recalculation of all sequential coordinate positions
-    ReflowCoordinates(Width, Height)
-End Sub
-
-Private Sub BuildPageLayout
-    ' Initialise header
+    ' 2. Navbar pinned to top of Root (never scrolls)
     navbar.Initialize(Me, "navbar")
+    navbar.AddToParent(Root, 0, 0, Root.Width, NAVBAR_H)
+    navbar.BringToFront
     navbar.Title = "Inbox Messages"
     navbar.BackVisible = True
     navbar.BackLabel = "Home"
-    
-    ' Initialise bottom toolbar dock
+
+    ' 3. Bottom toolbar dock pinned to bottom of Root (never scrolls)
     dockMenu.Initialize(Me, "dock")
     dockMenu.Size = "md"
     dockMenu.ActiveIndex = 0
-    
-    ' Add bottom items using device assets for icons
+    dockMenu.AddToParent(Root, 0, Root.Height - DOCK_H, Root.Width, DOCK_H)
     dockMenu.AddItem("tab_inbox", "Inbox", "envelope-solid.svg")
     dockMenu.AddItem("tab_sent", "Sent", "paper-plane-solid.svg")
     dockMenu.AddItem("tab_settings", "Settings", "gear-solid.svg")
-    dockMenu.SetBadgeValue(0, "12") ' 12 unread notifications on tab 0
-    
-    ' Initialise sequential body views
+    dockMenu.SetItemBadgeValueByIndex(0, "12") ' 12 unread notifications on tab 0
+
+    ' 4. Initialise sequential body views
     inputField1.Initialize(Me, "inputField1")
     inputField1.LabelAbove = "Recipient Email"
     inputField1.Placeholder = "example@domain.com"
-    
+
     inputField2.Initialize(Me, "inputField2")
     inputField2.LabelAbove = "Message Subject"
     inputField2.Placeholder = "Enter subject lines"
+
+    RenderBody
 End Sub
 
-Private Sub ReflowCoordinates(W As Int, H As Int)
+Private Sub B4XPage_Resize(Width As Int, Height As Int)
+    If navbar.IsInitialized Then navbar.SetLayoutAnimated(0, 0, 0, Width, NAVBAR_H)
+    If dockMenu.IsInitialized Then dockMenu.View.SetLayoutAnimated(0, 0, Height - DOCK_H, Width, DOCK_H)
+    If pageScroll.IsInitialized Then
+        pageScroll.Base_Resize(Width, Height - NAVBAR_H - DOCK_H)
+        RenderBody
+    End If
+End Sub
+
+Private Sub RenderBody
     If pnlHost.IsInitialized = False Then Return
-    
+
     ' Wipe previous coordinate layout structures
     pageScroll.Clear
-    
+
     Dim pad As Int = pageScroll.PagePadding
     Dim gap As Int = pageScroll.YGap
     Dim maxW As Int = pageScroll.UsableWidth
     Dim y As Int = pad
-    
-    ' Calculate absolute toolbar heights
-    Dim navH As Int = 56dip
-    Dim dockH As Int = 64dip ' Standard "md" dock height
-    
-    ' A. Position Navbar at top limits of the scrolling content area
-    If navbar.IsReady = False Then
-        navbar.AddToParent(pnlHost, pad, y, maxW, navH)
-    Else
-        navbar.SetLayoutAnimated(0, pad, y, maxW, navH)
-    End If
-    y = y + navH + gap
-    
-    ' B. Add Section titles directly onto the sequence flow
+
+    ' A. Section title (navbar is pinned to Root, not added to the scroll body)
     y = pageScroll.AddSectionTitle("Compose Direct Email", y, False)
-    
-    ' C. Sequential vertical stacking of form controls on pnlHost
+
+    ' B. Sequential vertical stacking of form controls on pnlHost
     inputField1.AddToParent(pnlHost, pad, y, maxW, 72dip)
     y = y + inputField1.GetComputedHeight + gap
-    
+
     inputField2.AddToParent(pnlHost, pad, y, maxW, 72dip)
     y = y + inputField2.GetComputedHeight + gap
-    
-    ' D. Arrange bottom docked toolbar, positioned relative to viewport bottom
-    Dim dockTopY As Int = H - dockH
-    If dockMenu.IsReady = False Then
-        dockMenu.AddToParent(Root, 0, dockTopY, W, dockH)
-    Else
-        dockMenu.SetLayoutAnimated(0, 0, dockTopY, W, dockH)
-    End If
-    
-    ' E. Re-stretch scrolling host heights, accounting for dock margins to prevent overlay crop
+
     pageScroll.AutoFit
-    pnlHost.Height = pnlHost.Height + dockH + pad
 End Sub
 
 '================================================================
@@ -232,10 +230,11 @@ Private Sub dock_ItemClick(ItemId As String)
     Log("Tab clicked: " & ItemId)
     Select Case ItemId
         Case "tab_settings"
-            ' Navigate to settings page instance
-            B4XPages.ShowPage("B4XPageSettings")
+            ' Navigate to settings page instance via the global AppLoader
+            B4XPages.MainPage.ShowPageWithLoader("B4XPageSettings")
     End Select
 End Sub
+
 ```
 
 ---
@@ -337,7 +336,7 @@ Private Sub ReflowCoordinates(W As Int, H As Int)
     inputPassword.Base_Resize(maxW, 72dip)
     
     ' 2. Mount and Reflow tab container on scroll host panel
-    If tabSwitcher.IsReady = False Then
+    If tabSwitcher.IsInitialized = False Then
         tabSwitcher.AddToParent(pnlHost, pad, y, maxW, 200dip)
     Else
         tabSwitcher.SetLayoutAnimated(0, pad, y, maxW, tabSwitcher.GetComputedHeight)
@@ -355,5 +354,75 @@ End Sub
 Private Sub tabs_TabClick(Index As Int)
     Log("Switched to Tab Index: " & Index)
     ' Tab panel swaps are handled internally by B4XDaisyTab using visibility toggles on SetTabContent views.
+End Sub
+
+```
+
+---
+
+### 5. `B4XDaisyDrawer`
+Full-screen and container-level sliding drawer supporting left and right sidebars, collapsible navigation rail mode, backdrop overlay dismiss, touch gestures, and hierarchical drawer navigation menus (`B4XPageDrawer.bas`, `B4XPageDrawerRail.bas`, `B4XPageDrawerTree.bas`).
+
+*   **Initialization**: `Initialize(Callback As Object, EventName As String)`
+*   **Properties**:
+    *   `Side` [String]: Sidebar placement (`"left"`, `"right"`, `"both"`).
+    *   `LeftSideWidth` [String]: Left drawer width (e.g. `"300dip"`).
+    *   `RightSideWidth` [String]: Right drawer width (e.g. `"300dip"`).
+    *   `AlwaysOpen` [Boolean]: Keeps sidebar docked open side-by-side with center content.
+    *   `RailMode` [Boolean]: Enables compact collapsible navigation rail mode.
+    *   `CollapseWidth` [String]: Width in rail/collapsed mode (default `"60dip"`).
+    *   `NormalWidth` [String]: Width in expanded mode (default `"300dip"`).
+    *   `IsCollapsed` [Boolean]: Sets initial collapsed rail state.
+    *   `GestureEnabled` [Boolean]: Enables swipe-to-open gesture detection.
+    *   `OverlayOpacity` [Int]: Backdrop shade opacity percentage (0–100).
+*   **Key Methods**:
+    *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+    *   `ToggleLeft` / `OpenLeft` / `CloseLeft`: Slides left sidebar.
+    *   `ToggleRight` / `OpenRight` / `CloseRight`: Slides right sidebar.
+    *   `SetIsCollapsed(Value As Boolean)`: Toggles rail expansion.
+    *   `getLeftPanel As B4XView`: Mount target for left sidebar menus.
+    *   `getRightPanel As B4XView`: Mount target for right sidebar widgets.
+    *   `getCenterPanel As B4XView`: Mount target for page navbars and content scroll.
+*   **Events Raised**:
+    *   `_Opened`: Raised when sidebar completes opening animation.
+    *   `_Closed`: Raised when sidebar completes closing animation.
+    *   `_StateChanged(Open As Boolean)`: Raised on open state transition.
+
+#### Fullscreen Drawer with Navbar Hamburger Recipe:
+```b4x
+Private mainDrawer As B4XDaisyDrawer
+Private topNavbar As B4XDaisyNavbar
+Private pageScroll As B4XDaisyPageScroll
+
+Private Sub RenderDrawerPage(Width As Int, Height As Int)
+    Root.RemoveAllViews
+
+    ' 1. Mount drawer root
+    mainDrawer.Initialize(Me, "mainDrawer")
+    mainDrawer.AddToParent(Root, 0, 0, Width, Height)
+    mainDrawer.Side = "left"
+    mainDrawer.LeftSideWidth = "300dip"
+
+    ' 2. Build Sidebar into LeftPanel
+    Dim sideMenu As B4XDaisyMenu
+    sideMenu.Initialize(Me, "sideMenu")
+    sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 300dip, Height)
+    sideMenu.AddItem("home", "Home", "house-solid.svg")
+    sideMenu.AddItem("profile", "Profile", "user-solid.svg")
+    sideMenu.AddItem("settings", "Settings", "gear-solid.svg")
+
+    ' 3. Mount Top Navbar into CenterPanel
+    topNavbar.Initialize(Me, "topNavbar")
+    topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, 56dip)
+    topNavbar.Title = "App Dashboard"
+    topNavbar.HamburgerVisible = True
+
+    ' 4. Mount Content Scroll into CenterPanel
+    pageScroll.Initialize(Me, "pageScroll")
+    pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Width, Height - 56dip)
+End Sub
+
+Private Sub topNavbar_HamburgerClick(Tag As Object)
+    mainDrawer.ToggleLeft
 End Sub
 ```

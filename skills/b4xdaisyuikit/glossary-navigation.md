@@ -13,7 +13,8 @@ The standard top bar visual toolbar. Manages start/center/end programmatic slot 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Payload As Object)`: Fired on toolbar taps.
     *   `Opened` / `Closed`: Raised on hamburger/drawer state toggles.
@@ -29,15 +30,16 @@ The standard top bar visual toolbar. Manages start/center/end programmatic slot 
     *   `setTitle(Value As String)`: Caption text.
     *   `setTitlePosition(Value As String)`: Alignment placement (`"start"`, `"center"`, `"end"`).
     *   `setTitleVisible(Value As Boolean)`: Toggles title text visible.
-    *   `setBackVisible(Value As Boolean)`: Toggles back button.
-    *   `setBackLabel(Value As String)`: Sets back button caption text.
+    *   `setBackVisible(Value As Boolean)`: Toggles back button (preferred over `AddBackButton`).
+    *   `setBackLabel(Value As String)`: Sets back button caption text (empty = icon-only).
+    *   `setBackSize(Value As Int)`: Back button size in dip (default 48).
     *   `setHamburgerVisible(Value As Boolean)`: Toggles start-slot hamburger swap icon.
 *   **Primary Slot & Component Adapters**:
     *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
     *   `GetStartPanel() As B4XView` / `GetCenterPanel() As B4XView` / `GetEndPanel() As B4XView`: Returns slot panel.
     *   `AddViewToStart(v As B4XView, Width As Int, Height As Int)` / `AddViewToCenter(...)` / `AddViewToEnd(...)`: Appends views.
     *   `AddTitleToCenter(Title As String)` / `AddTitleToStart(Title As String)` / `AddTitleToEnd(Title As String)`: Instantiates headers.
-    *   `AddBackButton(SizeDip As Int, Label As String)`: Programmatic back button setup.
+    *   `AddBackButton(SizeDip As Int, Label As String)`: Programmatic back button with explicit size. Only use to (re)build the back button at runtime with a non-default size; if `BackVisible`/`BackLabel`/`BackSize` are already set (designer or property setters), do NOT call this, it re-creates the view.
     *   `AddHamburger(SizeDip As Int)`: Appends toggleable hamburger swap in start slot.
     *   `AddLogo(ImagePath As String, WidthDip As Int, HeightDip As Int, Mask As String) As B4XDaisyAvatar`: Starts start logo.
     *   `AddAvatarToEnd(ID As String, ImagePath As String, SizeDip As Int, Mask As String) As B4XDaisyAvatar`: Appends profile avatar in end slot.
@@ -54,7 +56,8 @@ Standard bottom main toolbar. Arranges navigation items, text labels, SVG icons,
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemClick(ItemId As String)`: Raised when a dock navigation item is clicked. Passes the registered Item ID.
 *   **Public Setters / Getters**:
@@ -85,7 +88,8 @@ Standard horizontal paging tab layout. Supports border, lift, or boxed tabs, inl
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `TabClick(Index As Int)`: Raised on tab segment tap.
 *   **Public Setters / Getters**:
@@ -119,7 +123,8 @@ Standard structural list menu. Compiles titles, divider lines, leading icons, te
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemClick(Tag As Object, Text As String)`: Fired on clicking menu options.
     *   `SubmenuToggle(Tag As Object, Open As Boolean)`: Fired when a submenu expands/contracts.
@@ -151,7 +156,8 @@ Translucent floating anchor popup context. Intercepts screen clicks, computes sp
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   Shares callback event pipeline with internal `B4XDaisyMenu` options.
 *   **Public Setters / Getters**:
@@ -176,7 +182,8 @@ Composite navigation switcher constructed of connected button segments. Implemen
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(PageIndex As Int, ItemId As String)`: Raised when page adjustments occur.
 *   **Public Setters / Getters**:
@@ -205,7 +212,8 @@ A styled bottom-drawer sheet container displaying selectable option rows with ic
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemClick(ItemId As String)`: Raised when an option row is tapped. Returns option ID.
     *   `CancelClick`: Raised when the cancel drawer row is clicked.
@@ -231,7 +239,8 @@ Floating expandable action menu button. Handles overlay backdrops, main/close to
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `MainActionClick(Tag As Object)`: Fired on primary trigger clicks.
     *   `ActionClick(Index As Int, Tag As Object)`: Fired on child sub-item selection.
@@ -265,7 +274,8 @@ Advanced multi-node floating action trigger. Calculates spiral/radial coordinate
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `BoomButtonClick(Index As Int, Tag As Object)`: Raised when an exploded sub-button node is clicked.
     *   `BackgroundClick`: Raised when clicking the backdrop to close the menu.
@@ -288,7 +298,8 @@ Guided step-by-step walkthrough onboarding tour engine. Focuses spotlights over 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String, Root As B4XView)
-    ```
+    
+```
 *   **Events**:
     *   `StepClick(Index As Int, Tag As Object)`: Raised when the user clicks next or previous controls.
     *   `OnFinished`: Raised when the final walkthrough node is completed.
@@ -313,7 +324,8 @@ Horizontal or vertical wizard progress tracker. Arranges connection nodes, step 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `StepClick(Index As Int, Tag As Object)`: Fired on clicking step nodes.
 *   **Public Setters / Getters**:
@@ -341,7 +353,8 @@ Specialized container hosting a grouped stack of collapsible containers (`B4XDai
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Change(ItemTag As Object, Open As Boolean)`: Raised when nested collapses toggle.
 *   **Public Setters / Getters**:
@@ -355,3 +368,34 @@ Specialized container hosting a grouped stack of collapsible containers (`B4XDai
     *   `AddItemBasic(ItemTag As Object, Icon As String, Title As String) As B4XDaisyCollapse`: Factory that spawns, registers, and returns nested collapse frames.
     *   `SetItemActive(ItemTag As Object, Value As Boolean)`: Forces segment state.
     *   `SetItemTitle(ItemTag As Object, Title As String)`: Updates child headers.
+
+---
+
+### 8. B4XDaisyDrawer
+Full sliding drawer navigation system managing root left/right sidebar panels, content center containers, backdrop overlays, and collapsible navigation rails.
+
+*   **Initialization Sub**:
+    ```b4x
+    Public Sub Initialize(Callback As Object, EventName As String)
+    ```
+*   **Events**:
+    *   `Opened`: Fired when sidebar slide-out completes.
+    *   `Closed`: Fired when sidebar closes.
+    *   `CloseClick(Tag As Object)`: Fired on explicit close button clicks.
+    *   `StateChanged(Open As Boolean)`: Fired on open state toggle.
+*   **Public Setters / Getters**:
+    *   `setSide(Value As String)`: Sidebar position (`"left"`, `"right"`, `"both"`).
+    *   `setLeftSideWidth(Value As String)`: Left sidebar width.
+    *   `setRightSideWidth(Value As String)`: Right sidebar width.
+    *   `setAlwaysOpen(Value As Boolean)`: Permanent docked mode.
+    *   `setRailMode(Value As Boolean)`: Collapsible navigation rail mode.
+    *   `setCollapseWidth(Value As String)`: Width when collapsed in rail mode.
+    *   `setNormalWidth(Value As String)`: Width when expanded in rail mode.
+    *   `setIsCollapsed(Value As Boolean)`: Collapse/expand rail toggle.
+*   **Primary Slot Methods**:
+    *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+    *   `getLeftPanel As B4XView`: Mount container for left sidebar menus.
+    *   `getRightPanel As B4XView`: Mount container for right sidebar widgets.
+    *   `getCenterPanel As B4XView`: Mount container for main screen content and top navbars.
+    *   `ToggleLeft` / `OpenLeft` / `CloseLeft`: Left slide triggers.
+    *   `ToggleRight` / `OpenRight` / `CloseRight`: Right slide triggers.

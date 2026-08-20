@@ -49,6 +49,7 @@ Private Sub B4XPage_Resize(Width As Int, Height As Int)
     If pageScroll.IsInitialized Then pageScroll.Base_Resize(Width, Height)
     RenderForm(Width, Height)
 End Sub
+
 ```
 
 ---
@@ -121,21 +122,22 @@ Private Sub RenderForm(W As Int, H As Int)
     ' 3. Expand scrolling height dynamically
     pageScroll.AutoFit
 End Sub
+
 ```
 
 ---
 
 ## 🔒 FORM VALIDATION & ASYNC POCKETBASE WORKFLOWS [511]
 
-Validations are recursively dispatched using the static variants validator engine [90]. Successful fields serialize maps asynchronously directly to `B4XDaisyPocketBase` [521, 526]:
+Validation follows the B4XPage demo methodology: call `Validate()` on each required component directly and branch on its boolean (evidence: `B4XPageRange.bas:492-504`, `B4XPageRating.bas:510-522`). Do NOT use `B4XDaisyVariants.ValidateRequiredControls(Parent)` — it recurses into native `TextView` children and silently no-ops; see [negative-knowledge.md](../references/negative-knowledge.md) §3a. Successful fields serialize maps asynchronously directly to `B4XDaisyPocketBase` [521, 526]:
 
 ```b4x
 Private Sub btnSave_Click(Tag As Object)
-    ' 1. Dispatch recursive validator sweep across pnlHost
-    ' Analyzes children for any custom controls exposing a Validate() method
-    Dim isFormValid As Boolean = B4XDaisyVariants.ValidateRequiredControls(pnlHost)
-    
-    If isFormValid = False Then
+    ' 1. Validate each required input directly. Validate() sets the error UI
+    ' (red border + error text + height shift) and returns True when valid/none.
+    Dim okName  As Boolean = inputName.Validate
+    Dim okRole As Boolean = selectRole.Validate
+    If okName = False Or okRole = False Then
         ' Re-layout to accommodate expanding error labels below invalid inputs
         pageScroll.AutoFit
         B4XPages.MainPage.ShowToastError("Form verification failed. Correct highlit fields.", True)
@@ -144,10 +146,14 @@ Private Sub btnSave_Click(Tag As Object)
     
     ' 2. Pack form data into map object
     Dim payload As Map = CreateMap( _
-        "name": inputName.getText, _
-        "role": selectRole.getSelectedValue, _
-        "tech_stack": badgesTech.getSelected, _
-        "agreed": toggleTerms.getChecked _
+        "name"
+        inputName.getText, _
+        "role"
+        selectRole.getSelectedValue, _
+        "tech_stack"
+        badgesTech.getSelected, _
+        "agreed"
+        toggleTerms.getChecked _
     )
     
     ' 3. Perform Async pocketbase create-record promise
@@ -161,7 +167,7 @@ Private Sub SaveProfileToDatabase(ProfileMap As Map)
     Dim pb As B4XDaisyPocketBase
     pb.Initialize(Me, "pb", "https://my-daisy-backend.net", "profiles")
     pb.PrepareRecord
-    pb.RecordFromMap(ProfileMap)
+    pb.CREATE(ProfileMap)
     
     ' Fire Async HTTP request and Wait For response completion
     Wait For (pb.CREATE_FETCH) Complete (newRecordId As String)
@@ -177,4 +183,5 @@ Private Sub SaveProfileToDatabase(ProfileMap As Map)
         B4XPages.MainPage.ShowToastError("Database error. Please try again.", True)
     End If
 End Sub
+
 ```

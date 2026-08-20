@@ -145,7 +145,8 @@ When setting heights/widths using `.setWidth(String)` or `.setHeight(String)` cu
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize
-    ```
+    
+```
 *   **Public Methods**:
     *   `ClearSvgTextCache`: Purges memory-mapped rasterizations.
     *   `GetCachedSvgText(Path As String, DefaultText As String) As String`: Resolves caching layers.
@@ -183,3 +184,22 @@ Used inside `B4XDaisyCard` containers to compile clean semantic partitions.
     *   `setOptions(Value As String)`: Pipe-separated key-values (e.g. `"svelte:Svelte|vue:Vue"`).
     *   `setMultiSelect(Value As Boolean)`: Toggles multiple-checks checkbox mode.
     *   `isItemChecked(Key As String) As Boolean`
+
+### Drawer Navigation (`B4XDaisyDrawer`)
+```b4x
+mainDrawer.Initialize(Me, "mainDrawer")
+mainDrawer.AddToParent(Root, 0, 0, Width, Height)
+' Left sidebar: mainDrawer.LeftPanel
+' Center content: mainDrawer.CenterPanel
+mainDrawer.ToggleLeft
+```
+
+### SweetAlert Async Input Dialogs (`B4XDaisySweetAlert`)
+```b4x
+swal.Initialize(Me, Root, "swal")
+swal.Title = "Enter Details"
+swal.InputType = "text" ' text, password, number, select, radiogroup, checkboxgroup
+swal.InputRequired = True
+Wait For (swal.ShowAsync) Complete (res As B4XDaisySweetAlertResult)
+If res.IsConfirmed Then Log(res.Value)
+```

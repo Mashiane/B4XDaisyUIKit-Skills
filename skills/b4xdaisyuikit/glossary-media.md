@@ -13,7 +13,8 @@ Smooth signature pad canvas inspired by szimek/signature_pad. Handles drag strok
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `BeginStroke`: Raised when user touches pad.
     *   `EndStroke`: Raised when strokes complete.
@@ -44,7 +45,8 @@ Hue/Saturation/Value color selection ring. Draws hue gradients, provides draggab
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Color As Int)`: Raised on selecting colors.
 *   **Public Setters / Getters**:
@@ -66,7 +68,8 @@ Standard file select field wrapper. Implements daisyUI fileinput styles, handles
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Fired on picker clicks.
     *   `FileSelected(FileName As String)`: Fired after choosing files.
@@ -99,7 +102,8 @@ Standard file select field wrapper. Implements daisyUI fileinput styles, handles
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `TagTap(Tag As String)`: Raised when a text tag node is clicked.
     *   `TagLongPress(Tag As String)`
@@ -120,7 +124,8 @@ Glowing rotation halo frame wrapping visual card nodes to simulate continuous ba
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setStyle(Value As String)`: Presets types (`"rainbow"`, `"halo"`).
     *   `setSize(Value As String)` / `setDuration(Value As Int)`: Speeds of ring rotation.
@@ -136,7 +141,8 @@ Natively drawn high-fidelity vector progress indicator loader overlaid modal-sty
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Primary Methods**:
     *   `Show(Parent As B4XView)`: Cover `Parent` panel with dark translucent loading shields.
     *   `Hide()`: Unmasks page panel interactions.
@@ -150,7 +156,8 @@ Native document viewer wrapper utilizing PdfiumCore. Displays document sheets, n
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setCurrentPage(Value As Int)` / `getCurrentPage As Int`: Jump page index (0-based).
     *   `getTotalPages As Int`: Total documents count.
@@ -174,7 +181,8 @@ Rich promise-driven dialog card overlay. Renders alert symbols, titles, captions
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, Parent As B4XView, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Result(Result As B4XDaisySweetAlertResult)`: Promises callback event on confirm/deny actions.
 *   **Public Promise / Async Properties**:
@@ -201,7 +209,8 @@ Native multi-wheel selection dialog. Resolves scroll inputs, snaps option values
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setMode(Value As String)`: UI rendering framework.
     *   `setFadeBackground(Value As Int)`: Gradient fade colors.
@@ -222,7 +231,8 @@ Semi-transparent background shroud. Attaches over any container panel, overrides
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click`: Fired on backdrop tap (if CloseOnClick is True).
 *   **Public Setters / Getters**:
@@ -244,7 +254,8 @@ Clean visual content block wrapper implementing standard daisyUI card boundaries
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setTitle(Value As String)`: Top card title.
     *   `setVariant(Value As String)` / `setShadow(Value As String)` / `setRounded(Value As String)`
@@ -259,7 +270,8 @@ Utility class wrapping low-level system streams and intent operations to perform
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize()
-    ```
+    
+```
 *   **Primary Methods**:
     *   `Load() As ResumableSub`: Triggers device directory chooser. Returns `LoadResult` map structure.
     *   `LoadWithFilter(MimeType As String, Title As String) As ResumableSub`: Chooses specific file types (e.g. `".pdf"`).

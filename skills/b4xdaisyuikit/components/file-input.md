@@ -1,0 +1,177 @@
+# file-input (`B4XDaisyFileInput`)
+
+File upload picker control with label, accepted extensions, file info display, and validation.
+
+## 1. Overview
+- **Class**: `B4XDaisyFileInput`
+- **Status**: `Demonstrated`
+- **Library Source**: `B4XDaisyFileInput.bas`
+- **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
+
+## 2. Verified B4X Syntax & Recipe
+```b4x
+Dim fi As B4XDaisyFileInput
+fi.Initialize(Me, "fi")
+fi.AddToParent(pnlHost, pad, y, maxW, 44dip)
+fi.LabelAbove = "Upload File"
+fi.Variant = "primary"
+y = y + fi.GetComputedHeight + gap
+```
+
+## 3. Native Composition Rules & Gotchas
+- Styled document and photo attachment field with attach icon and file label.
+- Tapping the field triggers the file selection workflow.
+- Assign chosen filename to `FileName` property to display attached state.
+- Validate required attachments with `.Validate()`.
+
+## 4. Designer Properties
+| Key | Display name | Type | Default | Allowed values |
+|---|---|---|---|---|
+| ButtonText | Button Text | String | Choose file |  |
+| Placeholder | Placeholder | String | No file chosen |  |
+| FileName | File Name | String |  |  |
+| LabelAbove | Label | String |  |  |
+| HintText | Hint Text | String |  |  |
+| ErrorText | Error Text | String |  |  |
+| Required | Required | Boolean | False |  |
+| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| Size | Size | String | md | md|lg|xl |
+| Style | Style | String | default | default|ghost |
+| Radius | Corner Radius | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| Enabled | Enabled | Boolean | True |  |
+| Visible | Visible | Boolean | True |  |
+| BackgroundColor | Background Color | Color | 0x00000000 |  |
+| TextColor | Text Color | Color | 0x00000000 |  |
+| PlaceholderColor | Placeholder Color | Color | 0x00000000 |  |
+| ButtonColor | Button Color | Color | 0x00000000 |  |
+| ButtonTextColor | Button Text Color | Color | 0x00000000 |  |
+| BorderColor | Border Color | Color | 0x00000000 |  |
+| Padding | Padding | String |  |  |
+| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
+| Typeface | Typeface | String | DEFAULT | DEFAULT|DEFAULT_BOLD|MONOSPACE|SANS_SERIF|SERIF |
+| Gravity | Text Gravity | String | LEFT | LEFT|CENTER|RIGHT |
+| Alpha | Alpha | Float | 1.0 |  |
+| Accept | Accept | String |  |  |
+| MaxSize | Max Size (MB) | Int | 0 |  |
+| AppendIcon | Append Icon | String |  |  |
+
+## 5. Declared Events
+- `Click (Tag As Object)`
+- `FileSelected (FileName As String)`
+- `Cancelled ()`
+- `FocusChanged (HasFocus As Boolean)`
+- `AppendClick`
+
+## 6. Public Methods & APIs
+- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `Blur`
+- `BringToFront`
+- `Clear`
+- `ClearError`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getAccept As String`
+- `getAlpha As Float`
+- `getAppendIcon As String`
+- `getBackgroundColor As Int`
+- `GetBitmap As B4XBitmap`
+- `getBorderColor As Int`
+- `getButtonColor As Int`
+- `getButtonText As String`
+- `getButtonTextColor As Int`
+- `GetComputedHeight As Int`
+- `getEnabled As Boolean`
+- `getErrorText As String`
+- `getExceedsSize As Boolean`
+- `getExtension As String`
+- `getFileBase64 As String`
+- `getFileBytes As Byte`
+- `getFileDate As Long`
+- `getFileInputStream As InputStream`
+- `getFileName As String`
+- `getFileSize As Long`
+- `getGravity As String`
+- `getHeight As Int`
+- `getHintText As String`
+- `getIsExcel As Boolean`
+- `getIsImage As Boolean`
+- `getIsPDF As Boolean`
+- `getIsValid As Boolean`
+- `getIsVideo As Boolean`
+- `getIsWord As Boolean`
+- `getLabelAbove As String`
+- `getLeft As Int`
+- `getMaxSize As Int`
+- `getMimeType As String`
+- `getPadding As String`
+- `getPlaceholder As String`
+- `getPlaceholderColor As Int`
+- `getRadius As String`
+- `getRequired As Boolean`
+- `getRounded As String`
+- `getShadow As String`
+- `getSize As String`
+- `getStyle As String`
+- `getTag As Object`
+- `getTextColor As Int`
+- `getTop As Int`
+- `getTypeface As String`
+- `getVariant As String`
+- `getVisible As Boolean`
+- `getWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `setAccept(sValue As String)`
+- `setAlpha(fValue As Float)`
+- `setAppendIcon(sValue As String)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBorderColor(iValue As Int)`
+- `setButtonColor(iValue As Int)`
+- `setButtonText(sValue As String)`
+- `setButtonTextColor(iValue As Int)`
+- `setEnabled(bValue As Boolean)`
+- `setErrorText(sValue As String)`
+- `setFileBase64(sValue As String)`
+- `setFileDate(lValue As Long)`
+- `setFileName(sValue As String)`
+- `setFileSize(lValue As Long)`
+- `setFocus(bValue As Boolean)`
+- `setGravity(sValue As String)`
+- `setHeight(iValue As Int)`
+- `setHintText(sValue As String)`
+- `setLabelAbove(sValue As String)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setLeft(iValue As Int)`
+- `setMaxSize(iValue As Int)`
+- `setMimeType(sValue As String)`
+- `setPadding(sValue As String)`
+- `setPlaceholder(sValue As String)`
+- `setPlaceholderColor(iValue As Int)`
+- `setRadius(sValue As String)`
+- `setRequired(bValue As Boolean)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setSize(sValue As String)`
+- `setStyle(sValue As String)`
+- `setTag(oValue As Object)`
+- `setTextColor(iValue As Int)`
+- `setTextColorVariant(sVariantName As String)`
+- `setTop(iValue As Int)`
+- `setTypeface(sValue As String)`
+- `setVariant(sValue As String)`
+- `setVisible(bValue As Boolean)`
+- `setWidth(iValue As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
+
+
+## 7. Public Fields
+- `mBase As B4XView`

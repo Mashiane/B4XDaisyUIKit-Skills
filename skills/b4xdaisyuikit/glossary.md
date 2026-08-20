@@ -14,7 +14,8 @@ The mandated standard scrolling host for all pages. It covers the full page root
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ScrollStart`
     *   `Scrolling(Position As Int)`
@@ -45,7 +46,8 @@ Visual action button wrapper with touch transitions, semantic coloring, and size
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on button click.
 *   **Public Setters / Getters**:
@@ -67,7 +69,8 @@ Visual chip, indicator, or pill-like metadata label supporting text, left icons,
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on badge click.
     *   `CloseClick(Tag As Object)`: Raised when the trailing close cross icon is clicked.
@@ -92,7 +95,8 @@ Responsive notification banner, information panel, or alert layout displaying ti
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on alert frame click.
     *   `ActionClick(Tag As Object)`: Raised when a child action badge is clicked.
@@ -118,7 +122,8 @@ Visual action button that is rendered exclusively as an icon (no text caption), 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`: Raised on click.
 *   **Public Setters / Getters**:
@@ -136,7 +141,8 @@ The standard single-option list dropdown field wrapper with floating legends, de
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Value As String)`: Fired when selected item option key is changed.
 *   **Public Setters / Getters**:
@@ -157,7 +163,8 @@ Continuous or stepped numeric range slider wrapper for touch slider entries.
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Value As Float)`: Raised on slider dragging updates.
 *   **Public Setters / Getters**:
@@ -177,7 +184,8 @@ Star-based selection indicator wrapper supporting custom scales, visual styles, 
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Value As Int)`: Raised when a star node is clicked.
 *   **Public Setters / Getters**:
@@ -196,7 +204,8 @@ A custom slider wrapper that behaves similarly to `B4XDaisyRange` but implements
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(Value As Float)`
 *   **Public Setters / Getters**:
@@ -212,7 +221,8 @@ Standard single-line text entry field implementing responsive floating labels ab
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `TextChanged(Old As String, New As String)`
     *   `FocusChanged(HasFocus As Boolean)`: Wires focus loss to auto-trigger inline field validations.
@@ -236,7 +246,8 @@ Custom-drawn square checkmark switch option with left/right label configurations
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Checked(Checked As Boolean)`
     *   `Click(Tag As Object)`
@@ -259,7 +270,8 @@ Custom-drawn circular radio option button that automatically traverses parent ch
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Checked(Checked As Boolean)`
     *   `Click(Tag As Object)`
@@ -281,7 +293,8 @@ Semantic sliding toggle switch control wrapping checkbox-checked transformations
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Checked(Checked As Boolean)`
     *   `Click(Tag As Object)`
@@ -303,7 +316,8 @@ An interactive upload field widget wrapping native directory file/media pickers 
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `FileSelected(FileName As String)`
     *   `Cancelled`
@@ -326,7 +340,8 @@ Custom pin code input cluster that distributes keyboard entries and paste operat
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Input`: Raised on digit entry.
     *   `Complete(Value As String)`: Raised when all digits are successfully completed.
@@ -345,7 +360,8 @@ Fully custom vector signing surface implementing canvas drawing lines, smooth sp
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `BeginStroke`
     *   `EndStroke`
@@ -371,7 +387,8 @@ Composite visual option row/column that compiles key-value option schemas into r
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Changed(SelectedIds As List)`: Returns list of currently checked item option keys.
 *   **Public Setters / Getters**:
@@ -392,7 +409,8 @@ Thematic fieldset container hosting multiple checkboxes arranged inside logical 
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemChanged(Id As String, Text As String, Checked As Boolean)`
     *   `Changed(SelectedIds As List)`
@@ -410,7 +428,8 @@ Thematic fieldset container hosting multiple toggle switch rows arranged inside 
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemChanged(Id As String, Text As String, Checked As Boolean)`
     *   `Changed(SelectedIds As List)`
@@ -430,7 +449,8 @@ Fieldset container hosting multiple B4XDaisyRadio elements grouped programmatica
 *   **Initialization Sub**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `ItemChanged(id As String, text As String, checked As Boolean)`
     *   `Changed(SelectedId As String)`: Raised when selection shifts to a new option ID.
@@ -452,7 +472,8 @@ Collapsible panel wrapper implementing click transitions, toggle arrow animation
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Events**:
     *   `Click(Tag As Object)`
     *   `StateChanged(Open As Boolean)`: Fires on state transitions. **Requires** the page controller to capture the event, evaluate `GetComputedHeight - previousHeight`, and run `B4XDaisyVariants.ShiftSiblingsBelow` to avoid coordinate collisions.
@@ -474,7 +495,8 @@ Logical orchestrator cluster holding multiple `B4XDaisyCollapse` items, restrict
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setOpenOnlyOne(Value As Boolean)`: Toggles accordion restrict rules. If true, opening a collapse item automatically collapses all others.
     *   `setRounded(Value As String)`: Accordion border-radius.
@@ -491,7 +513,8 @@ Mock Operating System window container implementing OS control dots, header slot
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setToolBarTitle(Value As String)`: Centered toolbar caption string.
     *   `setShowHeader(Value As Boolean)`: Toggles top window toolbar visibility.
@@ -509,7 +532,8 @@ Visual boundary box container providing semantic grouping borders, legend captio
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setLegend(Value As String)`: Fieldset grouping caption.
     *   `setLegendSize(Value As String)`: Legend font-size token (`"text-xs"`, `"text-sm"`, `"text-base"`).
@@ -527,7 +551,8 @@ Layered card deck container mimicking cascading opacities and offsets to simulat
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Public Setters / Getters**:
     *   `setDirection(Value As String)`: Cascade offset angle (`"top"`, `"bottom"`, `"start"`, `"end"`).
     *   `setStrictDaisyParity(Value As Boolean)`: Evaluates standard opacities (layer 1: `1.0`, layer 2: `0.9`, layer 3: `0.7`) on deck layers.
@@ -555,8 +580,10 @@ The foundational static orchestrator translating daisyUI design tokens, evaluati
 *   **Layout & Reflow API**:
     *   `ShiftSiblingsBelow(View As B4XView, Delta As Int, AnimDuration As Int)`: Loops through siblings of `View` situated below on the parent panel, translating their `Top` coordinates by `Delta` pixels with animated transitions of `AnimDuration` milliseconds.
     *   `SetOverflowHidden(v As B4XView)`: Clips parent layout shapes and children view overlays.
-*   **Validation Pipeline API**:
-    *   `ValidateRequiredControls(Parent As B4XView) As Boolean`: Recursively traverses all nested views of `Parent`. Intercepts any Tag instance exposing a `Validate` method signature, runs the validation callback, and returns false if any validation errors are hit.
+*   **Validation Pipeline API** (per-component `Validate()` is the supported path — see negative-knowledge.md §3a):
+    *   `<B4XDaisyInput|Checkbox|Toggle|Select|Range|Rating>.Validate As Boolean`: Sets the error UI (red border + error text + height shift) and returns True when valid/none. Call on each required component directly and branch on the boolean — the B4XPage demo methodology.
+    *   `ValidateControls(Controls As List) As Boolean`: Non-recursive; calls `Validate()` on each list member. Works, but demos do not use it for submit validation. Prefer direct per-component `Validate()`.
+    *   `ValidateRequiredControls(Parent As B4XView) As Boolean`: **BROKEN — do not use.** Recurses into native `android.widget.TextView` children of `B4XDaisyInput`; `xui.SubExists` throws and the catch leaves `allValid=True`, so required enforcement silently no-ops.
 
 ### 18. B4XDaisyAnimation
 Hardware-accelerated animation transitions wrapping native Android ViewPropertyAnimators.
@@ -613,7 +640,8 @@ Breakpoint-aware grid matrix wrappers. *DO NOT USE.*
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Methods**:
     *   `AddItem(View As B4XView, ClassText As String)`: *Forbidden.*
 
@@ -623,7 +651,8 @@ Fluent CSS Flexbox arrangement wrapper panel. *DO NOT USE.*
 *   **Initialization**:
     ```b4x
     Public Sub Initialize(Callback As Object, EventName As String)
-    ```
+    
+```
 *   **Methods**:
     *   `AddItem(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`: *Forbidden.*
 
