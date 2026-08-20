@@ -1,9 +1,9 @@
 ---
 name: b4x-verify
-description: Use when validating a generated B4XDaisyUIKit user interface app before build, when checking that no invented component APIs were used, when confirming page modules are wired into the project file, or when running the conformance / coverage / compile-readiness quality gate before ./install.ps1.
+description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA.
 metadata:
   category: technique
-  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ios, desktop
+  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ios, desktop, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review
 ---
 
 ## Truth and Accuracy — Apply in Every Response
@@ -28,6 +28,28 @@ The gate between composition and build. Catches the two failure modes that
 silently break a generated B4XDaisyUIKit app: invented component APIs, and
 unwired page modules.
 
+## Full Pipeline (shift-left)
+
+```text
+Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
+  ./install.ps1  (auto-runs build-watch.ps1 after launch)  ->
+  capture-screens.ps1  ->  ux-review.md (consumes BUILD-WATCH report)
+```
+
+- **pre-scan.ps1** (this skill): fast negative-knowledge grep. Catches the bans
+  the conformance gate does not (web tech, Flex/Grid, Parent.AddView, broken
+  validator, documented-only misuse). Advisory + hard-fail on clear bans. Run
+  before verify-conformance.ps1 so the gate confirms rather than discovers.
+- **verify-conformance.ps1** (this skill): authoritative pre-build gate
+  (conformance, documented-only, compile-readiness, static layout). Exit 1 = do
+  not build.
+- **build-watch.ps1** (b4x-project-bootstrap skill, auto-run by install.ps1):
+  build-stage runtime gate. Evidences the UX-review items a screenshot cannot
+  prove (crash/ClassNotFound, touch-target dp, TalkBack labels, startup time,
+  jank). Writes `ux-review/BUILD-WATCH-<YYYYMMDD>.md`.
+- **capture-screens.ps1** + **ux-review.md** (this skill): post-build visual
+  review. Reads the BUILD-WATCH report and marks its verified items as
+  **Verified at build** instead of Verification Required.
 ## When to Use
 
 - After composing app pages with the `b4xdaisyuikit` skill, before
@@ -63,9 +85,11 @@ Exit 0 = pass, 1 = fail.
    - `#AdditionalRes` target folder exists.
    - The `.b4a` first line is `Build1=` and every `.bas` first line is `B4A=true`.
 
-4. **Static Layout & Lifecycle.** Inspects code patterns against mandatory runtime rules:
+4. **Static Layout & UX Quality Gate.** Inspects code patterns against mandatory runtime rules and Definition of Done:
    - Verifies that any file referencing `B4XDaisyPageScroll` calls `.AutoFit` at the end of rendering (`RULE-LAYOUT-003`).
    - Verifies that `navbar.BringToFront` is called directly, rejecting `.getView.BringToFront` anti-patterns (`RULE-INTERACT-001`).
+   - Verifies that structured error logging is present (detects empty `Catch` blocks, `RULE-CODE-002`).
+   - Warns if touch-drag gesture components (`ColorWheel`, `Range`, `DualRange`, `Carousel`) are nested in scroll containers without `DisallowParentIntercept` (`RULE-INTERACT-002`).
 
 ---
 
@@ -99,17 +123,25 @@ Launch ./install.ps1
 
 ## Procedure
 
-1. Run the checker against the app folder.
-2. If CONFORMANCE fails: open each flagged file, find the invented
+1. **Pre-scan first** (advisory, catches bans the gate does not):
+   ```powershell
+   pwsh -File <skill>/references/pre-scan.ps1 -AppFolder C:\b4a\workspace\<AppName>
+   ```
+   Fix any FAIL (web tech, Flex/Grid, Parent.AddView) and review WARN (direct
+   sizing, broken validator, documented-only) before running the gate.
+2. Run the conformance checker against the app folder.
+3. If CONFORMANCE fails: open each flagged file, find the invented
    reference, replace with a real component/recipe from the `b4xdaisyuikit`
    skill. Do NOT "fix" by editing the library.
-3. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
+4. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
    `Demonstrated` component.
-4. If COMPILE-READINESS fails: add the missing `ModuleN=<Name>` line to the
+5. If COMPILE-READINESS fails: add the missing `ModuleN=<Name>` line to the
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
-5. Re-run until PASS.
-6. Then run `./install.ps1` for the real build.
+6. Re-run until PASS.
+7. Then run `./install.ps1` for the real build. install.ps1 auto-runs
+   build-watch.ps1 after launch; read its `ux-review/BUILD-WATCH-*.md` output
+   before the post-build visual review.
 
 ## Red flags (STOP)
 
@@ -121,7 +153,85 @@ Launch ./install.ps1
 | "NumberOfModules off by one is fine" | It is not. The IDE/build trusts the count. Fix it. |
 | "Coverage must pass too" | Coverage is a judgment call, not scriptable. Done during composition. |
 
+## Phase 2 — Visual UX Review (Post-Build)
+
+The static gate above runs **before** `./install.ps1`. Phase 2 runs **after**
+the app builds, installs, and launches on a device or emulator. It reviews
+what the user actually sees on the rendered screen, not the source. Source
+review cannot catch low-contrast text, cramped touch targets, a missing
+empty state, or a primary action buried below the fold.
+
+### When to Use
+
+- After `./install.ps1` succeeds and the app launches.
+- Before declaring a generated screen shippable.
+- When a screen "looks off" but passes the static gate.
+
+### When NOT to Use
+
+- Before build (use the static gate above).
+- Without a rendered screenshot. A review from source alone is guessing.
+
+### Procedure
+
+1. **Build + install**: `./install.ps1` (builds + installs to device/emulator).
+2. **Capture screenshots** (auto, adb):
+   ```powershell
+   pwsh -File <skill>/references/capture-screens.ps1 -AppFolder C:\b4a\workspace\<AppName> -Label "LoginPage"
+   ```
+   Navigate the app to the next screen, re-run with a new `-Label`. With no
+   device attached, the script prints the fallback folder
+   (`<AppFolder>/ux-review/screens/`); drop PNGs there manually.
+3. **Read the build-stage report first**: open
+   `<AppFolder>/ux-review/BUILD-WATCH-<YYYYMMDD>.md` (auto-generated by
+   build-watch.ps1 during install). Mark its **Verified at build** items
+   (crash-free, touch-target dp, TalkBack labels, startup time, jank) as
+   verified in the UX review, not Verification Required. Carry its warnings
+   and errors into the Issue Register.
+4. **Review**: follow `references/ux-review.md`. Two modes: `quick`
+   (7-category UX pass) for fast iteration, `full` (14-category audit before
+   ship: Visual UI, Visual Hierarchy, UX Heuristics, Material/Android,
+   Accessibility, Touch Targets, Form Usability, Information Architecture,
+   Error Prevention, Perceived Performance, Dark Mode, Tablet/Foldable,
+   Design System/DaisyUI consistency, Conversion). Every finding carries
+   severity 1-5 **and** Priority Now/Next/Later, Confidence High/Medium/Low,
+   and Verification Required where a screenshot cannot prove the issue (dp
+   sizes, TalkBack, contrast ratios, runtime performance). Produce a report
+   at `<AppFolder>/ux-review/UX-REVIEW-<YYYYMMDD>.md` with the Issue Register
+   (Problem, Evidence, Why It Matters, Recommendation, Expected Impact,
+   Screenshot Location file+area, drafted B4X fix ticket), Summary Sections
+   (Top 5/10, Quick Wins, Accessibility Blockers, Runtime Verification
+   Checklist, Performance Perception Risks, Strengths, Design Consistency
+   Risks), Flow Assessment (multi-screen), and Final Assessment (Release
+   Readiness tier).
+5. **Apply fixes**: the user unlocks the flagged `.bas` (per
+   `lock-bas-synchfree.ps1`), pastes the drafted snippet, re-locks. Do not
+   apply fixes yourself; `.bas` are immutable.
+6. **Re-verify**: re-run the static gate, re-capture, re-review until no
+   severity >= 4 remains.
+
+### Output Contract
+
+- Report path: `<AppFolder>/ux-review/UX-REVIEW-<YYYYMMDD>.md`.
+- Mode (`quick` or `full`) stated at the top.
+- Every finding distinguishes observed vs inferred vs runtime-verification
+  (Confidence + Verification Required). No claiming dp sizes, TalkBack,
+  contrast ratios, or performance from a screenshot.
+- Every finding cites a screenshot path that exists in
+  `<AppFolder>/ux-review/screens/` and a rule ID from the doctrine refs.
+- Every fix ticket names a real property from `component-manifest.md` or the
+  component's `.md` spec. If a property is uncertain, the ticket says so and
+  leaves a comment instead of code (Verification Required: Yes).
+- Do not invent problems to appear thorough; do not confuse preference with
+  defect.
+
 ## References
 
-- `references/verify-conformance.ps1` (the gate script)
+- `references/pre-scan.ps1` (fast negative-knowledge pre-scan, run before the gate)
+- `references/verify-conformance.ps1` (static pre-build gate script)
+- `references/capture-screens.ps1` (Phase 2 adb screenshot capture)
+- `references/ux-review.md` (Phase 2 reviewer prompt + report format)
+- `../b4x-project-bootstrap/references/build-watch.template.ps1` (build-stage runtime gate; dropped as `build-watch.ps1` and auto-run by `install.ps1`; writes `ux-review/BUILD-WATCH-<YYYYMMDD>.md` consumed by Phase 2)
 - `../b4xdaisyuikit/references/component-manifest.md` (source of truth, read-only)
+- `../b4xdaisyuikit/references/ux-master-doctrine.md` (quantitative UX rules)
+- `../b4xdaisyuikit/references/design-heuristics.md` (design heuristics)

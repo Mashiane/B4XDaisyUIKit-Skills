@@ -13,13 +13,13 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Snapshot
 
-- Generated: 2026-08-18 UTC
+- Generated: 2026-08-20 UTC
 - Source repository: `Mashiane/0SithasoDaisyUIKit`
 - Library artifact: `B4A/B4XDaisyUIKit.b4xlib`
-- B4XPage demos scanned: 92
+- B4XPage demos scanned: 94
 - B4XDaisy source modules found: 104
-- Demonstrated components: 85
-- Documented-only components: 19
+- Demonstrated components: 86
+- Documented-only components: 18
 
 ## How to use
 
@@ -78,7 +78,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyDock | Demonstrated | B4XPageDock.bas<br>B4XPageNavScrollDock.bas |
 | B4XDaisyDrawer | Demonstrated | B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas |
 | B4XDaisyDropdown | Demonstrated | B4XPageDropdown.bas |
-| B4XDaisyDualRange | Documented-only | — |
+| B4XDaisyDualRange | Demonstrated | B4XPageDualRange.bas |
 | B4XDaisyEnjoyHint | Demonstrated | B4XPageEnjoyHint.bas |
 | B4XDaisyFab | Demonstrated | B4XPageBoomMenu.bas<br>B4XPageFab.bas<br>B4XPageFabBasic.bas<br>B4XPageFabFlower.bas<br>B4XPageFabNavbar.bas<br>B4XPageNavbar.bas |
 | B4XDaisyFieldset | Demonstrated | B4XPageCheckbox.bas<br>B4XPageCheckboxGroup.bas<br>B4XPageFieldset.bas<br>B4XPageRadio.bas<br>B4XPageRadioGroup.bas<br>B4XPageToggle.bas<br>B4XPageToggleGroup.bas |
@@ -95,7 +95,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyImage | Demonstrated | B4XPageMediaPicker.bas |
 | B4XDaisyIndicator | Demonstrated | B4XPageDropdown.bas<br>B4XPageIndicator.bas<br>B4XPageNavbar.bas<br>B4XPageSvgIcon.bas |
 | B4XDaisyInfoCard | Demonstrated | B4XPageInfoCard.bas |
-| B4XDaisyInput | Demonstrated | B4XPageColorWheel.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFieldset.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageNavScrollDock.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageTextarea.bas |
+| B4XDaisyInput | Demonstrated | B4XPageColorWheel.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFieldset.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageNavScrollDock.bas<br>B4XPageNativeDialogs.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageTextarea.bas |
 | B4XDaisyKbd | Demonstrated | B4XPageKbd.bas |
 | B4XDaisyList | Demonstrated | B4XPageList.bas<br>B4XPageList1K.bas |
 | B4XDaisyLoading | Demonstrated | B4XPageLoading.bas |
@@ -207,7 +207,7 @@ All 91 component skill files are located in [`skills/b4xdaisyuikit/components/`]
 - [pagination](../components/pagination.md)
 - [pdf-view](../components/pdf-view.md)
 - [picker](../components/picker.md)
-- [pocketbase](../components/pocketbase.md)
+- [pocket-base](../components/pocket-base.md)
 - [progress](../components/progress.md)
 - [radial-progress](../components/radial-progress.md)
 - [radio](../components/radio.md)

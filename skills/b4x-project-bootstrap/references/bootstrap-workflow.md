@@ -27,6 +27,7 @@ generic app shell. Do not hand-write the shell from scratch.
 | `B4XPageNavOnly.template.bas` | `<PageName>.bas` (sub-page with top navbar only, no dock) |
 | `project.template.b4a` | `<AppName>.b4a` (must match folder name) |
 | `install.template.ps1` | `install.ps1` |
+| `build-watch.template.ps1` | `build-watch.ps1` (auto-run by install.ps1 after launch; build-stage runtime gate) |
 
 ## Steps
 
@@ -40,6 +41,9 @@ generic app shell. Do not hand-write the shell from scratch.
      B4XPages requires it).
    - `project.template.b4a` -> `<AppName>.b4a`.
    - `install.template.ps1` -> `install.ps1`.
+   - `build-watch.template.ps1` -> `build-watch.ps1` (install.ps1 auto-runs it
+     after launch to evidence runtime UX items; skip only if you do not want
+     the build-stage runtime gate).
 
 3. **Genericize the package name and label in `<AppName>.b4a`.**
    - `Build1=Default,com.example.myapp` -> your reverse-DNS package.

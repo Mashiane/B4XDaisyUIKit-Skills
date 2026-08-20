@@ -48,6 +48,7 @@ The `B4XPage*.bas` names in the Pattern Reference Index below are **API usage ex
 
 If you are unfamiliar with B4X syntax, read **[b4x-primer.md](references/b4x-primer.md)** first. It teaches the B4X language constructs you will need: Sub declarations, variable types, event wiring, B4XPages lifecycle, Wait For/ResumableSub, and `dip` units.
 
+For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contrast, 4-state UI completeness, and Definition of Done, consult **[ux-master-doctrine.md](references/ux-master-doctrine.md)**.
 For every component you use, consult **[component-manifest.md](references/component-manifest.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
@@ -176,6 +177,7 @@ The right column lists the B4XPage demo names from the reference project. These 
 | File upload | `B4XDaisyFileInput`, `B4XDaisyFileHandler` | `B4XPageFileInput.bas`, `B4XPageMediaPicker.bas` |
 | Badge / chip | `B4XDaisyBadge`, `B4XDaisyBadgeGroupSelect` | `B4XPageBadge.bas`, `B4XPageBadgeGroupSelect.bas` |
 | Range slider | `B4XDaisyRange` | `B4XPageRange.bas` |
+| Dual range slider | `B4XDaisyDualRange` | `B4XPageDualRange.bas` |
 | Star rating | `B4XDaisyRating` | `B4XPageRating.bas` |
 | Carousel / slider | `B4XDaisyCarousel`, `B4XDaisyCarouselItem` | `B4XPageCarousel.bas` |
 | OTP / PIN entry | `B4XDaisyOTP` | `B4XPageOTP.bas` |
@@ -192,6 +194,7 @@ The right column lists the B4XPage demo names from the reference project. These 
 | Tab pages | `B4XDaisyTab` | `B4XPageTab.bas` |
 | Segment control | `B4XDaisySegment` | `B4XPageSegment.bas` |
 | Side menu | `B4XDaisyMenu` | `B4XPageMenu.bas`, `B4XPageMenuRuntime.bas`, `B4XPageMenuRuntime2.bas` |
+| Navigation drawer / rail / tree | `B4XDaisyDrawer` | `B4XPageDrawer.bas`, `B4XPageDrawerRail.bas`, `B4XPageDrawerTree.bas` |
 | Breadcrumbs | `B4XDaisyBreadcrumbs` | `B4XPageBreadcrumbs.bas` |
 | Pagination | `B4XDaisyPagination` | `B4XPagePagination.bas` |
 | Card | `B4XDaisyCard` | `B4XPageCard.bas` |
@@ -205,6 +208,7 @@ The right column lists the B4XPage demo names from the reference project. These 
 | Bottom sheet | `B4XDaisySheetModal` | `B4XPageSheetModal.bas` |
 | Action sheet | `B4XDaisyActionSheet` | `B4XPageActionSheet.bas` |
 | Confirm / input dialog | `B4XDaisySweetAlert` | `B4XPageSweetAlert.bas`, `B4XPageSweetAlertInputs.bas` |
+| Native Android dialog (Msgbox / InputList / FilePicker) | native B4X dialogs + `B4XDaisyInput` | `B4XPageNativeDialogs.bas` |
 | Alert banner | `B4XDaisyAlert` | `B4XPageAlert.bas` |
 | Toast / snackbar | `B4XDaisyToast` | `B4XPageToast.bas` |
 | Tooltip | `B4XDaisyTooltip` | `B4XPageTooltip.bas` |

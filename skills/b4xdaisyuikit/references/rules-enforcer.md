@@ -60,15 +60,27 @@ The Rules Enforcer is the authoritative, non-negotiable constraint layer of the 
 
 ---
 
-## 5. Interaction & Gesture Rules (`RULE-INTERACT-*`)
+## 5. Interaction, Ergonomics & State Completeness (`RULE-INTERACT-*` & `RULE-STATE-*`)
 
-* **`RULE-INTERACT-001` (Navbar BringToFront)**: Always bring pinned top navbars to the front by calling `navbar.BringToFront` directly. NEVER call `navbar.getView.BringToFront` (the internal view is not exposed this way).
-* **`RULE-INTERACT-002` (Prevent Parent Scroll Interception)**: For custom views with touch-dragging or sliding (e.g. `B4XDaisyColorWheel`, `B4XDaisyRange`, `B4XDaisyPicker`), invoke `DisallowParentIntercept(Action)` on `ACTION_DOWN` (0) and `ACTION_MOVE` (2) to prevent enclosing scroll containers from stealing touch events.
-* **`RULE-INTERACT-003` (Touch Target Sizing)**: Interactive click/touch targets on mobile MUST have a minimum physical size of `44dip` (recommended `48dip`).
+* **`RULE-INTERACT-001` (Navbar BringToFront)**: Always bring pinned top navbars to the front by calling `navbar.BringToFront` directly. NEVER call `navbar.getView.BringToFront`.
+* **`RULE-INTERACT-002` (Prevent Parent Scroll Interception)**: For custom views with touch-dragging or sliding (e.g. `B4XDaisyColorWheel`, `B4XDaisyRange`, `B4XDaisyDualRange`, `B4XDaisyCarousel`), invoke `DisallowParentIntercept(Action)` on `ACTION_DOWN` (0) and `ACTION_MOVE` (2) to prevent enclosing scroll containers from stealing touch events.
+* **`RULE-INTERACT-003` (Touch Target Sizing - Fitts's Law)**: Interactive click/touch targets on mobile MUST have a minimum physical size of `48dip` (`44dip` floor). Small icons must be wrapped in `B4XDaisyIconButton`.
+* **`RULE-INTERACT-004` (Navigation Bounds - Hick's Law)**: Bottom navigation docks (`B4XDaisyDock`) and top navbar actions MUST contain $\le 5$ items to minimize cognitive friction.
+* **`RULE-STATE-001` (Mandatory 4-State Coverage)**: Every asynchronous or data-driven view MUST explicitly implement Loading (`B4XDaisySkeleton` or `B4XDaisyLoading`), Populated (content cards/list), Empty (informative placeholder + action), and Error (`B4XDaisySweetAlert` / `B4XDaisyAlert` with retry) states.
 
 ---
 
-## 6. Anti-Patterns & Prohibitions (`RULE-ANTI-*`)
+## 6. Code Style & Hungarian Standards (`RULE-CODE-*`)
+
+* **`RULE-CODE-001` (Hungarian Parameter & Variable Prefixes)**: Use strict type-based Hungarian prefixes for all subroutine parameters and local variables to prevent compiler shadowing (`sText`, `iLeft`, `bEnabled`, `vParent`, `mProps`, `lstItems`, `bmpImage`, `joView`).
+* **`RULE-CODE-002` (Structured Error Logging)**: Empty `Catch` blocks are strictly forbidden. Catch blocks must log errors using the standard prefix: `Log("B4XDaisy<Module>.<Sub>: " & LastException.Message)`.
+
+---
+
+## 7. Anti-Patterns & Prohibitions (`RULE-ANTI-*`)
+
+* **`RULE-ANTI-001` (No Web Technologies)**: Never generate HTML, CSS, Tailwind utility classes, or `WebView` wrappers. B4XDaisyUIKit is 100% native B4X/Java Android views.
+* **`RULE-ANTI-002` (No Undocumented APIs)**: Never invent or assume method names, properties, or events. If a member is not documented in `component-manifest.md`, it does not exist.
 
 * **`RULE-ANTI-001` (No Web Technologies)**: Never generate HTML, CSS, Tailwind utility classes, or `WebView` wrappers. B4XDaisyUIKit is 100% native B4X/Java Android views.
 * **`RULE-ANTI-002` (No Undocumented APIs)**: Never invent or assume method names, properties, or events. If a member is not documented in `component-manifest.md`, it does not exist.

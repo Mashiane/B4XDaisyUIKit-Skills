@@ -1,15 +1,17 @@
 <#
 .SYNOPSIS
-    Conformance + coverage + compile-readiness gate for a generated B4XDaisyUIKit app.
+    Conformance + coverage + compile-readiness + UX quality gate for a generated B4XDaisyUIKit app.
 
 .DESCRIPTION
-    Three checks against the frozen component manifest:
+    Four deep checks against the frozen component manifest and UX Master Doctrine:
       1. CONFORMANCE  - every B4XDaisy* type referenced in the app's .bas files
                          exists in component-manifest.md. Reports invented APIs.
       2. DOCUMENTED-ONLY - flags use of components the manifest marks Documented-only
                          (per manifest rule 3: do not introduce unless user-approved).
       3. COMPILE-READINESS - every ModuleN= name in the .b4a has a matching .bas,
                          and NumberOfModules matches the count. B4XMainPage present.
+      4. UX & QUALITY GATE - verifies AutoFit, BringToFront, non-empty Catch logging,
+                         and touch conflict handling on gesture components.
 
     Exit code 0 = pass, 1 = fail. Fail = do not ship.
 
@@ -191,10 +193,19 @@ foreach ($f in $basFiles) {
     }
 }
 
-# --- STATIC LAYOUT & LIFECYCLE INSPECTION ---
+if ($problems.Count -eq 0) {
+    Write-Host "PASS: project file wiring and headers valid" -ForegroundColor Green
+} else {
+    $exitCode = 1
+    Write-Host "FAIL: compile readiness problem(s):" -ForegroundColor Red
+    foreach ($p in $problems) { Write-Host "  - $p" -ForegroundColor Red }
+}
+
+# --- STATIC LAYOUT & UX QUALITY GATE ---
 Write-Host ""
-Write-Host "=== STATIC LAYOUT & LIFECYCLE ===" -ForegroundColor Cyan
+Write-Host "=== STATIC LAYOUT & UX QUALITY GATE ===" -ForegroundColor Cyan
 $layoutProblems = @()
+$warnings = @()
 foreach ($f in $basFiles) {
     $text = Get-Content $f.FullName -Raw
     
@@ -209,6 +220,19 @@ foreach ($f in $basFiles) {
     if ($text -match '(?i)\.getView\.BringToFront') {
         $layoutProblems += "$($f.Name) calls .getView.BringToFront (RULE-INTERACT-001: call .BringToFront directly on the component)"
     }
+    # Check 3: Empty Catch block detection (RULE-CODE-002)
+    if ($text -match '(?m)^\s*Catch\s*[\r\n]+\s*End\s*Try') {
+        $warnings += "$($f.Name) has empty Catch block(s) without structured logging (RULE-CODE-002: log with LastException.Message)"
+    }
+    
+    # Check 4: Gesture components without touch interception protection (RULE-INTERACT-002)
+    $hasGestureComp = ($text -match 'B4XDaisyColorWheel' -or $text -match 'B4XDaisyRange' -or $text -match 'B4XDaisyDualRange' -or $text -match 'B4XDaisyCarousel')
+    $hasScrollContainer = ($text -match 'B4XDaisyPageScroll' -or $text -match 'ScrollView' -or $text -match 'HorizontalScrollView')
+    if ($hasGestureComp -and $hasScrollContainer) {
+        if ($text -notmatch 'DisallowParentIntercept' -and $text -notmatch 'requestDisallowInterceptTouchEvent') {
+            $warnings += "$($f.Name) embeds gesture/range components inside a scroll container without DisallowParentIntercept (RULE-INTERACT-002)"
+        }
+    }
 }
 
 if ($layoutProblems.Count -eq 0) {
@@ -219,11 +243,18 @@ if ($layoutProblems.Count -eq 0) {
     foreach ($lp in $layoutProblems) { Write-Host "  - $lp" -ForegroundColor Red }
 }
 
+if ($warnings.Count -gt 0) {
+    Write-Host "WARN: Quality & UX advisory warning(s):" -ForegroundColor Yellow
+    foreach ($w in $warnings) { Write-Host "  - $w" -ForegroundColor Yellow }
+}
+
+# --- SUMMARY RESULT ---
 if ($problems.Count -eq 0 -and $layoutProblems.Count -eq 0 -and $invented.Count -eq 0) {
     Write-Host ""
-    Write-Host "RESULT: PASS (all conformance, compile-readiness, and layout checks passed)" -ForegroundColor Green
+    Write-Host "RESULT: PASS (all conformance, compile-readiness, and UX layout checks passed)" -ForegroundColor Green
 } else {
     Write-Host ""
-    Write-Host "RESULT: FAIL (fix above before ./install.ps1)" -ForegroundColor Red
+    Write-Host "RESULT: FAIL (fix errors above before ./install.ps1)" -ForegroundColor Red
+}
 }
 exit $exitCode
