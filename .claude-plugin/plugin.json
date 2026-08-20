@@ -1,6 +1,6 @@
 {
   "name": "b4xdaisyuikit-skills",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Comprehensive native cross-platform UI/UX design and application development suite for B4X (B4A Android, B4i iOS, B4J Desktop) powered by B4XDaisyUIKit (inspired by DaisyUI / Tailwind CSS semantics). Builds 100% native screens with verified layout heuristics, rules enforcer, B4XPages lifecycle management, and automated quality gates.",
   "author": {
     "name": "Mashiane",

@@ -188,6 +188,26 @@ foreach ($dev in $devices) {
     Write-Host "  $($launchOutput -join ' ')" -ForegroundColor Gray
 }
 
+# --- Build-stage runtime gate (auto). Evidences UX-review items screenshots
+# cannot prove (crash, touch-target dp, TalkBack labels, startup time, jank)
+# so the post-build ux-review pass confirms instead of discovers.
+# Sibling build-watch.ps1 is dropped from the bootstrap skill alongside
+# install.ps1. If absent (older scaffold), skip silently.
+$buildWatch = Join-Path $appFolder "build-watch.ps1"
+if (Test-Path $buildWatch) {
+    Write-Host ""
+    Write-Host "Running build-watch.ps1 (build-stage runtime gate)..." -ForegroundColor Cyan
+    $firstDev = if ($devices.Count -gt 0) { $devices[0] } else { "" }
+    & $buildWatch -AppFolder $appFolder -Package $packageName -Activity $launcherActivity -DeviceId $firstDev
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "build-watch.ps1 reported runtime errors (see ux-review\BUILD-WATCH-*.md). Do not ship." -ForegroundColor Red
+    }
+} else {
+    Write-Host ""
+    Write-Host "build-watch.ps1 not found in project folder; build-stage runtime gate skipped." -ForegroundColor Gray
+    Write-Host "  (Drop build-watch.ps1 from the b4x-project-bootstrap skill to enable crash/touch/jank checks.)" -ForegroundColor Gray
+}
+
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  Installation Complete!" -ForegroundColor Cyan

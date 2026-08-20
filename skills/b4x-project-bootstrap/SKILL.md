@@ -59,6 +59,7 @@ All in `references/`. Copy them into the new app folder; rename as needed.
 3. `B4XPageNavOnly.template.bas` -> `<PageName>.bas` (Template for sub-pages with pinned top navbar and back button, without dock).
 4. `project.template.b4a` -> `<AppName>.b4a`.
 5. `install.template.ps1` -> `install.ps1`.
+6. `build-watch.template.ps1` -> `build-watch.ps1` (auto-run by `install.ps1` after launch; build-stage runtime gate for crash / touch-target dp / TalkBack labels / startup time / jank).
 
 `B4XDaisyUIKit.b4xlib` natively packages all standard assets (SVG icons,
 `Casino_Hand.ttf`, `mashymain.jpg`, sample photos, `daisylogo.png`, `pdfium license.txt`,
