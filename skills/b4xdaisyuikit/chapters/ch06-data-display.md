@@ -123,17 +123,17 @@ faqAccordion.AddToParent(pnlHost, pad, y, maxW, 300dip)
 ' Accordion wraps child Collapse components
 faqAccordion.Rounded = "rounded-box"
 
-Dim col1 As B4XDaisyCollapse = faqAccordion.AddCollapse("q1", "What payment methods are supported?")
+Dim col1 As B4XDaisyCollapse = faqAccordion.AddItemBasic("q1", "", "What payment methods are supported?")
 Dim a1 As B4XDaisyText
 a1.Initialize(Me, "a1")
 a1.Text = "We accept credit cards, PayPal, and Apple Pay."
-col1.GetContentPanel.AddView(a1.getView, 16dip, 8dip, maxW - 32dip, 36dip)
+col1.getContentView.AddView(a1.getView, 16dip, 8dip, maxW - 32dip, 36dip)
 
-Dim col2 As B4XDaisyCollapse = faqAccordion.AddCollapse("q2", "How do I cancel my subscription?")
+Dim col2 As B4XDaisyCollapse = faqAccordion.AddItemBasic("q2", "", "How do I cancel my subscription?")
 Dim a2 As B4XDaisyText
 a2.Initialize(Me, "a2")
 a2.Text = "You can cancel anytime from your Account Settings page."
-col2.GetContentPanel.AddView(a2.getView, 16dip, 8dip, maxW - 32dip, 36dip)
+col2.getContentView.AddView(a2.getView, 16dip, 8dip, maxW - 32dip, 36dip)
 
 y = y + faqAccordion.GetComputedHeight + gap
 

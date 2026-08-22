@@ -77,7 +77,7 @@ Every data-driven page, list, or asynchronous component must explicitly implemen
 ┌──────────────────────────────────────────────────────────────┐
 │                    4-STATE UI ARCHITECTURE                   │
 ├──────────────────────────────────────────────────────────────┤
-│ 1. LOADING   │ B4XDaisySkeleton / B4XDaisyLoading             │
+│ 1. LOADING   │ B4XDaisyDivision (Skeleton) / B4XDaisyLoading  │
 │              │ • Preserves layout geometry (no jump on load)  │
 ├──────────────┼───────────────────────────────────────────────┤
 │ 2. POPULATED │ Standard component hierarchy (Cards/Lists)    │

@@ -49,6 +49,7 @@ The `B4XPage*.bas` names in the Pattern Reference Index below are **API usage ex
 If you are unfamiliar with B4X syntax, read **[b4x-primer.md](references/b4x-primer.md)** first. It teaches the B4X language constructs you will need: Sub declarations, variable types, event wiring, B4XPages lifecycle, Wait For/ResumableSub, and `dip` units.
 
 For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contrast, 4-state UI completeness, and Definition of Done, consult **[ux-master-doctrine.md](references/ux-master-doctrine.md)**.
+
 For every component you use, consult **[component-manifest.md](references/component-manifest.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
@@ -105,14 +106,16 @@ Never invent a property, method, event, or enum value. If it is not in the manif
 
 ## Component Discovery Protocol
 
-## The 6-Stage Blueprint Agentic Workflow
+## The 6-Stage Blueprint Agentic Workflow (+ Orchestrator)
 
-When building screens, features, or complete apps, execute through these 6 mandatory stages in sequential order:
+When building screens, features, or complete apps, execute through these 6 mandatory stages in sequential order. For full-app / release-blocking runs, wrap with `b4x-orchestrator` (thin `L5` sequencer, no new knowledge).
 
 ```text
+STAGE 0: Screen Contract — fill ../b4x-orchestrator/references/screen-contract.template.md per screen (L5 gate, orchestrator blocks without it)
+   ↓
 STAGE 1: Setup & Environment Check (b4x-project-bootstrap)
    ↓
-STAGE 2: Rules Enforcer (references/rules-enforcer.md)
+STAGE 2: Rules Enforcer (references/rules-enforcer.md) — cite RULE-* IDs in trace
    ↓
 STAGE 3: Creative Director & Design Reasoning (references/creative-director.md)
    ↓
@@ -120,8 +123,10 @@ STAGE 4: Page Architecture Selection (references/page-architectures.md)
    ↓
 STAGE 5: Component Syntax Retrieval (component-manifest.md & components/<name>.md)
    ↓
-STAGE 6: Quality Inspector & Conformance Gate (b4x-verify)
+STAGE 6: Quality Inspector & Conformance Gate (b4x-verify → pre-scan L4 → verify-conformance L5 → build-watch L4 → capture L3 → ux-review L5)
 ```
+
+> **Orchestrated mode:** `b4x-orchestrator` enforces `contract → pre-scan → verify → install → build-watch → capture → ux-review → remediation loop (cap 3) → release bundle` with hard `exit 1` gates. No bypass.
 
 ---
 
@@ -130,15 +135,15 @@ STAGE 6: Quality Inspector & Conformance Gate (b4x-verify)
 * For existing projects, inspect `<AppName>.b4a` to verify package name, `NumberOfModules`, and existing page modules.
 
 ### Stage 2: Rules Enforcer
-* Review and adhere to the non-negotiable constraints in **[rules-enforcer.md](references/rules-enforcer.md)**.
-* Cite relevant rule IDs (e.g. `RULE-LAYOUT-003` for `AutoFit`, `RULE-INTERACT-001` for `navbar.BringToFront`, `RULE-SETUP-004` for module wiring) in your reasoning trace.
+* Review and adhere to the non-negotiable constraints in **[rules-enforcer.md](references/rules-enforcer.md)** (each rule marked `L1-L5` with script link — `L4/L5` are hard gates in `b4x-verify`).
+* Cite relevant rule IDs (e.g. `RULE-LAYOUT-003` for `AutoFit`, `RULE-INTERACT-001` for `navbar.BringToFront`, `RULE-SETUP-004` for module wiring) in your reasoning trace — orchestrator audits this trace.
 
-### Stage 3: Creative Director (Design Reasoning)
-* Formulate UX direction per **[creative-director.md](references/creative-director.md)** before picking components:
+### Stage 3: Creative Director + Screen Contract (Design Reasoning)
+* Fill **Screen Contract** `../b4x-orchestrator/references/screen-contract.template.md` per screen before picking components, then formulate UX direction per **[creative-director.md](references/creative-director.md)**:
   * Define ergonomic hierarchy (thumb reach vs context bar).
   * Select density level (High / Comfortable / Hero).
   * Assign semantic color roles (`primary`, `secondary`, `accent`, `neutral`, `error`).
-  * Ensure full 4-state coverage (Loading, Populated, Empty, Error).
+  * Ensure full 4-state coverage (Loading, Populated, Empty, Error) — contract §6.
 
 ### Stage 4: Page Architect
 * Select a proven native page model from **[page-architectures.md](references/page-architectures.md)** (e.g. `ARCH-01 NavScrollDock`, `ARCH-02 Auth/OTP`, `ARCH-03 Dashboard`, `ARCH-04 Form/CRUD`, `ARCH-05 Master-Detail`, `ARCH-06 Stock-Take`, `ARCH-07 Wizard`).
@@ -175,7 +180,7 @@ The right column lists the B4XPage demo names from the reference project. These 
 | Toggle / switch | `B4XDaisyToggle`, `B4XDaisyToggleGroup` | `B4XPageToggle.bas`, `B4XPageToggleGroup.bas` |
 | Dropdown / select list | `B4XDaisySelect`, `B4XDaisyDropdown` | `B4XPageSelect.bas`, `B4XPageDropdown.bas` |
 | File upload | `B4XDaisyFileInput`, `B4XDaisyFileHandler` | `B4XPageFileInput.bas`, `B4XPageMediaPicker.bas` |
-| Badge / chip | `B4XDaisyBadge`, `B4XDaisyBadgeGroupSelect` | `B4XPageBadge.bas`, `B4XPageBadgeGroupSelect.bas` |
+| Badge / chip | `B4XDaisyBadge`, `B4XDaisyBadgeGroupSelect` | `B4XPageBadge.bas` |
 | Range slider | `B4XDaisyRange` | `B4XPageRange.bas` |
 | Dual range slider | `B4XDaisyDualRange` | `B4XPageDualRange.bas` |
 | Star rating | `B4XDaisyRating` | `B4XPageRating.bas` |
@@ -216,7 +221,7 @@ The right column lists the B4XPage demo names from the reference project. These 
 | Canvas spinner | `B4XDaisyCanvasSpinner` | `B4XPageCanvasSpinner.bas` |
 | Skeleton loading | `B4XDaisyDivision` (IsSkeleton) | `B4XPageSkeleton.bas` |
 | Status dot (online/offline) | `B4XDaisyStatus` | `B4XPageStatus.bas` |
-| Avatar | `B4XDaisyAvatar`, `B4XDaisyAvatarGroup` | `B4XPageAvatar.bas`, `B4XPageAvatarGroup.bas`, `B4XPageMask.bas` |
+| Avatar | `B4XDaisyAvatar`, `B4XDaisyAvatarGroup` | `B4XPageAvatar.bas`, `B4XPageMask.bas` |
 | Chat / messaging | `B4XDaisyChat` | `B4XPageChat.bas` |
 | PDF viewer | `B4XDaisyPDFView` | `B4XPagePDFView.bas` |
 | FAB / floating button | `B4XDaisyFab` | `B4XPageFab.bas`, `B4XPageFabBasic.bas`, `B4XPageFabFlower.bas` |

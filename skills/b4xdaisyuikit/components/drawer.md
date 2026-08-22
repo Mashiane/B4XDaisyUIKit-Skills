@@ -1,103 +1,91 @@
 # drawer (`B4XDaisyDrawer`)
 
-Full-screen or container-level sliding navigation drawer with left/right sidebars, collapsible navigation rail mode, backdrop overlay dismiss, edge swipe gesture handling, and hierarchical menu support.
+DaisyUI `Drawer` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDrawer`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyDrawer.bas`
-- **Web DaisyUI Mapping**: `.drawer`, `.drawer-side`, `.drawer-content`, `.drawer-toggle` → `B4XDaisyDrawer`
+- **Verified Demo Source**: B4XPageDrawer.bas (lines 15–15), B4XPageDrawerRail.bas (lines 15–15), B4XPageDrawerTree.bas (lines 15–15)
+- **Web DaisyUI Mapping**: `.drawer` → `B4XDaisyDrawer`
 
 ## 2. Verified B4X Syntax & Recipe
-
-### Standard Full-Page Sliding Drawer with Top Navbar Hamburger Toggle:
 ```b4x
-Private mainDrawer As B4XDaisyDrawer
-Private topNavbar As B4XDaisyNavbar
-Private sideMenu As B4XDaisyMenu
-Private pageScroll As B4XDaisyPageScroll
+' 1. FULLSCREEN ROOT DRAWER (Left side only, AlwaysOpen = False by default)
+	' -
+	mainDrawer.Initialize(Me, "mainDrawer")
+	mainDrawer.AddToParent(Root, 0, 0, Width, Height)
 
-Private Sub RenderFullPageDrawer(Width As Int, Height As Int)
-    Root.RemoveAllViews
+	' -
+	' 2. LEFT SIDEBAR MENU (Inside mainDrawer.LeftPanel)
+	' -
+	BuildLeftSidebar(mainDrawer.LeftPanel, SIDEBAR_WIDTH, Height)
 
-    ' 1. Mount fullscreen drawer container
-    mainDrawer.Initialize(Me, "mainDrawer")
-    mainDrawer.AddToParent(Root, 0, 0, Width, Height)
-    mainDrawer.Side = "left"
-    mainDrawer.LeftSideWidth = "300dip"
+	' -
+	' 3. TOP NAVBAR (Inside mainDrawer.CenterPanel)
+	' -
+	topNavbar.Initialize(Me, "topNavbar")
+	topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, NAVBAR_HEIGHT)
+	topNavbar.Variant = "base-100"
+	topNavbar.Shadow = "sm"
+	topNavbar.Title = "DaisyUI Drawer"
+	topNavbar.TitlePosition = "center"
 
-    ' 2. Mount Left Sidebar Menu inside mainDrawer.LeftPanel
-    BuildLeftSidebar(mainDrawer.LeftPanel, 300dip, Height)
+	' Enable built-in Hamburger menu button (Toggles the drawer)
+	topNavbar.HamburgerVisible = True
 
-    ' 3. Mount Top Navbar inside mainDrawer.CenterPanel
-    topNavbar.Initialize(Me, "topNavbar")
-    topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, 56dip)
-    topNavbar.Title = "DaisyUI Drawer"
-    topNavbar.HamburgerVisible = True
-
-    ' 4. Mount Content Scroll inside mainDrawer.CenterPanel
-    pageScroll.Initialize(Me, "pageScroll")
-    pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Width, Height - 56dip)
-End Sub
-
-Private Sub topNavbar_HamburgerClick(Tag As Object)
-    mainDrawer.ToggleLeft
-End Sub
-
-Private Sub mainDrawer_Closed
-    ' Drawer closed
-End Sub
-
-Private Sub mainDrawer_Opened
-    ' Drawer opened
-End Sub
-```
-
-### Collapsible Navigation Rail Mode:
-```b4x
-mainDrawer.Initialize(Me, "mainDrawer")
-mainDrawer.AddToParent(Root, 0, 0, Width, Height)
-mainDrawer.Side = "left"
-mainDrawer.AlwaysOpen = True
-mainDrawer.RailMode = True
-mainDrawer.CollapseWidth = "64dip"
-mainDrawer.NormalWidth = "260dip"
-mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
+	' -
+	' 4. CENTER DAISYUI PAGE SCROLL CONTAINER
+	' -
+	Dim contentH As Int = Max(1dip, Height - NAVBAR_HEIGHT)
+	pageScroll.Initialize(Me, "pageScroll")
+	pageScroll.AddToParent(mainDrawer.CenterPanel, 0, NAVBAR_HEIGHT, Width, contentH)
+	pageScroll.Transparent = True
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Mount all sidebar views (e.g. `B4XDaisyMenu`, user profile badges, logout buttons) directly into `mainDrawer.LeftPanel` (or `mainDrawer.RightPanel`).
-- Mount all page content and top headers directly into `mainDrawer.CenterPanel`.
-- To toggle sidebar visibility from buttons or navbars, call `mainDrawer.ToggleLeft` or `mainDrawer.ToggleRight`.
-- `AlwaysOpen = True` keeps the sidebar permanently docked beside the center panel (desktop/tablet layout).
-- `RailMode = True` enables smooth animation between `CollapseWidth` (icon-only rail) and `NormalWidth` (expanded sidebar) via `SetIsCollapsed(Boolean)`.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDrawer` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+5. **Execution / Assembly:** Container layout requiring assignment of dual panels (Content and Drawer/Side) and state toggling.
+
+### Deviation Mechanism
+- Container layout requiring assignment of dual panels (Content and Drawer/Side) and state toggling.
+
+### Preconditions & Gotchas
+- Contains `DisallowParentIntercept` on B4A to prevent enclosing scroll containers (like `B4XDaisyPageScroll`) from stealing touch drag events.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `RightPanel, DarkPanel, AddToCenter` (+ 58 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Opened | Opened | Boolean | False |  |
-| AlwaysOpen | Always Open | Boolean | False |  |
-| Side | Side | String | left | left\|right\|both |
-| LeftSideWidth | Left Side Width | String | 300dip |  |
-| RightSideWidth | Right Side Width | String | 300dip |  |
-| CollapseWidth | Collapse Width | String | 60dip |  |
-| NormalWidth | Normal Width | String | 300dip |  |
-| IsCollapsed | Is Collapsed | Boolean | False |  |
-| RailWidth | Rail Width | String | 60dip |  |
-| RailMode | Rail Mode | Boolean | False |  |
-| GestureEnabled | Gesture / Swipe Enabled | Boolean | True |  |
-| LeftSideBackgroundColor | Left Side Background Color | String | base-200 | base-100\|base-200\|base-300\|primary\|secondary\|accent\|neutral\|info\|success\|warning\|error |
-| RightSideBackgroundColor | Right Side Background Color | String | base-200 | base-100\|base-200\|base-300\|primary\|secondary\|accent\|neutral\|info\|success\|warning\|error |
-| ContentBackgroundColor | Content Background Color | String | none | none\|base-100\|base-200\|base-300\|primary\|secondary\|accent\|neutral\|info\|success\|warning\|error |
-| OverlayColor | Overlay Color | Color | 0xFF000000 |  |
-| OverlayOpacity | Overlay Opacity | Int | 40 |  |
-| Rounded | Rounded | String | rounded-box | theme\|none\|rounded-none\|rounded-sm\|rounded\|rounded-md\|rounded-lg\|rounded-xl\|rounded-2xl\|rounded-3xl\|rounded-full\|rounded-box |
-| Shadow | Shadow | String | lg | none\|xs\|sm\|md\|lg\|xl\|2xl |
-| Padding | Padding | String | p-4 |  |
-| Animated | Animated | Boolean | True |  |
-| Duration | Duration | Int | 300 |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Opened` | Opened | `Boolean` | `False` |  |
+| `AlwaysOpen` | Always Open | `Boolean` | `False` |  |
+| `Side` | Side | `String` | `left` | left|right|both |
+| `LeftSideWidth` | Left Side Width | `String` | `300dip` |  |
+| `RightSideWidth` | Right Side Width | `String` | `300dip` |  |
+| `CollapseWidth` | Collapse Width | `String` | `60dip` |  |
+| `NormalWidth` | Normal Width | `String` | `300dip` |  |
+| `IsCollapsed` | Is Collapsed | `Boolean` | `False` |  |
+| `RailWidth` | Rail Width | `String` | `60dip` |  |
+| `RailMode` | Rail Mode | `Boolean` | `False` |  |
+| `GestureEnabled` | Gesture / Swipe Enabled | `Boolean` | `True` |  |
+| `LeftSideBackgroundColor` | Left Side Background Color | `String` | `base-200` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `RightSideBackgroundColor` | Right Side Background Color | `String` | `base-200` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `ContentBackgroundColor` | Content Background Color | `String` | `none` | none|base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `OverlayColor` | Overlay Color | `Color` | `0xFF000000` |  |
+| `OverlayOpacity` | Overlay Opacity | `Int` | `40` |  |
+| `Rounded` | Rounded | `String` | `rounded-box` | theme|none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box |
+| `Shadow` | Shadow | `String` | `lg` | none|xs|sm|md|lg|xl|2xl |
+| `Padding` | Padding | `String` | `p-4` |  |
+| `Animated` | Animated | `Boolean` | `True` |  |
+| `Duration` | Duration | `Int` | `300` |  |
 
 ## 5. Declared Events
 - `Closed`
@@ -122,11 +110,26 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 - `CreateView(vParent As B4XView, oTag As Object) As B4XView`
 - `DarkPanel As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `LeftPanel As B4XView`
+- `Open`
+- `OpenLeft`
+- `OpenRight`
+- `Refresh`
+- `RemoveViewFromParent`
+- `Resize(iWidth As Int, iHeight As Int)`
+- `RightPanel As B4XView`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `SetSideWidthAnimated(fWidth As Float, bSmooth As Boolean)`
+- `Toggle`
+- `UpdateTheme`
+- `View As B4XView`
 - `getAlwaysOpen As Boolean`
 - `getAnimated As Boolean`
 - `getBackgroundColorVariant As String`
-- `getCollapsed As Boolean`
 - `getCollapseWidth As String`
+- `getCollapsed As Boolean`
 - `getContentBackgroundColor As String`
 - `getDuration As Int`
 - `getEnabled As Boolean`
@@ -157,21 +160,11 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `LeftPanel As B4XView`
-- `Open`
-- `OpenLeft`
-- `OpenRight`
-- `Refresh`
-- `RemoveViewFromParent`
-- `Resize(iWidth As Int, iHeight As Int)`
-- `RightPanel As B4XView`
-- `SendToBack`
 - `setAlwaysOpen(bValue As Boolean)`
 - `setAnimated(bValue As Boolean)`
 - `setBackgroundColorVariant(sValue As String)`
-- `setCollapsed(bValue As Boolean)`
 - `setCollapseWidth(sValue As String)`
+- `setCollapsed(bValue As Boolean)`
 - `setContentBackgroundColor(sValue As String)`
 - `setDuration(iValue As Int)`
 - `setEnabled(bValue As Boolean)`
@@ -179,7 +172,6 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 - `setHeight(iValue As Int)`
 - `setIsCollapsed(bValue As Boolean)`
 - `setIsOpen(bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setLeftOpen(bValue As Boolean)`
 - `setLeftSideBackgroundColor(sValue As String)`
@@ -198,13 +190,13 @@ mainDrawer.SetIsCollapsed(True) ' Starts collapsed into compact rail
 - `setSide(sValue As String)`
 - `setSideBackgroundColor(sValue As String)`
 - `setSideWidth(sValue As String)`
-- `SetSideWidthAnimated(fWidth As Float, bSmooth As Boolean)`
 - `setTag(oValue As Object)`
 - `setTextColorVariant(sValue As String)`
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `Toggle`
-- `UpdateTheme`
-- `View As B4XView`
+
+## 7. Public Fields
+- `mBase As B4XView`
+- `xui As XUI`
 

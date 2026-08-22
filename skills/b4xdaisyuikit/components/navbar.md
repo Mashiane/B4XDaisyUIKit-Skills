@@ -1,57 +1,88 @@
 # navbar (`B4XDaisyNavbar`)
 
-App top bar with logo/title, action items, menu trigger, and optional search.
+DaisyUI `Navbar` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyNavbar`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyNavbar.bas`
+- **Verified Demo Source**: B4XPageColorWheel.bas (lines 31–31), B4XPageDrawer.bas (lines 16–16), B4XPageDrawerRail.bas (lines 16–16), B4XPageDrawerTree.bas (lines 16–16), B4XPageDualRange.bas (lines 17–17), B4XPageEnjoyHint.bas (lines 14–14), B4XPageFabNavbar.bas (lines 13–13), B4XPageNavScrollDock.bas (lines 37–37), B4XPageNavbar.bas (lines 16–559), B4XPagePDFView.bas (lines 11–11), B4XPagePicker.bas (lines 444–444), B4XPageSheetModal.bas (lines 142–142)
 - **Web DaisyUI Mapping**: `.navbar` → `B4XDaisyNavbar`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim nv As B4XDaisyNavbar
-nv.Initialize(Me, "nv")
-nv.AddToParent(Root, 0, 0, Root.Width, 56dip)
-nv.Title = "App Header"
-nv.BackVisible = True
-nv.BackLabel = "Back"
+Private Sub AddNavbarTitleOnly
+	Dim nb As B4XDaisyNavbar
+	nb.Initialize(Me, "nb1")
+	Dim nbView As B4XView = nb.AddToParent(pnlContent, 10dip, currentY, Root.Width - 20dip, 64dip)
+	nb.Title = "Anele Mbanga (Mashy)"
+	currentY = currentY + 64dip + gap
+
+	' --- FAB example: fixed bottom-end placement on Root ---
+	' Using PlacementMode=fixed keeps the FAB at a stable screen position
+	' regardless of the ScrollView scroll offset. This is the correct
+	' approach when the navbar lives inside a scrollable container.
+	If nb1Fab.IsInitialized = False Then
+		nb1Fab.Initialize(Me, "nb1_fab")
+		nb1Fab.PlacementMode = "fixed"
+		nb1Fab.Placement = "bottom-end"
+		nb1Fab.TriggerText = ""
+		nb1Fab.TriggerIconName = "plus-solid.svg"
+		nb1Fab.TriggerVariant = "primary"
+		nb1Fab.TriggerCircle = True
+		nb1Fab.UseCloseAction = True
+		nb1Fab.CloseActionText = ""
+		nb1Fab.CloseActionVariant = "error"
+		nb1Fab.CloseActionIconName = "xmark-solid.svg"
+		nb1Fab.AddAction("camera", "neutral", "camera-solid.svg")
+		nb1Fab.AddAction("share", "info", "upload-solid.svg")
+		nb1Fab.AddToParent(Root, 0, 0, 56dip, 56dip)
+		nb1Fab.BringToFront
+	End If
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Top application header navigation bar with title, back button, and action buttons.
-- Set `Title` and `ShowBackButton = True` for sub-page navigation.
-- Add action icons using `AddStartAction(Id, IconAsset)` and `AddEndAction(Id, IconAsset)`.
-- Handle navigation taps in `BackClick` and `ActionClick (ActionId As String)` events.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyNavbar` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `GetStartPanel, GetCenterPanel, GetEndPanel` (+ 59 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Variant | Variant | String | none | none|primary|secondary|accent|neutral|info|success|warning|error |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| Shadow | Shadow | String | sm | none|sm|md|lg|xl|2xl |
-| Rounded | Rounded | String | none | theme|none|sm|rounded|md|lg|xl|2xl|3xl|full |
-| Glass | Glass | Boolean | False |  |
-| GlassSize | Glass Size | String | none | none|glass-xs|glass-sm|glass-md|glass-lg|glass-xl|glass-2xl |
-| Padding | Padding | Int | 8 |  |
-| Width | Width | String | full |  |
-| Height | Height | String | h-64 |  |
-| Title | Title | String |  |  |
-| TitlePosition | Title Position | String | start | start|center|end |
-| TitleVisible | Title Visible | Boolean | True |  |
-| HamburgerVisible | Hamburger Visible | Boolean | False |  |
-| HamburgerSize | Hamburger Size | Int | 48 |  |
-| BackVisible | Back Visible | Boolean | False |  |
-| BackSize | Back Size | Int | 48 |  |
-| BackLabel | Back Label | String |  |  |
-| BackNudge | Back Nudge | Int | 10 |  |
-| LogoImage | Logo Image | String |  |  |
-| LogoWidth | Logo Width | Int | 32 |  |
-| LogoHeight | Logo Height | Int | 32 |  |
-| LogoMask | Logo Mask | String | none | none|mask-circle|mask-squircle|mask-heart|mask-hexagon|mask-decagon|mask-pentagon|mask-diamond|mask-square |
-| LogoVisible | Logo Visible | Boolean | True |  |
-| LogoPosition | Logo Position | String | start | start|center|end |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Variant` | Variant | `String` | `none` | none|primary|secondary|accent|neutral|info|success|warning|error |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `Shadow` | Shadow | `String` | `sm` | none|sm|md|lg|xl|2xl |
+| `Rounded` | Rounded | `String` | `none` | theme|none|sm|rounded|md|lg|xl|2xl|3xl|full |
+| `Glass` | Glass | `Boolean` | `False` |  |
+| `GlassSize` | Glass Size | `String` | `none` | none|glass-xs|glass-sm|glass-md|glass-lg|glass-xl|glass-2xl |
+| `Padding` | Padding | `Int` | `8` |  |
+| `Width` | Width | `String` | `full` |  |
+| `Height` | Height | `String` | `h-64` |  |
+| `Title` | Title | `String` | `` |  |
+| `TitlePosition` | Title Position | `String` | `start` | start|center|end |
+| `TitleVisible` | Title Visible | `Boolean` | `True` |  |
+| `HamburgerVisible` | Hamburger Visible | `Boolean` | `False` |  |
+| `HamburgerSize` | Hamburger Size | `Int` | `48` |  |
+| `BackVisible` | Back Visible | `Boolean` | `False` |  |
+| `BackSize` | Back Size | `Int` | `48` |  |
+| `BackLabel` | Back Label | `String` | `` |  |
+| `BackNudge` | Back Nudge | `Int` | `10` |  |
+| `LogoImage` | Logo Image | `String` | `` |  |
+| `LogoWidth` | Logo Width | `Int` | `32` |  |
+| `LogoHeight` | Logo Height | `Int` | `32` |  |
+| `LogoMask` | Logo Mask | `String` | `none` | none|mask-circle|mask-squircle|mask-heart|mask-hexagon|mask-decagon|mask-pentagon|mask-diamond|mask-square |
+| `LogoVisible` | Logo Visible | `Boolean` | `True` |  |
+| `LogoPosition` | Logo Position | `String` | `start` | start|center|end |
 
 ## 5. Declared Events
 - `Click (Payload As Object)`
@@ -91,14 +122,23 @@ nv.BackLabel = "Back"
 - `ClearStartSlot`
 - `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `getBackgroundColor As Int`
+- `GetCenterPanel As B4XView`
+- `GetComputedHeight As Int`
+- `GetEndPanel As B4XView`
+- `GetStartPanel As B4XView`
+- `Hamburger_Changed(sState As String, bChecked As Boolean)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `LogoAvatar_Click`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ToggleHamburger`
+- `View As B4XView`
 - `getBackLabel As String`
 - `getBackNudge As Int`
 - `getBackSize As Int`
 - `getBackVisible As Boolean`
-- `GetCenterPanel As B4XView`
-- `GetComputedHeight As Int`
-- `GetEndPanel As B4XView`
+- `getBackgroundColor As Int`
 - `getGlass As Boolean`
 - `getGlassSize As String`
 - `getHamburgerChecked As Boolean`
@@ -116,7 +156,6 @@ nv.BackLabel = "Back"
 - `getPadding As Int`
 - `getRounded As String`
 - `getShadow As String`
-- `GetStartPanel As B4XView`
 - `getTag As Object`
 - `getTextColor As Int`
 - `getTitle As String`
@@ -126,24 +165,18 @@ nv.BackLabel = "Back"
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Float`
-- `Hamburger_Changed(sState As String, bChecked As Boolean)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `LogoAvatar_Click`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
 - `setBackLabel(sValue As String)`
 - `setBackNudge(iValue As Int)`
 - `setBackSize(iValue As Int)`
 - `setBackVisible(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
 - `setGlass(bValue As Boolean)`
 - `setGlassSize(sValue As String)`
 - `setHamburgerChecked(bValue As Boolean)`
 - `setHamburgerSize(iValue As Int)`
 - `setHamburgerVisible(bValue As Boolean)`
 - `setHeight(oValue As Object)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setLogoHeight(iValue As Int)`
 - `setLogoImage(sValue As String)`
@@ -164,11 +197,8 @@ nv.BackLabel = "Back"
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(oValue As Object)`
-- `ToggleHamburger`
-- `View As B4XView`
-
 
 ## 7. Public Fields
-- `BackButton As B4XDaisyButton`
-- `LogoAvatar As B4XDaisyAvatar`
 - `mBase As B4XView`
+- `xui As XUI`
+

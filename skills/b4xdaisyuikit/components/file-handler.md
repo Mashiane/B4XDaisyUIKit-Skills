@@ -1,66 +1,69 @@
 # file-handler (`B4XDaisyFileHandler`)
 
-Cross-platform helper service for device file loading, MIME-filtered file picking, file saving, audio recording, and temporary storage management.
+DaisyUI `FileHandler` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFileHandler`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyFileHandler.bas`
+- **Verified Demo Source**: B4XPageMediaPicker.bas (lines 17–17)
 - **Web DaisyUI Mapping**: `.file-handler` → `B4XDaisyFileHandler`
-- **Companion View**: For visual file input buttons, see [file-input.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/file-input.md) (`B4XDaisyFileInput`).
 
 ## 2. Verified B4X Syntax & Recipe
-
-### Load Any File via ResumableSub
 ```b4x
-Dim fh As B4XDaisyFileHandler
-fh.Initialize
+Private Sub B4XPage_Created(Root1 As B4XView)
+	Root = Root1
 
-Wait For (fh.Load) Complete (Result As LoadResult)
-If Result.Success Then
-    Log("Loaded file: " & Result.RealFileName)
-    Dim inStr As InputStream = File.OpenInput(Result.Dir, Result.FileName)
-    ' Process file content...
-End If
-```
+	pageScroll.Initialize(Me, "pageScroll")
+	pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+	pnlHost = pageScroll.Panel
 
-### Load Image / Document with MIME Filter
-```b4x
-Dim fh As B4XDaisyFileHandler
-fh.Initialize
+	xui.SetDataFolder("mediachooser-example")
+	chooser.Initialize(Me, "chooser")
 
-' Pick image only
-Wait For (fh.LoadWithFilter("image/*", "Select Image")) Complete (Result As LoadResult)
-If Result.Success Then
-    Dim bmp As B4XBitmap = xui.LoadBitmap(Result.Dir, Result.FileName)
-    imgProfile.SetBitmap(bmp)
-End If
-```
-
-### Save Stream to Local Device
-```b4x
-Dim fh As B4XDaisyFileHandler
-fh.Initialize
-
-Dim inStream As InputStream = File.OpenInput(File.DirAssets, "report.pdf")
-Wait For (fh.SaveAs(inStream, "application/pdf", "Save Export")) Complete (Success As Boolean)
-If Success Then
-    Log("PDF successfully saved")
-End If
+	Try
+		FileHandler.Initialize
+	Catch
+		Log("B4XPageMediaPicker FileHandler.Initialize Error: " & LastException.Message)
+	End Try
+	RenderExamples(Root.Width, Root.Height)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- `B4XDaisyFileHandler` methods are asynchronous and return `ResumableSub` types; always invoke using `Wait For (...) Complete (...)`.
-- `LoadResult` contains `.Success`, `.Dir`, `.FileName`, `.RealFileName`, `.MimeType`.
-- Call `fh.DeleteTemporaryFiles` during cleanup to purge cached temporary file copies.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyFileHandler` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+6. **Asynchronous Handling:** Await user response with `Wait For (<var>_EventName(...))`.
 
-## 4. Public Methods & APIs
-| Method | Returns | Description |
-|---|---|---|
-| `Initialize` | | Initializes the file handler instance |
-| `Load` | `ResumableSub (LoadResult)` | Opens default system file picker |
-| `LoadWithFilter(sMimeType, sTitle)` | `ResumableSub (LoadResult)` | Opens file picker filtered by MIME type (e.g. `"image/*"`, `"application/pdf"`) |
-| `SaveAs(Source As InputStream, sMimeType, sTitle)` | `ResumableSub (Boolean)` | Prompts user to save input stream to device storage |
-| `RecordAudio` | `ResumableSub (LoadResult)` | Prompts native audio recorder |
-| `CheckForReceivedFiles` | `LoadResult` | Checks for files shared from other apps |
-| `DeleteTemporaryFiles` | | Deletes cached temporary files created during picker operations |
+### Deviation Mechanism
+- Utility/Helper/Animation class with specialized non-visual or animation lifecycle (not a standard CustomView).; Requires asynchronous `Wait For` resumption to complete modal/dialog/action flow or receive return values.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `DeleteTemporaryFiles, SaveAs, CheckForReceivedFiles` (+ 2 more).
+
+## 4. Designer Properties
+*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+
+## 5. Declared Events
+- *(No custom events declared)*
+
+## 6. Public Methods & APIs
+- `CheckForReceivedFiles As LoadResult`
+- `DeleteTemporaryFiles`
+- `Initialize`
+- `Load (oParentPage As Object, oAnchorView As Object) As ResumableSub`
+- `Load As ResumableSub`
+- `LoadWithFilter (sMimeType As String, sTitle As String) As ResumableSub`
+- `RecordAudio As ResumableSub`
+- `SaveAs (Source As InputStream, sMimeType As String, sTitle As String) As ResumableSub`
+- `SaveAs(oParentPage As Object, oAnchorView As Object, sText As String) As ResumableSub`
+- `UrlToLoadResult(sUrl As String) As LoadResult`
+
+## 7. Public Fields
+- `mBase As B4XView`
+

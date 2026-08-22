@@ -26,6 +26,12 @@ Sub Class_Globals
 	Private AppLoader As B4XDaisyCanvasSpinner
 	Public SweetAlert As B4XDaisySweetAlert
 	Private ActiveAlert As B4XDaisyAlert
+
+	' =========================================================================
+	' SPOT (A): DECLARE ALL APP PAGES HERE
+	' =========================================================================
+	Public HomePage As B4XPageHome
+	' Public SettingsPage As B4XPageSettings
 End Sub
 
 Public Sub Initialize
@@ -82,6 +88,16 @@ Sub ShowSplashScreen As ResumableSub
 	#If B4i
 		Main.NavControl.NavigationBarVisible = False
 	#End If
+
+	' =========================================================================
+	' SPOT (B): INITIALIZE & REGISTER ALL APP PAGES HERE
+	' =========================================================================
+	HomePage.Initialize
+	' SettingsPage.Initialize
+
+	B4XPages.AddPage("home", HomePage)
+	' B4XPages.AddPage("settings", SettingsPage)
+
 	Return True
 End Sub
 

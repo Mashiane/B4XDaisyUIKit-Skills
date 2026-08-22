@@ -1,62 +1,79 @@
 # dropdown (`B4XDaisyDropdown`)
 
-Popup menu anchored to a trigger view. Supports items, icon items, badge items, submenus, and both hover/click open modes.
+DaisyUI `Dropdown` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDropdown`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDropdown.bas`
+- **Verified Demo Source**: B4XPageDropdown.bas (lines 78–388)
 - **Web DaisyUI Mapping**: `.dropdown` → `B4XDaisyDropdown`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim dd As B4XDaisyDropdown
-dd.Initialize(Me, "dd")
-dd.AddToParent(pnlHost, pad, y, maxW, 44dip)
-dd.Direction = "bottom"
-dd.Placement = "start"
+Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int
+    Y = AddSectionTitle("Notification bell", Y, Width)
+    Y = AddSectionNote("An SVG bell icon acts as the trigger. A red indicator badge shows unread count. The menu lists mixed single-line and multi-line notifications.", Y, Width)
 
-' Trigger view (attach a button)
-Dim triggerBtn As B4XDaisyButton
-triggerBtn.Initialize(Me, "triggerBtn")
-triggerBtn.Text = "Options"
-dd.AttachTo(triggerBtn.getView)
+    Dim iconSize As Int = 48dip
+    Dim iconPad As Int = 12dip
 
-' Build the menu
-Dim mnu As B4XDaisyMenu
-mnu = dd.getMenu
-mnu.AddItem("edit", "Edit")
-mnu.AddIconItem("delete", "Delete", "trash-solid.svg")
-mnu.AddDivider
-mnu.AddItem("share", "Share")
-y = y + dd.GetComputedHeight + gap
+    ' Container row ? needed so the indicator badge can overflow the bell without being clipped
+    Dim row As B4XView = xui.CreatePanel("")
+    row.Color = xui.Color_Transparent
+    B4XDaisyVariants.DisableClipping(row)
+    pnlHost.AddView(row, PAGE_PAD, Y, iconSize + iconPad * 2, iconSize + iconPad * 2)
 
+    ' Bell SVG icon ? the visual trigger, centered in row with padding
+    Dim bell As B4XDaisySvgIcon
+    bell.Initialize(Me, "bell")
+    Dim bellView As B4XView = bell.AddToParent(row, iconPad, iconPad, iconSize, iconSize)
+    bell.SvgAsset = "bell-solid.svg"
+    bell.ColorVariant = "base-content"
+    bell.Padding = 8dip
+
+    ' Red counter indicator overlaid top-right of the bell
+    Dim ind As B4XDaisyIndicator
+    ind.Initialize(Me, "ind")
+    ind.AddToParent(row, iconPad, iconPad, iconSize, iconSize)
+    ind.setCounter(True)
+    ind.setText("3")
+    ind.setVariant("error")
+    ind.setSize("xs")
+    ind.setHorizontalPlacement("end")
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Popover selection menu with trigger button and auto-positioning overlay.
-- Populate choices via `Items` (List) or `AddItem(Id, Text, Icon)`.
-- Set `Position` (`"top"`, `"bottom"`, `"left"`, `"right"`) to control popup direction.
-- Handle selections in the `ItemClick (ItemId As String, Text As String)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDropdown` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getMenu, GetPreferredMenuWidth, Detach` (+ 37 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Opened | Opened | Boolean | False |  |
-| Placement | Placement | String | start | start|center|end |
-| Direction | Direction | String | bottom | top|bottom|left|right |
-| HoverOpen | Hover Open | Boolean | False |  |
-| ForceOpen | Force Open | Boolean | False |  |
-| ForceClose | Force Close | Boolean | False |  |
-| MenuWidth | Menu Width | String | w-52 |  |
-| MenuPadding | Menu Padding | String | p-2 |  |
-| MenuRounded | Menu Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| MenuShadow | Menu Shadow | String | sm | none|xs|sm|md|lg|xl|2xl |
-| BringToFront | Bring To Front | Boolean | True |  |
-| MenuBackgroundColor | Menu Background Color | Color | 0x00000000 |  |
-| MenuTextColor | Menu Text Color | Color | 0x00000000 |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Opened` | Opened | `Boolean` | `False` |  |
+| `Placement` | Placement | `String` | `start` | start|center|end |
+| `Direction` | Direction | `String` | `bottom` | top|bottom|left|right |
+| `HoverOpen` | Hover Open | `Boolean` | `False` |  |
+| `ForceOpen` | Force Open | `Boolean` | `False` |  |
+| `ForceClose` | Force Close | `Boolean` | `False` |  |
+| `MenuWidth` | Menu Width | `String` | `w-52` |  |
+| `MenuPadding` | Menu Padding | `String` | `p-2` |  |
+| `MenuRounded` | Menu Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `MenuShadow` | Menu Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
+| `BringToFront` | Bring To Front | `Boolean` | `True` |  |
+| `MenuBackgroundColor` | Menu Background Color | `Color` | `0x00000000` |  |
+| `MenuTextColor` | Menu Text Color | `Color` | `0x00000000` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -79,10 +96,33 @@ y = y + dd.GetComputedHeight + gap
 - `Close`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `Detach`
+- `GetComputedHeight As Int`
+- `GetPreferredHeight As Int`
+- `GetPreferredMenuHeight As Int`
+- `GetPreferredMenuWidth As Int`
+- `GetPreferredWidth As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Open`
+- `Refresh`
+- `RemoveViewFromParent`
+- `ScrollToItem(oTagValue As Object)`
+- `SendToBack`
+- `SetItemActive(oTagValue As Object, bValue As Boolean)`
+- `SetItemBadgeBackgroundColor(oTagValue As Object, iColor As Int)`
+- `SetItemBadgeText(oTagValue As Object, sValue As String)`
+- `SetItemBadgeTextColor(oTagValue As Object, iColor As Int)`
+- `SetItemDisabled(oTagValue As Object, bValue As Boolean)`
+- `SetItemIcon(oTagValue As Object, sIconName As String)`
+- `SetItemText(oTagValue As Object, sValue As String)`
+- `SetItemVisible(oTagValue As Object, bValue As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
+- `Toggle`
+- `UpdateTheme`
+- `View As B4XView`
 - `getAnchorTarget As B4XView`
 - `getAttachedMode As Boolean`
 - `getBringToFront As Boolean`
-- `GetComputedHeight As Int`
 - `getDirection As String`
 - `getEnabled As Boolean`
 - `getForceClose As Boolean`
@@ -99,20 +139,10 @@ y = y + dd.GetComputedHeight + gap
 - `getMenuWidth As String`
 - `getOpened As Boolean`
 - `getPlacement As String`
-- `GetPreferredHeight As Int`
-- `GetPreferredMenuHeight As Int`
-- `GetPreferredMenuWidth As Int`
-- `GetPreferredWidth As Int`
 - `getTag As Object`
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Open`
-- `Refresh`
-- `RemoveViewFromParent`
-- `ScrollToItem(oTagValue As Object)`
-- `SendToBack`
 - `setAnchorTarget(vValue As B4XView)`
 - `setBringToFront(bValue As Boolean)`
 - `setDirection(sValue As String)`
@@ -121,15 +151,6 @@ y = y + dd.GetComputedHeight + gap
 - `setForceOpen(bValue As Boolean)`
 - `setHeight(iValue As Int)`
 - `setHoverOpen(bValue As Boolean)`
-- `SetItemActive(oTagValue As Object, bValue As Boolean)`
-- `SetItemBadgeBackgroundColor(oTagValue As Object, iColor As Int)`
-- `SetItemBadgeText(oTagValue As Object, sValue As String)`
-- `SetItemBadgeTextColor(oTagValue As Object, iColor As Int)`
-- `SetItemDisabled(oTagValue As Object, bValue As Boolean)`
-- `SetItemIcon(oTagValue As Object, sIconName As String)`
-- `SetItemText(oTagValue As Object, sValue As String)`
-- `SetItemVisible(oTagValue As Object, bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setMenuBackgroundColor(iValue As Int)`
 - `setMenuPadding(sValue As String)`
@@ -139,15 +160,12 @@ y = y + dd.GetComputedHeight + gap
 - `setMenuWidth(sValue As String)`
 - `setOpened(bValue As Boolean)`
 - `setPlacement(sValue As String)`
-- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
 - `setTag(oValue As Object)`
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `Toggle`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

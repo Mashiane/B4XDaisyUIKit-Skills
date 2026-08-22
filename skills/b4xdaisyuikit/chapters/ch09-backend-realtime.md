@@ -117,22 +117,24 @@ Private Sub RenderPage(W As Int, H As Int)
     pdfViewer.Initialize(Me, "pdfViewer")
     pdfViewer.AddToParent(pnl, pad, y, maxW, 240dip)
     pdfViewer.LoadAsset("service_contract.pdf")
-    y = y + pdfViewer.GetComputedHeight + gap
+    ' PDFView does not have GetComputedHeight - use fixed height passed to AddToParent
+    y = y + 240dip + gap
 
     pageScroll.AutoFit
 End Sub
 
 Private Sub photoFileInput_Click (Tag As Object)
-    fileHandler.PickImage
+    ' Load accepts image MIME type filter to open image picker
+    Wait For (fileHandler.LoadWithFilter("image/*", "Pick Image")) Complete (Loaded As LoadResult)
+    If Loaded.Success Then
+        photoFileInput.FileName = Loaded.FileName
+        Log("Image selected: " & Loaded.FileName)
+    End If
 End Sub
 
-Private Sub fileHandler_FileSelected (Dir As String, FileName As String, MimeType As String)
-    photoFileInput.FileName = FileName
-    Log("Image selected: " & FileName)
-End Sub
 
 Private Sub btnSaveOrder_Click (Tag As Object)
-    If sigPad.IsBlank Then
+    If sigPad.IsEmpty Then
         orderStatusAlert.Variant = "error"
         orderStatusAlert.Text = "Please provide customer signature before submitting."
         Return

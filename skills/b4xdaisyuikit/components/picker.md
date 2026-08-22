@@ -1,94 +1,152 @@
 # picker (`B4XDaisyPicker`)
 
-Multi-column native wheel and date picker with customizable columns, highlight variants, date presets, and change notifications.
+DaisyUI `Picker` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPicker`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyPicker.bas`
-- **Reference Page**: `B4XPagePicker.bas`
+- **Verified Demo Source**: B4XPagePicker.bas (lines 18–41)
 - **Web DaisyUI Mapping**: `.picker` → `B4XDaisyPicker`
 
 ## 2. Verified B4X Syntax & Recipe
-
-### Multi-Column Custom Picker
 ```b4x
-Dim pkr As B4XDaisyPicker
-pkr.Initialize(Me, "pkr")
-pkr.AddToParent(pnlHost, pad, y, maxW, 200dip)
-pkr.HighlightVariant = "primary"
-pkr.VisibleItems = 5
+' Inline picker sized to its computed height (VisibleItems * item height) so no row is clipped.
+	pickerBasic.Initialize(Me, "pickerBasic")
+	pickerBasic.AddToParent(pnlHost, padding, y, maxW, pickerBasic.GetComputedHeight)
+	pickerBasic.SetColorAndBorder(xui.Color_White, 1dip, xui.Color_RGB(226, 232, 240), 8dip)
+	pickerBasic.AddColumn("pets", "", "", False)
+	pickerBasic.AddOption("pets", "Dog", "dog")
+	pickerBasic.AddOption("pets", "Cat", "cat")
+	pickerBasic.AddOption("pets", "Bird", "bird")
+	pickerBasic.AddOption("pets", "Lizard", "lizard")
+	pickerBasic.AddOption("pets", "Chinchilla", "chinchilla")
+	pickerBasic.Refresh
+    
+	y = y + pickerBasic.GetComputedHeight + gap
 
-' Add Column 1: Time of Day
-Dim times As List = Array As String("Morning", "Afternoon", "Evening", "Night")
-pkr.AddColumn("period", "Period", times, "Morning", 100dip)
+	btnDisableCat.Initialize(Me, "btnDisableCat")
+	btnDisableCat.AddToParent(pnlHost, padding, y, maxW, 40dip)
+	btnDisableCat.Text = "Disable 'Cat' option"
+	btnDisableCat.Variant = "secondary"
+	y = y + btnDisableCat.GetComputedHeight + gap
 
-' Add Column 2: Status
-Dim statuses As List = Array As String("Available", "Busy", "Away", "Offline")
-pkr.AddColumn("status", "Status", statuses, "Available", 120dip)
-
-pkr.Refresh
-y = y + pkr.GetComputedHeight + gap
+	' ----------------------------------------------------
+	' 2. Picker inside a Modal
+	' Mimics the legacy popup dialog by wrapping the inline picker in a modal.
+	' ----------------------------------------------------
+	y = pageScroll.AddSectionTitle("2. Open Picker in a Modal", y, False)
+    
+	btnOpenModal.Initialize(Me, "btnOpenModal")
+	btnOpenModal.AddToParent(pnlHost, padding, y, maxW, 40dip)
+	btnOpenModal.Text = "Open Modal Picker"
 ```
 
-### Date / Calendar Wheel Picker Pattern
-```b4x
-Dim datePkr As B4XDaisyPicker
-datePkr.Initialize(Me, "datePkr")
-datePkr.AddToParent(pnlHost, pad, y, maxW, 200dip)
-datePkr.HighlightVariant = "secondary"
-datePkr.VisibleItems = 5
+## 3. Native Composition Rules & Gotchas
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyPicker` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+5. **Execution / Assembly:** Picker/Select component requiring item source binding (`.SetItems` / `.Options` / `.Items`).
 
-' Quick Date Columns Builder
-datePkr.AddColumnDay("day", 80dip)
-datePkr.AddColumnMonth("month", 100dip)
-datePkr.AddColumnYear("year", 2000, 2030, 90dip)
-datePkr.Refresh
-```
+### Deviation Mechanism
+- Picker/Select component requiring item source binding (`.SetItems` / `.Options` / `.Items`).
 
-### Event Handling
-```b4x
-Private Sub pkr_Changed (ColumnName As String, Value As Object)
-    Log("Column " & ColumnName & " changed to value: " & Value)
-End Sub
-```
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
 
-## 3. Designer Properties
-| Key | Type | Default | Description |
-|---|---|---|---|
-| `HighlightVariant` | String | primary | Color token for the selected row indicator (`primary`, `secondary`, `accent`, `neutral`, `info`, `success`, `warning`, `error`) |
-| `VisibleItems` | Int | 5 | Number of visible wheel items (e.g. 3, 5, 7) |
-| `Mode` | String | normal | Wheel scrolling mode |
-| `FadeBackground` | Color | | Background fade overlay color |
-| `HighlightBackground` | Color | | Selected row indicator background override |
-| `ActiveTextColor` | Color | | Selected item text color |
-| `HighlightRadius` | Int | 8 | Corner radius for highlight bar in dip |
-| `PickerType` | String | custom | `custom` or `date` |
-| `MinYear` | Int | 1900 | Minimum year boundary for date pickers |
-| `MaxYear` | Int | 2100 | Maximum year boundary for date pickers |
-| `ColumnDelimiter` | String | - | Delimiter for joined multi-column value output |
-| `TextAlign` | String | CENTER | Horizontal text alignment (`LEFT`, `CENTER`, `RIGHT`) |
-| `Rounded` | String | rounded-xl | Border radius token |
-| `Shadow` | String | md | Elevation shadow token |
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `setMode, getMode, setFadeBackground` (+ 36 more).
 
-## 4. Declared Events
+## 4. Designer Properties
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Mode` | Mode | `String` | `md` | ios|md |
+| `FadeBackground` | Fade Color | `Color` | `0xFFFFFFFF` |  |
+| `HighlightBackground` | Highlight Color | `Color` | `0x1A000000` |  |
+| `HighlightVariant` | Highlight Variant | `String` | `` | none|primary|secondary|accent|info|success|warning|error |
+| `ActiveTextColor` | Active Text Color | `Color` | `0` |  |
+| `HighlightRadius` | Highlight Radius | `Int` | `8` |  |
+| `VisibleItems` | Visible Items | `Int` | `5` |  |
+| `PickerType` | Picker Type | `String` | `default` | default|auto |
+| `InputFormat` | Input Format | `String` | `Y-m-d` |  |
+| `DisplayFormat` | Display Format | `String` | `` |  |
+| `MinYear` | Min Year | `Int` | `0` |  |
+| `MaxYear` | Max Year | `Int` | `0` |  |
+| `ColumnDelimiter` | Column Delimiter | `String` | `` |  |
+| `TextAlign` | Text Align | `String` | `CENTER` | CENTER|LEFT|RIGHT |
+| `Rounded` | Rounded | `String` | `rounded-lg` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+
+## 5. Declared Events
 - `Changed (ColumnName As String, Value As Object)`
 
-## 5. Public Methods & APIs
-- `Initialize(oCallback As Object, sEventName As String)`
+## 6. Public Methods & APIs
+- `AddColumn(sColumnName As String, sPrefix As String, sSuffix As String, bDisabled As Boolean)`
+- `AddColumnDay(sColumnName As String)`
+- `AddColumnMonth(sColumnName As String)`
+- `AddColumnYear(sColumnName As String, iStartYear As Int, iEndYear As Int)`
+- `AddOption(sColumnName As String, sText As String, oValue As Object)`
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddColumn(sName As String, sTitle As String, lstOptions As List, sDefaultValue As String, iWidth As Int)`
-- `AddColumnDay(sName As String, iWidth As Int)`: Adds 1-31 day numbers
-- `AddColumnMonth(sName As String, iWidth As Int)`: Adds Jan-Dec months
-- `AddColumnYear(sName As String, iMinYear As Int, iMaxYear As Int, iWidth As Int)`: Adds year range
-- `AddOption(sColumnName As String, sValue As String, sDisplay As String)`
-- `SetColumnValue(sColumnName As String, oValue As Object)`
+- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetColumnActiveTextColor(sColumnName As String) As Int`
+- `GetColumnColor(sColumnName As String) As Int`
+- `GetColumnEnabled(sColumnName As String) As Boolean`
+- `GetColumnOptionValues(sColumnName As String) As List`
 - `GetColumnValue(sColumnName As String) As Object`
-- `GetValue As String`: Returns formatted delimiter-separated value string
-- `GetValueList As List`: Returns list of selected values per column
+- `GetComputedHeight As Int`
+- `GetDisplayValue As String`
+- `GetRoundedRadius As Float`
+- `GetValue As String`
+- `GetValueList As List`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `SetColorAndBorder(iColor As Int, fBorderWidth As Float, iBorderColor As Int, fCornerRadius As Float)`
+- `SetColumnActiveTextColor(sColumnName As String, iColor As Int)`
+- `SetColumnColor(sColumnName As String, iColor As Int)`
+- `SetColumnColorVariant(sColumnName As String, sVariant As String)`
+- `SetColumnEnabled(sColumnName As String, bEnabled As Boolean)`
+- `SetColumnValue(sColumnName As String, oValue As Object)`
+- `SetOptionDisabled(sColumnName As String, oValue As Object, bDisabled As Boolean)`
+- `SetOptionDisabledByIndex(sColumnName As String, iIndex As Int, bDisabled As Boolean)`
 - `SetValue(sValue As String)`
 - `SetValueList(lstValues As List)`
-- `SetOptionDisabled(sColumnName As String, sValue As String, bDisabled As Boolean)`
-- `Refresh`: Must be called after adding or updating columns
-- `GetComputedHeight As Int`
 - `View As B4XView`
+- `getActiveTextColor As Int`
+- `getColumnDelimiter As String`
+- `getDisplayFormat As String`
+- `getFadeBackground As Int`
+- `getHighlightBackground As Int`
+- `getHighlightRadius As Int`
+- `getHighlightVariant As String`
+- `getInputFormat As String`
+- `getMaxYear As Int`
+- `getMinYear As Int`
+- `getMode As String`
+- `getPickerType As String`
+- `getRounded As String`
+- `getShadow As String`
+- `getTextAlign As String`
+- `getVisibleItems As Int`
+- `setActiveTextColor(iValue As Int)`
+- `setColumnDelimiter(sValue As String)`
+- `setDisplayFormat(sValue As String)`
+- `setFadeBackground(iValue As Int)`
+- `setHighlightBackground(iValue As Int)`
+- `setHighlightRadius(iValue As Int)`
+- `setHighlightVariant(sValue As String)`
+- `setInputFormat(sValue As String)`
+- `setMaxYear(iValue As Int)`
+- `setMinYear(iValue As Int)`
+- `setMode(sValue As String)`
+- `setPickerType(sValue As String)`
+- `setRounded(sValue As String)`
+- `setShadow(sValue As String)`
+- `setTextAlign(sValue As String)`
+- `setVisibleItems(iValue As Int)`
+
+## 7. Public Fields
+- `mBase As B4XView`
+- `xui As XUI`
+

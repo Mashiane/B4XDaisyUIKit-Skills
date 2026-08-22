@@ -21,11 +21,11 @@ Use this reference to translate DaisyUI visual intent into verified native B4X c
 | `btn` / Button | `B4XDaisyButton`, `B4XDaisyIconButton` | `B4XPageButton`, `B4XPageIconButton` | Use manifest-supported variant, style, size, icon only. |
 | Alert / notification banner | `B4XDaisyAlert` | `B4XPageAlert` | Supports title, text, icon, action buttons. |
 | Badge / chip / tag | `B4XDaisyBadge` | `B4XPageBadge` | Closable, toggleable, avatar, outline styles. |
-| Multi-select chip bar | `B4XDaisyBadgeGroupSelect` | `B4XPageBadgeGroupSelect` | Key-value spec string; single/multi mode. |
+| Multi-select chip bar | `B4XDaisyBadgeGroupSelect` | `B4XPageBadge` | Key-value spec string; single/multi mode. |
 | Card | `B4XDaisyCard` | `B4XPageCard` | Sub-slots: title, body, actions via `Get*Panel`. |
 | Info card | `B4XDaisyInfoCard` | `B4XPageInfoCard` | Horizontal or vertical summary card. |
 | Text input | `B4XDaisyInput` | `B4XPageInput`, `B4XPageScrollDemo` | Float label, hint, error, required, input types. |
-| Textarea | `B4XDaisyInput` (multiline) | `B4XPageTextarea` | Use `setInputType("multiline")`. |
+| Textarea | `B4XDaisyInput` (multiline) | `B4XPageTextarea` | Use `SingleLine = False` (verified in `B4XPageTextarea.bas`: `c1.SingleLine = False`). |
 | Fieldset / grouped fields | `B4XDaisyFieldset` | `B4XPageFieldset` | Groups form controls with a legend border. |
 | Select / dropdown list | `B4XDaisySelect` | `B4XPageSelect` | Key-value spec string. |
 | Checkbox | `B4XDaisyCheckbox` | `B4XPageCheckbox`, `B4XPageFocus` | GroupName auto-deselects siblings. |
@@ -42,7 +42,7 @@ Use this reference to translate DaisyUI visual intent into verified native B4X c
 | Color picker | `B4XDaisyColorWheel` | `B4XPageColorWheel` | HSV wheel; thickness, handle size. |
 | Carousel / image slider | `B4XDaisyCarousel`, `B4XDaisyCarouselItem` | `B4XPageCarousel` | Horizontal scroll; auto-play. |
 | Avatar | `B4XDaisyAvatar` | `B4XPageAvatar` | Masks: circle, squircle, heart, hexagon, etc. |
-| Avatar group / stack | `B4XDaisyAvatarGroup` | `B4XPageAvatarGroup` | Overlapping avatar row. |
+| Avatar group / stack | `B4XDaisyAvatarGroup` | `B4XPageAvatar` | Overlapping avatar row (demo inside `B4XPageAvatar.bas`). |
 | Top navigation bar | `B4XDaisyNavbar` | `B4XPageNavbar`, `B4XPageNavScrollDock` | Glass, back button, icon slots, avatar. |
 | Bottom dock / tab bar | `B4XDaisyDock` | `B4XPageDock`, `B4XPageNavScrollDock` | SVG icons, badge counts, active index. |
 | Tab pages | `B4XDaisyTab` | `B4XPageTab` | Style tokens: default, box, lift, border. |
@@ -74,20 +74,20 @@ Use this reference to translate DaisyUI visual intent into verified native B4X c
 | Dashboard layout | `B4XDaisyDashboard` | `B4XPageDashboard` | Preset responsive card grid layout. |
 | Divider line | `B4XDaisyDivider` | `B4XPageDivider` | Horizontal/vertical; centered text label. |
 | Division / container | `B4XDaisyDivision` | `B4XPageDivider`, `B4XPageStack` | Margin, padding, shadow, skeleton. |
-| Stack of cards | `B4XDaisyStack` | `B4XPageStack`, `B4XPageStackPhotos` | Overlapping z-stack of views. |
+| Stack of cards | `B4XDaisyStack` | `B4XPageStack` | Overlapping z-stack of views (photos sub-demo is `CreateStackPhotosDemo` inside `B4XPageStack.bas`). |
 | Hero / landing section | `B4XDaisyHero` | `B4XPageHero` | Full-width hero block with content slot. |
 | Diff / compare slider | `B4XDaisyDiff` | `B4XPageDiff` | Image or text side-by-side with drag handle. |
 | Window / mockup frame | `B4XDaisyWindow` | `B4XPageWindow` | Browser or device chrome mockup. |
 | Keyboard shortcut badge | `B4XDaisyKbd` | `B4XPageKbd` | Keyboard key visual. |
 | Filter chips bar | `B4XDaisyFilter` | `B4XPageFilter` | Horizontal scroll chip bar; multi-select. |
-| Hyperlink text | `B4XDaisyText` | `B4XPageLink` | Set `.IsLink = True` and `.Url`. |
+| Hyperlink text | `B4XDaisyText` | `B4XPageLink` | Set `.Link = True` and `.Url` (verified: `B4XDaisyText.bas` `#DesignerProperty: Key: Link`). |
 | Typography / text | `B4XDaisyText` | `B4XPageText` | Size tokens, headings, auto-resize, skeleton. |
 | Text rotation ticker | `B4XDaisyTextRotate` | `B4XPageTextRotate` | Vertical scrolling text list. |
 | SVG icon | `B4XDaisySvgIcon` | `B4XPageSvgIcon` | Asset or inline SVG; color tint. |
 | Indicator / badge on icon | `B4XDaisyIndicator` | `B4XPageIndicator` | Badge counter on top-right of any view. |
 | Overlay / backdrop | `B4XDaisyOverlay` | `B4XPageOverlay` | Full-screen dim layer; pass-through option. |
 | Date/time/value picker | `B4XDaisyPicker` | `B4XPagePicker` | Drum-scroll wheel columns. |
-| Label / typography | `B4XDaisyText` | `B4XPageTypography` | Primary typography component for headings, body text, labels, and captions. |
+| Label / typography | `B4XDaisyText` | `B4XPageText` | Primary typography component for headings, body text, labels, and captions. |
 | Chat / messaging UI | `B4XDaisyChat` | `B4XPageChat` | Incoming/outgoing bubble row. |
 | Swap toggle button | `B4XDaisySwap` | `B4XPageSwap` | Dual-state icon/text rotate/flip animation. |
 | 3D tag sphere | `B4XDaisyTagSphere` | `B4XPageTagSphere` | Rotating 3D sphere of clickable tags. |

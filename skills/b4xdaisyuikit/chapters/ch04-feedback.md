@@ -172,19 +172,19 @@ Show animated skeleton placeholders while asynchronously fetching remote data.
 
 ```b4x
 Private Sub ShowLoadingState(pnl As B4XView, W As Int, H As Int)
-    Dim skAvatar As B4XDaisySkeleton
+    Dim skAvatar As B4XDaisyDivision
     skAvatar.Initialize(Me, "skAvatar")
     skAvatar.AddToParent(pnl, 16dip, 16dip, 48dip, 48dip)
     skAvatar.Shape = "circle"
     skAvatar.Animated = True
 
-    Dim skTitle As B4XDaisySkeleton
+    Dim skTitle As B4XDaisyDivision
     skTitle.Initialize(Me, "skTitle")
     skTitle.AddToParent(pnl, 76dip, 16dip, W - 92dip, 20dip)
     skTitle.Shape = "rounded"
     skTitle.Animated = True
 
-    Dim skBody As B4XDaisySkeleton
+    Dim skBody As B4XDaisyDivision
     skBody.Initialize(Me, "skBody")
     skBody.AddToParent(pnl, 76dip, 44dip, W - 140dip, 16dip)
     skBody.Shape = "rounded"

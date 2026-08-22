@@ -37,7 +37,7 @@ Native Android UI design requires strict adherence to physical hand ergonomics:
 
 | Density Level | Target Use Case | Recommended Components & Spacing |
 |---|---|---|
-| **High Density** | Analytics, stock-taking, data tables, live telemetry | `B4XDaisyStat` (Horizontal), `B4XDaisyTable`, `B4XDaisyBadgeGroupSelect`, `YGap = 8dip` |
+| **High Density** | Analytics, stock-taking, data tables, live telemetry | `B4XDaisyStat` (Horizontal), `B4XDaisyGrid`, `B4XDaisyBadgeGroupSelect`, `YGap = 8dip` |
 | **Comfortable** | Standard business forms, checkout, user settings | `B4XDaisyFieldset`, `B4XDaisyInput`, `B4XDaisySelect`, `B4XDaisyToggle`, `YGap = 12dip` |
 | **Spacious / Hero** | Onboarding, welcome splash, success confirmations | `B4XDaisyHero`, `B4XDaisyCard` (Large), `B4XDaisyAvatar`, `YGap = 20dip` |
 
@@ -63,11 +63,11 @@ Apps should support clean dynamic theming via `B4XDaisyVariants`:
 ```vb
 ' Initialize theme variants manager
 Dim variants As B4XDaisyVariants
-variants.Initialize
+' B4XDaisyVariants contains static helper methods; no Initialize required
 
 ' Switch to a predefined DaisyUI theme palette:
 ' "light", "dark", "cupcake", "synthwave", "cyberpunk", "retro", "emerald", "corporate", "bumblebee"
-B4XDaisyVariants.SetTheme("light")
+variants.ApplyThemeToPage("light", Root)
 ```
 
 ---

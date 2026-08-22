@@ -1,5 +1,7 @@
 # link (`B4XDaisyText` in Hyperlink Mode)
 
+> **Mode component**: `link` is not a standalone class. It is implemented by configuring `B4XDaisyText` with `Link = True`.
+
 Clickable hyperlink text with custom URL opening, hover underline, and semantic color variants.
 In B4XDaisyUIKit, links are implemented by configuring `B4XDaisyText` with `Link = True`.
 
@@ -11,16 +13,27 @@ In B4XDaisyUIKit, links are implemented by configuring `B4XDaisyText` with `Link
 - **Web DaisyUI Mapping**: `.link` → `B4XDaisyText (Link = True)`
 
 ## 2. Verified B4X Syntax & Recipe
+
+### Full lifecycle — create, initialize, add to parent, configure
 ```b4x
+' 1. Declare the variable
 Dim lnk As B4XDaisyText
+
+' 2. Initialize (Me = callback host, "lnk" = event prefix)
 lnk.Initialize(Me, "lnk")
+
+' 3. Add to a parent view at position (x, y) and size (w, h)
 lnk.AddToParent(pnlHost, pad, y, maxW, 28dip)
+
+' 4. Configure as a link
 lnk.Text = "Visit documentation portal"
 lnk.Link = True
 lnk.Underline = True
 lnk.Url = "https://www.b4x.com"
 lnk.setTextColorVariant("link-primary")
 lnk.Tag = "doc-link"
+
+' 5. Advance layout cursor
 y = y + lnk.GetComputedHeight + gap
 ```
 
@@ -34,6 +47,7 @@ lnkHover.Link = True
 lnkHover.Underline = False
 lnkHover.Url = "https://www.b4x.com"
 lnkHover.Tag = "hover-link"
+y = y + lnkHover.GetComputedHeight + gap
 ```
 
 ## 3. Native Composition Rules & Gotchas

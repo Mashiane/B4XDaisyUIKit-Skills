@@ -1,64 +1,81 @@
 # radio (`B4XDaisyRadio`)
 
-Single radio button control with label text. Group multiple radio buttons by `GroupName`.
+DaisyUI `Radio` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyRadio`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyRadio.bas`
+- **Verified Demo Source**: B4XPageFocus.bas (lines 32–32), B4XPageRadio.bas (lines 18–374), B4XPageRadioGroup.bas (lines 46–204)
 - **Web DaisyUI Mapping**: `.radio` → `B4XDaisyRadio`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim r1 As B4XDaisyRadio
-r1.Initialize(Me, "r1")
-r1.AddToParent(pnlHost, pad, y, maxW, 40dip)
-r1.GroupName = "plan"
-r1.Value = "monthly"
-r1.Text = "Monthly"
-r1.Variant = "primary"
-r1.Size = "md"
-y = y + r1.getComputedHeight + gap
+' Radio Option 1
+	rGroup1Opt1.Initialize(Me, "rGroup1Opt1")
+	rGroup1Opt1.AddToParent(pnlHost, PAGE_PAD, y, maxW, 40dip)
+	rGroup1Opt1.GroupName = "basic"
+	rGroup1Opt1.Text = "Option 1 (Default Selected)"
+	rGroup1Opt1.Checked = True
+	rGroup1Opt1.Tag = "Group1-Opt1"
+	y = y + 50dip
 
-Dim r2 As B4XDaisyRadio
-r2.Initialize(Me, "r2")
-r2.AddToParent(pnlHost, pad, y, maxW, 40dip)
-r2.GroupName = "plan"
-r2.Value = "annual"
-r2.Text = "Annual"
-r2.Variant = "primary"
-r2.Checked = True
-y = y + r2.getComputedHeight + gap
+	' Radio Option 2
+	rGroup1Opt2.Initialize(Me, "rGroup1Opt2")
+	rGroup1Opt2.AddToParent(pnlHost, PAGE_PAD, y, maxW, 40dip)
+	rGroup1Opt2.GroupName = "basic"
+	rGroup1Opt2.Text = "Option 2"
+	rGroup1Opt2.Checked = False
+	rGroup1Opt2.Tag = "Group1-Opt2"
+	y = y + 60dip
 
+	' -----------------------------------------------------------------------
+	' 2. Size Variants
+	' -----------------------------------------------------------------------
+	y = AddSectionTitle("2. Radio Sizes", y, maxW)
+
+	' Extra Small (xs)
+	Dim rXS As B4XDaisyRadio
+	rXS.Initialize(Me, "rXS")
+	rXS.AddToParent(pnlHost, PAGE_PAD, y, maxW, 30dip)
+	rXS.GroupName = "sizes"
+	rXS.Text = "Size XS (Extra Small)"
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Single circular radio choice button.
-- Assign `GroupName` to link related radio buttons into a mutually exclusive group.
-- Set `Checked = True` to select by default.
-- Handle selection in the `Changed (Value As Boolean)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyRadio` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Dynamic programmatic resizing requires calling `.Resize` or updating bounds to ensure inner canvas/background repaints properly.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getRole, setGroupName, getGroupName` (+ 28 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| GroupName | Group Name | String |  |  |
-| Checked | Checked | Boolean | False |  |
-| Value | Value | String |  |  |
-| Text | Text | String |  |  |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Position | Position | String | start | start|end |
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| BackgroundColor | Background Color | Color | 0x00FFFFFF |  |
-| BorderColor | Border Color | Color | 0x00FFFFFF |  |
-| TextColor | Text Color | Color | 0x00FFFFFF |  |
-| CheckedBackgroundColor | Checked Background Color | Color | 0x00FFFFFF |  |
-| CheckedBorderColor | Checked Border Color | Color | 0x00FFFFFF |  |
-| CheckedTextColor | Checked Dot Color | Color | 0x00FFFFFF |  |
-| Required | Required | Boolean | False |  |
-| ErrorText | Error Text | String |  |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `GroupName` | Group Name | `String` | `` |  |
+| `Checked` | Checked | `Boolean` | `False` |  |
+| `Value` | Value | `String` | `` |  |
+| `Text` | Text | `String` | `` |  |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Position` | Position | `String` | `start` | start|end |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
+| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
+| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedBackgroundColor` | Checked Background Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedBorderColor` | Checked Border Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedTextColor` | Checked Dot Color | `Color` | `0x00FFFFFF` |  |
+| `Required` | Required | `Boolean` | `False` |  |
+| `ErrorText` | Error Text | `String` | `` |  |
 
 ## 5. Declared Events
 - `Checked (Checked As Boolean)`
@@ -72,6 +89,18 @@ y = y + r2.getComputedHeight + gap
 - `BringToFront`
 - `ClearError`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getChecked As Boolean`
@@ -98,13 +127,6 @@ y = y + r2.getComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
 - `setBackgroundColor(iColor As Int)`
 - `setBorderColor(iColor As Int)`
 - `setChecked(bValue As Boolean)`
@@ -116,7 +138,6 @@ y = y + r2.getComputedHeight + gap
 - `setFocus(bValue As Boolean)`
 - `setGroupName(sValue As String)`
 - `setHeight(iValue As Int)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setPosition(sValue As String)`
 - `setRequired(bValue As Boolean)`
@@ -130,11 +151,8 @@ y = y + r2.getComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `ShowError(sErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

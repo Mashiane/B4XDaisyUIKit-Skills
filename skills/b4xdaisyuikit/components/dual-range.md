@@ -1,77 +1,95 @@
 # dual-range (`B4XDaisyDualRange`)
 
-Two-handled continuous and discrete range slider inspired by noUiSlider for selecting numerical spans, price intervals, temperature boundaries, or timeline windows with connecting progress fill, dual tooltips, and live value readouts.
+DaisyUI `DualRange` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDualRange`
-- **Status**: `Verified`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDualRange.bas`
-- **Web DaisyUI Mapping**: `.range` (dual thumbs) → `B4XDaisyDualRange`
+- **Verified Demo Source**: B4XPageDualRange.bas (lines 99–215)
+- **Web DaisyUI Mapping**: `.dual-range` → `B4XDaisyDualRange`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim drPrice As B4XDaisyDualRange
-drPrice.Initialize(Me, "drPrice")
-drPrice.AddToParent(pnlHost, pad, y, maxW, 24dip)
-drPrice.MinValue = 0
-drPrice.MaxValue = 1000
-drPrice.LowerValue = 150
-drPrice.UpperValue = 650
-drPrice.StepValue = 25
-drPrice.MinDistance = 50
-drPrice.ValuePrefix = "$"
-drPrice.Variant = "primary"
-drPrice.LabelAbove = "Price Filter"
-drPrice.LabelVisible = True
-drPrice.ShowValue = True
-drPrice.ShowTooltip = True
-drPrice.TooltipPosition = "top"
-y = y + drPrice.ComputedHeight + 16dip
+''' Standard dual handle range with default styling and live readout.
+	y = pageScroll.AddSectionTitle("Basic Dual Range Slider", y, False) + gap
+	Dim dr1 As B4XDaisyDualRange
+	dr1.Initialize(Me, "drBasic")
+	dr1.AddToParent(pnlHost, pad, y, maxW, 24dip)
+	dr1.MinValue = 0
+	dr1.MaxValue = 100
+	dr1.LowerValue = 20
+	dr1.UpperValue = 80
+	dr1.LabelAbove = "Selected Range"
+	dr1.LabelVisible = True
+	dr1.ShowValue = True
+	dr1.Tag = "basic-dual-range"
+	y = y + dr1.ComputedHeight + gap
 
-Private Sub drPrice_Changed(LowerValue As Int, UpperValue As Int)
-    Log($"Price Range: $${LowerValue} - $${UpperValue}"$)
-End Sub
+	''' Example 2: Price Filter (Prefix $, Step = 25, Min Dist = 50)
+	''' Currency formatting, step snapping, and minimum separation constraint.
+	y = pageScroll.AddSectionTitle("Price Filter (Step = $25, Min Dist = $50)", y, False) + gap
+	Dim drPrice As B4XDaisyDualRange
+	drPrice.Initialize(Me, "drPrice")
+	drPrice.AddToParent(pnlHost, pad, y, maxW, 24dip)
+	drPrice.MinValue = 0
+	drPrice.MaxValue = 1000
+	drPrice.LowerValue = 150
+	drPrice.UpperValue = 650
+	drPrice.StepValue = 25
+	drPrice.MinDistance = 50
+	drPrice.ValuePrefix = "$"
+	drPrice.Variant = "primary"
+	drPrice.LabelAbove = "Budget Range"
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- **Two Draggable Thumbs**: Features separate Lower (`LowerValue` / `Value1`) and Upper (`UpperValue` / `Value2`) thumb handles on a shared slider track.
-- **Connecting Progress Span**: The highlighted progress bar automatically spans between the Lower and Upper thumb positions (`ShowFill = True`).
-- **Proximity Hit-Testing**: Touch gestures automatically select and drag the closest handle without jitter.
-- **Collision & Distance Constraints**: Thumbs respect `MinDistance` to enforce minimum gaps (e.g. `$50` min span) and prevent crossing over.
-- **Dual Floating Tooltips**: When `ShowTooltip = True`, independent value bubbles track both handles either transiently during drag or permanently when `TooltipOpen = True`.
-- **Parent Scroll Safety**: Integrated `DisallowParentIntercept` ensures enclosing `B4XDaisyPageScroll` / `ScrollView` containers do not steal horizontal slider drag gestures on Android.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDualRange` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Contains `DisallowParentIntercept` on B4A to prevent enclosing scroll containers (like `B4XDaisyPageScroll`) from stealing touch drag events.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getMinValue, getMaxValue, setLowerValue` (+ 60 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values | Description |
-|---|---|---|---|---|---|
-| `MinValue` | Minimum Value | Int | 0 | | Minimum slider bound |
-| `MaxValue` | Maximum Value | Int | 100 | | Maximum slider bound |
-| `LowerValue` | Lower Value | Int | 20 | | Lower handle position |
-| `UpperValue` | Upper Value | Int | 80 | | Upper handle position |
-| `StepValue` | Step | Int | 1 | | Discrete step snapping increment (0 for continuous) |
-| `MinDistance` | Min Distance | Int | 0 | | Minimum numerical separation required between handles |
-| `Size` | Size | String | md | xs\|sm\|md\|lg\|xl | Size scale (xs=16dip, sm=20dip, md=24dip, lg=28dip, xl=32dip) |
-| `Variant` | Variant | String | none | none\|neutral\|primary\|secondary\|accent\|info\|success\|warning\|error | Semantic theme color variant |
-| `TrackColor` | Track Color | Color | 0 | | Custom track background color |
-| `ProgressColor` | Progress Color | Color | 0 | | Custom connecting progress fill color |
-| `ThumbColor` | Thumb Color | Color | 0 | | Custom thumb knob color |
-| `Enabled` | Enabled | Boolean | True | | Interaction state |
-| `ShowFill` | Show Fill | Boolean | True | | Shows connecting highlight bar between handles |
-| `RTL` | RTL | Boolean | False | | Right-to-left progress direction |
-| `Visible` | Visible | Boolean | True | | Visibility |
-| `DisallowParentIntercept` | Disallow Parent Intercept | Boolean | True | | Prevents parent scroll stealing |
-| `Required` | Required | Boolean | False | | Validation flag |
-| `LabelAbove` | Label Above | String | | | Header label text |
-| `LabelVisible` | Label Visible | Boolean | False | | Header label visibility |
-| `HintText` | Hint Text | String | | | Sub-caption helper text |
-| `ErrorText` | Error Text | String | | | Error message text |
-| `ShowValue` | Show Value | Boolean | True | | Live value readout above slider |
-| `ValuePrefix` | Value Prefix | String | | | Prefix before numbers (e.g. "$") |
-| `ValueSuffix` | Value Suffix | String | | | Suffix after numbers (e.g. "%", "Hz", "RPM") |
-| `ValueSeparator` | Value Separator | String | " - " | | Separator string in value readout |
-| `ShowTooltip` | Show Tooltip | Boolean | False | | Shows floating value tooltips above handles |
-| `TooltipPosition` | Tooltip Position | String | top | top\|bottom\|left\|right | Relative tooltip placement |
-| `TooltipOpen` | Tooltip Open | Boolean | False | | True for permanently visible tooltips |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `MinValue` | Minimum Value | `Int` | `0` |  |
+| `MaxValue` | Maximum Value | `Int` | `100` |  |
+| `LowerValue` | Lower Value | `Int` | `20` |  |
+| `UpperValue` | Upper Value | `Int` | `80` |  |
+| `StepValue` | Step | `Int` | `1` |  |
+| `MinDistance` | Min Distance | `Int` | `0` |  |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `TrackColor` | Track Color | `Color` | `0` |  |
+| `ProgressColor` | Progress Color | `Color` | `0` |  |
+| `ThumbColor` | Thumb Color | `Color` | `0` |  |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `ShowFill` | Show Fill | `Boolean` | `True` |  |
+| `RTL` | RTL | `Boolean` | `False` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `DisallowParentIntercept` | Disallow Parent Intercept | `Boolean` | `True` |  |
+| `Required` | Required | `Boolean` | `False` |  |
+| `LabelAbove` | Label Above | `String` | `` |  |
+| `LabelVisible` | Label Visible | `Boolean` | `False` |  |
+| `HintText` | Hint Text | `String` | `` |  |
+| `ErrorText` | Error Text | `String` | `` |  |
+| `ShowValue` | Show Value | `Boolean` | `True` |  |
+| `ValuePrefix` | Value Prefix | `String` | `` |  |
+| `ValueSuffix` | Value Suffix | `String` | `` |  |
+| `ValueSeparator` | Value Separator | `String` | `" - "` |  |
+| `IconLeft` | Icon Left | `String` | `` |  |
+| `IconRight` | Icon Right | `String` | `` |  |
+| `IconSize` | Icon Size | `Int` | `0` |  |
+| `ShowTooltip` | Show Tooltip | `Boolean` | `False` |  |
+| `TooltipPosition` | Tooltip Position | `String` | `top` | top|bottom|left|right |
+| `TooltipOpen` | Tooltip Open | `Boolean` | `False` |  |
 
 ## 5. Declared Events
 - `Changed (LowerValue As Int, UpperValue As Int)`
@@ -84,6 +102,19 @@ End Sub
 - `BringToFront`
 - `ClearError`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ShowError(sErrorMessage As String)`
+- `StopAnimation`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
 - `getComputedHeight As Int`
 - `getEnabled As Boolean`
 - `getErrorText As String`
@@ -119,18 +150,11 @@ End Sub
 - `getValue1 As Int`
 - `getValue2 As Int`
 - `getValuePrefix As String`
-- `getValues As Int`
 - `getValueSeparator As String`
 - `getValueSuffix As String`
+- `getValues As Int`
 - `getVariant As String`
 - `getWidth As String`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
 - `setEnabled(bValue As Boolean)`
 - `setErrorText(sValue As String)`
 - `setFocus(bValue As Boolean)`
@@ -141,7 +165,6 @@ End Sub
 - `setIconSize(iValue As Int)`
 - `setLabelAbove(sValue As String)`
 - `setLabelVisible(bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setLowerValue(iValue As Int)`
 - `setMaxValue(iValue As Int)`
@@ -165,14 +188,13 @@ End Sub
 - `setValue1(iValue As Int)`
 - `setValue2(iValue As Int)`
 - `setValuePrefix(sValue As String)`
-- `setValues(iLowerVal As Int, iUpperVal As Int)`
 - `setValueSeparator(sValue As String)`
 - `setValueSuffix(sValue As String)`
+- `setValues(iLowerVal As Int, iUpperVal As Int)`
 - `setVariant(sValue As String)`
 - `setWidth(sValue As String)`
-- `ShowError(sErrorMessage As String)`
-- `StopAnimation`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
+
+## 7. Public Fields
+- `mBase As B4XView`
+- `xui As XUI`
 

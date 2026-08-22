@@ -1,120 +1,87 @@
 # shine-button (`B4XDaisyShineButton`)
 
-DaisyUI animated interactive toggle button with multi-color particle bursts, pure `File.DirAssets` asset loading (no `res/raw` required), and full DaisyUI size scale.
+DaisyUI `ShineButton` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyShineButton`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyShineButton.bas`
+- **Verified Demo Source**: B4XPageShineButton.bas (lines 17–28)
 - **Web DaisyUI Mapping**: `.shine-button` → `B4XDaisyShineButton`
 
 ## 2. Verified B4X Syntax & Recipe
-
-### Standard Sizing Scale & Shapes
 ```b4x
-' Size Scale: xs (28dip), sm (36dip), md (48dip), lg (64dip), xl (80dip)
+' --- Row 1: xs, sm, md, lg ---
+	' xs: 28dip
+	dsbXs.Initialize(Me, "dsbXs")
+	dsbXs.AddToParent(pnlSizes, 16dip, 26dip, 28dip, 28dip)
+	dsbXs.Shape = "heart"
+	dsbXs.Size = "xs"
+	dsbXs.Variant = "error"
+	dsbXs.AllowRandomColor = True
+	dsbXs.ApplyAllProperties
 
-' XS Heart
-dsbXs.Initialize(Me, "dsbXs")
-dsbXs.AddToParent(pnlSizes, 16dip, 26dip, 28dip, 28dip)
-dsbXs.Shape = "heart"
-dsbXs.Size = "xs"
-dsbXs.Variant = "error"
-dsbXs.AllowRandomColor = True
-dsbXs.ApplyAllProperties
+	Dim lblXs As Label = CreateMiniLabel("XS (28dip)")
+	pnlSizes.AddView(lblXs, 8dip, 60dip, 44dip, 20dip)
 
-' SM Like (Thumbs Up)
-dsbSm.Initialize(Me, "dsbSm")
-dsbSm.AddToParent(pnlSizes, 76dip, 20dip, 36dip, 36dip)
-dsbSm.Shape = "like"
-dsbSm.Size = "sm"
-dsbSm.Variant = "primary"
-dsbSm.AllowRandomColor = True
-dsbSm.ApplyAllProperties
+	' sm: 36dip
+	dsbSm.Initialize(Me, "dsbSm")
+	dsbSm.AddToParent(pnlSizes, 76dip, 20dip, 36dip, 36dip)
+	dsbSm.Shape = "like"
+	dsbSm.Size = "sm"
+	dsbSm.Variant = "primary"
+	dsbSm.AllowRandomColor = True
+	dsbSm.ApplyAllProperties
 
-' MD Smile
-dsbMd.Initialize(Me, "dsbMd")
-dsbMd.AddToParent(pnlSizes, 144dip, 12dip, 48dip, 48dip)
-dsbMd.Shape = "smile"
-dsbMd.Size = "md"
-dsbMd.Variant = "warning"
-dsbMd.AllowRandomColor = True
-dsbMd.ApplyAllProperties
+	Dim lblSm As Label = CreateMiniLabel("SM (36dip)")
+	pnlSizes.AddView(lblSm, 68dip, 60dip, 52dip, 20dip)
 
-' LG Star
-dsbLg.Initialize(Me, "dsbLg")
-dsbLg.AddToParent(pnlSizes, 224dip, 4dip, 64dip, 64dip)
-dsbLg.Shape = "star"
-dsbLg.Size = "lg"
-dsbLg.Variant = "success"
-dsbLg.AllowRandomColor = True
-dsbLg.ApplyAllProperties
-
-' XL Custom SVG Icon from File.DirAssets
-dsbXl.Initialize(Me, "dsbXl")
-dsbXl.AddToParent(pnlSizes, 16dip, 105dip, 80dip, 80dip)
-dsbXl.Size = "xl"
-dsbXl.SetSvgAsset("palette-solid-full.svg")
-dsbXl.Variant = "secondary"
-dsbXl.AllowRandomColor = True
-dsbXl.ApplyAllProperties
-```
-
-### Programmatic Control & Burst Animation
-```b4x
-' Programmatic checked state toggle
-dsbHeart.Checked = Not(dsbHeart.Checked)
-
-' Programmatic particle burst trigger
-dsbHeart.TriggerShine   ' or dsbHeart.ShowAnim
-```
-
-### Event Handling
-```b4x
-Sub dsbHeart_CheckChanged (Checked As Boolean)
-    Log("Heart checked = " & Checked)
-End Sub
-
-Sub dsbHeart_Click
-    Log("Heart clicked")
-End Sub
+	' md: 48dip (Default)
+	dsbMd.Initialize(Me, "dsbMd")
+	dsbMd.AddToParent(pnlSizes, 144dip, 12dip, 48dip, 48dip)
+	dsbMd.Shape = "smile"
+	dsbMd.Size = "md"
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- **Zero `res/` Dependency**: All shapes (`heart.png`, `like.png`, `smile.png`, `star.png`) and vector icons are loaded directly from `File.DirAssets`. There is NO need for `res/raw` or `#AdditionalRes: res`.
-- **Built-in Shapes**: `"heart"`, `"like"`, `"smile"`, `"star"`.
-- **Custom Shapes & SVGs**: Use `.SetSvgAsset("icon.svg")`, `.SetSvg(Dir, FileName)`, or `.SetShapeBitmap(bmp)` to use any custom asset.
-- **DaisyUI Size Scale**: Supports `"xs"` (28dip), `"sm"` (36dip), `"md"` (48dip), `"lg"` (64dip), `"xl"` (80dip), or custom pixel width/height via `CustomSize`.
-- **Semantic Colors**: Auto-derives fill and particle burst colors from the semantic `Variant` (`"primary"`, `"secondary"`, `"accent"`, `"info"`, `"success"`, `"warning"`, `"error"`, `"neutral"`).
-- **Particle Customization**: Customize particle colors (`BigShineColor`, `SmallShineColor`), count (`ShineCount`), rotation (`ShineTurnAngle`), spread distance multiplier (`ShineDistanceMultiple`), and animation durations (`AnimDuration`, `ClickAnimDuration`).
-- **Always Call `ApplyAllProperties`** after dynamically configuring properties in code.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyShineButton` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `SetSvg, SetSvgContent, SetShapeBitmap` (+ 30 more).
 
 ## 4. Designer Properties
-| Key | Display Name | Field Type | Default Value | List / Options | Description |
-|---|---|---|---|---|---|
-| Shape | Shape | String | heart | heart\|like\|smile\|star\|svg | Built-in shape or custom SVG asset |
-| Size | Size | String | md | xs\|sm\|md\|lg\|xl | DaisyUI size token (xs=28dip, sm=36dip, md=48dip, lg=64dip, xl=80dip) |
-| CustomSize | Custom Size | Int | 0 | | Custom width/height in dip (overrides Size token when > 0) |
-| Variant | Variant | String | primary | default\|neutral\|primary\|secondary\|accent\|info\|success\|warning\|error\|none | Semantic color variant for checked state |
-| SvgAsset | SVG Asset | String | | | SVG file name from File.DirAssets (used when Shape=svg or to override shape) |
-| Checked | Checked | Boolean | False | | Initial checked state |
-| BtnColor | Unchecked Color | Color | 0xFF9CA3AF | | Unchecked icon color |
-| BtnFillColor | Fill Color | Color | 0x00FFFFFF | | Override checked fill color (0 = auto from Variant) |
-| BigShineColor | Big Shine Color | Color | 0x00FFFFFF | | Main burst particle color (0 = auto) |
-| SmallShineColor | Small Shine Color | Color | 0x00FFFFFF | | Secondary sparkle color (0 = auto) |
-| AllowRandomColor | Random Particle Colors | Boolean | True | | Enables multi-colored burst particles |
-| EnableFlashing | Enable Flashing | Boolean | False | | Flashes random colors during burst |
-| AnimDuration | Animation Duration | Int | 1500 | | Particle burst duration in ms |
-| ClickAnimDuration | Click Duration | Int | 200 | | Button press bounce duration in ms |
-| ShineCount | Particle Count | Int | 7 | | Number of starburst particles |
-| ShineTurnAngle | Turn Angle | Float | 20 | | Rotation angle for flying particles |
-| ShineDistanceMultiple | Distance Multiple | Float | 1.5 | | Particle spread radius multiplier |
-| Visible | Visible | Boolean | True | | Show or hide component |
-| Clickable | Clickable | Boolean | True | | Enable or disable touch events |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Shape` | Shape | `String` | `heart` | heart|like|smile|star|svg |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `CustomSize` | Custom Size | `Int` | `0` |  |
+| `Variant` | Variant | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `SvgAsset` | SVG Asset | `String` | `` |  |
+| `Checked` | Checked | `Boolean` | `False` |  |
+| `BtnColor` | Unchecked Color | `Color` | `0xFF9CA3AF` |  |
+| `BtnFillColor` | Fill Color | `Color` | `0x00FFFFFF` |  |
+| `BigShineColor` | Big Shine Color | `Color` | `0x00FFFFFF` |  |
+| `SmallShineColor` | Small Shine Color | `Color` | `0x00FFFFFF` |  |
+| `AllowRandomColor` | Random Particle Colors | `Boolean` | `True` |  |
+| `EnableFlashing` | Enable Flashing | `Boolean` | `False` |  |
+| `AnimDuration` | Animation Duration | `Int` | `1500` |  |
+| `ClickAnimDuration` | Click Duration | `Int` | `200` |  |
+| `ShineCount` | Particle Count | `Int` | `7` |  |
+| `ShineTurnAngle` | Turn Angle | `Float` | `20` |  |
+| `ShineDistanceMultiple` | Distance Multiple | `Float` | `1.5` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Clickable` | Clickable | `Boolean` | `True` |  |
 
 ## 5. Declared Events
-- `CheckChanged (Checked As Boolean)`: Fired when button toggle state changes.
-- `Click`: Fired when button is tapped.
+- `CheckChanged (Checked As Boolean)`
+- `Click`
 
 ## 6. Public Methods & APIs
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
@@ -122,6 +89,15 @@ End Sub
 - `Base_Resize(dWidth As Double, dHeight As Double)`
 - `CreateView(iSizeDip As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `SetShapeBitmap(Bmp As Bitmap)`
+- `SetShapeResource(sResourceName As String)`
+- `SetSvg(sDir As String, sFileName As String)`
+- `SetSvgAsset(sFileName As String)`
+- `SetSvgContent(sSvgMarkup As String)`
+- `ShowAnim`
+- `TriggerShine`
+- `View As B4XView`
 - `getAllowRandomColor As Boolean`
 - `getAnimDuration As Int`
 - `getBigShineColor As Int`
@@ -139,7 +115,6 @@ End Sub
 - `getSvgAsset As String`
 - `getVariant As String`
 - `getVisible As Boolean`
-- `Initialize(oCallback As Object, sEventName As String)`
 - `setAllowRandomColor(bValue As Boolean)`
 - `setAnimDuration(iValue As Int)`
 - `setBigShineColor(iColor As Int)`
@@ -149,22 +124,15 @@ End Sub
 - `setClickAnimDuration(iValue As Int)`
 - `setEnableFlashing(bValue As Boolean)`
 - `setShape(sValue As String)`
-- `SetShapeBitmap(Bmp As Bitmap)`
-- `SetShapeResource(sResourceName As String)`
 - `setShineCount(iValue As Int)`
 - `setShineDistanceMultiple(fValue As Float)`
 - `setShineTurnAngle(fValue As Float)`
 - `setSize(sValue As String)`
 - `setSmallShineColor(iColor As Int)`
-- `SetSvg(sDir As String, sFileName As String)`
-- `SetSvgAsset(sFileName As String)`
-- `SetSvgContent(sSvgMarkup As String)`
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
-- `ShowAnim`
-- `TriggerShine`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

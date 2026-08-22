@@ -1,55 +1,82 @@
 # toggle (`B4XDaisyToggle`)
 
-Switch control (on/off) for boolean settings with label, group support, and indeterminate state.
+DaisyUI `Toggle` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyToggle`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyToggle.bas`
+- **Verified Demo Source**: B4XPageDrawerRail.bas (lines 409–417), B4XPageEnjoyHint.bas (lines 27–28), B4XPageFocus.bas (lines 36–36), B4XPageNavScrollDock.bas (lines 191–197), B4XPageSignaturePad.bas (lines 38–39), B4XPageTagSphere.bas (lines 23–24), B4XPageToggle.bas (lines 59–393), B4XPageToggleGroup.bas (lines 46–204)
 - **Web DaisyUI Mapping**: `.toggle` → `B4XDaisyToggle`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim tog As B4XDaisyToggle
-tog.Initialize(Me, "tog")
-tog.AddToParent(pnlHost, pad, y, maxW, 44dip)
-tog.Variant = "primary"
-tog.Size = "md"
-tog.Text = "Enable notifications"
-tog.Position = "start"
-tog.Checked = True
-y = y + tog.getComputedHeight + gap
+''' Example: Standard checked toggle
+    Dim tgBaseChecked As B4XDaisyToggle
+    tgBaseChecked.Initialize(Me, "tg")
+    tgBaseChecked.AddToParent(pnlHost, PAGE_PAD, y, maxW, 36dip)
+    tgBaseChecked.Text = "Checked Toggle"
+    tgBaseChecked.Checked = True
+    tgBaseChecked.Tag = "base-checked"
+    y = y + 44dip
 
+    ''' Example: Standard unchecked toggle
+    Dim tgBaseUnchecked As B4XDaisyToggle
+    tgBaseUnchecked.Initialize(Me, "tg")
+    tgBaseUnchecked.AddToParent(pnlHost, PAGE_PAD, y, maxW, 36dip)
+    tgBaseUnchecked.Text = "Unchecked Toggle"
+    tgBaseUnchecked.Checked = False
+    tgBaseUnchecked.Tag = "base-unchecked"
+    y = y + 44dip
+
+    ''' Example: Indeterminate toggle
+    Dim tgBaseIndet As B4XDaisyToggle
+    tgBaseIndet.Initialize(Me, "tg")
+    tgBaseIndet.AddToParent(pnlHost, PAGE_PAD, y, maxW, 36dip)
+    tgBaseIndet.Text = "Indeterminate Toggle"
+    tgBaseIndet.Indeterminate = True
+    tgBaseIndet.Tag = "base-indeterminate"
+    y = y + 56dip
+
+    ' -
+    ' 2. TEXTLESS (VISUAL ONLY) SECTION
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Switch toggle for binary on/off settings and preferences.
-- Set `Position = "start"` for label on left, `"end"` (default) for label on right.
-- Set `Size` (`"xs"` to `"xl"`) and semantic `Variant`.
-- Handle state changes in the `Changed (Value As Boolean)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyToggle` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getChecked, setIndeterminate, getIndeterminate` (+ 30 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| GroupName | Group Name | String |  |  |
-| Checked | Checked | Boolean | False |  |
-| Indeterminate | Indeterminate | Boolean | False |  |
-| Value | Value | String |  |  |
-| Text | Text | String |  |  |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Position | Position | String | start | start|end |
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| BackgroundColor | Background Color | Color | 0x00FFFFFF |  |
-| BorderColor | Border Color | Color | 0x00FFFFFF |  |
-| TextColor | Text Color | Color | 0x00FFFFFF |  |
-| CheckedBackgroundColor | Checked Background Color | Color | 0x00FFFFFF |  |
-| CheckedBorderColor | Checked Border Color | Color | 0x00FFFFFF |  |
-| CheckedTextColor | Checked Text Color | Color | 0x00FFFFFF |  |
-| Required | Required | Boolean | False |  |
-| ErrorText | Error Text | String |  |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `GroupName` | Group Name | `String` | `` |  |
+| `Checked` | Checked | `Boolean` | `False` |  |
+| `Indeterminate` | Indeterminate | `Boolean` | `False` |  |
+| `Value` | Value | `String` | `` |  |
+| `Text` | Text | `String` | `` |  |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Position` | Position | `String` | `start` | start|end |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
+| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
+| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedBackgroundColor` | Checked Background Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedBorderColor` | Checked Border Color | `Color` | `0x00FFFFFF` |  |
+| `CheckedTextColor` | Checked Text Color | `Color` | `0x00FFFFFF` |  |
+| `Required` | Required | `Boolean` | `False` |  |
+| `ErrorText` | Error Text | `String` | `` |  |
 
 ## 5. Declared Events
 - `Checked (Checked As Boolean)`
@@ -63,6 +90,18 @@ y = y + tog.getComputedHeight + gap
 - `BringToFront`
 - `ClearError`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getBorderColor As Int`
 - `getChecked As Boolean`
@@ -90,13 +129,6 @@ y = y + tog.getComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
 - `setBackgroundColor(iColor As Int)`
 - `setBorderColor(iColor As Int)`
 - `setChecked(bValue As Boolean)`
@@ -109,7 +141,6 @@ y = y + tog.getComputedHeight + gap
 - `setGroupName(sValue As String)`
 - `setHeight(iValue As Int)`
 - `setIndeterminate(bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setPosition(sValue As String)`
 - `setRequired(bValue As Boolean)`
@@ -123,11 +154,8 @@ y = y + tog.getComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `ShowError(sErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

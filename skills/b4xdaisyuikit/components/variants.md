@@ -1,37 +1,58 @@
 # variants (`B4XDaisyVariants`)
 
-Master theme, design token, color resolution, and shape mask styling engine for B4XDaisyUIKit.
+DaisyUI `Variants` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyVariants`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyVariants.bas`
+- **Verified Demo Source**: B4XPageAura.bas (lines 28–28), B4XPageAvatar.bas (lines 1182–1195), B4XPageBadge.bas (lines 128–608), B4XPageBreadcrumbs.bas (lines 32–178), B4XPageButton.bas (lines 613–613), B4XPageCanvasSpinner.bas (lines 48–353), B4XPageCard.bas (lines 223–225), B4XPageChat.bas (lines 233–233), B4XPageColorWheel.bas (lines 43–222), B4XPageDivider.bas (lines 246–254), B4XPageDock.bas (lines 39–514), B4XPageDrawer.bas (lines 40–40), B4XPageDrawerRail.bas (lines 46–526), B4XPageDrawerTree.bas (lines 43–145), B4XPageDropdown.bas (lines 25–269), B4XPageEasing.bas (lines 51–281), B4XPageFieldset.bas (lines 336–371), B4XPageHover3d.bas (lines 32–223), B4XPageIndicator.bas (lines 67–395), B4XPageMenu.bas (lines 24–380), B4XPageMenuRuntime.bas (lines 40–239), B4XPageMenuRuntime2.bas (lines 38–83), B4XPageNavbar.bas (lines 33–33), B4XPagePDFView.bas (lines 25–25), B4XPagePagination.bas (lines 33–307), B4XPageSelect.bas (lines 42–42), B4XPageSignaturePad.bas (lines 61–61), B4XPageStack.bas (lines 41–151), B4XPageSteps.bas (lines 32–32), B4XPageSvgIcon.bas (lines 250–250), B4XPageSweetAlertInputs.bas (lines 54–54), B4XPageTab.bas (lines 27–27), B4XPageTagSphere.bas (lines 41–422), B4XPageWindow.bas (lines 24–205), B4XMainPage.bas (lines 161–165)
 - **Web DaisyUI Mapping**: `.variants` → `B4XDaisyVariants`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' Switch theme
-B4XDaisyVariants.SetActiveTheme("dark")
+Private Sub B4XPage_Created (Root1 As B4XView)
+    Root = Root1
+    Root.Color = B4XDaisyVariants.GetTokenColor("--color-base-200", xui.Color_RGB(245, 247, 250))
 
-' Get token color
-Dim primaryColor As Int = B4XDaisyVariants.GetTokenColor("--color-primary", Colors.Blue)
+    ' Initialize PageScroll Host
+    pageScroll.Initialize(Me, "pageScroll")
+    pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+    pnlHost = pageScroll.Panel
 
-' Reflow siblings when a panel expands by 120dip
-B4XDaisyVariants.ShiftSiblingsBelow(myPanel, 120dip, 250)
+    ' Pre-initialize the overlay loader
+    overlaySpinner.Initialize(Me, "overlaySpinner")
+    overlaySpinner.setOverlayColor(xui.Color_Black)
+    overlaySpinner.setOverlayOpacity(0.5)
+    overlaySpinner.setColor1(xui.Color_Yellow)
+    overlaySpinner.setColor2(xui.Color_Red)
+    overlaySpinner.setColor3(xui.Color_Cyan)
 
+    RenderExamples(Root.Width, Root.Height)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Master theme engine, dynamic color token resolver, and reflow helper.
-- Switch global theme via `B4XDaisyVariants.SetActiveTheme("dark")`.
-- Resolve color tokens dynamically using `B4XDaisyVariants.GetTokenColor("--color-primary", fallback)`.
-- Reflow sibling views after accordion/collapse height changes using `B4XDaisyVariants.ShiftSiblingsBelow(view, delta, animMs)`.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyVariants` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Deviation Mechanism
+- Utility/Helper/Animation class with specialized non-visual or animation lifecycle (not a standard CustomView).
+
+### Preconditions & Gotchas
+- Contains `DisallowParentIntercept` on B4A to prevent enclosing scroll containers (like `B4XDaisyPageScroll`) from stealing touch drag events.
+- Dynamic programmatic resizing requires calling `.Resize` or updating bounds to ensure inner canvas/background repaints properly.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `Process_Globals, isBase64, ConvertStringToBase64` (+ 137 more).
 
 ## 4. Designer Properties
-None declared.
+*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
 
 ## 5. Declared Events
-None declared.
+- *(No custom events declared)*
 
 ## 6. Public Methods & APIs
 - `AlphaColor(iColorValue As Int, fAlpha01 As Float) As Int`
@@ -50,7 +71,6 @@ None declared.
 - `ApplyParsedFlexContainerTokens(fp As B4XDaisyFlexPanel, mParsed As Map, bDoRelayout As Boolean)`
 - `ApplyParsedFlexItemTokens(fp As B4XDaisyFlexPanel, vView As B4XView, mParsed As Map, bDoRelayout As Boolean)`
 - `ApplyThemeToPage(sThemeName As String, vRootView As B4XView)`
-- `AreSystemAnimationsEnabled As Boolean`
 - `Blend(iC1 As Int, iC2 As Int, dT As Double) As Int`
 - `BorderStyleList As String`
 - `BuildVariantMap(iBackColor As Int, iTextColor As Int) As Map`
@@ -58,9 +78,13 @@ None declared.
 - `ClipCanvasToShape(cvsCvs As B4XCanvas, rcTargetRect As B4XRect, sMaskName As String) As Boolean`
 - `CloneProps(mProps As Map) As Map`
 - `ContainsAny(sText As String, oNeedles() As String`
+- `ConvertBase64ToString(sText As String) As String`
 - `ConvertFlatpickrToDateFormat(sFormatText As String) As String`
+- `ConvertStringToBase64(sText As String) As String`
 - `CreateB4XImageView As B4XImageView`
 - `CreateEditTextBorder(iBackgroundColor As Int, iBorderWidthDip As Int, iBorderColor As Int, iCornerDip As Int) As ColorDrawable`
+- `CreateHaloEffect (vParent As B4XView, iX As Int, iY As Int, iClr As Int)`
+- `CreateHaloEffectHelper (vParent As B4XView, bmpBmp As B4XBitmap, iX As Int, iY As Int, iClr As Int, iRadius As Int)`
 - `CreateLabel As B4XView`
 - `CreateMaskPath(fSize As Float, sMaskName As String) As B4XPath`
 - `CreateMaskPathInRect(rcTargetRect As B4XRect, sMaskName As String) As B4XPath`
@@ -74,7 +98,6 @@ None declared.
 - `DisableViewClipping(vView As B4XView)`
 - `EnableShapedClipping(vView As B4XView, sMaskName As String)`
 - `ExtractSpacingValue(sValue As String) As String`
-- `ForceAnimatorDurationScale(fScale As Float) As Boolean`
 - `FormatDateTime(sFormatText As String, lValueMillis As Long) As String`
 - `GetActiveTheme As String`
 - `GetActiveTokens As Map`
@@ -103,8 +126,8 @@ None declared.
 - `GetTokenNumber(sToken As String, fDefaultValue As Float) As Float`
 - `GetTokenString(sToken As String, sDefaultValue As String) As String`
 - `GetVariantPalette As Map`
-- `HasTheme(sThemeName As String) As Boolean`
 - `HSLToInt(iH As Int, dS As Double, dL As Double, iA As Int) As Int`
+- `HasTheme(sThemeName As String) As Boolean`
 - `IsClass(oObj As Object, sClassName As String) As Boolean`
 - `IsRtl As Boolean`
 - `LooksLikeJavaDateFormat(sFormatText As String) As Boolean`
@@ -136,6 +159,7 @@ None declared.
 - `ParseFlexContainerTokens(sTokenString As String) As Map`
 - `ParseFlexItemTokens(sTokenString As String) As Map`
 - `ParseGapUtilities(sUtilities As String, fDefaultGapDip As Float) As Map`
+- `RaiseEventIfSubExists(oCallback As Object, sFullSubName As String, lstParams As List) As Boolean`
 - `RegisterTheme(sThemeName As String, mTokens As Map)`
 - `RequestDisallowParentIntercept(vView As B4XView, iAction As Int)`
 - `ResolveAssetImage(sFileName As String, sDefaultImage As String) As String`
@@ -144,6 +168,7 @@ None declared.
 - `ResolveBackgroundColorVariantFromPalette(mPalette As Map, sVariantOrToken As String, iDefaultColor As Int) As Int`
 - `ResolveBorderColorVariant(sVariantOrToken As String, iDefaultColor As Int) As Int`
 - `ResolveBorderColorVariantFromPalette(mPalette As Map, sVariantOrToken As String, iDefaultColor As Int) As Int`
+- `ResolveColorValue(oValue As Object, iDefaultColor As Int) As Int`
 - `ResolveColorVariantFromPalette(mPalette As Map, sVariantOrToken As String, sPaletteKey As String, iDefaultColor As Int) As Int`
 - `ResolveHeightBase(vBase As B4XView, fDefaultValue As Float) As Float`
 - `ResolveIconTypeface(sIcon As String) As Typeface`
@@ -167,7 +192,7 @@ None declared.
 - `RestoreCanvasClip(cvsCvs As B4XCanvas)`
 - `SetActiveTheme(sThemeName As String)`
 - `SetAlpha(iColor As Int, iAlpha As Int) As Int`
-- `SetBitmapAndFill(vImageView As B4XView, bmpBmp As B4XBitmap)`
+- `SetBitmapAndFill (vImageView As B4XView, bmpBmp As B4XBitmap)`
 - `SetCheckedByValue(vParent As B4XView, sGroupName As String, sValue As String) As Boolean`
 - `SetColorPerCornerRadius(vView As B4XView, iBgColor As Int, fTL As Float, fTR As Float, fBR As Float, fBL As Float)`
 - `SetLineSpacing(vView As B4XView, fMultiple As Float, fAdd As Float)`
@@ -192,11 +217,8 @@ None declared.
 - `ValidateControls(lstControls As List) As Boolean`
 - `ValidateRequiredControls(vParent As B4XView) As Boolean`
 - `VariantList As String`
-
+- `isBase64(sText As String) As Boolean`
 
 ## 7. Public Fields
-None declared.
+- `xui As XUI`
 
-## 8. Internal System Engines
-- **`B4XDaisyApp`**: Global application configuration and top-level theme state helper.
-- **`B4XDaisyBoxModel`**: Low-level padding, border, and margin coordinate calculation engine.

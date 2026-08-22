@@ -36,8 +36,8 @@ Private Sub RenderPage(W As Int, H As Int)
     ' Mount component B
     Dim compB As B4XDaisyButton
     compB.Initialize(Me, "compB")
-    compB.setText("Action")
-    compB.setVariant("primary")
+    compB.Text = "Action"
+    compB.Variant = "primary"
     compB.AddToParent(pnl, pad, y, maxW, 44dip)
     y = y + compB.GetComputedHeight + gap
 

@@ -198,7 +198,7 @@ Star-based selection indicator wrapper supporting custom scales, visual styles, 
 *   **Primary Methods**:
     *   `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 
-### 2E. B4XDaisySlider
+### 2E. B4XDaisyRange / B4XDaisyDualRange
 A custom slider wrapper that behaves similarly to `B4XDaisyRange` but implements native B4A continuous slider mechanics.
 
 *   **Initialization Sub**:

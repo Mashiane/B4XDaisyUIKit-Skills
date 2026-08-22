@@ -49,7 +49,6 @@ if (-not (Test-Path $AppFolder)) {
 $manifestText = Get-Content $Manifest -Raw
 
 # --- Known = every B4XDaisy* token declared anywhere in the manifest and component specs
-#     (components, result types, enums, manager types).
 $known = New-Object System.Collections.Generic.HashSet[string]
 foreach ($m in [regex]::Matches($manifestText, 'B4XDaisy[A-Za-z0-9_]+')) {
     [void]$known.Add($m.Value)
@@ -206,6 +205,7 @@ Write-Host ""
 Write-Host "=== STATIC LAYOUT & UX QUALITY GATE ===" -ForegroundColor Cyan
 $layoutProblems = @()
 $warnings = @()
+
 foreach ($f in $basFiles) {
     $text = Get-Content $f.FullName -Raw
     
@@ -220,6 +220,7 @@ foreach ($f in $basFiles) {
     if ($text -match '(?i)\.getView\.BringToFront') {
         $layoutProblems += "$($f.Name) calls .getView.BringToFront (RULE-INTERACT-001: call .BringToFront directly on the component)"
     }
+
     # Check 3: Empty Catch block detection (RULE-CODE-002)
     if ($text -match '(?m)^\s*Catch\s*[\r\n]+\s*End\s*Try') {
         $warnings += "$($f.Name) has empty Catch block(s) without structured logging (RULE-CODE-002: log with LastException.Message)"
@@ -233,6 +234,29 @@ foreach ($f in $basFiles) {
             $warnings += "$($f.Name) embeds gesture/range components inside a scroll container without DisallowParentIntercept (RULE-INTERACT-002)"
         }
     }
+
+    # Check 5: Hungarian prefix spot-check (RULE-CODE-001) -- advisory L3
+    if ($text -match '(?m)^\s*Sub\s+\w+\s*\(\s*[A-Z][a-z]+ As ') {
+        if ($text -match '(?m)Sub\s+\w+\s*\(\s*(sText|iLeft|bEnabled|vParent|mProps|lst\w+)\b') {
+            # has at least one correctly prefixed param -> not warned
+        } else {
+            $warnings += "$($f.Name) params lack Hungarian prefixes (RULE-CODE-001: sText,iLeft,bEnabled,vParent,mProps,lstItems)"
+        }
+    }
+
+    # Check 6: B4XDaisyPageScroll.Clear before render (RULE-LAYOUT-001) -- advisory
+    if ($text -match 'B4XDaisyPageScroll' -and $text -match 'RenderPage|RenderContent') {
+        if ($text -notmatch '\.Clear\b') {
+            $warnings += "$($f.Name) renders scroll content but never calls .Clear (RULE-LAYOUT-001: Clear before re-render on resize)"
+        }
+    }
+
+    # Check 7: Hardcoded px without dip (RULE-ANTI-003) -- advisory
+    $pxHits = [regex]::Matches($text, '(?m)\b(Width|Height|Left|Top)\s*=\s*\d+\b(?!dip)')
+    if ($pxHits.Count -gt 0) {
+        # filter known non-B4XView numeric assigns (constants) -- keep warn light
+        $warnings += "$($f.Name) has raw pixel assign without dip -- verify RULE-ANTI-003"
+    }
 }
 
 if ($layoutProblems.Count -eq 0) {
@@ -244,7 +268,7 @@ if ($layoutProblems.Count -eq 0) {
 }
 
 if ($warnings.Count -gt 0) {
-    Write-Host "WARN: Quality & UX advisory warning(s):" -ForegroundColor Yellow
+    Write-Host "WARN: Quality and UX advisory warning(s):" -ForegroundColor Yellow
     foreach ($w in $warnings) { Write-Host "  - $w" -ForegroundColor Yellow }
 }
 
@@ -255,6 +279,5 @@ if ($problems.Count -eq 0 -and $layoutProblems.Count -eq 0 -and $invented.Count 
 } else {
     Write-Host ""
     Write-Host "RESULT: FAIL (fix errors above before ./install.ps1)" -ForegroundColor Red
-}
 }
 exit $exitCode

@@ -2,6 +2,8 @@
 
 This reference guide establishes the structural property taxonomy, Refactoring UI design heuristics, and asset conventions for assembling native B4X applications with B4XDaisyUIKit.
 
+> **Relation:** Complements `ux-master-doctrine.md` (quantitative laws Fitts/Hick/Miller + WCAG + 4-state DoD). This file adds property categories (`Variant/Size/Style`) and asset/SVG conventions. No duplication — cited by `SKILL.md:43` and `b4x-verify` for taxonomy checks.
+
 ---
 
 ## 1. B4XDaisy Component Property Taxonomy

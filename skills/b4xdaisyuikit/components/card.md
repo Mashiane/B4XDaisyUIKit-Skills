@@ -1,64 +1,80 @@
 # card (`B4XDaisyCard`)
 
-Versatile content container with optional image, title, body, and action areas. Layout modes control image placement.
+DaisyUI `Card` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCard`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyCard.bas`
+- **Verified Demo Source**: B4XPageAura.bas (lines 185–218), B4XPageCard.bas (lines 68–321), B4XPageDrawer.bas (lines 95–123), B4XPageDrawerRail.bas (lines 149–387), B4XPageDrawerTree.bas (lines 96–155), B4XPageMediaPicker.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim crd As B4XDaisyCard
-crd.Initialize(Me, "crd")
-crd.AddToParent(pnlHost, pad, y, maxW, 280dip)
-crd.Variant = "none"
-crd.Style = "border"
-crd.LayoutMode = "top"
-crd.Title = "Card Title"
-crd.setImagePath("landscape.jpg")
+AddSectionTitle("User baseline card")
+	Dim cBase As B4XDaisyCard
+	cBase.Initialize(Me, "card")
+	Dim vBase As B4XView = cBase.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
+	ApplyCardDefaults(cBase, "baseline")
+	cBase.ImagePath = "photo-1606107557195-0e29a4b5b4aa.webp"
+	SetCardContent(cBase, "Card Title", "A card component has a figure, a body part, and inside body there are title and actions parts", "Buy Now", "buynow")
+	AddTitleBadges(cBase)
+	cBase.Size = "md"
+	cBase.Style = "none"
+	cBase.LayoutMode = "top"
+	cBase.Shadow = "sm"
+	currentY = currentY + vBase.Height + SECTION_GAP
+	Sleep(0)
 
-' Add body content
-Dim txt As B4XDaisyText
-txt.Initialize(Me, "txt")
-txt.AddToParent(crd.getBodyContainer, 0, 0, crd.getBodyContainer.Width, 40dip)
-txt.Text = "Card body text here."
+	AddSectionTitle("Border and dash styles")
+	Dim cBorder As B4XDaisyCard
+	cBorder.Initialize(Me, "card")
+	Dim vBorder As B4XView = cBorder.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
+	ApplyCardDefaults(cBorder, "border")
+	cBorder.ImagePath = "photo-1606107557195-0e29a4b5b4aa.webp"
+	cBorder.Style = "border"
+	SetCardContent(cBorder, "Card Title", "A card component has a figure, a body part, and inside body there are title and actions parts", "Buy Now", "buynow")
+	currentY = currentY + vBorder.Height + 10dip
 
-' Add action button
-Dim btn As B4XDaisyButton
-btn.Initialize(Me, "btn")
-crd.AddAction(btn)
-y = y + crd.GetComputedHeight + gap
-
+	Dim cDash As B4XDaisyCard
+	cDash.Initialize(Me, "card")
+	Dim vDash As B4XView = cDash.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
+	ApplyCardDefaults(cDash, "dash")
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Control layout and image placement via `LayoutMode` (`"top"`, `"bottom"`, `"side"`, `"overlay"`).
-- Mount custom body content into `getBodyContainer` (e.g. `B4XDaisyText`, inputs, badges).
-- Add action buttons at the base using `AddAction(btn)` or access `getActionsContainer`.
-- `LayoutMode = "overlay"` renders the image as a full background banner; ensure text contrast is maintained.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyCard` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `setLeft, setTop, getFigureContainer` (+ 34 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Width | Width | String | w-full |  |
-| Height | Height | String | auto |  |
-| Title | Title | String | Card Title |  |
-| ImagePath | Image Path | String |  |  |
-| ImageWidth | Image Width | String | w-full |  |
-| ImageHeight | Image Height | String | h-full |  |
-| ImageClasses | Image Classes | String |  |  |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Style | Style | String | none | none|border|dash |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| LayoutMode | Layout Mode | String | top | top|bottom|side|overlay|none |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| PlaceItemsCenter | Place Items Center | Boolean | False |  |
-| Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Shadow | Shadow | String | sm | none|xs|sm|md|lg|xl|2xl |
-| Visible | Visible | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `auto` |  |
+| `Title` | Title | `String` | `Card Title` |  |
+| `ImagePath` | Image Path | `String` | `` |  |
+| `ImageWidth` | Image Width | `String` | `w-full` |  |
+| `ImageHeight` | Image Height | `String` | `h-full` |  |
+| `ImageClasses` | Image Classes | `String` | `` |  |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Style` | Style | `String` | `none` | none|border|dash |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `LayoutMode` | Layout Mode | `String` | `top` | top|bottom|side|overlay|none |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `PlaceItemsCenter` | Place Items Center | `Boolean` | `False` |  |
+| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
+| `Visible` | Visible | `Boolean` | `True` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -70,17 +86,30 @@ y = y + crd.GetComputedHeight + gap
 - `BringToFront`
 - `ClearImage`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `getActionsContainer As B4XView`
-- `getActionsCount As Int`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
+- `GetComputedHeight As Int`
+- `HideActions`
+- `HideImage`
+- `HideTitle`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetImage(bmpImage As B4XBitmap)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ShowActions`
+- `ShowImage`
+- `ShowTitle`
+- `View As B4XView`
+- `getActionsContainer As B4XView`
+- `getActionsCount As Int`
 - `getBackgroundColor As Int`
 - `getBodyContainer As B4XView`
 - `getBodyPartContainer As B4XView`
 - `getCardActions As B4XView`
 - `getCardBody As B4XView`
 - `getCardTitle As B4XView`
-- `GetComputedHeight As Int`
 - `getContainer As B4XView`
 - `getFigureContainer As B4XView`
 - `getHeight As String`
@@ -99,22 +128,13 @@ y = y + crd.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `HideActions`
-- `HideImage`
-- `HideTitle`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setBackgroundColor(iValue As Int)`
 - `setBackgroundColorVariant(sVariantName As String)`
 - `setHeight(sValue As String)`
-- `SetImage(bmpImage As B4XBitmap)`
 - `setImageClasses(sValue As String)`
 - `setImageHeight(sValue As String)`
 - `setImagePath(sValue As String)`
 - `setImageWidth(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLayoutMode(sValue As String)`
 - `setLeft(iValue As Int)`
 - `setPlaceItemsCenter(bValue As Boolean)`
@@ -130,16 +150,8 @@ y = y + crd.GetComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `ShowActions`
-- `ShowImage`
-- `ShowTitle`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
 
-## 8. Compound Sub-Components
-- **`B4XDaisyCardTitle`**: Title container inside the card header (`crd.Title`).
-- **`B4XDaisyCardBody`**: Main content area container accessed via `crd.getBodyContainer`. Mount child views here.
-- **`B4XDaisyCardActions`**: Bottom actions bar container accessed via `crd.getActionsContainer` or `crd.AddAction(btn)`.

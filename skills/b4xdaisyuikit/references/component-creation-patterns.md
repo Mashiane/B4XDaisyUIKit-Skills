@@ -146,7 +146,7 @@ Applies to: `B4XDaisyStat`, `B4XDaisyTimeline`, `B4XDaisyAccordion` (any compone
 
 ## Deviation 5 — 3-arg `Initialize` with Parent (no `AddToParent`)
 
-`B4XDaisySweetAlert` takes the parent view as the second `Initialize` argument. Do NOT call `AddToParent` on it. `B4XPageSweetAlert.bas:102`:
+`B4XDaisySweetAlert` takes the parent root view as the second `Initialize` argument: `swal.Initialize(Me, Root, "swal")`. Do NOT call `AddToParent` on it. `B4XPageSweetAlert.bas:102`:
 ```vb
 swal.Initialize(Me, Root, "swal")
 swal.Title = "..."

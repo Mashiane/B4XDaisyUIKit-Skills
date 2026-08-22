@@ -20,9 +20,6 @@
 * 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 104 native component classes and 94 live `B4XPage` reference implementations.
 * ⚡ **One-Shot Greenfield Scaffolding**: Automatically scaffolds complete ready-to-build apps with loaders, SweetAlert dialogs, navigation models, and automated build scripts (`install.ps1`).
 * 📦 **Zero-Configuration Asset Pipeline**: Pure `File.DirAssets` bundling delivered automatically via `B4XDaisyUIKit.b4xlib` with no `res/` folder required.
-* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 104 native component classes and 94 live `B4XPage` reference implementations.
-* ⚡ **One-Shot Greenfield Scaffolding**: Automatically scaffolds complete ready-to-build apps with loaders, SweetAlert dialogs, navigation models, and automated build scripts (`install.ps1`).
-* 📦 **Zero-Configuration Asset Pipeline**: Pure `File.DirAssets` bundling delivered automatically via `B4XDaisyUIKit.b4xlib` with no `res/` folder required.
 
 ---
 
@@ -100,10 +97,10 @@ This repository packages **3 specialized skills**:
 ---
 
 ### 1. `b4xdaisyuikit` (Master UI Composition Skill)
-* **102 Component Guides:** Detailed specifications in `components/<name>.md` covering constructor parameters, designer properties, methods, events, and recipes.
+* **89 Component Guides:** Detailed specifications in `components/<name>.md` covering constructor parameters, designer properties, methods, events, and recipes.
 * **UX Master Doctrine & DoD (`references/ux-master-doctrine.md`):** Quantitative HCI standards, WCAG 2.2 AA contrast compliance, 4-state UI completeness, and pre-ship Definition of Done.
-* **5-Stage Vision & Conversion Engine (`references/conversion-workflows.md`):** Structured vision pipeline for translating Figma auto-layouts, HTML, and UI screenshots into native B4XDaisy code.
-* **Web-to-Native Dictionary (`web-mapping.md`):** Direct translation table from HTML classes (`.btn`, `.card`, `.badge`, `.timeline`, `.collapse`, `.shine-button`, etc.) to native B4X classes.
+* **5-Stage Vision & Conversion Engine (`references/conversion-workflows.md`):** Structured vision pipeline for translating Figma auto-layouts, HTML, and UI screenshots into native B4X code.
+* **Web-to-Native Dictionary (`references/daisyui-native-compatibility.md`):** Direct translation table from HTML classes (`.btn`, `.card`, `.badge`, `.timeline`, `.collapse`, `.shine-button`, etc.) to native B4X classes.
 * **Design Token Cheatsheet (`cheatsheet.md`):** Sizing tokens, corner radii (`rounded-box`, `rounded-field`, `rounded-full`), border widths, dashed lines, and dynamic theme palettes (`primary`, `secondary`, `accent`, `error`, `success`, `warning`, `info`, `neutral`).
 
 ### 2. `b4x-project-bootstrap` (App Scaffolding)

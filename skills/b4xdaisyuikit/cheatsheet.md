@@ -3,6 +3,8 @@
 
 This cheatsheet provides the definitive translation mapping between Tailwind CSS / daisyUI design tokens and native B4X parameters as resolved by the static code module `B4XDaisyVariants`. It serves as a rapid lookup map for design-token compilers and AI developer agents.
 
+> **Scope:** Tokens only (colors, rounded, spacing, typography, bracket `w-[80%]` resolution). For layout sequencing (`y` cursor, `Clear`/`AutoFit`, sibling shift) see `patterns.md`. For web→native component choice see `references/daisyui-native-compatibility.md`.
+
 ---
 
 ## I. Semantic Variants & Color Resolutions

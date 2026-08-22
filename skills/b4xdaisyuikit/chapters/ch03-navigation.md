@@ -423,6 +423,6 @@ Private Sub RenderDrawerPage(Width As Int, Height As Int)
 End Sub
 
 Private Sub topNavbar_HamburgerClick(Tag As Object)
-    mainDrawer.ToggleLeft
+    mainDrawer.Toggle
 End Sub
 ```

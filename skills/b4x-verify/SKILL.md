@@ -50,6 +50,7 @@ Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
 - **capture-screens.ps1** + **ux-review.md** (this skill): post-build visual
   review. Reads the BUILD-WATCH report and marks its verified items as
   **Verified at build** instead of Verification Required.
+
 ## When to Use
 
 - After composing app pages with the `b4xdaisyuikit` skill, before

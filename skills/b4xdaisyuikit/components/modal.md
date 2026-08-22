@@ -1,65 +1,93 @@
 # modal (`B4XDaisyModal`)
 
-Centered dialog overlay with title, content panel, backdrop, and action buttons.
+DaisyUI `Modal` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyModal`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyModal.bas`
+- **Verified Demo Source**: B4XPageColorWheel.bas (lines 26–26), B4XPageModal.bas (lines 13–453), B4XPagePicker.bas (lines 36–36)
 - **Web DaisyUI Mapping**: `.modal` → `B4XDaisyModal`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim mdl As B4XDaisyModal
-mdl.Initialize(Me, "mdl")
-mdl.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-mdl.Title = "Confirm Action"
-mdl.Show
+Private Sub AddLabel(m As B4XDaisyModal, Text As String)
+    Dim body As B4XView = m.getBodyContainer
+    Dim bodyW As Int = Max(1dip, body.Width)
+    Dim lbl As B4XDaisyText
+    lbl.Initialize(Me, "")
+    lbl.Text = Text
+    lbl.TextSize = "text-base"
+    lbl.SingleLine = False        ' wrap long text across multiple lines
+    ' Add at the body's inner width; the text view auto-resizes its height to
+    ' fit the wrapped content.
+    lbl.AddToParent(body, 0, 0, bodyW, 24dip)
+    ' Measure the wrapped height for this content width and apply it explicitly
+    ' so the modal's h-auto box sizes to fit the (possibly multi-line) label.
+    Dim prefH As Int = Max(24dip, lbl.GetPreferredHeight(bodyW))
+    If lbl.View.Height <> prefH Then
+        lbl.View.SetLayoutAnimated(0, 0, 0, bodyW, prefH)
+        lbl.RefreshText
+    End If
+    ' Re-calculate modal auto-height so the box fits the label.
+    m.Refresh
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Centered popup dialog for confirmations, alerts, and custom content slots.
-- Display modally using `Wait For (mdl.Show) mdl_Closed (Result As Boolean)` or `ShowAsync`.
-- Set `BackdropDismiss = True` to allow tapping the outside dim overlay to close.
-- Mount custom form views into `mdl.GetContentPanel`.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyModal` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+5. **Execution / Assembly:** Modal/Dialog/Toast lifecycle requiring `.Show` / `.Present` / `.ShowModal` / `.ShowActionSheet` presentation call after configuration.
+
+### Deviation Mechanism
+- Modal/Dialog/Toast lifecycle requiring `.Show` / `.Present` / `.ShowModal` / `.ShowActionSheet` presentation call after configuration.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getTag, getAnimated, setAnimated` (+ 71 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| ClickOutsideToClose | Click Outside To Close | Boolean | True |  |
-| FullScreen | Full Screen | Boolean | False |  |
-| GlassSize | Glass Size | String | none | none|glass-xs|glass-sm|glass-md|glass-lg|glass-xl|glass-2xl |
-| Placement | Placement | String | middle | top|middle|bottom |
-| Width | Width | String | w-[91.6%] |  |
-| Height | Height | String | h-auto |  |
-| Rounded | Rounded | String | rounded-box | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box |
-| BackgroundColor | Background Color | String | base-100 | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
-| BackdropColor | Backdrop Color | String | black | black|transparent |
-| BackdropOpacity | Backdrop Opacity | Int | 40 |  |
-| Title | Title | String | Modal Title |  |
-| Padding | Padding | String | p-6 |  |
-| ActionsJustify | Actions Justify | String | end | start|center|end |
-| ActionsVariant | Actions Variant | String | primary | none|primary|secondary|accent|neutral|ghost|link|outline |
-| ShowCloseButton | Show Close Button | Boolean | False |  |
-| Sidebar | Sidebar | Boolean | False |  |
-| SidebarSide | Sidebar Side | String | left | left|right |
-| Shadow | Shadow | String | lg | none|xs|sm|md|lg|xl|2xl |
-| Animated | Animated | Boolean | True |  |
-| Duration | Animation Duration (ms) | Int | 300 |  |
-| ActionType | Action Type | String | none | none|yes|no|cancel|yes-no|yes-no-cancel|ok-cancel|retry-cancel|abort-retry-ignore |
-| YesCaption | Yes/Ok/Retry/Abort Caption | String | Yes |  |
-| YesVariant | Yes Variant | String | success | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
-| YesVisible | Yes Visible | Boolean | True |  |
-| NoCaption | No/Retry Caption | String | No |  |
-| NoVariant | No Variant | String | error | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
-| NoVisible | No Visible | Boolean | True |  |
-| CancelCaption | Cancel/Ignore Caption | String | Cancel |  |
-| CancelVariant | Cancel Variant | String | ghost | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
-| CancelVisible | Cancel Visible | Boolean | True |  |
-| ButtonsWidth | Buttons Width | String | auto |  |
-| ButtonsSize | Buttons Size | String | md | xs|sm|md|lg |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `ClickOutsideToClose` | Click Outside To Close | `Boolean` | `True` |  |
+| `FullScreen` | Full Screen | `Boolean` | `False` |  |
+| `GlassSize` | Glass Size | `String` | `none` | none|glass-xs|glass-sm|glass-md|glass-lg|glass-xl|glass-2xl |
+| `Placement` | Placement | `String` | `middle` | top|middle|bottom |
+| `Width` | Width | `String` | `w-[91.6%]` |  |
+| `Height` | Height | `String` | `h-auto` |  |
+| `Rounded` | Rounded | `String` | `rounded-box` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box |
+| `BackgroundColor` | Background Color | `String` | `base-100` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `BackdropColor` | Backdrop Color | `String` | `black` | black|transparent |
+| `BackdropOpacity` | Backdrop Opacity | `Int` | `40` |  |
+| `Title` | Title | `String` | `Modal Title` |  |
+| `Padding` | Padding | `String` | `p-6` |  |
+| `ActionsJustify` | Actions Justify | `String` | `end` | start|center|end |
+| `ActionsVariant` | Actions Variant | `String` | `primary` | none|primary|secondary|accent|neutral|ghost|link|outline |
+| `ShowCloseButton` | Show Close Button | `Boolean` | `False` |  |
+| `Sidebar` | Sidebar | `Boolean` | `False` |  |
+| `SidebarSide` | Sidebar Side | `String` | `left` | left|right |
+| `Shadow` | Shadow | `String` | `lg` | none|xs|sm|md|lg|xl|2xl |
+| `Animated` | Animated | `Boolean` | `True` |  |
+| `Duration` | Animation Duration (ms) | `Int` | `300` |  |
+| `ActionType` | Action Type | `String` | `none` | none|yes|no|cancel|yes-no|yes-no-cancel|ok-cancel|retry-cancel|abort-retry-ignore |
+| `YesCaption` | Yes/Ok/Retry/Abort Caption | `String` | `Yes` |  |
+| `YesVariant` | Yes Variant | `String` | `success` | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
+| `YesVisible` | Yes Visible | `Boolean` | `True` |  |
+| `NoCaption` | No/Retry Caption | `String` | `No` |  |
+| `NoVariant` | No Variant | `String` | `error` | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
+| `NoVisible` | No Visible | `Boolean` | `True` |  |
+| `CancelCaption` | Cancel/Ignore Caption | `String` | `Cancel` |  |
+| `CancelVariant` | Cancel Variant | `String` | `ghost` | none|primary|secondary|accent|neutral|ghost|link|outline|success|warning|error |
+| `CancelVisible` | Cancel Visible | `Boolean` | `True` |  |
+| `ButtonsWidth` | Buttons Width | `String` | `auto` |  |
+| `ButtonsSize` | Buttons Size | `String` | `md` | xs|sm|md|lg |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -85,11 +113,19 @@ mdl.Show
 - `Close`
 - `CreateView(vParent As B4XView, oTag As Object)`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Show`
+- `ShowModal`
+- `View As B4XView`
+- `getActionType As String`
 - `getActionsContainer As B4XView`
 - `getActionsCount As Int`
 - `getActionsJustify As String`
 - `getActionsVariant As String`
-- `getActionType As String`
 - `getAnimated As Boolean`
 - `getBackdropColor As String`
 - `getBackdropOpacity As Int`
@@ -104,7 +140,6 @@ mdl.Show
 - `getCancelVariant As String`
 - `getCancelVisible As Boolean`
 - `getClickOutsideToClose As Boolean`
-- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getEnabled As Boolean`
 - `getFullScreen As Boolean`
@@ -133,12 +168,9 @@ mdl.Show
 - `getYesCaption As String`
 - `getYesVariant As String`
 - `getYesVisible As Boolean`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `SendToBack`
+- `setActionType(sValue As String)`
 - `setActionsJustify(sValue As String)`
 - `setActionsVariant(sValue As String)`
-- `setActionType(sValue As String)`
 - `setAnimated(bValue As Boolean)`
 - `setBackdropColor(sValue As String)`
 - `setBackdropOpacity(iValue As Int)`
@@ -156,7 +188,6 @@ mdl.Show
 - `setFullScreen(bValue As Boolean)`
 - `setGlassSize(sValue As String)`
 - `setHeight(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setNoCaption(sValue As String)`
 - `setNoVariant(sValue As String)`
@@ -178,10 +209,8 @@ mdl.Show
 - `setYesCaption(sValue As String)`
 - `setYesVariant(sValue As String)`
 - `setYesVisible(bValue As Boolean)`
-- `Show`
-- `ShowModal`
-- `View As B4XView`
-
 
 ## 7. Public Fields
-None declared.
+- `mBase As B4XView`
+- `xui As XUI`
+

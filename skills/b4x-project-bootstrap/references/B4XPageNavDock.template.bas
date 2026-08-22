@@ -94,6 +94,14 @@ Private Sub RenderContent
 	maxW = pageScroll.UsableWidth
 	y    = pad
 
+	' Responsive Grid Metrics (Adapts automatically between Phone single-column vs Tablet/Landscape dual-column)
+	Dim isTablet As Boolean = (Root.Width >= 600dip)
+	Dim colW As Int = IIf(isTablet, (maxW - gap) / 2, maxW)
+
+	' Responsive Layout Metrics (Adapts automatically between Phone single-column vs Tablet/Landscape dual-column)
+	Dim isTablet As Boolean = (Root.Width >= 600dip)
+	Dim colW As Int = IIf(isTablet, (maxW - gap) / 2, maxW)
+
 	' Compose components sequentially using the Vertical Coordinate Accumulator
 	' Example:
 	' y = pageScroll.AddSectionTitle("Section Heading", y, False) + gap

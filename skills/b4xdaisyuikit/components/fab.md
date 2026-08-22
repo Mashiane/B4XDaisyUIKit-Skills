@@ -1,70 +1,87 @@
 # fab (`B4XDaisyFab`)
 
-Floating Action Button with expandable child actions. Supports multiple layout modes (vertical, flower, toolbar) and placement modes (fixed, anchored, manual).
+DaisyUI `Fab` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFab`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyFab.bas`
+- **Verified Demo Source**: B4XPageBoomMenu.bas (lines 105–105), B4XPageFab.bas (lines 16–16), B4XPageFabBasic.bas (lines 16–16), B4XPageFabFlower.bas (lines 16–16), B4XPageFabNavbar.bas (lines 18–18), B4XPageNavbar.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.fab` → `B4XDaisyFab`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim fab As B4XDaisyFab
-fab.Initialize(Me, "fab")
-fab.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-fab.PlacementMode = "fixed"
-fab.Placement = "bottom-end"
-fab.TriggerVariant = "primary"
-fab.TriggerIconName = "plus-solid.svg"
-fab.LayoutMode = "vertical"
-
-fab.AddAction("add_tag", "primary", "tag-solid.svg")
-fab.AddAction("add_note", "secondary", "pencil-solid.svg")
-
+If fab.IsInitialized = False Then
+        fab.Initialize(Me, "fabdemo")
+        fab.Tag = "speed-dial"
+        fab.TriggerText = ""
+        fab.TriggerIconName = "plus-solid.svg"
+        fab.TriggerVariant = "primary"
+        fab.UseCloseAction = True
+        fab.CloseActionText = ""
+        fab.CloseActionVariant = "error"
+        fab.CloseActionIconName = "xmark-solid.svg"
+        fab.Placement = "bottom-end"
+        fab.Direction = "top"
+        fab.AddAction("camera", "neutral", "camera-solid.svg")
+        fab.AddAction("video", "success", "video-solid.svg")
+        fab.AddAction("upload", "info", "upload-solid.svg")
+        fab.AddToParent(Root, 0, 0, 56dip, 56dip)
+    End If
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Floating Action Button with vertical, flower, or toolbar action expansion menus.
-- Position in the bottom corner of `Root`.
-- Configure expansion style via `LayoutMode` (`"vertical"`, `"flower"`, `"horizontal"`).
-- Add child actions via `AddAction(Id, IconName, Variant, Tooltip)`.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyFab` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Deviation Mechanism
+- Floating action button with dynamic sub-item registration, placement manager, and circular/linear expansion animation.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `UpdateTheme, AddActionEx, AddActionDetailed` (+ 71 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Opened | Opened | Boolean | False |  |
-| PlacementMode | Placement Mode | String | fixed | fixed|anchored|manual |
-| Placement | Placement | String | bottom-end | bottom-end|bottom-start|bottom-center|top-end|top-start|top-center|center-end|center-start|center |
-| AnchorAlignment | Anchor Alignment | String | start | start|center|end |
-| OnEdge | On Edge | Boolean | False |  |
-| OpenMode | Open Mode | String | click | click|hover|focus |
-| LayoutMode | Layout Mode | String | vertical | vertical|flower|toolbar |
-| Direction | Direction | String | top | top|right|bottom|left |
-| BackdropEnabled | Backdrop Enabled | Boolean | True |  |
-| AutoCloseOnActionClick | Auto Close On Action Click | Boolean | True |  |
-| TriggerText | Trigger Text | String | F |  |
-| TriggerVariant | Trigger Variant | String | primary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| TriggerStyle | Trigger Style | String | solid | solid|soft|outline|dash|ghost|link |
-| TriggerSize | Trigger Size | String | lg | xs|sm|md|lg|xl |
-| ChildActionSize | Child Action Size | String | sm | xs|sm|md|lg|xl |
-| TriggerIconName | Trigger Icon Name | String |  |  |
-| TriggerCircle | Trigger Circle | Boolean | True |  |
-| UseMainAction | Use Main Action | Boolean | False |  |
-| MainActionText | Main Action Text | String | M |  |
-| MainActionVariant | Main Action Variant | String | secondary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| MainActionIconName | Main Action Icon Name | String |  |  |
-| UseCloseAction | Use Close Action | Boolean | False |  |
-| CloseActionText | Close Action Text | String | X |  |
-| CloseActionVariant | Close Action Variant | String | error | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| CloseActionIconName | Close Action Icon Name | String |  |  |
-| TriggerSizeDip | Trigger Size (dip) | Int | 56 |  |
-| TriggerIconSize | Trigger Icon Size (dip) | Int | 24 |  |
-| ChildActionSizeDip | Child Action Size (dip) | Int | 40 |  |
-| ChildActionIconSize | Child Action Icon Size (dip) | Int | 20 |  |
-| Duration | Duration | Int | 300 |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Opened` | Opened | `Boolean` | `False` |  |
+| `PlacementMode` | Placement Mode | `String` | `fixed` | fixed|anchored|manual |
+| `Placement` | Placement | `String` | `bottom-end` | bottom-end|bottom-start|bottom-center|top-end|top-start|top-center|center-end|center-start|center |
+| `AnchorAlignment` | Anchor Alignment | `String` | `start` | start|center|end |
+| `OnEdge` | On Edge | `Boolean` | `False` |  |
+| `OpenMode` | Open Mode | `String` | `click` | click|hover|focus |
+| `LayoutMode` | Layout Mode | `String` | `vertical` | vertical|flower|toolbar |
+| `Direction` | Direction | `String` | `top` | top|right|bottom|left |
+| `BackdropEnabled` | Backdrop Enabled | `Boolean` | `True` |  |
+| `AutoCloseOnActionClick` | Auto Close On Action Click | `Boolean` | `True` |  |
+| `TriggerText` | Trigger Text | `String` | `F` |  |
+| `TriggerVariant` | Trigger Variant | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `TriggerStyle` | Trigger Style | `String` | `solid` | solid|soft|outline|dash|ghost|link |
+| `TriggerSize` | Trigger Size | `String` | `lg` | xs|sm|md|lg|xl |
+| `ChildActionSize` | Child Action Size | `String` | `sm` | xs|sm|md|lg|xl |
+| `TriggerIconName` | Trigger Icon Name | `String` | `` |  |
+| `TriggerCircle` | Trigger Circle | `Boolean` | `True` |  |
+| `UseMainAction` | Use Main Action | `Boolean` | `False` |  |
+| `MainActionText` | Main Action Text | `String` | `M` |  |
+| `MainActionVariant` | Main Action Variant | `String` | `secondary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `MainActionIconName` | Main Action Icon Name | `String` | `` |  |
+| `UseCloseAction` | Use Close Action | `Boolean` | `False` |  |
+| `CloseActionText` | Close Action Text | `String` | `X` |  |
+| `CloseActionVariant` | Close Action Variant | `String` | `error` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `CloseActionIconName` | Close Action Icon Name | `String` | `` |  |
+| `TriggerSizeDip` | Trigger Size (dip) | `Int` | `56` |  |
+| `TriggerIconSize` | Trigger Icon Size (dip) | `Int` | `24` |  |
+| `ChildActionSizeDip` | Child Action Size (dip) | `Int` | `40` |  |
+| `ChildActionIconSize` | Child Action Icon Size (dip) | `Int` | `20` |  |
+| `Duration` | Duration | `Int` | `300` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -85,6 +102,21 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `Close`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActionButtonView(iIndex As Int) As B4XView`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsOpen As Boolean`
+- `Open`
+- `Refresh`
+- `RemoveViewFromParent`
+- `Resize(dWidth As Double, dHeight As Double)`
+- `SendToBack`
+- `SetActionVisible(iIndex As Int, bValue As Boolean)`
+- `SetCloseAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `SetMainAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
+- `Toggle`
+- `UpdateTheme`
+- `View As B4XView`
 - `getAnchorAlignment As String`
 - `getAnchorTarget As B4XView`
 - `getAnchorView As B4XView`
@@ -96,7 +128,6 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `getCloseActionIconName As String`
 - `getCloseActionText As String`
 - `getCloseActionVariant As String`
-- `GetComputedHeight As Int`
 - `getDirection As String`
 - `getDuration As Int`
 - `getEnabled As Boolean`
@@ -107,8 +138,8 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `getMainActionText As String`
 - `getMainActionVariant As String`
 - `getOnEdge As Boolean`
-- `getOpened As Boolean`
 - `getOpenMode As String`
+- `getOpened As Boolean`
 - `getOverlayHost As B4XView`
 - `getPlacement As String`
 - `getPlacementMode As String`
@@ -126,14 +157,6 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `getUseMainAction As Boolean`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsOpen As Boolean`
-- `Open`
-- `Refresh`
-- `RemoveViewFromParent`
-- `Resize(dWidth As Double, dHeight As Double)`
-- `SendToBack`
-- `SetActionVisible(iIndex As Int, bValue As Boolean)`
 - `setAnchorAlignment(sValue As String)`
 - `setAnchorTarget(vValue As B4XView)`
 - `setAnchorView(vValue As B4XView)`
@@ -142,7 +165,6 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `setChildActionIconSize(iValue As Int)`
 - `setChildActionSize(sValue As String)`
 - `setChildActionSizeDip(iValue As Int)`
-- `SetCloseAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
 - `setCloseActionIconName(sValue As String)`
 - `setCloseActionText(sValue As String)`
 - `setCloseActionVariant(sValue As String)`
@@ -150,16 +172,14 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `setDuration(iValue As Int)`
 - `setEnabled(bValue As Boolean)`
 - `setHeight(iValue As Int)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLayoutMode(sValue As String)`
 - `setLeft(iValue As Int)`
-- `SetMainAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
 - `setMainActionIconName(sValue As String)`
 - `setMainActionText(sValue As String)`
 - `setMainActionVariant(sValue As String)`
 - `setOnEdge(bValue As Boolean)`
-- `setOpened(bValue As Boolean)`
 - `setOpenMode(sValue As String)`
+- `setOpened(bValue As Boolean)`
 - `setOverlayHost(vValue As B4XView)`
 - `setPlacement(sValue As String)`
 - `setPlacementMode(sValue As String)`
@@ -177,10 +197,8 @@ fab.AddAction("add_note", "secondary", "pencil-solid.svg")
 - `setUseMainAction(bValue As Boolean)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `Toggle`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
-None declared.
+- `mBase As B4XView`
+- `xui As XUI`
+

@@ -1,53 +1,79 @@
 # indicator (`B4XDaisyIndicator`)
 
-Small badge or dot indicator overlaid on a parent view (notification count, online status dot, etc.).
+DaisyUI `Indicator` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyIndicator`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyIndicator.bas`
+- **Verified Demo Source**: B4XPageDropdown.bas (lines 104–104), B4XPageIndicator.bas (lines 99–456), B4XPageNavbar.bas (lines 15–244), B4XPageSvgIcon.bas (lines 179–225)
 - **Web DaisyUI Mapping**: `.indicator` → `B4XDaisyIndicator`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim ind As B4XDaisyIndicator
-ind.Initialize(Me, "ind")
-ind.AddToParent(pnlHost, pad, y, 44dip, 44dip)
-ind.Variant = "error"
-ind.Counter = True
-ind.setValue(5)
-ind.HorizontalPlacement = "end"
-ind.VerticalPlacement = "top"
+Private Sub RenderCountIndicatorSection(MaxW As Int, StartY As Int) As Int
+	Dim y As Int = StartY
+	Dim titleLbl As B4XView = CreateSectionLabel("Count indicator", 14, xui.Color_RGB(30, 41, 59), True)
+	pnlHost.AddView(titleLbl, PAGE_PAD, y, MaxW, 20dip)
+	y = y + 22dip
 
-' Attach to a target view (e.g. a button)
-ind.AttachTo(myButton.getView)
+	Dim row As B4XView = xui.CreatePanel("")
+	row.Color = xui.Color_Transparent
+	B4XDaisyVariants.DisableClipping(row)
+	pnlHost.AddView(row, PAGE_PAD, y, MaxW, 1dip)
 
+	Dim boxSize As Int = B4XDaisyVariants.TailwindSizeToDip("32", 128dip)
+	Dim boxLeft As Int = Max(0, (MaxW - boxSize) / 2)
+	Dim boxTop As Int = 22dip
+
+	Dim baseDiv As B4XDaisyDivision
+	baseDiv.Initialize(Me, "")
+	Dim baseView As B4XView = baseDiv.AddToParent(row, boxLeft, boxTop, boxSize, boxSize)
+	baseDiv.setWidth("32")
+	baseDiv.setHeight("32")
+	baseDiv.setPlaceContentCenter(True)
+	baseDiv.setRounded("rounded-box")
+	baseDiv.setText("content")
+	baseDiv.setTextSize("text-sm")
+	baseDiv.setBackgroundColorVariant("bg-neutral")
+	baseDiv.setTextColorVariant("text-neutral-content")
+
+	Dim countInd As B4XDaisyIndicator
+	countInd.Initialize(Me, "indicator")
+	countInd.setTag("count-3")
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Badge overlay container attaching unread counts or status dots to avatar/icon corners.
-- Wrap target view using `ind.Wrap(myAvatar.getView)`.
-- Set `BadgeText` for counts (e.g. `"9+"`) or leave blank for a status dot.
-- Configure `Placement` (`"top-right"`, `"top-left"`, `"bottom-right"`, `"bottom-left"`).
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyIndicator` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `AddToParentAt, DetachTarget, RefreshPlacement` (+ 24 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| HorizontalPlacement | Horizontal Placement | String | end | start|center|end |
-| VerticalPlacement | Vertical Placement | String | top | top|middle|bottom |
-| OffsetX | Offset X | String | 0 |  |
-| OffsetY | Offset Y | String | 0 |  |
-| Text | Text | String |  |  |
-| Counter | Counter | Boolean | False |  |
-| CapValue | Cap Value | Int | 99 |  |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Size | Size | String | sm | xs|sm|md|lg|xl |
-| IconAsset | Icon Asset | String |  |  |
-| Rounded | Rounded | String | rounded | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| Visible | Visible | Boolean | True |  |
-| Clickable | Clickable | Boolean | False |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `HorizontalPlacement` | Horizontal Placement | `String` | `end` | start|center|end |
+| `VerticalPlacement` | Vertical Placement | `String` | `top` | top|middle|bottom |
+| `OffsetX` | Offset X | `String` | `0` |  |
+| `OffsetY` | Offset Y | `String` | `0` |  |
+| `Text` | Text | `String` | `` |  |
+| `Counter` | Counter | `Boolean` | `False` |  |
+| `CapValue` | Cap Value | `Int` | `99` |  |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | `sm` | xs|sm|md|lg|xl |
+| `IconAsset` | Icon Asset | `String` | `` |  |
+| `Rounded` | Rounded | `String` | `rounded` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Clickable` | Clickable | `Boolean` | `False` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -63,10 +89,19 @@ ind.AttachTo(myButton.getView)
 - `DecrementBy(iAmount As Int) As Int`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `DetachTarget`
+- `GetComputedHeight As Int`
+- `Increment As Int`
+- `IncrementBy(iAmount As Int) As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `IsReady As Boolean`
+- `RefreshPlacement`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `View As B4XView`
 - `getBackgroundColor As Int`
 - `getCapValue As Int`
 - `getClickable As Boolean`
-- `GetComputedHeight As Int`
 - `getCounter As Boolean`
 - `getHeight As Int`
 - `getHorizontalPlacement As String`
@@ -85,13 +120,6 @@ ind.AttachTo(myButton.getView)
 - `getVerticalPlacement As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Increment As Int`
-- `IncrementBy(iAmount As Int) As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RefreshPlacement`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setBackgroundColor(iValue As Int)`
 - `setBackgroundColorVariant(sVariantName As String)`
 - `setCapValue(iValue As Int)`
@@ -100,7 +128,6 @@ ind.AttachTo(myButton.getView)
 - `setHeight(iValue As Int)`
 - `setHorizontalPlacement(sValue As String)`
 - `setIconAsset(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setOffsetX(oValue As Object)`
 - `setOffsetY(oValue As Object)`
@@ -116,8 +143,8 @@ ind.AttachTo(myButton.getView)
 - `setVerticalPlacement(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

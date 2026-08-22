@@ -1,54 +1,87 @@
 # diff (`B4XDaisyDiff`)
 
-Visual comparison viewer with a draggable split slider to compare two images or text views side by side.
+DaisyUI `Diff` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDiff`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyDiff.bas`
+- **Verified Demo Source**: B4XPageDiff.bas (lines 57–73)
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim df As B4XDaisyDiff
-df.Initialize(Me, "df")
-df.AddToParent(pnlHost, pad, y, maxW, 220dip)
-df.Image1 = "before.jpg"
-df.Image2 = "after.jpg"
-df.Position = "0.5"
-df.Rounded = "rounded-xl"
-df.Shadow = "md"
-y = y + 220dip + gap
+y = AddSectionTitle("Diff", y, maxW)
+    
+    Dim diffimg As B4XDaisyDiff
+    diffimg.Initialize(Me, "component")
+    diffimg.AddToParent(pnlHost, PAGE_PAD, y, maxW, imageHeight)
+    diffimg.Tag = "diff-image"
+    diffimg.DiffType = "image"
+    diffimg.Height = "h-[300px]"
+    diffimg.Image1 = "photo-1560717789-0ac7c58ac90a.webp"
+    diffimg.Image2 = "photo-1560717789-0ac7c58ac90a-blur.webp"
+    diffimg.Position = 0.5
+    
+    y = y + imageHeight + 20dip
+    ' #endregion
+
+    ' #region Example 2: Diff text
+    y = AddSectionTitle("Diff text", y, maxW)
+    
+    Dim difftext As B4XDaisyDiff
+    difftext.Initialize(Me, "component")
+    difftext.AddToParent(pnlHost, PAGE_PAD, y, maxW, imageHeight)
+    difftext.Tag = "diff-text"
+    difftext.DiffType = "text"
+    difftext.Height = "h-[300px]"
+    difftext.Text1 = "DAISY"
+    difftext.Text2 = "DAISY"
+    difftext.TextSize = "text-4xl"
+    difftext.Text1Color = "primary"
+    difftext.Text2Color = "success"
+    difftext.Position = 0.4
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Visual before/after comparison slider comparing two images or content views.
-- Supply two images of identical pixel dimensions to ensure clean alignment.
-- Set `SplitPosition` (0–100) to control the initial separator position.
-- Supports touch dragging; maintain `DisallowParentIntercept(Action)` during handle movement.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDiff` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+5. **Execution / Assembly:** Visual diff comparator requiring two input views or images to overlay.
+
+### Deviation Mechanism
+- Visual diff comparator requiring two input views or images to overlay.
+
+### Preconditions & Gotchas
+- Contains `DisallowParentIntercept` on B4A to prevent enclosing scroll containers (like `B4XDaisyPageScroll`) from stealing touch drag events.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `UpdateTheme, getItem1View, getItem2View` (+ 29 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Width | Width | String | w-full |  |
-| Height | Height | String | h-[300px] |  |
-| Rounded | Rounded | String | rounded-xl | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| DiffType | Diff Type | String | auto | auto|image|text |
-| Position | Position | String | 0.5 |  |
-| Image1 | Image 1 | String | photo-1560717789-0ac7c58ac90a.webp |  |
-| Image2 | Image 2 | String | photo-1560717789-0ac7c58ac90a-blur.webp |  |
-| Text1 | Text 1 | String | DAISY |  |
-| Text2 | Text 2 | String | DAISY |  |
-| TextSize | Text Size | String | text-4xl |  |
-| Text1Color | Text 1 Color | String | primary | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Text2Color | Text 2 Color | String | success | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Visible | Visible | Boolean | True |  |
-| Enabled | Enabled | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `h-[300px]` |  |
+| `Rounded` | Rounded | `String` | `rounded-xl` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `DiffType` | Diff Type | `String` | `auto` | auto|image|text |
+| `Position` | Position | `String` | `0.5` |  |
+| `Image1` | Image 1 | `String` | `photo-1560717789-0ac7c58ac90a.webp` |  |
+| `Image2` | Image 2 | `String` | `photo-1560717789-0ac7c58ac90a-blur.webp` |  |
+| `Text1` | Text 1 | `String` | `DAISY` |  |
+| `Text2` | Text 2 | `String` | `DAISY` |  |
+| `TextSize` | Text Size | `String` | `text-4xl` |  |
+| `Text1Color` | Text 1 Color | `String` | `primary` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Text2Color` | Text 2 Color | `String` | `success` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
 
 ## 5. Declared Events
-None declared.
+- *(No custom events declared)*
 
 ## 6. Public Methods & APIs
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
@@ -57,6 +90,13 @@ None declared.
 - `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `UpdateTheme`
+- `View As B4XView`
 - `getDiffType As String`
 - `getEnabled As Boolean`
 - `getHeight As String`
@@ -78,10 +118,6 @@ None declared.
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setDiffType(sValue As String)`
 - `setEnabled(bValue As Boolean)`
 - `setHeight(sValue As String)`
@@ -89,7 +125,6 @@ None declared.
 - `setImage2(sValue As String)`
 - `setItem1(vAView As B4XView)`
 - `setItem2(vAView As B4XView)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setPosition(fValue As Float)`
 - `setRounded(sValue As String)`
@@ -104,9 +139,8 @@ None declared.
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(sValue As String)`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

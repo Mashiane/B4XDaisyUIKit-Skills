@@ -1,64 +1,84 @@
 # hover3d (`B4XDaisyHover3d`)
 
-Tilt-responsive card wrapper that creates a 3D perspective effect when touched/hovered. Supports shine overlay, scaling, and custom content.
+DaisyUI `Hover3d` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyHover3d`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyHover3d.bas`
+- **Verified Demo Source**: B4XPageHover3d.bas (lines 61–232)
 - **Web DaisyUI Mapping**: `.hover3d` → `B4XDaisyHover3d`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim h3d As B4XDaisyHover3d
-h3d.Initialize(Me, "h3d")
-h3d.AddToParent(pnlHost, pad, y, maxW, 200dip)
-h3d.ContentType = "custom"
-h3d.MaxTilt = 12
-h3d.ScaleOnHover = 1.04
-h3d.ShineEffect = True
-h3d.Shadow = "lg"
-h3d.Rounded = "rounded-2xl"
+Dim heroW As Int = maxW
+    Dim hoverImage As B4XDaisyHover3d
+    hoverImage.Initialize(Me, "hoverImage")
+    hoverImage.AddToParent(pnlHost, PAGE_PAD, y, heroW, 214dip)
+    hoverImage.setWidth("w-full")
+    hoverImage.setHeight("h-auto")
+    hoverImage.Rounded = "rounded-2xl"
+    hoverImage.Padding = "p-[15px]"
+    hoverImage.setContentType("image")
+    hoverImage.setImage("creditcard.webp")
+    hoverImage.ScaleOnHover = 1.05
+    hoverImage.MaxTilt = 10
+    hoverImage.Refresh
+    y = y + hoverImage.GetComputedHeight + 24dip
 
-' Add content
-Dim txt As B4XDaisyText
-txt.Initialize(Me, "txt")
-txt.Text = "Interactive card"
-h3d.AddView(txt.getView, 16dip, 16dip, maxW - 32dip, 40dip)
-y = y + h3d.GetComputedHeight + gap
+    ''' <summary>
+    ''' Example 2: 3D card hover effect.
+    ''' </summary>
+    y = AddSectionTitle("3D card hover effect", y, maxW)
+    y = AddSectionNote("The wrapper stays general-purpose while the hosted content recreates the dark credit-card example from DaisyUI.", y, maxW)
 
+    Dim cardW As Int = maxW
+    Dim hoverCard As B4XDaisyHover3d
+    hoverCard.Initialize(Me, "hoverCard")
+    hoverCard.setWidth("w-full")
+    hoverCard.setHeight("h-auto")
+    hoverCard.AddToParent(pnlHost, PAGE_PAD, y, cardW, 236dip)
+    hoverCard.setContentType("custom")
+    hoverCard.setPadding("p-[15px]")
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Interactive 3D perspective tilt effect responding to touch drag gestures.
-- Wrap a target card or image view using `h3d.Wrap(myCard.getView)`.
-- Configure `MaxTilt` angle and `Perspective` depth for subtle or dramatic 3D realism.
-- Maintain `DisallowParentIntercept(Action)` during touch movement.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyHover3d` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `setEnabled, getEnabled, getVisible` (+ 29 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| MaxTilt | Max Tilt | Float | 10 |  |
-| ScaleOnHover | Scale On Hover | Float | 1.05 |  |
-| ShineEffect | Shine Effect | Boolean | True |  |
-| Perspective | Perspective | Float | 1200 |  |
-| ResetDuration | Reset Duration | Int | 500 |  |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Rounded | Rounded | String | rounded-2xl | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| Padding | Padding | String | p-0 |  |
-| Margin | Margin | String |  |  |
-| Width | Width | String | w-full |  |
-| Height | Height | String | h-content |  |
-| ContentType | Content Type | String | custom | custom|image |
-| Image | Image | String |  |  |
-| ContentBackgroundColor | Content Background Color | Color | 0x00000000 |  |
-| ContentRounded | Content Rounded | String | none | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| ContentPadding | Content Padding | String |  |  |
-| ContentShadow | Content Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `MaxTilt` | Max Tilt | `Float` | `10` |  |
+| `ScaleOnHover` | Scale On Hover | `Float` | `1.05` |  |
+| `ShineEffect` | Shine Effect | `Boolean` | `True` |  |
+| `Perspective` | Perspective | `Float` | `1200` |  |
+| `ResetDuration` | Reset Duration | `Int` | `500` |  |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Rounded` | Rounded | `String` | `rounded-2xl` | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `Padding` | Padding | `String` | `p-0` |  |
+| `Margin` | Margin | `String` | `` |  |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `h-content` |  |
+| `ContentType` | Content Type | `String` | `custom` | custom|image |
+| `Image` | Image | `String` | `` |  |
+| `ContentBackgroundColor` | Content Background Color | `Color` | `0x00000000` |  |
+| `ContentRounded` | Content Rounded | `String` | `none` | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `ContentPadding` | Content Padding | `String` | `` |  |
+| `ContentShadow` | Content Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -69,8 +89,16 @@ y = y + h3d.GetComputedHeight + gap
 - `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `getBackgroundColor As Int`
 - `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveAllViews`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `UpdateTheme`
+- `View As B4XView`
+- `getBackgroundColor As Int`
 - `getContentBackgroundColor As Int`
 - `getContentPadding As String`
 - `getContentPanel As B4XView`
@@ -95,11 +123,6 @@ y = y + h3d.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveAllViews`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setBackgroundColor(iValue As Int)`
 - `setBackgroundColorVariant(sVariantName As String)`
 - `setContentBackgroundColor(iValue As Int)`
@@ -110,7 +133,6 @@ y = y + h3d.GetComputedHeight + gap
 - `setEnabled(bValue As Boolean)`
 - `setHeight(sValue As String)`
 - `setImage(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setMargin(sValue As String)`
 - `setMaxTilt(fValue As Float)`
@@ -126,9 +148,8 @@ y = y + h3d.GetComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(sValue As String)`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

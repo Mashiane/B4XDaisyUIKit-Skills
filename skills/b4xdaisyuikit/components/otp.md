@@ -1,52 +1,79 @@
-# otp (`B4XDaisyOtp`)
+# otp (`B4XDaisyOTP`)
 
-Multi-box One-Time-Password (PIN / 2FA) verification entry component with auto-focus advance, masking, and completion event.
+DaisyUI `OTP` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
-- **Class**: `B4XDaisyOtp`
-- **Status**: `Demonstrated`
-- **Library Source**: `B4XDaisyOtp.bas`
-- **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOtp`
+- **Class**: `B4XDaisyOTP`
+- **Lifecycle Type**: `Standard`
+- **Library Source**: `B4XDaisyOTP.bas`
+- **Verified Demo Source**: B4XPageOTP.bas (lines 12–492)
+- **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOTP`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim otp As B4XDaisyOTP
-otp.Initialize(Me, "otp")
-otp.AddToParent(pnlHost, pad, y, maxW, 56dip)
-otp.Length = 6
-otp.Variant = "primary"
-y = y + 56dip + gap
+' Demo page regenerating every Ionic v8 ion-input-otp example for
+' the B4XDaisyOTP component (parity reference).
+'-
+
+#Region Variables
+    Sub Class_Globals
+        Private Root As B4XView
+        Private xui As XUI
+        Private pageScroll As B4XDaisyPageScroll
+        Private pnlHost As B4XView
+
+        ' Components
+        Private otpBasic1, otpBasic2 As B4XDaisyOTP
+        Private otpType1, otpType2 As B4XDaisyOTP
+        Private otpShape1, otpShape2, otpShape3 As B4XDaisyOTP
+        Private otpFill1, otpFill2 As B4XDaisyOTP
+        Private otpSize1, otpSize2, otpSize3, otpSize4, otpSize5 As B4XDaisyOTP
+        Private otpSep1, otpSep2, otpSep3 As B4XDaisyOTP
+        Private otpState1, otpState2, otpState3, otpState4 As B4XDaisyOTP
+        Private otpPattern1, otpPattern2, otpPattern3, otpPattern4, otpPattern5, otpPattern6 As B4XDaisyOTP
+        Private otpColor1, otpColor2, otpColor3, otpColor4, otpColor5, otpColor6, otpColor7, otpColor8, otpColor9 As B4XDaisyOTP
+        Private otpCustom1, otpCustom2 As B4XDaisyOTP
+        Private otpFocus1, otpFocus2, otpFocus3 As B4XDaisyOTP
+        Private otpRounded1, otpRounded2, otpRounded3 As B4XDaisyOTP
+    End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Multi-box One-Time Password (PIN / 2FA) verification entry component.
-- Configure number of digit boxes via `Digits` (default 4 or 6).
-- Set `Masked = True` to hide digits with bullet dots.
-- Set `AutoSubmit = True` to fire `Complete (Code As String)` immediately upon entering the final digit.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyOTP` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getTag, getLength, setLength` (+ 31 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Length | Length | Int | 4 |  |
-| InputType | Input Type | String | number | number|text |
-| Value | Value | String |  |  |
-| Separators | Separators | String |  |  |
-| Pattern | Pattern | String |  |  |
-| Shape | Shape | String | round | round|soft|rectangular |
-| Fill | Fill | String | outline | outline|solid |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Gap | Gap (dip) | Int | -1 |  |
-| Variant | Variant/Color | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| FocusVariant | Focus Variant | String | primary | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Enabled | Enabled | Boolean | True |  |
-| ReadOnly | Read Only | Boolean | False |  |
-| Visible | Visible | Boolean | True |  |
-| Required | Required | Boolean | False |  |
-| ValidationState | Validation State | String | none | none|valid|invalid |
-| LabelAbove | Label Above | String |  |  |
-| Description | Description (slot) | String |  |  |
-| HintText | Hint Text | String |  |  |
-| ErrorText | Error Text | String |  |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Length` | Length | `Int` | `4` |  |
+| `InputType` | Input Type | `String` | `number` | number|text |
+| `Value` | Value | `String` | `` |  |
+| `Separators` | Separators | `String` | `` |  |
+| `Pattern` | Pattern | `String` | `` |  |
+| `Shape` | Shape | `String` | `round` | round|soft|rectangular |
+| `Fill` | Fill | `String` | `outline` | outline|solid |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Gap` | Gap (dip) | `Int` | `-1` |  |
+| `Variant` | Variant/Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `FocusVariant` | Focus Variant | `String` | `primary` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `ReadOnly` | Read Only | `Boolean` | `False` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Required` | Required | `Boolean` | `False` |  |
+| `ValidationState` | Validation State | `String` | `none` | none|valid|invalid |
+| `LabelAbove` | Label Above | `String` | `` |  |
+| `Description` | Description (slot) | `String` | `` |  |
+| `HintText` | Hint Text | `String` | `` |  |
+| `ErrorText` | Error Text | `String` | `` |  |
 
 ## 5. Declared Events
 - `Input (Value As String)`
@@ -62,12 +89,17 @@ y = y + 56dip + gap
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `GetActualHeight As Int`
 - `GetComputedHeight As Int`
+- `HandleDeleteKey`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `View As B4XView`
 - `getDescription As String`
 - `getEnabled As Boolean`
 - `getErrorText As String`
 - `getFill As String`
-- `getFocused As Boolean`
 - `getFocusVariant As String`
+- `getFocused As Boolean`
 - `getGap As Int`
 - `getHintText As String`
 - `getInputType As String`
@@ -87,10 +119,6 @@ y = y + 56dip + gap
 - `getValue As String`
 - `getVariant As String`
 - `getVisible As Boolean`
-- `HandleDeleteKey`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `Release`
 - `setDescription(sValue As String)`
 - `setEnabled(bValue As Boolean)`
 - `setErrorText(sValue As String)`
@@ -114,8 +142,8 @@ y = y + 56dip + gap
 - `setValue(sValue As String)`
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

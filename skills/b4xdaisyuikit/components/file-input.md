@@ -1,59 +1,91 @@
 # file-input (`B4XDaisyFileInput`)
 
-File upload picker control with label, accepted extensions, file info display, and validation.
+DaisyUI `FileInput` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFileInput`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyFileInput.bas`
+- **Verified Demo Source**: B4XPageAvatar.bas (lines 21–21), B4XPageFileInput.bas (lines 20–281), B4XPageFocus.bas (lines 24–120)
 - **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim fi As B4XDaisyFileInput
-fi.Initialize(Me, "fi")
-fi.AddToParent(pnlHost, pad, y, maxW, 44dip)
-fi.LabelAbove = "Upload File"
-fi.Variant = "primary"
-y = y + fi.GetComputedHeight + gap
+' #region Example 1: Base (default)
+    y = AddSectionTitle("File input", y, maxW)
+    Dim c1 As B4XDaisyFileInput
+    c1.Initialize(Me, "component")
+    c1.AddToParent(pnlHost, PAGE_PAD, y, maxW, SizeHeightDip("md"))
+    c1.LabelAbove = "Default file input"
+    c1.Tag = c1
+    y = y + c1.GetComputedHeight + EXAMPLE_GAP
+    ' #endregion
+
+    ' #region Example 2: Ghost style
+    y = AddSectionTitle("File input ghost", y, maxW)
+    Dim c2 As B4XDaisyFileInput
+    c2.Initialize(Me, "component")
+    c2.AddToParent(pnlHost, PAGE_PAD, y, maxW, SizeHeightDip("md"))
+    c2.LabelAbove = "Ghost file input"
+    c2.Style = "ghost"
+    c2.Tag = c2
+    y = y + c2.GetComputedHeight + EXAMPLE_GAP
+    ' #endregion
+
+    ' #region Example 3: With label above and hint (fieldset + label composition)
+    y = AddSectionTitle("With label and hint", y, maxW)
+    Dim c3 As B4XDaisyFileInput
+    c3.Initialize(Me, "component")
+    c3.AddToParent(pnlHost, PAGE_PAD, y, maxW, SizeHeightDip("md"))
+    c3.LabelAbove = "Pick a file"
+    c3.HintText = "Max size 2MB"
+    c3.Tag = c3
+    y = y + c3.GetComputedHeight + SECTION_GAP
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Styled document and photo attachment field with attach icon and file label.
-- Tapping the field triggers the file selection workflow.
-- Assign chosen filename to `FileName` property to display attached state.
-- Validate required attachments with `.Validate()`.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyFileInput` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `setAppendIcon, getAppendIcon, setButtonText` (+ 54 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| ButtonText | Button Text | String | Choose file |  |
-| Placeholder | Placeholder | String | No file chosen |  |
-| FileName | File Name | String |  |  |
-| LabelAbove | Label | String |  |  |
-| HintText | Hint Text | String |  |  |
-| ErrorText | Error Text | String |  |  |
-| Required | Required | Boolean | False |  |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| Size | Size | String | md | md|lg|xl |
-| Style | Style | String | default | default|ghost |
-| Radius | Corner Radius | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| PlaceholderColor | Placeholder Color | Color | 0x00000000 |  |
-| ButtonColor | Button Color | Color | 0x00000000 |  |
-| ButtonTextColor | Button Text Color | Color | 0x00000000 |  |
-| BorderColor | Border Color | Color | 0x00000000 |  |
-| Padding | Padding | String |  |  |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| Typeface | Typeface | String | DEFAULT | DEFAULT|DEFAULT_BOLD|MONOSPACE|SANS_SERIF|SERIF |
-| Gravity | Text Gravity | String | LEFT | LEFT|CENTER|RIGHT |
-| Alpha | Alpha | Float | 1.0 |  |
-| Accept | Accept | String |  |  |
-| MaxSize | Max Size (MB) | Int | 0 |  |
-| AppendIcon | Append Icon | String |  |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `ButtonText` | Button Text | `String` | `Choose file` |  |
+| `Placeholder` | Placeholder | `String` | `No file chosen` |  |
+| `FileName` | File Name | `String` | `` |  |
+| `LabelAbove` | Label | `String` | `` |  |
+| `HintText` | Hint Text | `String` | `` |  |
+| `ErrorText` | Error Text | `String` | `` |  |
+| `Required` | Required | `Boolean` | `False` |  |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | `md` | md|lg|xl |
+| `Style` | Style | `String` | `default` | default|ghost |
+| `Radius` | Corner Radius | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `PlaceholderColor` | Placeholder Color | `Color` | `0x00000000` |  |
+| `ButtonColor` | Button Color | `Color` | `0x00000000` |  |
+| `ButtonTextColor` | Button Text Color | `Color` | `0x00000000` |  |
+| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
+| `Padding` | Padding | `String` | `` |  |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `Typeface` | Typeface | `String` | `DEFAULT` | DEFAULT|DEFAULT_BOLD|MONOSPACE|SANS_SERIF|SERIF |
+| `Gravity` | Text Gravity | `String` | `LEFT` | LEFT|CENTER|RIGHT |
+| `Alpha` | Alpha | `Float` | `1.0` |  |
+| `Accept` | Accept | `String` | `` |  |
+| `MaxSize` | Max Size (MB) | `Int` | `0` |  |
+| `AppendIcon` | Append Icon | `String` | `` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -70,16 +102,28 @@ y = y + fi.GetComputedHeight + gap
 - `Clear`
 - `ClearError`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetBitmap As B4XBitmap`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `ReceiveFocus`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `RequestFocus`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `ShowError(sErrorMessage As String)`
+- `UpdateTheme`
+- `Validate As Boolean`
+- `View As B4XView`
 - `getAccept As String`
 - `getAlpha As Float`
 - `getAppendIcon As String`
 - `getBackgroundColor As Int`
-- `GetBitmap As B4XBitmap`
 - `getBorderColor As Int`
 - `getButtonColor As Int`
 - `getButtonText As String`
 - `getButtonTextColor As Int`
-- `GetComputedHeight As Int`
 - `getEnabled As Boolean`
 - `getErrorText As String`
 - `getExceedsSize As Boolean`
@@ -119,13 +163,6 @@ y = y + fi.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
 - `setAccept(sValue As String)`
 - `setAlpha(fValue As Float)`
 - `setAppendIcon(sValue As String)`
@@ -146,7 +183,6 @@ y = y + fi.GetComputedHeight + gap
 - `setHeight(iValue As Int)`
 - `setHintText(sValue As String)`
 - `setLabelAbove(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setMaxSize(iValue As Int)`
 - `setMimeType(sValue As String)`
@@ -167,11 +203,8 @@ y = y + fi.GetComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `ShowError(sErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

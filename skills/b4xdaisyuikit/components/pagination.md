@@ -1,51 +1,81 @@
 # pagination (`B4XDaisyPagination`)
 
-Page selector bar for multi-page data display.
+DaisyUI `Pagination` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPagination`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyPagination.bas`
+- **Verified Demo Source**: B4XPagePagination.bas (lines 67–233)
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim pg As B4XDaisyPagination
-pg.Initialize(Me, "pg")
-pg.AddToParent(pnlHost, pad, y, maxW, 40dip)
-pg.PageCount = 10
-pg.ActiveIndex = 1
-pg.ShowPrevNext = True
-y = y + 40dip + gap
+' Add pagination directly to pnlHost with explicit dimensions (bypass card/host structure)
+    Dim pag1 As B4XDaisyPagination
+    pag1.Initialize(Me, "pag1")
+    pag1.Size = "md"
+    pag1.ShowPrevNext = False
+    pag1.PageCount = 4
+    pag1.ActiveIndex = 1
+    pag1.AddToParent(pnlHost, contentLeft, currentY, maxW, 64dip)
+    currentY = currentY + 64dip + 18dip
+
+    ''' <summary>
+    ''' Example 2: Sizes
+    ''' </summary>
+    currentY = AddSectionTitle(contentLeft, currentY, maxW, "2. Sizes")
+    currentY = AddDescription(contentLeft, currentY, maxW, "Pagination at xs, sm, md, lg, and xl button sizes.")
+    
+    ' XS
+    currentY = currentY + 8dip
+    Dim pagXs As B4XDaisyPagination
+    pagXs.Initialize(Me, "pagXs")
+    pagXs.Size = "xs"
+    pagXs.ShowPrevNext = False
+    pagXs.PageCount = 4
+    pagXs.ActiveIndex = 1
+    pagXs.AddToParent(pnlHost, contentLeft, currentY, maxW, 24dip)
+    currentY = currentY + 32dip
+    
+    ' SM
+    currentY = currentY + 8dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Numbered page switcher with prev/next buttons and active page indicator.
-- Configure `TotalPages` and `CurrentPage`.
-- Set `Size` (`"sm"`, `"md"`, `"lg"`) and semantic `Variant`.
-- Handle page changes in the `PageChange (NewPage As Int)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyPagination` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getVisible, getSize, getStyle` (+ 39 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Style | Style | String | solid | solid|outline|ghost|link|soft|dash |
-| ActiveColor | Active Color | String | primary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| ActiveIndex | Active Index | Int | 0 |  |
-| Disabled | Disabled | Boolean | False |  |
-| ShowPrevNext | Show Prev/Next | Boolean | True |  |
-| PrevText | Prev Text | String | chevron-left-solid.svg |  |
-| NextText | Next Text | String | chevron-right-solid.svg |  |
-| ShowFirstLast | Show First/Last | Boolean | False |  |
-| FirstText | First Text | String | angles-left-solid.svg |  |
-| LastText | Last Text | String | angles-right-solid.svg |  |
-| ShowPageNumbers | Show Page Numbers | Boolean | True |  |
-| PageCount | Page Count | Int | 5 |  |
-| EqualWidth | Equal Width | Boolean | False |  |
-| Shadow | Shadow | String | none | none|sm|md|lg|xl |
-| Circle | Circle | Boolean | True |  |
-| GapX | Gap X | Int | 1 |  |
-| Visible | Visible | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Style` | Style | `String` | `solid` | solid|outline|ghost|link|soft|dash |
+| `ActiveColor` | Active Color | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `ActiveIndex` | Active Index | `Int` | `0` |  |
+| `Disabled` | Disabled | `Boolean` | `False` |  |
+| `ShowPrevNext` | Show Prev/Next | `Boolean` | `True` |  |
+| `PrevText` | Prev Text | `String` | `chevron-left-solid.svg` |  |
+| `NextText` | Next Text | `String` | `chevron-right-solid.svg` |  |
+| `ShowFirstLast` | Show First/Last | `Boolean` | `False` |  |
+| `FirstText` | First Text | `String` | `angles-left-solid.svg` |  |
+| `LastText` | Last Text | `String` | `angles-right-solid.svg` |  |
+| `ShowPageNumbers` | Show Page Numbers | `Boolean` | `True` |  |
+| `PageCount` | Page Count | `Int` | `5` |  |
+| `EqualWidth` | Equal Width | `Boolean` | `False` |  |
+| `Shadow` | Shadow | `String` | `none` | none|sm|md|lg|xl |
+| `Circle` | Circle | `Boolean` | `True` |  |
+| `GapX` | Gap X | `Int` | `1` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
 
 ## 5. Declared Events
 - `Changed (PageIndex As Int, ItemId As String)`
@@ -55,17 +85,26 @@ y = y + 40dip + gap
 - `BringToFront`
 - `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetActualPageCount As Int`
+- `GetItemCount As Int`
+- `GetItemIdAt(iIndex As Int) As String`
+- `GoToPage(iIndex As Int)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `NextPage`
+- `PrevPage`
+- `Refresh`
+- `SendToBack`
+- `SetItemDisabled(sId As String, bDisabled As Boolean)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `View As B4XView`
 - `getActiveColor As String`
 - `getActiveIndex As Int`
-- `GetActualPageCount As Int`
 - `getCircle As Boolean`
 - `getDisabled As Boolean`
 - `getEqualWidth As Boolean`
 - `getFirstText As String`
 - `getGapX As Int`
 - `getHeight As Int`
-- `GetItemCount As Int`
-- `GetItemIdAt(iIndex As Int) As String`
 - `getLastText As String`
 - `getLeft As Int`
 - `getNextText As String`
@@ -81,12 +120,6 @@ y = y + 40dip + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `GoToPage(iIndex As Int)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `NextPage`
-- `PrevPage`
-- `Refresh`
-- `SendToBack`
 - `setActiveColor(sValue As String)`
 - `setActiveIndex(iValue As Int)`
 - `setCircle(bValue As Boolean)`
@@ -95,9 +128,7 @@ y = y + 40dip + gap
 - `setFirstText(sValue As String)`
 - `setGapX(iValue As Int)`
 - `setHeight(iValue As Int)`
-- `SetItemDisabled(sId As String, bDisabled As Boolean)`
 - `setLastText(sValue As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setNextText(sValue As String)`
 - `setPageCount(iValue As Int)`
@@ -112,8 +143,8 @@ y = y + 40dip + gap
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

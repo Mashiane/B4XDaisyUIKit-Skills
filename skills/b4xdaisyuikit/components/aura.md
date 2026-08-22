@@ -1,60 +1,91 @@
 # aura (`B4XDaisyAura`)
 
-Animated glow / shimmer border effect that wraps a child view. Styles include glow, rainbow, dual-color, holographic, gold, and silver.
+DaisyUI `Aura` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAura`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyAura.bas`
+- **Verified Demo Source**: B4XPageAura.bas (lines 8–239)
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim aur As B4XDaisyAura
-aur.Initialize(Me, "aur")
-aur.AddToParent(pnlHost, pad, y, maxW, 160dip)
-aur.Style = "rainbow"
-aur.Size = "lg"
-aur.AutoStart = True
+Private Sub AddButtonAura(CenterX As Int, CenterY As Int, W As Int, H As Int, Style As String, Size As String, Color As Int, Duration As Int, Label As String)
+    Dim btn As B4XDaisyButton
+    btn.Initialize(Me, "")
+    btn.AddToParent(pnlHost, -10000, -10000, W, H)
+    btn.Text = Label
+    btn.Variant = "primary"
+    btn.Size = "md"
+    Dim bw As Int = btn.View.Width
+    Dim bh As Int = btn.View.Height
 
-' Place a card or image inside the aura
-aur.Wrap(myCard.getView)
-y = y + aur.GetComputedHeight + gap
-
+    Dim a As B4XDaisyAura
+    a.Initialize(Me, "")
+    a.setStyle(Style)
+    a.setSize(Size)
+    If Color <> 0 Then a.setColor(Color)
+    a.setDuration(Duration)
+    Dim thick As Int = AuraThicknessDip(Size)
+    Dim wrapperW As Int = bw + 2 * thick
+    Dim wrapperH As Int = bh + 2 * thick
+    a.AddToParent(pnlHost, CenterX - wrapperW / 2, CenterY - wrapperH / 2, bw, bh)
+    a.Wrap(btn.View)
+    a.StartRotation
+    auras.Add(a)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Aura must wrap exactly **one direct child view** via `aur.Wrap(myView)` or `AddViewToContent`.
-- Use Aura sparingly — **maximum 1 per screen** for the VIP/hero highlight to prevent visual noise.
-- Use `AutoStart = True` to start the glow animation immediately upon rendering.
-- Use `StopRotation` to pause animations when the page is hidden, `StartRotation` to resume.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyAura` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Dynamic programmatic resizing requires calling `.Resize` or updating bounds to ensure inner canvas/background repaints properly.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getContentContainer, SyncRotation, getStyle` (+ 15 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Style | Style | String | default | default|glow|dual|rainbow|holo|gold|silver |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Color | Color | Color | 0x00FFFFFF |  |
-| TextColor | Text Color (Light Beam) | Color | 0x00FFFFFF |  |
-| BackgroundColor | Background Color | Color | 0x00FFFFFF |  |
-| Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| RoundedBox | Rounded Box | Boolean | True |  |
-| Duration | Duration (ms) | Int | 3000 |  |
-| Visible | Visible | Boolean | True |  |
-| AutoStart | AutoStart | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Style` | Style | `String` | `default` | default|glow|dual|rainbow|holo|gold|silver |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Color` | Color | `Color` | `0x00FFFFFF` |  |
+| `TextColor` | Text Color (Light Beam) | `Color` | `0x00FFFFFF` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
+| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Duration` | Duration (ms) | `Int` | `3000` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `AutoStart` | AutoStart | `Boolean` | `True` |  |
 
 ## 5. Declared Events
-None declared.
+- *(No custom events declared)*
 
 ## 6. Public Methods & APIs
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
 - `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `Release`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `StartRotation`
+- `StopRotation`
+- `SyncRotation`
+- `View As B4XView`
+- `Wrap(vChild As B4XView) As B4XView`
 - `getAutoStart As Boolean`
 - `getBackgroundColor As Int`
 - `getColor As Int`
-- `GetComputedHeight As Int`
 - `getContainer As B4XView`
 - `getContentContainer As B4XView`
 - `getDuration As Int`
@@ -67,16 +98,10 @@ None declared.
 - `getTextColor As Int`
 - `getTop As Int`
 - `getVisible As Boolean`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setAutoStart(bValue As Boolean)`
 - `setBackgroundColor(iValue As Int)`
 - `setColor(iValue As Int)`
 - `setDuration(iValue As Int)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setRounded(sValue As String)`
 - `setRoundedBox(bValue As Boolean)`
@@ -86,12 +111,8 @@ None declared.
 - `setTextColor(iValue As Int)`
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
-- `StartRotation`
-- `StopRotation`
-- `SyncRotation`
-- `View As B4XView`
-- `Wrap(vChild As B4XView) As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

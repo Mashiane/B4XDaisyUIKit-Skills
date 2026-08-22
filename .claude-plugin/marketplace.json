@@ -10,7 +10,7 @@
     {
       "name": "b4xdaisyuikit-skills",
       "description": "Assemble native cross-platform B4X screens (Android, iOS, Desktop) using B4XDaisyUIKit (inspired by DaisyUI / Tailwind CSS).",
-"version": "1.2.2"
+      "version": "1.2.2",
       "source": "./",
       "category": "developer-tools"
     }

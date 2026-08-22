@@ -108,7 +108,7 @@ Private Sub otpInput_Complete (Code As String)
 End Sub
 
 Private Sub btnVerify_Click (Tag As Object)
-    Dim code As String = otpInput.getCode
+    Dim code As String = otpInput.getValue
     If code.Length < 6 Then
         otpInput.ErrorText = "Please enter all 6 digits."
         Return
@@ -127,13 +127,14 @@ End Sub
 ```b4x
 Private Sub StartFeatureTour
     Dim tour As B4XDaisyEnjoyHint
-    tour.Initialize(Me, "tour")
-    tour.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+    ' Initialize with Root as the overlay host
+    tour.Initialize(Me, "tour", Root)
     
-    tour.AddStep("step_otp", otpInput.getView, "Enter your 6-digit SMS verification code here.", "rect", "bottom")
-    tour.AddStep("step_verify", btnVerify.getView, "Tap Verify to confirm your identity and enter your dashboard.", "circle", "top")
+    ' AddStep(vTarget, sMessage, sShape, iMargin, iTimeoutMs, sArrowPosition)
+    tour.AddStep(otpInput.View, "Enter your 6-digit SMS verification code here.", "rect", 4dip, 0, "bottom")
+    tour.AddStep(btnVerify.View, "Tap Verify to confirm your identity and enter your dashboard.", "circle", 4dip, 0, "top")
     
-    tour.StartTour
+    tour.RunWithResume
 End Sub
 
 ```

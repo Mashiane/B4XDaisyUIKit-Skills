@@ -1,5 +1,7 @@
 # textarea (`B4XDaisyInput` in Multiline Mode)
 
+> **Mode component**: `textarea` is not a standalone class. It is implemented by configuring `B4XDaisyInput` with `SingleLine = False`.
+
 Multi-line text input with auto-height, label, validation, character counter, and placeholder.
 In B4XDaisyUIKit, textareas are created by configuring `B4XDaisyInput` with `SingleLine = False`.
 
@@ -11,11 +13,22 @@ In B4XDaisyUIKit, textareas are created by configuring `B4XDaisyInput` with `Sin
 - **Web DaisyUI Mapping**: `.textarea` → `B4XDaisyInput (SingleLine = False)`
 
 ## 2. Verified B4X Syntax & Recipe
+
+### Full lifecycle — create, initialize, add to parent, configure
 ```b4x
+' 1. Declare the variable
 Dim ta As B4XDaisyInput
+
+' 2. Initialize (Me = callback host, "ta" = event prefix)
 ta.Initialize(Me, "ta")
+
+' 3. Switch to multiline mode BEFORE adding to parent
 ta.SingleLine = False
+
+' 4. Add to a parent view at position (x, y) and size (w, h)
 ta.AddToParent(pnlHost, pad, y, maxW, 80dip)
+
+' 5. Configure textarea appearance and behavior
 ta.Variant = "primary"
 ta.Size = "md"
 ta.LabelAbove = "Your bio"
@@ -23,6 +36,8 @@ ta.Placeholder = "Type your bio here..."
 ta.HintText = "Optional"
 ta.MaxLines = 3
 ta.Tag = "bio-textarea"
+
+' 6. Advance layout cursor
 y = y + ta.GetComputedHeight + gap
 ```
 

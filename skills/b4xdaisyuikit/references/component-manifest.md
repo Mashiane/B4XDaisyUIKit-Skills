@@ -19,7 +19,8 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 - B4XPage demos scanned: 94
 - B4XDaisy source modules found: 104
 - Demonstrated components: 86
-- Documented-only components: 18
+- Documented-only components: 14 (4 banned: FlexItem/FlexLayout/FlexPanel/Grid removed)
+- Skills in `components/`: 89 (91 − 2 removed: flex-layout, grid)
 
 ## How to use
 
@@ -85,10 +86,10 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyFileHandler | Demonstrated | B4XPageMediaPicker.bas |
 | B4XDaisyFileInput | Demonstrated | B4XPageAvatar.bas<br>B4XPageFileInput.bas<br>B4XPageFocus.bas |
 | B4XDaisyFilter | Demonstrated | B4XPageFilter.bas |
-| B4XDaisyFlexItem | Documented-only | — |
-| B4XDaisyFlexLayout | Documented-only | — |
-| B4XDaisyFlexPanel | Documented-only | — |
-| B4XDaisyGrid | Documented-only | — |
+| B4XDaisyFlexItem | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
+| B4XDaisyFlexLayout | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
+| B4XDaisyFlexPanel | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
+| B4XDaisyGrid | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
 | B4XDaisyHero | Demonstrated | B4XPageHero.bas |
 | B4XDaisyHover3d | Demonstrated | B4XPageHover3d.bas |
 | B4XDaisyIconButton | Demonstrated | B4XPageIconButton.bas<br>B4XPageList.bas<br>B4XPageMediaPicker.bas |
@@ -147,7 +148,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Component Skills Directory
 
-All 91 component skill files are located in [`skills/b4xdaisyuikit/components/`](../components/):
+All 89 component skill files are located in [`skills/b4xdaisyuikit/components/`](../components/) (2 removed as banned: flex-layout, grid):
 
 - [accordion](../components/accordion.md)
 - [action-sheet](../components/action-sheet.md)
@@ -184,8 +185,6 @@ All 91 component skill files are located in [`skills/b4xdaisyuikit/components/`]
 - [file-handler](../components/file-handler.md)
 - [file-input](../components/file-input.md)
 - [filter](../components/filter.md)
-- [flex-layout](../components/flex-layout.md)
-- [grid](../components/grid.md)
 - [hero](../components/hero.md)
 - [hover3d](../components/hover3d.md)
 - [icon-button](../components/icon-button.md)

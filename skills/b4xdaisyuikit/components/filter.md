@@ -1,55 +1,83 @@
 # filter (`B4XDaisyFilter`)
 
-Horizontal or vertical row of filter chip buttons for single or multi-select category filtering.
+DaisyUI `Filter` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFilter`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyFilter.bas`
+- **Verified Demo Source**: B4XPageFilter.bas (lines 63–134)
 - **Web DaisyUI Mapping**: `.filter` → `B4XDaisyFilter`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim flt As B4XDaisyFilter
-flt.Initialize(Me, "flt")
-flt.AddToParent(pnlHost, pad, y, maxW, 48dip)
-flt.Options = "all:All|vue:Vue|react:React|svelte:Svelte"
-flt.Variant = "primary"
-flt.FilterStyle = "soft"
-flt.ActiveKey = "all"
-flt.MultiSelect = False
-y = y + flt.GetComputedHeight + gap
+' #region Example 1: Filter with single selection and reset button
+    y = AddSectionTitle("Filter with single selection and reset button", y, maxW)
+    Dim c1 As B4XDaisyFilter
+    c1.Initialize(Me, "filter1")
+    c1.AddToParent(pnlHost, PAGE_PAD, y, maxW, 40dip)
+    c1.Options = "svelte:Svelte, vue:Vue, react:React"
+    c1.CloseType = "icon"
+    c1.CloseIcon = "close.svg"
+    c1.ResetPosition = "left"
+    c1.Rounded = "theme"
+    c1.Variant = "success"
+    y = y + c1.GetComputedHeight + 20dip
+    ' #endregion
 
+    ' #region Example 2: Filter with custom reset text and outline style
+    y = AddSectionTitle("Filter with custom reset text and outline style", y, maxW)
+    Dim c2 As B4XDaisyFilter
+    c2.Initialize(Me, "filter2")
+    c2.AddToParent(pnlHost, PAGE_PAD, y, maxW, 40dip)
+    c2.Options = "sveltekit:Sveltekit, nuxt:Nuxt, nextjs:Next.js"
+    c2.CloseType = "text"
+    c2.ResetText = "All"
+    c2.ResetPosition = "left"
+    c2.Rounded = "rounded-full" ' chip-like shape
+    c2.Variant = "primary"
+    c2.FilterStyle = "outline"
+    y = y + c2.GetComputedHeight + 20dip
+    ' #endregion
+
+    ' #region Example 3: Filter with multi-select (checkboxes) and reset button
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Horizontal filter pill bar for data filtering and category switching.
-- Add filter chips using `AddFilterOption(Id, Label, Count, Icon)`.
-- Retrieve or set active filter via `SelectedId`.
-- Handle filter changes in the `FilterChange (SelectedId As String)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyFilter` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `setEnabled, getEnabled, getVisible` (+ 40 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Options | Options | String | svelte:Svelte |  |
-| ActiveKey | Active Key | String |  |  |
-| Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Variant | Variant | String | none | none|neutral|primary|secondary|accent|info|success|warning|error |
-| FilterStyle | Filter Style | String | solid | solid|soft|outline|dash|ghost |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| ResetPosition | Reset Position | String | left | left|right |
-| ResetText | Reset Text | String | × |  |
-| CloseType | Close Type | String | icon | icon|text |
-| CloseIcon | Close Icon | String | close.svg |  |
-| MultiSelect | MultiSelect (Checkboxes) | Boolean | False |  |
-| Orientation | Orientation | String | horizontal | horizontal|vertical |
-| Duration | Duration | Int | 300 |  |
-| Width | Width | String | w-full |  |
-| Height | Height | String | h-auto |  |
-| Padding | Padding | String |  |  |
-| Margin | Margin | String |  |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Options` | Options | `String` | `svelte:Svelte` |  |
+| `ActiveKey` | Active Key | `String` | `` |  |
+| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `FilterStyle` | Filter Style | `String` | `solid` | solid|soft|outline|dash|ghost |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `ResetPosition` | Reset Position | `String` | `left` | left|right |
+| `ResetText` | Reset Text | `String` | `x` |  |
+| `CloseType` | Close Type | `String` | `icon` | icon|text |
+| `CloseIcon` | Close Icon | `String` | `close.svg` |  |
+| `MultiSelect` | MultiSelect (Checkboxes) | `Boolean` | `False` |  |
+| `Orientation` | Orientation | `String` | `horizontal` | horizontal|vertical |
+| `Duration` | Duration | `Int` | `300` |  |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `h-auto` |  |
+| `Padding` | Padding | `String` | `` |  |
+| `Margin` | Margin | `String` | `` |  |
 
 ## 5. Declared Events
 - `ResetClick`
@@ -62,12 +90,19 @@ y = y + flt.GetComputedHeight + gap
 - `BringToFront`
 - `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `UpdateTheme`
+- `View As B4XView`
 - `getActiveKey As String`
 - `getChecked As String`
 - `getCheckedKeys As List`
 - `getCloseIcon As String`
 - `getCloseType As String`
-- `GetComputedHeight As Int`
 - `getDuration As Int`
 - `getEnabled As Boolean`
 - `getFilterStyle As String`
@@ -91,11 +126,7 @@ y = y + flt.GetComputedHeight + gap
 - `getVariant As String`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `Initialize(oCallback As Object, sEventName As String)`
 - `isItemChecked(sKey As String) As Boolean`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setActiveKey(sValue As String)`
 - `setChecked(sCheckedKeys As String)`
 - `setCloseIcon(sValue As String)`
@@ -106,7 +137,6 @@ y = y + flt.GetComputedHeight + gap
 - `setHeight(sValue As String)`
 - `setItemChecked(sKey As String, bChecked As Boolean)`
 - `setItems(mValue As Map)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setMargin(sValue As String)`
 - `setMultiSelect(bValue As Boolean)`
@@ -125,9 +155,8 @@ y = y + flt.GetComputedHeight + gap
 - `setVariant(sValue As String)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(sValue As String)`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

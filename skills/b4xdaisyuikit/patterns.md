@@ -3,6 +3,8 @@
 
 This document establishes the definitive collection of verified, evidence-backed codebase design patterns for assembling **B4XPages** applications using **B4XDaisyUIKit**. 
 
+> **Scope:** Layout patterns only (accumulator `y`, `Clear`/`AutoFit`, sibling shift, validation pipeline, drawer shell). For token tables see `cheatsheet.md`. For web→native mapping see `references/daisyui-native-compatibility.md`. Not duplicated.
+
 To protect against design hallucinations, every pattern and compositional workflow is formally indexed with its audited **Evidence ID** traced directly back to the B4X source corpus.
 
 ---
@@ -14,7 +16,7 @@ To protect against design hallucinations, every pattern and compositional workfl
 | **`PT_COMP_CARD`** | Card Composition | `B4XDaisyCard`, `Body`, `Title`, `Actions`, `Badge`, `Button` | `SetCardContent`, `AddTitleBadges` | `B4XPageCard.bas` | Composes nested content grids within styled cards (`EV_COMP_STK`, `PATTERN-COMP-001`) [721, 858, 864]. | **HIGH** |
 | **`PT_PAGE_SCROLL`** | Scrollable Section Page | `B4XDaisyPageScroll`, `B4XDaisyText` (Title), `B4XDaisyDivider` | `AddSectionTitle`, `AddDivider` | `B4XPageDashboard.bas`, `B4XPageScrollDemo.bas` | Default layout viewport host clearing and resizing pages (`EV_SCROLL_HOST`, `PATTERN-COMP-002`) [14, 858]. | **HIGH** |
 | **`PT_VALIDATION_FLOW`** | Form Entry with Toast | `B4XDaisyInput`, `B4XDaisyButton`, `B4XMainPage` Toast helpers | `inp_EnterPressed`, `ShowToast` | `B4XPageInput.bas` | Validates inputs recursively, showing red borders and height shifts (`PATTERN-COMP-003`) [15, 858]. | **HIGH** |
-| **`PT_JOINED_CONTROL`** | Joined Form Control | `B4XDaisyFlexPanel`, `B4XDaisyInput`, `B4XDaisyButton` | `AddRowFlex`, `LayoutInputs` | `B4XPageInput.bas` | Places submit action buttons inline on the right of input fields (`PATTERN-COMP-004`) [864]. | **HIGH** |
+| **`PT_JOINED_CONTROL`** | Joined Form Control (manual) | `B4XDaisyInput`, `B4XDaisyButton` (no Flex) | `LayoutInputs` | `B4XPageInput.bas` | Places side-by-side controls (Cancel + Submit) via explicit X calc on `pnlHost`: `btnW=(maxW-gap)/2` — FlexPanel is **banned** (`SKILL.md:260`). Use `pageScroll` + coordinate math, not `FlexPanel`. | **HIGH** |
 | **`PT_ACCORDION_FLOW`** | Accordion Disclosure | `B4XDaisyCollapse`, `CollapseTitle`, `CollapseContent`, `Accordion` | `AddItemBasic`, `SetItemActive` | `B4XPageAccordion.bas` | Arranges collapses in a group, restricting open panels to a single index (`PATTERN-COMP-005`) [12, 858]. | **HIGH** |
 | **`PT_NAV_DOCK_PAGE`** | Navigation-Dock Split | `B4XDaisyNavbar`, `B4XDaisyDock`, `B4XDaisyPageScroll` | `LayoutNavbar`, `LayoutDock` | `B4XPageNavScrollDock.bas` | Pins header navbar and bottom nav dock, letting center body elements scroll safely [863]. | **HIGH** |
 
@@ -61,7 +63,7 @@ End Sub
 ### 3. Form Validation Pipeline (`EV_COMP_BGS`)
 The submit routine validates the required inputs, triggering error UI and height shifts dynamically [15].
 
-Call `Validate()` on each required component directly and branch on its boolean. This is the B4XPage demo methodology — evidence: `B4XPageRange.bas:492-504`, `B4XPageRating.bas:510-522`. Do NOT route submit validation through `B4XDaisyVariants.ValidateControls(List)` or `ValidateRequiredControls(Parent)`. See [negative-knowledge.md](negative-knowledge.md) §3a for why `ValidateRequiredControls` is broken and why the direct per-component pattern is preferred over `ValidateControls`.
+Call `Validate()` on each required component directly and branch on its boolean. This is the B4XPage demo methodology — evidence: `B4XPageRange.bas:492-504`, `B4XPageRating.bas:510-522`. Do NOT route submit validation through `B4XDaisyVariants.ValidateControls(List)` or `ValidateRequiredControls(Parent)`. See [references/negative-knowledge.md](references/negative-knowledge.md) §3a for why `ValidateRequiredControls` is broken and why the direct per-component pattern is preferred over `ValidateControls`.
 
 ```b4x
 Private Sub btnSubmit_Click(Tag As Object)
@@ -91,7 +93,7 @@ Public Sub TriggerOnboardingTutorial
     
     ' Setup spotlight circular cut-out over the Navbar avatar logo
     hintTour.AddStep(navbar.LogoAvatar.getView, \"Click here to edit your profile details.\", \"circle\", 8dip, 0, \"bottom\")
-    hintTour.Start
+    hintTour.RunWithResume
 End Sub
 
 ```
@@ -123,6 +125,6 @@ pageScroll.Initialize(Me, "pageScroll")
 pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Width, Height - 56dip)
 
 Sub topNavbar_HamburgerClick(Tag As Object)
-    mainDrawer.ToggleLeft
+    mainDrawer.Toggle
 End Sub
 ```

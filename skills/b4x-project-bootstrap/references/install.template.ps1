@@ -207,6 +207,7 @@ if (Test-Path $buildWatch) {
     Write-Host "build-watch.ps1 not found in project folder; build-stage runtime gate skipped." -ForegroundColor Gray
     Write-Host "  (Drop build-watch.ps1 from the b4x-project-bootstrap skill to enable crash/touch/jank checks.)" -ForegroundColor Gray
 }
+
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  Installation Complete!" -ForegroundColor Cyan

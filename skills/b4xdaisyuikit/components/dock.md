@@ -1,46 +1,77 @@
 # dock (`B4XDaisyDock`)
 
-Fixed bottom navigation dock bar with icons, labels, active tab indicators, and badges.
+DaisyUI `Dock` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDock`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDock.bas`
+- **Verified Demo Source**: B4XPageDock.bas (lines 17–419), B4XPageNavScrollDock.bas (lines 46–46)
 - **Web DaisyUI Mapping**: `.dock` → `B4XDaisyDock`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim dck As B4XDaisyDock
-dck.Initialize(Me, "dck")
-dck.Size = "md"
-dck.ActiveIndex = 1
-dck.AddToParent(Root, 0, Root.Height - 64dip, Root.Width, 64dip)
-dck.AddItem("home", "Home", "dock-home.svg")
-dck.AddItem("search", "Search", "dock-search.svg")
+Dim cardDock As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePreviewHeightDip("md"))
+    Dim hostDock As B4XView = AddPreviewDockHost(cardDock, ResolveDockHeightDip("md"), True)
+    Dim dockBase As B4XDaisyDock
+    dockBase.Initialize(Me, "dockBase")
+    dockBase.Size = "md"
+    dockBase.ActiveIndex = 1
+    dockBase.AddToParent(hostDock, 0, 0, hostDock.Width, 0)
+    dockBase.AddItem("home", "Home", "dock-home.svg")
+    dockBase.AddItem("inbox", "Inbox", "dock-inbox.svg")
+    dockBase.AddItem("settings", "Settings", "dock-settings.svg")
+    currentY = currentY + cardDock.Height + 18dip
+
+    ''' <summary>
+    ''' Example 2: Dock Extra Small size
+    ''' </summary>
+    currentY = AddSectionTitle(contentLeft, currentY, maxW, "Dock Extra Small size")
+    currentY = AddDescription(contentLeft, currentY, maxW, "Extra small dock with icon-only items.")
+    Dim cardXs As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePreviewHeightDip("xs"))
+    Dim hostXs As B4XView = AddPreviewDockHost(cardXs, ResolveDockHeightDip("xs"), True)
+    Dim dockXs As B4XDaisyDock
+    dockXs.Initialize(Me, "dockXs")
+    dockXs.Size = "xs"
+    dockXs.ActiveIndex = 1
+    dockXs.AddToParent(hostXs, 0, 0, hostXs.Width, 0)
+    dockXs.AddItem("xs-home", "", "dock-home.svg")
+    dockXs.AddItem("xs-inbox", "", "dock-inbox.svg")
+    dockXs.AddItem("xs-settings", "", "dock-settings.svg")
+    currentY = currentY + cardXs.Height + 18dip
+
+    ''' <summary>
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Fixed bottom mobile navigation tab bar.
-- Configure items before `AddToParent` or call `Refresh` after adding items dynamically.
-- Add navigation tabs using `AddItem(Id, Title, IconAsset, BadgeText)`.
-- Handle tab switching via the `DockItemClick (ItemId As String)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDock` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `ClearItems, SetItemTagByIndex, SetItemTag` (+ 26 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| BadgeSize | Badge Size | String | auto | auto|xs|sm|md|lg|xl |
-| ActiveIndex | Active Index | Int | 1 |  |
-| ActivePosition | Active Position | String | bottom | bottom|top |
-| Glass | Glass | Boolean | False |  |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| Rounded | Rounded | String | none | theme|none|sm|rounded|md|lg|xl|2xl|3xl|full |
-| Width | Width | String | w-full |  |
-| Height | Height | String | auto |  |
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `BadgeSize` | Badge Size | `String` | `auto` | auto|xs|sm|md|lg|xl |
+| `ActiveIndex` | Active Index | `Int` | `1` |  |
+| `ActivePosition` | Active Position | `String` | `bottom` | bottom|top |
+| `Glass` | Glass | `Boolean` | `False` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `Rounded` | Rounded | `String` | `none` | theme|none|sm|rounded|md|lg|xl|2xl|3xl|full |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `auto` |  |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
 
 ## 5. Declared Events
 - `ItemClick (ItemId As String)`
@@ -54,6 +85,25 @@ dck.AddItem("search", "Search", "dock-search.svg")
 - `ClearItems`
 - `CreateView(iWidth As Int, iHeight As Int) As B4XView`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `Refresh`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetItemBadgeColor(sItemId As String, sVariantName As String)`
+- `SetItemBadgeColorByIndex(iIndex As Int, sVariantName As String)`
+- `SetItemBadgeDecrement(sItemId As String, iAmount As Int)`
+- `SetItemBadgeDecrementByIndex(iIndex As Int, iAmount As Int)`
+- `SetItemBadgeIncrement(sItemId As String, iAmount As Int)`
+- `SetItemBadgeIncrementByIndex(iIndex As Int, iAmount As Int)`
+- `SetItemBadgeValue(sItemId As String, sValue As String)`
+- `SetItemBadgeValueByIndex(iIndex As Int, sValue As String)`
+- `SetItemEnabled(sItemId As String, bValue As Boolean)`
+- `SetItemEnabledByIndex(iIndex As Int, bValue As Boolean)`
+- `SetItemTag(sItemId As String, oTagValue As Object)`
+- `SetItemTagByIndex(iIndex As Int, oTagValue As Object)`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `UpdateTheme`
+- `View As B4XView`
 - `getActiveIndex As Int`
 - `getActivePosition As String`
 - `getBackgroundColor As Int`
@@ -70,10 +120,6 @@ dck.AddItem("search", "Search", "dock-search.svg")
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As String`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setActiveIndex(iValue As Int)`
 - `setActivePosition(sValue As String)`
 - `setBackgroundColor(iValue As Int)`
@@ -81,19 +127,6 @@ dck.AddItem("search", "Search", "dock-search.svg")
 - `setEnabled(bValue As Boolean)`
 - `setGlass(bValue As Boolean)`
 - `setHeight(sValue As String)`
-- `SetItemBadgeColor(sItemId As String, sVariantName As String)`
-- `SetItemBadgeColorByIndex(iIndex As Int, sVariantName As String)`
-- `SetItemBadgeDecrement(sItemId As String, iAmount As Int)`
-- `SetItemBadgeDecrementByIndex(iIndex As Int, iAmount As Int)`
-- `SetItemBadgeIncrement(sItemId As String, iAmount As Int)`
-- `SetItemBadgeIncrementByIndex(iIndex As Int, iAmount As Int)`
-- `SetItemBadgeValue(sItemId As String, sValue As String)`
-- `SetItemBadgeValueByIndex(iIndex As Int, sValue As String)`
-- `SetItemEnabled(sItemId As String, bValue As Boolean)`
-- `SetItemEnabledByIndex(iIndex As Int, bValue As Boolean)`
-- `SetItemTag(sItemId As String, oTagValue As Object)`
-- `SetItemTagByIndex(iIndex As Int, oTagValue As Object)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setRounded(sValue As String)`
 - `setShadow(sValue As String)`
@@ -103,9 +136,8 @@ dck.AddItem("search", "Search", "dock-search.svg")
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(sValue As String)`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

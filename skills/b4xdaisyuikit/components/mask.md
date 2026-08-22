@@ -1,5 +1,7 @@
 # mask (`B4XDaisyAvatar` Shape Masking)
 
+> **Mode component**: `mask` is not a standalone class. Shape masking is implemented by configuring `B4XDaisyAvatar` with `SetAvatarMask(...)` and no status/online decorations.
+
 Visual shape masking for images and avatars (squircle, hexagon, heart, star, decagon, pentagon, diamond, circle, badge).
 In B4XDaisyUIKit, shape masking is integrated directly into `B4XDaisyAvatar` using `.SetAvatarMask(...)`.
 
@@ -12,14 +14,25 @@ In B4XDaisyUIKit, shape masking is integrated directly into `B4XDaisyAvatar` usi
 - **Companion Reference**: See [avatar.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/avatar.md) for full avatar options.
 
 ## 2. Verified B4X Syntax & Recipe
+
+### Full lifecycle — create, initialize, add to parent, configure
 ```b4x
+' 1. Declare the variable
 Dim avatar As B4XDaisyAvatar
+
+' 2. Initialize (Me = callback host, "avatar" = event prefix)
 avatar.Initialize(Me, "avatar")
+
+' 3. Add to a parent view at position (x, y) and size (w, h)
 Dim avatarView As B4XView = avatar.AddToParent(pnlHost, pad, y, 160dip, 160dip)
+
+' 4. Configure mask shape and content
 avatar.SetImage("profile.png")
 avatar.SetAvatarMask("squircle") ' Options: squircle, hexagon, heart, star, decagon, pentagon, diamond, circle, badge
 avatar.SetCenterOnParent(True)
 avatar.SetVariant("none")
+
+' 5. Advance layout cursor
 y = y + 160dip + gap
 ```
 

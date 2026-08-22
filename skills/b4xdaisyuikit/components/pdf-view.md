@@ -1,66 +1,63 @@
 # pdf-view (`B4XDaisyPDFView`)
 
-Native PDF document rendering component supporting page swiping, page snapping, asset/file loading, page jump navigation, and document lifecycle events.
+DaisyUI `PDFView` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPDFView`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyPDFView.bas`
-- **Reference Page**: `B4XPagePDFView.bas`
+- **Verified Demo Source**: B4XPagePDFView.bas (lines 12–33)
+- **Web DaisyUI Mapping**: `.pdf-view` → `B4XDaisyPDFView`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim pdf As B4XDaisyPDFView
-pdf.Initialize(Me, "pdf")
-pdf.AddToParent(pnlHost, pad, y, maxW, 400dip)
-pdf.EnableSwipe = True
-pdf.PageSnap = True
-pdf.SwipeHorizontal = True
-pdf.ShowToolbar = True
-pdf.ToolbarHeight = 44dip
-pdf.LoadAsset("sample.pdf") ' Or pdf.LoadFile(File.DirInternal, "document.pdf")
-y = y + 400dip + gap
-```
+Private Sub B4XPage_Created (Root1 As B4XView)
+	Root = Root1
+	Root.Color = B4XDaisyVariants.GetTokenColor("--color-base-200", xui.Color_RGB(245, 247, 250))
 
-### Document Navigation Controls
-```b4x
-' Programmatic navigation
-pdf.JumpToPage(3)
-pdf.NextPage
-pdf.PrevPage
-pdf.FirstPage
-pdf.LastPage
+	' Top Navbar
+	Navbar.Initialize(Me, "Navbar")
+	Navbar.AddToParent(Root, 0, 0, Root.Width, NAVBAR_HEIGHT)
+	Navbar.Title = "PDF Viewer Demo"
+	Navbar.BackVisible = True
 
-Dim currentPage As Int = pdf.getCurrentPage
-Dim totalPages As Int = pdf.getTotalPages
-```
+	' B4XDaisyPDFView Component below navbar with padding
+	Dim pdfTop As Int = NAVBAR_HEIGHT + PAGE_PAD
+	Dim pdfW As Int = Max(10dip, Root.Width - (PAGE_PAD * 2))
+	Dim pdfH As Int = Max(10dip, Root.Height - pdfTop - PAGE_PAD)
 
-### Event Handling
-```b4x
-Private Sub pdf_LoadComplete (Pages As Int)
-    Log("PDF successfully loaded with total pages: " & Pages)
-End Sub
+	pdfViewer.Initialize(Me, "pdfViewer")
+	pdfViewer.AddToParent(Root, PAGE_PAD, pdfTop, pdfW, pdfH)
 
-Private Sub pdf_PageChanged (Page As Int, TotalPages As Int)
-    Log("Swiped to page: " & Page & " / " & TotalPages)
-End Sub
-
-Private Sub pdf_OnTap (Target As Object)
-    Log("PDF viewer tapped")
+	' Load sample PDF asset
+	pdfViewer.LoadAsset("chapter_5.pdf")
 End Sub
 ```
 
-## 3. Designer Properties
-| Key | Type | Default | Description |
-|---|---|---|---|
-| `EnableSwipe` | Boolean | True | Allows touch gestures to swipe between pages |
-| `SwipeHorizontal` | Boolean | True | Enables horizontal page turning (or vertical if False) |
-| `PageSnap` | Boolean | True | Snaps to full page boundaries on swipe |
-| `AutoSpacing` | Boolean | True | Automatically spaces pages |
-| `ShowToolbar` | Boolean | True | Displays built-in navigation toolbar |
-| `ToolbarHeight` | Int | 44 | Height of navigation toolbar in dip |
+## 3. Native Composition Rules & Gotchas
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyPDFView` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
 
-## 4. Declared Events
+### Preconditions & Gotchas
+- Contains `DisallowParentIntercept` on B4A to prevent enclosing scroll containers (like `B4XDaisyPageScroll`) from stealing touch drag events.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `LoadFile, JumpToPage, FirstPage` (+ 10 more).
+
+## 4. Designer Properties
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `AutoSpacing` | Auto Spacing | `Boolean` | `True` |  |
+| `EnableSwipe` | Enable Swipe | `Boolean` | `True` |  |
+| `PageSnap` | Page Snap | `Boolean` | `True` |  |
+| `SwipeHorizontal` | Swipe Horizontal | `Boolean` | `False` |  |
+| `ShowToolbar` | Show Toolbar | `Boolean` | `True` |  |
+| `ToolbarHeight` | Toolbar Height | `Int` | `48` |  |
+
+## 5. Declared Events
 - `LoadComplete (Pages As Int)`
 - `PageChanged (Page As Int, TotalPages As Int)`
 - `OnTap (Target As Object)`
@@ -68,15 +65,29 @@ End Sub
 - `PageNum (Page As Int)`
 - `Show ()`
 
-## 5. Public Methods & APIs
-- `Initialize (oCallback As Object, sEventName As String)`
+## 6. Public Methods & APIs
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `LoadAsset(sFileName As String)`: Loads PDF from `File.DirAssets`
-- `LoadFile(sDir As String, sFileName As String)`: Loads PDF from local directory
-- `Reload`: Reloads current document
-- `JumpToPage(iPage As Int)`: Jumps to specified page number
-- `FirstPage` / `LastPage`
-- `NextPage` / `PrevPage`
+- `Base_Resize (iWidth As Int, iHeight As Int)`
+- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
+- `FirstPage`
+- `Initialize (oCallback As Object, sEventName As String)`
+- `JumpToPage(iPage As Int)`
+- `LastPage`
+- `LoadAsset(sFileName As String)`
+- `LoadFile(sDir As String, sFileName As String)`
+- `NextPage`
+- `PrevPage`
+- `Reload`
+- `View As B4XView`
 - `getCurrentPage As Int`
 - `getTotalPages As Int`
-- `View As B4XView`
+- `setAutoSpacing(bValue As Boolean)`
+- `setEnableSwipe(bValue As Boolean)`
+- `setPageSnap(bValue As Boolean)`
+- `setShowToolbar(bValue As Boolean)`
+- `setSwipeHorizontal(bValue As Boolean)`
+
+## 7. Public Fields
+- `mBase As B4XView`
+- `xui As XUI`
+

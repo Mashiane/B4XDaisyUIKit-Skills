@@ -2,6 +2,8 @@
 
 This chapter demonstrates how to build rich interactive dashboards, auto-playing media carousels, summary KPI grids, before/after diff views, and glowing aura banners.
 
+> **Scope:** Media-heavy dashboards (Carousel, `B4XDaisyDashboard` KPI grid, `Aura`, `Diff`). For Stat/Timeline dashboards see `ch01-dashboards.md` — complementary.
+
 ---
 
 ## 8.1 Scenario: Analytics & Promotion Dashboard

@@ -64,7 +64,7 @@ The Page Architect catalog provides pre-structured, verified native Android page
 * **Section Order**:
   1. Section Header (`B4XDaisyFieldset` Legend="Personal Information").
   2. Inputs (`B4XDaisyInput`, `B4XDaisySelect`, `B4XDaisyCheckboxGroup`, `B4XDaisyToggle`).
-  3. Attachments (`B4XDaisyFileInput` or `B4XDaisyMediaPicker`).
+  3. Attachments (`B4XDaisyFileInput`).
   4. Verification (`B4XDaisySignaturePad` for digital signoff).
   5. Action Buttons (Submit `B4XDaisyButton` + Reset `B4XDaisyButton` Ghost).
   6. Feedback Toast/Alert (`B4XDaisyToast` on success, `B4XDaisyAlert` on error).
@@ -90,7 +90,7 @@ The Page Architect catalog provides pre-structured, verified native Android page
 * **Section Order**:
   1. Summary Banner (`B4XDaisyStat` Items Scanned / Total Expected).
   2. Live Count Input (`B4XDaisyInput` + Stepper Buttons).
-  3. Scanned Items Table (`B4XDaisyTable` with dynamic badge status).
+  3. Scanned Items Table (`B4XDaisyGrid` / `B4XDaisyList` with dynamic badge status).
   4. Floating Action Trigger (`B4XDaisyFab` for camera/scanner toggle).
 * **Verification Proof**: Verified in `B4XPageStat.bas`, `B4XPageFab.bas`, `B4XPageBadge.bas`.
 

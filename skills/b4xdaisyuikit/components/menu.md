@@ -1,52 +1,73 @@
 # menu (`B4XDaisyMenu`)
 
-Navigation or context menu with sections, items, submenus, badges, and active states.
+DaisyUI `Menu` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyMenu`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyMenu.bas`
+- **Verified Demo Source**: B4XPageDrawer.bas (lines 17–17), B4XPageDrawerRail.bas (lines 17–17), B4XPageDrawerTree.bas (lines 17–17), B4XPageDropdown.bas (lines 77–77), B4XPageMenu.bas (lines 80–417), B4XPageMenuRuntime.bas (lines 20–159), B4XPageMenuRuntime2.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.menu` → `B4XDaisyMenu`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim mnu As B4XDaisyMenu
-mnu.Initialize(Me, "mnu")
-mnu.AddToParent(pnlHost, pad, y, maxW, 160dip)
-mnu.AddItem("item1", "Profile", "user-solid.svg")
-mnu.AddItem("item2", "Settings", "gear-solid.svg")
-y = y + mnu.GetComputedHeight + gap
+Private Sub ExampleFileTree(Y As Int, Width As Int) As Int
+    Y = AddSectionTitle("File tree", Y, Width)
+    Dim menu As B4XDaisyMenu = CreateMenu("menu-file-tree", "vertical", "md")
+    menu.AddIconItem("resume.pdf", "resume.pdf", "file-lines-solid.svg")
+    Dim rootFiles As B4XDaisyMenu = menu.AddSubmenu("my-files", "My Files", True)
+    rootFiles.AddIconItem("Project", "Project", "folder-solid.svg")
+    Dim images As B4XDaisyMenu = rootFiles.AddSubmenu("Images", "Images", True)
+    images.AddIconItem("hero.png", "hero.png", "image-solid.svg")
+    images.AddIconItem("logo.png", "logo.png", "image-solid.svg")
+    Dim docs As B4XDaisyMenu = rootFiles.AddSubmenu("Documents", "Documents", True)
+    docs.AddIconItem("Notes.txt", "Notes.txt", "file-lines-solid.svg")
+    docs.AddIconItem("Invoice.pdf", "Invoice.pdf", "file-lines-solid.svg")
+    Return AddMenuBlock(menu, Y, Width)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Vertical multi-level navigation list with sub-menus and collapsible sections.
-- Add top-level items using `AddMenuItem(Id, Text, IconAsset)`.
-- Add collapsible nested items using `AddSubMenu(ParentId, Id, Text, IconAsset)`.
-- Handle navigation taps via the `MenuClick (ItemId As String)` event.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyMenu` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Dynamic programmatic resizing requires calling `.Resize` or updating bounds to ensure inner canvas/background repaints properly.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `UpdateTheme, AddIconBadgeChildItem, AddTitleChild` (+ 57 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Enabled | Enabled | Boolean | True |  |
-| Visible | Visible | Boolean | True |  |
-| Width | Width | String | w-full |  |
-| Height | Height | String | h-auto |  |
-| Padding | Padding | String | p-2 |  |
-| Margin | Margin | String |  |  |
-| Dividers | Dividers | Boolean | True |  |
-| DividerGap | Divider Gap | String | 1 |  |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Orientation | Orientation | String | vertical | vertical|horizontal |
-| Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| RoundedBox | Rounded Box | Boolean | True |  |
-| Shadow | Shadow | String | none | none|xs|sm|md|lg|xl|2xl |
-| BringToFront | Bring To Front | Boolean | True |  |
-| BackgroundColor | Background Color | Color | 0x00000000 |  |
-| TextColor | Text Color | Color | 0x00000000 |  |
-| ActiveColor | Active Color | Color | 0x00000000 |  |
-| ActiveTextColor | Active Text Color | Color | 0x00000000 |  |
-| ActiveBorder | Active Border | Boolean | False |  |
-| AutoResize | Auto Resize | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `Width` | Width | `String` | `w-full` |  |
+| `Height` | Height | `String` | `h-auto` |  |
+| `Padding` | Padding | `String` | `p-2` |  |
+| `Margin` | Margin | `String` | `` |  |
+| `Dividers` | Dividers | `Boolean` | `True` |  |
+| `DividerGap` | Divider Gap | `String` | `1` |  |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Orientation` | Orientation | `String` | `vertical` | vertical|horizontal |
+| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `BringToFront` | Bring To Front | `Boolean` | `True` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `TextColor` | Text Color | `Color` | `0x00000000` |  |
+| `ActiveColor` | Active Color | `Color` | `0x00000000` |  |
+| `ActiveTextColor` | Active Text Color | `Color` | `0x00000000` |  |
+| `ActiveBorder` | Active Border | `Boolean` | `False` |  |
+| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
+| `BadgeSize` | Badge Size | `String` | `auto` | auto|xs|sm|md|lg|xl |
+| `BadgeVariant` | Badge Variant | `String` | `neutral` | neutral|primary|secondary|accent|info|success|warning|error|ghost |
+| `BadgeStyle` | Badge Style | `String` | `solid` | solid|outline|soft|dash |
+| `RailMode` | Rail Mode | `Boolean` | `False` |  |
+| `RightBorder` | Right Border | `Boolean` | `False` |  |
+| `RightBorderColor` | Right Border Color | `Color` | `0x00000000` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -82,40 +103,10 @@ y = y + mnu.GetComputedHeight + gap
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `EndUpdate`
 - `FindSubmenuMenuByTag(oTagValue As Object) As B4XDaisyMenu`
-- `getActiveBorder As Boolean`
-- `getActiveColor As Int`
-- `getActiveTextColor As Int`
-- `getAutoRefresh As Boolean`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getBadgeRounded As String`
-- `getBadgeSize As String`
-- `getBadgeStyle As String`
-- `getBadgeVariant As String`
-- `getBringToFront As Boolean`
 - `GetComputedHeight As Int`
-- `getDividerGap As String`
-- `getDividers As Boolean`
-- `getEnabled As Boolean`
-- `getHeight As Float`
 - `GetItemView(iIndex As Int) As B4XView`
-- `getLeft As Int`
-- `getMargin As String`
-- `getOrientation As String`
-- `getPadding As String`
 - `GetPreferredHeight As Int`
 - `GetPreferredWidth As Int`
-- `getRailMode As Boolean`
-- `getRightBorder As Boolean`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getSize As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
-- `getVisible As Boolean`
-- `getWidth As Float`
 - `Initialize(oCallback As Object, sEventName As String)`
 - `LoadFromList(lstItemsList As List)`
 - `OpenAllSubmenus`
@@ -124,22 +115,6 @@ y = y + mnu.GetComputedHeight + gap
 - `RemoveViewFromParent`
 - `ScrollToItem(oTagValue As Object)`
 - `SendToBack`
-- `setActiveBorder(bValue As Boolean)`
-- `setActiveColor(iValue As Int)`
-- `setActiveTextColor(iValue As Int)`
-- `setAutoRefresh(bValue As Boolean)`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBadgeRounded(sValue As String)`
-- `setBadgeSize(sValue As String)`
-- `setBadgeStyle(sValue As String)`
-- `setBadgeVariant(sValue As String)`
-- `setBringToFront(bValue As Boolean)`
-- `setDividerGap(sValue As String)`
-- `setDividers(bValue As Boolean)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(oValue As Object)`
 - `SetItemActive(oTagValue As Object, bValue As Boolean)`
 - `SetItemAvatar(oTagValue As Object, oAvatar As Object)`
 - `SetItemAvatarShape(oTagValue As Object, sShape As String)`
@@ -156,14 +131,63 @@ y = y + mnu.GetComputedHeight + gap
 - `SetItemText(oTagValue As Object, sValue As String)`
 - `SetItemVisible(oTagValue As Object, bValue As Boolean)`
 - `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `setLeft(iValue As Int)`
 - `SetLevelInternal(iLevel As Int)`
-- `setMargin(sValue As String)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
 - `SetParentMenuInternal(ParentMenu As B4XDaisyMenu)`
 - `SetParentsOpen(bOpenState As Boolean)`
 - `SetPopupMode(bValue As Boolean)`
+- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
+- `UpdateTheme`
+- `View As B4XView`
+- `getActiveBorder As Boolean`
+- `getActiveColor As Int`
+- `getActiveTextColor As Int`
+- `getAutoRefresh As Boolean`
+- `getAutoResize As Boolean`
+- `getBackgroundColor As Int`
+- `getBadgeRounded As String`
+- `getBadgeSize As String`
+- `getBadgeStyle As String`
+- `getBadgeVariant As String`
+- `getBringToFront As Boolean`
+- `getDividerGap As String`
+- `getDividers As Boolean`
+- `getEnabled As Boolean`
+- `getHeight As Float`
+- `getLeft As Int`
+- `getMargin As String`
+- `getOrientation As String`
+- `getPadding As String`
+- `getRailMode As Boolean`
+- `getRightBorder As Boolean`
+- `getRounded As String`
+- `getRoundedBox As Boolean`
+- `getShadow As String`
+- `getSize As String`
+- `getTag As Object`
+- `getTextColor As Int`
+- `getTop As Int`
+- `getVisible As Boolean`
+- `getWidth As Float`
+- `setActiveBorder(bValue As Boolean)`
+- `setActiveColor(iValue As Int)`
+- `setActiveTextColor(iValue As Int)`
+- `setAutoRefresh(bValue As Boolean)`
+- `setAutoResize(bValue As Boolean)`
+- `setBackgroundColor(iValue As Int)`
+- `setBackgroundColorVariant(sVariantName As String)`
+- `setBadgeRounded(sValue As String)`
+- `setBadgeSize(sValue As String)`
+- `setBadgeStyle(sValue As String)`
+- `setBadgeVariant(sValue As String)`
+- `setBringToFront(bValue As Boolean)`
+- `setDividerGap(sValue As String)`
+- `setDividers(bValue As Boolean)`
+- `setEnabled(bValue As Boolean)`
+- `setHeight(oValue As Object)`
+- `setLeft(iValue As Int)`
+- `setMargin(sValue As String)`
+- `setOrientation(sValue As String)`
+- `setPadding(sValue As String)`
 - `setRailMode(bValue As Boolean, iIntendedWidth As Int)`
 - `setRightBorder(bValue As Boolean)`
 - `setRightBorderColor(iValue As Int)`
@@ -171,16 +195,14 @@ y = y + mnu.GetComputedHeight + gap
 - `setRoundedBox(bValue As Boolean)`
 - `setShadow(sValue As String)`
 - `setSize(sValue As String)`
-- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
 - `setTag(oValue As Object)`
 - `setTextColor(iValue As Int)`
 - `setTextColorVariant(sVariantName As String)`
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(oValue As Object)`
-- `UpdateTheme`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

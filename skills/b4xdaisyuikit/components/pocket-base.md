@@ -1,39 +1,32 @@
 # pocket-base (`B4XDaisyPocketBase`)
 
-Integrated REST & RealTime backend client for connecting B4XDaisy apps to PocketBase databases, authentication, file storage, and live SSE subscriptions.
+DaisyUI `PocketBase` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPocketBase`
-- **Status**: `Documented-only`
+- **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyPocketBase.bas`
-- **Web DaisyUI Mapping**: `.pocketbase` → `B4XDaisyPocketBase`
+- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Web DaisyUI Mapping**: `.pocket-base` → `B4XDaisyPocketBase`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim pb As B4XDaisyPocketBase
-pb.Initialize(Me, "pb", "https://my-pocketbase-server.com", "products")
-
-' Authenticate user
-Wait For (pb.AuthWithPassword("user@example.com", "secret123")) pb_Success (Data As Map)
-Log("Logged in as: " & Data.Get("record"))
-
-' Fetch list of records
-Wait For (pb.GetList(1, 20, "created DESC", "active = true")) pb_Success (Result As Map)
-Dim items As List = Result.Get("items")
-For Each item As Map In items
-    Log("Product: " & item.Get("title"))
-Next
-
+' No demo found for B4XDaisyPocketBase
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Integrated REST & RealTime backend client for PocketBase databases.
-- Authenticate users with `Wait For (pb.AuthWithPassword(Email, Pass)) pb_Success`.
-- Perform async CRUD operations using `GetList`, `Create`, `Update`, and `Delete`.
-- Subscribe to live SSE realtime updates via `Subscribe(Topic)` and handle `RealTime (Data As Map)` event.
+### Lifecycle Sequence
+1. Component `B4XDaisyPocketBase` is declared in library source but no demo page references or instantiates it.
+
+### Preconditions & Gotchas
+- Not demonstrated in any demo page.
+- Verify source code and internal dependencies directly before production use.
+
+### Discrepancies & API Nuances
+- Component `B4XDaisyPocketBase` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-None declared.
+*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
 
 ## 5. Declared Events
 - `Connect (data As Map)`
@@ -47,46 +40,280 @@ None declared.
 - `AfterSend (response As Object, data As Object)`
 
 ## 6. Public Methods & APIs
+- `ADD_EXPAND(sSexpand As String) As B4XDaisyPocketBase`
+- `ADD_FIELD(sFld As String) As B4XDaisyPocketBase`
+- `ADD_FIELDS(lstFields As List) As B4XDaisyPocketBase`
+- `ADD_FILE_FIELD(sFld As String, sFldURL As String) As B4XDaisyPocketBase`
+- `ADD_GROUP_BY(lstGrpBys As List)`
+- `ADD_ORDER_BY(sFld As String) As B4XDaisyPocketBase`
+- `ADD_ORDER_BY_CREATED_AT As B4XDaisyPocketBase`
+- `ADD_ORDER_BY_DESC(sFld As String) As B4XDaisyPocketBase`
+- `ADD_ORDER_BY_UPDATED_AT As B4XDaisyPocketBase`
+- `ADD_OR_WHERE(sFld As String, sOperator As String, oValue As Object) As B4XDaisyPocketBase`
+- `ADD_OR_WHERE_STRING(sFld As String, sOperator As String, oValue As Object) As B4XDaisyPocketBase`
+- `ADD_WHERE(sFld As String, sOperator As String, oValue As Object) As B4XDaisyPocketBase`
+- `ADD_WHERE_STRING(sFld As String, sOperator As String, oValue As Object) As B4XDaisyPocketBase`
+- `ADMIN_AUTH_REFRESH As ResumableSub`
+- `ADMIN_AUTH_WITH_PASSWORD(sEmail As String, sPwd As String) As ResumableSub`
+- `ADMIN_CONFIRM_PASSWORD_RESET(sToken As String, sNewPassword As String, sConfimPassword As String) As ResumableSub`
+- `ADMIN_REQUEST_PASSWORD_RESET(sEmail As String) As ResumableSub`
+- `AddFilter(sFltr As String)`
+- `AddHeader(sProp As String, sValue As String)`
+- `AssignRealRecord(mDbRecord As Map)`
+- `BATCH_ADD_CREATE`
+- `BATCH_ADD_DELETE`
+- `BATCH_ADD_UPDATE`
+- `BATCH_ADD_UPSERT`
+- `BATCH_CREATE`
+- `BATCH_SEND As ResumableSub`
+- `BuildFileThumbNailURL(sId As String, sFileName As String, sWidth As String, sHeight As String) As String`
+- `BuildFileURL(sId As String, sFileName As String) As String`
+- `CHANGE_USER_PASSWORD(sUEmail As String, sNewPassword As String, sConfirmPassword As String) As ResumableSub`
+- `CLEAR_WHERE As B4XDaisyPocketBase`
+- `COUNT_ALL As ResumableSub`
+- `CREATE As ResumableSub`
+- `CREATE_ADMIN(mProfile As Map) As ResumableSub`
+- `CREATE_COLLECTION(sNameOf As String, sColType As String, lstColSchema As List) As ResumableSub`
+- `CREATE_COLLECTION1(sNameOf As String, lstColSchema As List, sScreateRule As String, sSupdateRule As String, sSdeleteRule As String, sSlistRule As String, sSviewRule As String) As ResumableSub`
+- `CREATE_COLLECTION2(sNameOf As String, sTypeOf As String, lstColSchema As List, sScreateRule As String, sSupdateRule As String, sSdeleteRule As String, sSlistRule As String, sSviewRule As String, lstIndexes As List, mOptions As Map) As ResumableSub`
+- `CREATE_COLLECTION_ORIGINAL(mCol As Map) As ResumableSub`
+- `CREATE_FORM As ResumableSub`
+- `CREATE_FORMDATA(sFileField As String) As ResumableSub`
+- `CREATE_OR_UPDATE As ResumableSub`
+- `CREATE_OR_UPDATE_BY_FIELD(sFldName As String) As ResumableSub`
+- `CREATE_USER(mProfile As Map) As ResumableSub`
+- `CREATE_USER_FORM As ResumableSub`
+- `CREATE_VIEW(sNameOf As String, sQry As String) As ResumableSub`
+- `CancelAllRequests`
+- `CancelRequest(sReqKey As String)`
+- `ClearHeaders`
+- `ContainsField(sFldName As String, oFldValue As Object) As ResumableSub`
+- `ContainsFieldFetch(sFldName As String, sId As String) As ResumableSub`
+- `ContainsKey(sId As String) As ResumableSub`
+- `ContainsKeyFetch(sId As String) As ResumableSub`
+- `DELETE(sId As String) As ResumableSub`
+- `DELETE_ADMIN(sId As String) As ResumableSub`
+- `DELETE_ALL As ResumableSub`
+- `DELETE_ALL_REST(sTable As String) As ResumableSub`
+- `DELETE_ALL_RESTAUTH(sTable As String) As ResumableSub`
+- `DELETE_BY(sFldName As String, sFldValue As String) As ResumableSub`
+- `DELETE_BY_STRING(sFldName As String, sFldValue As String) As ResumableSub`
+- `DELETE_COLLECTION(sColName As String) As ResumableSub`
+- `DELETE_FETCH(sDelID As String) As ResumableSub`
+- `DELETE_MULTIPLE(lstItems As List) As ResumableSub`
+- `DELETE_USER(sId As String) As ResumableSub`
+- `DELETE_WHERE As ResumableSub`
+- `Download (sContent As String, sFileName As String)`
+- `EstablishFileUrl(sFileField As String, sUrlField As String)`
+- `EstablishFileUrl1(mRec As Map, sFileField As String, sUrlField As String)`
+- `Exists(sFldName As String, oFldValue As Object) As ResumableSub`
+- `ExistsByString(sFldName As String, oFldValue As Object) As ResumableSub`
+- `ExistsByStringFetch(sFldName As String, oFldValue As Object) As ResumableSub`
+- `ExistsFetch(sFldName As String, oFldValue As Object) As ResumableSub`
+- `ExistsWhere(mWhere As Map) As ResumableSub`
+- `ExistsWhereFetch(mWhere As Map) As ResumableSub`
+- `FILE_FIELD(sFld As String, sFldUrl As String) As B4XDaisyPocketBase`
+- `FirstRecord As Map`
+- `GET_ID_BY_FIELD(sFldName As String, sFldValue As String) As ResumableSub`
+- `GET_ID_BY_FIELD_FETCH(sFldName As String, sFldValue As String) As ResumableSub`
+- `GetAffectedID As B4XDaisyPocketBase`
+- `GetBoolean(sFld As String) As Boolean`
+- `GetDataModel As ResumableSub`
+- `GetDataModelOfTable(sTblName As String) As ResumableSub`
+- `GetDataModels(sE As String, sP As String) As ResumableSub`
+- `GetDocumentURL(sFileField As String) As String`
+- `GetDouble(sFld As String) As Double`
+- `GetFirstListItem(sTable As String) As ResumableSub`
+- `GetFirstListItemFetch(sTable As String) As ResumableSub`
+- `GetImage(sFld As String) As String`
+- `GetInt(sFld As String) As Int`
 - `GetJWTPayload(sToken As String) As Map`
-- `Initialize(oModule As Object, sEventName As String, sUrl As String, sTableName As String) As B4XDaisyPocketBase`
-- `IsRecordValid(mMap As Map, lstProps As List) As Boolean`
+- `GetKeyValues(bHasNothing As Boolean, sK As String, sV As String) As ResumableSub`
+- `GetKeyValuesFromList(lstSource As List, bHasNothing As Boolean, sK As String, sV As String) As Map`
+- `GetLong(sFld As String) As Long`
+- `GetRealRecord(mDbRecord As Map) As Map`
+- `GetRecord(iPos As Int) As Map`
+- `GetRecordURLLink(mRec As Map, sTable As String, sFilesFieldName As String) As String`
+- `GetRecordsCount As Int`
+- `GetRecursive(mData As Map, sPath As String) As Object`
+- `GetString(sFld As String) As String`
+- `GetURLLink(sFilesFieldName As String) As String`
+- `GetViews(sE As String, sP As String) As ResumableSub`
+- `Initialize(oModule As Object, sEventName As String, sUrl As String, sTable As String) As B4XDaisyPocketBase`
 - `ListKeys As ResumableSub`
-
+- `MoveFirst`
+- `MoveLast`
+- `MoveNext`
+- `MovePrevious`
+- `MoveStart`
+- `NextID As String`
+- `NextRow As Boolean`
+- `OrWhereEqual(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereGreaterThan(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereGreaterThanEqualTo(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereLessThan(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereLessThanEqualTo(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereLike(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereNotEqual(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `OrWhereNotLike(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `PrepareForm`
+- `PrepareRecord`
+- `PutRecursive(mData As Map, sPath As String, oValue As Object)`
+- `READ(sId As String) As ResumableSub`
+- `READ_ADMIN(sId As String) As ResumableSub`
+- `READ_BY(sFldName As String, oFldValue As Object) As ResumableSub`
+- `READ_BY_FETCH(sFldName As String, oFldValue As Object) As ResumableSub`
+- `READ_BY_FIELDS(sFldName As String, oFldValue As Object, lstFields As List) As ResumableSub`
+- `READ_BY_FIELDS_FETCH(sFldName As String, oFldValue As Object, lstTheseFlds As List) As ResumableSub`
+- `READ_BY_STRING(sFldName As String, sFldValue As String) As ResumableSub`
+- `READ_BY_STRING_FETCH(sFldName As String, oFldValue As Object) As ResumableSub`
+- `READ_BY_STRING_FIELDS(sFldName As String, sFldValue As String, lstFields As List) As ResumableSub`
+- `READ_BY_STRING_FIELDS1(sFldName As String, oFldValue As Object) As ResumableSub`
+- `READ_BY_STRING_FIELDS_FETCH(sFldName As String, oFldValue As Object, lstTheseFlds As List) As ResumableSub`
+- `READ_COLLECTION(sId As String) As ResumableSub`
+- `READ_FETCH(sId As String) As ResumableSub`
+- `READ_FIELDS(sId As String, lstFields As List) As ResumableSub`
+- `READ_FIELDS_FETCH(oFldValue As Object, lstTheseFlds As List) As ResumableSub`
+- `READ_ID_BY(sFldName As String, oFldValue As Object) As ResumableSub`
+- `READ_ID_BY_FETCH(sFldName As String, sFldValue As String) As ResumableSub`
+- `READ_ID_BY_STRING(sFldName As String, sFldValue As String) As ResumableSub`
+- `READ_ID_BY_STRING_FETCH(sFldName As String, sFldValue As String) As ResumableSub`
+- `READ_ID_WHERE(mWhereIs As Map) As ResumableSub`
+- `READ_USER(sId As String) As ResumableSub`
+- `RealtimePublish(oModule As Object, sTopicName As String, sValue As String)`
+- `RealtimeSubscribe(sTopicName As String, oModule As Object, sMethodName As String)`
+- `RealtimeUnSubscribe(sTopicName As String)`
+- `RealtimeUnSubscribeByPrefix(sTopicName As String)`
+- `RecordFromMap(mSm As Map)`
+- `RemoveField(sFldName As String)`
+- `RemoveFields(lstThemFields As List)`
+- `Reset As B4XDaisyPocketBase`
+- `SELECT_ALL As ResumableSub`
+- `SELECT_ALL_ADMINS As ResumableSub`
+- `SELECT_ALL_COLLECTIONS(sE As String, sP As String) As ResumableSub`
+- `SELECT_ALL_COLLECTIONS_NAMES(sE As String, sP As String) As ResumableSub`
+- `SELECT_ALL_FETCH As ResumableSub`
+- `SELECT_ALL_USERS As ResumableSub`
+- `SELECT_COLLECTIONS() As ResumableSub`
+- `SELECT_RAW(sQry As String) As ResumableSub`
+- `SELECT_TO_VIEW(sNameOf As String) As ResumableSub`
+- `SELECT_TO_VIEW_ONLY(sNameOf As String) As ResumableSub`
+- `SELECT_VIEW(sViewName As String) As ResumableSub`
+- `SELECT_WHERE As ResumableSub`
+- `SELECT_WHERE1 As ResumableSub`
+- `SELECT_WHERE1_FETCH As ResumableSub`
+- `SELECT_WHERE_FETCH As ResumableSub`
+- `SEND_EMAIL_REST(sToEmail As String, sSubject As String, sMessage As String) As ResumableSub`
+- `SERVER_DATE_TIME As ResumableSub`
+- `SchemaAdd(sSurl As String, sSemail As String, sSpassword As String, lstCollections As List) As ResumableSub`
+- `SchemaAddBlob(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddBlob1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddBoolean(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddBoolean1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddDouble(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddDouble1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddFile(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddFile1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddFloat(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddFloat1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddFromAsset(sSassetFile As String, sSemail As String, sSpassword As String) As ResumableSub`
+- `SchemaAddIndex(sIdxName As String, bUnique As Boolean) As B4XDaisyPocketBase`
+- `SchemaAddIndexes(lstIdxNames1 As List) As B4XDaisyPocketBase`
+- `SchemaAddInt(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddInt1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddJson(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddJson1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddLongText(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddLongText1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddNumber(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddNumber1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddRelation(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddRelation1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddText(lstBools As List) As B4XDaisyPocketBase`
+- `SchemaAddText1(sB As String) As B4XDaisyPocketBase`
+- `SchemaAddUniqueIndexes(lstIdxNames1 As List) As B4XDaisyPocketBase`
+- `SchemaBackUp(sPrjName As String, sSurl As String, sSemail As String, sSpassword As String) As ResumableSub`
+- `SchemaClear`
+- `SchemaGet(sPrjName As String, sSurl As String, sSemail As String, sSpassword As String) As ResumableSub`
+- `SchemaRestore(sSurl As String, sSemail As String, sSpassword As String, lstCollections As List) As ResumableSub`
+- `SchemaRestoreFromAsset(sSassetFile As String, sSemail As String, sSpassword As String) As ResumableSub`
+- `SchemaTableGet(sFtblName As String, sSurl As String, sSemail As String, sSpassword As String) As ResumableSub`
+- `SchemaToPocketBase As Map`
+- `SchemaUpdate(sSurl As String, sSemail As String, sSpassword As String, lstCollections As List) As ResumableSub`
+- `Schema_CreateCollection(sNameOf As String, sColType As String, mOptions As Map) As ResumableSub`
+- `SetAuthorizationBearerToken(sToken As String)`
+- `SetAutoCancellation(bValue As Boolean)`
+- `SetField(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `SetFieldsFromDataModel(mModels As Map)`
+- `SetForm(mMap As Map)`
+- `SetFormField(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `SetFormFile(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `SetNextID`
+- `SetRecord(mRec As Map)`
+- `SetRecordAsIs(mRec As Map)`
+- `SetRecordAt(iPos As Int, mRec As Map)`
+- `SetRecords(lstItems As List)`
+- `SetSchemaFromDataModel(mModels As Map)`
+- `SetSchemaFromDataModel1(sSourceTable As String, mModels As Map)`
+- `Subscribe(oModule As Object, sTable As String)`
+- `SubscribeToRecord(oModule As Object, sTable As String, sId As String)`
+- `UPDATE As ResumableSub`
+- `UPDATE_ADMIN(sId As String, mProfile As Map) As ResumableSub`
+- `UPDATE_BY(sFldName As String, sFldValue As String) As ResumableSub`
+- `UPDATE_BY_STRING(sFldName As String, sFldValue As String) As ResumableSub`
+- `UPDATE_COLLECTION(sColName As String, mColSchema As Map) As ResumableSub`
+- `UPDATE_COLLECTION1(sNameOf As String, lstColSchema As List, sScreateRule As String, sSupdateRule As String, sSdeleteRule As String, sSlistRule As String, sSviewRule As String) As ResumableSub`
+- `UPDATE_COLLECTION2(sColName As String, sTypeOf As String, lstColSchema As List, sScreateRule As String, sSupdateRule As String, sSdeleteRule As String, sSlistRule As String, sSviewRule As String, lstIndexes As List, mOptions As Map) As ResumableSub`
+- `UPDATE_COLLECTION_ORIGINAL(mCol As Map) As ResumableSub`
+- `UPDATE_PER_FIELD As ResumableSub`
+- `UPDATE_USER(sId As String, mProfile As Map) As ResumableSub`
+- `USER_AUTH_REFRESH As ResumableSub`
+- `USER_AUTH_WITH_GOOGLE As ProfileType`
+- `USER_AUTH_WITH_PASSWORD(sEmail As String, sPwd As String) As ResumableSub`
+- `USER_CONFIRM_EMAIL_CHANGE(sToken As String, sEmail As String) As ResumableSub`
+- `USER_CONFIRM_PASSWORD_RESET(sToken As String, sNewPassword As String, sConfimPassword As String) As ResumableSub`
+- `USER_CONFIRM_VERIFICATION(sToken As String) As ResumableSub`
+- `USER_ISVALID As Boolean`
+- `USER_MODEL As String`
+- `USER_REQUEST_EMAIL_CHANGE(sEmail As String) As ResumableSub`
+- `USER_REQUEST_PASSWORD_RESET(sEmail As String) As ResumableSub`
+- `USER_REQUEST_VERIFICATION(sEmail As String) As ResumableSub`
+- `USER_REVOKE_GOOGLE_TOKEN`
+- `USER_SIGNOUT`
+- `USER_TOKEN As String`
+- `UnSubscribe(sTable As String)`
+- `UnSubscribeToRecord(sTable As String, sId As String)`
+- `WHERE_AND(iPos As Int) As B4XDaisyPocketBase`
+- `WHERE_OR(iPos As Int) As B4XDaisyPocketBase`
+- `deleteWhere(sPriKey As String, mWhereMap As Map, lstWhereOps As List) As ResumableSub`
+- `findWhere(mWhereMap As Map, lstWhereOps As List) As ResumableSub`
+- `findWhereFetch(mWhereMap As Map, lstWhereOps As List) As ResumableSub`
+- `findWhereOrderBy(mWhereMap As Map, lstWhereOps As List, lstOrderByx As List) As ResumableSub`
+- `findWhereOrderByFetch(mWhereMap As Map, lstWhereOps As List, lstOrderByx As List) As ResumableSub`
+- `getFields As List`
+- `getFileURL(mRec As Map, sFilesFieldName As String) As String`
+- `getFileURLTo(mRec As Map, sFileField As String, sUrlField As String)`
+- `getNoCache As Boolean`
+- `getPosition As Int`
+- `groupBy(lstFldNames As List) As B4XDaisyPocketBase`
+- `orderBy(lstFldNames As List) As B4XDaisyPocketBase`
+- `orderByDesc(lstFldNames As List) As B4XDaisyPocketBase`
+- `selectFields(lstFldNames As List) As B4XDaisyPocketBase`
+- `setApiKey(sValue As String)`
+- `setFields(lstTflds As List)`
+- `setNoCache(bValue As Boolean)`
+- `setPosition(iPos As Int)`
+- `setTableName(sValue As String)`
+- `whereBetween(sFldName As String, oFldStart As Object, oFldEnd As Object) As B4XDaisyPocketBase`
+- `whereEqual(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereGreaterThan(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereGreaterThanEqualTo(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereLessThan(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereLessThanEqualTo(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereLike(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereNotEqual(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
+- `whereNotLike(sFldName As String, oFldValue As Object) As B4XDaisyPocketBase`
 
 ## 7. Public Fields
-- `CountRecords As Boolean`
-- `CreateRule As String`
-- `DeleteRule As String`
-- `DisplayField As String`
-- `DisplayValue As String`
-- `GetFiles As Boolean`
-- `IsAuthenticated As Boolean`
-- `ListRule As String`
-- `MatchSchema As Boolean`
-- `Operations As List`
-- `Plural As String`
-- `PrimaryKey As String`
-- `Record As Map`
-- `RowCount As Int`
-- `Schema As Map`
-- `ShowLog As Boolean`
-- `Singular As String`
-- `Success As Boolean`
-- `Tag As Object`
-- `UpdateRule As String`
-- `Upgrade As Boolean`
-- `UseAPIKey As Boolean`
-- `UseBatch As Boolean`
-- `UseRawInsertForm As Boolean`
-- `UseRawUpdateForm As Boolean`
-- `UserModel As Map`
-- `UserProfile As ProfileType`
-- `UserRecord As Map`
-- `UserToken As String`
-- `UserValid As Boolean`
-- `UsersCollectionName As String`
-- `ViewRule As String`
-- `batchSize As Int`
-- `const`
-- `result As List`
-- `skipTotal As Boolean`
+- `mBase As B4XView`
+

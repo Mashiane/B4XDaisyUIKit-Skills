@@ -3,6 +3,8 @@
 
 This reference blueprint details the canonical, evidence-backed implementation of dashboard screens and statistic widgets inside native B4X Pages. Following codebase utilization audits, all layouts are hosted within `B4XDaisyPageScroll` and arranged programmatically using sequential accumulator stacking coordinates instead of custom grids or flexible panels.
 
+> **Scope:** Stat (`B4XDaisyStat`/`StatItem` + `Timeline`) dashboards. For media-heavy dashboards (Carousel + KPI Grid + Aura + Diff) see `ch08-dashboards-media-sliders.md` — complementary, not duplicate.
+
 ---
 
 ## 📊 THE DASHBOARD LIFECYCLE TEMPLATE (svHost-Hosting Parity)

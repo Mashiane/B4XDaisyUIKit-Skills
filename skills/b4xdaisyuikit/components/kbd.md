@@ -1,42 +1,52 @@
 # kbd (`B4XDaisyKbd`)
 
-Keyboard key display component — renders styled keys like `⌘`, `Ctrl`, `Enter`.
+DaisyUI `Kbd` component for B4X (B4A/B4i/B4J).
 
 ## 1. Overview
 - **Class**: `B4XDaisyKbd`
-- **Status**: `Demonstrated`
+- **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyKbd.bas`
+- **Verified Demo Source**: B4XPageKbd.bas (lines 268–269)
 - **Web DaisyUI Mapping**: `.kbd` → `B4XDaisyKbd`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Dim kb As B4XDaisyKbd
-kb.Initialize(Me, "kb")
-kb.AddToParent(pnlHost, pad, y, 60dip, 40dip)
-kb.Text = "Ctrl"
-kb.Size = "md"
-y = y + kb.GetComputedHeight + gap
-
+Private Sub AddKbd(Text As String, Size As String, Left As Int, Top As Int, Width As Int, Height As Int, Tag As String) As B4XDaisyKbd
+    Dim k As B4XDaisyKbd
+    k.Initialize(Me, "component")
+    k.AddToParent(pnlHost, Left, Top, Width, Height)
+    k.Text = Text
+    k.Size = Size
+    k.Tag = Tag
+    Return k
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
-- Compact keyboard shortcut badge (e.g. ⌘K, Ctrl+C, Enter).
-- Set `KeyText` to the shortcut character string.
-- Set `Size` (`"xs"`, `"sm"`, `"md"`, `"lg"`) to match adjacent typography.
-- Can be embedded inside input trailing slots or list items.
+### Lifecycle Sequence
+1. **Declaration:** Declare variable `Dim <var> As B4XDaisyKbd` (in `Class_Globals` or local sub).
+2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
+3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+
+### Preconditions & Gotchas
+- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+
+### Discrepancies & API Nuances
+- Public methods not demonstrated in demo pages: `getText, getSize, getRounded` (+ 11 more).
 
 ## 4. Designer Properties
-| Key | Display name | Type | Default | Allowed values |
-|---|---|---|---|---|
-| Text | Text | String | K |  |
-| Size | Size | String | md | xs|sm|md|lg|xl |
-| Rounded | Rounded | String | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| Padding | Padding | String |  |  |
-| Margin | Margin | String |  |  |
-| BackgroundColor | Background Color | Color | 0x00FFFFFF |  |
-| TextColor | Text Color | Color | 0x00FFFFFF |  |
-| Visible | Visible | Boolean | True |  |
-| AutoResize | Auto Resize | Boolean | True |  |
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Text` | Text | `String` | `K` |  |
+| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
+| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Padding` | Padding | `String` | `` |  |
+| `Margin` | Margin | `String` | `` |  |
+| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
+| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
+| `Visible` | Visible | `Boolean` | `True` |  |
+| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -46,9 +56,14 @@ y = y + kb.GetComputedHeight + gap
 - `Base_Resize(dWidth As Double, dHeight As Double)`
 - `BringToFront`
 - `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `GetComputedHeight As Int`
+- `Initialize(oCallback As Object, sEventName As String)`
+- `RemoveViewFromParent`
+- `SendToBack`
+- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `View As B4XView`
 - `getAutoResize As Boolean`
 - `getBackgroundColor As Int`
-- `GetComputedHeight As Int`
 - `getHeight As Int`
 - `getLeft As Int`
 - `getMargin As String`
@@ -61,13 +76,9 @@ y = y + kb.GetComputedHeight + gap
 - `getTop As Int`
 - `getVisible As Boolean`
 - `getWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
 - `setAutoResize(bValue As Boolean)`
 - `setBackgroundColor(iValue As Int)`
 - `setHeight(iValue As Int)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
 - `setLeft(iValue As Int)`
 - `setMargin(sValue As String)`
 - `setPadding(sValue As String)`
@@ -79,8 +90,8 @@ y = y + kb.GetComputedHeight + gap
 - `setTop(iValue As Int)`
 - `setVisible(bValue As Boolean)`
 - `setWidth(iValue As Int)`
-- `View As B4XView`
-
 
 ## 7. Public Fields
 - `mBase As B4XView`
+- `xui As XUI`
+

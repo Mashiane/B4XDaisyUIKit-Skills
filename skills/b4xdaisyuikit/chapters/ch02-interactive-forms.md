@@ -89,8 +89,10 @@ Private Sub RenderForm(W As Int, H As Int)
     selectRole.AddToParent(pnlHost, pad, y, maxW, 60dip)
     selectRole.LabelAbove = "Access Role"
     selectRole.Required = True
-    selectRole.setOptions("user:Standard User|manager:Manager|admin:System Administrator")
-    selectRole.setSelectedValue("user")
+    selectRole.AddItem("user", "Standard User")
+    selectRole.AddItem("manager", "Manager")
+    selectRole.AddItem("admin", "System Administrator")
+    selectRole.Value = "user"
     y = y + selectRole.GetComputedHeight + gap
     
     ' Preferred Technology Chip Badges
@@ -166,18 +168,20 @@ Private Sub SaveProfileToDatabase(ProfileMap As Map)
     
     Dim pb As B4XDaisyPocketBase
     pb.Initialize(Me, "pb", "https://my-daisy-backend.net", "profiles")
-    pb.PrepareRecord
-    pb.CREATE(ProfileMap)
+    ' Set fields from profile map
+    For Each k As String In ProfileMap.Keys
+        pb.SetField(k, ProfileMap.Get(k))
+    Next
     
     ' Fire Async HTTP request and Wait For response completion
-    Wait For (pb.CREATE_FETCH) Complete (newRecordId As String)
+    Wait For (pb.CREATE) Complete (res As Map)
     
     ' Hide loader block
     B4XPages.MainPage.AppLoader.Hide
     
-    If newRecordId.Length > 0 Then
+    If pb.Success Then
         ' Trigger Swal Confirmation dialog and wait for backdrop dismiss
-        Wait For (B4XPages.MainPage.ShowSwalAlert("Success", "Account has been registered successfully.", "success", True)) Complete (res As Object)
+        Wait For (B4XPages.MainPage.ShowSwalAlert("Success", "Account has been registered successfully.", "success", True)) Complete (res2 As Object)
         B4XPages.ClosePage(Me)
     Else
         B4XPages.MainPage.ShowToastError("Database error. Please try again.", True)

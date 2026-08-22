@@ -43,7 +43,7 @@ When given web HTML markup, JSX, or Tailwind CSS templates, follow this determin
    | **Data Input** | `.input` / `input[type="text"]`| `B4XDaisyInput` | `Placeholder`, `Label`, `Text`, `Validate`|
    | | `.input[type="password"]` | `B4XDaisyInput` | `.Password = True`, `IconRight` |
    | | `.otp` / `pin` | `B4XDaisyOTP` | `Digits`, `Masked`, `AutoSubmit` |
-   | | `.textarea` | `B4XDaisyTextarea` / `B4XDaisyInput` | `Rows`, `Placeholder`, `Text` |
+   | | `.textarea` | `B4XDaisyInput (SingleLine = False)` | `Rows`, `Placeholder`, `Text` |
    | | `.checkbox` / `.checkbox-group`| `B4XDaisyCheckbox` / `B4XDaisyCheckboxGroup`| `Checked`, `ItemsSpec`, `SelectedValues` |
    | | `.radio` / `.radio-group` | `B4XDaisyRadio` / `B4XDaisyRadioGroup` | `Checked`, `GroupName`, `ItemsSpec` |
    | | `.toggle` / `.toggle-group`| `B4XDaisyToggle` / `B4XDaisyToggleGroup` | `Checked`, `ItemsSpec`, `Direction` |
@@ -89,7 +89,7 @@ When given web HTML markup, JSX, or Tailwind CSS templates, follow this determin
    | :--- | :--- | :--- |
    | `<input type="text" class="input">` | `B4XDaisyInput` | `.Placeholder`, `.Label`, `.Text`, `.Border = True` |
    | `<input type="password" class="input">` | `B4XDaisyInput` | `.Password = True`, `.Label = "Password"` |
-   | `<textarea class="textarea">` | `B4XDaisyTextarea` | `.Placeholder`, `.Label`, `.Rows = 4` |
+   | `<textarea class="textarea">` | `B4XDaisyInput` | `.Placeholder`, `.Label`, `.Rows = 4` |
    | `<button class="btn btn-primary">` | `B4XDaisyButton` | `.Color = "primary"`, `.Text = "..."`, `.Height = 48dip` |
    | `<button class="btn btn-outline">` | `B4XDaisyButton` | `.Variant = "outline"`, `.Color = "primary"` |
    | `<button class="btn btn-circle">` | `B4XDaisyIconButton` | `.Shape = "circle"`, `.IconName = "svg-name"` |
@@ -157,7 +157,7 @@ Private Sub B4XPage_Created (Root1 As B4XView)
     navbar.Initialize(Me, "navbar")
     navbar.AddToParent(Root, 0, 0, Root.Width, 64dip)
     navbar.Title = "App Title"
-    navbar.AddRightIcon("bell", "bell")
+    navbar.AddButtonIconToEnd("bellBtn", 36dip, "bell", 0xFF000000, True)
     
     ' Content Viewport
     pageScroll.Initialize(Me, "pageScroll")
@@ -180,29 +180,27 @@ Private Sub RenderContent(W As Float, H As Float)
     cardSec.Initialize(Me, "cardSec")
     cardSec.AddToParent(pageScroll.Panel, pad, curY, maxW, 230dip)
     cardSec.Title = "Account Security"
-    cardSec.Border = True
-    cardSec.Shadow = True
+    cardSec.Shadow = "sm"
     
     ' Inner Fieldset
     Dim fsetCreds As B4XDaisyFieldset
     fsetCreds.Initialize(Me, "fsetCreds")
-    fsetCreds.AddToParent(cardSec.Panel, 8dip, 44dip, maxW - 16dip, 100dip)
+    fsetCreds.AddToParent(cardSec.GetBodyPanel, 8dip, 44dip, maxW - 16dip, 100dip)
     fsetCreds.Legend = "Credentials"
     
     ' Email Input inside Fieldset
     Dim txtEmail As B4XDaisyInput
     txtEmail.Initialize(Me, "txtEmail")
-    txtEmail.AddToParent(fsetCreds.Panel, 8dip, 28dip, maxW - 32dip, 48dip)
-    txtEmail.Label = "Email Address"
+    fsetCreds.AddContentView(txtEmail.mBase, 8dip, 28dip, maxW - 32dip, 48dip)
+    txtEmail.LabelAbove = "Email Address"
     txtEmail.Placeholder = "user@domain.com"
-    txtEmail.Border = True
     
     ' Primary CTA Button inside Card
     Dim btnUpdate As B4XDaisyButton
     btnUpdate.Initialize(Me, "btnUpdate")
-    btnUpdate.AddToParent(cardSec.Panel, 8dip, 160dip, maxW - 16dip, 48dip)
+    btnUpdate.AddToParent(cardSec.GetBodyPanel, 8dip, 160dip, maxW - 16dip, 48dip)
     btnUpdate.Text = "Update Settings"
-    btnUpdate.Color = "primary"
+    btnUpdate.Variant = "primary"
     
     curY = curY + cardSec.GetComputedHeight + gap
     pageScroll.AutoFit(curY + pad)
@@ -267,7 +265,7 @@ Assemble pure native B4X code and run `b4x-verify` to ensure conformance.
 
 | Input Format | Primary Strategy | First Reference Document |
 | :--- | :--- | :--- |
-| **Web HTML / JSX** | Strip HTML/DOM $\rightarrow$ Map DaisyUI classes to B4X types $\rightarrow$ Mount in `RenderContent` | [`web-mapping.md`](web-mapping.md) |
+| **Web HTML / JSX** | Strip HTML/DOM $\rightarrow$ Map DaisyUI classes to B4X types $\rightarrow$ Mount in `RenderContent` | [`daisyui-native-compatibility.md`](daisyui-native-compatibility.md) |
 | **Screenshot / Mockup Image** | 5-Stage Vision Decomposition $\rightarrow$ Isolate insets $\rightarrow$ Construct tree | [`conversion-workflows.md`](conversion-workflows.md) |
 | **Figma Component Spec** | Frame auto-layout math $\rightarrow$ Spacing tokens $\rightarrow$ Native B4X layout | [`design-tokens.md`](design-tokens.md) |
 | **REST / PocketBase Data** | 4-State UI pattern (Loading, Populated, Empty, Error) | [`ux-master-doctrine.md`](ux-master-doctrine.md) |
