@@ -63,18 +63,10 @@ For semantic color naming, role definitions, theme tokens, and dynamic palette s
 To achieve production-grade design and complete full-stack functionality, pair this native UI component skill with the following official companion skills:
 
 ### 1. Design Intelligence & Aesthetics (UI/UX)
-For visual styles, curated 160+ color palettes, accessible contrast ratios, font pairings, mobile thumb-zone ergonomics, and chart choices:
-```bash
-/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
-/plugin install ui-ux-pro-max@nextlevelbuilder
-```
+For visual styles, curated 160+ color palettes, accessible contrast ratios, font pairings, mobile thumb-zone ergonomics, and chart choices, consult the `ui-ux-pro-max` skill or [ux-master-doctrine.md](references/ux-master-doctrine.md).
 
 ### 2. Core Language & Backend Logic (B4X)
-For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests:
-```bash
-/plugin marketplace add Jerryk133/b4x-skill
-/plugin install b4x@b4x-marketplace
-```
+For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests, consult the `b4x-development` skill or [b4x-primer.md](references/b4x-primer.md).
 
 ---
 

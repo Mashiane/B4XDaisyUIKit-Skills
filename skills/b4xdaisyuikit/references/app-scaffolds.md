@@ -82,7 +82,6 @@ Version=13.7
 #Macro: Title, Code bundle, ide://run?File=%ADDITIONAL%\CodeBundle.jar&Args=%PROJECT_NAME%
 'Ctrl + click to build b4xlib: ide://run?file=%JAVABIN%\jar.exe&WorkingDirectory=%PROJECT%\..&Args=-cMf&Args=%PROJECT_NAME%.b4xlib&&Args=..&Args=*.bas&Args=manifest.txt
 #Macro: Title, PowerShell, ide://run?File=%WINDIR%\System32\cmd.exe&args=/c&args=start&args=""&args=powershell.exe&args=-WorkingDirectory&args=%PROJECT%
-#Macro: Title, Claude, ide://run?File=%COMSPEC%&args=/c&args=start&args=claude://
 
 '#AdditionalJar: yoga-3.2.1-release.aar
 '#AdditionalJar: soloader-0.10.5.aar

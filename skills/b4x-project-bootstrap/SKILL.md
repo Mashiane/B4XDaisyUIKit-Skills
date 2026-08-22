@@ -44,11 +44,7 @@ component composition, and the `b4x-verify` skill for the conformance gate.
 
 ## Recommended Companion Skill
 
-For general B4X development conventions, database storage, and manifest configuration, install the companion B4X skill:
-```bash
-/plugin marketplace add Jerryk133/b4x-skill
-/plugin install b4x@b4x-marketplace
-```
+For general B4X development conventions, database storage, and manifest configuration, consult the companion `b4x-development` skill or `b4x-primer.md` in `references/`.
 
 ## The template files
 

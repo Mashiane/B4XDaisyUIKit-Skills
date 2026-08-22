@@ -13,7 +13,6 @@
 	#IncludeTitle: False
 	#DebuggerForceStandardAssets: true
 	#BridgeLogger: True
-	#AdditionalRes: res
 	#EdgeToEdgeOldDevices: False
 #End Region
 
@@ -48,12 +47,18 @@ Sub Process_Globals
 End Sub
 
 Sub Globals
-
+	Private ime As IME
 End Sub
 
 Sub Activity_Create (FirstTime As Boolean)
+	ime.Initialize("IME")
+	ime.AddHeightChangedEvent
 	Dim pm As B4XPagesManager
 	pm.Initialize(Activity)
+End Sub
+
+Sub IME_HeightChanged (NewHeight As Int, OldHeight As Int)
+	B4XPages.GetManager.RaiseEvent(B4XPages.GetManager.GetTopPage, "IME_HeightChanged", Array(NewHeight, OldHeight))
 End Sub
 
 Public Sub ShowResolutionDialog (SettingsStatus As LocationSettingsStatus) As ResumableSub

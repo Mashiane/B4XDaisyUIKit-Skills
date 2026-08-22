@@ -90,7 +90,7 @@ The Page Architect catalog provides pre-structured, verified native Android page
 * **Section Order**:
   1. Summary Banner (`B4XDaisyStat` Items Scanned / Total Expected).
   2. Live Count Input (`B4XDaisyInput` + Stepper Buttons).
-  3. Scanned Items Table (`B4XDaisyGrid` / `B4XDaisyList` with dynamic badge status).
+  3. Scanned Items List (`B4XDaisyList` with dynamic badge status).
   4. Floating Action Trigger (`B4XDaisyFab` for camera/scanner toggle).
 * **Verification Proof**: Verified in `B4XPageStat.bas`, `B4XPageFab.bas`, `B4XPageBadge.bas`.
 

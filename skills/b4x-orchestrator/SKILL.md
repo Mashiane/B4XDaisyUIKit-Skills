@@ -88,7 +88,7 @@ pwsh -File skills/b4x-verify/references/verify-conformance.ps1 -AppFolder <AppFo
 ### 6. Capture (L3 evidence)
 ```powershell
 pwsh -File skills/b4x-verify/references/capture-screens.ps1 -AppFolder <AppFolder> -Label <ScreenId>
-# fallback: user drops PNG into ux-review/screens/ if no device. No PNG → cannot ux-review → L5 block.
+# fallback: user drops PNG into ux-review/screens/ OR if running headless without attached ADB device, verify-conformance.ps1 evaluates static layout XML hierarchy tree.
 ```
 
 ### 7. Visual Review (L5)

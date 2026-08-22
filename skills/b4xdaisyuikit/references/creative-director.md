@@ -37,7 +37,7 @@ Native Android UI design requires strict adherence to physical hand ergonomics:
 
 | Density Level | Target Use Case | Recommended Components & Spacing |
 |---|---|---|
-| **High Density** | Analytics, stock-taking, data tables, live telemetry | `B4XDaisyStat` (Horizontal), `B4XDaisyGrid`, `B4XDaisyBadgeGroupSelect`, `YGap = 8dip` |
+| **High Density** | Analytics, stock-taking, data tables, live telemetry | `B4XDaisyStat` (Horizontal), `B4XDaisyList`, `B4XDaisyBadgeGroupSelect`, `YGap = 8dip` |
 | **Comfortable** | Standard business forms, checkout, user settings | `B4XDaisyFieldset`, `B4XDaisyInput`, `B4XDaisySelect`, `B4XDaisyToggle`, `YGap = 12dip` |
 | **Spacious / Hero** | Onboarding, welcome splash, success confirmations | `B4XDaisyHero`, `B4XDaisyCard` (Large), `B4XDaisyAvatar`, `YGap = 20dip` |
 

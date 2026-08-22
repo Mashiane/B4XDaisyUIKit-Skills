@@ -1,6 +1,6 @@
 # ⚡ B4XDaisyUIKit-Skills
 
-> **Supercharge Claude Code & AI Coding Agents to build 100% native B4X (B4A Android, B4i iOS, B4J Desktop) apps with DaisyUI / Tailwind CSS design semantics.**
+> **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4X (B4A Android, B4i iOS, B4J Desktop) mobile apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
 [![GitHub Release](https://img.shields.io/badge/Release-v1.2.2-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
@@ -11,15 +11,64 @@
 
 ## 📖 Overview
 
-**`B4XDaisyUIKit-Skills`** is the official AI agent skill suite for **[B4XDaisyUIKit](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)**. It equips AI developer agents (Claude Code, Antigravity, OpenCode, Codex, Cursor) with full, verified knowledge to autonomously scaffold, design, compose, and verify native cross-platform B4X applications.
+**`B4XDaisyUIKit-Skills`** is the official AI agent skill suite for **[B4XDaisyUIKit](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)**. It equips AI developer agents (Claude Code, Antigravity, OpenCode, Codex, Cursor) with full, verified knowledge to autonomously scaffold, design, compose, verify, and review native cross-platform B4X applications.
 
 ### 🌟 What this enables:
 * 🎯 **100% Native Code Generation**: Converts web-oriented Tailwind CSS and DaisyUI concepts into robust native B4X views, layouts, and event handlers.
 * 🏛️ **HCI & UX Master Doctrine**: Encodes quantitative interaction laws (Fitts's Law $\ge 48\text{dp}$ touch targets, Hick's Law $\le 5$ nav items, Miller's Law 3-5 field chunking, WCAG 2.2 AA contrast $\ge 4.5:1$, and mandatory 4-state UI completeness).
 * 👁️ **5-Stage Vision-to-B4X Engine**: Translates Figma auto-layouts, mobile screenshots, and UI mockups into clean B4X page hierarchies and exact cursor positioning math.
-* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 104 native component classes and 94 live `B4XPage` reference implementations.
+* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI agents to exact verified signatures across 104 native component classes and 89 live `B4XPage` reference implementations.
 * ⚡ **One-Shot Greenfield Scaffolding**: Automatically scaffolds complete ready-to-build apps with loaders, SweetAlert dialogs, navigation models, and automated build scripts (`install.ps1`).
+* 🔁 **Closed Build-Verify-Remediate Loop**: End-to-end orchestration with static AST checking, runtime signal watching, ADB device screen capture, and visual UX evaluation.
 * 📦 **Zero-Configuration Asset Pipeline**: Pure `File.DirAssets` bundling delivered automatically via `B4XDaisyUIKit.b4xlib` with no `res/` folder required.
+
+---
+
+## 💻 System & Toolchain Requirements
+
+* **Target Platform:** Native Android APKs generated via B4A (Basic4Android).
+* **Host Operating System:** Windows 10/11 (standard B4A development environment).
+* **Required Tooling:**
+  - **B4A 12+** with `B4XDaisyUIKit.b4xlib` in Additional Libraries.
+  - **Android SDK** (`platform-tools/adb.exe` in PATH or standard SDK locations).
+  - **PowerShell 5.1+** or **PowerShell 7+**.
+
+---
+
+## 📥 How to Get & Set Up B4A (Basic4Android)
+
+B4A is **100% free** and enables rapid development of high-performance native Android applications with zero overhead.
+
+### Step 1: Download & Install B4A (Free Full Version)
+1. Download the B4A installer from the official website:  
+   👉 **[https://www.b4x.com/b4a.html](https://www.b4x.com/b4a.html)**
+2. Run the setup wizard to install B4A on your Windows PC (e.g., `C:\Program Files\Anywhere Software\B4A`).
+
+### Step 2: Install Java OpenJDK & Android SDK
+B4A requires a Java JDK and the Android SDK command-line tools:
+1. Follow the official 2-step setup guide on the B4X forum:  
+   👉 **[B4A Installation & SDK Setup Guide](https://www.b4x.com/android/forum/threads/b4a-installation-instructions.124497/)**
+2. Download and unzip the ready-to-use **Java JDK + Android SDK bundle** provided on that page (recommended location: `C:\Android` or `C:\b4a\sdk`).
+
+### Step 3: Configure Paths in B4A IDE
+1. Open the B4A IDE.
+2. Go to **Tools -> Configure Paths**.
+3. Set the required paths:
+   * **`javac.exe`**: Path to `bin\javac.exe` (e.g., `C:\Android\jdk-19\bin\javac.exe` or `C:\Program Files\Java\...`).
+   * **`android.jar`**: Path to `platforms\android-34\android.jar` (e.g., `C:\Android\platforms\android-34\android.jar`).
+   * **`Additional Libraries`**: Create a folder (e.g., `C:\b4a\AdditionalLibraries` or `C:\Android\AdditionalLibraries`) and set it here.
+
+### Step 4: Install B4XDaisyUIKit Library
+1. Download the latest **`B4XDaisyUIKit.b4xlib`** from the [GitHub Releases](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/releases) or [Google Drive Archive](https://drive.google.com/drive/folders/1Ccr4SiPYugPCsN0juwwwqAZGewMW-xZj?usp=sharing).
+2. Copy `B4XDaisyUIKit.b4xlib` into your configured **`Additional Libraries`** folder.
+
+### Step 5: Verify ADB in PATH (for Automated Device Deployment)
+Ensure Android Debug Bridge (`adb.exe`) is accessible in your system terminal:
+* Add `C:\Android\platform-tools` (or your SDK platform-tools folder) to your Windows **System Environment Variable `PATH`**.
+* Verify in terminal:
+  ```powershell
+  adb devices
+  ```
 
 ---
 
@@ -80,46 +129,52 @@ To refresh skills in an ongoing Claude Code or Antigravity session without resta
 ```bash
 /reload
 ```
-Or start a new CLI session.
 
 ---
 
 ## 🛠️ The Skills Suite at a Glance
 
-This repository packages **3 specialized skills**:
+This repository packages **4 specialized skills** forming a complete First-Time-Right mobile development pipeline:
 
 | Skill | Purpose | When to Use |
 |---|---|---|
-| **`b4xdaisyuikit`** | Core UI component composition, UX Master Doctrine, web-to-native mapping, 5-stage vision engine, token cheatsheet, verified recipes, and negative guardrails. | Adding views, designing screens, binding events, and styling with DaisyUI tokens. |
-| **`b4x-project-bootstrap`** | Greenfield project generator. Produces complete app shells (`B4XMainPage.bas`, navigation templates, clean `.b4a`, `install.ps1`). | Starting a brand-new native Android, iOS, or desktop app project from scratch. |
-| **`b4x-verify`** | Automated pre-build static analysis, conformance verification gate, UX quality inspector, and post-build visual UX review. | Validating code before compilation (`verify-conformance.ps1`); reviewing rendered Android screens post-build (`capture-screens.ps1` + `ux-review.md`). |
+| **`b4x-orchestrator`** | Master orchestration engine. Coordinates the full lifecycle: Screen Contract -> Code Generation -> Pre-Scan -> Conformance Gate -> Build -> Runtime Watch -> Screencap -> Visual UX Review -> Capped Remediation Loop. | Orchestrating end-to-end app creation or running release-blocking quality gates. |
+| **`b4xdaisyuikit`** | Core UI component composition, UX Master Doctrine, token cheatsheet, web-to-native mapping, verified recipes, and negative guardrails. | Adding views, designing screens, binding events, and styling with 30+ DaisyUI themes. |
+| **`b4x-project-bootstrap`** | Greenfield project generator. Produces complete app shells (`B4XMainPage.bas`, responsive navigation templates, clean `.b4a`, `install.ps1`, `build-watch.ps1`). | Starting a brand-new native Android app project from scratch. |
+| **`b4x-verify`** | Automated shift-left quality gate (`pre-scan.ps1`, `verify-conformance.ps1`), ADB screencap (`capture-screens.ps1`), and 14-category visual UX review (`ux-review.md`). | Pre-build AST validation, runtime crash detection, and post-build device inspection. |
 
 ---
 
-### 1. `b4xdaisyuikit` (Master UI Composition Skill)
-* **89 Component Guides:** Detailed specifications in `components/<name>.md` covering constructor parameters, designer properties, methods, events, and recipes.
+### 1. `b4x-orchestrator` (First-Time-Right Delivery Engine)
+* **Screen Contract Engine (`references/screen-contract.template.md`):** Formal pre-coding contract specifying screen purpose, density, view hierarchy, event bindings, and lifecycle requirements before generating code.
+* **Full Shift-Left Execution Loop (`references/runbook.md`):**
+  ```text
+  Contract -> Generate -> pre-scan.ps1 -> verify-conformance.ps1 ->
+    ./install.ps1 (auto-runs build-watch.ps1) -> capture-screens.ps1 -> ux-review.md
+  ```
+* **Capped Remediation Loop:** Enforces a maximum 3-attempt automated remediation cycle with human escalation to prevent thrashing.
+
+### 2. `b4xdaisyuikit` (Master UI Composition Skill)
+* **108 Component Documentation Guides:** Detailed specifications in `components/<name>.md` covering constructor parameters, designer properties, methods, events, and recipes across 104 native classes.
 * **UX Master Doctrine & DoD (`references/ux-master-doctrine.md`):** Quantitative HCI standards, WCAG 2.2 AA contrast compliance, 4-state UI completeness, and pre-ship Definition of Done.
 * **5-Stage Vision & Conversion Engine (`references/conversion-workflows.md`):** Structured vision pipeline for translating Figma auto-layouts, HTML, and UI screenshots into native B4X code.
 * **Web-to-Native Dictionary (`references/daisyui-native-compatibility.md`):** Direct translation table from HTML classes (`.btn`, `.card`, `.badge`, `.timeline`, `.collapse`, `.shine-button`, etc.) to native B4X classes.
 * **Design Token Cheatsheet (`cheatsheet.md`):** Sizing tokens, corner radii (`rounded-box`, `rounded-field`, `rounded-full`), border widths, dashed lines, and dynamic theme palettes (`primary`, `secondary`, `accent`, `error`, `success`, `warning`, `info`, `neutral`).
 
-### 2. `b4x-project-bootstrap` (App Scaffolding)
+### 3. `b4x-project-bootstrap` (App Scaffolding)
 * Drops verified shell files from `references/`:
   - `B4XMainPage.template.bas` (Includes global `AppLoader`, `SweetAlert`, page transition engine, splash loader, and home screen pinning).
-  - `B4XPageNavDock.template.bas` (Pinned top navbar + bottom dock navigation tabs).
+  - `B4XPageNavDock.template.bas` (Pinned top navbar + bottom dock navigation tabs with responsive tablet $\ge 600\text{dip}$ dual-column metrics).
   - `B4XPageNavOnly.template.bas` (Pinned top navbar with back button for sub-pages).
   - `project.template.b4a` (Pre-configured `.b4a` descriptor with zero `res/` requirement).
   - `install.template.ps1` (Automated build, clean, install, and device launch).
+  - `build-watch.template.ps1` (Runtime crash, touch-target dp, and TalkBack auditor).
 
-### 3. `b4x-verify` (Conformance & Quality Gate + Visual UX Review)
-* **Phase 1 — pre-build static gate** (`verify-conformance.ps1`), run before `./install.ps1`:
-  - Validates that every referenced component exists in the official library manifest.
-  - Verifies `.b4a` `ModuleN=` and `FileN=` wiring counts to prevent silent compile omissions.
-  - Enforces `pageScroll.AutoFit` and `navbar.BringToFront` lifecycle rules.
-  - Inspects structured error logging (detects empty Catch blocks) and warns on unhandled touch conflict in gesture components.
-* **Phase 2 — post-build visual UX review** (`capture-screens.ps1` + `ux-review.md`), run after the app launches on device/emulator:
-  - `capture-screens.ps1`: adb screencap of rendered screens to `<AppFolder>/ux-review/screens/`, with a no-device fallback that points the user at the same folder for manual PNG drop.
-  - `ux-review.md`: the merged Senior Mobile Design Auditor Pro spec (Nielsen's 10, Material/Android, WCAG 2.2 AA, Visual UI, Visual Hierarchy, Touch Targets >= 48dp, Form Usability, Error Prevention, plus full-mode Information Architecture, Perceived Performance, Conversion, Dark Mode, Tablet/Foldable, and Design System/DaisyUI consistency). Every finding carries severity 1-5 + Priority Now/Next/Later, Confidence, Verification Required (screenshots cannot prove dp sizes, TalkBack, contrast ratios, runtime perf), Evidence, Why It Matters, Recommendation, Expected Impact, screenshot file+area, and a drafted B4X fix ticket. Output: Executive Summary (Overall/UI/UX/A11y/Mobile Interaction/Perf scores), Issue Register, Top 5/10, High-ROI Quick Wins, Accessibility Blockers, Runtime Verification Checklist, Performance Perception Risks, Strengths, Design Consistency Risks, Flow Assessment (multi-screen), Final Assessment (Release Readiness). Two modes: `quick` (7-category) for iteration, `full` (14-category) before ship. Reviewer discipline: evidence-based, no invented problems, no preference-as-defect. B4X overlays: rule-ID citation, drafted paste-ready B4X fix tickets, `.bas`-lock handling, screenshot-must-exist, no invented APIs. Report written to `<AppFolder>/ux-review/UX-REVIEW-<YYYYMMDD>.md`.
+### 4. `b4x-verify` (Conformance & Quality Gate + Visual UX Review)
+* **Pre-Scan Gate** (`references/pre-scan.ps1`): Fast negative-knowledge grep catching banned HTML tags, unapproved documented-only views, and sizing anti-patterns before compilation.
+* **Authoritative Conformance Gate** (`references/verify-conformance.ps1`): Validates manifest existence, module/file wiring, `pageScroll.AutoFit`, `navbar.BringToFront`, and structured error handling.
+* **Runtime Crash Sniffer & Screencap** (`references/capture-screens.ps1`): ADB screencap to `<AppFolder>/ux-review/screens/` with automatic Logcat crash inspection.
+* **14-Category Visual UX Review** (`references/ux-review.md`): Merged Senior Mobile Design Auditor Pro spec evaluating Nielsen heuristics, touch ergonomics ($\ge 48\text{dp}$), TalkBack labeling, WCAG contrast, and drafting ready-to-paste B4X fix tickets.
 
 ---
 
