@@ -3,7 +3,7 @@
 > **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4X (B4A Android, B4i iOS, B4J Desktop) mobile apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.3.0-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.2.4-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Library Parity](https://img.shields.io/badge/Components-108_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 
