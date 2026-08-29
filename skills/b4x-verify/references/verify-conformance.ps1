@@ -50,14 +50,14 @@ $manifestText = Get-Content $Manifest -Raw
 
 # --- Known = every B4XDaisy* token declared anywhere in the manifest and component specs
 $known = New-Object System.Collections.Generic.HashSet[string]
-foreach ($m in [regex]::Matches($manifestText, 'B4XDaisy[A-Za-z0-9_]+')) {
+foreach ($m in [regex]::Matches($manifestText, '\bB4XDaisy[A-Z][A-Za-z0-9_]*\b')) {
     [void]$known.Add($m.Value)
 }
 $compDir = Join-Path (Split-Path $Manifest) "..\components"
 if (Test-Path $compDir) {
     foreach ($cf in (Get-ChildItem -Path $compDir -Filter "*.md")) {
         $cText = Get-Content $cf.FullName -Raw
-        foreach ($m in [regex]::Matches($cText, 'B4XDaisy[A-Za-z0-9_]+')) {
+        foreach ($m in [regex]::Matches($cText, '\bB4XDaisy[A-Z][A-Za-z0-9_]*\b')) {
             [void]$known.Add($m.Value)
         }
     }
@@ -85,7 +85,7 @@ $referenced = New-Object System.Collections.Generic.HashSet[string]
 $refByFile = @{}
 foreach ($f in $basFiles) {
     $text = Get-Content $f.FullName -Raw
-    $matches = [regex]::Matches($text, 'B4XDaisy[A-Za-z0-9_]+')
+    $matches = [regex]::Matches($text, '\bB4XDaisy[A-Z][A-Za-z0-9_]*\b')
     foreach ($m in $matches) {
         [void]$referenced.Add($m.Value)
         if (-not $refByFile.ContainsKey($m.Value)) { $refByFile[$m.Value] = @() }
