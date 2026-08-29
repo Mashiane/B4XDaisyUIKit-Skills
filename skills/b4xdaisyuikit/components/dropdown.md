@@ -9,6 +9,30 @@ DaisyUI `Dropdown` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDropdown.bas (lines 78–388)
 - **Web DaisyUI Mapping**: `.dropdown` → `B4XDaisyDropdown`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``dropdown`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``dropdown-content`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `placement` | ``dropdown-start`, `dropdown-center`, `dropdown-end`, `dropdown-top`, `dropdown-bottom`, `dropdown-left`, `dropdown-right`` | Member | `.SetPlacement(...)` | Native configuration |
+| `modifier` | ``dropdown-hover`, `dropdown-open`, `dropdown-close`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+Using popover API
+```html
+<button popovertarget="{id}" style="anchor-name:--{anchor}">{button}</button>
+<ul class="dropdown" popover id="{id}" style="position-anchor:--{anchor}">{CONTENT}</ul>
+```
+
+Using details and summary (only opens/closes on click)
+```html
+<details class="dropdown">
+  <summary>Button</summary>
+  <ul class="dropdown-content">{CONTENT}</ul>
+</details>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int

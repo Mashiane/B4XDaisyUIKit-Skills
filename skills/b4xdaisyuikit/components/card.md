@@ -9,6 +9,28 @@ DaisyUI `Card` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAura.bas (lines 185–218), B4XPageCard.bas (lines 68–321), B4XPageDrawer.bas (lines 95–123), B4XPageDrawerRail.bas (lines 149–387), B4XPageDrawerTree.bas (lines 96–155), B4XPageMediaPicker.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``card`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``card-title`, `card-body`, `card-actions`` | Sub-Panel | `GetTitlePanel`, `GetContentPanel`, `GetActionsPanel` | Mount child views inside target sub-panel |
+| `style` | ``card-border`, `card-dash`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `modifier` | ``card-side`, `image-full`` | Property | `.LayoutMode = "side"` | Places media/figure alongside body |
+| `size` | ``card-xs`, `card-sm`, `card-md`, `card-lg`, `card-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="card {MODIFIER}">
+  <figure><img src="{image-url}" alt="{alt-text}" /></figure>
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p>{CONTENT}</p>
+    <div class="card-actions">{actions}</div>
+  </div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 AddSectionTitle("User baseline card")
@@ -155,3 +177,41 @@ AddSectionTitle("User baseline card")
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyCard` is a composite container with dedicated sub-panels for title, body content, and action buttons.
+
+```vb
+Dim card As B4XDaisyCard
+card.Initialize(Me, "card")
+card.AddToParent(pnlHost, x, y, maxW, 0)
+card.ImagePath = "sample.webp"                 ' Top/side image asset
+card.LayoutMode = "top"                        ' "top" | "side" | "bottom" | "responsive"
+card.Style = "border"                          ' "none" | "border" | "dash"
+card.Shadow = "md"                             ' "none" | "sm" | "md" | "lg" | "xl"
+
+' 1. Title sub-panel:
+Dim pnlTitle As B4XView = card.GetTitlePanel
+Dim txtT As B4XDaisyText
+txtT.Initialize(Me, "")
+txtT.AddToParent(pnlTitle, 0, 0, pnlTitle.Width, 24dip)
+txtT.Text = "Card Title"
+txtT.FontBold = True
+
+' 2. Body sub-panel:
+Dim pnlContent As B4XView = card.GetContentPanel
+Dim txtB As B4XDaisyText
+txtB.Initialize(Me, "")
+txtB.AddToParent(pnlContent, 0, 0, pnlContent.Width, 40dip)
+txtB.Text = "Body description text goes here."
+
+' 3. Action button sub-panel:
+Dim pnlActions As B4XView = card.GetActionsPanel
+Dim btnAction As B4XDaisyButton
+btnAction.Initialize(Me, "btnAction")
+btnAction.AddToParent(pnlActions, 0, 0, 100dip, 36dip)
+btnAction.Text = "Action"
+btnAction.Variant = "primary"
+
+y = y + card.GetComputedHeight + gap
+```

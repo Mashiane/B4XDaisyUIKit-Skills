@@ -9,6 +9,30 @@ DaisyUI `Rating` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageEnjoyHint.bas (lines 31–31), B4XPageFocus.bas (lines 44–44), B4XPageNavScrollDock.bas (lines 222–222), B4XPageRating.bas (lines 57–512)
 - **Web DaisyUI Mapping**: `.rating` → `B4XDaisyRating`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``rating`` | Member | `.SetComponent(...)` | Native configuration |
+| `modifier` | ``rating-half`, `rating-hidden`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `size` | ``rating-xs`, `rating-sm`, `rating-md`, `rating-lg`, `rating-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="rating {MODIFIER}">
+  <input type="radio" name="rating-1" class="mask mask-star" />
+</div>
+```
+
+For a read-only (non-interactive) rating, use `<div>` elements instead of radio inputs and mark the selected one with `aria-current="true"`:
+```html
+<div class="rating">
+  <div class="mask mask-star" aria-label="1 star"></div>
+  <div class="mask mask-star" aria-label="2 star" aria-current="true"></div>
+  <div class="mask mask-star" aria-label="3 star"></div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderExamples(Width As Int, Height As Int)

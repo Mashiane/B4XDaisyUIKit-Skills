@@ -9,6 +9,18 @@ DaisyUI `Kbd` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageKbd.bas (lines 268–269)
 - **Web DaisyUI Mapping**: `.kbd` → `B4XDaisyKbd`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``kbd`` | Member | `.SetComponent(...)` | Native configuration |
+| `size` | ``kbd-xs`, `kbd-sm`, `kbd-md`, `kbd-lg`, `kbd-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<kbd class="kbd {MODIFIER}">K</kbd>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddKbd(Text As String, Size As String, Left As Int, Top As Int, Width As Int, Height As Int, Tag As String) As B4XDaisyKbd

@@ -9,6 +9,24 @@ DaisyUI `Tooltip` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageTooltip.bas (lines 15–30)
 - **Web DaisyUI Mapping**: `.tooltip` → `B4XDaisyTooltip`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``tooltip`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``tooltip-content`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `modifier` | ``tooltip-open`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `placement` | ``tooltip-top`, `tooltip-bottom`, `tooltip-left`, `tooltip-right`` | Member | `.SetPlacement(...)` | Native configuration |
+| `alignment` | ``tooltip-start`, `tooltip-center`, `tooltip-end`` | Member | `.SetAlignment(...)` | Native configuration |
+| `color` | ``tooltip-primary`, `tooltip-secondary`, `tooltip-accent`, `tooltip-info`, `tooltip-success`, `tooltip-warning`, `tooltip-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="tooltip {MODIFIER}" data-tip="Tooltip text">
+  <button class="btn">Hover me</button>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Dim btnInfo As B4XDaisyButton = CreateButton("Show Info Tooltip", "v_info")

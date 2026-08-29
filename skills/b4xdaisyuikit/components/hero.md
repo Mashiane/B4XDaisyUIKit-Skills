@@ -9,6 +9,18 @@ DaisyUI `Hero` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageHero.bas (lines 52–93)
 - **Web DaisyUI Mapping**: `.hero` → `B4XDaisyHero`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``hero`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``hero-content`, `hero-overlay`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="hero {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' 1. Centered hero (rounded-box, bg-neutral)
@@ -140,3 +152,31 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyHero` is a layout banner container with internal flex alignment.
+
+```vb
+Dim hero As B4XDaisyHero
+hero.Initialize(Me, "hero")
+hero.AddToParent(pnlHost, x, y, maxW, 300dip)
+hero.Direction = "vertical"                    ' "vertical" | "horizontal"
+hero.ContentAlignment = "center"               ' "center" | "start" | "end"
+hero.Gap = "4"
+hero.BackgroundColorVariant = "bg-neutral"     ' or hero.BackgroundImage = "cover.webp"
+hero.Rounded = "rounded-box"
+
+' Mount children onto hero content panel:
+Dim pnlHero As B4XView = hero.GetContentPanel
+Dim txtHero As B4XDaisyText
+txtHero.Initialize(Me, "")
+txtHero.AddToParent(pnlHero, 0, 0, pnlHero.Width, 40dip)
+txtHero.Text = "Hero Headline"
+txtHero.TextSize = 22
+txtHero.FontBold = True
+txtHero.HAlign = "CENTER"
+
+' Reflow flex layout after child additions:
+hero.Base_Resize(maxW, 300dip)
+y = y + 300dip + gap
+```

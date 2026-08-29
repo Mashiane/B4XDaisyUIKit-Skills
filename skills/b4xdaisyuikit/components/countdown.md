@@ -9,6 +9,19 @@ DaisyUI `Countdown` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCountdown.bas (lines 45–90)
 - **Web DaisyUI Mapping**: `.countdown` → `B4XDaisyCountdown`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``countdown`` | Member | `.SetComponent(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<span class="countdown">
+  <span style="--value:{number};">number</span>
+</span>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddAutoCountdown(Title As String, Y As Int, Width As Int, Height As Int, Format As String, Labels As String, Gap As String, Padding As String, TextSize As String, LabelPos As String, Variant As String, Outline As Boolean) As Int
@@ -146,3 +159,21 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyCountdown` is a ticking countdown timer.
+
+```vb
+Dim cd As B4XDaisyCountdown
+cd.Initialize(Me, "cd")
+cd.Format = "dd:hh:mm:ss"                      ' "dd:hh:mm:ss" | "hh:mm:ss" | "mm:ss"
+cd.LabelPosition = "bottom"                    ' "bottom" | "right" | "none"
+cd.Variant = "primary"
+cd.AddToParent(pnlHost, x, y, maxW, 60dip)
+
+' Lifecycle management:
+' In B4XPage_Appear: cd.Start
+' In B4XPage_Disappear: cd.Stop
+
+y = y + 60dip + gap
+```

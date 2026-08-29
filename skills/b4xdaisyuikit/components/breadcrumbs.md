@@ -9,6 +9,19 @@ DaisyUI `Breadcrumbs` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageBreadcrumbs.bas (lines 60–155)
 - **Web DaisyUI Mapping**: `.breadcrumbs` → `B4XDaisyBreadcrumbs`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``breadcrumbs`` | Member | `.SetComponent(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="breadcrumbs">
+  <ul><li><a>Link</a></li></ul>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ''' <summary>
@@ -110,3 +123,24 @@ DaisyUI `Breadcrumbs` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyBreadcrumbs` is a horizontal navigation breadcrumb trail.
+
+```vb
+Dim crumbs As B4XDaisyBreadcrumbs
+crumbs.Initialize(Me, "crumbs")
+crumbs.AddToParent(pnlHost, x, y, maxW, 40dip)
+crumbs.TextSize = "text-sm"
+crumbs.Clear
+crumbs.AddItem("home", "Home", "home-solid.svg", True)
+crumbs.AddItem("inventory", "Inventory", "", True)
+crumbs.AddItem("current", "Batch #1042", "", False)
+crumbs.CurrentIndex = 2
+
+Private Sub crumbs_ItemClick(Tag As Object)
+    Log("Selected breadcrumb: " & Tag)
+End Sub
+
+y = y + crumbs.GetComputedHeight + gap
+```

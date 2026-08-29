@@ -9,6 +9,22 @@ DaisyUI `Diff` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDiff.bas (lines 57–73)
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``diff`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``diff-item-1`, `diff-item-2`, `diff-resizer`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+
+### Web DaisyUI HTML Syntax
+```html
+<figure class="diff">
+  <div class="diff-item-1">{item1}</div>
+  <div class="diff-item-2">{item2}</div>
+  <div class="diff-resizer"></div>
+</figure>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 y = AddSectionTitle("Diff", y, maxW)
@@ -144,3 +160,18 @@ y = AddSectionTitle("Diff", y, maxW)
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyDiff` renders an interactive before/after image comparison slider.
+
+```vb
+Dim diff As B4XDaisyDiff
+diff.Initialize(Me, "diff")
+diff.AddToParent(pnlHost, pad, y, maxW, 220dip)
+diff.Rounded = "rounded-box"
+diff.SetOriginalImage("before_audit.jpg")
+diff.SetModifiedImage("after_audit.jpg")
+diff.SplitPosition = 50                        ' 50% split position
+
+y = y + 220dip + gap
+```

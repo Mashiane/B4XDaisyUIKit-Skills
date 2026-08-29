@@ -9,6 +9,20 @@ DaisyUI `Carousel` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCarousel.bas (lines 44–410)
 - **Web DaisyUI Mapping**: `.carousel` → `B4XDaisyCarousel`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``carousel`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``carousel-item`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `modifier` | ``carousel-start`, `carousel-center`, `carousel-end`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `direction` | ``carousel-horizontal`, `carousel-vertical`` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="carousel {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Each item has a click handler that shows a toast notification.
@@ -173,3 +187,28 @@ DaisyUI `Carousel` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyCarousel` is a touch-swipeable image and card carousel.
+
+```vb
+Dim carousel As B4XDaisyCarousel
+carousel.Initialize(Me, "carousel")
+carousel.Rounded = "rounded-box"
+carousel.Width = "w-full"
+carousel.Height = "h-[260px]"
+carousel.AddToParent(pnlHost, x, y, maxW, 260dip)
+
+' Add items:
+Dim itm1 As B4XDaisyCarouselItem
+itm1.Initialize(Me, "itm1")
+itm1.Image = "photo1.webp"
+carousel.AddItem(itm1)
+
+Dim itm2 As B4XDaisyCarouselItem
+itm2.Initialize(Me, "itm2")
+itm2.Image = "photo2.webp"
+carousel.AddItem(itm2)
+
+y = y + 260dip + gap
+```

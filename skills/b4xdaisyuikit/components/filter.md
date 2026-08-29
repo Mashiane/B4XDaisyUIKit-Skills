@@ -9,6 +9,31 @@ DaisyUI `Filter` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageFilter.bas (lines 63–134)
 - **Web DaisyUI Mapping**: `.filter` → `B4XDaisyFilter`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``filter`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``filter-reset`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+
+### Web DaisyUI HTML Syntax
+Using HTML form
+```html
+<form class="filter">
+  <input class="btn btn-square" type="reset" value="×"/>
+  <input class="btn" type="radio" name="{NAME}" aria-label="Tab 1 title"/>
+  <input class="btn" type="radio" name="{NAME}" aria-label="Tab 2 title"/>
+</form>
+```
+Without HTML form
+```html
+<div class="filter">
+  <input class="btn filter-reset" type="radio" name="{NAME}" aria-label="×"/>
+  <input class="btn" type="radio" name="{NAME}" aria-label="Tab 1 title"/>
+  <input class="btn" type="radio" name="{NAME}" aria-label="Tab 2 title"/>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' #region Example 1: Filter with single selection and reset button

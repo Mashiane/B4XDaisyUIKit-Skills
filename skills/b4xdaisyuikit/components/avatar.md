@@ -9,6 +9,19 @@ DaisyUI `Avatar` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAvatar.bas (lines 20–1211), B4XPageDropdown.bas (lines 345–345), B4XPageEnjoyHint.bas (lines 34–34), B4XPageIndicator.bas (lines 263–263), B4XPageList.bas (lines 201–397), B4XPageMask.bas (lines 52–675), B4XPageNavbar.bas (lines 241–241), B4XPageScrollDemo.bas (lines 51–51), B4XPageStack.bas (lines 181–200), B4XPageStat.bas (lines 355–355)
 - **Web DaisyUI Mapping**: `.avatar` → `B4XDaisyAvatar`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``mask`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``mask-squircle`, `mask-heart`, `mask-hexagon`, `mask-hexagon-2`, `mask-decagon`, `mask-pentagon`, `mask-diamond`, `mask-square`, `mask-circle`, `mask-star`, `mask-star-2`, `mask-triangle`, `mask-triangle-2`, `mask-triangle-3`, `mask-triangle-4`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `modifier` | ``mask-half-1`, `mask-half-2`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+```html
+<img class="mask {MODIFIER}" src="{image-url}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub CreateSamples As ResumableSub

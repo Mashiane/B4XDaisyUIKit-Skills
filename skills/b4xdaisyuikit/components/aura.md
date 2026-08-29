@@ -9,6 +9,19 @@ DaisyUI `Aura` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAura.bas (lines 8–239)
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``aura`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``aura-dual`, `aura-rainbow`, `aura-holo`, `aura-gold`, `aura-silver`, `aura-glow`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `size` | ``aura-xs`, `aura-sm`, `aura-md`, `aura-lg`, `aura-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="aura {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddButtonAura(CenterX As Int, CenterY As Int, W As Int, H As Int, Style As String, Size As String, Color As Int, Duration As Int, Label As String)
@@ -116,3 +129,17 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyAura` provides ambient glow highlight effects.
+
+```vb
+Dim aura As B4XDaisyAura
+aura.Initialize(Me, "aura")
+aura.AddToParent(pnlHost, x, y, maxW, 100dip)
+aura.Blur = "md"                               ' "sm" | "md" | "lg"
+aura.Variant = "primary"
+aura.StartRotation                             ' Start rotation in B4XPage_Appear
+
+y = y + 100dip + gap
+```

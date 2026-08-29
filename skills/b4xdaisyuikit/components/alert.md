@@ -9,6 +9,20 @@ DaisyUI `Alert` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAlert.bas (lines 136–233), B4XMainPage.bas (lines 127–651)
 - **Web DaisyUI Mapping**: `.alert` → `B4XDaisyAlert`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``alert`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``alert-outline`, `alert-dash`, `alert-soft`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `color` | ``alert-info`, `alert-success`, `alert-warning`, `alert-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `direction` | ``alert-vertical`, `alert-horizontal`` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+
+### Web DaisyUI HTML Syntax
+```html
+<div role="alert" class="alert {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddAlertSample(Def As Map)

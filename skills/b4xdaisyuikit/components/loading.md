@@ -9,6 +9,19 @@ DaisyUI `Loading` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageLoading.bas (lines 38–179)
 - **Web DaisyUI Mapping**: `.loading` → `B4XDaisyLoading`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``loading`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``loading-spinner`, `loading-dots`, `loading-ring`, `loading-ball`, `loading-bars`, `loading-infinity`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `size` | ``loading-xs`, `loading-sm`, `loading-md`, `loading-lg`, `loading-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<span class="loading {MODIFIER}"></span>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddLoadingComponent(Parent As B4XView, Style As String, Size As String, VariantName As String, Left As Int, CompSize As Int) As Int

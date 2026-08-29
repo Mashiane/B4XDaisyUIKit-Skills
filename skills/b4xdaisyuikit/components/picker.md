@@ -9,6 +9,51 @@ DaisyUI `Picker` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPagePicker.bas (lines 18–41)
 - **Web DaisyUI Mapping**: `.picker` → `B4XDaisyPicker`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+For Cally:
+
+```html
+<calendar-date class="cally">{CONTENT}</calendar-date>
+```
+
+For React Day Picker:
+
+```html
+<DayPicker className="react-day-picker"></DayPicker>
+```
+
+For Vanilla Calendar Pro:
+
+```html
+<div id="calendar" class="vc"></div>
+```
+
+```js
+import { Calendar } from "vanilla-calendar-pro"
+
+const calendar = new Calendar("#calendar")
+calendar.init()
+```
+
+Or using CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/index.js" defer></script>
+<div id="calendar" class="vc"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const { Calendar } = window.VanillaCalendarPro
+    const calendar = new Calendar("#calendar")
+    calendar.init()
+  })
+</script>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Inline picker sized to its computed height (VisibleItems * item height) so no row is clipped.
@@ -150,3 +195,20 @@ DaisyUI `Picker` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyPicker` provides a vertical drum wheel item picker.
+
+```vb
+Dim picker As B4XDaisyPicker
+picker.Initialize(Me, "picker")
+picker.AddToParent(pnlHost, pad, y, maxW, 180dip)
+picker.SetItems(Array As String("Warehouse Zone A", "Warehouse Zone B", "Warehouse Zone C", "Cold Storage", "Receiving Dock"))
+picker.SelectedIndex = 0
+
+Private Sub picker_IndexChange(Index As Int, Value As Object)
+    Log("Selected Zone: " & Value)
+End Sub
+
+y = y + 180dip + gap
+```

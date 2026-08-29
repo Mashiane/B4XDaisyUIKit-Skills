@@ -9,6 +9,19 @@ DaisyUI `Steps` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageSteps.bas (lines 65–403)
 - **Web DaisyUI Mapping**: `.steps` → `B4XDaisySteps`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<ul class="steps {DIRECTION}">
+  <li class="step step-primary">{completed step}</li>
+  <li class="step">{upcoming step}</li>
+</ul>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 y = AddDescription(contentLeft, y, maxW, "Completed steps use step-primary; pending steps use the default base color. ConnectOnClick is enabled ? tap any step to fill the connector line and circles up to and including that step.")
@@ -136,3 +149,24 @@ y = AddDescription(contentLeft, y, maxW, "Completed steps use step-primary; pend
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisySteps` renders a horizontal or vertical step progress wizard indicator.
+
+```vb
+Dim steps As B4XDaisySteps
+steps.Initialize(Me, "steps")
+steps.AddToParent(pnlHost, pad, y, maxW, 60dip)
+steps.Direction = "horizontal"                 ' "horizontal" | "vertical"
+
+' Add step items:
+steps.AddItem("1", "Scan")
+steps.AddItem("2", "Variance")
+steps.AddItem("3", "Resolve")
+
+' Mark active step:
+steps.ActiveIndex = 1                          ' 0-indexed: Step 2 is active
+steps.SetStepDone("1", True)                   ' Step 1 completed (primary color)
+
+y = y + steps.GetComputedHeight + gap
+```

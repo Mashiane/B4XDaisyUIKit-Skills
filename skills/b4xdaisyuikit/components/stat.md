@@ -9,6 +9,21 @@ DaisyUI `Stat` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDrawerRail.bas (lines 281–344), B4XPageStat.bas (lines 69–498), B4XPageStatus.bas (lines 17–256)
 - **Web DaisyUI Mapping**: `.stat` → `B4XDaisyStat`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `Component` | ``stats`` | Member | `.SetComponent(...)` | Native configuration |
+| `Part` | ``stat`, `stat-title`, `stat-value`, `stat-desc`, `stat-figure`, `stat-actions`` | Member | `.SetPart(...)` | Native configuration |
+| `Direction` | ``stats-horizontal`, `stats-vertical`` | Member | `.SetDirection(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="stats {MODIFIER}">
+  <div class="stat">{CONTENT}</div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
@@ -115,3 +130,39 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyStat` is a KPI metric container hosting one or more `B4XDaisyStatItem` tiles.
+
+```vb
+Dim stat As B4XDaisyStat
+stat.Initialize(Me, "stat")
+stat.Orientation = "horizontal"                ' Set BEFORE AddToParent ("horizontal" | "vertical")
+stat.Width = "w-full"                          ' Set BEFORE AddToParent
+stat.AddToParent(pnlHost, pad, y, maxW, 0)
+stat.Shadow = "md"
+stat.Rounded = "rounded-box"
+
+' Metric 1: Counted items
+Dim item1 As B4XDaisyStatItem
+item1.Initialize(Me, "item1")
+item1.Title = "Total Counted"
+item1.Value = "1,240"
+item1.Description = "+12% today"
+item1.DescriptionColor = "success"
+item1.FigureType = "svg"
+item1.FigureSource = "check-solid.svg"
+stat.AddItem(item1)
+
+' Metric 2: Variances
+Dim item2 As B4XDaisyStatItem
+item2.Initialize(Me, "item2")
+item2.Title = "Variances"
+item2.Value = "8"
+item2.Description = "Needs recount"
+item2.DescriptionColor = "warning"
+stat.AddItem(item2)
+
+stat.Refresh
+y = y + stat.GetComputedHeight + gap
+```

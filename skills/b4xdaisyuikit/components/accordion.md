@@ -9,6 +9,25 @@ DaisyUI `Accordion` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAccordion.bas (lines 47–113)
 - **Web DaisyUI Mapping**: `.accordion` → `B4XDaisyAccordion`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``collapse`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``collapse-title`, `collapse-content`` | Sub-Panel | `GetTitlePanel`, `GetContentPanel`, `GetActionsPanel` | Mount child views inside target sub-panel |
+| `modifier` | ``collapse-arrow`, `collapse-plus`, `collapse-open`, `collapse-close`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="collapse {MODIFIER}">{CONTENT}</div>
+```
+where content is:
+```html
+<input type="radio" name="{name}" checked="{checked}" />
+<div class="collapse-title">{title}</div>
+<div class="collapse-content">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' #region Example 1: Standard Accordion (Single Open)
@@ -123,3 +142,31 @@ DaisyUI `Accordion` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyAccordion` manages a group of expandable items where expanding one automatically collapses others (or allows multi-open).
+
+```vb
+Dim acc As B4XDaisyAccordion
+acc.Initialize(Me, "acc")
+acc.GroupName = "faq-group"
+acc.OpenOnlyOne = True                         ' True = single active item, False = multi-open
+acc.AddToParent(pnlHost, x, y, maxW, 10dip)
+
+' Add items (returns B4XDaisyCollapse wrapper):
+Dim c1 As B4XDaisyCollapse = acc.AddItemBasic("q1", "arrow", "What is StockTake?")
+Dim pnlC1 As B4XView = c1.getContentView
+Dim txtA1 As B4XDaisyText
+txtA1.Initialize(Me, "")
+txtA1.AddToParent(pnlC1, 16dip, 8dip, pnlC1.Width - 32dip, 40dip)
+txtA1.Text = "StockTake is a physical count audit application."
+
+Dim c2 As B4XDaisyCollapse = acc.AddItemBasic("q2", "arrow", "How to sync barcodes?")
+Dim pnlC2 As B4XView = c2.getContentView
+Dim txtA2 As B4XDaisyText
+txtA2.Initialize(Me, "")
+txtA2.AddToParent(pnlC2, 16dip, 8dip, pnlC2.Width - 32dip, 40dip)
+txtA2.Text = "Use the Scan Barcode screen or upload CSV files."
+
+y = y + acc.GetComputedHeight + gap
+```

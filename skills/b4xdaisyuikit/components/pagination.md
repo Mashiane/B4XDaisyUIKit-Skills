@@ -9,6 +9,19 @@ DaisyUI `Pagination` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPagePagination.bas (lines 67–233)
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``join`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``join-item`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `direction` | ``join-vertical`, `join-horizontal`` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="join">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Add pagination directly to pnlHost with explicit dimensions (bypass card/host structure)
@@ -148,3 +161,22 @@ DaisyUI `Pagination` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyPagination` provides button-based page number navigation.
+
+```vb
+Dim pag As B4XDaisyPagination
+pag.Initialize(Me, "pag")
+pag.AddToParent(pnlHost, pad, y, maxW, 44dip)
+pag.PageCount = 5
+pag.ActiveIndex = 0                            ' 0-indexed active page
+pag.Size = "md"
+
+' Page change event:
+Private Sub pag_PageChange(Index As Int)
+    Log("Switched to page: " & (Index + 1))
+End Sub
+
+y = y + 44dip + gap
+```

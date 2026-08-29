@@ -187,3 +187,22 @@ Private Sub BuildSheetModals
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisySheetModal` provides a draggable bottom sheet container.
+
+```vb
+Dim sheet As B4XDaisySheetModal
+sheet.Initialize(Me, "sheet")
+sheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+sheet.Title = "Bottom Sheet"
+
+' Mount custom views onto GetContentPanel:
+Dim pnlSheet As B4XView = sheet.GetContentPanel
+Dim txtSheet As B4XDaisyText
+txtSheet.Initialize(Me, "")
+txtSheet.AddToParent(pnlSheet, 16dip, 10dip, pnlSheet.Width - 32dip, 40dip)
+txtSheet.Text = "Custom bottom sheet content."
+
+sheet.Show
+```

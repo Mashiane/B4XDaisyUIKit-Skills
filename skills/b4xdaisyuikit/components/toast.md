@@ -9,6 +9,16 @@ DaisyUI `Toast` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCard.bas (lines 17–17), B4XPageTagSphere.bas (lines 32–32), B4XPageToast.bas (lines 13–13)
 - **Web DaisyUI Mapping**: `.toast` → `B4XDaisyToast`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="toast {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Root = Root1
@@ -117,3 +127,17 @@ Root = Root1
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyToast` renders floating toast alerts on the screen.
+
+```vb
+' Mount toast coordinator onto root in B4XPage_Created:
+Dim toast As B4XDaisyToast
+toast.Initialize(Me, "toast")
+toast.SetRoot(Root)
+
+' Trigger toast anywhere in the page:
+' toast.ShowToast(Title, Message, Variant ["info"|"success"|"warning"|"error"], DurationMs, Position ["top-right"|"bottom-center"])
+toast.ShowToast("Stock Saved", "Count recorded successfully.", "success", 3000, "top-center")
+```

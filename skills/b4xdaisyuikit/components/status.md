@@ -9,6 +9,16 @@ DaisyUI `Status` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageStatus.bas (lines 17–256)
 - **Web DaisyUI Mapping**: `.status` → `B4XDaisyStatus`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<span class="status {MODIFIER}"></span>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderPingSection(Section As Map, MaxW As Int, StartY As Int) As Int

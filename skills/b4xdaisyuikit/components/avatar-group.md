@@ -114,3 +114,20 @@ pnlHost.AddView(cardG1, 0, 0, 10dip, 10dip)
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyAvatarGroup` stacks overlapping avatar bubbles.
+
+```vb
+Dim avGroup As B4XDaisyAvatarGroup
+avGroup.Initialize(Me, "avGroup")
+avGroup.AddToParent(pnlHost, pad, y, maxW, 48dip)
+avGroup.AvatarSize = "size-10"
+
+avGroup.AddAvatar("face_1.jpg")
+avGroup.AddAvatar("face_2.jpg")
+avGroup.AddAvatar("face_3.jpg")
+avGroup.SetCounter(12)                         ' Shows "+12" bubble at the end
+
+y = y + 48dip + gap
+```

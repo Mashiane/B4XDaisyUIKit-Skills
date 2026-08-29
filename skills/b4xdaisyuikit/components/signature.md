@@ -222,3 +222,21 @@ y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisySignature` / `B4XDaisySignaturePad` captures digital touch signatures.
+
+```vb
+Dim sig As B4XDaisySignature
+sig.Initialize(Me, "sig")
+sig.AddToParent(pnlHost, pad, y, maxW, 160dip)
+sig.StrokeColor = xui.Color_Black
+sig.StrokeWidth = 3dip
+sig.Rounded = "rounded-box"
+
+' Actions:
+' sig.Clear
+' Dim bmp As B4XBitmap = sig.GetBitmap
+
+y = y + 160dip + gap
+```

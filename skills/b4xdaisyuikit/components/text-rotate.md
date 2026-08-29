@@ -9,6 +9,65 @@ DaisyUI `TextRotate` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageTextRotate.bas (lines 39–160)
 - **Web DaisyUI Mapping**: `.text-rotate` → `B4XDaisyTextRotate`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<span class="text-rotate">
+  <span>
+    <span>Word 1</span>
+    <span>Word 2</span>
+    <span>Word 3</span>
+    <span>Word 4</span>
+    <span>Word 5</span>
+    <span>Word 6</span>
+  </span>
+</span>
+```
+Example:
+Big font size, horizontally centered
+```html
+<span class="text-rotate max-md:text-3xl text-7xl font-title">
+  <span class="justify-items-center">
+    <span>DESIGN</span>
+    <span>DEVELOP</span>
+    <span>DEPLOY</span>
+    <span>SCALE</span>
+    <span>MAINTAIN</span>
+    <span>REPEAT</span>
+  </span>
+</span>
+```
+Rotating words in a sentence, different colors for each word
+```html
+<span>
+  Providing AI Agents for 
+  <span class="text-rotate">
+    <span>
+      <span class="bg-teal-400 text-teal-800 px-2">Designers</span>
+      <span class="bg-red-400 text-red-800 px-2">Developers</span>
+      <span class="bg-blue-400 text-blue-800 px-2">Managers</span>
+    </span>
+  </span>
+</span>
+```
+Custom line height in case you have a tall font or need more vertical spacing between lines
+```html
+<span class="text-rotate max-md:text-3xl text-7xl font-title leading-[2]">
+  <span class="justify-items-center">
+    <span>DESIGN</span>
+    <span>DEVELOP</span>
+    <span>DEPLOY</span>
+    <span>SCALE</span>
+    <span>MAINTAIN</span>
+    <span>REPEAT</span>
+  </span>
+</span>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 y = AddSectionTitle("Basic Rotation (3 items, text-sm, 3s)", y, maxW)

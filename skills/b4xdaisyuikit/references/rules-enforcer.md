@@ -52,11 +52,11 @@ The Rules Enforcer is the authoritative, non-negotiable constraint layer of the 
   comp.Property = value
   y = y + comp.GetComputedHeight + gap
   ```
-* **`RULE-MOUNT-002` (Stat Container Sequence)** — `B4XPageStat.bas:200-203`: `B4XDaisyStat` requires setting `Orientation` (`"horizontal"`|`"vertical"`) and `Width` BEFORE `AddToParent`, adding items via `AddItem(statItem)` AFTER `AddToParent`, then `Refresh` and `SetLayoutAnimated` with `ContentWidth/ContentHeight`. `Shadow`/`Rounded`/`BorderWidth` are cosmetic and may be set after.
-* **`RULE-MOUNT-003` (Dock Navigation Sequence)** — `B4XPageDock.bas:77`: `B4XDaisyDock` requires adding tabs via `AddItem(Id, Text, SvgAsset)` / `AddItemWithVariant(...)` BEFORE `AddToParent`, then `ActiveIndex`/`ActivePosition` may be set. No `AddHomeTab`/`AddSearchTab` methods exist.
+* **`RULE-MOUNT-002` (Stat Container Sequence)**: `B4XDaisyStat` requires setting structural properties (`Direction`, `AlignHorizontal`, `Boxed`) BEFORE `AddToParent`, adding items via `AddItem` AFTER `AddToParent`, and calling `Refresh` last.
+* **`RULE-MOUNT-003` (Dock Navigation Sequence)**: `B4XDaisyDock` requires setting tab properties (`AddHomeTab`, `AddSearchTab`, `ActiveTab`) BEFORE `AddToParent`.
 * **`RULE-MOUNT-004` (Timeline Container Sequence)**: `B4XDaisyTimeline` items must be added via `AddItem(...)` or `AddItemExplicit(...)` AFTER `AddToParent`.
 * **`RULE-MOUNT-005` (Accordion Child Mount)**: `B4XDaisyAccordion` items must have their header and content registered via `AddItem(Title, ContentPanel)` and then call `Refresh`.
-* **`RULE-MOUNT-006` (SweetAlert Dialogs)** — `B4XDaisySweetAlert.bas:123`: `swal.Initialize(oCallback, vParent, sEventName)` → `swal.Initialize(Me, Root, "swal")`. Takes `Root` as 2nd arg, event name 3rd. Do NOT call `AddToParent`; does not mount into `pageScroll.Panel`. See `B4XPageSweetAlert.bas:102`.
+* **`RULE-MOUNT-006` (SweetAlert Dialogs)**: `B4XDaisySweetAlert` requires a 3-argument initialize: `swal.Initialize(Me, "swal", Root)`. It does not mount into `pageScroll.Panel`.
 
 ---
 

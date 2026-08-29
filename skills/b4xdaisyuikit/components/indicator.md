@@ -9,6 +9,22 @@ DaisyUI `Indicator` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDropdown.bas (lines 104–104), B4XPageIndicator.bas (lines 99–456), B4XPageNavbar.bas (lines 15–244), B4XPageSvgIcon.bas (lines 179–225)
 - **Web DaisyUI Mapping**: `.indicator` → `B4XDaisyIndicator`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``indicator`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``indicator-item`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `placement` | ``indicator-start`, `indicator-center`, `indicator-end`, `indicator-top`, `indicator-middle`, `indicator-bottom`` | Member | `.SetPlacement(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="indicator">
+  <span class="indicator-item">{indicator content}</span>
+  <div>{main content}</div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderCountIndicatorSection(MaxW As Int, StartY As Int) As Int

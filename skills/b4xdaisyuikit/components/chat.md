@@ -9,6 +9,25 @@ DaisyUI `Chat` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageChat.bas (lines 13–212)
 - **Web DaisyUI Mapping**: `.chat` → `B4XDaisyChat`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``chat`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``chat-image`, `chat-header`, `chat-footer`, `chat-bubble`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `placement` | ``chat-start`, `chat-end`` | Member | `.SetPlacement(...)` | Native configuration |
+| `color` | ``chat-bubble-neutral`, `chat-bubble-primary`, `chat-bubble-secondary`, `chat-bubble-accent`, `chat-bubble-info`, `chat-bubble-success`, `chat-bubble-warning`, `chat-bubble-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="chat {PLACEMENT}">
+  <div class="chat-image"></div>
+  <div class="chat-header"></div>
+  <div class="chat-bubble {COLOR}">Message text</div>
+  <div class="chat-footer"></div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub B4XPage_Created(Root1 As B4XView)
@@ -168,3 +187,23 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyChat` is a self-contained conversational messaging UI.
+
+```vb
+Dim chat As B4XDaisyChat
+chat.Initialize(Me, "chat")
+chat.AddToParent(Root)                         ' Fills entire root or parent container
+chat.SetDateTimeFormat("D, j M Y H:i")
+chat.SetUseTimeAgo(True)
+
+' Feed messages:
+chat.AddMessage("1", "Auditor", "Scanned Bin A-12", "09:30", "face_3.jpg", "start", "DELIVERED")
+chat.AddMessage("2", "Supervisor", "Count confirmed", "09:32", "face_13.jpg", "end", "SEEN")
+
+' User Send Event:
+Private Sub chat_Send(Message As String)
+    chat.AddMessage(DateTime.Now, "Me", Message, "Just now", "avatar.png", "end", "SENT")
+End Sub
+```

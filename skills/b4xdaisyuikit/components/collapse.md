@@ -9,6 +9,22 @@ DaisyUI `Collapse` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAccordion.bas (lines 53–145), B4XPageCollapse.bas (lines 45–220)
 - **Web DaisyUI Mapping**: `.collapse` → `B4XDaisyCollapse`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``collapse`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``collapse-title`, `collapse-content`` | Sub-Panel | `GetTitlePanel`, `GetContentPanel`, `GetActionsPanel` | Mount child views inside target sub-panel |
+| `modifier` | ``collapse-arrow`, `collapse-plus`, `collapse-open`, `collapse-close`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+```html
+<div tabindex="0" class="collapse {MODIFIER}">
+  <div class="collapse-title">{title}</div>
+  <div class="collapse-content">{CONTENT}</div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' #region Example 1: Basic collapse (tap to expand)
@@ -154,3 +170,25 @@ DaisyUI `Collapse` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyCollapse` is a standalone disclosure panel.
+
+```vb
+Dim col As B4XDaisyCollapse
+col.Initialize(Me, "col")
+col.AddToParent(pnlHost, x, y, maxW, 60dip)
+col.TitleText = "Click to Expand Details"
+col.Icon = "arrow"                             ' "arrow" | "plus" | "none"
+col.IconPosition = "right"                     ' "left" | "right"
+col.Variant = "base-200"
+
+' Add custom content onto getContentView:
+Dim pnlC As B4XView = col.getContentView
+Dim txtC As B4XDaisyText
+txtC.Initialize(Me, "")
+txtC.AddToParent(pnlC, 16dip, 8dip, maxW - 32dip, 30dip)
+txtC.Text = "Expanded details visible on tap."
+
+y = y + col.GetComputedHeight + gap
+```

@@ -9,6 +9,18 @@ DaisyUI `Progress` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDrawerRail.bas (lines 334–334), B4XPageProgress.bas (lines 18–197)
 - **Web DaisyUI Mapping**: `.progress` → `B4XDaisyProgress`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``progress`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``progress-neutral`, `progress-primary`, `progress-secondary`, `progress-accent`, `progress-info`, `progress-success`, `progress-warning`, `progress-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+
+### Web DaisyUI HTML Syntax
+```html
+<progress class="progress {MODIFIER}" value="50" max="100"></progress>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderExamples

@@ -9,6 +9,22 @@ DaisyUI `Division` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDivider.bas (lines 175–175), B4XPageIndicator.bas (lines 74–417), B4XPageSkeleton.bas (lines 14–23), B4XPageStack.bas (lines 64–92)
 - **Web DaisyUI Mapping**: `.division` → `B4XDaisyDivision`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``skeleton`` | Member | `.SetComponent(...)` | Native configuration |
+| `modifier` | ``skeleton-text`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="skeleton"></div>
+```
+Example with text skeleton:
+```html
+<div class="skeleton skeleton-text">Loading data...</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 'Control

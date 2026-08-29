@@ -138,3 +138,77 @@ col2.getContentView.AddView(a2.getView, 16dip, 8dip, maxW - 32dip, 36dip)
 y = y + faqAccordion.GetComputedHeight + gap
 
 ```
+
+---
+
+## 📋 5. VIRTUALIZED RECYCLING LISTS (B4XDaisyList)
+
+High-performance, smooth scrolling list container with internal view recycling powered by `CustomListView`. Supports headers, custom item layouts, and interactive badges/actions.
+
+```b4x
+' In RenderPage:
+Dim lstAudit As B4XDaisyList
+lstAudit.Initialize(Me, "lstAudit")
+lstAudit.Rounded = "rounded-box"
+lstAudit.Shadow = "shadow-md"
+lstAudit.BackgroundColor = "base-100"
+lstAudit.RowHeight = 64dip            ' Height allocated per item
+lstAudit.AutoHeight = True             ' Sizes list container to fit total items
+lstAudit.AddToParent(pnlHost, pad, y, maxW, 320dip)
+
+' Populate data rows (Maps with custom properties)
+lstAudit.AddHeader("Recent Stock Audit Batches")
+lstAudit.AddRowData(CreateMap("Tag": "b1042", "title": "Batch #1042 (2026-08-28)", "subtitle": "100% Matched - Zero Variance", "status": "MATCHED", "variant": "success"))
+lstAudit.AddRowData(CreateMap("Tag": "b1041", "title": "Batch #1041 (2026-08-25)", "subtitle": "3 Variances Reconciled", "status": "RESOLVED", "variant": "warning"))
+lstAudit.AddRowData(CreateMap("Tag": "b1040", "title": "Batch #1040 (2026-08-20)", "subtitle": "Completed by Lead Auditor", "status": "PASSED", "variant": "info"))
+
+y = y + lstAudit.GetComputedHeight + gap
+
+' In Page Class Body - Dynamic row layout event:
+Private Sub lstAudit_CreateRowContent(Index As Int)
+	Dim pnlRow As B4XView = lstAudit.GetCurrentRowPanel
+	Dim data As Map = lstAudit.GetCurrentRowData
+	If pnlRow = Null Or pnlRow.IsInitialized = False Or data = Null Then Return
+	
+	' Handle section header rows
+	If data.GetDefault("_header", False) Then
+		Dim txtHeader As B4XDaisyText
+		txtHeader.Initialize(Me, "")
+		txtHeader.AddToParent(pnlRow, 16dip, 0, pnlRow.Width - 32dip, pnlRow.Height)
+		txtHeader.Text = data.GetDefault("title", "")
+		txtHeader.TextSize = 12
+		txtHeader.TextColor = xui.Color_ARGB(160, 0, 0, 0)
+		txtHeader.UpperCase = True
+		txtHeader.FontBold = True
+		txtHeader.VAlign = "CENTER"
+		Return
+	End If
+	
+	' Mount child views onto pnlRow
+	Dim txtTitle As B4XDaisyText
+	txtTitle.Initialize(Me, "")
+	txtTitle.AddToParent(pnlRow, 16dip, 10dip, pnlRow.Width - 110dip, 22dip)
+	txtTitle.Text = data.GetDefault("title", "")
+	txtTitle.TextSize = 14
+	txtTitle.FontBold = True
+	
+	Dim txtSub As B4XDaisyText
+	txtSub.Initialize(Me, "")
+	txtSub.AddToParent(pnlRow, 16dip, 32dip, pnlRow.Width - 110dip, 20dip)
+	txtSub.Text = data.GetDefault("subtitle", "")
+	txtSub.TextSize = 11
+	txtSub.TextColor = xui.Color_ARGB(150, 0, 0, 0)
+	
+	Dim badge As B4XDaisyBadge
+	badge.Initialize(Me, "")
+	badge.SetVariant(data.GetDefault("variant", "info"))
+	badge.SetStyle("soft")
+	badge.SetSize("sm")
+	badge.SetText(data.GetDefault("status", ""))
+	badge.AddToParent(pnlRow, pnlRow.Width - 92dip, (pnlRow.Height - 24dip) / 2, 76dip, 24dip)
+End Sub
+
+Private Sub lstAudit_ItemClick(Index As Int, Tag As Object)
+	Log("Clicked batch: " & Tag)
+End Sub
+```

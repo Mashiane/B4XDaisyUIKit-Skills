@@ -9,6 +9,19 @@ DaisyUI `Radio` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageFocus.bas (lines 32–32), B4XPageRadio.bas (lines 18–374), B4XPageRadioGroup.bas (lines 46–204)
 - **Web DaisyUI Mapping**: `.radio` → `B4XDaisyRadio`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``radio`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``radio-neutral`, `radio-primary`, `radio-secondary`, `radio-accent`, `radio-success`, `radio-warning`, `radio-info`, `radio-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `size` | ``radio-xs`, `radio-sm`, `radio-md`, `radio-lg`, `radio-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="radio" name="{name}" class="radio {MODIFIER}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Radio Option 1

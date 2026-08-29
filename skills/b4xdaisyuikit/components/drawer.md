@@ -9,6 +9,95 @@ DaisyUI `Drawer` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDrawer.bas (lines 15–15), B4XPageDrawerRail.bas (lines 15–15), B4XPageDrawerTree.bas (lines 15–15)
 - **Web DaisyUI Mapping**: `.drawer` → `B4XDaisyDrawer`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``drawer`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``drawer-toggle`, `drawer-content`, `drawer-side`, `drawer-overlay`, `drawer-button`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `placement` | ``drawer-end`` | Member | `.SetPlacement(...)` | Native configuration |
+| `modifier` | ``drawer-open`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `variant` | ``is-drawer-open:`, `is-drawer-close:`` | Member | `.SetVariant(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="drawer {MODIFIER}">
+  <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">{CONTENT}</div>
+  <div class="drawer-side">{SIDEBAR}</div>
+</div>
+```
+where {CONTENT} can be navbar, site content, footer, etc
+and {SIDEBAR} can be a menu like:
+```html
+<ul class="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
+  <li><a>Item 1</a></li>
+  <li><a>Item 2</a></li>
+</ul>
+```
+To open/close the drawer, use a label that points to the `drawer-toggle` input:
+```html
+<label for="my-drawer" class="btn drawer-button">Open/close drawer</label>
+```
+Example: This sidebar is always visible on large screen, can be toggled on small screen:
+```html
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col items-center justify-center">
+    <!-- Page content here -->
+    <label for="my-drawer-3" class="btn drawer-button lg:hidden">
+      Open drawer
+    </label>
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+      <!-- Sidebar content here -->
+      <li><button>Sidebar Item 1</button></li>
+      <li><button>Sidebar Item 2</button></li>
+    </ul>
+  </div>
+</div>
+```
+
+Example: This sidebar is always visible. When it's close we only see icons, when it's open we see icons and text
+```html
+<div class="drawer lg:drawer-open">
+  <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <!-- Page content here -->
+  </div>
+  <div class="drawer-side is-drawer-close:overflow-visible">
+    <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+    <div class="is-drawer-close:w-14 is-drawer-open:w-64 bg-base-200 flex flex-col items-start min-h-full">
+      <!-- Sidebar content here -->
+      <ul class="menu w-full grow">
+        <!-- list item -->
+        <li>
+          <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
+            {ICON_HERE}
+            <span class="is-drawer-close:hidden">Homepage</span>
+          </button>
+        </li>
+        <!-- list item -->
+        <li>
+          <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
+            {ICON_HERE}
+            <span class="is-drawer-close:hidden">Settings</span>
+          </button>
+        </li>
+      </ul>
+      <!-- button to open/close drawer -->
+      <div class="m-2 is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Open">
+        <label for="my-drawer-4" class="btn btn-ghost btn-circle drawer-button is-drawer-open:rotate-y-180">
+          {ICON_HERE}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' 1. FULLSCREEN ROOT DRAWER (Left side only, AlwaysOpen = False by default)
@@ -200,3 +289,31 @@ DaisyUI `Drawer` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyDrawer` provides a sliding left sidebar menu with overlay and main content area.
+
+```vb
+' In B4XPage_Created:
+mainDrawer.Initialize(Me, "mainDrawer")
+mainDrawer.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+
+' 1. Left sidebar (inside mainDrawer.LeftPanel):
+sideMenu.Initialize(Me, "sideMenu")
+sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 300dip, Root.Height)
+sideMenu.AddItem("dash", "Dashboard", "home-solid.svg")
+sideMenu.AddItem("scan", "Stock Scan", "qrcode-solid.svg")
+
+' 2. Center content (inside mainDrawer.CenterPanel):
+navbar.Initialize(Me, "navbar")
+navbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Root.Width, 56dip)
+navbar.HamburgerVisible = True                 ' Drawer toggle icon
+
+pageScroll.Initialize(Me, "pageScroll")
+pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Root.Width, Root.Height - 56dip)
+
+' Hamburger click handler:
+Private Sub navbar_HamburgerClick(oTag As Object)
+    mainDrawer.ToggleLeftDrawer
+End Sub
+```

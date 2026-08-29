@@ -192,3 +192,27 @@ Private Sub DemoAction_Click(Tag As Object)
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisySweetAlert` is an asynchronous modal alert/confirmation dialog with inputs, timer, and buttons.
+
+```vb
+' Initialize taking 3 arguments (Callback, EventName, Root View):
+Dim swal As B4XDaisySweetAlert
+swal.Initialize(Me, "swal", Root)
+swal.Title = "Confirm Stock Batch?"
+swal.Text = "This will lock the current count and post variances."
+swal.Icon = "warning"                         ' "success" | "warning" | "error" | "info" | "question"
+swal.ShowCancelButton = True
+swal.ConfirmButtonText = "Yes, Post Batch"
+swal.CancelButtonText = "Cancel"
+swal.TimerMs = 0                              ' 0 = stay until user clicks a button
+
+' Asynchronous display and result handling:
+Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
+If Result.IsConfirmed Then
+    Log("User confirmed action")
+Else If Result.IsDismissed Then
+    Log("User dismissed dialog")
+End If
+```

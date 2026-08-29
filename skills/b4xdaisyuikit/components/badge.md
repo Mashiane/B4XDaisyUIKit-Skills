@@ -9,6 +9,20 @@ DaisyUI `Badge` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAlert.bas (lines 180–180), B4XPageBadge.bas (lines 18–680), B4XPageCard.bas (lines 326–334), B4XPageTooltip.bas (lines 225–225), B4XPageWindow.bas (lines 128–131)
 - **Web DaisyUI Mapping**: `.badge` → `B4XDaisyBadge`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``badge`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``badge-outline`, `badge-dash`, `badge-soft`, `badge-ghost`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `color` | ``badge-neutral`, `badge-primary`, `badge-secondary`, `badge-accent`, `badge-info`, `badge-success`, `badge-warning`, `badge-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `size` | ``badge-xs`, `badge-sm`, `badge-md`, `badge-lg`, `badge-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<span class="badge {MODIFIER}">Badge</span>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderBadgeGroupSelectSections(MaxW As Int, StartY As Int) As Int

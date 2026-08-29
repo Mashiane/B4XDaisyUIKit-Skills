@@ -9,6 +9,22 @@ DaisyUI `Select` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageEnjoyHint.bas (lines 26–26), B4XPageFieldset.bas (lines 184–184), B4XPageFocus.bas (lines 20–100), B4XPageNavScrollDock.bas (lines 180–180), B4XPageSelect.bas (lines 70–373)
 - **Web DaisyUI Mapping**: `.select` → `B4XDaisySelect`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``select`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``select-ghost`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `color` | ``select-neutral`, `select-primary`, `select-secondary`, `select-accent`, `select-info`, `select-success`, `select-warning`, `select-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `size` | ``select-xs`, `select-sm`, `select-md`, `select-lg`, `select-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<select class="select {MODIFIER}">
+  <option>Option</option>
+</select>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' -------------------------------------------------------

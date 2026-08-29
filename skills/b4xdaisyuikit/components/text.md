@@ -9,6 +9,19 @@ DaisyUI `Text` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAccordion.bas (lines 131–146), B4XPageAlert.bas (lines 135–246), B4XPageBreadcrumbs.bas (lines 174–189), B4XPageButton.bas (lines 629–629), B4XPageCanvasSpinner.bas (lines 168–259), B4XPageCard.bas (lines 279–346), B4XPageCarousel.bas (lines 429–429), B4XPageCheckbox.bas (lines 385–385), B4XPageCheckboxGroup.bas (lines 17–219), B4XPageCollapse.bas (lines 221–234), B4XPageCountdown.bas (lines 111–111), B4XPageDiff.bas (lines 96–96), B4XPageDock.bas (lines 437–455), B4XPageDrawer.bas (lines 105–133), B4XPageDrawerRail.bas (lines 162–400), B4XPageDrawerTree.bas (lines 110–168), B4XPageDropdown.bas (lines 365–377), B4XPageDualRange.bas (lines 26–231), B4XPageFieldset.bas (lines 62–62), B4XPageFileInput.bas (lines 173–175), B4XPageFilter.bas (lines 151–151), B4XPageHero.bas (lines 81–106), B4XPageHover3d.bas (lines 205–219), B4XPageIconButton.bas (lines 311–311), B4XPageInfoCard.bas (lines 212–212), B4XPageInput.bas (lines 420–445), B4XPageKbd.bas (lines 257–257), B4XPageLink.bas (lines 50–190), B4XPageList.bas (lines 186–461), B4XPageMediaPicker.bas (lines 19–150), B4XPageMenu.bas (lines 395–406), B4XPageMenuRuntime.bas (lines 354–376), B4XPageMenuRuntime2.bas (lines 312–334), B4XPageModal.bas (lines 418–456), B4XPageNavbar.bas (lines 133–133), B4XPageOverlay.bas (lines 20–351), B4XPagePagination.bas (lines 167–264), B4XPageProgress.bas (lines 48–48), B4XPageRadialProgress.bas (lines 43–200), B4XPageRadio.bas (lines 395–395), B4XPageRadioGroup.bas (lines 17–219), B4XPageRange.bas (lines 468–468), B4XPageRating.bas (lines 394–397), B4XPageSelect.bas (lines 393–393), B4XPageShineButton.bas (lines 35–35), B4XPageSignaturePad.bas (lines 35–35), B4XPageSkeleton.bas (lines 15–132), B4XPageStack.bas (lines 44–153), B4XPageStat.bas (lines 454–454), B4XPageSteps.bas (lines 425–442), B4XPageSweetAlert.bas (lines 66–66), B4XPageTab.bas (lines 404–416), B4XPageTagSphere.bas (lines 26–28), B4XPageText.bas (lines 51–316), B4XPageTextRotate.bas (lines 39–201), B4XPageTextarea.bas (lines 209–260), B4XPageTimeline.bas (lines 171–171), B4XPageToast.bas (lines 43–89), B4XPageToggle.bas (lines 371–371), B4XPageToggleGroup.bas (lines 17–219), B4XPageTooltip.bas (lines 49–238), B4XPageWindow.bas (lines 60–200)
 - **Web DaisyUI Mapping**: `.text` → `B4XDaisyText`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``link`` | Member | `.SetComponent(...)` | Native configuration |
+| `style` | ``link-hover`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `color` | ``link-neutral`, `link-primary`, `link-secondary`, `link-accent`, `link-success`, `link-info`, `link-warning`, `link-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+
+### Web DaisyUI HTML Syntax
+```html
+<a class="link {MODIFIER}">Click me</a>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' -

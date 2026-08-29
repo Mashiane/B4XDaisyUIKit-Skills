@@ -9,6 +9,18 @@ DaisyUI `Navbar` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageColorWheel.bas (lines 31–31), B4XPageDrawer.bas (lines 16–16), B4XPageDrawerRail.bas (lines 16–16), B4XPageDrawerTree.bas (lines 16–16), B4XPageDualRange.bas (lines 17–17), B4XPageEnjoyHint.bas (lines 14–14), B4XPageFabNavbar.bas (lines 13–13), B4XPageNavScrollDock.bas (lines 37–37), B4XPageNavbar.bas (lines 16–559), B4XPagePDFView.bas (lines 11–11), B4XPagePicker.bas (lines 444–444), B4XPageSheetModal.bas (lines 142–142)
 - **Web DaisyUI Mapping**: `.navbar` → `B4XDaisyNavbar`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``navbar`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``navbar-start`, `navbar-center`, `navbar-end`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="navbar">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddNavbarTitleOnly

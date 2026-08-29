@@ -13,14 +13,14 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Snapshot
 
-- Generated: 2026-08-29 UTC
+- Generated: 2026-08-20 UTC
 - Source repository: `Mashiane/0SithasoDaisyUIKit`
 - Library artifact: `B4A/B4XDaisyUIKit.b4xlib`
 - B4XPage demos scanned: 94
 - B4XDaisy source modules found: 104
 - Demonstrated components: 86
-- Documented-only components: 14 (incl. 4 banned: FlexItem/FlexLayout/FlexPanel/Grid + 10 helpers: App/BoxModel/ButtonPlaceManager/BoomPathManager/PiecePlaceManager/CardActions/CardBody/CardTitle/CollapseContent/CollapseTitle/CountdownItem/ChatBubble/SweetAlertIcon/PocketBase)
-- Skills in `components/`: 108 (104 components + 4 mode-aliases: link/mask/skeleton/textarea)
+- Documented-only components: 14 (4 banned: FlexItem/FlexLayout/FlexPanel/Grid removed)
+- Skills in `components/`: 89 (91 − 2 removed: flex-layout, grid)
 
 ## How to use
 

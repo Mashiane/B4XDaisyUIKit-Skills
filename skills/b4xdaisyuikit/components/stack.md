@@ -9,6 +9,16 @@ DaisyUI `Stack` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageStack.bas (lines 53–180)
 - **Web DaisyUI Mapping**: `.stack` → `B4XDaisyStack`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="stack {MODIFIER}">{CONTENT}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub CreateStackPhotosDemo(TargetSV As ScrollView, TopOffset As Int) As Int

@@ -50,7 +50,9 @@ If you are unfamiliar with B4X syntax, read **[b4x-primer.md](references/b4x-pri
 
 For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contrast, 4-state UI completeness, and Definition of Done, consult **[ux-master-doctrine.md](references/ux-master-doctrine.md)**.
 
-For every component you use, consult **[component-manifest.md](references/component-manifest.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
+For every component you use, consult **[component-manifest.md](references/component-manifest.md)**.
+
+For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all 110 components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
 

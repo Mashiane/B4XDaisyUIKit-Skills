@@ -9,6 +9,22 @@ DaisyUI `Button` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageActionSheet.bas (lines 19–25), B4XPageAura.bas (lines 160–160), B4XPageButton.bas (lines 58–615), B4XPageCanvasSpinner.bas (lines 29–39), B4XPageCard.bas (lines 293–293), B4XPageColorWheel.bas (lines 21–23), B4XPageDock.bas (lines 18–379), B4XPageDrawer.bas (lines 29–29), B4XPageDrawerRail.bas (lines 33–34), B4XPageDrawerTree.bas (lines 29–31), B4XPageDropdown.bas (lines 325–325), B4XPageEasing.bas (lines 25–207), B4XPageEnjoyHint.bas (lines 18–166), B4XPageFocus.bas (lines 17–46), B4XPageHero.bas (lines 116–116), B4XPageMenuRuntime.bas (lines 332–341), B4XPageMenuRuntime2.bas (lines 290–299), B4XPageModal.bas (lines 59–409), B4XPageNavScrollDock.bas (lines 233–246), B4XPageNavbar.bas (lines 188–714), B4XPageOverlay.bas (lines 224–340), B4XPagePicker.bas (lines 32–453), B4XPageProgress.bas (lines 119–185), B4XPageRadialProgress.bas (lines 226–244), B4XPageRange.bas (lines 311–311), B4XPageRating.bas (lines 383–383), B4XPageScrollDemo.bas (lines 48–93), B4XPageSheetModal.bas (lines 19–281), B4XPageShineButton.bas (lines 31–32), B4XPageSignaturePad.bas (lines 19–31), B4XPageStat.bas (lines 443–443), B4XPageSweetAlert.bas (lines 77–77), B4XPageSweetAlertInputs.bas (lines 31–43), B4XPageTagSphere.bas (lines 29–31), B4XPageToast.bas (lines 59–113), B4XPageTooltip.bas (lines 62–247)
 - **Web DaisyUI Mapping**: `.button` → `B4XDaisyButton`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``btn`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``btn-neutral`, `btn-primary`, `btn-secondary`, `btn-accent`, `btn-info`, `btn-success`, `btn-warning`, `btn-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `style` | ``btn-outline`, `btn-dash`, `btn-soft`, `btn-ghost`, `btn-link`` | Property | `.Style = "outline"` (or soft, dash, ghost, etc.) | Visual fill and border style |
+| `behavior` | ``btn-active`, `btn-disabled`` | Property | `.Enabled = False` | Disables touch and greys out view |
+| `size` | ``btn-xs`, `btn-sm`, `btn-md`, `btn-lg`, `btn-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+| `modifier` | ``btn-wide`, `btn-block`, `btn-square`, `btn-circle`` | Property | `.Shape = "circle"` / `.Shape = "square"` | Component aspect ratio shape |
+
+### Web DaisyUI HTML Syntax
+```html
+<button class="btn {MODIFIER}">Button</button>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 '  */

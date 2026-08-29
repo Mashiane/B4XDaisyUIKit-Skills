@@ -9,6 +9,22 @@ DaisyUI `Timeline` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageTimeline.bas (lines 54–199)
 - **Web DaisyUI Mapping**: `.timeline` → `B4XDaisyTimeline`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<ul class="timeline {MODIFIER}">
+  <li>
+    <div class="timeline-start">{start}</div>
+    <div class="timeline-middle">{icon}</div>
+    <div class="timeline-end">{end}</div>
+  </li>
+</ul>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' - 1. Default Timeline (Vertical) -
@@ -136,3 +152,32 @@ DaisyUI `Timeline` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyTimeline` renders chronological step sequences and milestone events.
+
+```vb
+Dim tl As B4XDaisyTimeline
+tl.Initialize(Me, "tl")
+tl.Orientation = "vertical"                    ' Set BEFORE AddToParent ("vertical" | "horizontal")
+tl.Compact = False                             ' False = centered track with left/right text
+tl.AddToParent(pnlHost, pad, y, maxW, 180dip)
+
+' Add sequential milestone items:
+tl.AddItem("step1", "09:30", "SKU-89214: Variance -3 units")
+tl.AddItem("step2", "11:15", "SKU-44102: Variance +2 units")
+tl.AddItem("step3", "14:00", "Batch Audit Completed")
+
+' Mark status:
+tl.SetItemDone("step1", True)
+tl.SetItemDone("step2", True)
+tl.Refresh
+
+' Auto-resize frame to measured content height:
+Dim contentH As Int = tl.GetContentHeight
+If contentH > 0 Then
+    tl.SetLayoutAnimated(0, pad, y, maxW, contentH)
+    tl.Refresh
+End If
+y = y + tl.GetContentHeight + gap
+```

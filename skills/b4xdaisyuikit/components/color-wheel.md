@@ -135,3 +135,19 @@ y = pageScroll.AddSectionTitle("1. Medium-Thin Donut (16dip thickness)", y, Fals
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyColorWheel` provides a color picker hue wheel.
+
+```vb
+Dim wheel As B4XDaisyColorWheel
+wheel.Initialize(Me, "wheel")
+wheel.AddToParent(pnlHost, pad, y, maxW, 200dip)
+
+' Color change event:
+Private Sub wheel_ColorChange(Color As Int)
+    Log("Selected color: " & Color)
+End Sub
+
+y = y + 200dip + gap
+```

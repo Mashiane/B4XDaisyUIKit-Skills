@@ -9,6 +9,17 @@ DaisyUI `RadialProgress` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageRadialProgress.bas (lines 15–215), B4XPageStat.bas (lines 315–315)
 - **Web DaisyUI Mapping**: `.radial-progress` → `B4XDaisyRadialProgress`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``radial-progress`` | Member | `.SetComponent(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="radial-progress" style="--value:70;" aria-valuenow="70" role="progressbar">70%</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 currentY = currentY + 40dip

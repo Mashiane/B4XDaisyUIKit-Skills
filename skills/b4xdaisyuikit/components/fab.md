@@ -9,6 +9,97 @@ DaisyUI `Fab` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageBoomMenu.bas (lines 105–105), B4XPageFab.bas (lines 16–16), B4XPageFabBasic.bas (lines 16–16), B4XPageFabFlower.bas (lines 16–16), B4XPageFabNavbar.bas (lines 18–18), B4XPageNavbar.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.fab` → `B4XDaisyFab`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``fab`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``fab-close`, `fab-main-action`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `modifier` | ``fab-flower`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+
+### Web DaisyUI HTML Syntax
+A single FAB in the corner of screen
+```html
+<div class="fab">
+  <button class="btn btn-lg btn-circle">{IconOriginal}</button>
+</div>
+```
+A FAB that opens a 3 other buttons in the corner of page vertically
+```html
+<div class="fab">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <button class="btn btn-lg btn-circle">{Icon1}</button>
+  <button class="btn btn-lg btn-circle">{Icon2}</button>
+  <button class="btn btn-lg btn-circle">{Icon3}</button>
+</div>
+```
+A FAB that opens a 3 other buttons in the corner of page vertically and they have label text
+```html
+<div class="fab">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <div>{Label1}<button class="btn btn-lg btn-circle">{Icon1}</button></div>
+  <div>{Label2}<button class="btn btn-lg btn-circle">{Icon2}</button></div>
+  <div>{Label3}<button class="btn btn-lg btn-circle">{Icon3}</button></div>
+</div>
+```
+FAB with rectangle buttons. These are not circular buttons so they can have more content.
+```html
+<div class="fab">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <button class="btn btn-lg">{Label1}</button>
+  <button class="btn btn-lg">{Label2}</button>
+  <button class="btn btn-lg">{Label3}</button>
+</div>
+```
+FAB with close button. When FAB is open, the original button is replaced with a close button
+```html
+<div class="fab">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <div class="fab-close">Close <span class="btn btn-circle btn-lg btn-error">×</span></div>
+  <div>{Label1}<button class="btn btn-lg btn-circle">{Icon1}</button></div>
+  <div>{Label2}<button class="btn btn-lg btn-circle">{Icon2}</button></div>
+  <div>{Label3}<button class="btn btn-lg btn-circle">{Icon3}</button></div>
+</div>
+```
+FAB with Main Action button. When FAB is open, the original button is replaced with a main action button
+```html
+<div class="fab">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <div class="fab-main-action">
+    {LabelMainAction}<button class="btn btn-circle btn-secondary btn-lg">{IconMainAction}</button>
+  </div>
+  <div>{Label1}<button class="btn btn-lg btn-circle">{Icon1}</button></div>
+  <div>{Label2}<button class="btn btn-lg btn-circle">{Icon2}</button></div>
+  <div>{Label3}<button class="btn btn-lg btn-circle">{Icon3}</button></div>
+</div>
+```
+FAB Flower. It opens the buttons in a flower shape (quarter circle) arrangement instead of vertical
+```html
+<div class="fab fab-flower">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <button class="fab-main-action btn btn-circle btn-lg">{IconMainAction}</button>
+  <button class="btn btn-lg btn-circle">{Icon1}</button>
+  <button class="btn btn-lg btn-circle">{Icon2}</button>
+  <button class="btn btn-lg btn-circle">{Icon3}</button>
+</div>
+```
+FAB Flower with tooltips. There's no space for a text label in a quarter circle, so tooltips are used to indicate the button's function
+```html
+<div class="fab fab-flower">
+  <div tabindex="0" role="button" class="btn btn-lg btn-circle btn-primary">{IconOriginal}</div>
+  <button class="fab-main-action btn btn-circle btn-lg">{IconMainAction}</button>
+  <div class="tooltip tooltip-left" data-tip="{Label1}">
+    <button class="btn btn-lg btn-circle">{Icon1}</button>
+  </div>
+  <div class="tooltip tooltip-left" data-tip="{Label2}">
+    <button class="btn btn-lg btn-circle">{Icon2}</button>
+  </div>
+  <div class="tooltip tooltip-left" data-tip="{Label3}">
+    <button class="btn btn-lg btn-circle">{Icon3}</button>
+  </div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 If fab.IsInitialized = False Then

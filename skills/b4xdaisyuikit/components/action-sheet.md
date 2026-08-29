@@ -126,3 +126,29 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyActionSheet` provides a bottom sheet action sheet with option items and a cancel action.
+
+```vb
+Dim asSheet As B4XDaisyActionSheet
+asSheet.Initialize(Me, "asSheet")
+asSheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+asSheet.Title = "Select Action"
+asSheet.Message = "Choose an operation to perform"
+
+' Add action buttons:
+asSheet.AddAction("edit", "Edit Record", "pencil-solid.svg", "default")
+asSheet.AddAction("share", "Share Report", "share-solid.svg", "primary")
+asSheet.AddAction("delete", "Delete Record", "trash-solid.svg", "error")
+asSheet.SetCancelButton("Cancel")
+
+' Open:
+asSheet.Show
+
+' Action click event:
+Private Sub asSheet_ActionClick(ActionId As String)
+    Log("Action selected: " & ActionId)
+    asSheet.Dismiss
+End Sub
+```

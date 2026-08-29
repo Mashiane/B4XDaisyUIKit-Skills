@@ -9,6 +9,16 @@ DaisyUI `Toggle` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDrawerRail.bas (lines 409–417), B4XPageEnjoyHint.bas (lines 27–28), B4XPageFocus.bas (lines 36–36), B4XPageNavScrollDock.bas (lines 191–197), B4XPageSignaturePad.bas (lines 38–39), B4XPageTagSphere.bas (lines 23–24), B4XPageToggle.bas (lines 59–393), B4XPageToggleGroup.bas (lines 46–204)
 - **Web DaisyUI Mapping**: `.toggle` → `B4XDaisyToggle`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="checkbox" class="toggle {MODIFIER}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ''' Example: Standard checked toggle

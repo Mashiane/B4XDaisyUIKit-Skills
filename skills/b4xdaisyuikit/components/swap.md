@@ -9,6 +9,29 @@ DaisyUI `Swap` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageSwap.bas (lines 116–245)
 - **Web DaisyUI Mapping**: `.swap` → `B4XDaisySwap`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+Using checkbox
+```html
+<label class="swap {MODIFIER}">
+  <input type="checkbox" />
+  <div class="swap-on">{content when active}</div>
+  <div class="swap-off">{content when inactive}</div>
+</label>
+```
+
+Using class name
+```html
+<div class="swap {MODIFIER}">
+  <div class="swap-on">{content when active}</div>
+  <div class="swap-off">{content when inactive}</div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddSwapSample(Def As Map)

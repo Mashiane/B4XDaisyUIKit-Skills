@@ -9,6 +9,19 @@ DaisyUI `Checkbox` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCheckbox.bas (lines 59–365), B4XPageCheckboxGroup.bas (lines 46–204), B4XPageEnjoyHint.bas (lines 29–29), B4XPageFocus.bas (lines 28–28), B4XPageNavScrollDock.bas (lines 204–204)
 - **Web DaisyUI Mapping**: `.checkbox` → `B4XDaisyCheckbox`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``checkbox`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``checkbox-primary`, `checkbox-secondary`, `checkbox-accent`, `checkbox-neutral`, `checkbox-success`, `checkbox-warning`, `checkbox-info`, `checkbox-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `size` | ``checkbox-xs`, `checkbox-sm`, `checkbox-md`, `checkbox-lg`, `checkbox-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="checkbox" class="checkbox {MODIFIER}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Unchecked Checkbox (No Label)

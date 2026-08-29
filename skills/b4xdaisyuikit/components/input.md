@@ -9,6 +9,19 @@ DaisyUI `Input` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageColorWheel.bas (lines 29–29), B4XPageEnjoyHint.bas (lines 24–25), B4XPageFieldset.bas (lines 176–176), B4XPageFocus.bas (lines 16–81), B4XPageInput.bas (lines 74–450), B4XPageNativeDialogs.bas (lines 17–21), B4XPageNavScrollDock.bas (lines 53–169), B4XPageScrollDemo.bas (lines 42–45), B4XPageSheetModal.bas (lines 157–319), B4XPageTextarea.bas (lines 55–277)
 - **Web DaisyUI Mapping**: `.input` → `B4XDaisyInput`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``validator`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``validator-hint`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="{type}" class="input validator" required />
+<p class="validator-hint">Error message</p>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 '-

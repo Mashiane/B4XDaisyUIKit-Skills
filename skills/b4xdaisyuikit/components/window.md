@@ -9,6 +9,19 @@ DaisyUI `Window` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageWindow.bas (lines 71–178)
 - **Web DaisyUI Mapping**: `.window` → `B4XDaisyWindow`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``mockup-window`` | Member | `.SetComponent(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="mockup-window">
+  <div>{CONTENT}</div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddSimpleWindow
@@ -131,3 +144,24 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyWindow` renders a mock macOS/Windows application window frame.
+
+```vb
+Dim win As B4XDaisyWindow
+win.Initialize(Me, "win")
+win.AddToParent(pnlHost, pad, y, maxW, 240dip)
+win.Title = "Terminal / Code Editor"
+win.Variant = "base-200"
+win.TrafficLights = True                       ' Shows red/yellow/green macOS window buttons
+
+' Mount custom views inside GetContentPanel:
+Dim pnlWin As B4XView = win.GetContentPanel
+Dim txtCode As B4XDaisyText
+txtCode.Initialize(Me, "")
+txtCode.AddToParent(pnlWin, 12dip, 12dip, pnlWin.Width - 24dip, 80dip)
+txtCode.Text = "$ git commit -m 'Initial commit'"
+
+y = y + 240dip + gap
+```

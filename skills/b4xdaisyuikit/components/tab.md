@@ -9,6 +9,26 @@ DaisyUI `Tab` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageTab.bas (lines 49–382)
 - **Web DaisyUI Mapping**: `.tab` → `B4XDaisyTab`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+Using buttons:
+```html
+<div role="tablist" class="tabs {MODIFIER}">
+  <button role="tab" class="tab">Tab</button>
+</div>
+```
+
+Using radio inputs:
+```html
+<div role="tablist" class="tabs tabs-box">
+  <input type="radio" name="my_tabs" class="tab" aria-label="Tab" />
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 y = AddDescription(contentLeft, y, maxW, "Default tab style with no special styling. Second tab is active.")

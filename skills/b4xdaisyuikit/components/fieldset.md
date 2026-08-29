@@ -9,6 +9,22 @@ DaisyUI `Fieldset` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCheckbox.bas (lines 295–295), B4XPageCheckboxGroup.bas (lines 161–161), B4XPageFieldset.bas (lines 73–329), B4XPageRadio.bas (lines 296–296), B4XPageRadioGroup.bas (lines 161–161), B4XPageToggle.bas (lines 301–301), B4XPageToggleGroup.bas (lines 161–161)
 - **Web DaisyUI Mapping**: `.fieldset` → `B4XDaisyFieldset`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `Component` | ``fieldset`, `label`` | Member | `.SetComponent(...)` | Native configuration |
+| `Parts` | ``fieldset-legend`` | Member | `.SetParts(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<fieldset class="fieldset">
+  <legend class="fieldset-legend">{title}</legend>
+  {CONTENT}
+  <p class="label">{description}</p>
+</fieldset>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddLabelAboveFieldset
@@ -150,3 +166,25 @@ Private Sub AddLabelAboveFieldset
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyFieldset` groups related form inputs with a legend title and border.
+
+```vb
+Dim fs As B4XDaisyFieldset
+fs.Initialize(Me, "fs")
+fs.Legend = "Personal Information"
+fs.Border = True
+fs.AddToParent(pnlHost, pad, y, maxW, 1dip)
+
+' Mount form inputs inside GetContentPanel:
+Dim pnlFs As B4XView = fs.GetContentPanel
+Dim inpName As B4XDaisyInput
+inpName.Initialize(Me, "inpName")
+inpName.LabelAbove = "Full Name"
+inpName.AddToParent(pnlFs, 12dip, 12dip, pnlFs.Width - 24dip, 48dip)
+
+' Adjust height to wrap children:
+fs.FitContentHeight
+y = y + fs.GetComputedHeight + gap
+```

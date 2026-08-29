@@ -9,6 +9,16 @@ DaisyUI `FileInput` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageAvatar.bas (lines 21–21), B4XPageFileInput.bas (lines 20–281), B4XPageFocus.bas (lines 24–120)
 - **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="file" class="file-input {MODIFIER}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' #region Example 1: Base (default)

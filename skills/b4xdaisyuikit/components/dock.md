@@ -9,6 +9,27 @@ DaisyUI `Dock` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDock.bas (lines 17–419), B4XPageNavScrollDock.bas (lines 46–46)
 - **Web DaisyUI Mapping**: `.dock` → `B4XDaisyDock`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``dock`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``dock-label`` | Method / Part | `AddItem(...)` / `GetContentPanel` | Sub-element container |
+| `modifier` | ``dock-active`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `size` | ``dock-xs`, `dock-sm`, `dock-md`, `dock-lg`, `dock-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="dock {MODIFIER}">{CONTENT}</div>
+```
+where content is a list of buttons:
+```html
+<button>
+    <svg>{icon}</svg>
+    <span class="dock-label">Text</span>
+</button>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Dim cardDock As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePreviewHeightDip("md"))
@@ -141,3 +162,26 @@ Dim cardDock As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePre
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyDock` is a bottom navigation bar.
+
+```vb
+Dim dock As B4XDaisyDock
+dock.Initialize(Me, "dock")
+dock.Size = "md"                               ' Set BEFORE AddToParent
+dock.ActiveIndex = 0                           ' Set BEFORE AddToParent
+dock.AddToParent(Root, 0, Root.Height - 64dip, Root.Width, 64dip)
+
+' Add tab buttons:
+dock.AddItem("home", "Home", "home-solid.svg")
+dock.AddItem("scan", "Scan", "qrcode-solid.svg")
+dock.AddItem("audit", "Audit", "clipboard-solid.svg")
+dock.AddItem("settings", "Settings", "cog-solid.svg")
+
+' Tab switch event:
+Private Sub dock_ItemClick(Tag As Object)
+    Dim sTab As String = Tag
+    pgMain.ShowPageWithLoader(sTab)
+End Sub
+```

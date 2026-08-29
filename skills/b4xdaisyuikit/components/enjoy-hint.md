@@ -76,3 +76,19 @@ DaisyUI `EnjoyHint` component for B4X (B4A/B4i/B4J).
 ## 7. Public Fields
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyEnjoyHint` runs step-by-step interactive onboarding spotlight tours over target views.
+
+```vb
+Dim hint As B4XDaisyEnjoyHint
+hint.Initialize(Me, "hint")
+hint.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+
+' Add steps:
+hint.AddStep(btnScan.getView, "Tap here to scan product barcodes.", "next")
+hint.AddStep(btnSave.getView, "Tap here when physical count is done.", "finish")
+
+' Start tour:
+hint.StartTour
+```

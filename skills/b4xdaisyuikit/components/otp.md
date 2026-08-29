@@ -9,6 +9,26 @@ DaisyUI `OTP` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageOTP.bas (lines 12–492)
 - **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOTP`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``otp`` | Member | `.SetComponent(...)` | Native configuration |
+| `size` | ``otp-xs`, `otp-sm`, `otp-md`, `otp-lg`, `otp-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+| `modifier` | ``otp-joined`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `color` | ``otp-neutral`, `otp-primary`, `otp-secondary`, `otp-accent`, `otp-info`, `otp-success`, `otp-warning`, `otp-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+
+### Web DaisyUI HTML Syntax
+```html
+<label class="otp {MODIFIER}">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <input type="text" autocomplete="one-time-code" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required />
+</label>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Demo page regenerating every Ionic v8 ion-input-otp example for

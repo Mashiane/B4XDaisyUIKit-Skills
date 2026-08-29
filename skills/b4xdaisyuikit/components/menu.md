@@ -9,6 +9,30 @@ DaisyUI `Menu` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDrawer.bas (lines 17–17), B4XPageDrawerRail.bas (lines 17–17), B4XPageDrawerTree.bas (lines 17–17), B4XPageDropdown.bas (lines 77–77), B4XPageMenu.bas (lines 80–417), B4XPageMenuRuntime.bas (lines 20–159), B4XPageMenuRuntime2.bas (lines 20–20)
 - **Web DaisyUI Mapping**: `.menu` → `B4XDaisyMenu`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``menu`` | Member | `.SetComponent(...)` | Native configuration |
+| `part` | ``menu-title`, `menu-dropdown`, `menu-dropdown-toggle`` | Sub-Panel | `GetTitlePanel`, `GetContentPanel`, `GetActionsPanel` | Mount child views inside target sub-panel |
+| `modifier` | ``menu-disabled`, `menu-active`, `menu-focus`, `menu-dropdown-show`, `menu-paged`` | Property | `.LayoutMode` / `.Style` / `.Shape` | Custom component layout modifier |
+| `size` | ``menu-xs`, `menu-sm`, `menu-md`, `menu-lg`, `menu-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+| `direction` | ``menu-vertical`, `menu-horizontal`` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+
+### Web DaisyUI HTML Syntax
+Vertical menu:
+```html
+<ul class="menu">
+  <li><button>Item</button></li>
+</ul>
+```
+Horizontal menu:
+```html
+<ul class="menu menu-horizontal">
+  <li><button>Item</button></li>
+</ul>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub ExampleFileTree(Y As Int, Width As Int) As Int
@@ -206,3 +230,27 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyMenu` renders vertical navigation menus with parent/child collapsible items.
+
+```vb
+Dim menu As B4XDaisyMenu
+menu.Initialize(Me, "menu")
+menu.AddToParent(pnlHost, pad, y, maxW, 200dip)
+menu.Rounded = "rounded-box"
+
+' Add menu items:
+menu.AddItem("home", "Home Dashboard", "home-solid.svg")
+menu.AddParentItem("inventory", "Inventory Management", "box-solid.svg")
+menu.AddChildItem("inventory", "scan", "Barcode Scanner")
+menu.AddChildItem("inventory", "count", "Physical Count")
+menu.AddItem("settings", "App Settings", "cog-solid.svg")
+
+' Click event:
+Private Sub menu_ItemClick(Tag As Object)
+    Log("Menu clicked: " & Tag)
+End Sub
+
+y = y + menu.GetComputedHeight + gap
+```

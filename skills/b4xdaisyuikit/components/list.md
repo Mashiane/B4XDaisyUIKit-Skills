@@ -9,6 +9,18 @@ DaisyUI `List` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageList.bas (lines 17–20), B4XPageList1K.bas (lines 13–13)
 - **Web DaisyUI Mapping**: `.list` → `B4XDaisyList`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+
+### Web DaisyUI HTML Syntax
+```html
+<ul class="list">
+  <li class="list-row">{CONTENT}</li>
+</ul>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' - DaisyUI: List (2 columns, second column grows - default) -
@@ -166,3 +178,78 @@ DaisyUI `List` component for B4X (B4A/B4i/B4J).
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyList` is a virtualized recycling list container powered by `CustomListView`. It follows a 3-pillar pattern:
+
+### 1. Setup in `RenderPage`
+```vb
+Dim lst As B4XDaisyList
+lst.Initialize(Me, "lst")
+lst.Rounded = "rounded-box"
+lst.Shadow = "shadow-md"
+lst.BackgroundColor = "base-100"
+lst.RowHeight = 64dip            ' Height allocated per item
+lst.AutoHeight = True             ' Sizes list container to fit total items
+lst.AddToParent(pnlHost, pad, y, maxW, 320dip)
+
+' Populate data rows (Maps with custom properties)
+lst.AddHeader("Category Title")
+lst.AddRowData(CreateMap("Tag": "id1", "title": "Main Title", "subtitle": "Detail text", "status": "ACTIVE", "variant": "success"))
+lst.AddRowData(CreateMap("Tag": "id2", "title": "Second Title", "subtitle": "Another detail", "status": "PENDING", "variant": "warning"))
+
+y = y + lst.GetComputedHeight + gap
+```
+
+### 2. Row View Creation Event (`_CreateRowContent`)
+```vb
+Private Sub lst_CreateRowContent(Index As Int)
+	Dim pnlRow As B4XView = lst.GetCurrentRowPanel
+	Dim data As Map = lst.GetCurrentRowData
+	If pnlRow = Null Or pnlRow.IsInitialized = False Or data = Null Then Return
+	
+	' Handle section header rows
+	If data.GetDefault("_header", False) Then
+		Dim txtHeader As B4XDaisyText
+		txtHeader.Initialize(Me, "")
+		txtHeader.AddToParent(pnlRow, 16dip, 0, pnlRow.Width - 32dip, pnlRow.Height)
+		txtHeader.Text = data.GetDefault("title", "")
+		txtHeader.TextSize = 12
+		txtHeader.TextColor = xui.Color_ARGB(160, 0, 0, 0)
+		txtHeader.UpperCase = True
+		txtHeader.FontBold = True
+		txtHeader.VAlign = "CENTER"
+		Return
+	End If
+	
+	' Mount child views onto pnlRow
+	Dim txtTitle As B4XDaisyText
+	txtTitle.Initialize(Me, "")
+	txtTitle.AddToParent(pnlRow, 16dip, 10dip, pnlRow.Width - 110dip, 22dip)
+	txtTitle.Text = data.GetDefault("title", "")
+	txtTitle.TextSize = 14
+	txtTitle.FontBold = True
+	
+	Dim txtSub As B4XDaisyText
+	txtSub.Initialize(Me, "")
+	txtSub.AddToParent(pnlRow, 16dip, 32dip, pnlRow.Width - 110dip, 20dip)
+	txtSub.Text = data.GetDefault("subtitle", "")
+	txtSub.TextSize = 11
+	txtSub.TextColor = xui.Color_ARGB(150, 0, 0, 0)
+	
+	Dim badge As B4XDaisyBadge
+	badge.Initialize(Me, "")
+	badge.SetVariant(data.GetDefault("variant", "info"))
+	badge.SetStyle("soft")
+	badge.SetSize("sm")
+	badge.SetText(data.GetDefault("status", ""))
+	badge.AddToParent(pnlRow, pnlRow.Width - 92dip, (pnlRow.Height - 24dip) / 2, 76dip, 24dip)
+End Sub
+```
+
+### 3. Click Event
+```vb
+Private Sub lst_ItemClick(Index As Int, Tag As Object)
+	Log("Clicked item: " & Tag)
+End Sub
+```

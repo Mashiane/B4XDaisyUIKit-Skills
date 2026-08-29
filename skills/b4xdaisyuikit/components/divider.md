@@ -9,6 +9,20 @@ DaisyUI `Divider` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageDivider.bas (lines 186–191)
 - **Web DaisyUI Mapping**: `.divider` → `B4XDaisyDivider`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``divider`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``divider-neutral`, `divider-primary`, `divider-secondary`, `divider-accent`, `divider-success`, `divider-warning`, `divider-info`, `divider-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `direction` | ``divider-vertical`, `divider-horizontal`` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+| `placement` | ``divider-start`, `divider-end`` | Member | `.SetPlacement(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="divider {MODIFIER}">{text}</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub AddDemoDividerWithTextSize(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int, Text As String, Direction As String, Placement As String, Variant As String, TagId As String, TextSizeToken As String) As B4XDaisyDivider

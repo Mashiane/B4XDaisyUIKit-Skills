@@ -223,3 +223,24 @@ End Sub
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyBoomMenu` provides a floating action button expanding into radial circular sub-buttons.
+
+```vb
+Dim boom As B4XDaisyBoomMenu
+boom.Initialize(Me, "boom")
+boom.AddToParent(Root, Root.Width - 72dip, Root.Height - 72dip, 56dip, 56dip)
+boom.ButtonShape = "circle"
+boom.PiecePlaceEnum = "DOT_9_1"
+boom.ButtonPlaceEnum = "SC_9_1"
+
+' Add sub-buttons:
+boom.AddButton("scan", "qrcode-solid.svg", "Scan SKU", "primary")
+boom.AddButton("add", "plus-solid.svg", "Manual Entry", "secondary")
+
+' Click event:
+Private Sub boom_BoomClick(Index As Int, Tag As Object)
+    Log("Boom item clicked: " & Tag)
+End Sub
+```

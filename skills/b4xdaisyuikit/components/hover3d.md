@@ -9,6 +9,29 @@ DaisyUI `Hover3d` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageHover3d.bas (lines 61–232)
 - **Web DaisyUI Mapping**: `.hover3d` → `B4XDaisyHover3d`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``hover-3d`` | Member | `.SetComponent(...)` | Native configuration |
+
+### Web DaisyUI HTML Syntax
+```html
+<div class="hover-3d my-12 mx-2">
+  <figure class="max-w-100 rounded-2xl">
+    <img src="https://img.daisyui.com/images/stock/creditcard.webp" alt="Tailwind CSS 3D card" />
+  </figure>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Dim heroW As Int = maxW
@@ -153,3 +176,24 @@ Dim heroW As Int = maxW
 - `mBase As B4XView`
 - `xui As XUI`
 
+## Canonical Creation Pattern & Recipe
+
+`B4XDaisyHover3d` applies interactive 3D perspective tilt to inner card views.
+
+```vb
+Dim hover As B4XDaisyHover3d
+hover.Initialize(Me, "hover")
+hover.AddToParent(pnlHost, pad, y, maxW, 160dip)
+hover.Rounded = "rounded-box"
+hover.Depth = 15
+
+' Mount inner content onto GetContentPanel:
+Dim pnlInner As B4XView = hover.GetContentPanel
+Dim txtH As B4XDaisyText
+txtH.Initialize(Me, "")
+txtH.AddToParent(pnlInner, 16dip, 16dip, pnlInner.Width - 32dip, 40dip)
+txtH.Text = "Interactive 3D Perspective Card"
+txtH.FontBold = True
+
+y = y + 160dip + gap
+```

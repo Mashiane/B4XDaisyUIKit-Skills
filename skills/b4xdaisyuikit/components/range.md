@@ -9,6 +9,20 @@ DaisyUI `Range` component for B4X (B4A/B4i/B4J).
 - **Verified Demo Source**: B4XPageCanvasSpinner.bas (lines 25–26), B4XPageEnjoyHint.bas (lines 30–30), B4XPageFocus.bas (lines 40–40), B4XPageNavScrollDock.bas (lines 213–213), B4XPageRange.bas (lines 58–494), B4XPageSignaturePad.bas (lines 34–34), B4XPageTagSphere.bas (lines 21–22)
 - **Web DaisyUI Mapping**: `.range` → `B4XDaisyRange`
 
+## DaisyUI Web Class Translation
+
+| DaisyUI Category | Web CSS Class Name(s) | Native B4X Member | B4X Property / Method Expression | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| `component` | ``range`` | Member | `.SetComponent(...)` | Native configuration |
+| `color` | ``range-neutral`, `range-primary`, `range-secondary`, `range-accent`, `range-success`, `range-warning`, `range-info`, `range-error`` | Property | `.Variant = "primary"` (or secondary, accent, etc.) | Available on all interactive and display views |
+| `size` | ``range-xs`, `range-sm`, `range-md`, `range-lg`, `range-xl`` | Property | `.Size = "sm"` (or xs, md, lg, xl) | Preset dimension scaling |
+| `direction` | ``range-vertical` (vertical slider)` | Property | `.Direction = "vertical"` / `.Orientation = "vertical"` | Flow orientation |
+
+### Web DaisyUI HTML Syntax
+```html
+<input type="range" min="0" max="100" value="40" class="range {MODIFIER}" />
+```
+
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 Private Sub RenderExamples(Width As Int, Height As Int)
