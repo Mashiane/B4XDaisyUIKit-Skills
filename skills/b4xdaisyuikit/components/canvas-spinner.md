@@ -1,12 +1,12 @@
 # canvas-spinner (`B4XDaisyCanvasSpinner`)
 
-DaisyUI `CanvasSpinner` component for B4X (B4A/B4i/B4J).
+DaisyUI `CanvasSpinner` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCanvasSpinner`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyCanvasSpinner.bas`
-- **Verified Demo Source**: B4XPageCanvasSpinner.bas (lines 16–22), B4XMainPage.bas (lines 83–83)
+- **Verified Demo Source**: B4XPageCanvasSpinner.bas
 - **Web DaisyUI Mapping**: `.canvas-spinner` → `B4XDaisyCanvasSpinner`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -57,59 +57,58 @@ DaisyUI `CanvasSpinner` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Size` | Size | `String` | `100dip` |  |
-| `Color1` | Primary Color | `Color` | `0xFF3FC3EE` |  |
-| `Color2` | Secondary Color | `Color` | `0xFFF27474` |  |
-| `Color3` | Tertiary Color | `Color` | `0xFFF8BB86` |  |
-| `StrokeWidth` | Stroke Width | `String` | `4dip` |  |
-| `OverlayColor` | Overlay Color | `Color` | `0xFFFFFFFF` |  |
-| `OverlayOpacity` | Overlay Opacity | `Float` | `0.0` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Size` | Size | `String` | 100dip |  |
+| `Color1` | Primary Color | `Color` | 0xFF3FC3EE |  |
+| `Color2` | Secondary Color | `Color` | 0xFFF27474 |  |
+| `Color3` | Tertiary Color | `Color` | 0xFFF8BB86 |  |
+| `StrokeWidth` | Stroke Width | `String` | 4dip |  |
+| `OverlayColor` | Overlay Color | `Color` | 0xFFFFFFFF |  |
+| `OverlayOpacity` | Overlay Opacity | `Float` | 0.0 |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddChild(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView) As B4XView`
-- `Base_Resize (dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `GetComputedHeight As Int`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AttachTo(Target As B4XView) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Int, Height As Int)`
+- `AddChild(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Show(Target As B4XView)`
 - `Hide`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Resize(iWidth As Int, iHeight As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Show(vTarget As B4XView)`
-- `View As B4XView`
-- `getColor1 As Int`
-- `getColor2 As Int`
-- `getColor3 As Int`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getOverlayColor As Int`
-- `getOverlayOpacity As Float`
-- `getSize As String`
-- `getStrokeWidth As Float`
-- `getTop As Int`
 - `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getColor1 As Int`
+- `setColor1(C As Int)`
+- `getColor2 As Int`
+- `setColor2(C As Int)`
+- `getColor3 As Int`
+- `setColor3(C As Int)`
+- `getStrokeWidth As Float`
+- `setStrokeWidth(S As Float)`
+- `getOverlayColor As Int`
+- `setOverlayColor(C As Int)`
+- `getOverlayOpacity As Float`
+- `setOverlayOpacity(O As Float)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setColor1(iC As Int)`
-- `setColor2(iC As Int)`
-- `setColor3(iC As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setOverlayColor(iC As Int)`
-- `setOverlayOpacity(fO As Float)`
-- `setSize(sValue As String)`
-- `setStrokeWidth(fS As Float)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

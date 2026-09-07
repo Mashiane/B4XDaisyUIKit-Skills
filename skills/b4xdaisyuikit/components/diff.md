@@ -1,12 +1,12 @@
 # diff (`B4XDaisyDiff`)
 
-DaisyUI `Diff` component for B4X (B4A/B4i/B4J).
+DaisyUI `Diff` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDiff`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyDiff.bas`
-- **Verified Demo Source**: B4XPageDiff.bas (lines 57–73)
+- **Verified Demo Source**: B4XPageDiff.bas
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
 ## DaisyUI Web Class Translation
@@ -79,86 +79,85 @@ y = AddSectionTitle("Diff", y, maxW)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-[300px]` |  |
-| `Rounded` | Rounded | `String` | `rounded-xl` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `DiffType` | Diff Type | `String` | `auto` | auto|image|text |
-| `Position` | Position | `String` | `0.5` |  |
-| `Image1` | Image 1 | `String` | `photo-1560717789-0ac7c58ac90a.webp` |  |
-| `Image2` | Image 2 | `String` | `photo-1560717789-0ac7c58ac90a-blur.webp` |  |
-| `Text1` | Text 1 | `String` | `DAISY` |  |
-| `Text2` | Text 2 | `String` | `DAISY` |  |
-| `TextSize` | Text Size | `String` | `text-4xl` |  |
-| `Text1Color` | Text 1 Color | `String` | `primary` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Text2Color` | Text 2 Color | `String` | `success` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-[300px] |  |
+| `Rounded` | Rounded | `String` | rounded-xl | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `DiffType` | Diff Type | `String` | auto | auto|image|text |
+| `Position` | Position | `String` | 0.5 |  |
+| `Image1` | Image 1 | `String` | photo-1560717789-0ac7c58ac90a.webp |  |
+| `Image2` | Image 2 | `String` | photo-1560717789-0ac7c58ac90a-blur.webp |  |
+| `Text1` | Text 1 | `String` | DAISY |  |
+| `Text2` | Text 2 | `String` | DAISY |  |
+| `TextSize` | Text Size | `String` | text-4xl |  |
+| `Text1Color` | Text 1 Color | `String` | primary | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Text2Color` | Text 2 Color | `String` | success | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Refresh`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getDiffType As String`
-- `getEnabled As Boolean`
-- `getHeight As String`
-- `getImage1 As String`
-- `getImage2 As String`
 - `getItem1View As B4XView`
 - `getItem2View As B4XView`
-- `getLeft As Int`
+- `setItem1(AView As B4XView)`
+- `setItem2(AView As B4XView)`
+- `setPosition(Value As Float)`
 - `getPosition As Float`
-- `getRounded As String`
-- `getShadow As String`
+- `setTag(Value As Object)`
 - `getTag As Object`
-- `getText1 As String`
-- `getText1Color As String`
-- `getText2 As String`
-- `getText2Color As String`
-- `getTextSize As String`
-- `getTop As Int`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setDiffType(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setImage1(sValue As String)`
-- `setImage2(sValue As String)`
-- `setItem1(vAView As B4XView)`
-- `setItem2(vAView As B4XView)`
-- `setLeft(iValue As Int)`
-- `setPosition(fValue As Float)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText1(sValue As String)`
-- `setText1Color(sValue As String)`
-- `setText2(sValue As String)`
-- `setText2Color(sValue As String)`
-- `setTextSize(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setDiffType(Value As String)`
+- `getDiffType As String`
+- `setImage1(Value As String)`
+- `getImage1 As String`
+- `setImage2(Value As String)`
+- `getImage2 As String`
+- `setText1(Value As String)`
+- `getText1 As String`
+- `setText2(Value As String)`
+- `getText2 As String`
+- `setTextSize(Value As String)`
+- `getTextSize As String`
+- `setText1Color(Value As String)`
+- `getText1Color As String`
+- `setText2Color(Value As String)`
+- `getText2Color As String`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

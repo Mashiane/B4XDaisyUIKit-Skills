@@ -1,12 +1,12 @@
 # card-body (`B4XDaisyCardBody`)
 
-DaisyUI `CardBody` component for B4X (B4A/B4i/B4J).
+DaisyUI `CardBody` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCardBody`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyCardBody.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.card-body` → `B4XDaisyCardBody`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -28,44 +28,43 @@ DaisyUI `CardBody` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Height` | Height | `String` | `auto` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Height` | Height | `String` | auto |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getBodyTextSize As Float`
-- `getContainer As B4XView`
-- `getGapDip As Int`
-- `getHeight As String`
-- `getLeft As Int`
-- `getPaddingDip As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setSize(Value As String)`
 - `getSize As String`
-- `getTag As Object`
-- `getTop As Int`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `getPaddingDip As Int`
+- `getGapDip As Int`
+- `getBodyTextSize As Float`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getContainer As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setHeight(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

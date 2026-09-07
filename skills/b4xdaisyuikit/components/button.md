@@ -1,12 +1,12 @@
 # button (`B4XDaisyButton`)
 
-DaisyUI `Button` component for B4X (B4A/B4i/B4J).
+DaisyUI `Button` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyButton`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyButton.bas`
-- **Verified Demo Source**: B4XPageActionSheet.bas (lines 19–25), B4XPageAura.bas (lines 160–160), B4XPageButton.bas (lines 58–615), B4XPageCanvasSpinner.bas (lines 29–39), B4XPageCard.bas (lines 293–293), B4XPageColorWheel.bas (lines 21–23), B4XPageDock.bas (lines 18–379), B4XPageDrawer.bas (lines 29–29), B4XPageDrawerRail.bas (lines 33–34), B4XPageDrawerTree.bas (lines 29–31), B4XPageDropdown.bas (lines 325–325), B4XPageEasing.bas (lines 25–207), B4XPageEnjoyHint.bas (lines 18–166), B4XPageFocus.bas (lines 17–46), B4XPageHero.bas (lines 116–116), B4XPageMenuRuntime.bas (lines 332–341), B4XPageMenuRuntime2.bas (lines 290–299), B4XPageModal.bas (lines 59–409), B4XPageNavScrollDock.bas (lines 233–246), B4XPageNavbar.bas (lines 188–714), B4XPageOverlay.bas (lines 224–340), B4XPagePicker.bas (lines 32–453), B4XPageProgress.bas (lines 119–185), B4XPageRadialProgress.bas (lines 226–244), B4XPageRange.bas (lines 311–311), B4XPageRating.bas (lines 383–383), B4XPageScrollDemo.bas (lines 48–93), B4XPageSheetModal.bas (lines 19–281), B4XPageShineButton.bas (lines 31–32), B4XPageSignaturePad.bas (lines 19–31), B4XPageStat.bas (lines 443–443), B4XPageSweetAlert.bas (lines 77–77), B4XPageSweetAlertInputs.bas (lines 31–43), B4XPageTagSphere.bas (lines 29–31), B4XPageToast.bas (lines 59–113), B4XPageTooltip.bas (lines 62–247)
+- **Verified Demo Source**: B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageHero.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavScrollDock.bas, B4XPageNavbar.bas, B4XPageOverlay.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageScrollDemo.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageStat.bas, B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas, B4XPageToast.bas, B4XPageTooltip.bas
 - **Web DaisyUI Mapping**: `.button` → `B4XDaisyButton`
 
 ## DaisyUI Web Class Translation
@@ -75,56 +75,119 @@ DaisyUI `Button` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Text` | Text | `String` | `Button` |  |
-| `Variant` | Variant | `String` | `default` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `Style` | Style | `String` | `solid` | solid|soft|outline|dash|ghost|link |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Width` | Width | `String` | `auto` |  |
-| `Height` | Height | `String` | `auto` |  |
-| `IconName` | Icon Name | `String` | `` |  |
-| `IconColor` | Icon Color | `Color` | `0x00FFFFFF` |  |
-| `Wide` | Wide | `Boolean` | `False` |  |
-| `Block` | Block | `Boolean` | `False` |  |
-| `Square` | Square | `Boolean` | `False` |  |
-| `Circle` | Circle | `Boolean` | `False` |  |
-| `Active` | Active | `Boolean` | `False` |  |
-| `Disabled` | Disabled | `Boolean` | `False` |  |
-| `Loading` | Loading | `Boolean` | `False` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
-| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `TextAlignment` | Text Alignment | `String` | `CENTER` | CENTER|LEFT|RIGHT |
-| `Glass` | Glass | `Boolean` | `False` |  |
-| `ButtonSizeDip` | Button Size (dip) | `Int` | `0` |  |
-| `IconSize` | Icon Size (dip) | `Int` | `0` |  |
+| `Text` | Text | `String` | Button |  |
+| `Variant` | Variant | `String` | default | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `Style` | Style | `String` | solid | solid|soft|outline|dash|ghost|link |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `Width` | Width | `String` | auto |  |
+| `Height` | Height | `String` | auto |  |
+| `IconName` | Icon Name | `String` |  |  |
+| `IconColor` | Icon Color | `Color` | 0x00FFFFFF |  |
+| `Wide` | Wide | `Boolean` | False |  |
+| `Block` | Block | `Boolean` | False |  |
+| `Square` | Square | `Boolean` | False |  |
+| `Circle` | Circle | `Boolean` | False |  |
+| `Active` | Active | `Boolean` | False |  |
+| `Disabled` | Disabled | `Boolean` | False |  |
+| `Loading` | Loading | `Boolean` | False |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0x00FFFFFF |  |
+| `BorderColor` | Border Color | `Color` | 0x00FFFFFF |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `TextAlignment` | Text Alignment | `String` | CENTER | CENTER|LEFT|RIGHT |
+| `Glass` | Glass | `Boolean` | False |  |
+| `ButtonSizeDip` | Button Size (dip) | `Int` | 0, MinRange: 0 |  |
+| `IconSize` | Icon Size (dip) | `Int` | 0, MinRange: 0 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Refresh`
-- `Release`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `setGlass(Value As Boolean)`
 - `getGlass As Boolean`
+- `GetEstimateContentWidth As Int`
+- `setText(Value As String)`
+- `getText As String`
+- `setClass(Value As String)`
+- `getClass As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setButtonSizeDip(Value As Int)`
+- `getButtonSizeDip As Int`
+- `setIconSize(Value As Int)`
+- `getIconSize As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setIconName(Value As String)`
+- `getIconName As String`
+- `setIconColor(Value As Int)`
+- `getIconColor As Int`
+- `setWide(Value As Boolean)`
+- `getWide As Boolean`
+- `setBlock(Value As Boolean)`
+- `getBlock As Boolean`
+- `setSquare(Value As Boolean)`
+- `getSquare As Boolean`
+- `setCircle(Value As Boolean)`
+- `getCircle As Boolean`
+- `setActive(Value As Boolean)`
+- `getActive As Boolean`
+- `setDisabled(Value As Boolean)`
+- `getDisabled As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setLoading(Value As Boolean)`
+- `getLoading As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setTextAlignment(Value As String)`
+- `getTextAlignment As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `setFocus(Value As Boolean)`
+- `getIsFocused As Boolean`
+- `RequestFocus`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `setGlass(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setTop(iValue As Int)`
+- `BringToFront`
+- `SendToBack`
+- `Release`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

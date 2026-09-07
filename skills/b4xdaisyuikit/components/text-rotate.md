@@ -1,12 +1,12 @@
 # text-rotate (`B4XDaisyTextRotate`)
 
-DaisyUI `TextRotate` component for B4X (B4A/B4i/B4J).
+DaisyUI `TextRotate` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyTextRotate`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyTextRotate.bas`
-- **Verified Demo Source**: B4XPageTextRotate.bas (lines 39–160)
+- **Verified Demo Source**: B4XPageTextRotate.bas
 - **Web DaisyUI Mapping**: `.text-rotate` → `B4XDaisyTextRotate`
 
 ## DaisyUI Web Class Translation
@@ -118,51 +118,50 @@ y = AddSectionTitle("Basic Rotation (3 items, text-sm, 3s)", y, maxW)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Items` | Items | `List` | `1` |  |
-| `Duration` | Duration | `String` | `3s` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Items` | Items | `List` | 1 |  |
+| `Duration` | Duration | `String` | 3s |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddItem(dt As B4XDaisyText)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `GetItems As List`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItems(lstItemList As List)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Start`
-- `Stop`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
-- `View As B4XView`
+- `Refresh`
+- `Stop`
+- `Start`
+- `GetItems As List`
+- `SetItems(lstItemList As List)`
+- `AddItem(dt As B4XDaisyText)`
+- `Clear`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setDuration(Value As String)`
 - `getDuration As String`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getTag As Object`
-- `getTop As Int`
+- `setVariant(Value As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setDuration(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # alert (`B4XDaisyAlert`)
 
-DaisyUI `Alert` component for B4X (B4A/B4i/B4J).
+DaisyUI `Alert` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAlert`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyAlert.bas`
-- **Verified Demo Source**: B4XPageAlert.bas (lines 136–233), B4XMainPage.bas (lines 127–651)
+- **Verified Demo Source**: B4XPageAlert.bas
 - **Web DaisyUI Mapping**: `.alert` → `B4XDaisyAlert`
 
 ## DaisyUI Web Class Translation
@@ -69,105 +69,104 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `full` |  |
-| `Height` | Height | `String` | `h-12` |  |
-| `Variant` | Variant | `String` | `none` | none|info|success|warning|error|primary|secondary|accent|neutral |
-| `AlertStyle` | Style | `String` | `solid` | solid|soft|outline|dash |
-| `Direction` | Direction | `String` | `horizontal` | horizontal|vertical |
-| `Title` | Title | `String` | `` |  |
-| `Text` | Text | `String` | `12 unread messages. Tap to see.` |  |
-| `Description` | Description | `String` | `` |  |
-| `IconAsset` | Icon Asset | `String` | `` |  |
-| `IconSize` | Icon Size | `String` | `6` |  |
-| `Rounded` | Rounded | `String` | `rounded-box` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `BorderWidth` | Border Width | `Int` | `1` |  |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `ActionSpacing` | Action Spacing | `Int` | `6` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
-| `IconColor` | Icon Color | `Color` | `0x00FFFFFF` |  |
-| `IconVisible` | Icon Visible | `Boolean` | `True` |  |
+| `Width` | Width | `String` | full |  |
+| `Height` | Height | `String` | h-12 |  |
+| `Variant` | Variant | `String` | none | none|info|success|warning|error|primary|secondary|accent|neutral |
+| `AlertStyle` | Style | `String` | solid | solid|soft|outline|dash |
+| `Direction` | Direction | `String` | horizontal | horizontal|vertical |
+| `Title` | Title | `String` |  |  |
+| `Text` | Text | `String` | 12 unread messages. Tap to see. |  |
+| `Description` | Description | `String` |  |  |
+| `IconAsset` | Icon Asset | `String` |  |  |
+| `IconSize` | Icon Size | `String` | 6 |  |
+| `Rounded` | Rounded | `String` | rounded-box | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `BorderWidth` | Border Width | `Int` | 1 |  |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `ActionSpacing` | Action Spacing | `Int` | 6 |  |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `BorderColor` | Border Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0x00FFFFFF |  |
+| `IconColor` | Icon Color | `Color` | 0x00FFFFFF |  |
+| `IconVisible` | Icon Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 - `ActionClick (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddActionButton(sText As String, oTag As Object) As B4XView`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `ClearActions`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `GetVisualColors As Map`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RaiseActionClick(oTag As Object)`
-- `RemoveViewFromParent`
-- `SizeToFit(iAvailableWidth As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `applyActiveTheme`
-- `getActionSpacing As Float`
-- `getAlertStyle As String`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderWidth As Float`
-- `getDescription As String`
-- `getDirection As String`
-- `getHeight As Float`
-- `getIconAsset As String`
-- `getIconColor As Int`
-- `getIconSize As Float`
-- `getIconVisible As Boolean`
-- `getMessage As String`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getStyle As String`
-- `getTag As Object`
-- `getText As String`
-- `getTextColor As Int`
-- `getTitle As String`
-- `getVariant As String`
-- `getVariantPalette As Map`
+- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `ClearActions`
+- `GetContentPanel As B4XView`
+- `AddActionButton(Text As String, Tag As Object) As B4XView`
+- `IsReady As Boolean`
+- `GetVisualColors As Map`
+- `SizeToFit(AvailableWidth As Int)`
+- `RaiseActionClick(Tag As Object)`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setAlertStyle(Value As String)`
+- `getAlertStyle As String`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setTitle(Value As String)`
+- `getTitle As String`
+- `setText(Value As String)`
+- `getText As String`
+- `setMessage(Value As String)`
+- `getMessage As String`
+- `setDescription(Value As String)`
+- `getDescription As String`
+- `setIconVisible(Value As Boolean)`
+- `getIconVisible As Boolean`
+- `setIconAsset(Path As String)`
+- `getIconAsset As String`
+- `setIconSize(Value As Object)`
+- `getIconSize As Float`
+- `setIconColor(Value As Object)`
+- `getIconColor As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setBorderWidth(Value As Float)`
+- `getBorderWidth As Float`
 - `resetBorderWidthToTheme`
-- `setActionSpacing(fValue As Float)`
-- `setAlertStyle(sValue As String)`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iColor As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBorderColor(iColor As Int)`
-- `setBorderColorVariant(sVariantName As String)`
-- `setBorderWidth(fValue As Float)`
-- `setDescription(sValue As String)`
-- `setDirection(sValue As String)`
-- `setHeight(oValue As Object)`
-- `setIconAsset(sPath As String)`
-- `setIconColor(oValue As Object)`
-- `setIconSize(oValue As Object)`
-- `setIconVisible(bValue As Boolean)`
-- `setMessage(sValue As String)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextColor(iColor As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTitle(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVariantPalette(mPalette As Map)`
-- `setWidth(oValue As Object)`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setActionSpacing(Value As Float)`
+- `getActionSpacing As Float`
+- `setVariantPalette(Palette As Map)`
+- `getVariantPalette As Map`
+- `applyActiveTheme`
+- `setBackgroundColor(Color As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColor(Color As Int)`
+- `getTextColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setBorderColor(Color As Int)`
+- `getBorderColor As Int`
+- `setBorderColorVariant(VariantName As String)`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

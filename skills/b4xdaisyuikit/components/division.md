@@ -1,6 +1,6 @@
 # division (`B4XDaisyDivision`)
 
-DaisyUI `Division` component for B4X (B4A/B4i/B4J).
+DaisyUI `Division` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDivision`

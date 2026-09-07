@@ -1,12 +1,12 @@
 # dual-range (`B4XDaisyDualRange`)
 
-DaisyUI `DualRange` component for B4X (B4A/B4i/B4J).
+DaisyUI `DualRange` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDualRange`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDualRange.bas`
-- **Verified Demo Source**: B4XPageDualRange.bas (lines 99–215)
+- **Verified Demo Source**: B4XPageDualRange.bas
 - **Web DaisyUI Mapping**: `.dual-range` → `B4XDaisyDualRange`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,142 +59,140 @@ DaisyUI `DualRange` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `MinValue` | Minimum Value | `Int` | `0` |  |
-| `MaxValue` | Maximum Value | `Int` | `100` |  |
-| `LowerValue` | Lower Value | `Int` | `20` |  |
-| `UpperValue` | Upper Value | `Int` | `80` |  |
-| `StepValue` | Step | `Int` | `1` |  |
-| `MinDistance` | Min Distance | `Int` | `0` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `TrackColor` | Track Color | `Color` | `0` |  |
-| `ProgressColor` | Progress Color | `Color` | `0` |  |
-| `ThumbColor` | Thumb Color | `Color` | `0` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `ShowFill` | Show Fill | `Boolean` | `True` |  |
-| `RTL` | RTL | `Boolean` | `False` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `DisallowParentIntercept` | Disallow Parent Intercept | `Boolean` | `True` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `LabelAbove` | Label Above | `String` | `` |  |
-| `LabelVisible` | Label Visible | `Boolean` | `False` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
-| `ShowValue` | Show Value | `Boolean` | `True` |  |
-| `ValuePrefix` | Value Prefix | `String` | `` |  |
-| `ValueSuffix` | Value Suffix | `String` | `` |  |
-| `ValueSeparator` | Value Separator | `String` | `" - "` |  |
-| `IconLeft` | Icon Left | `String` | `` |  |
-| `IconRight` | Icon Right | `String` | `` |  |
-| `IconSize` | Icon Size | `Int` | `0` |  |
-| `ShowTooltip` | Show Tooltip | `Boolean` | `False` |  |
-| `TooltipPosition` | Tooltip Position | `String` | `top` | top|bottom|left|right |
-| `TooltipOpen` | Tooltip Open | `Boolean` | `False` |  |
+| `MinValue` | Minimum Value | `Int` | 0 |  |
+| `MaxValue` | Maximum Value | `Int` | 100 |  |
+| `LowerValue` | Lower Value | `Int` | 20 |  |
+| `UpperValue` | Upper Value | `Int` | 80 |  |
+| `StepValue` | Step | `Int` | 1 |  |
+| `MinDistance` | Min Distance | `Int` | 0 |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `TrackColor` | Track Color | `Color` | 0 |  |
+| `ProgressColor` | Progress Color | `Color` | 0 |  |
+| `ThumbColor` | Thumb Color | `Color` | 0 |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `ShowFill` | Show Fill | `Boolean` | True |  |
+| `RTL` | RTL | `Boolean` | False |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `DisallowParentIntercept` | Disallow Parent Intercept | `Boolean` | True |  |
+| `Required` | Required | `Boolean` | False |  |
+| `LabelAbove` | Label Above | `String` |  |  |
+| `LabelVisible` | Label Visible | `Boolean` | False |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
+| `ShowValue` | Show Value | `Boolean` | True |  |
+| `ValuePrefix` | Value Prefix | `String` |  |  |
+| `ValueSuffix` | Value Suffix | `String` |  |  |
+| `ValueSeparator` | Value Separator | `String` | " - " |  |
+| `IconLeft` | Icon Left | `String` |  |  |
+| `IconRight` | Icon Right | `String` |  |  |
+| `IconSize` | Icon Size | `Int` | 0 |  |
+| `ShowTooltip` | Show Tooltip | `Boolean` | False |  |
+| `TooltipPosition` | Tooltip Position | `String` | top | top|bottom|left|right |
+| `TooltipOpen` | Tooltip Open | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `Changed (LowerValue As Int, UpperValue As Int)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `ClearError`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `StopAnimation`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setMinValue(Value As Int)`
+- `getMinValue As Int`
+- `setMaxValue(Value As Int)`
+- `getMaxValue As Int`
+- `setLowerValue(Value As Int)`
+- `getLowerValue As Int`
+- `setValue1(Value As Int)`
+- `getValue1 As Int`
+- `setUpperValue(Value As Int)`
+- `getUpperValue As Int`
+- `setValue2(Value As Int)`
+- `getValue2 As Int`
+- `setValues(LowerVal As Int, UpperVal As Int)`
+- `setValue(Value As Int)`
+- `getValue As Int`
+- `setStepValue(Value As Int)`
+- `getStepValue As Int`
+- `setMinDistance(Value As Int)`
+- `getMinDistance As Int`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setShowFill(Value As Boolean)`
+- `getShowFill As Boolean`
+- `setTrackColor(Value As Int)`
+- `getTrackColor As Int`
+- `setProgressColor(Value As Int)`
+- `getProgressColor As Int`
+- `setThumbColor(Value As Int)`
+- `getThumbColor As Int`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setShowValue(Value As Boolean)`
+- `getShowValue As Boolean`
+- `setValuePrefix(Value As String)`
+- `getValuePrefix As String`
+- `setValueSuffix(Value As String)`
+- `getValueSuffix As String`
+- `setValueSeparator(Value As String)`
+- `getValueSeparator As String`
+- `setIconLeft(Value As String)`
+- `getIconLeft As String`
+- `setIconRight(Value As String)`
+- `getIconRight As String`
+- `setIconSize(Value As Int)`
+- `getIconSize As Int`
+- `setShowTooltip(Value As Boolean)`
+- `getShowTooltip As Boolean`
+- `setTooltipPosition(Value As String)`
+- `getTooltipPosition As String`
+- `setTooltipOpen(Value As Boolean)`
+- `getTooltipOpen As Boolean`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getRole As String`
 - `UpdateTheme`
-- `Validate As Boolean`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
 - `getComputedHeight As Int`
-- `getEnabled As Boolean`
-- `getErrorText As String`
-- `getHeight As String`
-- `getHintText As String`
-- `getIconLeft As String`
-- `getIconRight As String`
-- `getIconSize As Int`
-- `getIsValid As Boolean`
-- `getLabelAbove As String`
-- `getLabelVisible As Boolean`
-- `getLeft As Int`
-- `getLowerValue As Int`
-- `getMaxValue As Int`
-- `getMinDistance As Int`
-- `getMinValue As Int`
-- `getProgressColor As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `RequestFocus`
+- `setFocus(Value As Boolean)`
+- `ReceiveFocus`
+- `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setRequired(Value As Boolean)`
 - `getRequired As Boolean`
-- `getRole As String`
-- `getShowFill As Boolean`
-- `getShowTooltip As Boolean`
-- `getShowValue As Boolean`
-- `getSize As String`
-- `getStepValue As Int`
-- `getTag As Object`
-- `getThumbColor As Int`
-- `getTooltipOpen As Boolean`
-- `getTooltipPosition As String`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `getIsValid As Boolean`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `Validate As Boolean`
+- `StopAnimation`
+- `RemoveViewFromParent`
+- `Release`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getTrackColor As Int`
-- `getUpperValue As Int`
-- `getValue As Int`
-- `getValue1 As Int`
-- `getValue2 As Int`
-- `getValuePrefix As String`
-- `getValueSeparator As String`
-- `getValueSuffix As String`
-- `getValues As Int`
-- `getVariant As String`
-- `getWidth As String`
-- `setEnabled(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setFocus(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setHintText(sValue As String)`
-- `setIconLeft(sValue As String)`
-- `setIconRight(sValue As String)`
-- `setIconSize(iValue As Int)`
-- `setLabelAbove(sValue As String)`
-- `setLabelVisible(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLowerValue(iValue As Int)`
-- `setMaxValue(iValue As Int)`
-- `setMinDistance(iValue As Int)`
-- `setMinValue(iValue As Int)`
-- `setProgressColor(iValue As Int)`
-- `setRequired(bValue As Boolean)`
-- `setShowFill(bValue As Boolean)`
-- `setShowTooltip(bValue As Boolean)`
-- `setShowValue(bValue As Boolean)`
-- `setSize(sValue As String)`
-- `setStepValue(iValue As Int)`
-- `setTag(oValue As Object)`
-- `setThumbColor(iValue As Int)`
-- `setTooltipOpen(bValue As Boolean)`
-- `setTooltipPosition(sValue As String)`
-- `setTop(iValue As Int)`
-- `setTrackColor(iValue As Int)`
-- `setUpperValue(iValue As Int)`
-- `setValue(iValue As Int)`
-- `setValue1(iValue As Int)`
-- `setValue2(iValue As Int)`
-- `setValuePrefix(sValue As String)`
-- `setValueSeparator(sValue As String)`
-- `setValueSuffix(sValue As String)`
-- `setValues(iLowerVal As Int, iUpperVal As Int)`
-- `setVariant(sValue As String)`
-- `setWidth(sValue As String)`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

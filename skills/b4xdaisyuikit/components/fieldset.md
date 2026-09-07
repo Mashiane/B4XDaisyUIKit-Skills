@@ -1,12 +1,12 @@
 # fieldset (`B4XDaisyFieldset`)
 
-DaisyUI `Fieldset` component for B4X (B4A/B4i/B4J).
+DaisyUI `Fieldset` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFieldset`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyFieldset.bas`
-- **Verified Demo Source**: B4XPageCheckbox.bas (lines 295–295), B4XPageCheckboxGroup.bas (lines 161–161), B4XPageFieldset.bas (lines 73–329), B4XPageRadio.bas (lines 296–296), B4XPageRadioGroup.bas (lines 161–161), B4XPageToggle.bas (lines 301–301), B4XPageToggleGroup.bas (lines 161–161)
+- **Verified Demo Source**: B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageFieldset.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas
 - **Web DaisyUI Mapping**: `.fieldset` → `B4XDaisyFieldset`
 
 ## DaisyUI Web Class Translation
@@ -75,96 +75,95 @@ Private Sub AddLabelAboveFieldset
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Legend` | Legend | `String` | `Legend Caption` |  |
-| `LegendSize` | Legend Size | `String` | `text-sm` | text-xs|text-sm|text-base|text-lg|text-xl |
-| `LegendBold` | Legend Bold | `Boolean` | `False` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `BorderStyle` | Border Style | `String` | `outlined` | outlined|ghost|inset |
-| `Padding` | Padding | `Int` | `16` |  |
-| `AutoHeight` | Auto Height | `Boolean` | `False` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `BorderSize` | Border Size | `Int` | `1` |  |
-| `InputBorder` | Input Border | `Boolean` | `False` |  |
-| `LabelAbove` | Label Above | `Boolean` | `False` |  |
-| `Required` | Required | `Boolean` | `False` |  |
+| `Legend` | Legend | `String` | Legend Caption |  |
+| `LegendSize` | Legend Size | `String` | text-sm | text-xs|text-sm|text-base|text-lg|text-xl |
+| `LegendBold` | Legend Bold | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `BorderStyle` | Border Style | `String` | outlined | outlined|ghost|inset |
+| `Padding` | Padding | `Int` | 16 |  |
+| `AutoHeight` | Auto Height | `Boolean` | False |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `BorderSize` | Border Size | `Int` | 1 |  |
+| `InputBorder` | Input Border | `Boolean` | False |  |
+| `LabelAbove` | Label Above | `Boolean` | False |  |
+| `Required` | Required | `Boolean` | False |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddContentView(vView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `ApplyDesignerProps(mProps As Map)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BeginUpdate`
-- `BringToFront`
-- `ClearContent`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `EndUpdate`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getAutoHeight As Boolean`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderSize As Int`
-- `getBorderStyle As String`
-- `getHeight As Int`
-- `getInputBorder As Boolean`
-- `getLabelAbove As Boolean`
-- `getLeft As Int`
-- `getLegend As String`
-- `getLegendBold As Boolean`
-- `getLegendSize As String`
-- `getPadding As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `ApplyDesignerProps(Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setRequired(Value As Boolean)`
 - `getRequired As Boolean`
-- `getRounded As String`
-- `getShadow As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
+- `setLegend(L As String)`
+- `getLegend As String`
+- `setLegendSize(Value As String)`
+- `getLegendSize As String`
+- `setLegendBold(Value As Boolean)`
+- `getLegendBold As Boolean`
+- `setVariant(V As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
-- `getWidth As Int`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
+- `setPadding(Value As Int)`
+- `getPadding As Int`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `setBackgroundColor(Value As Object)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Object)`
+- `getTextColor As Int`
+- `setBorderColor(Value As Object)`
+- `getBorderColor As Int`
+- `setBorderSize(Value As Int)`
+- `getBorderSize As Int`
+- `setInputBorder(Value As Boolean)`
+- `getInputBorder As Boolean`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `isRounded As Boolean`
+- `setRoundedBox(Value As Boolean)`
 - `isRoundedBox As Boolean`
-- `setAutoHeight(bValue As Boolean)`
-- `setBackgroundColor(oValue As Object)`
-- `setBorderColor(oValue As Object)`
-- `setBorderSize(iValue As Int)`
-- `setBorderStyle(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setInputBorder(bValue As Boolean)`
-- `setLabelAbove(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLegend(sL As String)`
-- `setLegendBold(bValue As Boolean)`
-- `setLegendSize(sValue As String)`
-- `setPadding(iValue As Int)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVariant(sV As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `GetContentPanel As B4XView`
+- `AddContentView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `ClearContent`
+- `getTag As Object`
+- `setTag(Value As Object)`
+- `Refresh`
+- `BeginUpdate`
+- `EndUpdate`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `Release`
+- `View As B4XView`
 
 ## 7. Public Fields
-- `mBase As B4XView`
-- `xui As XUI`
+(none declared in packaged source)
 
 ## Canonical Creation Pattern & Recipe
 

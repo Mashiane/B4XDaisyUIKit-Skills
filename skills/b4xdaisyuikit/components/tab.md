@@ -1,12 +1,12 @@
 # tab (`B4XDaisyTab`)
 
-DaisyUI `Tab` component for B4X (B4A/B4i/B4J).
+DaisyUI `Tab` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyTab`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyTab.bas`
-- **Verified Demo Source**: B4XPageTab.bas (lines 49–382)
+- **Verified Demo Source**: B4XPageTab.bas
 - **Web DaisyUI Mapping**: `.tab` → `B4XDaisyTab`
 
 ## DaisyUI Web Class Translation
@@ -83,79 +83,78 @@ y = AddDescription(contentLeft, y, maxW, "Default tab style with no special styl
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Style` | Style | `String` | `default` | default|border|lift|box |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Placement` | Placement | `String` | `top` | top|bottom |
-| `ActiveIndex` | Active Index | `Int` | `0` |  |
-| `Scrollable` | Scrollable | `Boolean` | `False` |  |
-| `Alignment` | Alignment | `String` | `center` | left|center|right |
-| `ActiveColor` | Active Color | `String` | `primary` | none|primary|secondary|accent|neutral|info|success|warning|error |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-auto` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Style` | Style | `String` | default | default|border|lift|box |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Placement` | Placement | `String` | top | top|bottom |
+| `ActiveIndex` | Active Index | `Int` | 0 |  |
+| `Scrollable` | Scrollable | `Boolean` | False |  |
+| `Alignment` | Alignment | `String` | center | left|center|right |
+| `ActiveColor` | Active Color | `String` | primary | none|primary|secondary|accent|neutral|info|success|warning|error |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-auto |  |
 
 ## 5. Declared Events
 - `TabClick (Index As Int)`
 
 ## 6. Public Methods & APIs
-- `AddTab(sText As String)`
-- `AddTabWithIcon(sText As String, sIconText As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddTab(Text As String)`
+- `AddTabWithIcon(Text As String, IconText As String)`
+- `SetTabDisabled(Index As Int, Disabled As Boolean)`
+- `SetTabVariant(Index As Int, Variant As String)`
+- `SetTabTitle(Index As Int, Text As String)`
+- `SetTabTitleTextColor(Index As Int, Color As Int)`
+- `SetTabTitleColor(Index As Int, Color As Int)`
+- `SetTabContent(Index As Int, Content As B4XView)`
+- `GetTabContent(Index As Int) As B4XView`
+- `SetTabContentText(Index As Int, Text As String)`
+- `SetTabs(lstTabsList As List)`
 - `ClearTabs`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `getTabCount As Int`
 - `GetComputedHeight As Int`
-- `GetTabContent(iIndex As Int) As B4XView`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
+- `setActiveIndex(Value As Int)`
+- `getActiveIndex As Int`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setPlacement(Value As String)`
+- `getPlacement As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setScrollable(Value As Boolean)`
+- `getScrollable As Boolean`
+- `setAlignment(Value As String)`
+- `getAlignment As String`
+- `setActiveColor(Value As String)`
+- `getActiveColor As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `UpdateTheme`
 - `RemoveViewFromParent`
 - `ResizeTab`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetTabContent(iIndex As Int, vContent As B4XView)`
-- `SetTabContentText(iIndex As Int, sText As String)`
-- `SetTabDisabled(iIndex As Int, bDisabled As Boolean)`
-- `SetTabTitle(iIndex As Int, sText As String)`
-- `SetTabTitleColor(iIndex As Int, iColor As Int)`
-- `SetTabTitleTextColor(iIndex As Int, iColor As Int)`
-- `SetTabVariant(iIndex As Int, sVariant As String)`
-- `SetTabs(lstTabsList As List)`
-- `UpdateTheme`
-- `View As B4XView`
-- `getActiveColor As String`
-- `getActiveIndex As Int`
-- `getAlignment As String`
-- `getEnabled As Boolean`
-- `getHeight As String`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getPlacement As String`
-- `getScrollable As Boolean`
-- `getSize As String`
-- `getStyle As String`
-- `getTabCount As Int`
-- `getTag As Object`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVisible As Boolean`
-- `getWidth As String`
-- `setActiveColor(sValue As String)`
-- `setActiveIndex(iValue As Int)`
-- `setAlignment(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setPlacement(sValue As String)`
-- `setScrollable(bValue As Boolean)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # steps (`B4XDaisySteps`)
 
-DaisyUI `Steps` component for B4X (B4A/B4i/B4J).
+DaisyUI `Steps` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySteps`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisySteps.bas`
-- **Verified Demo Source**: B4XPageSteps.bas (lines 65–403)
+- **Verified Demo Source**: B4XPageSteps.bas
 - **Web DaisyUI Mapping**: `.steps` → `B4XDaisySteps`
 
 ## DaisyUI Web Class Translation
@@ -76,78 +76,77 @@ y = AddDescription(contentLeft, y, maxW, "Completed steps use step-primary; pend
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Orientation` | Orientation | `String` | `horizontal` | horizontal|vertical |
-| `ActiveColor` | Active Color | `String` | `primary` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `ActiveStep` | Active Step | `Int` | `-1` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `CircleSize` | Circle Size | `Int` | `32` |  |
-| `StepGap` | Step Gap | `Int` | `0` |  |
-| `Scrollable` | Scrollable | `Boolean` | `False` |  |
-| `ConnectOnClick` | Connect On Click | `Boolean` | `False` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-auto` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Orientation` | Orientation | `String` | horizontal | horizontal|vertical |
+| `ActiveColor` | Active Color | `String` | primary | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `ActiveStep` | Active Step | `Int` | -1 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `CircleSize` | Circle Size | `Int` | 32 |  |
+| `StepGap` | Step Gap | `Int` | 0 |  |
+| `Scrollable` | Scrollable | `Boolean` | False |  |
+| `ConnectOnClick` | Connect On Click | `Boolean` | False |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-auto |  |
 
 ## 5. Declared Events
 - `StepClick (Index As Int, Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddStep(sText As String, sVariant As String)`
-- `AddStepWithContent(sText As String, sVariant As String, sContent As String)`
-- `AddStepWithIcon(sText As String, sVariant As String, sIcon As String)`
-- `AddStepWithSvgIcon(sText As String, sVariant As String, sSvgFileName As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `ClearSteps`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetSteps(lstSteps As List)`
-- `UpdateTheme`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `View As B4XView`
-- `getActiveColor As String`
-- `getActiveStep As Int`
-- `getCircleSize As Int`
-- `getConnectOnClick As Boolean`
-- `getEnabled As Boolean`
-- `getHeight As String`
-- `getLeft As Int`
-- `getMargin As String`
-- `getOrientation As String`
-- `getPadding As String`
-- `getScrollable As Boolean`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddStep(Text As String, Variant As String)`
+- `AddStepWithContent(Text As String, Variant As String, Content As String)`
+- `AddStepWithIcon(Text As String, Variant As String, Icon As String)`
+- `AddStepWithSvgIcon(Text As String, Variant As String, SvgFileName As String)`
+- `SetSteps(lstSteps As List)`
+- `ClearSteps`
 - `getStepCount As Int`
-- `getStepGap As Int`
-- `getTag As Object`
-- `getTop As Int`
+- `setOrientation(Value As String)`
+- `getOrientation As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setActiveColor(Value As String)`
+- `getActiveColor As String`
+- `setActiveStep(Value As Int)`
+- `getActiveStep As Int`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setScrollable(Value As Boolean)`
+- `getScrollable As Boolean`
+- `getCircleSize As Int`
+- `setCircleSize(Value As Int)`
+- `setConnectOnClick(Value As Boolean)`
+- `getConnectOnClick As Boolean`
+- `setStepGap(Value As Int)`
+- `getStepGap As Int`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setActiveColor(sValue As String)`
-- `setActiveStep(iValue As Int)`
-- `setCircleSize(iValue As Int)`
-- `setConnectOnClick(bValue As Boolean)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
-- `setScrollable(bValue As Boolean)`
-- `setStepGap(iValue As Int)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `UpdateTheme`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

@@ -1,12 +1,12 @@
 # file-input (`B4XDaisyFileInput`)
 
-DaisyUI `FileInput` component for B4X (B4A/B4i/B4J).
+DaisyUI `FileInput` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFileInput`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyFileInput.bas`
-- **Verified Demo Source**: B4XPageAvatar.bas (lines 21–21), B4XPageFileInput.bas (lines 20–281), B4XPageFocus.bas (lines 24–120)
+- **Verified Demo Source**: B4XPageAvatar.bas, B4XPageFileInput.bas, B4XPageFocus.bas
 - **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
 
 ## DaisyUI Web Class Translation
@@ -69,152 +69,150 @@ DaisyUI `FileInput` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `ButtonText` | Button Text | `String` | `Choose file` |  |
-| `Placeholder` | Placeholder | `String` | `No file chosen` |  |
-| `FileName` | File Name | `String` | `` |  |
-| `LabelAbove` | Label | `String` | `` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Size` | Size | `String` | `md` | md|lg|xl |
-| `Style` | Style | `String` | `default` | default|ghost |
-| `Radius` | Corner Radius | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `PlaceholderColor` | Placeholder Color | `Color` | `0x00000000` |  |
-| `ButtonColor` | Button Color | `Color` | `0x00000000` |  |
-| `ButtonTextColor` | Button Text Color | `Color` | `0x00000000` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Typeface` | Typeface | `String` | `DEFAULT` | DEFAULT|DEFAULT_BOLD|MONOSPACE|SANS_SERIF|SERIF |
-| `Gravity` | Text Gravity | `String` | `LEFT` | LEFT|CENTER|RIGHT |
-| `Alpha` | Alpha | `Float` | `1.0` |  |
-| `Accept` | Accept | `String` | `` |  |
-| `MaxSize` | Max Size (MB) | `Int` | `0` |  |
-| `AppendIcon` | Append Icon | `String` | `` |  |
+| `ButtonText` | Button Text | `String` | Choose file |  |
+| `Placeholder` | Placeholder | `String` | No file chosen |  |
+| `FileName` | File Name | `String` |  |  |
+| `LabelAbove` | Label | `String` |  |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
+| `Required` | Required | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | md | md|lg|xl |
+| `Style` | Style | `String` | default | default|ghost |
+| `Radius` | Corner Radius | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `PlaceholderColor` | Placeholder Color | `Color` | 0x00000000 |  |
+| `ButtonColor` | Button Color | `Color` | 0x00000000 |  |
+| `ButtonTextColor` | Button Text Color | `Color` | 0x00000000 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Typeface` | Typeface | `String` | DEFAULT | DEFAULT|DEFAULT_BOLD|MONOSPACE|SANS_SERIF|SERIF |
+| `Gravity` | Text Gravity | `String` | LEFT | LEFT|CENTER|RIGHT |
+| `Alpha` | Alpha | `Float` | 1.0 |  |
+| `Accept` | Accept | `String` |  |  |
+| `MaxSize` | Max Size (MB) | `Int` | 0 |  |
+| `AppendIcon` | Append Icon | `String` |  |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 - `FileSelected (FileName As String)`
-- `Cancelled ()`
+- `Cancelled`
 - `FocusChanged (HasFocus As Boolean)`
 - `AppendClick`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `Clear`
-- `ClearError`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetBitmap As B4XBitmap`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
-- `getAccept As String`
-- `getAlpha As Float`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setAppendIcon(Value As String)`
 - `getAppendIcon As String`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getButtonColor As Int`
+- `setButtonText(Value As String)`
 - `getButtonText As String`
-- `getButtonTextColor As Int`
-- `getEnabled As Boolean`
-- `getErrorText As String`
-- `getExceedsSize As Boolean`
-- `getExtension As String`
-- `getFileBase64 As String`
-- `getFileBytes As Byte`
+- `setAccept(Value As String)`
+- `getAccept As String`
+- `setFileDate(Value As Long)`
 - `getFileDate As Long`
-- `getFileInputStream As InputStream`
-- `getFileName As String`
+- `setFileSize(Value As Long)`
 - `getFileSize As Long`
-- `getGravity As String`
-- `getHeight As Int`
-- `getHintText As String`
-- `getIsExcel As Boolean`
-- `getIsImage As Boolean`
-- `getIsPDF As Boolean`
-- `getIsValid As Boolean`
-- `getIsVideo As Boolean`
-- `getIsWord As Boolean`
-- `getLabelAbove As String`
-- `getLeft As Int`
-- `getMaxSize As Int`
+- `setFileBase64(Value As String)`
+- `getFileBase64 As String`
+- `setMimeType(Value As String)`
 - `getMimeType As String`
-- `getPadding As String`
+- `setMaxSize(Value As Int)`
+- `getMaxSize As Int`
+- `getExceedsSize As Boolean`
+- `getFileInputStream As InputStream`
+- `GetBitmap As B4XBitmap`
+- `getExtension As String`
+- `getIsImage As Boolean`
+- `getIsVideo As Boolean`
+- `getIsPDF As Boolean`
+- `getIsExcel As Boolean`
+- `getIsWord As Boolean`
+- `setPlaceholder(Value As String)`
 - `getPlaceholder As String`
-- `getPlaceholderColor As Int`
-- `getRadius As String`
+- `setFileName(Value As String)`
+- `getFileName As String`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `setRequired(Value As Boolean)`
 - `getRequired As Boolean`
-- `getRounded As String`
-- `getShadow As String`
-- `getSize As String`
-- `getStyle As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
-- `getTypeface As String`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setRadius(Value As String)`
+- `getRadius As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setPlaceholderColor(Value As Int)`
+- `getPlaceholderColor As Int`
+- `setButtonColor(Value As Int)`
+- `getButtonColor As Int`
+- `setButtonTextColor(Value As Int)`
+- `getButtonTextColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setTypeface(Value As String)`
+- `getTypeface As String`
+- `setGravity(Value As String)`
+- `getGravity As String`
+- `setAlpha(Value As Float)`
+- `getAlpha As Float`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `setTop(Value As Int)`
+- `RemoveViewFromParent`
+- `Release`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `RequestFocus`
+- `setFocus(Value As Boolean)`
+- `ReceiveFocus`
+- `Blur`
+- `Clear`
+- `getLeft As Int`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAccept(sValue As String)`
-- `setAlpha(fValue As Float)`
-- `setAppendIcon(sValue As String)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBorderColor(iValue As Int)`
-- `setButtonColor(iValue As Int)`
-- `setButtonText(sValue As String)`
-- `setButtonTextColor(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setFileBase64(sValue As String)`
-- `setFileDate(lValue As Long)`
-- `setFileName(sValue As String)`
-- `setFileSize(lValue As Long)`
-- `setFocus(bValue As Boolean)`
-- `setGravity(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setHintText(sValue As String)`
-- `setLabelAbove(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setMaxSize(iValue As Int)`
-- `setMimeType(sValue As String)`
-- `setPadding(sValue As String)`
-- `setPlaceholder(sValue As String)`
-- `setPlaceholderColor(iValue As Int)`
-- `setRadius(sValue As String)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTop(iValue As Int)`
-- `setTypeface(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

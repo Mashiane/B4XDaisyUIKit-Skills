@@ -1,6 +1,6 @@
 # B4XDaisyUIKit — UX Master Doctrine & Definition of Done
 
-> **The definitive design, interaction, ergonomics, and accessibility doctrine for native B4X (B4A, B4i, B4J) mobile and desktop applications built with B4XDaisyUIKit.**
+> **The definitive design, interaction, ergonomics, and accessibility doctrine for native B4A Android applications built with B4XDaisyUIKit.**
 
 ---
 

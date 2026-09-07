@@ -1,12 +1,12 @@
 # image (`B4XDaisyImage`)
 
-DaisyUI `Image` component for B4X (B4A/B4i/B4J).
+DaisyUI `Image` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyImage`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyImage.bas`
-- **Verified Demo Source**: B4XPageMediaPicker.bas (lines 18–116)
+- **Verified Demo Source**: B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.image` → `B4XDaisyImage`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,52 +59,53 @@ currentY = currentY + 68dip
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `ResizeMode` | Resize Mode | `String` | `FIT` | FIT|FILL|FILL_NO_DISTORTIONS|FILL_WIDTH|FILL_HEIGHT|NONE |
-| `Rounded` | Rounded | `Boolean` | `False` |  |
-| `CornersRadius` | Corners Radius | `Int` | `0` |  |
-| `BackgroundColor` | Background Color | `Color` | `0xFFAAAAAA` |  |
+| `ResizeMode` | Resize Mode | `String` | FIT | FIT|FILL|FILL_NO_DISTORTIONS|FILL_WIDTH|FILL_HEIGHT|NONE, DefaultValue: FIT |
+| `Rounded` | Rounded | `Boolean` | False |  |
+| `CornersRadius` | Corners Radius | `Int` | 0 |  |
+| `BackgroundColor` | Background Color | `Color` | 0xFFAAAAAA |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize (dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `Load (sDir As String, sFileName As String)`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Update`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getBitmap As B4XBitmap`
-- `getCornersRadius As Int`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getResizeMode As String`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `getRounded As Boolean`
+- `setRounded(Value As Boolean)`
+- `getCornersRadius As Int`
+- `setCornersRadius(Value As Int)`
 - `getRoundedImage As Boolean`
-- `getTop As Int`
-- `getVisible As Boolean`
-- `getWidth As Int`
-- `setBackgroundColor(iValue As Int)`
+- `setRoundedImage(Value As Boolean)`
+- `getBackgroundColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getResizeMode As String`
+- `setResizeMode(Value As String)`
+- `Update`
+- `Load(Dir As String, FileName As String)`
+- `Clear`
 - `setBitmap(bmpBmp As B4XBitmap)`
-- `setCornersRadius (iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setResizeMode(sValue As String)`
-- `setRounded (bValue As Boolean)`
-- `setRoundedImage (bValue As Boolean)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `getBitmap As B4XBitmap`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
+- `Tag As Object`
+- `mBackgroundColor As Int`
 

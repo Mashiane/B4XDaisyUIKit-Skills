@@ -1,12 +1,12 @@
 # tag-sphere (`B4XDaisyTagSphere`)
 
-DaisyUI `TagSphere` component for B4X (B4A/B4i/B4J).
+DaisyUI `TagSphere` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyTagSphere`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyTagSphere.bas`
-- **Verified Demo Source**: B4XPageTagSphere.bas (lines 15–19)
+- **Verified Demo Source**: B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.tag-sphere` → `B4XDaisyTagSphere`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -60,19 +60,19 @@ y = pageScroll.AddSectionTitle("1. Playground - 24 emoji, sliders, easings", y, 
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Items` | Items (| list) | `String` | `Android|iOS|Flutter|React|Vue|Svelte|Kotlin|Swift|Java|Dart|Node|Python|Rust|Go|PHP|Ruby` |  |
-| `TextColor` | Text Color | `Color` | `0xFF1F2937` |  |
-| `TextSize` | Text Size | `Float` | `14` |  |
-| `Radius` | Sphere Radius | `Float` | `1.5` |  |
-| `Sensitivity` | Touch Sensitivity | `Int` | `11` |  |
-| `CircularAvatars` | Circular Avatars | `Boolean` | `True` |  |
-| `AvatarBorderColor` | Avatar Border Color | `Color` | `0xFFFFFFFF` |  |
-| `AvatarBorderWidth` | Avatar Border Width | `Float` | `2` |  |
-| `AutoRotate` | Auto Rotate | `Boolean` | `True` |  |
-| `Easing` | Depth Easing | `String` | `easeOut` | none|easeIn|easeOut|easeInExpo|easeOutExpo|inQuint|outQuint|reverseQuint |
-| `RotateOnTouch` | Rotate On Touch | `Boolean` | `True` |  |
-| `AutoSpeed` | Auto Speed | `Float` | `0.4` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Items` | Items (| list) | `String` | Android|iOS|Flutter|React|Vue|Svelte|Kotlin|Swift|Java|Dart|Node|Python|Rust|Go|PHP|Ruby |  |
+| `TextColor` | Text Color | `Color` | 0xFF1F2937 |  |
+| `TextSize` | Text Size | `Float` | 14 |  |
+| `Radius` | Sphere Radius | `Float` | 1.5 |  |
+| `Sensitivity` | Touch Sensitivity | `Int` | 11 |  |
+| `CircularAvatars` | Circular Avatars | `Boolean` | True |  |
+| `AvatarBorderColor` | Avatar Border Color | `Color` | 0xFFFFFFFF |  |
+| `AvatarBorderWidth` | Avatar Border Width | `Float` | 2 |  |
+| `AutoRotate` | Auto Rotate | `Boolean` | True |  |
+| `Easing` | Depth Easing | `String` | easeOut | none|easeIn|easeOut|easeInExpo|easeOutExpo|inQuint|outQuint|reverseQuint |
+| `RotateOnTouch` | Rotate On Touch | `Boolean` | True |  |
+| `AutoSpeed` | Auto Speed | `Float` | 0.4 |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `TagTap (Tag As String)`
@@ -80,54 +80,53 @@ y = pageScroll.AddSectionTitle("1. Playground - 24 emoji, sliders, easings", y, 
 - `DrawTag (Info As Map)`
 
 ## 6. Public Methods & APIs
-- `AddRotation(fDeltaX As Float, fDeltaY As Float)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setItems(lstTags As List)`
+- `getItems As List`
+- `setBitmaps(lstBitmaps As List)`
+- `setBitmaps2(lstBitmaps As List, WidthDip As Float, HeightDip As Float)`
+- `getBitmaps As List`
+- `setImageSize(WidthDip As Float, HeightDip As Float)`
+- `getImageWidth As Float`
+- `getImageHeight As Float`
+- `setCircularAvatars(Value As Boolean)`
+- `getCircularAvatars As Boolean`
+- `setAvatarBorderColor(Value As Int)`
+- `getAvatarBorderColor As Int`
+- `setAvatarBorderWidth(Value As Float)`
+- `getAvatarBorderWidth As Float`
+- `getCount As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextSize(Value As Float)`
+- `getTextSize As Float`
+- `setRadius(Value As Float)`
+- `getRadius As Float`
+- `setSensitivity(Value As Int)`
+- `getSensitivity As Int`
+- `setAutoRotate(Value As Boolean)`
+- `getAutoRotate As Boolean`
+- `setEasing(Value As String)`
+- `getEasing As String`
+- `setRotateOnTouch(Value As Boolean)`
+- `getRotateOnTouch As Boolean`
+- `setAutoSpeed(Value As Float)`
+- `getAutoSpeed As Float`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `AddRotation(DeltaX As Float, DeltaY As Float)`
+- `addTag(Tag As String)`
+- `addTagsAt(StartIndex As Int, lstTags As List)`
+- `removeTagAt(Index As Int) As Boolean`
+- `removeTag(Tag As String) As Boolean`
+- `clearTags`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Redraw`
 - `View As B4XView`
-- `addTag(sTag As String)`
-- `addTagsAt(iStartIndex As Int, lstTags As List)`
-- `clearTags`
-- `getAutoRotate As Boolean`
-- `getAutoSpeed As Float`
-- `getAvatarBorderColor As Int`
-- `getAvatarBorderWidth As Float`
-- `getBitmaps As List`
-- `getCircularAvatars As Boolean`
-- `getCount As Int`
-- `getEasing As String`
-- `getImageHeight As Float`
-- `getImageWidth As Float`
-- `getItems As List`
-- `getRadius As Float`
-- `getRotateOnTouch As Boolean`
-- `getSensitivity As Int`
-- `getTextColor As Int`
-- `getTextSize As Float`
-- `getVisible As Boolean`
-- `removeTag(sTag As String) As Boolean`
-- `removeTagAt(iIndex As Int) As Boolean`
-- `setAutoRotate(bValue As Boolean)`
-- `setAutoSpeed(fValue As Float)`
-- `setAvatarBorderColor(iValue As Int)`
-- `setAvatarBorderWidth(fValue As Float)`
-- `setBitmaps(lstBitmaps As List)`
-- `setBitmaps2(lstBitmaps As List, fWidthDip As Float, fHeightDip As Float)`
-- `setCircularAvatars(bValue As Boolean)`
-- `setEasing(sValue As String)`
-- `setImageSize(fWidthDip As Float, fHeightDip As Float)`
-- `setItems(lstTags As List)`
-- `setRadius(fValue As Float)`
-- `setRotateOnTouch(bValue As Boolean)`
-- `setSensitivity(iValue As Int)`
-- `setTextColor(iValue As Int)`
-- `setTextSize(fValue As Float)`
-- `setVisible(bValue As Boolean)`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

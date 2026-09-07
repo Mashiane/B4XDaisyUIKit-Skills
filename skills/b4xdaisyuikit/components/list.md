@@ -1,12 +1,12 @@
 # list (`B4XDaisyList`)
 
-DaisyUI `List` component for B4X (B4A/B4i/B4J).
+DaisyUI `List` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyList`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyList.bas`
-- **Verified Demo Source**: B4XPageList.bas (lines 17–20), B4XPageList1K.bas (lines 13–13)
+- **Verified Demo Source**: B4XPageList.bas, B4XPageList1K.bas
 - **Web DaisyUI Mapping**: `.list` → `B4XDaisyList`
 
 ## DaisyUI Web Class Translation
@@ -71,19 +71,19 @@ DaisyUI `List` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `full` |  |
-| `Height` | Height | `String` | `300` |  |
-| `BackgroundColor` | Background Color | `String` | `base-100` |  |
-| `TextColor` | Text Color | `String` | `` |  |
-| `Rounded` | Rounded | `String` | `rounded-box` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field |
-| `Shadow` | Shadow | `String` | `shadow-md` | |none|shadow|shadow-md|shadow-lg|shadow-xl |
-| `Padding` | Padding | `String` | `0` |  |
-| `RowPadding` | Row Padding | `String` | `4` |  |
-| `RowGap` | Row Gap | `String` | `4` |  |
-| `DividerColor` | Divider Color | `String` | `base-content/5` |  |
-| `Divider` | Show Divider | `Boolean` | `True` |  |
-| `RowHeight` | Row Height | `Int` | `72` |  |
-| `AutoHeight` | Auto-Height | `Boolean` | `False` |  |
+| `Width` | Width | `String` | full |  |
+| `Height` | Height | `String` | 300 |  |
+| `BackgroundColor` | Background Color | `String` | base-100 |  |
+| `TextColor` | Text Color | `String` |  |  |
+| `Rounded` | Rounded | `String` | rounded-box | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field |
+| `Shadow` | Shadow | `String` | shadow-md | |none|shadow|shadow-md|shadow-lg|shadow-xl |
+| `Padding` | Padding | `String` | 0 |  |
+| `RowPadding` | Row Padding | `String` | 4 |  |
+| `RowGap` | Row Gap | `String` | 4 |  |
+| `DividerColor` | Divider Color | `String` | base-content/5 |  |
+| `Divider` | Show Divider | `Boolean` | True |  |
+| `RowHeight` | Row Height | `Int` | 72 |  |
+| `AutoHeight` | Auto-Height | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `ItemClick (Index As Int, Tag As Object)`
@@ -93,90 +93,89 @@ DaisyUI `List` component for B4X (B4A/B4i/B4J).
 - `ScrollChanged (Offset As Int)`
 
 ## 6. Public Methods & APIs
-- `AddHeader(sTitle As String) As Int`
-- `AddRow(mData As Map) As Int`
-- `AddRowData(mData As Map) As Int`
-- `AddRowDataBatch(lstItems As List)`
-- `AddRowDataWithTemplate(mData As Map, sTemplateName As String) As Int`
-- `AddTextRow(sTitle As String, sOptionalSubtitle As String) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateStackedTextView(sTitle As String, sSubtitle As String, iWidth As Int, oTitleSize As Object, oSubtitleSize As Object, iTitleColor As Int, iSubtitleColor As Int) As B4XView`
-- `CreateTextItemView(sText As String, iWidth As Int, iHeight As Int, oTextSize As Object, iTextColor As Int, bBold As Boolean, bSingleLine As Boolean) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetCLV As CustomListView`
-- `GetComputedHeight As Int`
-- `GetCurrentRowData As Map`
-- `GetCurrentRowPanel As B4XView`
-- `GetItemFromView(vView As B4XView) As Int`
-- `GetRow(iIndex As Int) As Map`
-- `GetRowData(iIndex As Int) As Map`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `InsertRowAt(iIndex As Int, mData As Map)`
-- `Refresh`
-- `RefreshAllRows`
-- `RefreshRow(iIndex As Int)`
-- `RegisterTemplate(sTemplateName As String, oCallback As Object, sEventName As String)`
-- `Release`
-- `RemoveRow(iIndex As Int)`
-- `RemoveViewFromParent`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `ResizeToFitContent`
-- `ScrollToIndex(iIndex As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetRowCount(iCount As Int)`
-- `SmoothScrollToIndex(iIndex As Int)`
-- `UpdateTheme`
-- `View As B4XView`
-- `getAutoHeight As Boolean`
-- `getBackgroundColor As String`
-- `getContentHeight As Int`
-- `getDivider As Boolean`
-- `getDividerColor As String`
-- `getEnabled As Boolean`
-- `getFirstVisibleIndex As Int`
-- `getHeight As Int`
-- `getLastVisibleIndex As Int`
-- `getLeft As Int`
-- `getPadding As Int`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `RegisterTemplate(TemplateName As String, Callback As Object, EventName As String)`
+- `AddRowDataWithTemplate(Data As Map, TemplateName As String) As Int`
+- `AddRowData(Data As Map) As Int`
+- `AddHeader(Title As String) As Int`
+- `AddRowDataBatch(lstItems As List)`
+- `SetRowCount(Count As Int)`
+- `AddRow(Data As Map) As Int`
+- `Clear`
 - `getRowCount As Int`
-- `getRowGap As Int`
-- `getRowHeight As Int`
-- `getRowPadding As Int`
+- `GetRowData(Index As Int) As Map`
+- `GetRow(Index As Int) As Map`
+- `RemoveRow(Index As Int)`
+- `InsertRowAt(Index As Int, Data As Map)`
+- `RefreshRow(Index As Int)`
+- `RefreshAllRows`
+- `ScrollToIndex(Index As Int)`
+- `SmoothScrollToIndex(Index As Int)`
 - `getScrollPosition As Int`
-- `getShadow As String`
-- `getTag As Object`
+- `getFirstVisibleIndex As Int`
+- `getLastVisibleIndex As Int`
+- `GetItemFromView(View As B4XView) As Int`
+- `setBackgroundColor(Value As String)`
+- `getBackgroundColor As String`
+- `setTextColor(Value As String)`
 - `getTextColor As String`
-- `getTop As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As Int)`
+- `getPadding As Int`
+- `setRowPadding(Value As Int)`
+- `getRowPadding As Int`
+- `setRowGap(Value As Int)`
+- `getRowGap As Int`
+- `setDivider(Value As Boolean)`
+- `getDivider As Boolean`
+- `setDividerColor(Value As String)`
+- `getDividerColor As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setRowHeight(Value As Int)`
+- `getRowHeight As Int`
+- `setWidth(Value As Object)`
 - `getWidth As Int`
-- `setAutoHeight(bValue As Boolean)`
-- `setBackgroundColor(sValue As String)`
-- `setDivider(bValue As Boolean)`
-- `setDividerColor(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(oValue As Object)`
-- `setLeft(iValue As Int)`
-- `setPadding(iValue As Int)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setRowGap(iValue As Int)`
-- `setRowHeight(iValue As Int)`
-- `setRowPadding(iValue As Int)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Int`
+- `getContentHeight As Int`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `RemoveViewFromParent`
+- `View As B4XView`
+- `Release`
+- `GetCurrentRowPanel As B4XView`
+- `GetCurrentRowData As Map`
+- `AddTextRow(Title As String, OptionalSubtitle As String) As Int`
+- `CreateTextItemView(Text As String, Width As Int, Height As Int, TextSize As Object, TextColor As Int, Bold As Boolean, SingleLine As Boolean) As B4XView`
+- `CreateStackedTextView(Title As String, Subtitle As String, Width As Int, TitleSize As Object, SubtitleSize As Object, TitleColor As Int, SubtitleColor As Int) As B4XView`
+- `GetCLV As CustomListView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

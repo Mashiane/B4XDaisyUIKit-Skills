@@ -1,9 +1,9 @@
 ---
 name: b4xdaisyuikit
-description: Use when composing native cross-platform user interface (UI) and user experience (UX) for Android, iOS, and desktop from the B4XDaisyUIKit component library, when building forms, dashboards, navigation, modals, feedback, media, or data-display screens, when translating a DaisyUI / TailwindCSS web mock into native B4X views, or when wiring component properties, events, and validation. Produces only native B4X code; never HTML, CSS, Tailwind, or WebView.
+description: Use when composing native Android user interface (UI) and user experience (UX) for B4A from the B4XDaisyUIKit component library, when building forms, dashboards, navigation, modals, feedback, media, or data-display screens, when translating a DaisyUI / TailwindCSS web mock into native B4X views, or when wiring component properties, events, and validation. Produces only native B4X code; never HTML, CSS, Tailwind, or WebView.
 metadata:
   category: technique
-  triggers: b4xdaisy, b4x page, b4a screen, compose ui, daisyui native, form, dashboard, navbar, modal, sweetalert, component recipe, navscrolldock, validate controls, user interface, development, user experience, tailwindcss, native, android, ios, desktop
+  triggers: b4xdaisy, b4x page, b4a screen, compose ui, daisyui native, form, dashboard, navbar, modal, sweetalert, component recipe, navscrolldock, validate controls, user interface, development, user experience, tailwindcss, native, android
 ---
 
 ## Truth and Accuracy — Apply in Every Response
@@ -42,7 +42,7 @@ A user's project starts as a standard B4A project. It contains:
 ### What you (the AI) do
 You **generate new B4XPage `.bas` files** with names chosen for the user's app. You write those files using the component APIs from [component-manifest.md](references/component-manifest.md), using code patterns from [app-scaffolds.md](references/app-scaffolds.md) and [layout-patterns.md](references/layout-patterns.md) as your structural foundation.
 
-The `B4XPage*.bas` names in the Pattern Reference Index below are **API usage examples** — they tell you which component APIs have been verified in practice. They are not files to copy or reference at the file path level.
+The `B4XPage*.bas` names in the Pattern Reference Index ([pattern-index.md](references/pattern-index.md)) are **API usage examples** — they tell you which component APIs have been verified in practice. They are not files to copy or reference at the file path level.
 
 ## Read Before Anything Else
 
@@ -52,7 +52,7 @@ For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contr
 
 For every component you use, consult **[component-manifest.md](references/component-manifest.md)**.
 
-For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all 110 components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
+For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all library components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
 
@@ -75,7 +75,7 @@ For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database pe
 ## Scenario Chapters & Practical Guides
 
 Deep, multi-component B4XPage recipes organized by real-world UI domain:
-- **[ch01-dashboards.md](chapters/ch01-dashboards.md)**: Analytics dashboards, Stat metric tiles, charts, and progress bars.
+- **[ch01-dashboards.md](chapters/ch01-dashboards.md)**: Analytics dashboards, Stat metric tiles, progress and radial gauges, and data-visualization recipes (the kit has **no native chart component** — see ch01 recipe section).
 - **[ch02-interactive-forms.md](chapters/ch02-interactive-forms.md)**: User profiles, multi-input forms, validation, and fieldsets.
 - **[ch03-navigation.md](chapters/ch03-navigation.md)**: Top Navbars, Bottom Docks, Sliding Navigation Drawers (`B4XDaisyDrawer`), Collapsible Rails, Tree Menus, Breadcrumbs, and Tabs.
 - **[ch04-feedback.md](chapters/ch04-feedback.md)**: Toast alerts, SweetAlert async confirmation & input dialogs (`B4XDaisySweetAlert`), Modals, Action Sheets, and Tooltips.
@@ -144,6 +144,7 @@ STAGE 6: Quality Inspector & Conformance Gate (b4x-verify → pre-scan L4 → ve
 * When converting existing designs, follow **[conversion-workflows.md](references/conversion-workflows.md)** (Web HTML / Figma / Screenshot $\rightarrow$ B4XDaisy).
 
 ### Stage 5: Component Syntax Expert
+* Map the user's intent to components via **[intent-to-component.md](references/intent-to-component.md)** (intent → interaction pattern → component) before retrieving syntax.
 * Retrieve exact constructor signatures, properties, events, and mount sequences:
   * Consult **[component-manifest.md](references/component-manifest.md)** (only use methods under `### Public methods`).
   * Consult individual component specs in **`components/<name>.md`** (86 verified components).
@@ -161,85 +162,8 @@ STAGE 6: Quality Inspector & Conformance Gate (b4x-verify → pre-scan L4 → ve
 
 ## Pattern Reference Index
 
-The right column lists the B4XPage demo names from the reference project. These demos **do not exist in user projects** — they are cited here only to indicate which component APIs have been verified and documented in [component-manifest.md](references/component-manifest.md). When a request maps to a demo, read the matching component section in the manifest and adapt the scaffold from [app-scaffolds.md](references/app-scaffolds.md).
+The feature → component → demo lookup table now lives in **[pattern-index.md](references/pattern-index.md)**. Use it during Stage 5: map the request to components, then read the matching sections in [component-manifest.md](references/component-manifest.md) and adapt the scaffold from [app-scaffolds.md](references/app-scaffolds.md). Demo names are API-usage evidence only — demo `.bas` files do not exist in user projects.
 
-| Feature / UI request | Verified B4XDaisy component(s) | API reference demos (reference project only) |
-|---|---|---|
-| Basic page scaffold | `B4XMainPage` + `B4XDaisyPageScroll` | `B4XMainPage.bas`, `B4XPageScrollDemo.bas` |
-| Scrollable content page | `B4XDaisyPageScroll` | `B4XPageScrollDemo.bas`, `B4XPageNavScrollDock.bas` |
-| Text input / form fields | `B4XDaisyInput`, `B4XDaisyFieldset` | `B4XPageInput.bas`, `B4XPageTextarea.bas`, `B4XPageFieldset.bas`, `B4XPageFocus.bas` |
-| Button / Icon button / Shine button | `B4XDaisyButton`, `B4XDaisyIconButton`, `B4XDaisyShineButton` | `B4XPageButton.bas`, `B4XPageIconButton.bas`, `B4XPageShineButton.bas` |
-| Checkbox | `B4XDaisyCheckbox`, `B4XDaisyCheckboxGroup` | `B4XPageCheckbox.bas`, `B4XPageCheckboxGroup.bas` |
-| Radio button | `B4XDaisyRadio`, `B4XDaisyRadioGroup` | `B4XPageRadio.bas`, `B4XPageRadioGroup.bas` |
-| Toggle / switch | `B4XDaisyToggle`, `B4XDaisyToggleGroup` | `B4XPageToggle.bas`, `B4XPageToggleGroup.bas` |
-| Dropdown / select list | `B4XDaisySelect`, `B4XDaisyDropdown` | `B4XPageSelect.bas`, `B4XPageDropdown.bas` |
-| File upload | `B4XDaisyFileInput`, `B4XDaisyFileHandler` | `B4XPageFileInput.bas`, `B4XPageMediaPicker.bas` |
-| Badge / chip | `B4XDaisyBadge`, `B4XDaisyBadgeGroupSelect` | `B4XPageBadge.bas` |
-| Range slider | `B4XDaisyRange` | `B4XPageRange.bas` |
-| Dual range slider | `B4XDaisyDualRange` | `B4XPageDualRange.bas` |
-| Star rating | `B4XDaisyRating` | `B4XPageRating.bas` |
-| Carousel / slider | `B4XDaisyCarousel`, `B4XDaisyCarouselItem` | `B4XPageCarousel.bas` |
-| OTP / PIN entry | `B4XDaisyOTP` | `B4XPageOTP.bas` |
-| Signature pad | `B4XDaisySignaturePad` | `B4XPageSignaturePad.bas` |
-| Color picker | `B4XDaisyColorWheel` | `B4XPageColorWheel.bas` |
-| Dashboard / KPIs | `B4XDaisyDashboard`, `B4XDaisyStat`, `B4XDaisyStatItem` | `B4XPageDashboard.bas`, `B4XPageStat.bas` |
-| Progress bar | `B4XDaisyProgress` | `B4XPageProgress.bas` |
-| Circular progress | `B4XDaisyRadialProgress` | `B4XPageRadialProgress.bas` |
-| Timeline | `B4XDaisyTimeline` | `B4XPageTimeline.bas` |
-| Countdown timer | `B4XDaisyCountdown` | `B4XPageCountdown.bas` |
-| Steps / wizard | `B4XDaisySteps` | `B4XPageSteps.bas` |
-| Top navigation bar | `B4XDaisyNavbar` | `B4XPageNavbar.bas`, `B4XPageFabNavbar.bas` |
-| Bottom dock bar | `B4XDaisyDock` | `B4XPageDock.bas`, `B4XPageNavScrollDock.bas` |
-| Tab pages | `B4XDaisyTab` | `B4XPageTab.bas` |
-| Segment control | `B4XDaisySegment` | `B4XPageSegment.bas` |
-| Side menu | `B4XDaisyMenu` | `B4XPageMenu.bas`, `B4XPageMenuRuntime.bas`, `B4XPageMenuRuntime2.bas` |
-| Navigation drawer / rail / tree | `B4XDaisyDrawer` | `B4XPageDrawer.bas`, `B4XPageDrawerRail.bas`, `B4XPageDrawerTree.bas` |
-| Breadcrumbs | `B4XDaisyBreadcrumbs` | `B4XPageBreadcrumbs.bas` |
-| Pagination | `B4XDaisyPagination` | `B4XPagePagination.bas` |
-| Card | `B4XDaisyCard` | `B4XPageCard.bas` |
-| Info card | `B4XDaisyInfoCard` | `B4XPageInfoCard.bas` |
-| List / virtual list | `B4XDaisyList` | `B4XPageList.bas`, `B4XPageList1K.bas` |
-| Hero section | `B4XDaisyHero` | `B4XPageHero.bas` |
-| Stacked cards | `B4XDaisyStack` | `B4XPageStack.bas` |
-| Collapse panel | `B4XDaisyCollapse` | `B4XPageCollapse.bas` |
-| Accordion | `B4XDaisyAccordion` | `B4XPageAccordion.bas` |
-| Modal dialog | `B4XDaisyModal` | `B4XPageModal.bas` |
-| Bottom sheet | `B4XDaisySheetModal` | `B4XPageSheetModal.bas` |
-| Action sheet | `B4XDaisyActionSheet` | `B4XPageActionSheet.bas` |
-| Confirm / input dialog | `B4XDaisySweetAlert` | `B4XPageSweetAlert.bas`, `B4XPageSweetAlertInputs.bas` |
-| Native Android dialog (Msgbox / InputList / FilePicker) | native B4X dialogs + `B4XDaisyInput` | `B4XPageNativeDialogs.bas` |
-| Alert banner | `B4XDaisyAlert` | `B4XPageAlert.bas` |
-| Toast / snackbar | `B4XDaisyToast` | `B4XPageToast.bas` |
-| Tooltip | `B4XDaisyTooltip` | `B4XPageTooltip.bas` |
-| Loading spinner | `B4XDaisyLoading` | `B4XPageLoading.bas` |
-| Canvas spinner | `B4XDaisyCanvasSpinner` | `B4XPageCanvasSpinner.bas` |
-| Skeleton loading | `B4XDaisyDivision` (IsSkeleton) | `B4XPageSkeleton.bas` |
-| Status dot (online/offline) | `B4XDaisyStatus` | `B4XPageStatus.bas` |
-| Avatar | `B4XDaisyAvatar`, `B4XDaisyAvatarGroup` | `B4XPageAvatar.bas`, `B4XPageMask.bas` |
-| Chat / messaging | `B4XDaisyChat` | `B4XPageChat.bas` |
-| PDF viewer | `B4XDaisyPDFView` | `B4XPagePDFView.bas` |
-| FAB / floating button | `B4XDaisyFab` | `B4XPageFab.bas`, `B4XPageFabBasic.bas`, `B4XPageFabFlower.bas` |
-| Boom / radial FAB | `B4XDaisyBoomMenu` | `B4XPageBoomMenu.bas` |
-| Badge indicator on icon | `B4XDaisyIndicator` | `B4XPageIndicator.bas` |
-| Overlay / backdrop | `B4XDaisyOverlay` | `B4XPageOverlay.bas` |
-| Drum picker wheel | `B4XDaisyPicker` | `B4XPagePicker.bas` |
-| Easing / animation | `B4XDaisyAnimation` | `B4XPageEasing.bas` |
-| Diff / compare slider | `B4XDaisyDiff` | `B4XPageDiff.bas` |
-| Divider line | `B4XDaisyDivider` | `B4XPageDivider.bas` |
-| Container / div | `B4XDaisyDivision` | `B4XPageDivider.bas` |
-| Typography / text | `B4XDaisyText` | `B4XPageText.bas`, `B4XPageLink.bas` |
-| Text rotation ticker | `B4XDaisyTextRotate` | `B4XPageTextRotate.bas` |
-| SVG icon | `B4XDaisySvgIcon` | `B4XPageSvgIcon.bas` |
-| Filter chip bar | `B4XDaisyFilter` | `B4XPageFilter.bas` |
-| Swap / dual-state button | `B4XDaisySwap` | `B4XPageSwap.bas` |
-| Keyboard shortcut badge | `B4XDaisyKbd` | `B4XPageKbd.bas` |
-| Form labels / Typography | `B4XDaisyText` | `B4XPageText.bas`, `B4XPageInput.bas` |
-| 3D tag sphere | `B4XDaisyTagSphere` | `B4XPageTagSphere.bas` |
-| Glow / aura effect | `B4XDaisyAura` | `B4XPageAura.bas` |
-| 3D hover card | `B4XDaisyHover3d` | `B4XPageHover3d.bas` |
-| Onboarding tour | `B4XDaisyEnjoyHint` | `B4XPageEnjoyHint.bas` |
-| Window / device mockup | `B4XDaisyWindow` | `B4XPageWindow.bas` |
-| Media picker / image | `B4XDaisyImage`, `B4XDaisyFileHandler` | `B4XPageMediaPicker.bas` |
 
 ---
 

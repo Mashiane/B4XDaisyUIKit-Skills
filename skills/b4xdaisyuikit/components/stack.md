@@ -1,12 +1,12 @@
 # stack (`B4XDaisyStack`)
 
-DaisyUI `Stack` component for B4X (B4A/B4i/B4J).
+DaisyUI `Stack` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyStack`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyStack.bas`
-- **Verified Demo Source**: B4XPageStack.bas (lines 53–180)
+- **Verified Demo Source**: B4XPageStack.bas
 - **Web DaisyUI Mapping**: `.stack` → `B4XDaisyStack`
 
 ## DaisyUI Web Class Translation
@@ -69,80 +69,78 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `w-10` |  |
-| `Height` | Height | `String` | `h-10` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Direction` | Direction | `String` | `bottom` | bottom|top|start|end |
-| `StepPrimary` | Primary Step | `Int` | `7` |  |
-| `StepSecondary` | Secondary Step | `Int` | `3` |  |
-| `AutoFillLayers` | Auto Fill Layers | `Boolean` | `True` |  |
-| `LayoutAnimationMs` | Layout Animation | `Int` | `0` |  |
-| `Rounded` | Rounded | `String` | `rounded-box` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `StrictDaisyParity` | Strict Daisy Parity | `Boolean` | `True` |  |
+| `Width` | Width | `String` | w-10 |  |
+| `Height` | Height | `String` | h-10 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `Direction` | Direction | `String` | bottom | bottom|top|start|end |
+| `StepPrimary` | Primary Step | `Int` | 7 |  |
+| `StepSecondary` | Secondary Step | `Int` | 3 |  |
+| `AutoFillLayers` | Auto Fill Layers | `Boolean` | True |  |
+| `LayoutAnimationMs` | Layout Animation | `Int` | 0 |  |
+| `Rounded` | Rounded | `String` | rounded-box | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `StrictDaisyParity` | Strict Daisy Parity | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddColorLayer(iBackColor As Int, sText As String, iTextColor As Int, fCornerRadius As Float) As B4XView`
-- `AddLayer(vChildView As B4XView) As Int`
-- `AddLayerWithTag(vChildView As B4XView, oTag As Object) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RemoveLayerAt(iIndex As Int) As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayers(lstViews As List)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getAutoFillLayers As Boolean`
-- `getDirection As String`
-- `getHeight As Float`
-- `getLayer(iIndex As Int) As B4XView`
+- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddLayer(ChildView As B4XView) As Int`
+- `AddLayerWithTag(ChildView As B4XView, Tag As Object) As Int`
+- `SetLayers(lstViews As List)`
+- `RemoveLayerAt(Index As Int) As Boolean`
+- `Clear`
+- `getLayer(Index As Int) As B4XView`
 - `getLayerCount As Int`
-- `getLayerTag(iIndex As Int) As Object`
-- `getLayoutAnimationMs As Int`
-- `getLeft As Int`
-- `getMargin As String`
-- `getPadding As String`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getStepPrimary As Float`
-- `getStepSecondary As Float`
-- `getStrictDaisyParity As Boolean`
-- `getTag As Object`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setLayerTag(Index As Int, Tag As Object)`
+- `getLayerTag(Index As Int) As Object`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
-- `setAutoFillLayers(bValue As Boolean)`
-- `setDirection(sValue As String)`
-- `setHeight(oValue As Object)`
-- `setLayerTag(iIndex As Int, oTag As Object)`
-- `setLayoutAnimationMs(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setSize(iWidth As Int, iHeight As Int)`
-- `setStepPrimary(oValue As Object)`
-- `setStepSecondary(oValue As Object)`
-- `setStrictDaisyParity(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setSize(Width As Int, Height As Int)`
+- `setStepPrimary(Value As Object)`
+- `getStepPrimary As Float`
+- `setStepSecondary(Value As Object)`
+- `getStepSecondary As Float`
+- `setAutoFillLayers(Value As Boolean)`
+- `getAutoFillLayers As Boolean`
+- `setLayoutAnimationMs(Value As Int)`
+- `getLayoutAnimationMs As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setStrictDaisyParity(Value As Boolean)`
+- `getStrictDaisyParity As Boolean`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `AddColorLayer(BackColor As Int, Text As String, TextColor As Int, CornerRadius As Float) As B4XView`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # box-model (`B4XDaisyBoxModel`)
 
-DaisyUI `BoxModel` component for B4X (B4A/B4i/B4J).
+DaisyUI `BoxModel` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyBoxModel`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyBoxModel.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.box-model` → `B4XDaisyBoxModel`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,31 +26,31 @@ DaisyUI `BoxModel` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyBoxModel` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `ApplyMarginUtilities(mModel As Map, sUtilities As String, bIsRtl As Boolean)`
-- `ApplyMarginUtility(mModel As Map, sUtility As String, bIsRtl As Boolean) As Boolean`
-- `ApplyPaddingUtilities(mModel As Map, sUtilities As String, bIsRtl As Boolean)`
-- `ApplyPaddingUtility(mModel As Map, sUtility As String, bIsRtl As Boolean) As Boolean`
-- `ApplyRadiusUtilities(mModel As Map, sUtilities As String, bIsRtl As Boolean)`
-- `ApplyRadiusUtility(mModel As Map, sUtility As String, bIsRtl As Boolean) As Boolean`
-- `CreateDefaultModel As Map`
-- `ExpandContentHeight(fContentHeight As Float, mModel As Map) As Float`
-- `ExpandContentWidth(fContentWidth As Float, mModel As Map) As Float`
-- `GetCornerRadius(mModel As Map, sCorner As String, fFallback As Float) As Float`
 - `GetDefaultSpacingScale As Map`
-- `ResolveBorderRect(rcOuterRect As B4XRect, mModel As Map) As B4XRect`
-- `ResolveContentRect(rcBorderRect As B4XRect, mModel As Map) As B4XRect`
-- `ResolveLength(oValue As Object, fParentSize As Float, fDefaultDip As Float) As Float`
-- `ResolveOuterRect(rcHostRect As B4XRect, mModel As Map) As B4XRect`
-- `ResolvePaddingRect(rcBorderRect As B4XRect, mModel As Map) As B4XRect`
-- `TailwindSpacingToDip(oValue As Object, fDefaultDip As Float) As Float`
+- `TailwindSpacingToDip(Value As Object, DefaultDip As Float) As Float`
+- `CreateDefaultModel As Map`
+- `ResolveLength(Value As Object, ParentSize As Float, DefaultDip As Float) As Float`
+- `ApplyPaddingUtility(Model As Map, Utility As String, IsRtl As Boolean) As Boolean`
+- `ApplyPaddingUtilities(Model As Map, Utilities As String, IsRtl As Boolean)`
+- `ApplyMarginUtility(Model As Map, Utility As String, IsRtl As Boolean) As Boolean`
+- `ApplyMarginUtilities(Model As Map, Utilities As String, IsRtl As Boolean)`
+- `ApplyRadiusUtility(Model As Map, Utility As String, IsRtl As Boolean) As Boolean`
+- `ApplyRadiusUtilities(Model As Map, Utilities As String, IsRtl As Boolean)`
+- `GetCornerRadius(Model As Map, Corner As String, Fallback As Float) As Float`
+- `ResolveOuterRect(rcHostRect As B4XRect, Model As Map) As B4XRect`
+- `ResolveBorderRect(rcOuterRect As B4XRect, Model As Map) As B4XRect`
+- `ResolvePaddingRect(rcBorderRect As B4XRect, Model As Map) As B4XRect`
+- `ResolveContentRect(rcBorderRect As B4XRect, Model As Map) As B4XRect`
+- `ExpandContentWidth(ContentWidth As Float, Model As Map) As Float`
+- `ExpandContentHeight(ContentHeight As Float, Model As Map) As Float`
 - `ToLocalRect(rcAbsoluteRect As B4XRect, rcOriginRect As B4XRect) As B4XRect`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

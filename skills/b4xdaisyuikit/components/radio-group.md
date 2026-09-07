@@ -1,12 +1,12 @@
 # radio-group (`B4XDaisyRadioGroup`)
 
-DaisyUI `RadioGroup` component for B4X (B4A/B4i/B4J).
+DaisyUI `RadioGroup` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyRadioGroup`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyRadioGroup.bas`
-- **Verified Demo Source**: B4XPageRadioGroup.bas (lines 46–204)
+- **Verified Demo Source**: B4XPageRadioGroup.bas
 - **Web DaisyUI Mapping**: `.radio-group` → `B4XDaisyRadioGroup`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,31 +59,31 @@ DaisyUI `RadioGroup` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Legend` | Legend | `String` | `Select an option` |  |
-| `LegendSize` | Legend Size | `String` | `theme` | theme|text-xs|text-sm|text-base|text-lg|text-xl |
-| `LegendBold` | Legend Bold | `Boolean` | `False` |  |
-| `LabelAbove` | Label Above | `Boolean` | `False` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `BorderStyle` | Border Style | `String` | `outlined` | outlined|ghost|inset |
-| `Padding` | Padding | `Int` | `16` |  |
-| `AutoHeight` | Auto Height | `Boolean` | `True` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `BorderSize` | Border Size | `Int` | `1` |  |
-| `InputBorder` | Input Border | `Boolean` | `False` |  |
-| `Direction` | Direction | `String` | `vertical` | vertical|horizontal |
-| `Alignment` | Radio Alignment | `String` | `start` | start|end |
-| `RadioColor` | Radio Color | `String` | `neutral` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `RadioSize` | Radio Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Gap` | Gap | `Int` | `8` |  |
-| `RowGap` | Row Gap | `Int` | `8` |  |
-| `GroupName` | Group Name | `String` | `` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
+| `Legend` | Legend | `String` | Select an option |  |
+| `LegendSize` | Legend Size | `String` | theme | theme|text-xs|text-sm|text-base|text-lg|text-xl |
+| `LegendBold` | Legend Bold | `Boolean` | False |  |
+| `LabelAbove` | Label Above | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `BorderStyle` | Border Style | `String` | outlined | outlined|ghost|inset |
+| `Padding` | Padding | `Int` | 16 |  |
+| `AutoHeight` | Auto Height | `Boolean` | True |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `BorderSize` | Border Size | `Int` | 1 |  |
+| `InputBorder` | Input Border | `Boolean` | False |  |
+| `Direction` | Direction | `String` | vertical | vertical|horizontal |
+| `Alignment` | Radio Alignment | `String` | start | start|end |
+| `RadioColor` | Radio Color | `String` | neutral | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `RadioSize` | Radio Size | `String` | md | xs|sm|md|lg|xl |
+| `Gap` | Gap | `Int` | 8 |  |
+| `RowGap` | Row Gap | `Int` | 8 |  |
+| `GroupName` | Group Name | `String` |  |  |
+| `Required` | Required | `Boolean` | False |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
 
 ## 5. Declared Events
 - `ItemChanged (id As String, text As String, checked As Boolean)`
@@ -91,103 +91,102 @@ DaisyUI `RadioGroup` component for B4X (B4A/B4i/B4J).
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddItem(sId As String, sText As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `Clear`
-- `ClearError`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveItem(sId As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `Validate As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getAlignment As String`
-- `getAutoHeight As Boolean`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderSize As Int`
-- `getBorderStyle As String`
-- `getChecked As String`
-- `getDirection As String`
-- `getErrorText As String`
-- `getGap As Int`
-- `getGroupName As String`
-- `getHeight As Int`
-- `getHintText As String`
-- `getInputBorder As Boolean`
-- `getIsValid As Boolean`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `AddItem(Id As String, Text As String)`
+- `RemoveItem(Id As String)`
+- `Clear`
+- `setItems(Items As Map)`
 - `getItems As Map`
-- `getLabelAbove As Boolean`
-- `getLeft As Int`
-- `getLegend As String`
-- `getLegendBold As Boolean`
-- `getLegendSize As String`
-- `getPadding As Int`
-- `getRadioColor As String`
-- `getRadioSize As String`
-- `getRequired As Boolean`
-- `getRounded As String`
-- `getRowGap As Int`
+- `setSelectedIndex(Index As Int)`
 - `getSelectedIndex As Int`
-- `getShadow As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
+- `setChecked(CheckedIds As String)`
+- `getChecked As String`
+- `setLegend(Value As String)`
+- `getLegend As String`
+- `setLegendSize(Value As String)`
+- `getLegendSize As String`
+- `setLegendBold(Value As Boolean)`
+- `getLegendBold As Boolean`
+- `setVariant(Value As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
-- `getWidth As Int`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setAlignment(Value As String)`
+- `getAlignment As String`
+- `setRadioColor(Value As String)`
+- `getRadioColor As String`
+- `setRadioSize(Value As String)`
+- `getRadioSize As String`
+- `setGroupName(Value As String)`
+- `getGroupName As String`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `setPadding(Value As Int)`
+- `getPadding As Int`
+- `setGap(Value As Int)`
+- `getGap As Int`
+- `setRowGap(Value As Int)`
+- `getRowGap As Int`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setRequired(Value As Boolean)`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `getRequired As Boolean`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
+- `ReceiveFocus`
+- `Blur`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `isRounded As Boolean`
+- `setRoundedBox(Value As Boolean)`
 - `isRoundedBox As Boolean`
-- `setAlignment(sValue As String)`
-- `setAutoHeight(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBorderColor(iValue As Int)`
-- `setBorderSize(iValue As Int)`
-- `setBorderStyle(sValue As String)`
-- `setChecked(sCheckedIds As String)`
-- `setDirection(sValue As String)`
-- `setErrorText(sValue As String)`
-- `setGap(iValue As Int)`
-- `setGroupName(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setHintText(sValue As String)`
-- `setInputBorder(bValue As Boolean)`
-- `setItems(mItems As Map)`
-- `setLabelAbove(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLegend(sValue As String)`
-- `setLegendBold(bValue As Boolean)`
-- `setLegendSize(sValue As String)`
-- `setPadding(iValue As Int)`
-- `setRadioColor(sValue As String)`
-- `setRadioSize(sValue As String)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setRowGap(iValue As Int)`
-- `setSelectedIndex(iIndex As Int)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderSize(Value As Int)`
+- `getBorderSize As Int`
+- `setInputBorder(Value As Boolean)`
+- `getInputBorder As Boolean`
+- `GetComputedHeight As Int`
+- `Release`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

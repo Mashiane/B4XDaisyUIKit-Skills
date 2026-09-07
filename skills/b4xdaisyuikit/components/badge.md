@@ -1,12 +1,12 @@
 # badge (`B4XDaisyBadge`)
 
-DaisyUI `Badge` component for B4X (B4A/B4i/B4J).
+DaisyUI `Badge` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyBadge`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyBadge.bas`
-- **Verified Demo Source**: B4XPageAlert.bas (lines 180–180), B4XPageBadge.bas (lines 18–680), B4XPageCard.bas (lines 326–334), B4XPageTooltip.bas (lines 225–225), B4XPageWindow.bas (lines 128–131)
+- **Verified Demo Source**: B4XPageAlert.bas, B4XPageBadge.bas, B4XPageCard.bas, B4XPageTooltip.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.badge` → `B4XDaisyBadge`
 
 ## DaisyUI Web Class Translation
@@ -73,35 +73,35 @@ Private Sub RenderBadgeGroupSelectSections(MaxW As Int, StartY As Int) As Int
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `fit-content` |  |
-| `Height` | Height | `String` | `h-6` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `BadgeStyle` | Style | `String` | `solid` | solid|soft|outline|dash|ghost |
-| `Text` | Text | `String` | `Badge` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AvatarVisible` | Avatar Visible | `Boolean` | `False` |  |
-| `AvatarImage` | Avatar Image | `String` | `mashymain.jpg` |  |
-| `AvatarText` | Avatar Text | `String` | `` |  |
-| `AvatarPosition` | Avatar Position | `String` | `left` | left|right |
-| `IconAsset` | Icon Asset | `String` | `` |  |
-| `Toggle` | Toggle | `Boolean` | `False` |  |
-| `Checked` | Checked | `Boolean` | `False` |  |
-| `CheckedColor` | Checked Color | `Color` | `0x00000000` |  |
-| `CheckedTextColor` | Checked Text Color | `Color` | `0x00000000` |  |
-| `Id` | Id | `String` | `` |  |
-| `Closable` | Closable | `Boolean` | `False` |  |
-| `CloseIconAsset` | Close Icon Asset | `String` | `xmark-solid.svg` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `CapValue` | Cap Value | `Int` | `99` |  |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
-| `TextCentered` | Text Centered | `Boolean` | `True` |  |
+| `Width` | Width | `String` | fit-content |  |
+| `Height` | Height | `String` | h-6 |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `BadgeStyle` | Style | `String` | solid | solid|soft|outline|dash|ghost |
+| `Text` | Text | `String` | Badge |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AvatarVisible` | Avatar Visible | `Boolean` | False |  |
+| `AvatarImage` | Avatar Image | `String` | mashymain.jpg |  |
+| `AvatarText` | Avatar Text | `String` |  |  |
+| `AvatarPosition` | Avatar Position | `String` | left | left|right |
+| `IconAsset` | Icon Asset | `String` |  |  |
+| `Toggle` | Toggle | `Boolean` | False |  |
+| `Checked` | Checked | `Boolean` | False |  |
+| `CheckedColor` | Checked Color | `Color` | 0x00000000 |  |
+| `CheckedTextColor` | Checked Text Color | `Color` | 0x00000000 |  |
+| `Id` | Id | `String` |  |  |
+| `Closable` | Closable | `Boolean` | False |  |
+| `CloseIconAsset` | Close Icon Asset | `String` | xmark-solid.svg |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `CapValue` | Cap Value | `Int` | 99 |  |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Clickable` | Clickable | `Boolean` | True |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `BorderColor` | Border Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0x00FFFFFF |  |
+| `TextCentered` | Text Centered | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -109,92 +109,91 @@ Private Sub RenderBadgeGroupSelectSections(MaxW As Int, StartY As Int) As Int
 - `Checked (Id As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `Release`
-- `RemoveViewFromParent`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `decrement As Int`
-- `decrementBy(iAmount As Int) As Int`
-- `getAvatarImage As String`
-- `getAvatarPosition As String`
-- `getAvatarText As String`
-- `getAvatarVisible As Boolean`
-- `getBackgroundColor As Int`
-- `getBadgeStyle As String`
-- `getBorderColor As Int`
-- `getCapValue As Int`
-- `getChecked As Boolean`
-- `getCheckedColor As Int`
-- `getCheckedTextColor As Int`
-- `getClickable As Boolean`
-- `getClosable As Boolean`
-- `getCloseIconAsset As String`
-- `getHeight As Float`
-- `getIconAsset As String`
-- `getId As String`
-- `getMargin As String`
-- `getPadding As String`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getSize As String`
-- `getStyle As String`
-- `getTag As Object`
-- `getText As String`
-- `getTextCentered As Boolean`
-- `getTextColor As Int`
-- `getToggle As Boolean`
-- `getValue As String`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `IsReady As Boolean`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setBadgeStyle(Value As String)`
+- `getBadgeStyle As String`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setText(Value As String)`
+- `getText As String`
+- `setTextCentered(Value As Boolean)`
+- `getTextCentered As Boolean`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setAvatarVisible(Value As Boolean)`
+- `getAvatarVisible As Boolean`
+- `setAvatarImage(Value As String)`
+- `getAvatarImage As String`
+- `setAvatarText(Value As String)`
+- `getAvatarText As String`
+- `setAvatarPosition(Value As String)`
+- `getAvatarPosition As String`
+- `setIconAsset(Value As String)`
+- `getIconAsset As String`
+- `setToggle(Value As Boolean)`
+- `getToggle As Boolean`
+- `setChecked(Value As Boolean)`
+- `getChecked As Boolean`
+- `setCheckedColor(Value As Int)`
+- `getCheckedColor As Int`
+- `setCheckedTextColor(Value As Int)`
+- `getCheckedTextColor As Int`
+- `setId(Value As String)`
+- `getId As String`
+- `setClosable(Value As Boolean)`
+- `getClosable As Boolean`
+- `setCloseIconAsset(Value As String)`
+- `getCloseIconAsset As String`
+- `setCapValue(Value As Int)`
+- `getCapValue As Int`
+- `setValue(Value As Object)`
+- `getValue As String`
 - `increment As Int`
-- `incrementBy(iAmount As Int) As Int`
-- `setAvatarImage(sValue As String)`
-- `setAvatarPosition(sValue As String)`
-- `setAvatarText(sValue As String)`
-- `setAvatarVisible(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBadgeStyle(sValue As String)`
-- `setBorderColor(iValue As Int)`
-- `setBorderColorVariant(sVariantName As String)`
-- `setCapValue(iValue As Int)`
-- `setChecked(bValue As Boolean)`
-- `setCheckedColor(iValue As Int)`
-- `setCheckedTextColor(iValue As Int)`
-- `setClickable(bValue As Boolean)`
-- `setClosable(bValue As Boolean)`
-- `setCloseIconAsset(sValue As String)`
-- `setHeight(oValue As Object)`
-- `setIconAsset(sValue As String)`
-- `setId(sValue As String)`
-- `setMargin(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextCentered(bValue As Boolean)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setToggle(bValue As Boolean)`
-- `setValue(oValue As Object)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `incrementBy(Amount As Int) As Int`
+- `decrement As Int`
+- `decrementBy(Amount As Int) As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderColorVariant(VariantName As String)`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `RemoveViewFromParent`
+- `Release`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # collapse-content (`B4XDaisyCollapseContent`)
 
-DaisyUI `CollapseContent` component for B4X (B4A/B4i/B4J).
+DaisyUI `CollapseContent` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCollapseContent`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyCollapseContent.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.collapse-content` → `B4XDaisyCollapseContent`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -28,45 +28,44 @@ DaisyUI `CollapseContent` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Relayout`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Relayout`
 - `getContainer As B4XView`
-- `getHeight As Int`
-- `getLeft As Int`
+- `setTextColor(Value As Int)`
 - `getTextColor As Int`
-- `getTop As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

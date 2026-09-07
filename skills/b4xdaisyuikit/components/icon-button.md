@@ -1,12 +1,12 @@
 # icon-button (`B4XDaisyIconButton`)
 
-DaisyUI `IconButton` component for B4X (B4A/B4i/B4J).
+DaisyUI `IconButton` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyIconButton`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyIconButton.bas`
-- **Verified Demo Source**: B4XPageIconButton.bas (lines 50–264), B4XPageList.bas (lines 229–508), B4XPageMediaPicker.bas (lines 84–108)
+- **Verified Demo Source**: B4XPageIconButton.bas, B4XPageList.bas, B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.icon-button` → `B4XDaisyIconButton`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,87 +59,86 @@ row1.Initialize
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `IconAsset` | Icon Asset | `String` | `` |  |
-| `IconColor` | Icon Color | `Color` | `0x00FFFFFF` |  |
-| `Variant` | Variant | `String` | `default` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `Style` | Style | `String` | `solid` | solid|soft|outline|dash|ghost|link |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `CustomSize` | Custom Size | `Int` | `0` |  |
-| `Shape` | Shape | `String` | `square` | square|circle |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Loading` | Loading | `Boolean` | `False` |  |
-| `Disabled` | Disabled | `Boolean` | `False` |  |
-| `Active` | Active | `Boolean` | `False` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `BorderColor` | Border Color | `Color` | `0x00FFFFFF` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
+| `IconAsset` | Icon Asset | `String` |  |  |
+| `IconColor` | Icon Color | `Color` | 0x00FFFFFF |  |
+| `Variant` | Variant | `String` | default | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `Style` | Style | `String` | solid | solid|soft|outline|dash|ghost|link |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `CustomSize` | Custom Size | `Int` | 0 |  |
+| `Shape` | Shape | `String` | square | square|circle |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `Loading` | Loading | `Boolean` | False |  |
+| `Disabled` | Disabled | `Boolean` | False |  |
+| `Active` | Active | `Boolean` | False |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `BorderColor` | Border Color | `Color` | 0x00FFFFFF |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Clickable` | Clickable | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iSizeDip As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(SizeDip As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setIconAsset(Value As String)`
+- `getIconAsset As String`
+- `setIconColor(Value As Int)`
+- `getIconColor As Int`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setCustomSize(Value As Int)`
+- `getCustomSize As Int`
+- `setShape(Value As String)`
+- `getShape As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setLoading(Value As Boolean)`
+- `getLoading As Boolean`
+- `setDisabled(Value As Boolean)`
+- `getDisabled As Boolean`
+- `setActive(Value As Boolean)`
+- `getActive As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
 - `GetComputedHeight As Int`
 - `GetComputedWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Release`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getActive As Boolean`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getClickable As Boolean`
-- `getCustomSize As Int`
-- `getDisabled As Boolean`
-- `getHeight As Int`
-- `getIconAsset As String`
-- `getIconColor As Int`
+- `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getLoading As Boolean`
-- `getMargin As String`
-- `getPadding As String`
-- `getRounded As String`
-- `getShape As String`
-- `getSize As String`
-- `getStyle As String`
-- `getTag As Object`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setActive(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBorderColor(iValue As Int)`
-- `setClickable(bValue As Boolean)`
-- `setCustomSize(iValue As Int)`
-- `setDisabled(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setIconAsset(sValue As String)`
-- `setIconColor(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setLoading(bValue As Boolean)`
-- `setMargin(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setShape(sValue As String)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

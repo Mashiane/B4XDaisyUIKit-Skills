@@ -1,12 +1,12 @@
 # aura (`B4XDaisyAura`)
 
-DaisyUI `Aura` component for B4X (B4A/B4i/B4J).
+DaisyUI `Aura` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAura`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyAura.bas`
-- **Verified Demo Source**: B4XPageAura.bas (lines 8–239)
+- **Verified Demo Source**: B4XPageAura.bas
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
 ## DaisyUI Web Class Translation
@@ -66,68 +66,67 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Style` | Style | `String` | `default` | default|glow|dual|rainbow|holo|gold|silver |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Color` | Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color (Light Beam) | `Color` | `0x00FFFFFF` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Duration` | Duration (ms) | `Int` | `3000` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AutoStart` | AutoStart | `Boolean` | `True` |  |
+| `Style` | Style | `String` | default | default|glow|dual|rainbow|holo|gold|silver |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Color` | Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color (Light Beam) | `Color` | 0x00FFFFFF |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Duration` | Duration (ms) | `Int` | 3000, MinRange: 100 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AutoStart` | AutoStart | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Wrap(Child As B4XView) As B4XView`
+- `getContentContainer As B4XView`
+- `getContainer As B4XView`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `SyncRotation`
 - `StartRotation`
 - `StopRotation`
-- `SyncRotation`
-- `View As B4XView`
-- `Wrap(vChild As B4XView) As B4XView`
-- `getAutoStart As Boolean`
-- `getBackgroundColor As Int`
-- `getColor As Int`
-- `getContainer As B4XView`
-- `getContentContainer As B4XView`
-- `getDuration As Int`
-- `getLeft As Int`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getSize As String`
+- `setStyle(Value As String)`
 - `getStyle As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setColor(Value As Int)`
+- `getColor As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `setAutoStart(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setColor(iValue As Int)`
-- `setDuration(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
+- `setAutoStart(Value As Boolean)`
+- `getAutoStart As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `RemoveViewFromParent`
+- `GetComputedHeight As Int`
+- `Release`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

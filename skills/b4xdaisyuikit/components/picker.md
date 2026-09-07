@@ -1,12 +1,12 @@
 # picker (`B4XDaisyPicker`)
 
-DaisyUI `Picker` component for B4X (B4A/B4i/B4J).
+DaisyUI `Picker` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPicker`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyPicker.bas`
-- **Verified Demo Source**: B4XPagePicker.bas (lines 18–41)
+- **Verified Demo Source**: B4XPagePicker.bas
 - **Web DaisyUI Mapping**: `.picker` → `B4XDaisyPicker`
 
 ## DaisyUI Web Class Translation
@@ -107,93 +107,92 @@ Or using CDN:
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Mode` | Mode | `String` | `md` | ios|md |
-| `FadeBackground` | Fade Color | `Color` | `0xFFFFFFFF` |  |
-| `HighlightBackground` | Highlight Color | `Color` | `0x1A000000` |  |
-| `HighlightVariant` | Highlight Variant | `String` | `` | none|primary|secondary|accent|info|success|warning|error |
-| `ActiveTextColor` | Active Text Color | `Color` | `0` |  |
-| `HighlightRadius` | Highlight Radius | `Int` | `8` |  |
-| `VisibleItems` | Visible Items | `Int` | `5` |  |
-| `PickerType` | Picker Type | `String` | `default` | default|auto |
-| `InputFormat` | Input Format | `String` | `Y-m-d` |  |
-| `DisplayFormat` | Display Format | `String` | `` |  |
-| `MinYear` | Min Year | `Int` | `0` |  |
-| `MaxYear` | Max Year | `Int` | `0` |  |
-| `ColumnDelimiter` | Column Delimiter | `String` | `` |  |
-| `TextAlign` | Text Align | `String` | `CENTER` | CENTER|LEFT|RIGHT |
-| `Rounded` | Rounded | `String` | `rounded-lg` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
+| `Mode` | Mode | `String` | md | ios|md |
+| `FadeBackground` | Fade Color | `Color` | 0xFFFFFFFF |  |
+| `HighlightBackground` | Highlight Color | `Color` | 0x1A000000 |  |
+| `HighlightVariant` | Highlight Variant | `String` |  | none|primary|secondary|accent|info|success|warning|error |
+| `ActiveTextColor` | Active Text Color | `Color` | 0 |  |
+| `HighlightRadius` | Highlight Radius | `Int` | 8 |  |
+| `VisibleItems` | Visible Items | `Int` | 5 |  |
+| `PickerType` | Picker Type | `String` | default | default|auto |
+| `InputFormat` | Input Format | `String` | Y-m-d |  |
+| `DisplayFormat` | Display Format | `String` |  |  |
+| `MinYear` | Min Year | `Int` | 0 |  |
+| `MaxYear` | Max Year | `Int` | 0 |  |
+| `ColumnDelimiter` | Column Delimiter | `String` |  |  |
+| `TextAlign` | Text Align | `String` | CENTER | CENTER|LEFT|RIGHT |
+| `Rounded` | Rounded | `String` | rounded-lg | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
 
 ## 5. Declared Events
 - `Changed (ColumnName As String, Value As Object)`
 
 ## 6. Public Methods & APIs
-- `AddColumn(sColumnName As String, sPrefix As String, sSuffix As String, bDisabled As Boolean)`
-- `AddColumnDay(sColumnName As String)`
-- `AddColumnMonth(sColumnName As String)`
-- `AddColumnYear(sColumnName As String, iStartYear As Int, iEndYear As Int)`
-- `AddOption(sColumnName As String, sText As String, oValue As Object)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetColumnActiveTextColor(sColumnName As String) As Int`
-- `GetColumnColor(sColumnName As String) As Int`
-- `GetColumnEnabled(sColumnName As String) As Boolean`
-- `GetColumnOptionValues(sColumnName As String) As List`
-- `GetColumnValue(sColumnName As String) As Object`
-- `GetComputedHeight As Int`
-- `GetDisplayValue As String`
-- `GetRoundedRadius As Float`
-- `GetValue As String`
-- `GetValueList As List`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `SetColorAndBorder(iColor As Int, fBorderWidth As Float, iBorderColor As Int, fCornerRadius As Float)`
-- `SetColumnActiveTextColor(sColumnName As String, iColor As Int)`
-- `SetColumnColor(sColumnName As String, iColor As Int)`
-- `SetColumnColorVariant(sColumnName As String, sVariant As String)`
-- `SetColumnEnabled(sColumnName As String, bEnabled As Boolean)`
-- `SetColumnValue(sColumnName As String, oValue As Object)`
-- `SetOptionDisabled(sColumnName As String, oValue As Object, bDisabled As Boolean)`
-- `SetOptionDisabledByIndex(sColumnName As String, iIndex As Int, bDisabled As Boolean)`
-- `SetValue(sValue As String)`
-- `SetValueList(lstValues As List)`
-- `View As B4XView`
-- `getActiveTextColor As Int`
-- `getColumnDelimiter As String`
-- `getDisplayFormat As String`
-- `getFadeBackground As Int`
-- `getHighlightBackground As Int`
-- `getHighlightRadius As Int`
-- `getHighlightVariant As String`
-- `getInputFormat As String`
-- `getMaxYear As Int`
-- `getMinYear As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setMode(Value As String)`
 - `getMode As String`
-- `getPickerType As String`
-- `getRounded As String`
-- `getShadow As String`
-- `getTextAlign As String`
+- `setFadeBackground(Value As Int)`
+- `getFadeBackground As Int`
+- `setHighlightBackground(Value As Int)`
+- `getHighlightBackground As Int`
+- `setHighlightVariant(Value As String)`
+- `getHighlightVariant As String`
+- `setActiveTextColor(Value As Int)`
+- `getActiveTextColor As Int`
+- `setHighlightRadius(Value As Int)`
+- `getHighlightRadius As Int`
+- `setVisibleItems(Value As Int)`
 - `getVisibleItems As Int`
-- `setActiveTextColor(iValue As Int)`
-- `setColumnDelimiter(sValue As String)`
-- `setDisplayFormat(sValue As String)`
-- `setFadeBackground(iValue As Int)`
-- `setHighlightBackground(iValue As Int)`
-- `setHighlightRadius(iValue As Int)`
-- `setHighlightVariant(sValue As String)`
-- `setInputFormat(sValue As String)`
-- `setMaxYear(iValue As Int)`
-- `setMinYear(iValue As Int)`
-- `setMode(sValue As String)`
-- `setPickerType(sValue As String)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setTextAlign(sValue As String)`
-- `setVisibleItems(iValue As Int)`
+- `GetComputedHeight As Int`
+- `setPickerType(Value As String)`
+- `getPickerType As String`
+- `setInputFormat(Value As String)`
+- `getInputFormat As String`
+- `setDisplayFormat(Value As String)`
+- `getDisplayFormat As String`
+- `setMinYear(Value As Int)`
+- `getMinYear As Int`
+- `setMaxYear(Value As Int)`
+- `getMaxYear As Int`
+- `setColumnDelimiter(Value As String)`
+- `getColumnDelimiter As String`
+- `setTextAlign(Value As String)`
+- `getTextAlign As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `GetRoundedRadius As Float`
+- `SetColorAndBorder(Color As Int, BorderWidth As Float, BorderColor As Int, CornerRadius As Float)`
+- `AddColumn(ColumnName As String, Prefix As String, Suffix As String, Disabled As Boolean)`
+- `AddColumnDay(ColumnName As String)`
+- `AddColumnMonth(ColumnName As String)`
+- `AddColumnYear(ColumnName As String, StartYear As Int, EndYear As Int)`
+- `AddOption(ColumnName As String, Text As String, Value As Object)`
+- `SetColumnValue(ColumnName As String, Value As Object)`
+- `SetOptionDisabled(ColumnName As String, Value As Object, Disabled As Boolean)`
+- `SetOptionDisabledByIndex(ColumnName As String, Index As Int, Disabled As Boolean)`
+- `GetColumnValue(ColumnName As String) As Object`
+- `GetColumnOptionValues(ColumnName As String) As List`
+- `SetColumnColor(ColumnName As String, Color As Int)`
+- `GetColumnColor(ColumnName As String) As Int`
+- `SetColumnColorVariant(ColumnName As String, Variant As String)`
+- `SetColumnEnabled(ColumnName As String, Enabled As Boolean)`
+- `GetColumnEnabled(ColumnName As String) As Boolean`
+- `SetColumnActiveTextColor(ColumnName As String, Color As Int)`
+- `GetColumnActiveTextColor(ColumnName As String) As Int`
+- `Refresh`
+- `SetValue(Value As String)`
+- `SetValueList(lstValues As List)`
+- `GetValueList As List`
+- `GetValue As String`
+- `GetDisplayValue As String`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

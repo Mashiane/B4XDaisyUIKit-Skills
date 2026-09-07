@@ -1,12 +1,12 @@
 # grid (`B4XDaisyGrid`)
 
-DaisyUI `Grid` component for B4X (B4A/B4i/B4J).
+DaisyUI `Grid` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyGrid`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyGrid.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.grid` → `B4XDaisyGrid`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -28,20 +28,20 @@ DaisyUI `Grid` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `ClassName` | Class Name | `String` | `grid grid-cols-1 gap-4` |  |
-| `Cols` | Columns | `Int` | `1` |  |
-| `Gap` | Gap | `String` | `4` |  |
-| `GapX` | Gap X | `String` | `` |  |
-| `GapY` | Gap Y | `String` | `` |  |
-| `AutoRows` | Auto Rows Height | `String` | `` |  |
-| `TemplateRows` | Template Rows | `String` | `` |  |
-| `Padding` | Padding | `String` | `0` |  |
-| `Dense` | Dense Packing | `Boolean` | `False` |  |
-| `Debug` | Debug | `Boolean` | `False` |  |
-| `DebugOverlay` | Debug Overlay | `Boolean` | `False` |  |
-| `AutoRegisterChildrenFromTag` | Auto Register Children From Tag | `Boolean` | `False` |  |
-| `EmitLayoutDiff` | Emit Layout Diff | `Boolean` | `False` |  |
-| `DefaultAnimMs` | Default Anim Ms | `Int` | `0` |  |
+| `ClassName` | Class Name | `String` | grid grid-cols-1 gap-4 |  |
+| `Cols` | Columns | `Int` | 1, MinRange: 1, MaxRange: 24 |  |
+| `Gap` | Gap | `String` | 4 |  |
+| `GapX` | Gap X | `String` |  |  |
+| `GapY` | Gap Y | `String` |  |  |
+| `AutoRows` | Auto Rows Height | `String` | minmax(72dip, auto) |  |
+| `TemplateRows` | Template Rows | `String` |  |  |
+| `Padding` | Padding | `String` | 0 |  |
+| `Dense` | Dense Packing | `Boolean` | False |  |
+| `Debug` | Debug | `Boolean` | False |  |
+| `DebugOverlay` | Debug Overlay | `Boolean` | False |  |
+| `AutoRegisterChildrenFromTag` | Auto Register Children From Tag | `Boolean` | False |  |
+| `EmitLayoutDiff` | Emit Layout Diff | `Boolean` | False |  |
+| `DefaultAnimMs` | Default Anim Ms | `Int` | 0, MinRange: 0, MaxRange: 2000 |  |
 
 ## 5. Declared Events
 - `LayoutChanged (ContentHeight As Float)`
@@ -51,93 +51,92 @@ DaisyUI `Grid` component for B4X (B4A/B4i/B4J).
 - `LayoutDiff (Changes As List)`
 
 ## 6. Public Methods & APIs
-- `AddItem(vItemView As B4XView, sClassText As String) As String`
-- `AddItemWithKey(sKey As String, vItemView As B4XView, sClassText As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `ApplyItemSpec(Spec As GridItemSpec)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
+- `Initialize(Callback As Object, EventName As String)`
+- `View As B4XView`
+- `getIsInitialized As Boolean`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setClassName(ClassText As String)`
+- `getClassName As String`
+- `setCols(Value As Int)`
+- `getCols As Int`
+- `setGap(Value As Object)`
+- `getGap As Float`
+- `setGapX(Value As Object)`
+- `getGapX As Float`
+- `setGapY(Value As Object)`
+- `getGapY As Float`
+- `SetGapXY(ValueX As Float, ValueY As Float)`
+- `SetAutoRowsTemplate(Template As String)`
+- `setAutoRows(Template As String)`
+- `getAutoRows As String`
+- `setTemplateRows(Template As String)`
+- `getTemplateRows As String`
+- `setPadding(Value As Object)`
+- `getPadding As Float`
+- `SetPaddingLTRB(Left As Float, Top As Float, Right As Float, Bottom As Float)`
+- `SetBreakpoint(Name As String, MinWidth As Float)`
+- `setDense(Value As Boolean)`
+- `getDense As Boolean`
+- `setDebug(Value As Boolean)`
+- `getDebug As Boolean`
+- `setDebugOverlay(Value As Boolean)`
+- `getDebugOverlay As Boolean`
+- `setAutoRegisterChildrenFromTag(Value As Boolean)`
+- `getAutoRegisterChildrenFromTag As Boolean`
+- `setEmitLayoutDiff(Value As Boolean)`
+- `getEmitLayoutDiff As Boolean`
+- `setDefaultAnimMs(Value As Int)`
+- `getDefaultAnimMs As Int`
+- `AddItem(ItemView As B4XView, ClassText As String) As String`
+- `AddItemWithKey(Key As String, ItemView As B4XView, ClassText As String)`
+- `UpdateItemClass(Key As String, ClassText As String)`
+- `RemoveItem(Key As String)`
+- `SetItemVisible(Key As String, Visible As Boolean)`
+- `SetItemOrder(Key As String, Order As Int)`
+- `SetItemRowSpan(Key As String, RowSpan As Int, Bp As String)`
+- `SetItemColSpan(Key As String, ColSpan As Int, Bp As String)`
+- `SetItemColStart(Key As String, ColStart As Int, Bp As String)`
+- `SetItemRowStart(Key As String, RowStart As Int, Bp As String)`
+- `SetItemJustify(Key As String, Value As String, Bp As String)`
+- `SetItemAlign(Key As String, Value As String, Bp As String)`
+- `SetItemHidden(Key As String, Hidden As Boolean, Bp As String)`
+- `GetItemPlacement(Key As String) As GridPlacement`
 - `BeginUpdate`
-- `BringToFront`
-- `DebugDumpSnapshot As String`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
 - `EndUpdate`
-- `ExportLayoutProfile(sProfileName As String) As Map`
-- `ExportLayoutSpecs As List`
-- `GetAllItemSpecs As List`
+- `Relayout`
+- `RegisterChildrenFromTag(OptionalDefaultClass As String)`
+- `GetLayoutSnapshot As List`
+- `DebugDumpSnapshot As String`
 - `GetCollisionDiagnostics As List`
 - `GetCollisionReport As String`
-- `GetComputedHeight As Int`
-- `GetItemPlacement(sKey As String) As GridPlacement`
-- `GetItemSpec(sKey As String) As GridItemSpec`
-- `GetLayoutSnapshot As List`
+- `GetResolvedItemRules(Key As String, Width As Float) As Map`
+- `GetResolvedItemRulesNow(Key As String) As Map`
 - `GetResolvedContainerRulesNow As Map`
-- `GetResolvedItemRules(sKey As String, fWidth As Float) As Map`
-- `GetResolvedItemRulesNow(sKey As String) As Map`
-- `ImportLayoutProfile(mProfile As Map, bIgnoreMissing As Boolean)`
-- `ImportLayoutSpecs(lstSpecs As List, bIgnoreMissing As Boolean)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `RegisterChildrenFromTag(sOptionalDefaultClass As String)`
-- `Relayout`
-- `RemoveItem(sKey As String)`
+- `GetItemSpec(Key As String) As GridItemSpec`
+- `ApplyItemSpec(Spec As GridItemSpec)`
+- `GetAllItemSpecs As List`
+- `ExportLayoutSpecs As List`
+- `ImportLayoutSpecs(lstSpecs As List, IgnoreMissing As Boolean)`
+- `ExportLayoutProfile(ProfileName As String) As Map`
+- `ImportLayoutProfile(Profile As Map, IgnoreMissing As Boolean)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetAutoRowsTemplate(sTemplate As String)`
-- `SetBreakpoint(sName As String, fMinWidth As Float)`
-- `SetGapXY(fValueX As Float, fValueY As Float)`
-- `SetItemAlign(sKey As String, sValue As String, sBp As String)`
-- `SetItemColSpan(sKey As String, iColSpan As Int, sBp As String)`
-- `SetItemColStart(sKey As String, iColStart As Int, sBp As String)`
-- `SetItemHidden(sKey As String, bHidden As Boolean, sBp As String)`
-- `SetItemJustify(sKey As String, sValue As String, sBp As String)`
-- `SetItemOrder(sKey As String, iOrder As Int)`
-- `SetItemRowSpan(sKey As String, iRowSpan As Int, sBp As String)`
-- `SetItemRowStart(sKey As String, iRowStart As Int, sBp As String)`
-- `SetItemVisible(sKey As String, bVisible As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetPaddingLTRB(fLeft As Float, fTop As Float, fRight As Float, fBottom As Float)`
-- `UpdateItemClass(sKey As String, sClassText As String)`
-- `View As B4XView`
-- `getAutoRegisterChildrenFromTag As Boolean`
-- `getAutoRows As String`
-- `getClassName As String`
-- `getCols As Int`
-- `getDebug As Boolean`
-- `getDebugOverlay As Boolean`
-- `getDefaultAnimMs As Int`
-- `getDense As Boolean`
-- `getEmitLayoutDiff As Boolean`
-- `getGap As Float`
-- `getGapX As Float`
-- `getGapY As Float`
-- `getHeight As Int`
-- `getIsInitialized As Boolean`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getPadding As Float`
-- `getTemplateRows As String`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAutoRegisterChildrenFromTag(bValue As Boolean)`
-- `setAutoRows(sTemplate As String)`
-- `setClassName(sClassText As String)`
-- `setCols(iValue As Int)`
-- `setDebug(bValue As Boolean)`
-- `setDebugOverlay(bValue As Boolean)`
-- `setDefaultAnimMs(iValue As Int)`
-- `setDense(bValue As Boolean)`
-- `setEmitLayoutDiff(bValue As Boolean)`
-- `setGap(oValue As Object)`
-- `setGapX(oValue As Object)`
-- `setGapY(oValue As Object)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setPadding(oValue As Object)`
-- `setTemplateRows(sTemplate As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

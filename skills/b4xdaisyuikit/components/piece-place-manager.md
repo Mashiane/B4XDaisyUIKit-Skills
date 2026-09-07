@@ -1,12 +1,12 @@
 # piece-place-manager (`B4XDaisyPiecePlaceManager`)
 
-DaisyUI `PiecePlaceManager` component for B4X (B4A/B4i/B4J).
+DaisyUI `PiecePlaceManager` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPiecePlaceManager`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyPiecePlaceManager.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.piece-place-manager` → `B4XDaisyPiecePlaceManager`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,16 +26,14 @@ DaisyUI `PiecePlaceManager` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyPiecePlaceManager` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `CalculatePositions(PiecePlace As String, ParentWidth As Float, ParentHeight As Float, _
-		PieceSize As Int, HMargin As Int, VMargin As Int, IMargin As Int, MaxCount As Int) As List`
 - `Initialize`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

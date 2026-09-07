@@ -1,12 +1,12 @@
 # dropdown (`B4XDaisyDropdown`)
 
-DaisyUI `Dropdown` component for B4X (B4A/B4i/B4J).
+DaisyUI `Dropdown` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDropdown`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDropdown.bas`
-- **Verified Demo Source**: B4XPageDropdown.bas (lines 78–388)
+- **Verified Demo Source**: B4XPageDropdown.bas
 - **Web DaisyUI Mapping**: `.dropdown` → `B4XDaisyDropdown`
 
 ## DaisyUI Web Class Translation
@@ -83,21 +83,21 @@ Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Opened` | Opened | `Boolean` | `False` |  |
-| `Placement` | Placement | `String` | `start` | start|center|end |
-| `Direction` | Direction | `String` | `bottom` | top|bottom|left|right |
-| `HoverOpen` | Hover Open | `Boolean` | `False` |  |
-| `ForceOpen` | Force Open | `Boolean` | `False` |  |
-| `ForceClose` | Force Close | `Boolean` | `False` |  |
-| `MenuWidth` | Menu Width | `String` | `w-52` |  |
-| `MenuPadding` | Menu Padding | `String` | `p-2` |  |
-| `MenuRounded` | Menu Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `MenuShadow` | Menu Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
-| `BringToFront` | Bring To Front | `Boolean` | `True` |  |
-| `MenuBackgroundColor` | Menu Background Color | `Color` | `0x00000000` |  |
-| `MenuTextColor` | Menu Text Color | `Color` | `0x00000000` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Opened` | Opened | `Boolean` | False |  |
+| `Placement` | Placement | `String` | start | start|center|end |
+| `Direction` | Direction | `String` | bottom | top|bottom|left|right |
+| `HoverOpen` | Hover Open | `Boolean` | False |  |
+| `ForceOpen` | Force Open | `Boolean` | False |  |
+| `ForceClose` | Force Close | `Boolean` | False |  |
+| `MenuWidth` | Menu Width | `String` | w-52 |  |
+| `MenuPadding` | Menu Padding | `String` | p-2 |  |
+| `MenuRounded` | Menu Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `MenuShadow` | Menu Shadow | `String` | sm | none|xs|sm|md|lg|xl|2xl |
+| `BringToFront` | Bring To Front | `Boolean` | True |  |
+| `MenuBackgroundColor` | Menu Background Color | `Color` | 0x00000000 |  |
+| `MenuTextColor` | Menu Text Color | `Color` | 0x00000000 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -107,89 +107,88 @@ Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int
 - `Closed`
 
 ## 6. Public Methods & APIs
-- `AddBadgeItem(oTagValue As Object, sText As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddDivider As Int`
-- `AddIconBadgeItem(oTagValue As Object, sText As String, sIconName As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddIconItem(oTagValue As Object, sText As String, sIconName As String) As Int`
-- `AddItem(oTagValue As Object, sText As String) As Int`
-- `AddSubmenu(oTagValue As Object, sText As String, bInitiallyOpen As Boolean) As B4XDaisyMenu`
-- `AddTitle(sText As String) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Close`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Detach`
-- `GetComputedHeight As Int`
-- `GetPreferredHeight As Int`
-- `GetPreferredMenuHeight As Int`
-- `GetPreferredMenuWidth As Int`
-- `GetPreferredWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Open`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Refresh`
-- `RemoveViewFromParent`
-- `ScrollToItem(oTagValue As Object)`
-- `SendToBack`
-- `SetItemActive(oTagValue As Object, bValue As Boolean)`
-- `SetItemBadgeBackgroundColor(oTagValue As Object, iColor As Int)`
-- `SetItemBadgeText(oTagValue As Object, sValue As String)`
-- `SetItemBadgeTextColor(oTagValue As Object, iColor As Int)`
-- `SetItemDisabled(oTagValue As Object, bValue As Boolean)`
-- `SetItemIcon(oTagValue As Object, sIconName As String)`
-- `SetItemText(oTagValue As Object, sValue As String)`
-- `SetItemVisible(oTagValue As Object, bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
+- `Open`
+- `Close`
 - `Toggle`
+- `AddTitle(Text As String) As Int`
+- `AddDivider As Int`
+- `AddItem(TagValue As Object, Text As String) As Int`
+- `AddIconItem(TagValue As Object, Text As String, IconName As String) As Int`
+- `AddBadgeItem(TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddIconBadgeItem(TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddSubmenu(TagValue As Object, Text As String, InitiallyOpen As Boolean) As B4XDaisyMenu`
+- `SetItemDisabled(TagValue As Object, Value As Boolean)`
+- `getMenu As B4XDaisyMenu`
+- `SetItemActive(TagValue As Object, Value As Boolean)`
+- `SetItemText(TagValue As Object, Value As String)`
+- `SetItemIcon(TagValue As Object, IconName As String)`
+- `SetItemVisible(TagValue As Object, Value As Boolean)`
+- `ScrollToItem(TagValue As Object)`
+- `SetSubmenuOpen(Index As Int, Value As Boolean)`
+- `SetItemBadgeText(TagValue As Object, Value As String)`
+- `SetItemBadgeBackgroundColor(TagValue As Object, Color As Int)`
+- `SetItemBadgeTextColor(TagValue As Object, Color As Int)`
+- `GetPreferredWidth As Int`
+- `GetPreferredHeight As Int`
+- `GetPreferredMenuWidth As Int`
+- `GetPreferredMenuHeight As Int`
+- `AttachTo(Target As B4XView) As B4XView`
+- `Detach`
 - `UpdateTheme`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
+- `setPlacement(Value As String)`
+- `getPlacement As String`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setHoverOpen(Value As Boolean)`
+- `getHoverOpen As Boolean`
+- `setForceOpen(Value As Boolean)`
+- `getForceOpen As Boolean`
+- `setForceClose(Value As Boolean)`
+- `getForceClose As Boolean`
+- `setAnchorTarget(Value As B4XView)`
 - `getAnchorTarget As B4XView`
 - `getAttachedMode As Boolean`
-- `getBringToFront As Boolean`
-- `getDirection As String`
-- `getEnabled As Boolean`
-- `getForceClose As Boolean`
-- `getForceOpen As Boolean`
-- `getHeight As Int`
-- `getHoverOpen As Boolean`
-- `getLeft As Int`
-- `getMenu As B4XDaisyMenu`
-- `getMenuBackgroundColor As Int`
-- `getMenuPadding As String`
-- `getMenuRounded As String`
-- `getMenuShadow As String`
-- `getMenuTextColor As Int`
+- `setMenuWidth(Value As String)`
 - `getMenuWidth As String`
-- `getOpened As Boolean`
-- `getPlacement As String`
+- `setMenuPadding(Value As String)`
+- `getMenuPadding As String`
+- `setMenuRounded(Value As String)`
+- `getMenuRounded As String`
+- `setMenuShadow(Value As String)`
+- `getMenuShadow As String`
+- `setBringToFront(Value As Boolean)`
+- `getBringToFront As Boolean`
+- `setMenuBackgroundColor(Value As Int)`
+- `getMenuBackgroundColor As Int`
+- `setMenuTextColor(Value As Int)`
+- `getMenuTextColor As Int`
+- `setTag(Value As Object)`
 - `getTag As Object`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAnchorTarget(vValue As B4XView)`
-- `setBringToFront(bValue As Boolean)`
-- `setDirection(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setForceClose(bValue As Boolean)`
-- `setForceOpen(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setHoverOpen(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setMenuBackgroundColor(iValue As Int)`
-- `setMenuPadding(sValue As String)`
-- `setMenuRounded(sValue As String)`
-- `setMenuShadow(sValue As String)`
-- `setMenuTextColor(iValue As Int)`
-- `setMenuWidth(sValue As String)`
-- `setOpened(bValue As Boolean)`
-- `setPlacement(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

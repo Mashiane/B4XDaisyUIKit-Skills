@@ -1,0 +1,19 @@
+{
+  "id": "sleek-10-calendar",
+  "source": "sleek.design 10-prompt battery #10 (brutalist chaos calendar)",
+  "negative_test": true,
+  "note": "The kit has NO calendar/month-grid component. The agent must hand-build the grid from verified components (PageScroll + Division stacking + Badge/Text) and must NOT invent a calendar class.",
+  "prompt": "Calendar app month view. Grid showing dates for the current month, events/appointments as colored blocks, small event dots for busy days, today highlighted, month navigation, event list below. Native B4XPage named B4XPageCalendar.bas using B4XDaisyUIKit. Note: the kit has no calendar component — build the month grid from verified layout components.",
+  "expected_files": ["B4XPageCalendar.bas"],
+  "must_contain": [
+    "As B4XDaisyPageScroll"
+  ],
+  "must_not_contain": [
+    "B4XDaisyCalendar",
+    "As B4XDaisyGrid",
+    "As B4XDaisyFlexLayout",
+    "WebView",
+    "<div"
+  ],
+  "compile": false
+}

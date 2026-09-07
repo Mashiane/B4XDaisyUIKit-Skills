@@ -1,12 +1,12 @@
 # menu (`B4XDaisyMenu`)
 
-DaisyUI `Menu` component for B4X (B4A/B4i/B4J).
+DaisyUI `Menu` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyMenu`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyMenu.bas`
-- **Verified Demo Source**: B4XPageDrawer.bas (lines 17–17), B4XPageDrawerRail.bas (lines 17–17), B4XPageDrawerTree.bas (lines 17–17), B4XPageDropdown.bas (lines 77–77), B4XPageMenu.bas (lines 80–417), B4XPageMenuRuntime.bas (lines 20–159), B4XPageMenuRuntime2.bas (lines 20–20)
+- **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas
 - **Web DaisyUI Mapping**: `.menu` → `B4XDaisyMenu`
 
 ## DaisyUI Web Class Translation
@@ -67,31 +67,31 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-auto` |  |
-| `Padding` | Padding | `String` | `p-2` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Dividers` | Dividers | `Boolean` | `True` |  |
-| `DividerGap` | Divider Gap | `String` | `1` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Orientation` | Orientation | `String` | `vertical` | vertical|horizontal |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `BringToFront` | Bring To Front | `Boolean` | `True` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `ActiveColor` | Active Color | `Color` | `0x00000000` |  |
-| `ActiveTextColor` | Active Text Color | `Color` | `0x00000000` |  |
-| `ActiveBorder` | Active Border | `Boolean` | `False` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
-| `BadgeSize` | Badge Size | `String` | `auto` | auto|xs|sm|md|lg|xl |
-| `BadgeVariant` | Badge Variant | `String` | `neutral` | neutral|primary|secondary|accent|info|success|warning|error|ghost |
-| `BadgeStyle` | Badge Style | `String` | `solid` | solid|outline|soft|dash |
-| `RailMode` | Rail Mode | `Boolean` | `False` |  |
-| `RightBorder` | Right Border | `Boolean` | `False` |  |
-| `RightBorderColor` | Right Border Color | `Color` | `0x00000000` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-auto |  |
+| `Padding` | Padding | `String` | p-2 |  |
+| `Margin` | Margin | `String` |  |  |
+| `Dividers` | Dividers | `Boolean` | True |  |
+| `DividerGap` | Divider Gap | `String` | 1 |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Orientation` | Orientation | `String` | vertical | vertical|horizontal |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `BringToFront` | Bring To Front | `Boolean` | True |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `ActiveColor` | Active Color | `Color` | 0x00000000 |  |
+| `ActiveTextColor` | Active Text Color | `Color` | 0x00000000 |  |
+| `ActiveBorder` | Active Border | `Boolean` | False |  |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
+| `BadgeSize` | Badge Size | `String` | auto | auto|xs|sm|md|lg|xl |
+| `BadgeVariant` | Badge Variant | `String` | neutral | neutral|primary|secondary|accent|info|success|warning|error|ghost |
+| `BadgeStyle` | Badge Style | `String` | solid | solid|outline|soft|dash |
+| `RailMode` | Rail Mode | `Boolean` | False |  |
+| `RightBorder` | Right Border | `Boolean` | False |  |
+| `RightBorderColor` | Right Border Color | `Color` | 0x00000000 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -99,136 +99,135 @@ End Sub
 - `SubmenuToggle (Tag As Object, Open As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddAvatarBadgeChildItem(oParentTag As Object, oTagValue As Object, sText As String, oAvatar As Object, sAvatarShape As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddAvatarBadgeItem(oTagValue As Object, sText As String, oAvatar As Object, sAvatarShape As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddAvatarChildItem(oParentTag As Object, oTagValue As Object, sText As String, oAvatar As Object, sAvatarShape As String) As Int`
-- `AddAvatarItem(oTagValue As Object, sText As String, oAvatar As Object, sAvatarShape As String) As Int`
-- `AddBadgeChildItem(oParentTag As Object, oTagValue As Object, sText As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddBadgeItem(oTagValue As Object, sText As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddDivider As Int`
-- `AddDividerChild(oParentTag As Object) As Int`
-- `AddIconBadgeChildItem(oParentTag As Object, oTagValue As Object, sText As String, sIconName As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddIconBadgeItem(oTagValue As Object, sText As String, sIconName As String, sBadgeText As String, sBadgeVariant As String) As Int`
-- `AddIconItem(oTagValue As Object, sText As String, sIconName As String) As Int`
-- `AddItem(oTagValue As Object, sText As String) As Int`
-- `AddItemChild(oParentTag As Object, oTagValue As Object, sText As String, sIconName As String) As Int`
-- `AddItemParent(oParentTag As Object, oTagValue As Object, sText As String, sIconName As String) As B4XDaisyMenu`
-- `AddItems(lstItemsList As List)`
-- `AddSubmenu(oTagValue As Object, sText As String, bInitiallyOpen As Boolean) As B4XDaisyMenu`
-- `AddTitle(sText As String) As Int`
-- `AddTitleChild(oParentTag As Object, sText As String) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BeginUpdate`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Clear`
+- `AddTitle(Text As String) As Int`
+- `AddDivider As Int`
+- `AddItem(TagValue As Object, Text As String) As Int`
+- `AddIconItem(TagValue As Object, Text As String, IconName As String) As Int`
+- `AddBadgeItem(TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddIconBadgeItem(TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddAvatarItem(TagValue As Object, Text As String, Avatar As Object, AvatarShape As String) As Int`
+- `AddAvatarBadgeItem(TagValue As Object, Text As String, Avatar As Object, AvatarShape As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddAvatarChildItem(ParentTag As Object, TagValue As Object, Text As String, Avatar As Object, AvatarShape As String) As Int`
+- `AddAvatarBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, Avatar As Object, AvatarShape As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddItemParent(ParentTag As Object, TagValue As Object, Text As String, IconName As String) As B4XDaisyMenu`
+- `AddItemChild(ParentTag As Object, TagValue As Object, Text As String, IconName As String) As Int`
+- `AddBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddIconBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddTitleChild(ParentTag As Object, Text As String) As Int`
+- `AddDividerChild(ParentTag As Object) As Int`
+- `FindSubmenuMenuByTag(TagValue As Object) As B4XDaisyMenu`
+- `LoadFromList(lstItemsList As List)`
+- `AddItems(lstItemsList As List)`
+- `AddSubmenu(TagValue As Object, Text As String, InitiallyOpen As Boolean) As B4XDaisyMenu`
+- `SetItemDisabled(TagValue As Object, Value As Boolean)`
 - `ClearActive`
-- `CloseAllSubmenus`
+- `ScrollToItem(TagValue As Object)`
+- `SetItemActive(TagValue As Object, Value As Boolean)`
+- `SetSubmenuOpen(Index As Int, Value As Boolean)`
+- `SetItemBadgeText(TagValue As Object, Value As String)`
+- `SetItemBadgeBackgroundColor(TagValue As Object, Color As Int)`
+- `SetItemBadgeTextColor(TagValue As Object, Color As Int)`
+- `SetItemBadgeVariant(TagValue As Object, Value As String)`
+- `SetItemBadgeSize(TagValue As Object, Value As String)`
+- `SetItemBadgeStyle(TagValue As Object, Value As String)`
+- `SetItemBadgeRounded(TagValue As Object, Value As String)`
+- `SetItemText(TagValue As Object, Value As String)`
+- `SetItemIcon(TagValue As Object, IconName As String)`
+- `SetItemVisible(TagValue As Object, Value As Boolean)`
+- `SetItemAvatar(TagValue As Object, Avatar As Object)`
+- `SetItemAvatarShape(TagValue As Object, Shape As String)`
+- `SetItemOpen(TagValue As Object, Value As Boolean)`
+- `OpenParents`
 - `CloseParents`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `EndUpdate`
-- `FindSubmenuMenuByTag(oTagValue As Object) As B4XDaisyMenu`
-- `GetComputedHeight As Int`
-- `GetItemView(iIndex As Int) As B4XView`
+- `OpenAllSubmenus`
+- `CloseAllSubmenus`
+- `SetParentsOpen(OpenState As Boolean)`
+- `GetItemView(Index As Int) As B4XView`
 - `GetPreferredHeight As Int`
 - `GetPreferredWidth As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `LoadFromList(lstItemsList As List)`
-- `OpenAllSubmenus`
-- `OpenParents`
-- `Refresh`
-- `RemoveViewFromParent`
-- `ScrollToItem(oTagValue As Object)`
-- `SendToBack`
-- `SetItemActive(oTagValue As Object, bValue As Boolean)`
-- `SetItemAvatar(oTagValue As Object, oAvatar As Object)`
-- `SetItemAvatarShape(oTagValue As Object, sShape As String)`
-- `SetItemBadgeBackgroundColor(oTagValue As Object, iColor As Int)`
-- `SetItemBadgeRounded(oTagValue As Object, sValue As String)`
-- `SetItemBadgeSize(oTagValue As Object, sValue As String)`
-- `SetItemBadgeStyle(oTagValue As Object, sValue As String)`
-- `SetItemBadgeText(oTagValue As Object, sValue As String)`
-- `SetItemBadgeTextColor(oTagValue As Object, iColor As Int)`
-- `SetItemBadgeVariant(oTagValue As Object, sValue As String)`
-- `SetItemDisabled(oTagValue As Object, bValue As Boolean)`
-- `SetItemIcon(oTagValue As Object, sIconName As String)`
-- `SetItemOpen(oTagValue As Object, bValue As Boolean)`
-- `SetItemText(oTagValue As Object, sValue As String)`
-- `SetItemVisible(oTagValue As Object, bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetLevelInternal(iLevel As Int)`
-- `SetParentMenuInternal(ParentMenu As B4XDaisyMenu)`
-- `SetParentsOpen(bOpenState As Boolean)`
-- `SetPopupMode(bValue As Boolean)`
-- `SetSubmenuOpen(iIndex As Int, bValue As Boolean)`
-- `UpdateTheme`
-- `View As B4XView`
-- `getActiveBorder As Boolean`
-- `getActiveColor As Int`
-- `getActiveTextColor As Int`
+- `BeginUpdate`
+- `EndUpdate`
+- `setAutoRefresh(Value As Boolean)`
 - `getAutoRefresh As Boolean`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getBadgeRounded As String`
-- `getBadgeSize As String`
-- `getBadgeStyle As String`
-- `getBadgeVariant As String`
-- `getBringToFront As Boolean`
-- `getDividerGap As String`
-- `getDividers As Boolean`
-- `getEnabled As Boolean`
-- `getHeight As Float`
+- `SetLevelInternal(Level As Int)`
+- `SetParentMenuInternal(ParentMenu As B4XDaisyMenu)`
+- `SetPopupMode(Value As Boolean)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getMargin As String`
-- `getOrientation As String`
-- `getPadding As String`
-- `getRailMode As Boolean`
-- `getRightBorder As Boolean`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getSize As String`
-- `getTag As Object`
-- `getTextColor As Int`
+- `setTop(Value As Int)`
 - `getTop As Int`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
-- `setActiveBorder(bValue As Boolean)`
-- `setActiveColor(iValue As Int)`
-- `setActiveTextColor(iValue As Int)`
-- `setAutoRefresh(bValue As Boolean)`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBadgeRounded(sValue As String)`
-- `setBadgeSize(sValue As String)`
-- `setBadgeStyle(sValue As String)`
-- `setBadgeVariant(sValue As String)`
-- `setBringToFront(bValue As Boolean)`
-- `setDividerGap(sValue As String)`
-- `setDividers(bValue As Boolean)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(oValue As Object)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRailMode(bValue As Boolean, iIntendedWidth As Int)`
-- `setRightBorder(bValue As Boolean)`
-- `setRightBorderColor(iValue As Int)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setDividers(Value As Boolean)`
+- `getDividers As Boolean`
+- `setDividerGap(Value As String)`
+- `getDividerGap As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setOrientation(Value As String)`
+- `getOrientation As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setBringToFront(Value As Boolean)`
+- `getBringToFront As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setActiveColor(Value As Int)`
+- `getActiveColor As Int`
+- `setActiveTextColor(Value As Int)`
+- `getActiveTextColor As Int`
+- `setActiveBorder(Value As Boolean)`
+- `getActiveBorder As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setBadgeSize(Value As String)`
+- `getBadgeSize As String`
+- `setBadgeVariant(Value As String)`
+- `getBadgeVariant As String`
+- `setBadgeStyle(Value As String)`
+- `getBadgeStyle As String`
+- `setBadgeRounded(Value As String)`
+- `getBadgeRounded As String`
+- `setRailMode(Value As Boolean, IntendedWidth As Int)`
+- `getRailMode As Boolean`
+- `setRightBorder(Value As Boolean)`
+- `getRightBorder As Boolean`
+- `setRightBorderColor(Value As Int)`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

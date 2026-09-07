@@ -1,12 +1,12 @@
 # carousel-item (`B4XDaisyCarouselItem`)
 
-DaisyUI `CarouselItem` component for B4X (B4A/B4i/B4J).
+DaisyUI `CarouselItem` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCarouselItem`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyCarouselItem.bas`
-- **Verified Demo Source**: B4XPageCarousel.bas (lines 90–410)
+- **Verified Demo Source**: B4XPageCarousel.bas
 - **Web DaisyUI Mapping**: `.carousel-item` → `B4XDaisyCarouselItem`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,66 +59,66 @@ Dim idx1 As Int = 0
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `ItemType` | Item Type | `String` | `image` | image|svg|custom |
-| `Source` | Source | `String` | `` |  |
-| `Snap` | Snap Position | `String` | `start` | start|center|end |
-| `Rounded` | Rounded | `String` | `rounded-none` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-full` |  |
-| `ImageWidth` | Image Width | `String` | `w-full` |  |
-| `ImageHeight` | Image Height | `String` | `h-full` |  |
-| `ImageResizeMode` | Image Resize Mode | `String` | `FILL_NO_DISTORTIONS` | FIT|FILL|FILL_NO_DISTORTIONS|FILL_WIDTH|FILL_HEIGHT|NONE |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `ItemType` | Item Type | `String` | image | image|svg|custom |
+| `Source` | Source | `String` |  |  |
+| `Snap` | Snap Position | `String` | start | start|center|end |
+| `Rounded` | Rounded | `String` | rounded-none | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-full |  |
+| `ImageWidth` | Image Width | `String` | w-full |  |
+| `ImageHeight` | Image Height | `String` | h-full |  |
+| `ImageResizeMode` | Image Resize Mode | `String` | FILL_NO_DISTORTIONS | FIT|FILL|FILL_NO_DISTORTIONS|FILL_WIDTH|FILL_HEIGHT|NONE, DefaultValue: FILL_NO_DISTORTIONS |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
-- `View As B4XView`
-- `getContainer As B4XView`
-- `getEnabled As Boolean`
-- `getHeight As String`
-- `getImageHeight As String`
-- `getImageResizeMode As String`
-- `getImageWidth As String`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `getItemType As String`
-- `getLeft As Int`
-- `getRounded As String`
-- `getSnap As String`
+- `setItemType(Value As String)`
 - `getSource As String`
+- `setSource(Value As String)`
+- `getSnap As String`
+- `setSnap(Value As String)`
+- `getRounded As String`
+- `setRounded(Value As String)`
 - `getTag As Object`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getContainer As B4XView`
 - `getWidth As String`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setImageHeight(sValue As String)`
-- `setImageResizeMode(sValue As String)`
-- `setImageWidth(sValue As String)`
-- `setItemType(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setRounded(sValue As String)`
-- `setSnap(sValue As String)`
-- `setSource(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setWidth(Value As String)`
+- `getHeight As String`
+- `setHeight(Value As String)`
+- `getImageWidth As String`
+- `setImageWidth(Value As String)`
+- `getImageHeight As String`
+- `setImageHeight(Value As String)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getImageResizeMode As String`
+- `setImageResizeMode(Value As String)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
+- `mImage As B4XView`
 

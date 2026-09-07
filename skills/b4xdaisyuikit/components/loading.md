@@ -1,12 +1,12 @@
 # loading (`B4XDaisyLoading`)
 
-DaisyUI `Loading` component for B4X (B4A/B4i/B4J).
+DaisyUI `Loading` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyLoading`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyLoading.bas`
-- **Verified Demo Source**: B4XPageLoading.bas (lines 38–179)
+- **Verified Demo Source**: B4XPageLoading.bas
 - **Web DaisyUI Mapping**: `.loading` → `B4XDaisyLoading`
 
 ## DaisyUI Web Class Translation
@@ -55,46 +55,45 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Style` | Style | `String` | `spinner` | spinner|dots|ring|ball|bars|infinity |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Speed` | Speed | `Int` | `100` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
-| `Color` | Color | `Color` | `0x00FFFFFF` |  |
+| `Style` | Style | `String` | spinner | spinner|dots|ring|ball|bars|infinity |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Speed` | Speed | `Int` | 100 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Clickable` | Clickable | `Boolean` | True |  |
+| `Color` | Color | `Color` | 0x00FFFFFF |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize (dWidth As Double, dHeight As Double)`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `RemoveViewFromParent`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `StartAnimation`
 - `StopAnimation`
-- `View As B4XView`
-- `getClickable As Boolean`
-- `getColor As Int`
-- `getSize As String`
-- `getSpeed As Int`
 - `getStyle As String`
-- `getTag As Object`
-- `getVariant As String`
+- `setStyle(Value As String)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getSpeed As Int`
+- `setSpeed(Value As Int)`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `setClickable(bValue As Boolean)`
-- `setColor(iValue As Int)`
-- `setSize(sValue As String)`
-- `setSpeed(iValue As Int)`
-- `setStyle(sValue As String)`
-- `setTag(oTag As Object)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setTag(Tag As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `setColor(Value As Int)`
+- `getColor As Int`
+- `RemoveViewFromParent`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

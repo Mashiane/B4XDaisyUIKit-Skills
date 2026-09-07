@@ -1,12 +1,12 @@
 # stat (`B4XDaisyStat`)
 
-DaisyUI `Stat` component for B4X (B4A/B4i/B4J).
+DaisyUI `Stat` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyStat`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyStat.bas`
-- **Verified Demo Source**: B4XPageDrawerRail.bas (lines 281–344), B4XPageStat.bas (lines 69–498), B4XPageStatus.bas (lines 17–256)
+- **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.stat` → `B4XDaisyStat`
 
 ## DaisyUI Web Class Translation
@@ -74,61 +74,60 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Orientation` | Orientation | `String` | `horizontal` | horizontal|vertical |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Rounded` | Rounded | `String` | `box` | none|selector|field|box|full |
-| `BorderWidth` | Border Width | `String` | `token` |  |
-| `BorderColor` | Border Color | `String` | `base-300` | base-300|base-200|base-content|primary|secondary|accent|info|success|warning|error|none |
-| `Width` | Width | `String` | `w-content` |  |
-| `Height` | Height | `String` | `` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Orientation` | Orientation | `String` | horizontal | horizontal|vertical |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Rounded` | Rounded | `String` | box | none|selector|field|box|full |
+| `BorderWidth` | Border Width | `String` | token |  |
+| `BorderColor` | Border Color | `String` | base-300 | base-300|base-200|base-content|primary|secondary|accent|info|success|warning|error|none |
+| `Width` | Width | `String` | w-content |  |
+| `Height` | Height | `String` |  |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Item As B4XDaisyStatItem)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `StartAnimation`
-- `UpdateTheme`
-- `View As B4XView`
-- `getBorderColor As String`
-- `getBorderWidth As String`
-- `getContentHeight As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `getContentWidth As Int`
-- `getHeight As String`
-- `getLeft As Int`
+- `getContentHeight As Int`
+- `UpdateTheme`
+- `Refresh`
+- `AddItem(Item As B4XDaisyStatItem)`
+- `StartAnimation`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setOrientation(Value As String)`
 - `getOrientation As String`
-- `getRounded As String`
+- `setShadow(Value As String)`
 - `getShadow As String`
-- `getTag As Object`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setBorderWidth(Value As String)`
+- `getBorderWidth As String`
+- `setBorderColor(Value As String)`
+- `getBorderColor As String`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setBorderColor(sValue As String)`
-- `setBorderWidth(sValue As String)`
-- `setHeight(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setOrientation(sValue As String)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `setTop(Value As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `getLeft As Int`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

@@ -1,12 +1,12 @@
 # signature (`B4XDaisySignature`)
 
-DaisyUI `Signature` component for B4X (B4A/B4i/B4J).
+DaisyUI `Signature` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySignature`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisySignature.bas`
-- **Verified Demo Source**: B4XPageSignaturePad.bas (lines 15–417)
+- **Verified Demo Source**: B4XPageSignaturePad.bas
 - **Web DaisyUI Mapping**: `.signature` → `B4XDaisySignature`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,42 +59,42 @@ y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Legend` | Legend | `String` | `Signature` |  |
-| `LegendSize` | Legend Size | `String` | `theme` | theme|text-xs|text-sm|text-base|text-lg|text-xl |
-| `LegendBold` | Legend Bold | `Boolean` | `False` |  |
-| `LabelAbove` | Label Above | `Boolean` | `False` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `BorderStyle` | Border Style | `String` | `outlined` | outlined|ghost|inset |
-| `Padding` | Padding | `Int` | `16` |  |
-| `AutoHeight` | Auto Height | `Boolean` | `True` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `BorderSize` | Border Size | `Int` | `1` |  |
-| `InputBorder` | Input Border | `Boolean` | `False` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
-| `PenColor` | Pen Color | `Color` | `0xFF000000` |  |
-| `PadBackgroundColor` | Pad Background Color | `Color` | `0xFFFFFFFF` |  |
-| `MinWidth` | Min Width | `Float` | `1.5` |  |
-| `MaxWidth` | Max Width | `Float` | `4.0` |  |
-| `VelocityFilterWeight` | Velocity Filter Weight | `Float` | `0.7` |  |
-| `BitMapFormat` | BitMap Format | `String` | `png` | png|jpg|webp|bmp |
-| `BitMapQuality` | BitMap Quality | `Int` | `100` |  |
-| `DisallowParentIntercept` | Disallow Parent Intercept | `Boolean` | `True` |  |
-| `StrokeCap` | Stroke Cap | `String` | `ROUND` | BUTT|ROUND|SQUARE |
-| `StrokeJoin` | Stroke Join | `String` | `ROUND` | BEVEL|MITER|ROUND |
-| `PadEnabled` | Pad Enabled | `Boolean` | `True` |  |
-| `PadVisible` | Pad Visible | `Boolean` | `True` |  |
-| `MinHeight` | Min Height | `Int` | `150` |  |
-| `HintColor` | Hint Color | `Color` | `0x00000000` |  |
-| `ClearButtonVisible` | Clear Button Visible | `Boolean` | `True` |  |
-| `ClearButtonText` | Clear Button Text | `String` | `Clear` |  |
-| `SaveButtonVisible` | Save Button Visible | `Boolean` | `True` |  |
-| `SaveButtonText` | Save Button Text | `String` | `Save` |  |
+| `Legend` | Legend | `String` | Signature |  |
+| `LegendSize` | Legend Size | `String` | theme | theme|text-xs|text-sm|text-base|text-lg|text-xl |
+| `LegendBold` | Legend Bold | `Boolean` | False |  |
+| `LabelAbove` | Label Above | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `BorderStyle` | Border Style | `String` | outlined | outlined|ghost|inset |
+| `Padding` | Padding | `Int` | 16 |  |
+| `AutoHeight` | Auto Height | `Boolean` | True |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `BorderSize` | Border Size | `Int` | 1 |  |
+| `InputBorder` | Input Border | `Boolean` | False |  |
+| `Required` | Required | `Boolean` | False |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
+| `PenColor` | Pen Color | `Color` | 0xFF000000 |  |
+| `PadBackgroundColor` | Pad Background Color | `Color` | 0xFFFFFFFF |  |
+| `MinWidth` | Min Width | `Float` | 1.5 |  |
+| `MaxWidth` | Max Width | `Float` | 4.0 |  |
+| `VelocityFilterWeight` | Velocity Filter Weight | `Float` | 0.7 |  |
+| `BitMapFormat` | BitMap Format | `String` | png | png|jpg|webp|bmp |
+| `BitMapQuality` | BitMap Quality | `Int` | 100 |  |
+| `DisallowParentIntercept` | Disallow Parent Intercept | `Boolean` | True |  |
+| `StrokeCap` | Stroke Cap | `String` | ROUND | BUTT|ROUND|SQUARE |
+| `StrokeJoin` | Stroke Join | `String` | ROUND | BEVEL|MITER|ROUND |
+| `PadEnabled` | Pad Enabled | `Boolean` | True |  |
+| `PadVisible` | Pad Visible | `Boolean` | True |  |
+| `MinHeight` | Min Height | `Int` | 150 |  |
+| `HintColor` | Hint Color | `Color` | 0x00000000 |  |
+| `ClearButtonVisible` | Clear Button Visible | `Boolean` | True |  |
+| `ClearButtonText` | Clear Button Text | `String` | Clear |  |
+| `SaveButtonVisible` | Save Button Visible | `Boolean` | True |  |
+| `SaveButtonText` | Save Button Text | `String` | Save |  |
 
 ## 5. Declared Events
 - `BeginStroke`
@@ -105,122 +105,121 @@ y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `Clear`
-- `ClearError`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetBase64 As String`
-- `GetBitmap As B4XBitmap`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsBase64(sValue As String) As Boolean`
-- `IsEmpty As Boolean`
-- `IsReady As Boolean`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetBase64(sBase64String As String)`
-- `SetBitmap(bmpBmp As B4XBitmap)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `Validate As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getAutoHeight As Boolean`
-- `getBackgroundColor As Int`
-- `getBitMapFormat As String`
-- `getBitMapQuality As Int`
-- `getBorderColor As Int`
-- `getBorderSize As Int`
-- `getBorderStyle As String`
-- `getClearButtonText As String`
-- `getClearButtonVisible As Boolean`
-- `getDisallowParentIntercept As Boolean`
-- `getErrorText As String`
-- `getHeight As Int`
-- `getHintColor As Int`
-- `getHintText As String`
-- `getInputBorder As Boolean`
-- `getIsValid As Boolean`
-- `getLabelAbove As Boolean`
-- `getLeft As Int`
-- `getLegend As String`
-- `getLegendBold As Boolean`
-- `getLegendSize As String`
-- `getMaxWidth As Float`
-- `getMinHeight As Int`
-- `getMinWidth As Float`
-- `getPadBackgroundColor As Int`
-- `getPadEnabled As Boolean`
-- `getPadVisible As Boolean`
-- `getPadding As Int`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `setPenColor(Value As Int)`
 - `getPenColor As Int`
-- `getRequired As Boolean`
-- `getRounded As String`
-- `getSaveButtonText As String`
-- `getSaveButtonVisible As Boolean`
-- `getShadow As String`
-- `getStrokeCap As String`
-- `getStrokeJoin As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
-- `getVariant As String`
+- `setPadBackgroundColor(Value As Int)`
+- `getPadBackgroundColor As Int`
+- `setMinWidth(Value As Float)`
+- `getMinWidth As Float`
+- `setMaxWidth(Value As Float)`
+- `getMaxWidth As Float`
+- `setVelocityFilterWeight(Value As Float)`
 - `getVelocityFilterWeight As Float`
-- `getVisible As Boolean`
-- `getWidth As Int`
+- `setBitMapFormat(Value As String)`
+- `getBitMapFormat As String`
+- `setBitMapQuality(Value As Int)`
+- `getBitMapQuality As Int`
+- `setDisallowParentIntercept(Value As Boolean)`
+- `getDisallowParentIntercept As Boolean`
+- `setStrokeCap(Value As String)`
+- `getStrokeCap As String`
+- `setStrokeJoin(Value As String)`
+- `getStrokeJoin As String`
+- `setPadEnabled(Value As Boolean)`
+- `getPadEnabled As Boolean`
+- `setPadVisible(Value As Boolean)`
+- `getPadVisible As Boolean`
+- `setMinHeight(Value As Int)`
+- `getMinHeight As Int`
+- `setHintColor(Value As Int)`
+- `getHintColor As Int`
+- `setClearButtonVisible(Value As Boolean)`
+- `getClearButtonVisible As Boolean`
+- `setClearButtonText(Value As String)`
+- `getClearButtonText As String`
+- `setSaveButtonVisible(Value As Boolean)`
+- `getSaveButtonVisible As Boolean`
+- `setSaveButtonText(Value As String)`
+- `getSaveButtonText As String`
+- `Clear`
+- `IsEmpty As Boolean`
+- `GetBitmap As B4XBitmap`
+- `GetBase64 As String`
+- `SetBase64(Base64String As String)`
+- `SetBitmap(bmpBmp As B4XBitmap)`
+- `IsBase64(Value As String) As Boolean`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
+- `ReceiveFocus`
+- `Blur`
+- `setLegend(Value As String)`
+- `getLegend As String`
+- `setLegendSize(Value As String)`
+- `getLegendSize As String`
+- `setLegendBold(Value As Boolean)`
+- `getLegendBold As Boolean`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
 - `isRoundedBox As Boolean`
-- `setAutoHeight(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBitMapFormat(sValue As String)`
-- `setBitMapQuality(iValue As Int)`
-- `setBorderColor(iValue As Int)`
-- `setBorderSize(iValue As Int)`
-- `setBorderStyle(sValue As String)`
-- `setClearButtonText(sValue As String)`
-- `setClearButtonVisible(bValue As Boolean)`
-- `setDisallowParentIntercept(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setHintColor(iValue As Int)`
-- `setHintText(sValue As String)`
-- `setInputBorder(bValue As Boolean)`
-- `setLabelAbove(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLegend(sValue As String)`
-- `setLegendBold(bValue As Boolean)`
-- `setLegendSize(sValue As String)`
-- `setMaxWidth(fValue As Float)`
-- `setMinHeight(iValue As Int)`
-- `setMinWidth(fValue As Float)`
-- `setPadBackgroundColor(iValue As Int)`
-- `setPadEnabled(bValue As Boolean)`
-- `setPadVisible(bValue As Boolean)`
-- `setPadding(iValue As Int)`
-- `setPenColor(iValue As Int)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setSaveButtonText(sValue As String)`
-- `setSaveButtonVisible(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setStrokeCap(sValue As String)`
-- `setStrokeJoin(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVelocityFilterWeight(fValue As Float)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As Int)`
+- `getPadding As Int`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderSize(Value As Int)`
+- `getBorderSize As Int`
+- `setInputBorder(Value As Boolean)`
+- `getInputBorder As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `RemoveViewFromParent`
+- `Release`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

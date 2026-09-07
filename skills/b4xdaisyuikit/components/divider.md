@@ -1,12 +1,12 @@
 # divider (`B4XDaisyDivider`)
 
-DaisyUI `Divider` component for B4X (B4A/B4i/B4J).
+DaisyUI `Divider` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDivider`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDivider.bas`
-- **Verified Demo Source**: B4XPageDivider.bas (lines 186–191)
+- **Verified Demo Source**: B4XPageDivider.bas
 - **Web DaisyUI Mapping**: `.divider` → `B4XDaisyDivider`
 
 ## DaisyUI Web Class Translation
@@ -56,79 +56,78 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `` |  |
-| `Height` | Height | `String` | `` |  |
-| `Direction` | Direction | `String` | `vertical` | vertical|horizontal |
-| `Placement` | Placement | `String` | `default` | default|start|end |
-| `Text` | Text | `String` | `` |  |
-| `TextSize` | Text Size | `String` | `text-sm` | text-xs|text-sm|text-base|text-lg|text-xl|text-2xl|text-3xl|text-4xl|text-5xl|text-6xl|text-7xl|text-8xl|text-9xl |
-| `Gap` | Gap | `String` | `4` |  |
-| `LineThickness` | Line Thickness | `String` | `0.5` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `DebugBorders` | Debug Borders | `Boolean` | `False` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Width` | Width | `String` |  |  |
+| `Height` | Height | `String` |  |  |
+| `Direction` | Direction | `String` | vertical | vertical|horizontal |
+| `Placement` | Placement | `String` | default | default|start|end |
+| `Text` | Text | `String` |  |  |
+| `TextSize` | Text Size | `String` | text-sm | text-xs|text-sm|text-base|text-lg|text-xl|text-2xl|text-3xl|text-4xl|text-5xl|text-6xl|text-7xl|text-8xl|text-9xl |
+| `Gap` | Gap | `String` | 4 |  |
+| `LineThickness` | Line Thickness | `String` | 0.5 |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0x00FFFFFF |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `DebugBorders` | Debug Borders | `Boolean` | False |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetActualHeight As Int`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getDebugBorders As Boolean`
-- `getDirection As String`
-- `getGap As Float`
-- `getHeight As Float`
-- `getLeft As Int`
-- `getLineThickness As Float`
-- `getMargin As String`
-- `getPadding As String`
-- `getPlacement As String`
-- `getTag As Object`
-- `getText As String`
-- `getTextColor As Int`
-- `getTextSize As String`
-- `getTop As Int`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setDebugBorders(bValue As Boolean)`
-- `setDirection(sValue As String)`
-- `setGap(oValue As Object)`
-- `setHeight(oValue As Object)`
-- `setLeft(iValue As Int)`
-- `setLineThickness(oValue As Object)`
-- `setMargin(sValue As String)`
-- `setPadding(sValue As String)`
-- `setPlacement(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTextSize(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setPlacement(Value As String)`
+- `getPlacement As String`
+- `setText(Value As String)`
+- `getText As String`
+- `setTextSize(Value As String)`
+- `getTextSize As String`
+- `setGap(Value As Object)`
+- `getGap As Float`
+- `setLineThickness(Value As Object)`
+- `getLineThickness As Float`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColorVariant(VariantName As String)`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setDebugBorders(Value As Boolean)`
+- `getDebugBorders As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `RemoveViewFromParent`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

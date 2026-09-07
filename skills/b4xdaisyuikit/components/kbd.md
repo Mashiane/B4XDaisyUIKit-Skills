@@ -1,12 +1,12 @@
 # kbd (`B4XDaisyKbd`)
 
-DaisyUI `Kbd` component for B4X (B4A/B4i/B4J).
+DaisyUI `Kbd` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyKbd`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyKbd.bas`
-- **Verified Demo Source**: B4XPageKbd.bas (lines 268–269)
+- **Verified Demo Source**: B4XPageKbd.bas
 - **Web DaisyUI Mapping**: `.kbd` → `B4XDaisyKbd`
 
 ## DaisyUI Web Class Translation
@@ -50,60 +50,59 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Text` | Text | `String` | `K` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00FFFFFF` |  |
-| `TextColor` | Text Color | `Color` | `0x00FFFFFF` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
+| `Text` | Text | `String` | K |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0x00FFFFFF |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getMargin As String`
-- `getPadding As String`
-- `getRounded As String`
-- `getSize As String`
-- `getTag As Object`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setText(Value As String)`
 - `getText As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
 - `getTextColor As Int`
-- `getTop As Int`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

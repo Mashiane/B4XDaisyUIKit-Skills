@@ -1,0 +1,18 @@
+{
+  "id": "ch01-dashboards",
+  "chapter": "chapters/ch01-dashboards.md",
+  "prompt": "Using the ch01-dashboards chapter, build a complete B4XPage named B4XPageDashboard.bas that displays three B4XDaisyStat tiles: 'Today Sales' = 1250, 'Active Users' = 87, 'Conversion Rate' = 4.2%. Use Variant='primary' on the first tile, 'success' on the second, and 'info' on the third.",
+  "expected_files": ["B4XPageDashboard.bas"],
+  "must_contain": [
+    "Dim .* As B4XDaisyStat",
+    "Variant\\s*=\\s*['\"]primary['\"]",
+    "Variant\\s*=\\s*['\"]success['\"]",
+    "Variant\\s*=\\s*['\"]info['\"]"
+  ],
+  "must_not_contain": [
+    "AddView\\(",
+    "<div",
+    "btn-primary"
+  ],
+  "compile": false
+}

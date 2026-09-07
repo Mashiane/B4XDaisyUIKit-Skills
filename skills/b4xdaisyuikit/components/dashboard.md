@@ -1,12 +1,12 @@
 # dashboard (`B4XDaisyDashboard`)
 
-DaisyUI `Dashboard` component for B4X (B4A/B4i/B4J).
+DaisyUI `Dashboard` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDashboard`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyDashboard.bas`
-- **Verified Demo Source**: B4XPageDashboard.bas (lines 12–12)
+- **Verified Demo Source**: B4XPageDashboard.bas
 - **Web DaisyUI Mapping**: `.dashboard` → `B4XDaisyDashboard`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -39,102 +39,101 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `RowsPerPage` | Rows Per Page | `Int` | `6` |  |
-| `ColumnsPerPage` | Columns Per Page | `Int` | `4` |  |
-| `AutoGrid` | Auto Grid | `Boolean` | `False` |  |
-| `MinCellWidth` | Min Cell Width | `Int` | `72` |  |
-| `MinCellHeight` | Min Cell Height | `Int` | `96` |  |
-| `PagePadding` | Page Padding | `Int` | `12` |  |
-| `CellSpacing` | Cell Spacing X | `Int` | `6` |  |
-| `CellSpacingY` | Cell Spacing Y | `Int` | `0` |  |
-| `ActiveIndicatorColor` | Active Dot Color | `Color` | `0xFF3B82F6` |  |
-| `InactiveIndicatorColor` | Inactive Dot Color | `Color` | `0x553B82F6` |  |
-| `BackgroundImage` | Background Image | `String` | `` |  |
-| `TextColor` | Text Color | `Color` | `0xFFFFFFFF` |  |
-| `GridTopOffset` | Grid Top Offset | `Int` | `12` |  |
-| `Width` | Width | `String` | `100%` |  |
-| `Height` | Height | `String` | `100%` |  |
+| `RowsPerPage` | Rows Per Page | `Int` | 6 |  |
+| `ColumnsPerPage` | Columns Per Page | `Int` | 4 |  |
+| `AutoGrid` | Auto Grid | `Boolean` | False |  |
+| `MinCellWidth` | Min Cell Width | `Int` | 72 |  |
+| `MinCellHeight` | Min Cell Height | `Int` | 96 |  |
+| `PagePadding` | Page Padding | `Int` | 12 |  |
+| `CellSpacing` | Cell Spacing X | `Int` | 6 |  |
+| `CellSpacingY` | Cell Spacing Y | `Int` | 0 |  |
+| `ActiveIndicatorColor` | Active Dot Color | `Color` | 0xFF3B82F6 |  |
+| `InactiveIndicatorColor` | Inactive Dot Color | `Color` | 0x553B82F6 |  |
+| `BackgroundImage` | Background Image | `String` |  |  |
+| `TextColor` | Text Color | `Color` | 0xFFFFFFFF |  |
+| `GridTopOffset` | Grid Top Offset | `Int` | 12 |  |
+| `Width` | Width | `String` | 100% |  |
+| `Height` | Height | `String` | 100% |  |
 
 ## 5. Declared Events
 - `ButtonClick (ButtonId As String)`
 - `Changed (PageIndex As Int, PageCount As Int)`
 
 ## 6. Public Methods & APIs
-- `AddButton(sId As String, sLabel As String, sImagePath As String, sSvgPath As String)`
-- `AddButtonWithImagePath(sId As String, sLabel As String, sFullImagePath As String) As Boolean`
-- `AddButtonWithSvgPath(sId As String, sLabel As String, sFullSvgPath As String) As Boolean`
-- `AddItem(sId As String, sLabel As String, sImage As String)`
-- `AddToParent(vParent As B4XView)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `ClearButtons`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Int, Height As Int)`
+- `AddToParent(Parent As B4XView)`
 - `IsReady As Boolean`
-- `Refresh(bSortAsc As Boolean)`
-- `RemoveButton(sButtonId As String) As Boolean`
-- `RemoveViewFromParent`
-- `Resize(iWidth As Int, iHeight As Int)`
-- `SendToBack`
 - `SetButtons(lstNewButtons As List)`
-- `SetCurrentPage(iIndex As Int)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddButton(Id As String, Label As String, ImagePath As String, SvgPath As String)`
+- `AddButtonWithImagePath(Id As String, Label As String, FullImagePath As String) As Boolean`
+- `AddButtonWithSvgPath(Id As String, Label As String, FullSvgPath As String) As Boolean`
+- `UpdateButton(ButtonId As String, Updates As Map) As Boolean`
+- `RemoveButton(ButtonId As String) As Boolean`
+- `UpdateButtonLabel(ButtonId As String, NewLabel As String) As Boolean`
+- `UpdateButtonImage(ButtonId As String, NewImagePath As String) As Boolean`
+- `UpdateButtonBadge(ButtonId As String, NewBadgeValue As Object) As Boolean`
+- `UpdateButtonValue(ButtonId As String, Key As String, Value As Object) As Boolean`
+- `ClearButtons`
+- `Clear`
+- `AddItem(Id As String, Label As String, Image As String)`
+- `Refresh(SortAsc As Boolean)`
 - `SortByTitleAsc`
 - `SortByTitleDesc`
-- `UpdateButton(sButtonId As String, mUpdates As Map) As Boolean`
-- `UpdateButtonBadge(sButtonId As String, oNewBadgeValue As Object) As Boolean`
-- `UpdateButtonImage(sButtonId As String, sNewImagePath As String) As Boolean`
-- `UpdateButtonLabel(sButtonId As String, sNewLabel As String) As Boolean`
-- `UpdateButtonValue(sButtonId As String, sKey As String, oValue As Object) As Boolean`
-- `View As B4XView`
-- `getActiveIndicatorColor As Int`
-- `getAutoGrid As Boolean`
-- `getBackgroundImage As String`
 - `getButtonCount As Int`
 - `getButtonsPerPage As Int`
-- `getCellSpacing As Float`
-- `getCellSpacingY As Float`
-- `getColumnsPerPage As Int`
-- `getCurrentPage As Int`
-- `getGridTopOffset As Float`
-- `getHeight As String`
-- `getInactiveIndicatorColor As Int`
-- `getLeft As Int`
-- `getMinCellHeight As Float`
-- `getMinCellWidth As Float`
 - `getPageCount As Int`
-- `getPagePadding As Float`
+- `getCurrentPage As Int`
+- `SetCurrentPage(Index As Int)`
+- `setRowsPerPage(Value As Int)`
 - `getRowsPerPage As Int`
+- `setColumnsPerPage(Value As Int)`
+- `getColumnsPerPage As Int`
+- `setAutoGrid(Value As Boolean)`
+- `getAutoGrid As Boolean`
+- `setMinCellWidth(Value As Int)`
+- `getMinCellWidth As Float`
+- `setMinCellHeight(Value As Int)`
+- `getMinCellHeight As Float`
+- `setPagePadding(Value As Int)`
+- `getPagePadding As Float`
+- `setCellSpacing(Value As Int)`
+- `getCellSpacingY As Float`
+- `setCellSpacingY(Value As Int)`
+- `getCellSpacing As Float`
+- `setGridTopOffset(Value As Int)`
+- `getGridTopOffset As Float`
+- `setActiveIndicatorColor(Value As Int)`
+- `getActiveIndicatorColor As Int`
+- `setActiveIndicatorColorVariant(VariantName As String)`
+- `setInactiveIndicatorColor(Value As Int)`
+- `getInactiveIndicatorColor As Int`
+- `setInactiveIndicatorColorVariant(VariantName As String)`
+- `setTextColor(Value As Int)`
 - `getTextColor As Int`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setTextColorVariant(VariantName As String)`
+- `setWidth(Value As Object)`
 - `getWidth As String`
-- `setActiveIndicatorColor(iValue As Int)`
-- `setActiveIndicatorColorVariant(sVariantName As String)`
-- `setAutoGrid(bValue As Boolean)`
-- `setBackgroundImage(sPath As String)`
-- `setCellSpacing(iValue As Int)`
-- `setCellSpacingY(iValue As Int)`
-- `setColumnsPerPage(iValue As Int)`
-- `setGridTopOffset(iValue As Int)`
-- `setHeight(oValue As Object)`
-- `setInactiveIndicatorColor(iValue As Int)`
-- `setInactiveIndicatorColorVariant(sVariantName As String)`
-- `setLeft(iValue As Int)`
-- `setMinCellHeight(iValue As Int)`
-- `setMinCellWidth(iValue As Int)`
-- `setPagePadding(iValue As Int)`
-- `setRowsPerPage(iValue As Int)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As String`
+- `setBackgroundImage(Path As String)`
+- `getBackgroundImage As String`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

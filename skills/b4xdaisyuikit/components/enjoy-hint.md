@@ -1,12 +1,12 @@
 # enjoy-hint (`B4XDaisyEnjoyHint`)
 
-DaisyUI `EnjoyHint` component for B4X (B4A/B4i/B4J).
+DaisyUI `EnjoyHint` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyEnjoyHint`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyEnjoyHint.bas`
-- **Verified Demo Source**: B4XPageEnjoyHint.bas (lines 19–19)
+- **Verified Demo Source**: B4XPageEnjoyHint.bas
 - **Web DaisyUI Mapping**: `.enjoy-hint` → `B4XDaisyEnjoyHint`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -60,21 +60,21 @@ DaisyUI `EnjoyHint` component for B4X (B4A/B4i/B4J).
 - Public methods not demonstrated in demo pages: `AddStep2, Recalc`.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddStep(vTarget As B4XView, sMessage As String, sShape As String, iMargin As Int, iTimeoutMs As Int, sArrowPosition As String)`
-- `AddStep2(vTarget As B4XView, sMessage As String, sShape As String, iMargin As Int, iTimeoutMs As Int, bShowNext As Boolean, bShowSkip As Boolean, bShowPrev As Boolean, bCloseOnOverlay As Boolean, iExplicitLeft As Int, iExplicitTop As Int, iExplicitRight As Int, iExplicitBottom As Int, sPositionMode As String, iShadowColor As Int, fOpacity As Float, sArrowPosition As String)`
-- `EndTour`
-- `Initialize (oCallback As Object, sEventName As String, vRoot As B4XView)`
-- `Recalc`
+- `Initialize(Callback As Object, EventName As String, Root As B4XView)`
+- `AddStep(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ArrowPosition As String)`
+- `AddStep2(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ShowNext As Boolean, ShowSkip As Boolean, ShowPrev As Boolean, CloseOnOverlay As Boolean, ExplicitLeft As Int, ExplicitTop As Int, ExplicitRight As Int, ExplicitBottom As Int, PositionMode As String, ShadowColor As Int, Opacity As Float, ArrowPosition As String)`
 - `RunWithResume`
+- `EndTour`
+- `Recalc`
 
 ## 7. Public Fields
-- `xui As XUI`
+(none declared in packaged source)
 
 ## Canonical Creation Pattern & Recipe
 

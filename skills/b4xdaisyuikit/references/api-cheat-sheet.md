@@ -2,18 +2,26 @@
 
 This document lists all available custom views, their event hooks, designer properties, and public methods. Use this reference when building user interfaces dynamically.
 
+Auto-generated from the packaged library source (v0.95) on 2026-09-07 18:47 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
+
 ## Table of Contents
 
 - [B4XDaisyAccordion](#b4xdaisyaccordion)
+- [B4XDaisyActionSheet](#b4xdaisyactionsheet)
 - [B4XDaisyAlert](#b4xdaisyalert)
+- [B4XDaisyAnimation](#b4xdaisyanimation)
 - [B4XDaisyApp](#b4xdaisyapp)
+- [B4XDaisyAura](#b4xdaisyaura)
 - [B4XDaisyAvatar](#b4xdaisyavatar)
 - [B4XDaisyAvatarGroup](#b4xdaisyavatargroup)
 - [B4XDaisyBadge](#b4xdaisybadge)
 - [B4XDaisyBadgeGroupSelect](#b4xdaisybadgegroupselect)
+- [B4XDaisyBoomMenu](#b4xdaisyboommenu)
+- [B4XDaisyBoomPathManager](#b4xdaisyboompathmanager)
 - [B4XDaisyBoxModel](#b4xdaisyboxmodel)
 - [B4XDaisyBreadcrumbs](#b4xdaisybreadcrumbs)
 - [B4XDaisyButton](#b4xdaisybutton)
+- [B4XDaisyButtonPlaceManager](#b4xdaisybuttonplacemanager)
 - [B4XDaisyCanvasSpinner](#b4xdaisycanvasspinner)
 - [B4XDaisyCard](#b4xdaisycard)
 - [B4XDaisyCardActions](#b4xdaisycardactions)
@@ -28,6 +36,7 @@ This document lists all available custom views, their event hooks, designer prop
 - [B4XDaisyCollapse](#b4xdaisycollapse)
 - [B4XDaisyCollapseContent](#b4xdaisycollapsecontent)
 - [B4XDaisyCollapseTitle](#b4xdaisycollapsetitle)
+- [B4XDaisyColorWheel](#b4xdaisycolorwheel)
 - [B4XDaisyCountdown](#b4xdaisycountdown)
 - [B4XDaisyCountdownItem](#b4xdaisycountdownitem)
 - [B4XDaisyDashboard](#b4xdaisydashboard)
@@ -35,7 +44,10 @@ This document lists all available custom views, their event hooks, designer prop
 - [B4XDaisyDivider](#b4xdaisydivider)
 - [B4XDaisyDivision](#b4xdaisydivision)
 - [B4XDaisyDock](#b4xdaisydock)
+- [B4XDaisyDrawer](#b4xdaisydrawer)
 - [B4XDaisyDropdown](#b4xdaisydropdown)
+- [B4XDaisyDualRange](#b4xdaisydualrange)
+- [B4XDaisyEnjoyHint](#b4xdaisyenjoyhint)
 - [B4XDaisyFab](#b4xdaisyfab)
 - [B4XDaisyFieldset](#b4xdaisyfieldset)
 - [B4XDaisyFileHandler](#b4xdaisyfilehandler)
@@ -50,24 +62,34 @@ This document lists all available custom views, their event hooks, designer prop
 - [B4XDaisyIconButton](#b4xdaisyiconbutton)
 - [B4XDaisyImage](#b4xdaisyimage)
 - [B4XDaisyIndicator](#b4xdaisyindicator)
+- [B4XDaisyInfoCard](#b4xdaisyinfocard)
 - [B4XDaisyInput](#b4xdaisyinput)
 - [B4XDaisyKbd](#b4xdaisykbd)
-- [B4XDaisyLabel](#b4xdaisylabel)
 - [B4XDaisyList](#b4xdaisylist)
 - [B4XDaisyLoading](#b4xdaisyloading)
 - [B4XDaisyMenu](#b4xdaisymenu)
 - [B4XDaisyModal](#b4xdaisymodal)
 - [B4XDaisyNavbar](#b4xdaisynavbar)
+- [B4XDaisyOTP](#b4xdaisyotp)
 - [B4XDaisyOverlay](#b4xdaisyoverlay)
 - [B4XDaisyPageScroll](#b4xdaisypagescroll)
 - [B4XDaisyPagination](#b4xdaisypagination)
+- [B4XDaisyPDFView](#b4xdaisypdfview)
+- [B4XDaisyPicker](#b4xdaisypicker)
+- [B4XDaisyPiecePlaceManager](#b4xdaisypieceplacemanager)
+- [B4XDaisyPocketBase](#b4xdaisypocketbase)
 - [B4XDaisyProgress](#b4xdaisyprogress)
 - [B4XDaisyRadialProgress](#b4xdaisyradialprogress)
 - [B4XDaisyRadio](#b4xdaisyradio)
 - [B4XDaisyRadioGroup](#b4xdaisyradiogroup)
 - [B4XDaisyRange](#b4xdaisyrange)
 - [B4XDaisyRating](#b4xdaisyrating)
+- [B4XDaisySegment](#b4xdaisysegment)
 - [B4XDaisySelect](#b4xdaisyselect)
+- [B4XDaisySheetModal](#b4xdaisysheetmodal)
+- [B4XDaisyShineButton](#b4xdaisyshinebutton)
+- [B4XDaisySignature](#b4xdaisysignature)
+- [B4XDaisySignaturePad](#b4xdaisysignaturepad)
 - [B4XDaisyStack](#b4xdaisystack)
 - [B4XDaisyStat](#b4xdaisystat)
 - [B4XDaisyStatItem](#b4xdaisystatitem)
@@ -78,6 +100,7 @@ This document lists all available custom views, their event hooks, designer prop
 - [B4XDaisySweetAlert](#b4xdaisysweetalert)
 - [B4XDaisySweetAlertIcon](#b4xdaisysweetalerticon)
 - [B4XDaisyTab](#b4xdaisytab)
+- [B4XDaisyTagSphere](#b4xdaisytagsphere)
 - [B4XDaisyText](#b4xdaisytext)
 - [B4XDaisyTextRotate](#b4xdaisytextrotate)
 - [B4XDaisyTimeline](#b4xdaisytimeline)
@@ -88,66 +111,173 @@ This document lists all available custom views, their event hooks, designer prop
 - [B4XDaisyVariants](#b4xdaisyvariants)
 - [B4XDaisyWindow](#b4xdaisywindow)
 
----
-
 ## B4XDaisyAccordion
 
 ### Events
+
 - `Change (ActiveTag As Object, Status As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `OpenOnlyOne` | Boolean | `True` | If True, only one collapse can be open at a time. |
 | `IconPosition` | String | `right` | Default icon position for all children. |
 | `Icon` | String | `arrow` | Expansion indicator icon for all children. |
 | `Visible` | Boolean | `True` | Visible state. |
-| `SpaceY` | Int | `2` | Vertical gap (in dip) between collapse items. |
+| `SpaceY` | Int | `2, MinRange: 0, MaxRange: 32` | Vertical gap (in dip) between collapse items. |
 | `Shadow` | String | `none` | Elevation level applied to all children. |
 | `Rounded` | String | `theme` | Radius mode applied to all children. |
 | `GroupName` | String | `` | Explicit group name shared by all child collapses (used for single-open enforcement). Leave empty to auto-generate from component tag. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Refresh`
 - `AddItem(Item As B4XDaisyCollapse)`
 - `HandleChildRequestOpen(RequestedChild As B4XDaisyCollapse)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setOpenOnlyOne(Value As Boolean)`
-- `getOpenOnlyOneAs Boolean`
+- `getOpenOnlyOne As Boolean`
 - `setIconPosition(Value As String)`
-- `getIconPositionAs String`
+- `getIconPosition As String`
 - `setIcon(Value As String)`
-- `getIconAs String`
+- `getIcon As String`
 - `setSpaceY(Value As Int)`
-- `getSpaceYAs Int`
+- `getSpaceY As Int`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
+- `getGroupName As String`
 - `AddItemBasic(ItemTag As Object, Icon As String, Title As String) As B4XDaisyCollapse`
 - `SetItemActive(ItemTag As Object, Value As Boolean)`
 - `SetItemTitle(ItemTag As Object, Title As String)`
 - `SetItemVariant(ItemTag As Object, Variant As String)`
 - `SetItemTitleIcon(ItemTag As Object, IconName As String)`
 - `SetItemVisible(ItemTag As Object, Value As Boolean)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
+---
+
+## B4XDaisyActionSheet
+
+### Types
+
+- `ActionSheetButton (Id As String, Text As String, Role As String, Icon As String, Data As Object, Disabled As Boolean, Variant As String, IconVariant As String)`
+
+### Events
+
+- `DidPresent`
+- `WillPresent`
+- `DidDismiss (Data As Object, Role As String)`
+- `WillDismiss (Data As Object, Role As String)`
+- `ButtonClick (ButtonId As String, Data As Object)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Header` | String | `` | Title for the action sheet. |
+| `SubHeader` | String | `` | Subtitle for the action sheet. |
+| `Animated` | Boolean | `True` | If true, the action sheet will animate. |
+| `BackdropDismiss` | Boolean | `True` | Dismiss when the backdrop is clicked. |
+| `KeyboardClose` | Boolean | `True` | Automatically dismiss keyboard when presented. |
+| `Translucent` | Boolean | `False` | Enable translucent glass effects (iOS mode). |
+| `Mode` | String | `md` | Platform rendering mode. |
+| `ButtonSize` | String | `md` | Tailwind size token applied to every action button. |
+| `TextAlignment` | String | `left` | Horizontal text alignment applied to each action button (left for md, center for ios). |
+| `BackgroundColor` | String | `base-100` | Surface color of the action sheet group (accepts DaisyUI variant colors). |
+| `BackdropOpacity` | String | `0.4` | Backdrop dimming as a float string (e.g. 0.4 or 40%). |
+| `ButtonsColor` | String | `default` | DaisyUI variant color applied to all action buttons. |
+| `TextColor` | String | `base-content` | Header / SubHeader text color (accepts DaisyUI variant colors). |
+| `HeaderBold` | Boolean | `False` | If true, the header is rendered in bold. |
+| `ButtonGhosted` | Boolean | `True` | If true, action buttons use the ghost style; if false they render solid. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `AddButton(Id As String, Text As String, Role As String, Icon As String)`
+- `SetButtonData(ButtonId As String, Data As Object)`
+- `SetButtonDataByIndex(Index As Int, Data As Object)`
+- `SetButtonIcon(ButtonId As String, IconName As String)`
+- `SetButtonIconByIndex(Index As Int, IconName As String)`
+- `SetButtonIconColor(ButtonId As String, ColorVariant As String)`
+- `SetButtonIconColorByIndex(Index As Int, ColorVariant As String)`
+- `SetButtonColor(ButtonId As String, ColorVariant As String)`
+- `SetButtonColorByIndex(Index As Int, ColorVariant As String)`
+- `setIsOpen(Value As Boolean)`
+- `getIsOpen As Boolean`
+- `Present As ResumableSub`
+- `Dismiss(Data As Object, Role As String) As ResumableSub`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setHeader(Value As String)`
+- `getHeader As String`
+- `setSubHeader(Value As String)`
+- `getSubHeader As String`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setBackdropDismiss(Value As Boolean)`
+- `getBackdropDismiss As Boolean`
+- `setKeyboardClose(Value As Boolean)`
+- `getKeyboardClose As Boolean`
+- `setTranslucent(Value As Boolean)`
+- `getTranslucent As Boolean`
+- `setMode(Value As String)`
+- `getMode As String`
+- `setOutline(Value As Boolean)`
+- `getOutline As Boolean`
+- `setButtonSize(Value As String)`
+- `getButtonSize As String`
+- `setTextAlignment(Value As String)`
+- `getTextAlignment As String`
+- `setBackgroundColor(Value As String)`
+- `getBackgroundColor As String`
+- `setBackdropOpacity(Value As String)`
+- `getBackdropOpacity As String`
+- `setButtonsColor(Value As String)`
+- `getButtonsColor As String`
+- `setTextColor(Value As String)`
+- `getTextColor As String`
+- `setHeaderBold(Value As Boolean)`
+- `getHeaderBold As Boolean`
+- `setButtonGhosted(Value As Boolean)`
+- `getButtonGhosted As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyAlert
 
 ### Events
+
 - `Click (Tag As Object)`
 - `ActionClick (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `full` | Tailwind size token or CSS size (eg full, 72, 320px, 20rem) |
@@ -160,110 +290,267 @@ This document lists all available custom views, their event hooks, designer prop
 | `Description` | String | `` | Optional secondary description |
 | `IconAsset` | String | `` | SVG file name from assets (empty uses variant default icon) |
 | `IconSize` | String | `6` | Tailwind size token or CSS size for icon |
-| `RoundedBox` | Boolean | `True` | Use rounded corners similar to Daisy rounded-box |
+| `Rounded` | String | `rounded-box` | Corner radius token. |
 | `BorderWidth` | Int | `1` | Border width in dip |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `ActionSpacing` | Int | `6` | Spacing in dip between action views |
 | `AutoResize` | Boolean | `True` | Automatically resize height to fit content. |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override label text color. |
+| `IconColor` | Color | `0x00FFFFFF` | Override icon color. |
+| `IconVisible` | Boolean | `True` | Set icon visibility. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `ClearActions`
-- `GetContentPanelAs B4XView`
+- `GetContentPanel As B4XView`
 - `AddActionButton(Text As String, Tag As Object) As B4XView`
-- `IsReadyAs Boolean`
-- `GetVisualColorsAs Map`
+- `IsReady As Boolean`
+- `GetVisualColors As Map`
 - `SizeToFit(AvailableWidth As Int)`
 - `RaiseActionClick(Tag As Object)`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
+- `getAutoResize As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setAlertStyle(Value As String)`
-- `getAlertStyleAs String`
+- `getAlertStyle As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setMessage(Value As String)`
-- `getMessageAs String`
+- `getMessage As String`
 - `setDescription(Value As String)`
-- `getDescriptionAs String`
+- `getDescription As String`
 - `setIconVisible(Value As Boolean)`
-- `getIconVisibleAs Boolean`
+- `getIconVisible As Boolean`
 - `setIconAsset(Path As String)`
-- `getIconAssetAs String`
+- `getIconAsset As String`
 - `setIconSize(Value As Object)`
-- `getIconSizeAs Float`
+- `getIconSize As Float`
 - `setIconColor(Value As Object)`
-- `getIconColorAs Int`
+- `getIconColor As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setBorderWidth(Value As Float)`
-- `getBorderWidthAs Float`
+- `getBorderWidth As Float`
 - `resetBorderWidthToTheme`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setActionSpacing(Value As Float)`
-- `getActionSpacingAs Float`
+- `getActionSpacing As Float`
 - `setVariantPalette(Palette As Map)`
-- `getVariantPaletteAs Map`
+- `getVariantPalette As Map`
 - `applyActiveTheme`
 - `setBackgroundColor(Color As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Color As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setBorderColor(Color As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderColorVariant(VariantName As String)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 
+---
+
+## B4XDaisyAnimation
+
+### Public Methods
+
+- `Initialize`
+- `SetNativeAlpha(View As B4XView, AlphaValue As Float)`
+- `SetNativeRotation(View As B4XView, Degrees As Float)`
+- `SetNativeRotationY(View As B4XView, Degrees As Float)`
+- `AnimateLayerNative(View As B4XView, AlphaValue As Float, Degrees As Float, DegreesY As Float, DurationMs As Int)`
+- `SetNativeCameraDistance(View As B4XView, DistancePx As Float)`
+- `SetTranslationX(View As B4XView, TranslationXPx As Float)`
+- `SetTranslationY(View As B4XView, TranslationYPx As Float)`
+- `AnimateTranslationX(View As B4XView, TranslationXPx As Float, DurationMs As Int)`
+- `linearTween(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `AnimateTranslationY(View As B4XView, TranslationYPx As Float, DurationMs As Int)`
+- `AnimateTranslationXY(View As B4XView, TransX As Float, TransY As Float, DurationMs As Int)`
+- `SetNativePivot(View As B4XView, PivotX As Float, PivotY As Float)`
+- `AnimateScaleFrom(View As B4XView, FromScaleX As Float, FromScaleY As Float, ToScaleX As Float, ToScaleY As Float, DurationMs As Int)`
+- `SetNativeScale(View As B4XView, ScaleX As Float, ScaleY As Float)`
+- `AnimateAlpha(View As B4XView, FromAlpha As Float, ToAlpha As Float, DurationMs As Int)`
+- `AnimateRotation(View As B4XView, FromDegrees As Float, ToDegrees As Float, DurationMs As Int)`
+- `AnimateScale(View As B4XView, ScaleX As Float, ScaleY As Float, DurationMs As Int)`
+- `AnimateRotationX(View As B4XView, DegreesX As Float, DurationMs As Int)`
+- `AnimateRotationY(View As B4XView, DegreesY As Float, DurationMs As Int)`
+- `AnimateExtended(View As B4XView, Alpha As Float, TransX As Float, TransY As Float, ScaleX As Float, ScaleY As Float, RotX As Float, RotY As Float, DurationMs As Int)`
+- `AnimateTada(View As B4XView, DurationMs As Int)`
+- `AnimateRubberBand(View As B4XView, DurationMs As Int)`
+- `AnimateShake(View As B4XView, DurationMs As Int)`
+- `AnimateWobble(View As B4XView, DurationMs As Int)`
+- `AnimatePulse(View As B4XView, DurationMs As Int)`
+- `AnimateSlidePushLeftOut(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateSlidePushLeftIn(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateZoomSlideOut(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateZoomSlideIn(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateStackOut(View As B4XView, DurationMs As Int)`
+- `AnimateCubeLeftOut(View As B4XView, DurationMs As Int)`
+- `AnimateCubeLeftIn(View As B4XView, DurationMs As Int)`
+- `AnimateAccordionOut(View As B4XView, DurationMs As Int)`
+- `AnimateAccordionIn(View As B4XView, DurationMs As Int)`
+- `AnimateFlash(View As B4XView, DurationMs As Int)`
+- `AnimateSwing(View As B4XView, DurationMs As Int)`
+- `AnimateAttentionBounce(View As B4XView, DurationMs As Int)`
+- `AnimateStandUp(View As B4XView, DurationMs As Int)`
+- `AnimateWave(View As B4XView, DurationMs As Int)`
+- `AnimateHinge(View As B4XView, DurationMs As Int)`
+- `AnimateFlight(View As B4XView, Mode As String, DurationMs As Int)`
+- `AnimateRoll(View As B4XView, Mode As String, DurationMs As Int)`
+- `AnimateFadeDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateZoomDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateSlideDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateFlipDirectional(View As B4XView, Mode As String, Axis As String, DurationMs As Int)`
+- `EvaluateEasing(EaseName As String, Time As Float, StartValue As Float, ChangeInValue As Float, Duration As Int) As Float`
 
 ---
 
 ## B4XDaisyApp
 
-### Events
-*(None)*
-
-### Designer Properties
-*(None)*
-
 ### Public Methods
+
 - `ClearSvgTextCache`
+- `GetCachedSvgBitmap(Key As String) As B4XBitmap`
+- `PutCachedSvgBitmap(Key As String, bmpBmp As B4XBitmap)`
 - `GetCachedSvgText(Path As String, DefaultText As String) As String`
 
+---
+
+## B4XDaisyAura
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Style` | String | `default` | Aura color scheme. |
+| `Size` | String | `md` | Ring thickness / inset token. |
+| `Color` | Color | `0x00FFFFFF` | Optional single-color override (default/dual/glow only). Transparent = use style palette. |
+| `TextColor` | Color | `0x00FFFFFF` | Alias for Color (Tailwind text-* light beam color). |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Optional container background color override. |
+| `Rounded` | String | `theme` | Ring corner radius token. |
+| `Duration` | Int | `3000, MinRange: 100` | Rotation period in milliseconds. Glow ignores this. |
+| `Visible` | Boolean | `True` | Show or hide the aura. |
+| `AutoStart` | Boolean | `True` | Start the rotating ring automatically once the aura is attached to the screen. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Wrap(Child As B4XView) As B4XView`
+- `getContentContainer As B4XView`
+- `getContainer As B4XView`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `SyncRotation`
+- `StartRotation`
+- `StopRotation`
+- `setStyle(Value As String)`
+- `getStyle As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setColor(Value As Int)`
+- `getColor As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setAutoStart(Value As Boolean)`
+- `getAutoStart As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `RemoveViewFromParent`
+- `GetComputedHeight As Int`
+- `Release`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
 
 ---
 
 ## B4XDaisyAvatar
 
 ### Events
+
 - `Click`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `Image` | String | `` | Full image path on device |
+| `Image` | String | `mashymain.jpg` | Full image path on device |
 | `Mask` | String | `circle` | Avatar mask shape |
-| `RoundedBox` | Boolean | `False` | Use rounded box mask (radius: 4dip). Overrides mask setting. |
+| `Rounded` | String | `rounded-full` | Corner radius token. |
 | `Shadow` | String | `none` | Elevation shadow level (Tailwind/Daisy scale) |
 | `Variant` | String | `none` | Variant used for placeholder and status colors |
 | `Width` | String | `w-10` | Tailwind size token or CSS size (eg w-12, 80px, 4em, 5rem) |
@@ -291,114 +578,125 @@ This document lists all available custom views, their event hooks, designer prop
 | `Glass` | Boolean | `False` | Enable translucent glass shine and highlight borders |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `getViewAs B4XView`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
+- `View As B4XView`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ResizeToParent(b4xV As B4XView)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `ResizeToParent(B4xV As B4XView)`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setResizeMode(Value As String)`
-- `getResizeModeAs String`
+- `getResizeMode As String`
 - `setBlurRadius(Value As Int)`
-- `getBlurRadiusAs Int`
+- `getBlurRadius As Int`
 - `setGlass(Value As Boolean)`
-- `getGlassAs Boolean`
+- `getGlass As Boolean`
 - `setChatImage(Value As Boolean)`
-- `getChatImageAs Boolean`
+- `getChatImage As Boolean`
 - `setVariantPalette(Palette As Map)`
-- `getVariantPaletteAs Map`
+- `getVariantPalette As Map`
 - `applyActiveTheme`
 - `setUseVariantStatusColors(Enabled As Boolean)`
-- `getUseVariantStatusColorsAs Boolean`
+- `getUseVariantStatusColors As Boolean`
 - `setAvatar(Path As String)`
-- `getAvatarAs String`
+- `getAvatar As String`
 - `setImage(Path As String)`
-- `getImageAs String`
+- `getImage As String`
 - `setMask(Value As String)`
-- `getMaskAs String`
-- `setAvatarBitmap(bmp As B4XBitmap, Tag As Object)`
-- `getAvatarTagAs Object`
+- `getMask As String`
+- `setAvatarBitmap(bmpBmp As B4XBitmap, Tag As Object)`
+- `getAvatarTag As Object`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setAvatarStatus(Mode As String)`
 - `setStatus(Mode As String)`
-- `getAvatarStatusAs String`
-- `getStatusAs String`
+- `getAvatarStatus As String`
+- `getStatus As String`
 - `setAvatarStatusColors(OnlineColor As Int, OfflineColor As Int)`
 - `setAvatarOnlineColor(OnlineColor As Int)`
-- `getOnlineColorAs Int`
+- `getOnlineColor As Int`
 - `setOfflineColor(OfflineColor As Int)`
-- `getOfflineColorAs Int`
+- `getOfflineColor As Int`
 - `setAvatarOnlineColorVariant(VariantName As String)`
 - `setOnlineColor(OnlineColor As Int)`
 - `setOnlineColorVariant(VariantName As String)`
-- `getAvatarOnlineColorAs Int`
-- `getAvatarOfflineColorAs Int`
+- `getAvatarOnlineColor As Int`
+- `getAvatarOfflineColor As Int`
 - `setShowOnline(Show As Boolean)`
-- `getShowOnlineAs Boolean`
+- `getShowOnline As Boolean`
 - `setAvatarType(Value As String)`
-- `getAvatarTypeAs String`
+- `getAvatarType As String`
 - `setPlaceHolder(Value As String)`
-- `getPlaceHolderAs String`
+- `getPlaceHolder As String`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setTextColorVariant(VariantName As String)`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setAvatarMask(MaskName As String)`
-- `getAvatarMaskAs String`
+- `getAvatarMask As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setGlobalMask(MaskName As String)`
 - `setAvatarSize(Size As Object)`
 - `setWidth(Value As Object)`
 - `setHeight(Value As Object)`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setCenterOnParent(Value As Boolean)`
-- `getCenterOnParentAs Boolean`
-- `getWidthAs Float`
-- `getHeightAs Float`
+- `getCenterOnParent As Boolean`
+- `getWidth As Float`
+- `getHeight As Float`
 - `setAvatarWidth(Value As Object)`
 - `setAvatarHeight(Value As Object)`
-- `getAvatarWidthAs Float`
-- `getAvatarHeightAs Float`
+- `getAvatarWidth As Float`
+- `getAvatarHeight As Float`
 - `setAvatarBorder(Color As Int, Width As Float)`
 - `setAvatarBorderInset(Inset As Float)`
 - `setRingColor(Color As Int)`
-- `getRingColorAs Int`
+- `getRingColor As Int`
 - `setRingColorVariant(VariantName As String)`
 - `setRingWidth(Width As Float)`
-- `getRingWidthAs Float`
+- `getRingWidth As Float`
 - `setRingOffset(Offset As Float)`
-- `getRingOffsetAs Float`
-- `GetComputedHeightAs Int`
+- `getRingOffset As Float`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `RemoveViewFromParent`
-- `SetBitmapAndFill(ImageView As B4XView, Bmp As B4XBitmap)`
-
+- `SetBitmapAndFill(ImageView As B4XView, bmpBmp As B4XBitmap)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `Release`
 
 ---
 
 ## B4XDaisyAvatarGroup
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `full` | Tailwind size token or CSS size (eg full, 72, 320px, 20rem) |
@@ -410,45 +708,58 @@ This document lists all available custom views, their event hooks, designer prop
 | `LimitTo` | Int | `5` | Max avatars shown before overflow placeholder (+N) |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddAvatar(Avatar As B4XDaisyAvatar) As Int`
 - `AddAvatarView(ChildView As B4XView, Tag As Object) As Int`
 - `Clear`
-- `getCountAs Int`
+- `getCount As Int`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setSpacing(Value As String)`
-- `getSpacingAs String`
+- `getSpacing As String`
 - `applyActiveTheme`
 - `setAvatarSize(Value As Object)`
-- `getAvatarSizeAs Object`
+- `getAvatarSize As Object`
 - `setLimitTo(Value As Int)`
-- `getLimitToAs Int`
+- `getLimitTo As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyBadge
 
 ### Events
+
 - `Click (Tag As Object)`
 - `CloseClick (Tag As Object)`
 - `Checked (Id As String, Checked As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `fit-content` | Tailwind size token, CSS size, or fit-content |
@@ -461,7 +772,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `Margin` | String | `` | Tailwind spacing utilities (eg m-1, mx-2) |
 | `Visible` | Boolean | `True` | Show or hide badge view |
 | `AvatarVisible` | Boolean | `False` | Show avatar inside badge |
-| `AvatarImage` | String | `` | Avatar image path from assets or full path |
+| `AvatarImage` | String | `mashymain.jpg` | Avatar image path from assets or full path |
 | `AvatarText` | String | `` | Avatar placeholder text when image is empty |
 | `AvatarPosition` | String | `left` | Avatar placement relative to text |
 | `IconAsset` | String | `` | SVG asset used for left icon |
@@ -469,125 +780,137 @@ This document lists all available custom views, their event hooks, designer prop
 | `Checked` | Boolean | `False` | Current checked state (effective when Toggle is true) |
 | `CheckedColor` | Color | `0x00000000` | Background color used when checked (0 uses variant fallback) |
 | `CheckedTextColor` | Color | `0x00000000` | Text/icon color used when checked (0 uses variant fallback) |
-| `ID` | String | `` | Optional chip identifier returned in checked event |
+| `Id` | String | `` | Optional chip identifier returned in checked event |
 | `Closable` | Boolean | `False` | Show close icon on the right side |
 | `CloseIconAsset` | String | `xmark-solid.svg` | SVG asset used for close icon |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use selector radius from active theme |
 | `CapValue` | Int | `99` | Numeric cap - values above this display as cap+ (0 disables capping) |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `Clickable` | Boolean | `True` | When False, touch events pass through to parent (useful inside clickable list rows) |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override text color. |
+| `TextCentered` | Boolean | `True` | Center text inside badge. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setBadgeStyle(Value As String)`
-- `getBadgeStyleAs String`
+- `getBadgeStyle As String`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setTextCentered(Value As Boolean)`
-- `getTextCenteredAs Boolean`
+- `getTextCentered As Boolean`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setAvatarVisible(Value As Boolean)`
-- `getAvatarVisibleAs Boolean`
+- `getAvatarVisible As Boolean`
 - `setAvatarImage(Value As String)`
-- `getAvatarImageAs String`
+- `getAvatarImage As String`
 - `setAvatarText(Value As String)`
-- `getAvatarTextAs String`
+- `getAvatarText As String`
 - `setAvatarPosition(Value As String)`
-- `getAvatarPositionAs String`
+- `getAvatarPosition As String`
 - `setIconAsset(Value As String)`
-- `getIconAssetAs String`
+- `getIconAsset As String`
 - `setToggle(Value As Boolean)`
-- `getToggleAs Boolean`
+- `getToggle As Boolean`
 - `setChecked(Value As Boolean)`
-- `getCheckedAs Boolean`
+- `getChecked As Boolean`
 - `setCheckedColor(Value As Int)`
-- `getCheckedColorAs Int`
+- `getCheckedColor As Int`
 - `setCheckedTextColor(Value As Int)`
-- `getCheckedTextColorAs Int`
+- `getCheckedTextColor As Int`
 - `setId(Value As String)`
-- `getIdAs String`
+- `getId As String`
 - `setClosable(Value As Boolean)`
-- `getClosableAs Boolean`
+- `getClosable As Boolean`
 - `setCloseIconAsset(Value As String)`
-- `getCloseIconAssetAs String`
+- `getCloseIconAsset As String`
 - `setCapValue(Value As Int)`
-- `getCapValueAs Int`
-- `setValue(Value As Int)`
-- `getValueAs Int`
-- `incrementAs Int`
+- `getCapValue As Int`
+- `setValue(Value As Object)`
+- `getValue As String`
+- `increment As Int`
 - `incrementBy(Amount As Int) As Int`
-- `decrementAs Int`
+- `decrement As Int`
 - `decrementBy(Amount As Int) As Int`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderColorVariant(VariantName As String)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `RemoveViewFromParent`
-
+- `Release`
 
 ---
 
 ## B4XDaisyBadgeGroupSelect
 
 ### Events
+
 - `ItemChanged (Item As Map)`
 - `FocusChanged (HasFocus As Boolean)`
 - `Changed (SelectedIds As List)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Legend` | String | `Select options` | Fieldset legend text |
 | `LegendSize` | String | `text-sm` | Tailwind-like text size token for legend |
 | `LegendBold` | Boolean | `False` | Render the fieldset legend caption in bold |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
 | `Variant` | String | `none` | Optional accent variant for border tint |
 | `BorderStyle` | String | `outlined` | Border visual style |
 | `Padding` | Int | `16` | Inner content padding in dip (p-4) |
 | `AutoHeight` | Boolean | `True` | Automatically grow to fit added content |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use box radius for container |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
 | `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
 | `BorderColor` | Color | `0x00000000` | Border color override (0 = default border-base-300) |
 | `BorderSize` | Int | `1` | Border width in dip |
+| `InputBorder` | Boolean | `False` | When True, apply B4XDaisyInput border color and width to the fieldset |
+| `Required` | Boolean | `False` | Whether at least one badge must be selected. |
+| `HintText` | String | `` | Helper text displayed below the group. |
+| `ErrorText` | String | `` | Error text displayed below the group when validation fails. |
 | `BadgeSelectionMode` | String | `multi` | Single allows one checked badge, multi allows many |
 | `BadgeSize` | String | `md` | Badge size token |
 | `BadgeHeight` | String | `8` | Badge height token (tailwind/css size) |
@@ -598,105 +921,304 @@ This document lists all available custom views, their event hooks, designer prop
 | `RowGap` | Int | `8` | Vertical gap between badge rows in dip |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `AddBadgeItem(Id As String, Text As String)`
 - `RemoveBadgeItem(Id As String)`
 - `ClearBadgeItems`
 - `setItems(Items As Object)`
-- `getItemsAs List`
+- `getItems As List`
 - `setItemsSpec(Value As String)`
-- `getItemsSpecAs String`
+- `getItemsSpec As String`
 - `setBadgeSelectionMode(Value As String)`
-- `getBadgeSelectionModeAs String`
+- `getBadgeSelectionMode As String`
 - `setSelected(Value As String)`
-- `getSelectedAs String`
+- `getSelected As String`
 - `setChecked(CheckedIds As String)`
-- `getCheckedAs String`
+- `getChecked As String`
 - `IsItemSelected(Id As String) As Boolean`
 - `SetItemChecked(Id As String, Checked As Boolean)`
 - `CheckItem(Id As String)`
 - `UncheckItem(Id As String)`
 - `ClearSelection`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
+- `setInputBorder(Value As Boolean)`
+- `getInputBorder As Boolean`
 - `setLegend(Value As String)`
-- `getLegendAs String`
+- `getLegend As String`
 - `setLegendSize(Value As String)`
-- `getLegendSizeAs String`
+- `getLegendSize As String`
 - `setLegendBold(Value As Boolean)`
-- `getLegendBoldAs Boolean`
+- `getLegendBold As Boolean`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
-- `isRoundedAs Boolean`
+- `getRounded As String`
+- `isRounded As Boolean`
 - `setRoundedBox(Value As Boolean)`
-- `isRoundedBoxAs Boolean`
+- `isRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setBackgroundColor(Value As Object)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Object)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Object)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setBadgeSize(Value As String)`
-- `getBadgeSizeAs String`
+- `getBadgeSize As String`
 - `setBadgeHeight(Value As String)`
-- `getBadgeHeightAs String`
+- `getBadgeHeight As String`
 - `setBadgeColor(Value As String)`
-- `getBadgeColorAs String`
+- `getBadgeColor As String`
 - `setBadgeStyle(Value As String)`
-- `getBadgeStyleAs String`
+- `getBadgeStyle As String`
 - `setBadgeCheckedColor(Value As Object)`
-- `getBadgeCheckedColorAs Int`
+- `getBadgeCheckedColor As Int`
 - `setBadgeCheckedTextColor(Value As Object)`
-- `getBadgeCheckedTextColorAs Int`
+- `getBadgeCheckedTextColor As Int`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setRowGap(Value As Int)`
-- `getRowGapAs Int`
-- `getTagAs Object`
+- `getRowGap As Int`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
+- `setHintText(Value As String)`
+- `getHintText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `ReceiveFocus`
 - `Blur`
 - `setTag(Value As Object)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
+---
+
+## B4XDaisyBoomMenu
+
+### Events
+
+- `BoomButtonClick (Index As Int, Tag As Object)`
+- `BackgroundClick`
+- `WillShow`
+- `DidShow`
+- `WillHide`
+- `DidHide`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Enabled` | Boolean | `True` | Enable or disable the BoomMenu. |
+| `Visible` | Boolean | `True` | Show or hide the BoomMenu. |
+| `ButtonType` | String | `SimpleCircle` | Type of boom buttons. |
+| `PiecePlace` | String | `DOT_9_1` | Layout of piece (placeholder) dots. All 35 DOT sub-variants are supported. |
+| `ButtonPlace` | String | `SC_9_1` | Layout of boom buttons. All 35 SC sub-variants plus HORIZONTAL/VERTICAL/HAM_1..6. |
+| `BoomType` | String | `H_THROW_2` | Animation path type. Default H_THROW_2 matches the original BoomMenu. |
+| `EaseType` | String | `EaseOutBack` | Easing function for the show (boom) animation. |
+| `HideEaseType` | String | `EaseInBack` | Easing function for the hide (reboom) animation. Default EaseInBack matches the original. |
+| `OrderType` | String | `RANDOM` | Animation order. Default RANDOM matches the original BoomMenu. |
+| `Duration` | Int | `300, MinRange: 0, MaxRange: 2000` | Animation duration in milliseconds. |
+| `PieceColor` | Color | `0xFF794DFF` | Color of the piece placeholders. |
+| `ButtonColor` | Color | `0xFF794DFF` | Color of the boom buttons. |
+| `ShadowLevel` | String | `md` | Shadow elevation for pieces/buttons. |
+| `BackdropEnabled` | Boolean | `True` | Show backdrop when open. |
+| `BackdropColor` | Color | `0x55000000` | Backdrop color (with alpha). Default 0x55 matches the original dimColor. |
+| `AutoBoom` | Boolean | `False` | Automatically boom on show. |
+| `BoomDelay` | Int | `0, MinRange: 0` | Delay before auto boom. |
+| `ReboomDelay` | Int | `0, MinRange: 0` | Delay before auto reboom. |
+| `RotateTrigger` | Boolean | `True` | Rotate trigger button when booming. |
+| `RotateButtons` | Boolean | `True` | Rotate boom buttons during the boom/reboom animation (original rotateDegree). |
+| `RotateDegree` | Int | `720, MinRange: 0, MaxRange: 3600` | Degrees boom buttons rotate during a boom (and unrotate during reboom). Original default 720. |
+| `AutoCloseOnActionClick` | Boolean | `True` | Close after a regular action click. |
+| `AutoCloseOnBackgroundClick` | Boolean | `True` | Close when the backdrop is clicked (the original cancelable toggle). |
+| `TriggerIconName` | String | `` | Trigger button icon asset name. |
+| `TriggerText` | String | `` | Trigger button text. |
+| `TriggerSizeDip` | Int | `56, MinRange: 0` | Trigger button size in dip. |
+| `ButtonSizeDip` | Int | `48, MinRange: 0` | Boom button size in dip. |
+| `ButtonGapDip` | Int | `12, MinRange: 0` | Gap between buttons. |
+| `PieceSizeDip` | Int | `6, MinRange: 0` | Piece placeholder (dot) diameter in dip. Original default 2*dotRadius = 6dp. |
+| `PieceCornerRadiusDip` | Int | `3, MinRange: 0` | Piece corner radius in dip. Equals half the piece size for a circular dot (original pieceCornerRadius -1 = circle). |
+| `PieceHMarginDip` | Float | `2.5, MinRange: 0` | Horizontal margin between piece dots (original pieceHorizontalMargin 2.5dp). |
+| `PieceVMarginDip` | Float | `2.5, MinRange: 0` | Vertical margin between piece dots (original pieceVerticalMargin 2.5dp). |
+| `PieceIMarginDip` | Float | `3.5355, MinRange: 0` | Inclined margin between piece dots for 45deg layouts (original pieceInclinedMargin 3.5355dp = 5/sqrt2). |
+| `ButtonCornerRadiusDip` | Int | `24, MinRange: 0` | Button corner radius in dip. |
+| `HamButtonWidthDip` | Int | `300, MinRange: 0` | Ham (rectangle) button width in dip. Original default 300dp. |
+| `HamButtonHeightDip` | Int | `60, MinRange: 0` | Ham (rectangle) button height in dip. Original default 60dp. |
+| `HamImageSizeDip` | Int | `40, MinRange: 0` | Ham button image size in dip (image sits left of the title/subtitle). |
+| `HamTitleSize` | Int | `14, MinRange: 0` | Ham button title text size (points). |
+| `HamSubSize` | Int | `10, MinRange: 0` | Ham button subtitle text size (points). |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Reposition(Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Refresh`
+- `UpdateTheme`
+- `Boom`
+- `Reboom`
+- `Toggle`
+- `AddButton(Text As String, IconName As String, TagValue As Object) As Int`
+- `AddButtonEx(Text As String, IconName As String, TagValue As Object, Visible As Boolean) As Int`
+- `AddHamButton(Title As String, SubText As String, IconName As String, TagValue As Object) As Int`
+- `SetButtonSubText(Index As Int, SubText As String)`
+- `RemoveButton(Index As Int)`
+- `ClearButtons`
+- `SetButtonVisible(Index As Int, Value As Boolean)`
+- `GetButtonView(Index As Int) As B4XView`
+- `GetButtonTag(Index As Int) As Object`
+- `SetButtonTag(Index As Int, TagValue As Object)`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setOpened(Value As Boolean)`
+- `setOpen(Value As Boolean)`
+- `getOpened As Boolean`
+- `getOpen As Boolean`
+- `getIsInitialized As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setButtonType(Value As String)`
+- `getButtonType As String`
+- `setPiecePlace(Value As String)`
+- `getPiecePlace As String`
+- `setButtonPlace(Value As String)`
+- `getButtonPlace As String`
+- `setButtonPlaceAlignment(Value As String)`
+- `getButtonPlaceAlignment As String`
+- `setBoomType(Value As String)`
+- `getBoomType As String`
+- `setEaseType(Value As String)`
+- `getEaseType As String`
+- `setHideEaseType(Value As String)`
+- `getHideEaseType As String`
+- `setOrderType(Value As String)`
+- `getOrderType As String`
+- `setPieceColor(Value As Int)`
+- `getPieceColor As Int`
+- `setButtonColor(Value As Int)`
+- `getButtonColor As Int`
+- `setShadowLevel(Value As String)`
+- `getShadowLevel As String`
+- `setBackdropEnabled(Value As Boolean)`
+- `getBackdropEnabled As Boolean`
+- `setBackdropColor(Value As Int)`
+- `getBackdropColor As Int`
+- `setAutoBoom(Value As Boolean)`
+- `getAutoBoom As Boolean`
+- `setBoomDelay(Value As Int)`
+- `getBoomDelay As Int`
+- `setReboomDelay(Value As Int)`
+- `getReboomDelay As Int`
+- `setRotateTrigger(Value As Boolean)`
+- `getRotateTrigger As Boolean`
+- `setAutoCloseOnActionClick(Value As Boolean)`
+- `getAutoCloseOnActionClick As Boolean`
+- `setAutoCloseOnBackgroundClick(Value As Boolean)`
+- `getAutoCloseOnBackgroundClick As Boolean`
+- `setRotateButtons(Value As Boolean)`
+- `getRotateButtons As Boolean`
+- `setRotateDegree(Value As Int)`
+- `getRotateDegree As Int`
+- `setTriggerText(Value As String)`
+- `getTriggerText As String`
+- `setTriggerIconName(Value As String)`
+- `getTriggerIconName As String`
+- `setTriggerSizeDip(Value As Int)`
+- `getTriggerSizeDip As Int`
+- `setButtonSizeDip(Value As Int)`
+- `getButtonSizeDip As Int`
+- `setButtonGapDip(Value As Int)`
+- `getButtonGapDip As Int`
+- `setPieceSizeDip(Value As Int)`
+- `getPieceSizeDip As Int`
+- `setPieceCornerRadiusDip(Value As Int)`
+- `getPieceCornerRadiusDip As Int`
+- `setButtonCornerRadiusDip(Value As Int)`
+- `getButtonCornerRadiusDip As Int`
+- `setPieceHMarginDip(Value As Float)`
+- `getPieceHMarginDip As Float`
+- `setPieceVMarginDip(Value As Float)`
+- `getPieceVMarginDip As Float`
+- `setPieceIMarginDip(Value As Float)`
+- `getPieceIMarginDip As Float`
+- `setHamButtonWidthDip(Value As Int)`
+- `getHamButtonWidthDip As Int`
+- `setHamButtonHeightDip(Value As Int)`
+- `getHamButtonHeightDip As Int`
+- `setHamImageSizeDip(Value As Int)`
+- `getHamImageSizeDip As Int`
+- `setHamTitleSize(Value As Int)`
+- `getHamTitleSize As Int`
+- `setHamSubSize(Value As Int)`
+- `getHamSubSize As Int`
+- `GetState As String`
+- `GetButtonCount As Int`
+- `BuildRuntimeProps As Map`
+- `RemoveViewFromParent`
+- `Base_Resize(Width As Double, Height As Double)`
+- `boomtrigger_Click(Tag As Object)`
+- `boombutton_Click(Tag As Object)`
+- `boombtn_Click`
+- `boombackdrop_Click`
+- `View As B4XView`
+
+---
+
+## B4XDaisyBoomPathManager
+
+### Public Methods
+
+- `Initialize`
 
 ---
 
 ## B4XDaisyBoxModel
 
-### Events
-*(None)*
-
-### Designer Properties
-*(None)*
-
 ### Public Methods
-- `GetDefaultSpacingScaleAs Map`
+
+- `GetDefaultSpacingScale As Map`
 - `TailwindSpacingToDip(Value As Object, DefaultDip As Float) As Float`
-- `CreateDefaultModelAs Map`
+- `CreateDefaultModel As Map`
 - `ResolveLength(Value As Object, ParentSize As Float, DefaultDip As Float) As Float`
 - `ApplyPaddingUtility(Model As Map, Utility As String, IsRtl As Boolean) As Boolean`
 - `ApplyPaddingUtilities(Model As Map, Utilities As String, IsRtl As Boolean)`
@@ -705,23 +1227,24 @@ This document lists all available custom views, their event hooks, designer prop
 - `ApplyRadiusUtility(Model As Map, Utility As String, IsRtl As Boolean) As Boolean`
 - `ApplyRadiusUtilities(Model As Map, Utilities As String, IsRtl As Boolean)`
 - `GetCornerRadius(Model As Map, Corner As String, Fallback As Float) As Float`
-- `ResolveOuterRect(HostRect As B4XRect, Model As Map) As B4XRect`
-- `ResolveBorderRect(OuterRect As B4XRect, Model As Map) As B4XRect`
-- `ResolvePaddingRect(BorderRect As B4XRect, Model As Map) As B4XRect`
-- `ResolveContentRect(BorderRect As B4XRect, Model As Map) As B4XRect`
+- `ResolveOuterRect(rcHostRect As B4XRect, Model As Map) As B4XRect`
+- `ResolveBorderRect(rcOuterRect As B4XRect, Model As Map) As B4XRect`
+- `ResolvePaddingRect(rcBorderRect As B4XRect, Model As Map) As B4XRect`
+- `ResolveContentRect(rcBorderRect As B4XRect, Model As Map) As B4XRect`
 - `ExpandContentWidth(ContentWidth As Float, Model As Map) As Float`
 - `ExpandContentHeight(ContentHeight As Float, Model As Map) As Float`
-- `ToLocalRect(AbsoluteRect As B4XRect, OriginRect As B4XRect) As B4XRect`
-
+- `ToLocalRect(rcAbsoluteRect As B4XRect, rcOriginRect As B4XRect) As B4XRect`
 
 ---
 
 ## B4XDaisyBreadcrumbs
 
 ### Events
+
 - `ItemClick (ItemId As String)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables breadcrumb interaction. |
@@ -731,48 +1254,65 @@ This document lists all available custom views, their event hooks, designer prop
 | `RTL` | Boolean | `False` | Flips chevron direction for RTL languages. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `View As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
-- `GetComputedHeightAs Int`
-- `SetItems(Items As List)`
-- `getItemsAs List`
-- `ClearItems`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `SetItems(lstItems As List)`
+- `getItems As List`
+- `Clear`
 - `AddItem(Id As String, Text As String, IconPath As String, Clickable As Boolean)`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setCurrentIndex(Value As Int)`
-- `getCurrentIndexAs Int`
+- `getCurrentIndex As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `RemoveViewFromParent`
-
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `getRTL As Boolean`
+- `setRTL(Value As Boolean)`
 
 ---
 
 ## B4XDaisyButton
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Text` | String | `Button` | Button label. |
-| `Class` | String | `btn` | Daisy class tokens (for example: btn btn-primary btn-outline). |
 | `Variant` | String | `default` | Semantic color variant. |
 | `Style` | String | `solid` | Daisy button style. |
 | `Size` | String | `md` | Daisy button size token. |
 | `Rounded` | String | `theme` | Border radius token. |
 | `Padding` | String | `` | Tailwind padding utility tokens (For example: px-3 py-1). |
 | `Margin` | String | `` | Tailwind margin utility tokens. |
-| `Width` | String | `40px` | Tailwind/CSS width token (For example: auto, 40px, w-40, [12rem]). |
+| `Width` | String | `auto` | Tailwind/CSS width token (For example: auto, 40px, w-40, [12rem]). |
 | `Height` | String | `auto` | Tailwind/CSS height token (For example: auto, 40px, h-10, [3rem]). |
 | `IconName` | String | `` | SVG icon asset file name. |
 | `IconColor` | Color | `0x00FFFFFF` | Optional icon color override. |
@@ -787,77 +1327,109 @@ This document lists all available custom views, their event hooks, designer prop
 | `TextColor` | Color | `0x00FFFFFF` | Override text color. |
 | `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
 | `Visible` | Boolean | `True` | Show Or hide component. |
+| `TextAlignment` | String | `CENTER` | Horizontal alignment of button text. |
+| `Glass` | Boolean | `False` | Enable translucent glass background effect. |
+| `ButtonSizeDip` | Int | `0, MinRange: 0` | Explicit button extent in dip (circle/square/content height). 0 = auto from Size token. |
+| `IconSize` | Int | `0, MinRange: 0` | Explicit icon size in dip. 0 = auto from Size token. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetEstimateContentWidthAs Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `setGlass(Value As Boolean)`
+- `getGlass As Boolean`
+- `GetEstimateContentWidth As Int`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setClass(Value As String)`
-- `getClassAs String`
+- `getClass As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
+- `setButtonSizeDip(Value As Int)`
+- `getButtonSizeDip As Int`
+- `setIconSize(Value As Int)`
+- `getIconSize As Int`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setIconName(Value As String)`
-- `getIconNameAs String`
+- `getIconName As String`
 - `setIconColor(Value As Int)`
-- `getIconColorAs Int`
+- `getIconColor As Int`
 - `setWide(Value As Boolean)`
-- `getWideAs Boolean`
+- `getWide As Boolean`
 - `setBlock(Value As Boolean)`
-- `getBlockAs Boolean`
+- `getBlock As Boolean`
 - `setSquare(Value As Boolean)`
-- `getSquareAs Boolean`
+- `getSquare As Boolean`
 - `setCircle(Value As Boolean)`
-- `getCircleAs Boolean`
+- `getCircle As Boolean`
 - `setActive(Value As Boolean)`
-- `getActiveAs Boolean`
+- `getActive As Boolean`
 - `setDisabled(Value As Boolean)`
-- `getDisabledAs Boolean`
+- `getDisabled As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setLoading(Value As Boolean)`
-- `getLoadingAs Boolean`
+- `getLoading As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
+- `setTextAlignment(Value As String)`
+- `getTextAlignment As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getViewAs B4XView`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `View As B4XView`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `setFocus(Value As Boolean)`
-- `getIsFocusedAs Boolean`
+- `getIsFocused As Boolean`
 - `RequestFocus`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `Release`
 
+---
+
+## B4XDaisyButtonPlaceManager
+
+### Public Methods
+
+- `Initialize`
 
 ---
 
 ## B4XDaisyCanvasSpinner
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Size` | String | `100dip` | Width/height of the spinner (px, %, dip, etc). |
@@ -870,40 +1442,56 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Shows or hides the spinner. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `GetComputedHeightAs Int`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `GetComputedHeight As Int`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AttachTo(Target As B4XView) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Resize(Width As Int, Height As Int)`
-- `AddChild(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddChild(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `Show(Target As B4XView)`
 - `Hide`
-- `getVisibleAs Boolean`
-- `setVisible(b As Boolean)`
-- `getSizeAs String`
-- `setSize(s As String)`
-- `getColor1As Int`
-- `setColor1(c As Int)`
-- `getColor2As Int`
-- `setColor2(c As Int)`
-- `getColor3As Int`
-- `setColor3(c As Int)`
-- `getStrokeWidthAs Float`
-- `setStrokeWidth(s As Float)`
-- `getOverlayColorAs Int`
-- `setOverlayColor(c As Int)`
-- `getOverlayOpacityAs Float`
-- `setOverlayOpacity(o As Float)`
-
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getColor1 As Int`
+- `setColor1(C As Int)`
+- `getColor2 As Int`
+- `setColor2(C As Int)`
+- `getColor3 As Int`
+- `setColor3(C As Int)`
+- `getStrokeWidth As Float`
+- `setStrokeWidth(S As Float)`
+- `getOverlayColor As Int`
+- `setOverlayColor(C As Int)`
+- `getOverlayOpacity As Float`
+- `setOverlayOpacity(O As Float)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCard
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-full` | Card width token. |
@@ -925,47 +1513,51 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Show Or hide card. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
 - `setTop(Value As Int)`
-- `getFigureContainerAs B4XView`
-- `getCardBodyAs B4XView`
-- `getBodyPartContainerAs B4XView`
-- `getTitleContainerAs B4XView`
-- `getCardTitleAs B4XView`
-- `getCardActionsAs B4XView`
-- `getContainerAs B4XView`
-- `getBodyContainerAs B4XView`
-- `getTitleExtrasContainerAs B4XView`
-- `getActionsContainerAs B4XView`
+- `getFigureContainer As B4XView`
+- `getCardBody As B4XView`
+- `getBodyPartContainer As B4XView`
+- `getTitleContainer As B4XView`
+- `getCardTitle As B4XView`
+- `getCardActions As B4XView`
+- `getContainer As B4XView`
+- `getBodyContainer As B4XView`
+- `getTitleExtrasContainer As B4XView`
+- `getActionsContainer As B4XView`
 - `AddAction(btn As B4XDaisyButton)`
-- `getActionsCountAs Int`
+- `getActionsCount As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setImagePath(Value As String)`
 - `setImageWidth(Value As String)`
-- `getImageWidthAs String`
+- `getImageWidth As String`
 - `setImageHeight(Value As String)`
-- `getImageHeightAs String`
+- `getImageHeight As String`
 - `setImageClasses(Value As String)`
-- `getImageClassesAs String`
-- `SetImage(Image As B4XBitmap)`
+- `getImageClasses As String`
+- `SetImage(bmpImage As B4XBitmap)`
 - `ClearImage`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setStyle(Value As String)`
 - `setPlaceItemsCenter(Value As Boolean)`
-- `getPlaceItemsCenterAs Boolean`
+- `getPlaceItemsCenter As Boolean`
 - `ShowTitle`
 - `HideTitle`
 - `ShowActions`
@@ -973,27 +1565,32 @@ This document lists all available custom views, their event hooks, designer prop
 - `ShowImage`
 - `HideImage`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setLayoutMode(Value As String)`
 - `setRounded(Value As String)`
 - `setShadow(Value As String)`
 - `setVisible(Value As Boolean)`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColorVariant(VariantName As String)`
-
+- `getLeft As Int`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `BringToFront`
+- `SendToBack`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCardActions
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `GapDip` | Int | `8` | Gap between action items. |
@@ -1002,33 +1599,44 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Show Or hide actions. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `Relayout`
 - `setGapDip(Value As Int)`
-- `getGapDipAs Int`
+- `getGapDip As Int`
 - `setWrap(Value As Boolean)`
-- `getWrapAs Boolean`
+- `getWrap As Boolean`
 - `setJustify(Value As String)`
-- `getJustifyAs String`
+- `getJustify As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getContainerAs B4XView`
-
+- `getTag As Object`
+- `getContainer As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCardBody
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Size` | String | `md` | Body size token. |
@@ -1036,33 +1644,42 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Show or hide body container. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
-- `getPaddingDipAs Int`
-- `getGapDipAs Int`
-- `getBodyTextSizeAs Float`
+- `getVisible As Boolean`
+- `getPaddingDip As Int`
+- `getGapDip As Int`
+- `getBodyTextSize As Float`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getContainerAs B4XView`
-
+- `getTag As Object`
+- `getContainer As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCardTitle
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Text` | String | `Card Title` | Title text. |
@@ -1073,57 +1690,62 @@ This document lists all available custom views, their event hooks, designer prop
 | `Ellipsize` | String | `none` | Truncate with ellipsis when text overflows. |
 | `Visible` | Boolean | `True` | Show or hide title. |
 | `AutoResize` | Boolean | `True` | Automatically resize height to fit text and extra components. |
+| `TextColor` | Color | `0x00FFFFFF` | Override text color. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setCentered(Value As Boolean)`
-- `getCenteredAs Boolean`
+- `getCentered As Boolean`
 - `setGapDip(Value As Int)`
-- `getGapDipAs Int`
+- `getGapDip As Int`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setSingleLine(Value As Boolean)`
-- `getSingleLineAs Boolean`
+- `getSingleLine As Boolean`
 - `setEllipsize(Value As String)`
-- `getEllipsizeAs String`
-- `getTextSizeAs Float`
-- `getLabelAs B4XView`
-- `getExtrasContainerAs B4XView`
-- `getContainerAs B4XView`
+- `getEllipsize As String`
+- `getTextSize As Float`
+- `getLabel As B4XView`
+- `getExtrasContainer As B4XView`
+- `getContainer As B4XView`
 - `Relayout`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
-
+- `getAutoResize As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCarousel
 
 ### Events
+
 - `Click (Tag As Object)`
-- `PageChanged (Index As Int)`
+- `Changed (Index As Int)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Orientation` | String | `horizontal` | Carousel scroll orientation. |
 | `Snap` | String | `start` | Carousel snapping behavior. |
 | `Rounded` | String | `theme` | Corner radius variant. |
-| `RoundedBox` | Boolean | `False` | Apply the DaisyUI rounded-box semantic corner radius. Takes priority over the Rounded property when True. |
 | `Shadow` | String | `none` | Box shadow elevation level. |
 | `NavigationButtons` | Boolean | `False` | Show prev/next navigation buttons overlaid on the carousel. |
 | `IndicatorButtons` | Boolean | `False` | Show indicator dot buttons overlaid at the bottom of the carousel. |
@@ -1146,79 +1768,94 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddItem(Item As B4XDaisyCarouselItem)`
 - `RemoveItem(Item As B4XDaisyCarouselItem)`
-- `ClearItems`
+- `Clear`
 - `ScrollToItem(Index As Int)`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setOrientation(Value As String)`
-- `getSnapAs String`
+- `getSnap As String`
 - `setSnap(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRounded(Value As String)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `getItemGapAs Int`
+- `getItemGap As Int`
 - `setItemGap(Value As Int)`
-- `getGapAs String`
+- `getGap As String`
 - `setGap(Value As String)`
-- `getContentPaddingAs Int`
+- `getContentPadding As Int`
 - `setContentPadding(Value As Int)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setPadding(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setWidth(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setHeight(Value As String)`
-- `getBackgroundColorAs String`
+- `getBackgroundColor As String`
 - `setBackgroundColor(Value As String)`
-- `getNavigationButtonsAs Boolean`
+- `getNavigationButtons As Boolean`
 - `setNavigationButtons(Value As Boolean)`
-- `getIndicatorButtonsAs Boolean`
+- `getIndicatorButtons As Boolean`
 - `setIndicatorButtons(Value As Boolean)`
-- `getAutoPlayAs Boolean`
+- `getAutoPlay As Boolean`
 - `setAutoPlay(Value As Boolean)`
-- `getAutoPlayIntervalAs Int`
+- `getAutoPlayInterval As Int`
 - `setAutoPlayInterval(Value As Int)`
 - `StartAutoPlay`
 - `StopAutoPlay`
-- `getCurrentIndexAs Int`
-- `getVisibleAs Boolean`
+- `Pause`
+- `Resume`
+- `getCurrentIndex As Int`
+- `getVisible As Boolean`
 - `setVisible(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setRoundedBox(Value As Boolean)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setShadow(Value As String)`
-- `getIndicatorBackgroundColorAs Int`
+- `getIndicatorBackgroundColor As Int`
 - `setIndicatorBackgroundColor(Value As Int)`
-- `getIndicatorActiveColorAs Int`
+- `getIndicatorActiveColor As Int`
 - `setIndicatorActiveColor(Value As Int)`
-- `getIndicatorInactiveColorAs Int`
+- `getIndicatorInactiveColor As Int`
 - `setIndicatorInactiveColor(Value As Int)`
-- `getIndicatorDotSizeAs Int`
+- `getIndicatorDotSize As Int`
 - `setIndicatorDotSize(Value As Int)`
-- `getIndicatorDotGapAs Int`
+- `getIndicatorDotGap As Int`
 - `setIndicatorDotGap(Value As Int)`
-- `getIndicatorOffsetAs Int`
+- `getIndicatorOffset As Int`
 - `setIndicatorOffset(Value As Int)`
-- `GetComputedHeightAs Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCarouselItem
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `ItemType` | String | `image` | Type of content to display. |
@@ -1234,47 +1871,60 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getItemTypeAs String`
+- `getItemType As String`
 - `setItemType(Value As String)`
-- `getSourceAs String`
+- `getSource As String`
 - `setSource(Value As String)`
-- `getSnapAs String`
+- `getSnap As String`
 - `setSnap(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRounded(Value As String)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `getContainerAs B4XView`
-- `getWidthAs String`
+- `getContainer As B4XView`
+- `getWidth As String`
 - `setWidth(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setHeight(Value As String)`
-- `getImageWidthAs String`
+- `getImageWidth As String`
 - `setImageWidth(Value As String)`
-- `getImageHeightAs String`
+- `getImageHeight As String`
 - `setImageHeight(Value As String)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setVisible(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getImageResizeModeAs String`
+- `getImageResizeMode As String`
 - `setImageResizeMode(Value As String)`
-- `GetComputedHeightAs Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyChat
 
 ### Events
+
 - `AvatarClick (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `AvatarMask` | String | `squircle` | Mask shape used for message avatars |
@@ -1285,7 +1935,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `ToTextColor` | Color | `0xFF082F49` | Text color for incoming (to) bubbles |
 | `UseFromToColors` | Boolean | `True` | Use explicit from/to colors instead of theme defaults |
 | `Theme` | String | `light` | Theme preset used for default chat colors |
-| `DateTimeFormat` | String | `D` | Accepts Java DateFormat or flatpickr tokens (eg H:i, Y-m-d H:i) |
+| `DateTimeFormat` | String | `D, j M Y H:i` | Accepts Java DateFormat or flatpickr tokens (eg H:i, Y-m-d H:i) |
 | `UseTimeAgo` | Boolean | `False` | Show relative timestamps (for example, 5m ago) |
 | `ShowTimeAgoForToday` | Boolean | `True` | When enabled and UseTimeAgo is true, today's times show as time-ago while older dates use DateTimeFormat |
 | `VerticalGap` | Int | `8` | Vertical spacing in dip between message rows |
@@ -1295,21 +1945,24 @@ This document lists all available custom views, their event hooks, designer prop
 | `Margin` | String | `` | Tailwind/spacing margin utilities (eg m-2, mx-1.5, 1) |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `Resize(Width As Double, Height As Double)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView)`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `Clear`
-- `setConversations(Messages As List)`
+- `setConversations(lstMessages As List)`
 - `ClearConversations`
 - `AppendMessage(Message As Map) As String`
 - `AppendMessageAndScroll(Message As Map, Smooth As Boolean) As String`
@@ -1326,69 +1979,79 @@ This document lists all available custom views, their event hooks, designer prop
 - `UpdateMessage(Message As Map) As Boolean`
 - `UpdateHeaderById(BubbleId As String, HeaderName As String, HeaderTime As String) As Boolean`
 - `UpdateFooterById(BubbleId As String, FooterText As String) As Boolean`
-- `UpdateAvatarById(BubbleId As String, AvatarBitmap As B4XBitmap) As Boolean`
+- `UpdateAvatarById(BubbleId As String, bmpAvatarBitmap As B4XBitmap) As Boolean`
 - `UpdateOnlineStatusById(BubbleId As String, Status As String, OnlineColor As Int) As Boolean`
 - `ReplaceMessageById(BubbleId As String, Message As Map) As Boolean`
 - `DeleteMessageById(BubbleId As String) As Boolean`
 - `AddMessage(Message As Map, ScrollTo As Boolean) As String`
-- `LoadAvatarFilesFromAssets(Files As List)`
-- `setAvatarFiles(Files As List)`
-- `getAvatarFilesAs List`
+- `LoadAvatarFilesFromAssets(lstFiles As List)`
+- `setAvatarFiles(lstFiles As List)`
+- `getAvatarFiles As List`
 - `RandomAvatarFileOrBlank(BlankPct As Int) As String`
-- `RandomAvatarStatusAs String`
+- `RandomAvatarStatus As String`
 - `setBubbleAvatarStatusById(BubbleId As String, Mode As String)`
-- `getBubbleIdsAs List`
+- `getBubbleIds As List`
 - `setAvatarMask(Mask As String)`
-- `getAvatarMaskAs String`
+- `getAvatarMask As String`
 - `setMask(Mask As String)`
 - `setAvatarSize(Size As Int)`
-- `getAvatarSizeAs Int`
+- `getAvatarSize As Int`
 - `setFromBackgroundColor(Color As Int)`
-- `getFromBackgroundColorAs Int`
+- `getFromBackgroundColor As Int`
 - `setFromTextColor(Color As Int)`
-- `getFromTextColorAs Int`
+- `getFromTextColor As Int`
 - `setToBackgroundColor(Color As Int)`
-- `getToBackgroundColorAs Int`
+- `getToBackgroundColor As Int`
 - `setToTextColor(Color As Int)`
-- `getToTextColorAs Int`
+- `getToTextColor As Int`
 - `setFromToColors(FromBack As Int, FromText As Int, ToBack As Int, ToText As Int)`
 - `setUseFromToColors(Enabled As Boolean)`
-- `getUseFromToColorsAs Boolean`
+- `getUseFromToColors As Boolean`
 - `setTheme(Name As String)`
-- `getThemeAs String`
+- `getTheme As String`
 - `setDateTimeFormat(Value As String)`
-- `getDateTimeFormatAs String`
+- `getDateTimeFormat As String`
 - `setUseTimeAgo(Enabled As Boolean)`
-- `getUseTimeAgoAs Boolean`
+- `getUseTimeAgo As Boolean`
 - `setShowTimeAgoForToday(Enabled As Boolean)`
-- `getShowTimeAgoForTodayAs Boolean`
+- `getShowTimeAgoForToday As Boolean`
 - `RegisterTheme(Name As String, PaletteMap As Map)`
-- `getPaletteAs Map`
+- `getPalette As Map`
 - `CreateVariant(BackColor As Int, TextColor As Int) As Map`
 - `ShowOnline(Enabled As Boolean)`
 - `setOnlineStatusColors(OnlineColor As Int, OfflineColor As Int)`
-- `getOnlineStatusColorAs Int`
-- `getOfflineStatusColorAs Int`
+- `getOnlineStatusColor As Int`
+- `getOfflineStatusColor As Int`
 - `setVerticalGap(Gap As Int)`
-- `getVerticalGapAs Int`
+- `getVerticalGap As Int`
 - `setWidth(Value As Int)`
-- `getWidthAs Int`
+- `getWidth As Int`
 - `setHeight(Value As Int)`
-- `getHeightAs Int`
+- `getHeight As Int`
 - `setSize(Width As Int, Height As Int)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyChatBubble
 
 ### Events
+
 - `AvatarClick (Payload As Object)`
 - `BubbleClick (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `AvatarMask` | String | `squircle` | Mask shape used for the bubble avatar |
@@ -1409,95 +2072,112 @@ This document lists all available custom views, their event hooks, designer prop
 | `Margin` | String | `` | Tailwind/spacing margin utilities (eg m-2, mx-1.5, 1) |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView)`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setId(Value As String)`
-- `getIdAs String`
+- `getId As String`
 - `setFromId(Value As String)`
-- `getFromIdAs String`
-- `GetUsedHeightAs Int`
-- `setSide(s As String)`
-- `getSideAs String`
-- `setVariant(v As String)`
-- `getVariantAs String`
+- `getFromId As String`
+- `GetUsedHeight As Int`
+- `setSide(Value As String)`
+- `getSide As String`
+- `setVariant(V As String)`
+- `getVariant As String`
 - `setBubbleStyle(StyleName As String)`
 - `SetOutline(Enabled As Boolean, Color As Int, Width As Float)`
-- `getBubbleStyleAs String`
-- `setMaxWidthPercent(p As Float)`
-- `getMaxWidthPercentAs Float`
+- `getBubbleStyle As String`
+- `setMaxWidthPercent(P As Float)`
+- `getMaxWidthPercent As Float`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
-- `SetAvatarVisible(b As Boolean)`
-- `SetAvatarBitmap(bmp As B4XBitmap, Tag As Object)`
+- `getMargin As String`
+- `SetAvatarVisible(Value As Boolean)`
+- `SetAvatarBitmap(bmpBmp As B4XBitmap, Tag As Object)`
 - `SetAvatarStatus(Mode As String)`
 - `SetAvatarStatusColors(OnlineColor As Int, OfflineColor As Int)`
-- `GetAvatarOnlineColorAs Int`
-- `GetAvatarOfflineColorAs Int`
+- `GetAvatarOnlineColor As Int`
+- `GetAvatarOfflineColor As Int`
 - `SetAvatarBorder(Color As Int, Width As Float)`
 - `SetAvatarBorderInset(Inset As Float)`
 - `setAvatarMask(MaskName As String)`
-- `getAvatarMaskAs String`
+- `getAvatarMask As String`
 - `SetGlobalMask(MaskName As String)`
 - `setAvatarSize(Size As Float)`
 - `SetAvatarWidth(Width As Float)`
 - `SetAvatarHeight(Height As Float)`
-- `GetAvatarWidthAs Float`
-- `GetAvatarHeightAs Float`
-- `getAvatarSizeAs Float`
+- `GetAvatarWidth As Float`
+- `GetAvatarHeight As Float`
+- `getAvatarSize As Float`
 - `setShowOnline(Show As Boolean)`
-- `getShowOnlineAs Boolean`
+- `getShowOnline As Boolean`
 - `setFromBackgroundColor(Color As Int)`
-- `getFromBackgroundColorAs Int`
+- `getFromBackgroundColor As Int`
 - `setFromTextColor(Color As Int)`
-- `getFromTextColorAs Int`
+- `getFromTextColor As Int`
 - `setToBackgroundColor(Color As Int)`
-- `getToBackgroundColorAs Int`
+- `getToBackgroundColor As Int`
 - `setToTextColor(Color As Int)`
-- `getToTextColorAs Int`
+- `getToTextColor As Int`
 - `SetFromToColors(FromBack As Int, FromText As Int, ToBack As Int, ToText As Int)`
 - `setUseFromToColors(Enabled As Boolean)`
-- `getUseFromToColorsAs Boolean`
+- `getUseFromToColors As Boolean`
 - `SetVariantPalette(Palette As Map)`
-- `GetVariantPaletteAs Map`
+- `GetVariantPalette As Map`
 - `SetColors(BackOverride As Int, TextOverride As Int, MutedOverride As Int)`
 - `SetHeader(Text As String)`
 - `SetHeaderTime(Text As String)`
 - `SetHeaderParts(NameText As String, TimeText As String)`
-- `SetHeaderVisible(b As Boolean)`
-- `SetHeaderNameVisible(b As Boolean)`
-- `SetHeaderTimeVisible(b As Boolean)`
+- `SetHeaderVisible(Value As Boolean)`
+- `SetHeaderNameVisible(Value As Boolean)`
+- `SetHeaderTimeVisible(Value As Boolean)`
 - `SetFooter(Text As String)`
-- `SetFooterVisible(b As Boolean)`
+- `SetFooterVisible(Value As Boolean)`
 - `SetMessage(Text As String)`
-- `SetBubbleVisible(b As Boolean)`
+- `SetBubbleVisible(Value As Boolean)`
 - `SetDebugBorders(Enabled As Boolean)`
-- `GetDebugBordersAs Boolean`
+- `GetDebugBorders As Boolean`
 - `SetStatus(Mode As String, ExtraText As String)`
-- `SetImage(bmp As B4XBitmap, MaxHeight As Int)`
-- `SetCustomContent(v As B4XView)`
+- `SetImage(bmpBmp As B4XBitmap, MaxHeight As Int)`
+- `SetCustomContent(View As B4XView)`
 - `SetContentAll(Header As String, Body As String, Footer As String, SideNow As String, VariantNow As String)`
 - `MeasureHeight(AvailableWidth As Int) As Int`
 - `RaiseBubbleClick(Tag As Object)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyCheckbox
 
 ### Events
+
 - `Checked (Checked As Boolean)`
 - `Click (Tag As Object)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `GroupName` | String | `` | Checkbox group name. |
@@ -1511,90 +2191,122 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 | `Visible` | Boolean | `True` | Visible state. |
 | `Shadow` | String | `none` | Elevation shadow level. |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override label text color. |
 | `CheckedBackgroundColor` | Color | `0x00FFFFFF` | Override checked background color. |
 | `CheckedBorderColor` | Color | `0x00FFFFFF` | Override checked border color. |
 | `CheckedTextColor` | Color | `0x00FFFFFF` | Override checked checkmark/text color. |
+| `Multiline` | Boolean | `False` | Enable multi-line label text wrapping. |
+| `LineSpacing` | Int | `0` | Extra space added between lines in pixels. |
+| `LineSpacingMult` | Double | `1.0` | Line spacing multiplier. |
+| `Required` | Boolean | `False` | Set field as required. |
+| `ErrorText` | String | `` | Message displayed when field validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setChecked(Value As Boolean)`
-- `getCheckedAs Boolean`
+- `getChecked As Boolean`
 - `setValue(Value As String)`
-- `getValueAs String`
+- `getValue As String`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
-- `getRoleAs String`
+- `getGroupName As String`
+- `getRole As String`
 - `setIndeterminate(Value As Boolean)`
-- `getIndeterminateAs Boolean`
+- `getIndeterminate As Boolean`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
+- `setTextCS(Value As Object)`
+- `getTextCS As Object`
+- `setMultiline(Value As Boolean)`
+- `getMultiline As Boolean`
+- `setLineSpacing(Extra As Float)`
+- `getLineSpacing As Float`
+- `setLineSpacingMult(Value As Float)`
+- `getLineSpacingMult As Float`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setPosition(Value As String)`
-- `getPositionAs String`
+- `getPosition As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
-- `getIsValidAs Boolean`
+- `getErrorText As String`
+- `getIsValid As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `ValidateAs Boolean`
+- `Validate As Boolean`
 - `setBackgroundColor(Color As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBorderColor(Color As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setTextColor(Color As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setCheckedBackgroundColor(Color As Int)`
-- `getCheckedBackgroundColorAs Int`
+- `getCheckedBackgroundColor As Int`
 - `setCheckedBorderColor(Color As Int)`
-- `getCheckedBorderColorAs Int`
+- `getCheckedBorderColor As Int`
 - `setCheckedTextColor(Color As Int)`
-- `getCheckedTextColorAs Int`
+- `getCheckedTextColor As Int`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getComputedHeightAs Int`
+- `View As B4XView`
+- `getComputedHeight As Int`
 - `RequestFocus`
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RemoveViewFromParent`
 - `Release`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyCheckboxGroup
 
 ### Events
+
 - `ItemChanged (id As String, text As String, checked As Boolean)`
 - `Changed (SelectedIds As List)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Legend` | String | `Select options` | Fieldset legend text |
 | `LegendSize` | String | `theme` | Legend text size token |
 | `LegendBold` | Boolean | `False` | Render the fieldset legend caption in bold |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
 | `Variant` | String | `none` | Optional accent variant for border tint |
 | `BorderStyle` | String | `outlined` | Border visual style |
 | `Padding` | Int | `16` | Inner content padding in dip |
 | `AutoHeight` | Boolean | `True` | Automatically grow to fit added content |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use box radius for container |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
 | `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
@@ -1612,98 +2324,117 @@ This document lists all available custom views, their event hooks, designer prop
 | `ErrorText` | String | `` | Error text displayed below the group when validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `AddItem(Id As String, Text As String)`
 - `RemoveItem(Id As String)`
-- `ClearItems`
+- `Clear`
 - `setItems(Items As Map)`
-- `getItemsAs Map`
+- `getItems As Map`
 - `setChecked(CheckedIds As String)`
-- `getCheckedAs String`
+- `getChecked As String`
 - `SetItemChecked(Id As String, Checked As Boolean)`
 - `CheckItem(Id As String)`
 - `UncheckItem(Id As String)`
 - `IsItemChecked(Id As String) As Boolean`
 - `setLegend(Value As String)`
-- `getLegendAs String`
+- `getLegend As String`
 - `setLegendSize(Value As String)`
-- `getLegendSizeAs String`
+- `getLegendSize As String`
 - `setLegendBold(Value As Boolean)`
-- `getLegendBoldAs Boolean`
+- `getLegendBold As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setAlignment(Value As String)`
-- `getAlignmentAs String`
+- `getAlignment As String`
 - `setCheckboxColor(Value As String)`
-- `getCheckboxColorAs String`
+- `getCheckboxColor As String`
 - `setCheckboxSize(Value As String)`
-- `getCheckboxSizeAs String`
+- `getCheckboxSize As String`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setRowGap(Value As Int)`
-- `getRowGapAs Int`
+- `getRowGap As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
-- `getRequiredAs Boolean`
+- `getHintText As String`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `ReceiveFocus`
 - `Blur`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
-- `isRoundedAs Boolean`
+- `getRounded As String`
+- `isRounded As Boolean`
 - `setRoundedBox(Value As Boolean)`
-- `isRoundedBoxAs Boolean`
+- `isRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setInputBorder(Value As Boolean)`
-- `getInputBorderAs Boolean`
-- `GetComputedHeightAs Int`
+- `getInputBorder As Boolean`
+- `GetComputedHeight As Int`
 - `Release`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyCollapse
 
 ### Events
+
 - `Click (Tag As Object)`
 - `StateChanged (Open As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `Open` | Boolean | `False` | Initial expanded state. |
+| `Opened` | Boolean | `False` | Initial expanded state. |
 | `Icon` | String | `none` | Expansion indicator icon. |
 | `Variant` | String | `none` | Semantic variant. |
 | `Rounded` | String | `theme` | Radius mode. |
@@ -1723,69 +2454,80 @@ This document lists all available custom views, their event hooks, designer prop
 | `GroupName` | String | `` | Join multiple collapses into an accordion group. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setOpened(Value As Boolean)`
 - `setOpen(Value As Boolean)`
-- `getOpenAs Boolean`
+- `getOpened As Boolean`
+- `getOpen As Boolean`
 - `Toggle`
 - `setIcon(Value As String)`
-- `getIconAs String`
+- `getIcon As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTitleText(Value As String)`
-- `getTitleTextAs String`
+- `getTitleText As String`
 - `setTitleVariant(Value As String)`
-- `getTitleVariantAs String`
+- `getTitleVariant As String`
 - `setTitleSize(Value As String)`
-- `getTitleSizeAs String`
+- `getTitleSize As String`
 - `setTitleBackgroundColor(Value As Int)`
-- `getTitleBackgroundColorAs Int`
+- `getTitleBackgroundColor As Int`
 - `setTitleTextColor(Value As Int)`
-- `getTitleTextColorAs Int`
+- `getTitleTextColor As Int`
 - `setTitleIconName(Value As String)`
-- `getTitleIconNameAs String`
+- `getTitleIconName As String`
 - `setTitleColor(Value As Int)`
-- `getTitleColorAs Int`
+- `getTitleColor As Int`
 - `setTitleIconColor(Value As Int)`
-- `getTitleIconColorAs Int`
+- `getTitleIconColor As Int`
 - `RefreshContent`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setBorderWidth(Value As String)`
-- `getBorderWidthAs String`
+- `getBorderWidth As String`
 - `setBorderColor(Value As String)`
-- `getBorderColorAs String`
+- `getBorderColor As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setIconPosition(Value As String)`
-- `getIconPositionAs String`
+- `getIconPosition As String`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
+- `getGroupName As String`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `CollapseTitleAs B4XDaisyCollapseTitle`
-- `CollapseContentAs B4XDaisyCollapseContent`
-- `getContentViewAs B4XView`
-
+- `CollapseTitle As B4XDaisyCollapseTitle`
+- `CollapseContent As B4XDaisyCollapseContent`
+- `getContentView As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCollapseContent
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `BackgroundColor` | Color | `0x00000000` | Explicit background color override (0 uses parent/theme). |
@@ -1794,31 +2536,42 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoResize` | Boolean | `True` | Automatically resize height to fit child views. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `Relayout`
-- `getContainerAs B4XView`
+- `getContainer As B4XView`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
-
+- `getAutoResize As Boolean`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyCollapseTitle
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Text` | String | `Collapse Title` | Title text. |
@@ -1826,150 +2579,310 @@ This document lists all available custom views, their event hooks, designer prop
 | `BackgroundColor` | Color | `0x00000000` | Explicit background color override (0 uses parent/theme). |
 | `TextColor` | Color | `0x00000000` | Explicit text color override (0 uses theme token). |
 | `IconName` | String | `` | SVG asset filename shown on the left (e.g. home-solid.svg). |
-| `Variant` | String | `none` | Semantic color variant � overrides background and text colors. |
+| `Variant` | String | `none` | Semantic color variant - overrides background and text colors. |
 | `IconColor` | Color | `0x00000000` | Override icon color independently (0 = follow text color). |
 | `Visible` | Boolean | `True` | Show or hide title. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setIconName(Value As String)`
-- `getIconNameAs String`
+- `getIconName As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setIconColor(Value As Int)`
-- `getIconColorAs Int`
+- `getIconColor As Int`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
+---
+
+## B4XDaisyColorWheel
+
+### Events
+
+- `Changed (Color As Int)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `InitialColor` | Color | `0xFFEF4444` | The starting color of the wheel. |
+| `WheelThickness` | Int | `24` | Thickness of the Hue ring in dip. |
+| `HandleSize` | Int | `24` | The diameter of the draggable knobs in dip. |
+| `Shadow` | String | `md` | Shadow elevation for handles. |
+| `WheelReflectsSaturation` | Boolean | `False` | If true, the hue ring colors reflect the selected saturation. |
+| `ShowColorIndicator` | Boolean | `True` | Shows internal selected color indicator block at the bottom. |
+| `CenterOnParent` | Boolean | `False` | If true, centers the color wheel inside its parent layout. |
+| `Visible` | Boolean | `True` | Visible state. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `getColor As Int`
+- `setColor(NewColor As Int)`
+- `setHSV3(Hue As Float, Saturation As Float, Value As Float)`
+- `getHex As String`
+- `setHex(HexStr As String)`
+- `getWheelDiameter As Int`
+- `setWheelDiameter(Diameter As Int)`
+- `getWheelReflectsSaturation As Boolean`
+- `setWheelReflectsSaturation(Value As Boolean)`
+- `setShowColorIndicator(Value As Boolean)`
+- `getShowColorIndicator As Boolean`
+- `setIndicatorHeight(HeightDip As Int)`
+- `getIndicatorHeight As Int`
+- `setInitialColor(Value As Int)`
+- `getInitialColor As Int`
+- `View As B4XView`
+- `setTag(Value As Object)`
+- `setWheelThickness(Thickness As Int)`
+- `setCenterOnParent(Value As Boolean)`
+- `getCenterOnParent As Boolean`
+- `getWheelThickness As Int`
+- `setHandleSize(Size As Int)`
+- `getHandleSize As Int`
+- `setHandleDiameter(Size As Int)`
+- `getHandleDiameter As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `AttachTo(Target As B4XView)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `getShadow As String`
+- `setShadow(Value As String)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `Release`
 
 ---
 
 ## B4XDaisyCountdown
 
-### Events
-- `Click (Tag As Object)`
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Orientation` | String | `horizontal` | Layout orientation for the segments. |
 | `Gap` | String | `gap-2` | Spacing between segments. |
+| `AutoWidth` | Boolean | `True` | If true, all countdown elements will have the same width matching the longest item. |
 | `BackgroundColor` | String | `transparent` | Background color for the container. |
 | `Border` | Boolean | `False` | Show a border around the container (standard base-300 border). |
-| `Rounded` | String | `none` | Corner radius token applied to the container and child items. |
-| `Shadow` | String | `none` | Shadow effect applied to child items. |
+| `Rounded` | String | `rounded-md` | Corner radius token applied to the container and child items. |
+| `Shadow` | String | `shadow-md` | Shadow effect applied to child items. |
 | `Padding` | String | `p-0` | Inner padding for the container. |
+| `CountDownType` | String | `default` | 'default' = items added manually with AddItem; 'auto' = items auto-generated from Format tokens. |
+| `Format` | String | `` | Display format with tokens like {d}:{h}:{m}:{s} (d=days, h=hours, m=minutes, s=seconds). Used when CountDownType=auto. |
+| `TargetDate` | String | `2026-12-31` | Target date/time as a date string (e.g. "2026-12-31" or "2026-12-31 23:59:59") or ticks (Long). |
+| `AutoStart` | Boolean | `True` | Start the countdown timer automatically when the view is created. |
+| `Labels` | String | `` | Pipe-delimited labels for auto mode (e.g. "days|hours|minutes|seconds"). |
+| `LabelPosition` | String | `none` | Where to place labels relative to the number. 'none' hides labels. |
+| `TextSize` | String | `md` | Typography size token for all child items. |
+| `Variant` | String | `none` | DaisyUI semantic color variant for all child items. |
+| `Outline` | Boolean | `False` | If true, child items will have an outline. |
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Refresh`
 - `AddItem(Item As B4XDaisyCountdownItem)`
-- `getViewAs B4XView`
-- `getIsInitializedAs Boolean`
+- `View As B4XView`
+- `getIsInitialized As Boolean`
 - `RemoveItem(Item As B4XDaisyCountdownItem)`
-- `ClearItems`
+- `Clear`
+- `getItem(Index As Int) As B4XDaisyCountdownItem`
+- `getItemsCount As Int`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setOrientation(Value As String)`
-- `getGapAs String`
+- `getGap As String`
 - `setGap(Value As String)`
-- `getBackgroundColorAs String`
+- `getAutoWidth As Boolean`
+- `setAutoWidth(Value As Boolean)`
+- `getBackgroundColor As String`
 - `setBackgroundColor(Value As String)`
-- `getBorderAs Boolean`
+- `getBorder As Boolean`
 - `setBorder(Value As Boolean)`
-- `getPaddingAs String`
+- `getCountDownType As String`
+- `setCountDownType(T As String)`
+- `getFormat As String`
+- `setFormat(F As String)`
+- `getPadding As String`
 - `setPadding(Value As String)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `setTargetDate(Value As String)`
+- `getTargetDate As String`
+- `setAutoStart(Value As Boolean)`
+- `getAutoStart As Boolean`
+- `setLabels(Value As String)`
+- `getLabels As String`
+- `setLabelPosition(Value As String)`
+- `getLabelPosition As String`
+- `setTextSize(Value As String)`
+- `getTextSize As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `getOutline As Boolean`
+- `setOutline(Value As Boolean)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Start`
+- `Stop`
+- `IsRunning As Boolean`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyCountdownItem
 
-### Events
-- `Click (Tag As Object)`
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Value` | Int | `0` | Current numeric value (0-999). |
 | `Digits` | Int | `1` | Minimum number of digits to display. |
 | `Label` | String | `` | Text label for this segment (e.g. days, hours). |
-| `LabelPosition` | String | `RIGHT` | Where to place the label relative to the number. |
-| `Separator` | String | `` | Optional separator string (e.g. ":") shown after the number. |
-| `TextSize` | String | `text-base` | Typography size token. |
+| `LabelPosition` | String | `none` | Where to place the label relative to the number. 'none' hides labels. |
+| `TextSize` | String | `md` | Typography size token. |
 | `Variant` | String | `none` | DaisyUI semantic color variant. |
+| `Outline` | Boolean | `False` | If true, the item will have an outline. |
+| `Duration` | Int | `350` | Animation duration in milliseconds (0 = instant). |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Refresh`
+- `getRequiredWidth As Int`
+- `getTargetWidth As Int`
+- `setTargetWidth(Value As Int)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getIsInitializedAs Boolean`
-- `getValueAs Int`
+- `View As B4XView`
+- `getIsInitialized As Boolean`
+- `getValue As Int`
 - `setValue(Value As Int)`
-- `getDigitsAs Int`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Milliseconds As Int)`
+- `getDuration As Int`
+- `getDigits As Int`
 - `setDigits(Value As Int)`
-- `getLabelAs String`
+- `getLabel As String`
 - `setLabel(Value As String)`
-- `getLabelPositionAs String`
+- `getLabelPosition As String`
 - `setLabelPosition(Value As String)`
-- `getSeparatorAs String`
-- `setSeparator(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setTextSize(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
+- `getStyle As String`
+- `setStyle(Value As String)`
 - `setVariant(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRounded(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setShadow(Value As String)`
+- `getOutline As Boolean`
+- `setOutline(Value As Boolean)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyDashboard
 
 ### Events
-- `ButtonClick (ButtonId As String, ButtonDef As Map)`
-- `PageChanged (PageIndex As Int, PageCount As Int)`
+
+- `ButtonClick (ButtonId As String)`
+- `Changed (PageIndex As Int, PageCount As Int)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `RowsPerPage` | Int | `6` | Number of grid rows per page. |
 | `ColumnsPerPage` | Int | `4` | Number of grid columns per page when Auto Grid is False. |
 | `AutoGrid` | Boolean | `False` | Automatically calculate rows and columns from available size. |
 | `MinCellWidth` | Int | `72` | Minimum tile width in dip used by Auto Grid. |
-| `MinCellHeight` | Int | `100` | Minimum tile height in dip used by Auto Grid. |
-| `PagePadding` | Int | `16` | Outer page padding in dip. |
-| `CellSpacing` | Int | `12` | Spacing between grid cells horizontally in dip. |
+| `MinCellHeight` | Int | `96` | Minimum tile height in dip used by Auto Grid. |
+| `PagePadding` | Int | `12` | Outer page padding in dip. |
+| `CellSpacing` | Int | `6` | Spacing between grid cells horizontally in dip. |
 | `CellSpacingY` | Int | `0` | Spacing between grid cells vertically in dip. |
 | `ActiveIndicatorColor` | Color | `0xFF3B82F6` | Active page indicator color. |
 | `InactiveIndicatorColor` | Color | `0x553B82F6` | Inactive page indicator color. |
@@ -1980,12 +2893,15 @@ This document lists all available custom views, their event hooks, designer prop
 | `Height` | String | `100%` | Dashboard height relative to parent. Examples: 100%, 600dip, 300. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Resize(Width As Int, Height As Int)`
 - `AddToParent(Parent As B4XView)`
-- `IsReadyAs Boolean`
-- `SetButtons(NewButtons As List)`
+- `IsReady As Boolean`
+- `SetButtons(lstNewButtons As List)`
 - `AddButton(Id As String, Label As String, ImagePath As String, SvgPath As String)`
 - `AddButtonWithImagePath(Id As String, Label As String, FullImagePath As String) As Boolean`
 - `AddButtonWithSvgPath(Id As String, Label As String, FullSvgPath As String) As Boolean`
@@ -1996,54 +2912,68 @@ This document lists all available custom views, their event hooks, designer prop
 - `UpdateButtonBadge(ButtonId As String, NewBadgeValue As Object) As Boolean`
 - `UpdateButtonValue(ButtonId As String, Key As String, Value As Object) As Boolean`
 - `ClearButtons`
-- `getButtonCountAs Int`
-- `getButtonsPerPageAs Int`
-- `getPageCountAs Int`
-- `getCurrentPageAs Int`
+- `Clear`
+- `AddItem(Id As String, Label As String, Image As String)`
+- `Refresh(SortAsc As Boolean)`
+- `SortByTitleAsc`
+- `SortByTitleDesc`
+- `getButtonCount As Int`
+- `getButtonsPerPage As Int`
+- `getPageCount As Int`
+- `getCurrentPage As Int`
 - `SetCurrentPage(Index As Int)`
 - `setRowsPerPage(Value As Int)`
-- `getRowsPerPageAs Int`
+- `getRowsPerPage As Int`
 - `setColumnsPerPage(Value As Int)`
-- `getColumnsPerPageAs Int`
+- `getColumnsPerPage As Int`
 - `setAutoGrid(Value As Boolean)`
-- `getAutoGridAs Boolean`
+- `getAutoGrid As Boolean`
 - `setMinCellWidth(Value As Int)`
-- `getMinCellWidthAs Float`
+- `getMinCellWidth As Float`
 - `setMinCellHeight(Value As Int)`
-- `getMinCellHeightAs Float`
+- `getMinCellHeight As Float`
 - `setPagePadding(Value As Int)`
-- `getPagePaddingAs Float`
+- `getPagePadding As Float`
 - `setCellSpacing(Value As Int)`
-- `getCellSpacingAs Float`
+- `getCellSpacingY As Float`
+- `setCellSpacingY(Value As Int)`
+- `getCellSpacing As Float`
 - `setGridTopOffset(Value As Int)`
-- `getGridTopOffsetAs Float`
+- `getGridTopOffset As Float`
 - `setActiveIndicatorColor(Value As Int)`
-- `getActiveIndicatorColorAs Int`
+- `getActiveIndicatorColor As Int`
 - `setActiveIndicatorColorVariant(VariantName As String)`
 - `setInactiveIndicatorColor(Value As Int)`
-- `getInactiveIndicatorColorAs Int`
+- `getInactiveIndicatorColor As Int`
 - `setInactiveIndicatorColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setWidth(Value As Object)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As Object)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setBackgroundImage(Path As String)`
-- `getBackgroundImageAs String`
-- `GetComputedHeightAs Int`
+- `getBackgroundImage As String`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyDiff
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-full` | Width token or CSS size (for example w-full, 80%, 320px). |
@@ -2064,65 +2994,73 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
+- `Refresh`
+- `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getItem1ViewAs B4XView`
-- `getItem2ViewAs B4XView`
-- `setItem1(View As B4XView)`
-- `setItem2(View As B4XView)`
+- `View As B4XView`
+- `getItem1View As B4XView`
+- `getItem2View As B4XView`
+- `setItem1(AView As B4XView)`
+- `setItem2(AView As B4XView)`
 - `setPosition(Value As Float)`
-- `getPositionAs Float`
+- `getPosition As Float`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setDiffType(Value As String)`
-- `getDiffTypeAs String`
+- `getDiffType As String`
 - `setImage1(Value As String)`
-- `getImage1As String`
+- `getImage1 As String`
 - `setImage2(Value As String)`
-- `getImage2As String`
+- `getImage2 As String`
 - `setText1(Value As String)`
-- `getText1As String`
+- `getText1 As String`
 - `setText2(Value As String)`
-- `getText2As String`
+- `getText2 As String`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setText1Color(Value As String)`
-- `getText1ColorAs String`
+- `getText1Color As String`
 - `setText2Color(Value As String)`
-- `getText2ColorAs String`
+- `getText2Color As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
-- `GetComputedHeightAs Int`
+- `getTop As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyDivider
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `` | Optional width token (Tailwind/CSS). Leave empty for direction-based auto sizing. |
@@ -2142,63 +3080,69 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Show or hide divider. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setPlacement(Value As String)`
-- `getPlacementAs String`
+- `getPlacement As String`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setGap(Value As Object)`
-- `getGapAs Float`
+- `getGap As Float`
 - `setLineThickness(Value As Object)`
-- `getLineThicknessAs Float`
+- `getLineThickness As Float`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColorVariant(VariantName As String)`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setDebugBorders(Value As Boolean)`
-- `getDebugBordersAs Boolean`
+- `getDebugBorders As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
-- `GetComputedHeightAs Int`
-- `GetActualHeightAs Int`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
 - `RemoveViewFromParent`
-
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyDivision
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-10` | Tailwind size token or CSS size (eg w-12, 80px, 4em, 5rem) |
@@ -2209,7 +3153,6 @@ This document lists all available custom views, their event hooks, designer prop
 | `TextColor` | Color | `0xFF000000` | Color of the text content. |
 | `TextSize` | String | `text-sm` | Number in dip or Tailwind token (eg 12, text-sm, text-lg). |
 | `Text` | String | `` | Text to display in the container. |
-| `RoundedBox` | Boolean | `False` | Apply 16px rounded corners. |
 | `Rounded` | String | `none` | Border radius utility. |
 | `Shadow` | String | `none` | Shadow depth (elevation). |
 | `PlaceContentCenter` | Boolean | `False` | Center content horizontally and vertically. |
@@ -2223,74 +3166,94 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoResize` | Boolean | `False` | Automatically resize height to fit content. Text-only divisions grow like a paragraph (height:auto). Divisions with child views fit the bottom-most child. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `StartAnimation`
 - `StopAnimation`
 - `setWidth(Value As Object)`
-- `getWidthAs Object`
+- `getWidth As Object`
 - `setHeight(Value As Object)`
-- `getHeightAs Object`
+- `getHeight As Object`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setBackgroundColor(Color As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Color As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setTextSize(Value As Object)`
-- `getTextSizeAs Float`
+- `getTextSize As Float`
 - `setText(Text As String)`
-- `getTextAs String`
+- `getText As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setPlaceContentCenter(Value As Boolean)`
-- `getPlaceContentCenterAs Boolean`
+- `getPlaceContentCenter As Boolean`
 - `setBorderWidth(Value As Int)`
-- `getBorderWidthAs Int`
+- `getBorderWidth As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderColorVariant(VariantName As String)`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setBorderReliefStrength(Value As Int)`
-- `getBorderReliefStrengthAs Int`
+- `getBorderReliefStrength As Int`
 - `setAutoReliefByStyle(Value As Boolean)`
-- `getAutoReliefByStyleAs Boolean`
+- `getAutoReliefByStyle As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setIsSkeleton(Value As Boolean)`
-- `getIsSkeletonAs Boolean`
+- `getIsSkeleton As Boolean`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
-- `GetComputedHeightAs Int`
+- `getAutoResize As Boolean`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyDock
 
+### Types
+
+- `TDockItem (Id As String, Text As String, SvgAsset As String, Variant As String, Enabled As Boolean, Tag As Object, BadgeValue As String, BadgeVariant As String)`
+
 ### Events
+
 - `ItemClick (ItemId As String)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Size` | String | `md` | Daisy dock size token. |
+| `BadgeSize` | String | `auto` | Badge circle size. 'auto' follows the dock Size token; otherwise use an explicit badge size. |
 | `ActiveIndex` | Int | `1` | Zero-based active item index. Use -1 for no active item. |
+| `ActivePosition` | String | `bottom` | Active indicator position (bottom or top). |
+| `Glass` | Boolean | `False` | Enable translucent glass background. |
 | `BackgroundColor` | Color | `0x00000000` | Dock background color (0 = theme base-100). |
 | `TextColor` | Color | `0x00000000` | Dock text/icon color (0 = theme base-content). |
 | `Shadow` | String | `none` | Elevation shadow level. |
@@ -2301,8 +3264,10 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Show or hide the dock. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddItem(Id As String, Text As String, SvgAssetFile As String) As Int`
 - `AddItemWithVariant(Id As String, Text As String, SvgAssetFile As String, VariantName As String) As Int`
 - `ClearItems`
@@ -2310,44 +3275,205 @@ This document lists all available custom views, their event hooks, designer prop
 - `SetItemTag(ItemId As String, TagValue As Object)`
 - `SetItemEnabledByIndex(Index As Int, Value As Boolean)`
 - `SetItemEnabled(ItemId As String, Value As Boolean)`
+- `SetItemBadgeValueByIndex(Index As Int, Value As String)`
+- `SetItemBadgeValue(ItemId As String, Value As String)`
+- `SetItemBadgeColorByIndex(Index As Int, VariantName As String)`
+- `SetItemBadgeColor(ItemId As String, VariantName As String)`
+- `SetItemBadgeIncrementByIndex(Index As Int, Amount As Int)`
+- `SetItemBadgeIncrement(ItemId As String, Amount As Int)`
+- `SetItemBadgeDecrementByIndex(Index As Int, Amount As Int)`
+- `SetItemBadgeDecrement(ItemId As String, Amount As Int)`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `RemoveViewFromParent`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
+- `setBadgeSize(Value As String)`
+- `getBadgeSize As String`
 - `setActiveIndex(Value As Int)`
-- `getActiveIndexAs Int`
+- `getActiveIndex As Int`
+- `setActivePosition(Value As String)`
+- `getActivePosition As String`
+- `setGlass(Value As Boolean)`
+- `getGlass As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisyDrawer
+
+### Events
+
+- `Closed`
+- `Opened`
+- `CloseClick (Tag As Object)`
+- `StateChanged (Open As Boolean)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Enabled` | Boolean | `True` | Enables or disables user interaction. |
+| `Visible` | Boolean | `True` | Shows or hides the drawer container. |
+| `Opened` | Boolean | `False` | Initial open state of the primary drawer sidebar. |
+| `AlwaysOpen` | Boolean | `False` | Forces sidebar to remain permanently open alongside content (drawer-open). |
+| `Side` | String | `left` | Position of the drawer sidebar (left, right, or dual/both). |
+| `LeftSideWidth` | String | `300dip` | Custom width for left drawer sidebar. |
+| `RightSideWidth` | String | `300dip` | Custom width for right drawer sidebar. |
+| `CollapseWidth` | String | `60dip` | Custom width for sidebar in collapsed rail mode (e.g. 60dip, w-14, 3.5rem). |
+| `NormalWidth` | String | `300dip` | Custom width for sidebar in expanded/normal mode. |
+| `IsCollapsed` | Boolean | `False` | When True, the drawer left side width is set to CollapseWidth; otherwise NormalWidth. |
+| `RailWidth` | String | `60dip` | Custom width for sidebar in collapsed rail mode (e.g. 60dip, w-14, 3.5rem). |
+| `RailMode` | Boolean | `False` | Collapses drawer sidebar into compact navigation rail mode. |
+| `GestureEnabled` | Boolean | `True` | Enables swipe gesture detection from edges. |
+| `LeftSideBackgroundColor` | String | `base-200` | Background color variant of the left sidebar panel. |
+| `RightSideBackgroundColor` | String | `base-200` | Background color variant of the right sidebar panel. |
+| `ContentBackgroundColor` | String | `none` | Background color variant of the content panel. |
+| `OverlayColor` | Color | `0xFF000000` | Base RGB color of the backdrop overlay surface. Alpha channel is adjusted by OverlayOpacity. |
+| `OverlayOpacity` | Int | `40, MinRange: 0, MaxRange: 100` | Opacity percentage for the backdrop overlay. |
+| `Rounded` | String | `rounded-box` | Corner radius token for the sidebar. |
+| `Shadow` | String | `lg` | Elevation shadow applied to the sidebar. |
+| `Padding` | String | `p-4` | Padding token for the sidebar content. |
+| `Animated` | Boolean | `True` | Enables smooth slide and fade transitions. |
+| `Duration` | Int | `300, MinRange: 0, MaxRange: 2000` | Animation duration in milliseconds. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CenterPanel As B4XView`
+- `LeftPanel As B4XView`
+- `RightPanel As B4XView`
+- `DarkPanel As B4XView`
+- `AddToCenter(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddToLeft(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddToRight(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `ClearCenter`
+- `ClearLeft`
+- `ClearRight`
+- `getLeftOpen As Boolean`
+- `setLeftOpen(Value As Boolean)`
+- `OpenLeft`
+- `CloseLeft`
+- `getRightOpen As Boolean`
+- `setRightOpen(Value As Boolean)`
+- `OpenRight`
+- `CloseRight`
+- `Open`
+- `Close`
+- `Toggle`
+- `getIsOpen As Boolean`
+- `setIsOpen(Value As Boolean)`
+- `SetSideWidthAnimated(Width As Float, Smooth As Boolean)`
+- `setSideWidth(Value As String)`
+- `getSideWidth As String`
+- `setLeftSideWidth(Value As String)`
+- `getLeftSideWidth As String`
+- `setRightSideWidth(Value As String)`
+- `getRightSideWidth As String`
+- `setCollapseWidth(Value As String)`
+- `getCollapseWidth As String`
+- `setRailWidth(Value As String)`
+- `getRailWidth As String`
+- `setNormalWidth(Value As String)`
+- `getNormalWidth As String`
+- `setIsCollapsed(Value As Boolean)`
+- `getIsCollapsed As Boolean`
+- `setCollapsed(Value As Boolean)`
+- `getCollapsed As Boolean`
+- `getGestureEnabled As Boolean`
+- `setGestureEnabled(Value As Boolean)`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setAlwaysOpen(Value As Boolean)`
+- `getAlwaysOpen As Boolean`
+- `setSide(Value As String)`
+- `getSide As String`
+- `setLeftSideBackgroundColor(Value As String)`
+- `getLeftSideBackgroundColor As String`
+- `setRightSideBackgroundColor(Value As String)`
+- `getRightSideBackgroundColor As String`
+- `setSideBackgroundColor(Value As String)`
+- `getSideBackgroundColor As String`
+- `setContentBackgroundColor(Value As String)`
+- `getContentBackgroundColor As String`
+- `setOverlayColor(Value As Object)`
+- `getOverlayColor As Int`
+- `setOverlayOpacity(Value As Int)`
+- `getOverlayOpacity As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setBackgroundColorVariant(Value As String)`
+- `getBackgroundColorVariant As String`
+- `setTextColorVariant(Value As String)`
+- `getTextColorVariant As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `CreateView(Parent As B4XView, Tag As Object) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Int, Height As Int)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `RemoveViewFromParent`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
 
 ---
 
 ## B4XDaisyDropdown
 
 ### Events
+
 - `Click (Tag As Object)`
 - `ItemClick (Tag As Object, Text As String)`
 - `SubmenuToggle (Tag As Object, IsOpen As Boolean)`
@@ -2355,11 +3481,12 @@ This document lists all available custom views, their event hooks, designer prop
 - `Closed`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables dropdown interactions. |
 | `Visible` | Boolean | `True` | Shows or hides the dropdown. |
-| `Open` | Boolean | `False` | Initial open state. |
+| `Opened` | Boolean | `False` | Initial open state. |
 | `Placement` | String | `start` | Alignment of the popup relative to the trigger. Default start keeps the popup left edge aligned with the target for top/bottom dropdowns. |
 | `Direction` | String | `bottom` | Direction used when opening the dropdown. Together with Placement=start, the default behavior is bottom-left on the target unless changed. |
 | `HoverOpen` | Boolean | `False` | Hover-style mode. On B4A this falls back to click behavior. |
@@ -2374,20 +3501,24 @@ This document lists all available custom views, their event hooks, designer prop
 | `MenuTextColor` | Color | `0x00000000` | Optional popup menu text color override. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `Open`
 - `Close`
 - `Toggle`
 - `AddTitle(Text As String) As Int`
-- `AddDividerAs Int`
+- `AddDivider As Int`
 - `AddItem(TagValue As Object, Text As String) As Int`
 - `AddIconItem(TagValue As Object, Text As String, IconName As String) As Int`
 - `AddBadgeItem(TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
 - `AddIconBadgeItem(TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
 - `AddSubmenu(TagValue As Object, Text As String, InitiallyOpen As Boolean) As B4XDaisyMenu`
 - `SetItemDisabled(TagValue As Object, Value As Boolean)`
-- `getMenuAs B4XDaisyMenu`
+- `getMenu As B4XDaisyMenu`
 - `SetItemActive(TagValue As Object, Value As Boolean)`
 - `SetItemText(TagValue As Object, Value As String)`
 - `SetItemIcon(TagValue As Object, IconName As String)`
@@ -2397,63 +3528,229 @@ This document lists all available custom views, their event hooks, designer prop
 - `SetItemBadgeText(TagValue As Object, Value As String)`
 - `SetItemBadgeBackgroundColor(TagValue As Object, Color As Int)`
 - `SetItemBadgeTextColor(TagValue As Object, Color As Int)`
-- `GetPreferredWidthAs Int`
-- `GetPreferredHeightAs Int`
-- `GetPreferredMenuWidthAs Int`
-- `GetPreferredMenuHeightAs Int`
+- `GetPreferredWidth As Int`
+- `GetPreferredHeight As Int`
+- `GetPreferredMenuWidth As Int`
+- `GetPreferredMenuHeight As Int`
 - `AttachTo(Target As B4XView) As B4XView`
 - `Detach`
 - `UpdateTheme`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
-- `setOpen(Value As Boolean)`
-- `getOpenAs Boolean`
+- `getVisible As Boolean`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
 - `setPlacement(Value As String)`
-- `getPlacementAs String`
+- `getPlacement As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setHoverOpen(Value As Boolean)`
-- `getHoverOpenAs Boolean`
+- `getHoverOpen As Boolean`
 - `setForceOpen(Value As Boolean)`
-- `getForceOpenAs Boolean`
+- `getForceOpen As Boolean`
 - `setForceClose(Value As Boolean)`
-- `getForceCloseAs Boolean`
+- `getForceClose As Boolean`
 - `setAnchorTarget(Value As B4XView)`
-- `getAnchorTargetAs B4XView`
-- `getAttachedModeAs Boolean`
+- `getAnchorTarget As B4XView`
+- `getAttachedMode As Boolean`
 - `setMenuWidth(Value As String)`
-- `getMenuWidthAs String`
+- `getMenuWidth As String`
 - `setMenuPadding(Value As String)`
-- `getMenuPaddingAs String`
+- `getMenuPadding As String`
 - `setMenuRounded(Value As String)`
-- `getMenuRoundedAs String`
+- `getMenuRounded As String`
 - `setMenuShadow(Value As String)`
-- `getMenuShadowAs String`
+- `getMenuShadow As String`
 - `setBringToFront(Value As Boolean)`
-- `getBringToFrontAs Boolean`
+- `getBringToFront As Boolean`
 - `setMenuBackgroundColor(Value As Int)`
-- `getMenuBackgroundColorAs Int`
+- `getMenuBackgroundColor As Int`
 - `setMenuTextColor(Value As Int)`
-- `getMenuTextColorAs Int`
+- `getMenuTextColor As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
 
+---
+
+## B4XDaisyDualRange
+
+### Events
+
+- `Changed (LowerValue As Int, UpperValue As Int)`
+- `FocusChanged (HasFocus As Boolean)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `MinValue` | Int | `0` | Minimum slider value. |
+| `MaxValue` | Int | `100` | Maximum slider value. |
+| `LowerValue` | Int | `20` | Lower handle current value. |
+| `UpperValue` | Int | `80` | Upper handle current value. |
+| `StepValue` | Int | `1` | Step increment (0 for continuous). |
+| `MinDistance` | Int | `0` | Minimum distance between lower and upper handles. |
+| `Size` | String | `md` | Size variant. |
+| `Variant` | String | `none` | Color variant. |
+| `TrackColor` | Color | `0` | Custom track background color. |
+| `ProgressColor` | Color | `0` | Custom progress fill color. |
+| `ThumbColor` | Color | `0` | Custom thumb knob color. |
+| `Enabled` | Boolean | `True` | Enabled state. |
+| `ShowFill` | Boolean | `True` | Show progress fill between lower and upper thumb positions. |
+| `RTL` | Boolean | `False` | Right-to-left progress direction. |
+| `Visible` | Boolean | `True` | Visible state. |
+| `DisallowParentIntercept` | Boolean | `True` | Prevent parent scroll containers from stealing touch gestures on Android. |
+| `Required` | Boolean | `False` | Whether the range values must be selected. |
+| `LabelAbove` | String | `` | Label text displayed above the range slider. |
+| `LabelVisible` | Boolean | `False` | Whether the label above is visible. |
+| `HintText` | String | `` | Helper text displayed below the range slider. |
+| `ErrorText` | String | `` | Text displayed below the range slider when in the error validation state. |
+| `ShowValue` | Boolean | `True` | Show a right-aligned live value readout above the slider. |
+| `ValuePrefix` | String | `` | Text shown before values (e.g. $). |
+| `ValueSuffix` | String | `` | Text shown after values (e.g. %, px, s). |
+| `ValueSeparator` | String | `" - "` | Separator string between lower and upper values in readout. |
+| `IconLeft` | String | `` | Left-side SVG icon asset name. |
+| `IconRight` | String | `` | Right-side SVG icon asset name. |
+| `IconSize` | Int | `0` | Icon size in dip. 0 = auto-scale based on Size. |
+| `ShowTooltip` | Boolean | `False` | Show tooltips with current values above the thumbs. |
+| `TooltipPosition` | String | `top` | Tooltip position relative to the thumbs. |
+| `TooltipOpen` | Boolean | `False` | When True, tooltips stay permanently visible. When False, tooltips show transiently during drag. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setMinValue(Value As Int)`
+- `getMinValue As Int`
+- `setMaxValue(Value As Int)`
+- `getMaxValue As Int`
+- `setLowerValue(Value As Int)`
+- `getLowerValue As Int`
+- `setValue1(Value As Int)`
+- `getValue1 As Int`
+- `setUpperValue(Value As Int)`
+- `getUpperValue As Int`
+- `setValue2(Value As Int)`
+- `getValue2 As Int`
+- `setValues(LowerVal As Int, UpperVal As Int)`
+- `setValue(Value As Int)`
+- `getValue As Int`
+- `setStepValue(Value As Int)`
+- `getStepValue As Int`
+- `setMinDistance(Value As Int)`
+- `getMinDistance As Int`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setShowFill(Value As Boolean)`
+- `getShowFill As Boolean`
+- `setTrackColor(Value As Int)`
+- `getTrackColor As Int`
+- `setProgressColor(Value As Int)`
+- `getProgressColor As Int`
+- `setThumbColor(Value As Int)`
+- `getThumbColor As Int`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setShowValue(Value As Boolean)`
+- `getShowValue As Boolean`
+- `setValuePrefix(Value As String)`
+- `getValuePrefix As String`
+- `setValueSuffix(Value As String)`
+- `getValueSuffix As String`
+- `setValueSeparator(Value As String)`
+- `getValueSeparator As String`
+- `setIconLeft(Value As String)`
+- `getIconLeft As String`
+- `setIconRight(Value As String)`
+- `getIconRight As String`
+- `setIconSize(Value As Int)`
+- `getIconSize As Int`
+- `setShowTooltip(Value As Boolean)`
+- `getShowTooltip As Boolean`
+- `setTooltipPosition(Value As String)`
+- `getTooltipPosition As String`
+- `setTooltipOpen(Value As Boolean)`
+- `getTooltipOpen As Boolean`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getRole As String`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `getComputedHeight As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `RequestFocus`
+- `setFocus(Value As Boolean)`
+- `ReceiveFocus`
+- `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `getIsValid As Boolean`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `Validate As Boolean`
+- `StopAnimation`
+- `RemoveViewFromParent`
+- `Release`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+
+---
+
+## B4XDaisyEnjoyHint
+
+### Types
+
+- `EnjoyHintStep (TargetView As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ShowNext As Boolean, ShowSkip As Boolean, ShowPrev As Boolean, CloseOnOverlay As Boolean, ExplicitLeft As Int, ExplicitTop As Int, ExplicitRight As Int, ExplicitBottom As Int, PositionMode As String, ShadowColor As Int, Opacity As Float, ArrowPosition As String)`
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String, Root As B4XView)`
+- `AddStep(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ArrowPosition As String)`
+- `AddStep2(Target As B4XView, Message As String, Shape As String, Margin As Int, TimeoutMs As Int, ShowNext As Boolean, ShowSkip As Boolean, ShowPrev As Boolean, CloseOnOverlay As Boolean, ExplicitLeft As Int, ExplicitTop As Int, ExplicitRight As Int, ExplicitBottom As Int, PositionMode As String, ShadowColor As Int, Opacity As Float, ArrowPosition As String)`
+- `RunWithResume`
+- `EndTour`
+- `Recalc`
 
 ---
 
 ## B4XDaisyFab
 
 ### Events
+
 - `Click (Tag As Object)`
 - `ActionClick (Index As Int, Tag As Object)`
 - `MainActionClick (Tag As Object)`
@@ -2462,11 +3759,12 @@ This document lists all available custom views, their event hooks, designer prop
 - `Closed`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enable or disable the FAB. |
 | `Visible` | Boolean | `True` | Show or hide the FAB. |
-| `Open` | Boolean | `False` | Initial open state. |
+| `Opened` | Boolean | `False` | Initial open state. |
 | `PlacementMode` | String | `fixed` | How the FAB is positioned. |
 | `Placement` | String | `bottom-end` | Fixed placement preset. |
 | `AnchorAlignment` | String | `start` | Horizontal alignment used with anchored placement. |
@@ -2491,10 +3789,18 @@ This document lists all available custom views, their event hooks, designer prop
 | `CloseActionText` | String | `X` | Close action button text. |
 | `CloseActionVariant` | String | `error` | Close action variant. |
 | `CloseActionIconName` | String | `` | Optional close action icon. |
+| `TriggerSizeDip` | Int | `56, MinRange: 0` | Explicit trigger button extent in dip. 0 = use TriggerSize token. |
+| `TriggerIconSize` | Int | `24, MinRange: 0` | Explicit trigger icon size in dip. 0 = auto from size token. |
+| `ChildActionSizeDip` | Int | `40, MinRange: 0` | Explicit child action button extent in dip. 0 = use ChildActionSize token. |
+| `ChildActionIconSize` | Int | `20, MinRange: 0` | Explicit child action icon size in dip. 0 = auto from size token. |
+| `Duration` | Int | `300, MinRange: 0, MaxRange: 2000` | Duration in milliseconds for trigger and action button transition animations (0 = instant). |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Refresh`
 - `UpdateTheme`
 - `Open`
 - `Close`
@@ -2508,86 +3814,101 @@ This document lists all available custom views, their event hooks, designer prop
 - `GetActionButtonView(Index As Int) As B4XView`
 - `SetActionVisible(Index As Int, Value As Boolean)`
 - `setAnchorTarget(Value As B4XView)`
-- `getAnchorTargetAs B4XView`
+- `getAnchorTarget As B4XView`
 - `setAnchorAlignment(Value As String)`
-- `getAnchorAlignmentAs String`
+- `getAnchorAlignment As String`
 - `setAnchorView(Value As B4XView)`
-- `getAnchorViewAs B4XView`
+- `getAnchorView As B4XView`
 - `setOverlayHost(Value As B4XView)`
-- `getOverlayHostAs B4XView`
+- `getOverlayHost As B4XView`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `Resize(Width As Double, Height As Double)`
 - `BringToFront`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
-- `setOpen(Value As Boolean)`
-- `getOpenAs Boolean`
+- `getVisible As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
+- `IsOpen As Boolean`
 - `setPlacementMode(Value As String)`
-- `getPlacementModeAs String`
+- `getPlacementMode As String`
 - `setPlacement(Value As String)`
-- `getPlacementAs String`
+- `getPlacement As String`
 - `setOnEdge(Value As Boolean)`
-- `getOnEdgeAs Boolean`
+- `getOnEdge As Boolean`
 - `setOpenMode(Value As String)`
-- `getOpenModeAs String`
+- `getOpenMode As String`
 - `setLayoutMode(Value As String)`
-- `getLayoutModeAs String`
+- `getLayoutMode As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setBackdropEnabled(Value As Boolean)`
-- `getBackdropEnabledAs Boolean`
+- `getBackdropEnabled As Boolean`
 - `setAutoCloseOnActionClick(Value As Boolean)`
-- `getAutoCloseOnActionClickAs Boolean`
+- `getAutoCloseOnActionClick As Boolean`
 - `setTriggerText(Value As String)`
-- `getTriggerTextAs String`
+- `getTriggerText As String`
 - `setTriggerVariant(Value As String)`
-- `getTriggerVariantAs String`
+- `getTriggerVariant As String`
 - `setTriggerStyle(Value As String)`
-- `getTriggerStyleAs String`
+- `getTriggerStyle As String`
 - `setTriggerSize(Value As String)`
-- `getTriggerSizeAs String`
+- `getTriggerSize As String`
 - `setChildActionSize(Value As String)`
-- `getChildActionSizeAs String`
+- `getChildActionSize As String`
+- `setTriggerSizeDip(Value As Int)`
+- `getTriggerSizeDip As Int`
+- `setTriggerIconSize(Value As Int)`
+- `getTriggerIconSize As Int`
+- `setChildActionSizeDip(Value As Int)`
+- `getChildActionSizeDip As Int`
+- `setChildActionIconSize(Value As Int)`
+- `getChildActionIconSize As Int`
 - `setTriggerIconName(Value As String)`
-- `getTriggerIconNameAs String`
+- `getTriggerIconName As String`
 - `setTriggerCircle(Value As Boolean)`
-- `getTriggerCircleAs Boolean`
+- `getTriggerCircle As Boolean`
 - `setUseMainAction(Value As Boolean)`
-- `getUseMainActionAs Boolean`
+- `getUseMainAction As Boolean`
 - `setMainActionText(Value As String)`
-- `getMainActionTextAs String`
+- `getMainActionText As String`
 - `setMainActionVariant(Value As String)`
-- `getMainActionVariantAs String`
+- `getMainActionVariant As String`
 - `setMainActionIconName(Value As String)`
-- `getMainActionIconNameAs String`
+- `getMainActionIconName As String`
 - `setUseCloseAction(Value As Boolean)`
-- `getUseCloseActionAs Boolean`
+- `getUseCloseAction As Boolean`
 - `setCloseActionText(Value As String)`
-- `getCloseActionTextAs String`
+- `getCloseActionText As String`
 - `setCloseActionVariant(Value As String)`
-- `getCloseActionVariantAs String`
+- `getCloseActionVariant As String`
 - `setCloseActionIconName(Value As String)`
-- `getCloseActionIconNameAs String`
-- `GetComputedHeightAs Int`
+- `getCloseActionIconName As String`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `Base_Resize(Width As Double, Height As Double)`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyFieldset
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Legend` | String | `Legend Caption` | Caption text shown in the fieldset header |
@@ -2598,90 +3919,118 @@ This document lists all available custom views, their event hooks, designer prop
 | `Padding` | Int | `16` | Inner content padding in dip (p-4) |
 | `AutoHeight` | Boolean | `False` | Automatically grow to fit added content |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use box radius for container |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
 | `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
 | `BorderColor` | Color | `0x00000000` | Border color override (0 = default border-base-300) |
 | `BorderSize` | Int | `1` | Border width in dip |
 | `InputBorder` | Boolean | `False` | When True, apply B4XDaisyInput border color and width to the fieldset |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
+| `Required` | Boolean | `False` | Adds a red star * to the Legend/Label when LabelAbove = True |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `ApplyDesignerProps(Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `setLegend(l As String)`
-- `getLegendAs String`
-- `setLegendSize(s As String)`
-- `getLegendSizeAs String`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setLegend(L As String)`
+- `getLegend As String`
+- `setLegendSize(Value As String)`
+- `getLegendSize As String`
 - `setLegendBold(Value As Boolean)`
-- `getLegendBoldAs Boolean`
-- `setVariant(v As String)`
-- `getVariantAs String`
-- `setBorderStyle(s As String)`
-- `getBorderStyleAs String`
+- `getLegendBold As Boolean`
+- `setVariant(V As String)`
+- `getVariant As String`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `setBackgroundColor(Value As Object)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Object)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Object)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setInputBorder(Value As Boolean)`
-- `getInputBorderAs Boolean`
+- `getInputBorder As Boolean`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
-- `isRoundedAs Boolean`
-- `setRoundedBox(b As Boolean)`
-- `isRoundedBoxAs Boolean`
-- `setShadow(s As String)`
-- `getShadowAs String`
-- `GetContentPanelAs B4XView`
-- `AddContentView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `getRounded As String`
+- `isRounded As Boolean`
+- `setRoundedBox(Value As Boolean)`
+- `isRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `GetContentPanel As B4XView`
+- `AddContentView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `ClearContent`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `GetComputedHeightAs Int`
+- `Refresh`
+- `BeginUpdate`
+- `EndUpdate`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `Release`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyFileHandler
 
-### Events
-*(None)*
+### Types
 
-### Designer Properties
-*(None)*
+- `LoadResult (Success As Boolean, Dir As String, FileName As String, RealName As String, Size As Long, Modified As Long, MimeType As String, Image As B4XBitmap)`
 
 ### Public Methods
+
 - `Initialize`
+- `DeleteTemporaryFiles`
 - `SaveAs(Source As InputStream, MimeType As String, Title As String) As ResumableSub`
-- `LoadAs ResumableSub`
-- `CheckForReceivedFilesAs LoadResult`
+- `Load As ResumableSub`
+- `LoadWithFilter(MimeType As String, Title As String) As ResumableSub`
+- `RecordAudio As ResumableSub`
+- `CheckForReceivedFiles As LoadResult`
 - `SaveAs(ParentPage As Object, AnchorView As Object, Text As String) As ResumableSub`
 - `Load(ParentPage As Object, AnchorView As Object) As ResumableSub`
-- `UrlToLoadResult(url As String) As LoadResult`
-
+- `UrlToLoadResult(Url As String) As LoadResult`
 
 ---
 
 ## B4XDaisyFileInput
 
 ### Events
+
 - `Click (Tag As Object)`
 - `FileSelected (FileName As String)`
-- `Cancelled ()`
+- `Cancelled`
 - `FocusChanged (HasFocus As Boolean)`
 - `AppendClick`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `ButtonText` | String | `Choose file` | Label shown on the file selector button (maps to CSS ::file-selector-button text). |
@@ -2713,213 +4062,237 @@ This document lists all available custom views, their event hooks, designer prop
 | `AppendIcon` | String | `` | SVG icon asset filename to display on the right end of the file input (e.g. x-solid-full.svg). |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setAppendIcon(Value As String)`
-- `getAppendIconAs String`
+- `getAppendIcon As String`
 - `setButtonText(Value As String)`
-- `getButtonTextAs String`
+- `getButtonText As String`
 - `setAccept(Value As String)`
-- `getAcceptAs String`
+- `getAccept As String`
 - `setFileDate(Value As Long)`
-- `getFileDateAs Long`
+- `getFileDate As Long`
 - `setFileSize(Value As Long)`
-- `getFileSizeAs Long`
+- `getFileSize As Long`
 - `setFileBase64(Value As String)`
-- `getFileBase64As String`
+- `getFileBase64 As String`
 - `setMimeType(Value As String)`
-- `getMimeTypeAs String`
+- `getMimeType As String`
 - `setMaxSize(Value As Int)`
-- `getMaxSizeAs Int`
-- `getExceedsSizeAs Boolean`
-- `getFileInputStreamAs InputStream`
-- `getFileBytesAs Byte()`
-- `GetBitmapAs B4XBitmap`
-- `getExtensionAs String`
-- `getIsImageAs Boolean`
-- `getIsVideoAs Boolean`
-- `getIsPDFAs Boolean`
-- `getIsExcelAs Boolean`
-- `getIsWordAs Boolean`
+- `getMaxSize As Int`
+- `getExceedsSize As Boolean`
+- `getFileInputStream As InputStream`
+- `GetBitmap As B4XBitmap`
+- `getExtension As String`
+- `getIsImage As Boolean`
+- `getIsVideo As Boolean`
+- `getIsPDF As Boolean`
+- `getIsExcel As Boolean`
+- `getIsWord As Boolean`
 - `setPlaceholder(Value As String)`
-- `getPlaceholderAs String`
+- `getPlaceholder As String`
 - `setFileName(Value As String)`
-- `getFileNameAs String`
+- `getFileName As String`
 - `setLabelAbove(Value As String)`
-- `getLabelAboveAs String`
+- `getLabelAbove As String`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
+- `getHintText As String`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getRequired As Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setRadius(Value As String)`
-- `getRadiusAs String`
+- `getRadius As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setPlaceholderColor(Value As Int)`
-- `getPlaceholderColorAs Int`
+- `getPlaceholderColor As Int`
 - `setButtonColor(Value As Int)`
-- `getButtonColorAs Int`
+- `getButtonColor As Int`
 - `setButtonTextColor(Value As Int)`
-- `getButtonTextColorAs Int`
+- `getButtonTextColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setTypeface(Value As String)`
-- `getTypefaceAs String`
+- `getTypeface As String`
 - `setGravity(Value As String)`
-- `getGravityAs String`
+- `getGravity As String`
 - `setAlpha(Value As Float)`
-- `getAlphaAs Float`
+- `getAlpha As Float`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getViewAs B4XView`
+- `getTag As Object`
+- `View As B4XView`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
 - `setTop(Value As Int)`
 - `RemoveViewFromParent`
 - `Release`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RequestFocus`
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
 - `Clear`
-
+- `getLeft As Int`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyFilter
 
 ### Events
+
 - `ResetClick`
 - `Changed (Keys As List)`
 - `ItemChanged (Id As String, Text As String, Checked As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables or disables the component. |
 | `Visible` | Boolean | `True` | Shows or hides the component. |
-| `Options` | String | `svelte:Svelte` | Comma-separated or pipe-separated key:value pairs. |
+| `Options` | String | `svelte:Svelte, vue:Vue, react:React` | Comma-separated or pipe-separated key:value pairs. |
 | `ActiveKey` | String | `` | Key of the active option. |
 | `Rounded` | String | `theme` | Corner radius option. |
 | `Variant` | String | `none` | Daisy color variant. |
 | `FilterStyle` | String | `solid` | Styling of choices. |
 | `Size` | String | `md` | Sizing variant. |
 | `ResetPosition` | String | `left` | Position of the reset button. |
-| `ResetText` | String | `×` | Text for the reset button. |
+| `ResetText` | String | `x` | Text for the reset button. |
+| `CloseType` | String | `icon` | Display mode for the close/reset button. |
+| `CloseIcon` | String | `close.svg` | SVG icon for the close/reset button when CloseType is icon. |
 | `MultiSelect` | Boolean | `False` | Allow multiple selection like checkboxes. |
 | `Orientation` | String | `horizontal` | Layout orientation. |
-| `AnimationDuration` | Int | `200` | Layout transition duration in milliseconds (0 to disable). |
+| `Duration` | Int | `300` | Layout transition duration in milliseconds (0 to disable). |
 | `Width` | String | `w-full` | Sizing width token. |
 | `Height` | String | `h-auto` | Sizing height token. |
 | `Padding` | String | `` | Spacing padding token. |
 | `Margin` | String | `` | Spacing margin token. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setOptions(Value As String)`
-- `getOptionsAs String`
+- `getOptions As String`
 - `setActiveKey(Value As String)`
-- `getActiveKeyAs String`
+- `getActiveKey As String`
 - `setOptionsMap(Value As Map)`
-- `getOptionsMapAs Map`
-- `setOptionsList(Value As List)`
-- `getOptionsListAs List`
+- `getOptionsMap As Map`
+- `setOptionsList(lstValue As List)`
+- `getOptionsList As List`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setFilterStyle(Value As String)`
-- `getFilterStyleAs String`
+- `getFilterStyle As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setResetPosition(Value As String)`
-- `getResetPositionAs String`
+- `getResetPosition As String`
 - `setResetText(Value As String)`
-- `getResetTextAs String`
+- `getResetText As String`
+- `setCloseType(Value As String)`
+- `getCloseType As String`
+- `setCloseIcon(Value As String)`
+- `getCloseIcon As String`
 - `setMultiSelect(Value As Boolean)`
-- `getMultiSelectAs Boolean`
+- `getMultiSelect As Boolean`
 - `setOrientation(Value As String)`
-- `getOrientationAs String`
-- `setAnimationDuration(Value As Int)`
-- `getAnimationDurationAs Int`
+- `getOrientation As String`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setItemChecked(Key As String, Checked As Boolean)`
 - `isItemChecked(Key As String) As Boolean`
-- `getCheckedKeysAs List`
+- `getCheckedKeys As List`
 - `setChecked(CheckedKeys As String)`
-- `getCheckedAs String`
+- `getChecked As String`
 - `setItems(Value As Map)`
-- `getItemsAs Map`
-- `setSelectedIds(Ids As List)`
-- `getSelectedIdsAs List`
+- `getItems As Map`
+- `setSelectedIds(lstIds As List)`
+- `getSelectedIds As List`
+- `Refresh`
 - `UpdateTheme`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `RemoveViewFromParent`
-- `GetComputedHeightAs Int`
-
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyFlexItem
 
-### Events
-*(None)*
-
-### Designer Properties
-*(None)*
-
 ### Public Methods
-- `Initialize(Owner As B4XDaisyFlexPanel, v As B4XView)`
-- `ResetAs B4XDaisyFlexItem`
+
+- `Initialize(Owner As B4XDaisyFlexPanel, View As B4XView)`
+- `Reset As B4XDaisyFlexItem`
 - `Grow(Value As Float) As B4XDaisyFlexItem`
 - `Shrink(Value As Float) As B4XDaisyFlexItem`
 - `Flex(GrowValue As Float, ShrinkValue As Float) As B4XDaisyFlexItem`
-- `Flex1As B4XDaisyFlexItem`
-- `FlexAutoAs B4XDaisyFlexItem`
-- `FlexInitialAs B4XDaisyFlexItem`
-- `FlexNoneAs B4XDaisyFlexItem`
+- `Flex1 As B4XDaisyFlexItem`
+- `FlexAuto As B4XDaisyFlexItem`
+- `FlexInitial As B4XDaisyFlexItem`
+- `FlexNone As B4XDaisyFlexItem`
 - `MinW(Value As Int) As B4XDaisyFlexItem`
 - `MaxW(Value As Int) As B4XDaisyFlexItem`
 - `MinH(Value As Int) As B4XDaisyFlexItem`
@@ -2935,51 +4308,46 @@ This document lists all available custom views, their event hooks, designer prop
 - `AlignSelf(Value As String) As B4XDaisyFlexItem`
 - `Order(Value As Int) As B4XDaisyFlexItem`
 - `WrapBefore(Value As Boolean) As B4XDaisyFlexItem`
-- `ApplyAs B4XDaisyFlexItem`
-- `ApplyNoRelayoutAs B4XDaisyFlexItem`
+- `Apply As B4XDaisyFlexItem`
+- `ApplyNoRelayout As B4XDaisyFlexItem`
 - `ApplyEx(DoRelayout As Boolean) As B4XDaisyFlexItem`
-- `getViewAs B4XView`
-
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyFlexLayout
 
-### Events
-*(None)*
-
-### Designer Properties
-*(None)*
-
 ### Public Methods
+
 - `Initialize(Container As B4XView)`
 - `SetContainer(Container As B4XView)`
 - `SetPadding(All As Int)`
 - `SetPaddingLTRB(Left As Int, Top As Int, Right As Int, Bottom As Int)`
 - `SetGap(X As Int, Y As Int)`
-- `SetItemFlexEx(v As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
-- `SetItemBasis(v As B4XView, BasisW As Int, BasisH As Int)`
-- `SetItemBasisPercent(v As B4XView, PercentMain As Float, PercentCross As Float)`
-- `ClearItemBasisPercent(v As B4XView)`
-- `SetItemMargins(v As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
-- `SetItemAlignSelf(v As B4XView, AlignSelf As String)`
-- `SetItemOrder(v As B4XView, OrderValue As Int)`
-- `SetItemWrapBefore(v As B4XView, Value As Boolean)`
-- `ClearItemMeta(v As B4XView)`
+- `SetItemFlexEx(View As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
+- `SetItemBasis(View As B4XView, BasisW As Int, BasisH As Int)`
+- `SetItemBasisPercent(View As B4XView, PercentMain As Float, PercentCross As Float)`
+- `ClearItemBasisPercent(View As B4XView)`
+- `SetItemMargins(View As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
+- `SetItemAlignSelf(View As B4XView, AlignSelf As String)`
+- `SetItemOrder(View As B4XView, OrderValue As Int)`
+- `SetItemWrapBefore(View As B4XView, Value As Boolean)`
+- `ClearItemMeta(View As B4XView)`
 - `ClearAllItemMeta`
 - `Relayout`
-- `GetContentWidthAs Int`
-- `GetContentHeightAs Int`
-
+- `GetContentWidth As Int`
+- `GetContentHeight As Int`
 
 ---
 
 ## B4XDaisyFlexPanel
 
 ### Events
+
 - `Ready`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Direction` | String | `row` |  |
@@ -2998,81 +4366,106 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoRelayout` | Boolean | `True` |  |
 
 ### Public Methods
+
 - `Initialize`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `InitForCode(Callback As Object, EventName As String, Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getIsInitializedAs Boolean`
-- `GetContentPanelAs B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `View As B4XView`
+- `getIsInitialized As Boolean`
+- `GetContentPanel As B4XView`
 - `Relayout`
-- `GetMeasuredWidthAs Int`
-- `GetMeasuredHeightAs Int`
+- `GetMeasuredWidth As Int`
+- `GetMeasuredHeight As Int`
 - `SetPadding(All As Int)`
 - `SetPaddingLTRB(Left As Int, Top As Int, Right As Int, Bottom As Int)`
 - `SetGap(X As Int, Y As Int)`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setWrapMode(Value As String)`
-- `getWrapModeAs String`
+- `getWrapMode As String`
 - `setJustifyContent(Value As String)`
-- `getJustifyContentAs String`
+- `getJustifyContent As String`
 - `setAlignItems(Value As String)`
-- `getAlignItemsAs String`
+- `getAlignItems As String`
 - `setAlignContent(Value As String)`
-- `getAlignContentAs String`
+- `getAlignContent As String`
 - `setGapX(Value As Int)`
-- `getGapXAs Int`
+- `getGapX As Int`
 - `setGapY(Value As Int)`
-- `getGapYAs Int`
+- `getGapY As Int`
 - `setPaddingLeft(Value As Int)`
-- `getPaddingLeftAs Int`
+- `getPaddingLeft As Int`
 - `setPaddingTop(Value As Int)`
-- `getPaddingTopAs Int`
+- `getPaddingTop As Int`
 - `setPaddingRight(Value As Int)`
-- `getPaddingRightAs Int`
+- `getPaddingRight As Int`
 - `setPaddingBottom(Value As Int)`
-- `getPaddingBottomAs Int`
+- `getPaddingBottom As Int`
 - `setAnimateDuration(Value As Int)`
-- `getAnimateDurationAs Int`
+- `getAnimateDuration As Int`
 - `setAllowShrinkWhenWrap(Value As Boolean)`
-- `getAllowShrinkWhenWrapAs Boolean`
+- `getAllowShrinkWhenWrap As Boolean`
 - `setAutoRelayout(Value As Boolean)`
-- `getAutoRelayoutAs Boolean`
-- `AddItem(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddItemEx(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XDaisyFlexItem`
-- `Item(v As B4XView) As B4XDaisyFlexItem`
-- `RemoveItem(v As B4XView)`
-- `ClearItems`
-- `getNumberOfItemsAs Int`
+- `getAutoRelayout As Boolean`
+- `AddItem(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddItemEx(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XDaisyFlexItem`
+- `Item(View As B4XView) As B4XDaisyFlexItem`
+- `RemoveItem(View As B4XView)`
+- `Clear`
+- `getNumberOfItems As Int`
 - `GetItem(Index As Int) As B4XView`
-- `SetItemFlexEx(v As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
-- `SetItemBasis(v As B4XView, BasisW As Int, BasisH As Int)`
-- `SetItemBasisPercent(v As B4XView, PercentMain As Float, PercentCross As Float)`
-- `ClearItemBasisPercent(v As B4XView)`
-- `SetItemMargins(v As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
-- `SetItemAlignSelf(v As B4XView, AlignSelf As String)`
-- `SetItemOrder(v As B4XView, OrderValue As Int)`
-- `SetItemWrapBefore(v As B4XView, Value As Boolean)`
-- `ClearItemMeta(v As B4XView)`
+- `SetItemFlexEx(View As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
+- `SetItemBasis(View As B4XView, BasisW As Int, BasisH As Int)`
+- `SetItemBasisPercent(View As B4XView, PercentMain As Float, PercentCross As Float)`
+- `ClearItemBasisPercent(View As B4XView)`
+- `SetItemMargins(View As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
+- `SetItemAlignSelf(View As B4XView, AlignSelf As String)`
+- `SetItemOrder(View As B4XView, OrderValue As Int)`
+- `SetItemWrapBefore(View As B4XView, Value As Boolean)`
+- `ClearItemMeta(View As B4XView)`
 - `ClearAllItemMeta`
-- `SetItemFlexEx_NoRelayout(v As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
-- `SetItemBasis_NoRelayout(v As B4XView, BasisW As Int, BasisH As Int)`
-- `SetItemBasisPercent_NoRelayout(v As B4XView, PercentMain As Float, PercentCross As Float)`
-- `ClearItemBasisPercent_NoRelayout(v As B4XView)`
-- `SetItemMargins_NoRelayout(v As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
-- `SetItemAlignSelf_NoRelayout(v As B4XView, AlignSelf As String)`
-- `SetItemOrder_NoRelayout(v As B4XView, OrderValue As Int)`
-- `SetItemWrapBefore_NoRelayout(v As B4XView, Value As Boolean)`
+- `SetItemFlexEx_NoRelayout(View As B4XView, Grow As Float, Shrink As Float, MinW As Int, MaxW As Int, MinH As Int, MaxH As Int)`
+- `SetItemBasis_NoRelayout(View As B4XView, BasisW As Int, BasisH As Int)`
+- `SetItemBasisPercent_NoRelayout(View As B4XView, PercentMain As Float, PercentCross As Float)`
+- `ClearItemBasisPercent_NoRelayout(View As B4XView)`
+- `SetItemMargins_NoRelayout(View As B4XView, Left As Int, Top As Int, Right As Int, Bottom As Int)`
+- `SetItemAlignSelf_NoRelayout(View As B4XView, AlignSelf As String)`
+- `SetItemOrder_NoRelayout(View As B4XView, OrderValue As Int)`
+- `SetItemWrapBefore_NoRelayout(View As B4XView, Value As Boolean)`
 - `BeginUpdate`
 - `EndUpdate(DoRelayout As Boolean)`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyGrid
 
+### Types
+
+- `GridResolvedConfig (Cols As Int, GapX As Float, GapY As Float, PadL As Float, PadT As Float, PadR As Float, PadB As Float, AutoRowsTemplate As String, AutoColsTemplate As String, TemplateRows As String, Dense As Boolean, GridFlow As String, JustifyItems As String, AlignItems As String)`
+- `GridItemResolved (ColSpan As Int, RowSpan As Int, ColStart As Int, RowStart As Int, ColEnd As Int, RowEnd As Int, Order As Int, Hidden As Boolean, JustifySelf As String, AlignSelf As String)`
+- `GridPlacement (Col As Int, Row As Int, ColSpan As Int, RowSpan As Int, X As Float, Y As Float, W As Float, H As Float)`
+- `GridItemSpec (Key As String, ClassText As String, Visible As Boolean, Order As Int)`
+- `GridDiagCollision (Key As String, RequestedCol As Int, RequestedRow As Int, RequestedColSpan As Int, RequestedRowSpan As Int, FallbackCol As Int, FallbackRow As Int, Reason As String)`
+- `GridTrackSize (IsFr As Boolean, Value As Float, fMin As Float, fMax As Float)`
+
 ### Events
+
 - `LayoutChanged (ContentHeight As Float)`
 - `ItemPlaced (Info As Map)`
 - `BeforePlace (Key As String, Info As Map)`
@@ -3080,14 +4473,15 @@ This document lists all available custom views, their event hooks, designer prop
 - `LayoutDiff (Changes As List)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `ClassName` | String | `grid grid-cols-1 gap-4` | Tailwind-like grid utility string |
-| `Cols` | Int | `1` | Fallback columns when no class token is set |
+| `Cols` | Int | `1, MinRange: 1, MaxRange: 24` | Fallback columns when no class token is set |
 | `Gap` | String | `4` | Tailwind spacing token or CSS/dip value |
 | `GapX` | String | `` | Optional horizontal gap override |
 | `GapY` | String | `` | Optional vertical gap override |
-| `AutoRows` | String | `minmax(72dip` | Grid auto-rows template |
+| `AutoRows` | String | `minmax(72dip, auto)` | Grid auto-rows template |
 | `TemplateRows` | String | `` | Explicit row template (e.g., "100dip 1fr 200dip") |
 | `Padding` | String | `0` | Padding shorthand |
 | `Dense` | Boolean | `False` | Enable dense packing algorithm |
@@ -3095,47 +4489,50 @@ This document lists all available custom views, their event hooks, designer prop
 | `DebugOverlay` | Boolean | `False` | Draw grid lines and labels |
 | `AutoRegisterChildrenFromTag` | Boolean | `False` | Register child views using Tag metadata |
 | `EmitLayoutDiff` | Boolean | `False` | Raise LayoutDiff event with changed items |
-| `DefaultAnimMs` | Int | `0` | Default placement animation in ms |
+| `DefaultAnimMs` | Int | `0, MinRange: 0, MaxRange: 2000` | Default placement animation in ms |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `getViewAs B4XView`
-- `getIsInitializedAs Boolean`
+- `View As B4XView`
+- `getIsInitialized As Boolean`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setClassName(ClassText As String)`
-- `getClassNameAs String`
+- `getClassName As String`
 - `setCols(Value As Int)`
-- `getColsAs Int`
+- `getCols As Int`
 - `setGap(Value As Object)`
-- `getGapAs Float`
+- `getGap As Float`
 - `setGapX(Value As Object)`
-- `getGapXAs Float`
+- `getGapX As Float`
 - `setGapY(Value As Object)`
-- `getGapYAs Float`
+- `getGapY As Float`
 - `SetGapXY(ValueX As Float, ValueY As Float)`
 - `SetAutoRowsTemplate(Template As String)`
 - `setAutoRows(Template As String)`
-- `getAutoRowsAs String`
+- `getAutoRows As String`
 - `setTemplateRows(Template As String)`
-- `getTemplateRowsAs String`
+- `getTemplateRows As String`
 - `setPadding(Value As Object)`
-- `getPaddingAs Float`
+- `getPadding As Float`
 - `SetPaddingLTRB(Left As Float, Top As Float, Right As Float, Bottom As Float)`
 - `SetBreakpoint(Name As String, MinWidth As Float)`
 - `setDense(Value As Boolean)`
-- `getDenseAs Boolean`
+- `getDense As Boolean`
 - `setDebug(Value As Boolean)`
-- `getDebugAs Boolean`
+- `getDebug As Boolean`
 - `setDebugOverlay(Value As Boolean)`
-- `getDebugOverlayAs Boolean`
+- `getDebugOverlay As Boolean`
 - `setAutoRegisterChildrenFromTag(Value As Boolean)`
-- `getAutoRegisterChildrenFromTagAs Boolean`
+- `getAutoRegisterChildrenFromTag As Boolean`
 - `setEmitLayoutDiff(Value As Boolean)`
-- `getEmitLayoutDiffAs Boolean`
+- `getEmitLayoutDiff As Boolean`
 - `setDefaultAnimMs(Value As Int)`
-- `getDefaultAnimMsAs Int`
-- `AddItem(View As B4XView, ClassText As String) As String`
-- `AddItemWithKey(Key As String, View As B4XView, ClassText As String)`
+- `getDefaultAnimMs As Int`
+- `AddItem(ItemView As B4XView, ClassText As String) As String`
+- `AddItemWithKey(Key As String, ItemView As B4XView, ClassText As String)`
 - `UpdateItemClass(Key As String, ClassText As String)`
 - `RemoveItem(Key As String)`
 - `SetItemVisible(Key As String, Visible As Boolean)`
@@ -3152,32 +4549,46 @@ This document lists all available custom views, their event hooks, designer prop
 - `EndUpdate`
 - `Relayout`
 - `RegisterChildrenFromTag(OptionalDefaultClass As String)`
-- `GetLayoutSnapshotAs List`
-- `DebugDumpSnapshotAs String`
-- `GetCollisionDiagnosticsAs List`
-- `GetCollisionReportAs String`
+- `GetLayoutSnapshot As List`
+- `DebugDumpSnapshot As String`
+- `GetCollisionDiagnostics As List`
+- `GetCollisionReport As String`
 - `GetResolvedItemRules(Key As String, Width As Float) As Map`
 - `GetResolvedItemRulesNow(Key As String) As Map`
-- `GetResolvedContainerRulesNowAs Map`
+- `GetResolvedContainerRulesNow As Map`
 - `GetItemSpec(Key As String) As GridItemSpec`
 - `ApplyItemSpec(Spec As GridItemSpec)`
-- `GetAllItemSpecsAs List`
-- `ExportLayoutSpecsAs List`
-- `ImportLayoutSpecs(Specs As List, IgnoreMissing As Boolean)`
+- `GetAllItemSpecs As List`
+- `ExportLayoutSpecs As List`
+- `ImportLayoutSpecs(lstSpecs As List, IgnoreMissing As Boolean)`
 - `ExportLayoutProfile(ProfileName As String) As Map`
 - `ImportLayoutProfile(Profile As Map, IgnoreMissing As Boolean)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyHero
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `BackgroundImage` | String | `` | Background image asset name. |
@@ -3185,7 +4596,6 @@ This document lists all available custom views, their event hooks, designer prop
 | `BackgroundColor` | Color | `0xFFF3F4F6` | Hero background color (base-200). |
 | `TextColor` | Color | `0xFF000000` | Hero text color. |
 | `Rounded` | String | `rounded-none` | Corner radius mode. |
-| `RoundedBox` | Boolean | `False` | Use rounded-box radius when Rounded is theme. |
 | `Shadow` | String | `none` | Elevation shadow level. |
 | `OverlayVisible` | Boolean | `False` | Show/Hide the hero overlay. |
 | `OverlayColor` | Color | `0x80000000` | Hero overlay color (with alpha). |
@@ -3199,59 +4609,74 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoResize` | Boolean | `False` | Automatically resize height to fit child content. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setBackgroundImage(Value As String)`
-- `getBackgroundImageAs String`
+- `getBackgroundImage As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColorVariant(Value As String)`
-- `getBackgroundColorVariantAs String`
+- `getBackgroundColorVariant As String`
 - `setTextColorVariant(Value As String)`
-- `getTextColorVariantAs String`
+- `getTextColorVariant As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setOverlayVisible(Value As Boolean)`
-- `getOverlayVisibleAs Boolean`
+- `getOverlayVisible As Boolean`
 - `setOverlayColor(Value As Int)`
-- `getOverlayColorAs Int`
+- `getOverlayColor As Int`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setContentAlignment(Value As String)`
-- `getContentAlignmentAs String`
+- `getContentAlignment As String`
 - `setGap(Value As String)`
-- `getGapAs String`
+- `getGap As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
-- `GetContentPanelAs B4XView`
-- `GetComputedHeightAs Int`
+- `getAutoResize As Boolean`
+- `GetContentPanel As B4XView`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyHover3d
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enable or disable pointer interaction. |
@@ -3277,74 +4702,82 @@ This document lists all available custom views, their event hooks, designer prop
 | `BackgroundColor` | Color | `0x00000000` | Optional explicit surface background override. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setMaxTilt(Value As Float)`
-- `getMaxTiltAs Float`
+- `getMaxTilt As Float`
 - `setScaleOnHover(Value As Float)`
-- `getScaleOnHoverAs Float`
+- `getScaleOnHover As Float`
 - `setShineEffect(Value As Boolean)`
-- `getShineEffectAs Boolean`
+- `getShineEffect As Boolean`
 - `setPerspective(Value As Float)`
-- `getPerspectiveAs Float`
+- `getPerspective As Float`
 - `setResetDuration(Value As Int)`
-- `getResetDurationAs Int`
+- `getResetDuration As Int`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setContentType(Value As String)`
-- `getContentTypeAs String`
+- `getContentType As String`
 - `setImage(Value As String)`
-- `getImageAs String`
+- `getImage As String`
 - `setContentBackgroundColor(Value As Int)`
-- `getContentBackgroundColorAs Int`
+- `getContentBackgroundColor As Int`
 - `setContentRounded(Value As String)`
-- `getContentRoundedAs String`
+- `getContentRounded As String`
 - `setContentPadding(Value As String)`
-- `getContentPaddingAs String`
+- `getContentPadding As String`
 - `setContentShadow(Value As String)`
-- `getContentShadowAs String`
+- `getContentShadow As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `AddView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `RemoveAllViews`
-- `getContentPanelAs B4XView`
+- `getContentPanel As B4XView`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
-- `GetComputedHeightAs Int`
+- `getTop As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyIconButton
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `IconAsset` | String | `` | SVG icon asset file name. |
@@ -3366,93 +4799,126 @@ This document lists all available custom views, their event hooks, designer prop
 | `Clickable` | Boolean | `True` | When False, touch events pass through to parent. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(SizeDip As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setIconAsset(Value As String)`
-- `getIconAssetAs String`
+- `getIconAsset As String`
 - `setIconColor(Value As Int)`
-- `getIconColorAs Int`
+- `getIconColor As Int`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setCustomSize(Value As Int)`
-- `getCustomSizeAs Int`
+- `getCustomSize As Int`
 - `setShape(Value As String)`
-- `getShapeAs String`
+- `getShape As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setLoading(Value As Boolean)`
-- `getLoadingAs Boolean`
+- `getLoading As Boolean`
 - `setDisabled(Value As Boolean)`
-- `getDisabledAs Boolean`
+- `getDisabled As Boolean`
 - `setActive(Value As Boolean)`
-- `getActiveAs Boolean`
+- `getActive As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getViewAs B4XView`
-- `GetComputedHeightAs Int`
-- `GetComputedWidthAs Int`
+- `getTag As Object`
+- `View As B4XView`
+- `GetComputedHeight As Int`
+- `GetComputedWidth As Int`
 - `RemoveViewFromParent`
 - `Release`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyImage
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `ResizeMode` | String | `FIT` |  |
-| `Round` | Boolean | `False` |  |
+| `Rounded` | Boolean | `False` |  |
 | `CornersRadius` | Int | `0` |  |
 | `BackgroundColor` | Color | `0xFFAAAAAA` |  |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getRoundedImageAs Boolean`
-- `setRoundedImage(b As Boolean)`
-- `getCornersRadiusAs Int`
-- `setCornersRadius(i As Int)`
-- `getResizeModeAs String`
-- `setResizeMode(s As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `getRounded As Boolean`
+- `setRounded(Value As Boolean)`
+- `getCornersRadius As Int`
+- `setCornersRadius(Value As Int)`
+- `getRoundedImage As Boolean`
+- `setRoundedImage(Value As Boolean)`
+- `getBackgroundColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getResizeMode As String`
+- `setResizeMode(Value As String)`
 - `Update`
 - `Load(Dir As String, FileName As String)`
 - `Clear`
-- `setBitmap(Bmp As B4XBitmap)`
-- `getBitmapAs B4XBitmap`
-
+- `setBitmap(bmpBmp As B4XBitmap)`
+- `getBitmap As B4XBitmap`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyIndicator
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `HorizontalPlacement` | String | `end` | Horizontal indicator placement. |
@@ -3472,254 +4938,359 @@ This document lists all available custom views, their event hooks, designer prop
 | `Clickable` | Boolean | `False` | When True, the indicator handles clicks via the Click event. When False (default), touches pass through to the parent. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
-- `AttachToTarget(Target As B4XView)`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AttachTo(Target As B4XView)`
 - `DetachTarget`
 - `RefreshPlacement`
 - `setHorizontalPlacement(Value As String)`
-- `getHorizontalPlacementAs String`
+- `getHorizontalPlacement As String`
 - `setVerticalPlacement(Value As String)`
-- `getVerticalPlacementAs String`
+- `getVerticalPlacement As String`
 - `setOffsetX(Value As Object)`
-- `getOffsetXAs Float`
+- `getOffsetX As Float`
 - `setOffsetY(Value As Object)`
-- `getOffsetYAs Float`
+- `getOffsetY As Float`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setCounter(Value As Boolean)`
-- `getCounterAs Boolean`
+- `getCounter As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setIconAsset(Value As String)`
-- `getIconAssetAs String`
+- `getIconAsset As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setCapValue(Value As Int)`
-- `getCapValueAs Int`
+- `getCapValue As Int`
 - `setValue(Value As Int)`
-- `getValueAs Int`
-- `GetComputedHeightAs Int`
+- `getValue As Int`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `RemoveViewFromParent`
-- `IncrementAs Int`
+- `Increment As Int`
 - `IncrementBy(Amount As Int) As Int`
-- `DecrementAs Int`
+- `Decrement As Int`
 - `DecrementBy(Amount As Int) As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisyInfoCard
+
+### Events
+
+- `Click (Tag As Object)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `InforType` | String | `1` | Info card layout type (infobox 1-5 / badge card 6). |
+| `Effect` | String | `none` | Press effect (hover-zoom / parity, mapped to touch press). |
+| `Icon` | String | `user-solid.svg` | SVG icon asset name (B4XDaisySvgIcon). |
+| `IconColor` | Color | `0` | Icon column / glyph color (0 = use Variant). |
+| `IconTextColor` | Color | `0` | Icon glyph color (0 = white). |
+| `Variant` | String | `none` | Theme color variant for the icon accent. |
+| `Title` | String | `Employees` | Title text. |
+| `Value` | String | `1000` | Numeric target value for the count-up. |
+| `StartFrom` | Float | `0` | Count-up start value. |
+| `Prefix` | String | `` | Text before the value (e.g. $). |
+| `Suffix` | String | `` | Text after the value (e.g. %, px). |
+| `Separator` | String | `,` | Thousands grouping separator (used when Use Grouping is on). |
+| `Decimal` | String | `.` | Decimal separator character. |
+| `DecimalPlaces` | Int | `0` | Number of decimal places. |
+| `UseGrouping` | Boolean | `True` | Enable thousands grouping separator. |
+| `Animated` | Boolean | `True` | Animate the value from Start From to Value. |
+| `Duration` | Int | `2` | Count-up duration in seconds. |
+| `BackgroundColor` | Color | `0` | Card background (0 = base-100). |
+| `TextColor` | Color | `0` | Title/value text color (0 = base-content). |
+| `Shadow` | String | `sm` | Elevation level. |
+| `Enabled` | Boolean | `True` | Enabled state. |
+| `Visible` | Boolean | `True` | Visible state. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `getComputedHeight As Int`
+- `UpdateTheme`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setInforType(Value As String)`
+- `getInforType As String`
+- `setEffect(Value As String)`
+- `getEffect As String`
+- `setIcon(Value As String)`
+- `getIcon As String`
+- `setIconColor(Value As Int)`
+- `getIconColor As Int`
+- `setIconTextColor(Value As Int)`
+- `getIconTextColor As Int`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setTitle(Value As String)`
+- `getTitle As String`
+- `setValue(Value As String)`
+- `getValue As String`
+- `setStartFrom(Value As Float)`
+- `getStartFrom As Float`
+- `setPrefix(Value As String)`
+- `getPrefix As String`
+- `setSuffix(Value As String)`
+- `getSuffix As String`
+- `setSeparator(Value As String)`
+- `getSeparator As String`
+- `setDecimal(Value As String)`
+- `getDecimal As String`
+- `setDecimalPlaces(Value As Int)`
+- `getDecimalPlaces As Int`
+- `setUseGrouping(Value As Boolean)`
+- `getUseGrouping As Boolean`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getRole As String`
+- `Base_Resize(Width As Double, Height As Double)`
+- `StartAnimation`
+- `StopAnimation`
+- `RemoveViewFromParent`
+- `Release`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyInput
 
-### Events
-- `TextChanged (Old As String, New As String)`
-- `EnterPressed (Text As String)`
-- `FocusChanged (HasFocus As Boolean)`
-- `Click (Tag As Object)`
-- `PrependClick`
-- `AppendClick`
-
-### Designer Properties
-| Property Key | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `Variant` | String | `none` | DaisyUI color variant applied To border color. |
-| `Size` | String | `md` | DaisyUI size variant controlling height And font-size. |
-| `Text` | String | `` | Current input text value. |
-| `Placeholder` | String | `Type here` | Placeholder text shown inside the input when empty. |
-| `HintText` | String | `` | Helper text displayed below the input (maps To CSS .label standalone pattern). |
-| `ErrorText` | String | `` | Text displayed below the input when in the error validation state. |
-| `RequiredErrorText` | String | `` | Error text shown when the required field is empty. |
-| `MinLengthErrorText` | String | `` | Error text shown when the input is shorter than Min Length. |
-| `MaxLengthErrorText` | String | `` | Error text shown when the input exceeds Max Length. |
-| `PatternErrorText` | String | `` | Error text shown when the Validation Pattern does not match. |
-| `LabelAbove` | String | `` | Label text. When FloatingLabel=True this becomes the floating label; otherwise shown above the input. |
-| `InputType` | String | `text` | Keyboard input Type For the native EditText. |
-| `MinValue` | String | `0` | Minimum value for stepper input type. |
-| `MaxValue` | String | `100` | Maximum value for stepper input type. |
-| `StepValue` | String | `1` | Increment/decrement amount for stepper input type. |
-| `PasswordChar` | String | `*` | Character to use for password masking. Defaults to * (asterisk). |
-| `IconLeft` | String | `` | Left-side SVG icon asset filename. |
-| `IconRight` | String | `` | Right-side SVG icon asset filename. |
-| `LabelLeft` | String | `` | Left-side text label inside input. |
-| `LabelRight` | String | `` | Right-side text label inside input. |
-| `FloatingLabel` | Boolean | `False` | If True the label floats between placeholder and above-input positions. |
-| `Required` | Boolean | `False` | Whether this field is required. |
-| `ValidationPattern` | String | `` | Regular expression pattern For validation. |
-| `MinLength` | Int | `0` | Minimum character count. |
-| `MaxLength` | Int | `0` | Maximum character count. |
-| `Radius` | String | `theme` | Corner radius token. |
-| `Enabled` | Boolean | `True` | Whether the input is enabled. |
-| `SingleLine` | Boolean | `True` | Restrict input To a single line. |
-| `Visible` | Boolean | `True` | Controls view visibility. |
-| `BackgroundColor` | Color | `0x00000000` | Override background color. |
-| `TextColor` | Color | `0x00000000` | Override text color. |
-| `PlaceholderColor` | Color | `0x00000000` | Override placeholder color. |
-| `Padding` | String | `` | Tailwind spacing utility. |
-| `Shadow` | String | `none` | Elevation shadow level. |
-| `ImeOptions` | String | `normal` | Keyboard action button (IME options) For the native EditText. |
-| `Gravity` | String | `LEFT` | Horizontal text alignment within the input. |
-| `Typeface` | String | `DEFAULT` | Font family For the input text. |
-| `MaxLines` | Int | `1` | Maximum visible lines (set > 1 For multiline input). |
-| `MinLines` | Int | `1` | Minimum visible lines For multiline input. |
-| `AllCaps` | Boolean | `False` | Force all input text To uppercase. |
-| `ReadOnly` | Boolean | `False` | Makes the input read-only (selectable but Not editable). |
-| `CursorVisible` | Boolean | `True` | Whether the text cursor is visible. |
-| `LetterSpacing` | Float | `0` | Extra spacing between characters (em units, 0 = normal). |
-| `Alpha` | Float | `1.0` | View opacity from 0 (invisible) To 1 (fully opaque). |
-| `AutoHeight` | Boolean | `False` | Auto-grow height based on text lines (multiline only). |
-
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
+- `View As B4XView`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `RemoveViewFromParent`
 - `RequestFocus`
 - `Release`
 - `UpdateTheme`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setPlaceholder(Value As String)`
-- `getPlaceholderAs String`
+- `getPlaceholder As String`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
-- `GetValidationErrorAs String`
+- `getHintText As String`
+- `GetValidationError As String`
 - `setLabelAbove(Value As String)`
-- `getLabelAboveAs String`
+- `getLabelAbove As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setInputType(Value As String)`
+- `setAppendIcon(Value As String)`
+- `getAppendIcon As String`
+- `setAppendIconColor(Value As Int)`
+- `getAppendIconColor As Int`
+- `setAppendColor(Value As Int)`
+- `getAppendColor As Int`
+- `setSearchIcon(Value As String)`
+- `getSearchIcon As String`
+- `setClearIcon(Value As String)`
+- `getClearIcon As String`
+- `setShowClearButton(Value As String)`
+- `getShowClearButton As String`
 - `setPasswordChar(Value As String)`
-- `getPasswordCharAs String`
-- `getInputTypeAs String`
+- `getPasswordChar As String`
+- `getInputType As String`
 - `setMinValue(Value As String)`
-- `getMinValueAs String`
+- `getMinValue As String`
 - `setMaxValue(Value As String)`
-- `getMaxValueAs String`
+- `getMaxValue As String`
 - `setStepValue(Value As String)`
-- `getStepValueAs String`
+- `getStepValue As String`
 - `setIconLeft(Value As String)`
-- `getIconLeftAs String`
+- `getIconLeft As String`
 - `setIconRight(Value As String)`
-- `getIconRightAs String`
+- `getIconRight As String`
 - `setRadius(Value As String)`
-- `getRadiusAs String`
+- `getRadius As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setSingleLine(Value As Boolean)`
-- `getSingleLineAs Boolean`
+- `getSingleLine As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setPlaceholderColor(Value As Int)`
-- `getPlaceholderColorAs Int`
+- `getPlaceholderColor As Int`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setLabelLeft(Value As String)`
-- `getLabelLeftAs String`
+- `getLabelLeft As String`
 - `setLabelRight(Value As String)`
-- `getLabelRightAs String`
+- `getLabelRight As String`
 - `setFloatingLabel(Value As Boolean)`
-- `getFloatingLabelAs Boolean`
+- `getFloatingLabel As Boolean`
 - `setImeOptions(Value As String)`
-- `getImeOptionsAs String`
+- `getImeOptions As String`
 - `setGravity(Value As String)`
-- `getGravityAs String`
+- `getGravity As String`
 - `setTypeface(Value As String)`
-- `getTypefaceAs String`
+- `getTypeface As String`
 - `setMaxLines(Value As Int)`
-- `getMaxLinesAs Int`
+- `getMaxLines As Int`
 - `setMinLines(Value As Int)`
-- `getMinLinesAs Int`
+- `getMinLines As Int`
 - `setAllCaps(Value As Boolean)`
-- `getAllCapsAs Boolean`
+- `getAllCaps As Boolean`
 - `setReadOnly(Value As Boolean)`
-- `getReadOnlyAs Boolean`
+- `getReadOnly As Boolean`
 - `setCursorVisible(Value As Boolean)`
-- `getCursorVisibleAs Boolean`
+- `getCursorVisible As Boolean`
 - `setLetterSpacing(Value As Float)`
-- `getLetterSpacingAs Float`
+- `getLetterSpacing As Float`
 - `setAlpha(Value As Float)`
-- `getAlphaAs Float`
+- `getAlpha As Float`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
+- `setNoAutoFill(Value As Boolean)`
+- `getNoAutoFill As Boolean`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setValidationPattern(Value As String)`
-- `getValidationPatternAs String`
+- `getValidationPattern As String`
 - `setMinLength(Value As Int)`
-- `getMinLengthAs Int`
+- `getMinLength As Int`
 - `setMaxLength(Value As Int)`
-- `getMaxLengthAs Int`
+- `getMaxLength As Int`
 - `setValidationState(Value As String)`
-- `getValidationStateAs String`
-- `getIsValidAs Boolean`
+- `getValidationState As String`
+- `getIsValid As Boolean`
 - `Revalidate`
 - `setErrorText(Value As String)`
 - `setRequiredErrorText(Value As String)`
-- `getRequiredErrorTextAs String`
+- `getRequiredErrorText As String`
 - `setMinLengthErrorText(Value As String)`
-- `getMinLengthErrorTextAs String`
+- `getMinLengthErrorText As String`
 - `setMaxLengthErrorText(Value As String)`
-- `getMaxLengthErrorTextAs String`
+- `getMaxLengthErrorText As String`
 - `setPatternErrorText(Value As String)`
-- `getPatternErrorTextAs String`
-- `getErrorTextAs String`
-- `getIsBlankAs Boolean`
-- `ValidateAs Boolean`
-- `CheckValidationAs Boolean`
+- `getPatternErrorText As String`
+- `getErrorText As String`
+- `getIsBlank As Boolean`
+- `Validate As Boolean`
+- `CheckValidation As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
 - `ReceiveFocus`
 - `Blur`
 - `setFocus(Value As Boolean)`
-- `getIsFocusedAs Boolean`
-- `getEditTextAs B4XView`
+- `getIsFocused As Boolean`
+- `getEditText As B4XView`
 - `SelectAll`
 - `SetSelection(StartPos As Int, Length As Int)`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setDateFormat(Value As String)`
+- `getDateFormat As String`
+- `setTimeFormat(Value As String)`
+- `getTimeFormat As String`
+- `setIs24Hours(Value As Boolean)`
+- `getIs24Hours As Boolean`
+- `setMinDate(Value As String)`
+- `getMinDate As String`
+- `setMaxDate(Value As String)`
+- `getMaxDate As String`
+- `ShowDatePicker`
+- `ShowTimePicker`
 
 ---
 
 ## B4XDaisyKbd
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Text` | String | `K` | Kbd label text. |
@@ -3733,106 +5304,52 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoResize` | Boolean | `True` | Automatically resize width to fit text content. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
+- `getAutoResize As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
-
----
-
-## B4XDaisyLabel
-
-### Events
-- `Click (Tag As Object)`
-
-### Designer Properties
-| Property Key | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `Text` | String | `` | The label text. |
-| `TextColor` | Color | `0xFF000000` | Text color (overrides theme token when set). |
-| `TextColorVariant` | String | `text-current/60` | DaisyUI text color token. |
-| `TextSize` | String | `text-sm` | Tailwind text size token (e.g., text-xs, text-sm, text-md, text-lg, text-xl). |
-| `FontBold` | Boolean | `False` | Whether the text is bold. |
-| `SingleLine` | Boolean | `True` | Whether the text is single-line (whitespace-nowrap). |
-| `HAlign` | String | `LEFT` | Horizontal text alignment. |
-| `VAlign` | String | `CENTER` | Vertical text alignment. |
-| `Padding` | String | `` | Tailwind padding token(s) (e.g., px-3 For input/Select context). |
-| `Gap` | Int | `0` | Gap In dip when used In flex/grid context (maps To gap-1.5 = 6dip default). |
-| `IsInsideInput` | Boolean | `False` | When True, applies input/Select child styling (px-3, border separator). |
-| `Position` | String | `NONE` | Position inside input/Select (FIRST = -ms-3 me-3, LAST = ms-3 -me-3). |
-| `Enabled` | Boolean | `True` | Whether the label is enabled. |
-| `Visible` | Boolean | `True` | Whether the label is visible. |
-| `Clickable` | Boolean | `True` | When False, touch events pass through to parent (useful inside clickable list rows) |
-
-### Public Methods
-- `Initialize(Callback As Object, EventName As String)`
-- `setText(Value As String)`
-- `getTextAs String`
-- `setTextColor(Value As Int)`
-- `getTextColorAs Int`
-- `setTextColorVariant(Variant As String)`
-- `getTextColorVariantAs String`
-- `setTextSize(Value As String)`
-- `getTextSizeAs String`
-- `setFontBold(Value As Boolean)`
-- `getFontBoldAs Boolean`
-- `setSingleLine(Value As Boolean)`
-- `getSingleLineAs Boolean`
-- `setHAlign(Value As String)`
-- `getHAlignAs String`
-- `setVAlign(Value As String)`
-- `getVAlignAs String`
-- `setPadding(Value As String)`
-- `getPaddingAs String`
-- `setGap(Value As Int)`
-- `getGapAs Int`
-- `setIsInsideInput(Value As Boolean)`
-- `getIsInsideInputAs Boolean`
-- `setPosition(Value As String)`
-- `getPositionAs String`
-- `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
-- `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
-- `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
-- `getViewAs B4XView`
-- `UpdateTheme`
-- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
-- `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyList
 
 ### Events
+
 - `ItemClick (Index As Int, Tag As Object)`
 - `ItemLongClick (Index As Int, Tag As Object)`
 - `CreateRowContent (Index As Int)`
@@ -3840,6 +5357,7 @@ This document lists all available custom views, their event hooks, designer prop
 - `ScrollChanged (Offset As Int)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `full` | Tailwind size token or CSS size (eg full, 72, 320px, 80%) |
@@ -3857,17 +5375,20 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoHeight` | Boolean | `False` | Automatically resize list height to fit all rows |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `ResizeToFitContent`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RegisterTemplate(TemplateName As String, Callback As Object, EventName As String)`
 - `AddRowDataWithTemplate(Data As Map, TemplateName As String) As Int`
 - `AddRowData(Data As Map) As Int`
 - `AddHeader(Title As String) As Int`
-- `AddRowDataBatch(Items As List)`
+- `AddRowDataBatch(lstItems As List)`
 - `SetRowCount(Count As Int)`
 - `AddRow(Data As Map) As Int`
 - `Clear`
-- `getRowCountAs Int`
+- `getRowCount As Int`
 - `GetRowData(Index As Int) As Map`
 - `GetRow(Index As Int) As Map`
 - `RemoveRow(Index As Int)`
@@ -3876,111 +5397,123 @@ This document lists all available custom views, their event hooks, designer prop
 - `RefreshAllRows`
 - `ScrollToIndex(Index As Int)`
 - `SmoothScrollToIndex(Index As Int)`
-- `getScrollPositionAs Int`
-- `getFirstVisibleIndexAs Int`
-- `getLastVisibleIndexAs Int`
-- `GetItemFromView(v As B4XView) As Int`
+- `getScrollPosition As Int`
+- `getFirstVisibleIndex As Int`
+- `getLastVisibleIndex As Int`
+- `GetItemFromView(View As B4XView) As Int`
 - `setBackgroundColor(Value As String)`
-- `getBackgroundColorAs String`
+- `getBackgroundColor As String`
 - `setTextColor(Value As String)`
-- `getTextColorAs String`
+- `getTextColor As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setRowPadding(Value As Int)`
-- `getRowPaddingAs Int`
+- `getRowPadding As Int`
 - `setRowGap(Value As Int)`
-- `getRowGapAs Int`
+- `getRowGap As Int`
 - `setDivider(Value As Boolean)`
-- `getDividerAs Boolean`
+- `getDivider As Boolean`
 - `setDividerColor(Value As String)`
-- `getDividerColorAs String`
+- `getDividerColor As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setRowHeight(Value As Int)`
-- `getRowHeightAs Int`
+- `getRowHeight As Int`
 - `setWidth(Value As Object)`
-- `getWidthAs Int`
+- `getWidth As Int`
 - `setHeight(Value As Object)`
-- `getHeightAs Int`
-- `getContentHeightAs Int`
+- `getHeight As Int`
+- `getContentHeight As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
-- `GetComputedHeightAs Int`
+- `Refresh`
+- `GetComputedHeight As Int`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `RemoveViewFromParent`
-- `getViewAs B4XView`
+- `View As B4XView`
 - `Release`
-- `GetCurrentRowPanelAs B4XView`
-- `GetCurrentRowDataAs Map`
+- `GetCurrentRowPanel As B4XView`
+- `GetCurrentRowData As Map`
 - `AddTextRow(Title As String, OptionalSubtitle As String) As Int`
 - `CreateTextItemView(Text As String, Width As Int, Height As Int, TextSize As Object, TextColor As Int, Bold As Boolean, SingleLine As Boolean) As B4XView`
 - `CreateStackedTextView(Title As String, Subtitle As String, Width As Int, TitleSize As Object, SubtitleSize As Object, TitleColor As Int, SubtitleColor As Int) As B4XView`
-- `GetCLVAs CustomListView`
-
+- `GetCLV As CustomListView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyLoading
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `LoadingStyle` | String | `spinner` | The loading animation style. |
+| `Style` | String | `spinner` | The loading animation style. |
 | `Size` | String | `md` | Size of the loading indicator (xs, sm, md, lg, xl). |
 | `Speed` | Int | `100` | Animation speed percentage (100 = normal). |
 | `Visible` | Boolean | `True` | Visibility of the component. |
 | `Variant` | String | `none` | DaisyUI semantic color variant (sets spinner color). |
 | `Clickable` | Boolean | `True` | When False, touch events pass through to parent (useful inside clickable list rows) |
+| `Color` | Color | `0x00FFFFFF` | Override loading spinner color. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `StartAnimation`
 - `StopAnimation`
-- `getStyleAs String`
+- `getStyle As String`
 - `setStyle(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setSize(Value As String)`
-- `getSpeedAs Int`
+- `getSpeed As Int`
 - `setSpeed(Value As Int)`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setTag(Tag As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `setColor(Value As Int)`
-- `getColorAs Int`
+- `getColor As Int`
 - `RemoveViewFromParent`
-
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyMenu
 
 ### Events
+
 - `Click (Tag As Object)`
 - `ItemClick (Tag As Object, Text As String)`
 - `SubmenuToggle (Tag As Object, Open As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables menu interactions. |
@@ -3994,7 +5527,6 @@ This document lists all available custom views, their event hooks, designer prop
 | `Size` | String | `md` | Daisy menu size token. |
 | `Orientation` | String | `vertical` | Top-level menu layout direction. |
 | `Rounded` | String | `theme` | Corner radius mode. |
-| `RoundedBox` | Boolean | `True` | Uses theme rounded-box radius when Rounded=theme. |
 | `Shadow` | String | `none` | Elevation shadow level. |
 | `BringToFront` | Boolean | `True` | Brings the full menu view above siblings after layout. |
 | `BackgroundColor` | Color | `0x00000000` | Optional surface background override. |
@@ -4003,18 +5535,41 @@ This document lists all available custom views, their event hooks, designer prop
 | `ActiveTextColor` | Color | `0x00000000` | Active item text color when ActiveBorder is False. |
 | `ActiveBorder` | Boolean | `False` | Shows a left border for the active item instead of filling the item background. |
 | `AutoResize` | Boolean | `True` | Automatically resize height to fit menu items. |
+| `BadgeSize` | String | `auto` | Badge size. 'auto' follows menu size. |
+| `BadgeVariant` | String | `neutral` | Default badge color variant. |
+| `BadgeStyle` | String | `solid` | Default badge style. |
+| `RailMode` | Boolean | `False` | Compact navigation rail mode that hides text and centers icons. |
+| `RightBorder` | Boolean | `False` | Shows a vertical border line on the right edge of the menu. |
+| `RightBorderColor` | Color | `0x00000000` | Custom color for the right border line. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `UpdateTheme`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Clear`
 - `AddTitle(Text As String) As Int`
-- `AddDividerAs Int`
+- `AddDivider As Int`
 - `AddItem(TagValue As Object, Text As String) As Int`
 - `AddIconItem(TagValue As Object, Text As String, IconName As String) As Int`
 - `AddBadgeItem(TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
 - `AddIconBadgeItem(TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddAvatarItem(TagValue As Object, Text As String, Avatar As Object, AvatarShape As String) As Int`
+- `AddAvatarBadgeItem(TagValue As Object, Text As String, Avatar As Object, AvatarShape As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddAvatarChildItem(ParentTag As Object, TagValue As Object, Text As String, Avatar As Object, AvatarShape As String) As Int`
+- `AddAvatarBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, Avatar As Object, AvatarShape As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddItemParent(ParentTag As Object, TagValue As Object, Text As String, IconName As String) As B4XDaisyMenu`
+- `AddItemChild(ParentTag As Object, TagValue As Object, Text As String, IconName As String) As Int`
+- `AddBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddIconBadgeChildItem(ParentTag As Object, TagValue As Object, Text As String, IconName As String, BadgeText As String, BadgeVariant As String) As Int`
+- `AddTitleChild(ParentTag As Object, Text As String) As Int`
+- `AddDividerChild(ParentTag As Object) As Int`
+- `FindSubmenuMenuByTag(TagValue As Object) As B4XDaisyMenu`
+- `LoadFromList(lstItemsList As List)`
+- `AddItems(lstItemsList As List)`
 - `AddSubmenu(TagValue As Object, Text As String, InitiallyOpen As Boolean) As B4XDaisyMenu`
 - `SetItemDisabled(TagValue As Object, Value As Boolean)`
 - `ClearActive`
@@ -4024,80 +5579,116 @@ This document lists all available custom views, their event hooks, designer prop
 - `SetItemBadgeText(TagValue As Object, Value As String)`
 - `SetItemBadgeBackgroundColor(TagValue As Object, Color As Int)`
 - `SetItemBadgeTextColor(TagValue As Object, Color As Int)`
+- `SetItemBadgeVariant(TagValue As Object, Value As String)`
+- `SetItemBadgeSize(TagValue As Object, Value As String)`
+- `SetItemBadgeStyle(TagValue As Object, Value As String)`
+- `SetItemBadgeRounded(TagValue As Object, Value As String)`
 - `SetItemText(TagValue As Object, Value As String)`
 - `SetItemIcon(TagValue As Object, IconName As String)`
 - `SetItemVisible(TagValue As Object, Value As Boolean)`
+- `SetItemAvatar(TagValue As Object, Avatar As Object)`
+- `SetItemAvatarShape(TagValue As Object, Shape As String)`
+- `SetItemOpen(TagValue As Object, Value As Boolean)`
+- `OpenParents`
+- `CloseParents`
+- `OpenAllSubmenus`
+- `CloseAllSubmenus`
+- `SetParentsOpen(OpenState As Boolean)`
 - `GetItemView(Index As Int) As B4XView`
-- `GetPreferredHeightAs Int`
-- `GetPreferredWidthAs Int`
+- `GetPreferredHeight As Int`
+- `GetPreferredWidth As Int`
+- `BeginUpdate`
+- `EndUpdate`
+- `setAutoRefresh(Value As Boolean)`
+- `getAutoRefresh As Boolean`
 - `SetLevelInternal(Level As Int)`
 - `SetParentMenuInternal(ParentMenu As B4XDaisyMenu)`
 - `SetPopupMode(Value As Boolean)`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
+- `getAutoResize As Boolean`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setDividers(Value As Boolean)`
-- `getDividersAs Boolean`
+- `getDividers As Boolean`
 - `setDividerGap(Value As String)`
-- `getDividerGapAs String`
+- `getDividerGap As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setOrientation(Value As String)`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setBringToFront(Value As Boolean)`
-- `getBringToFrontAs Boolean`
+- `getBringToFront As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setActiveColor(Value As Int)`
-- `getActiveColorAs Int`
+- `getActiveColor As Int`
 - `setActiveTextColor(Value As Int)`
-- `getActiveTextColorAs Int`
+- `getActiveTextColor As Int`
 - `setActiveBorder(Value As Boolean)`
-- `getActiveBorderAs Boolean`
-- `setDebugDividerBorders(Value As Boolean)`
-- `getDebugDividerBordersAs Boolean`
+- `getActiveBorder As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-
+- `getTag As Object`
+- `setBadgeSize(Value As String)`
+- `getBadgeSize As String`
+- `setBadgeVariant(Value As String)`
+- `getBadgeVariant As String`
+- `setBadgeStyle(Value As String)`
+- `getBadgeStyle As String`
+- `setBadgeRounded(Value As String)`
+- `getBadgeRounded As String`
+- `setRailMode(Value As Boolean, IntendedWidth As Int)`
+- `getRailMode As Boolean`
+- `setRightBorder(Value As Boolean)`
+- `getRightBorder As Boolean`
+- `setRightBorderColor(Value As Int)`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyModal
 
 ### Events
+
 - `Click (Tag As Object)`
 - `CloseClick (Tag As Object)`
+- `YesClick (Tag As Object)`
+- `NoClick (Tag As Object)`
+- `CancelClick (Tag As Object)`
+- `OkClick (Tag As Object)`
+- `RetryClick (Tag As Object)`
+- `AbortClick (Tag As Object)`
+- `IgnoreClick (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Auto-generated property for Enabled. |
@@ -4111,7 +5702,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `Rounded` | String | `rounded-box` |  |
 | `BackgroundColor` | String | `base-100` |  |
 | `BackdropColor` | String | `black` |  |
-| `BackdropOpacity` | Int | `40` |  |
+| `BackdropOpacity` | Int | `40, MinRange: 0, MaxRange: 100` |  |
 | `Title` | String | `Modal Title` |  |
 | `Padding` | String | `p-6` |  |
 | `ActionsJustify` | String | `end` | Horizontal alignment of action buttons in the footer. |
@@ -4119,79 +5710,146 @@ This document lists all available custom views, their event hooks, designer prop
 | `ShowCloseButton` | Boolean | `False` |  |
 | `Sidebar` | Boolean | `False` | When True the modal slides in as a side panel, ignoring Placement. |
 | `SidebarSide` | String | `left` |  |
-| `SidebarDuration` | Int | `300` |  |
 | `Shadow` | String | `lg` | Elevation shadow on the modal content box. |
+| `Animated` | Boolean | `True` | Enables or disables modal open/close animations. |
+| `Duration` | Int | `300, MinRange: 0, MaxRange: 2000` | Duration of standard modal animations. |
+| `ActionType` | String | `none` | Preset action button configuration for the footer. |
+| `YesCaption` | String | `Yes` |  |
+| `YesVariant` | String | `success` |  |
+| `YesVisible` | Boolean | `True` |  |
+| `NoCaption` | String | `No` |  |
+| `NoVariant` | String | `error` |  |
+| `NoVisible` | Boolean | `True` |  |
+| `CancelCaption` | String | `Cancel` |  |
+| `CancelVariant` | String | `ghost` |  |
+| `CancelVisible` | Boolean | `True` |  |
+| `ButtonsWidth` | String | `auto` | Width for preset action buttons (e.g. auto, 80dip, 100%). |
+| `ButtonsSize` | String | `md` |  |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `GetComputedHeightAs Int`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `GetComputedHeight As Int`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `CreateView(Parent As B4XView, Tag As Object)`
-- `getViewAs B4XView`
+- `View As B4XView`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getActionsContainerAs B4XView`
+- `getTag As Object`
+- `getAnimated As Boolean`
+- `setAnimated(Value As Boolean)`
+- `getDuration As Int`
+- `setDuration(Value As Int)`
+- `getActionsContainer As B4XView`
+- `AddActionButton(ButtonID As String, ButtonText As String, ButtonColor As String) As B4XDaisyButton`
 - `AddAction(btn As B4XDaisyButton)`
-- `getActionsCountAs Int`
+- `getActionsCount As Int`
 - `ClearActions`
 - `Show`
 - `ShowModal`
 - `Close`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setFullScreen(Value As Boolean)`
-- `getFullScreenAs Boolean`
+- `getFullScreen As Boolean`
 - `setGlassSize(Value As String)`
-- `getGlassSizeAs String`
+- `getGlassSize As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setClickOutsideToClose(Value As Boolean)`
-- `getClickOutsideToCloseAs Boolean`
+- `getClickOutsideToClose As Boolean`
 - `setPlacement(Value As String)`
-- `getPlacementAs String`
+- `getPlacement As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setBackgroundColor(Value As String)`
-- `getBackgroundColorAs String`
+- `getBackgroundColor As String`
 - `setBackdropColor(Value As String)`
-- `getBackdropColorAs String`
+- `getBackdropColor As String`
 - `setBackdropOpacity(Value As Int)`
-- `getBackdropOpacityAs Int`
+- `getBackdropOpacity As Int`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
+- `setTitleColor(Value As String)`
+- `getTitleColor As String`
+- `setTitleTextColor(Value As String)`
+- `getTitleTextColor As String`
+- `setBorderColor(Value As String)`
+- `getBorderColor As String`
+- `setBorderWidth(Value As String)`
+- `getBorderWidth As String`
 - `setShowCloseButton(Value As Boolean)`
-- `getShowCloseButtonAs Boolean`
+- `getShowCloseButton As Boolean`
 - `setSidebar(Value As Boolean)`
-- `getSidebarAs Boolean`
+- `getSidebar As Boolean`
 - `setSidebarSide(Value As String)`
-- `getSidebarSideAs String`
-- `setSidebarDuration(Value As Int)`
-- `getSidebarDurationAs Int`
+- `getSidebarSide As String`
 - `setActionsJustify(Value As String)`
-- `getActionsJustifyAs String`
+- `getActionsJustify As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
-- `AddToContent(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `getBodyContainerAs B4XView`
-
+- `getShadow As String`
+- `Refresh`
+- `AddToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `getBodyContainer As B4XView`
+- `BodyWidth As Int`
+- `ClearBody`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `getActionsVariant As String`
+- `setActionsVariant(Value As String)`
+- `setActionType(Value As String)`
+- `getActionType As String`
+- `setYesCaption(Value As String)`
+- `getYesCaption As String`
+- `setYesVariant(Value As String)`
+- `getYesVariant As String`
+- `setYesVisible(Value As Boolean)`
+- `getYesVisible As Boolean`
+- `setNoCaption(Value As String)`
+- `getNoCaption As String`
+- `setNoVariant(Value As String)`
+- `getNoVariant As String`
+- `setNoVisible(Value As Boolean)`
+- `getNoVisible As Boolean`
+- `setCancelCaption(Value As String)`
+- `getCancelCaption As String`
+- `setCancelVariant(Value As String)`
+- `getCancelVariant As String`
+- `setCancelVisible(Value As Boolean)`
+- `getCancelVisible As Boolean`
+- `setButtonsWidth(Value As String)`
+- `getButtonsWidth As String`
+- `setButtonsSize(Value As String)`
+- `getButtonsSize As String`
+- `getYesButton As B4XDaisyButton`
+- `getNoButton As B4XDaisyButton`
+- `getCancelButton As B4XDaisyButton`
 
 ---
 
 ## B4XDaisyNavbar
 
 ### Events
+
 - `Click (Payload As Object)`
 - `Opened`
 - `Closed`
 - `Back (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Variant` | String | `none` | Daisy variant for coloring |
@@ -4221,13 +5879,16 @@ This document lists all available custom views, their event hooks, designer prop
 | `LogoPosition` | String | `start` | Logo slot position |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `GetStartPanelAs B4XView`
-- `GetCenterPanelAs B4XView`
-- `GetEndPanelAs B4XView`
-- `AddViewToStart(v As B4XView, Width As Int, Height As Int)`
-- `AddViewToCenter(v As B4XView, Width As Int, Height As Int)`
-- `AddViewToEnd(v As B4XView, Width As Int, Height As Int)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetStartPanel As B4XView`
+- `GetCenterPanel As B4XView`
+- `GetEndPanel As B4XView`
+- `AddViewToStart(View As B4XView, Width As Int, Height As Int)`
+- `AddViewToCenter(View As B4XView, Width As Int, Height As Int)`
+- `AddViewToEnd(View As B4XView, Width As Int, Height As Int)`
 - `ClearStartSlot`
 - `ClearCenterSlot`
 - `ClearEndSlot`
@@ -4254,77 +5915,189 @@ This document lists all available custom views, their event hooks, designer prop
 - `AddFabToStart(ID As String, OverlayHost As B4XView, SizeDip As Int) As B4XDaisyFab`
 - `AddFabToCenter(ID As String, OverlayHost As B4XView, SizeDip As Int) As B4XDaisyFab`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setGlass(Value As Boolean)`
-- `getGlassAs Boolean`
+- `getGlass As Boolean`
 - `setGlassSize(Value As String)`
-- `getGlassSizeAs String`
+- `getGlassSize As String`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setLogoImage(Value As String)`
-- `getLogoImageAs String`
+- `getLogoImage As String`
 - `setLogoWidth(Value As Int)`
-- `getLogoWidthAs Int`
+- `getLogoWidth As Int`
 - `setLogoHeight(Value As Int)`
-- `getLogoHeightAs Int`
+- `getLogoHeight As Int`
 - `setLogoMask(Value As String)`
-- `getLogoMaskAs String`
+- `getLogoMask As String`
 - `setLogoVisible(Value As Boolean)`
-- `getLogoVisibleAs Boolean`
+- `getLogoVisible As Boolean`
 - `setLogoPosition(Value As String)`
-- `getLogoPositionAs String`
+- `getLogoPosition As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
 - `setTitlePosition(Value As String)`
-- `getTitlePositionAs String`
+- `getTitlePosition As String`
 - `setTitleVisible(Value As Boolean)`
-- `getTitleVisibleAs Boolean`
+- `getTitleVisible As Boolean`
 - `setHamburgerVisible(Value As Boolean)`
-- `getHamburgerVisibleAs Boolean`
+- `getHamburgerVisible As Boolean`
 - `setHamburgerSize(Value As Int)`
-- `getHamburgerSizeAs Int`
+- `getHamburgerSize As Int`
+- `ToggleHamburger`
+- `setHamburgerChecked(Value As Boolean)`
+- `getHamburgerChecked As Boolean`
+- `getHamburgerSwap As B4XDaisySwap`
 - `setBackVisible(Value As Boolean)`
-- `getBackVisibleAs Boolean`
+- `getBackVisible As Boolean`
 - `setBackSize(Value As Int)`
-- `getBackSizeAs Int`
+- `getBackSize As Int`
 - `setBackLabel(Value As String)`
-- `getBackLabelAs String`
+- `getBackLabel As String`
 - `setBackNudge(Value As Int)`
-- `getBackNudgeAs Int`
+- `getBackNudge As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColorVariant(VariantName As String)`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
-- `GetComputedHeightAs Int`
+- `getHeight As Float`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-- `getViewAs B4XView`
+- `View As B4XView`
+- `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `SendToBack`
 - `BringToFront`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
+---
+
+## B4XDaisyOTP
+
+### Events
+
+- `Input (Value As String)`
+- `Changed (Value As String)`
+- `Complete (Value As String)`
+- `Focus`
+- `Blur`
+- `DescriptionClick`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Length` | Int | `4, MinRange: 2, MaxRange: 10` | Number of input boxes. |
+| `InputType` | String | `number` | Input type format (enforces numeric or text keyboard). |
+| `Value` | String | `` | Pre-fills the OTP boxes. |
+| `Separators` | String | `` | Comma-separated indices (e.g., "1,3") or "all". |
+| `Pattern` | String | `` | Regex char-class for allowed characters. Defaults by Type. |
+| `Shape` | String | `round` | Border radius styling. |
+| `Fill` | String | `outline` | Input box background style. |
+| `Size` | String | `md` | Dimension token for the input boxes. |
+| `Gap` | Int | `-1, MinRange: -1, MaxRange: 48` | Gap between input boxes in dip. -1 = auto from Size. |
+| `Variant` | String | `none` |  |
+| `FocusVariant` | String | `primary` |  |
+| `Enabled` | Boolean | `True` |  |
+| `ReadOnly` | Boolean | `False` |  |
+| `Visible` | Boolean | `True` |  |
+| `Required` | Boolean | `False` |  |
+| `ValidationState` | String | `none` | Manual validation styling (maps to ion-valid/ion-invalid). |
+| `LabelAbove` | String | `` |  |
+| `Description` | String | `` | Slotted description text shown below the boxes (ionic slot equiv). |
+| `HintText` | String | `` |  |
+| `ErrorText` | String | `` |  |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getLength As Int`
+- `setLength(Value As Int)`
+- `getInputType As String`
+- `setInputType(Value As String)`
+- `getValue As String`
+- `setValue(Value As String)`
+- `getSeparators As String`
+- `setSeparators(Value As String)`
+- `getPattern As String`
+- `setPattern(Value As String)`
+- `getShape As String`
+- `setShape(Value As String)`
+- `getRounded As String`
+- `setRounded(Value As String)`
+- `getFill As String`
+- `setFill(Value As String)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getGap As Int`
+- `setGap(Value As Int)`
+- `getVariant As String`
+- `setVariant(Value As String)`
+- `getFocusVariant As String`
+- `setFocusVariant(Value As String)`
+- `getEnabled As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getReadOnly As Boolean`
+- `setReadOnly(Value As Boolean)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getRequired As Boolean`
+- `setRequired(Value As Boolean)`
+- `getValidationState As String`
+- `setValidationState(Value As String)`
+- `getLabelAbove As String`
+- `setLabelAbove(Value As String)`
+- `getDescription As String`
+- `setDescription(Value As String)`
+- `getHintText As String`
+- `setHintText(Value As String)`
+- `getErrorText As String`
+- `setErrorText(Value As String)`
+- `getIsComplete As Boolean`
+- `getIsValid As Boolean`
+- `getFocused As Boolean`
+- `HandleDeleteKey`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setFocus(Index As Int)`
+- `Release`
 
 ---
 
 ## B4XDaisyOverlay
 
 ### Events
+
 - `Click (Tag As Object)`
 - `Opened (Tag As Object)`
 - `Closed (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `OverlayColor` | Color | `0xFF000000` | Base RGB color of the overlay surface. Alpha channel is overridden by Opacity. |
@@ -4335,90 +6108,132 @@ This document lists all available custom views, their event hooks, designer prop
 | `CloseOnClick` | Boolean | `False` | When True, clicking the overlay automatically closes it and fires the Closed event. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
-- `GetComputedHeightAs Int`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AttachTo(Target As B4XView) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Resize(Width As Int, Height As Int)`
-- `AddChild(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `GetHostViewAs B4XView`
-- `getOverlayColorAs Int`
+- `AddChild(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `GetHostView As B4XView`
+- `getOverlayColor As Int`
 - `setOverlayColor(Value As Int)`
-- `getOpacityAs Float`
+- `getOpacity As Float`
 - `setOpacity(Value As Float)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRounded(Value As String)`
-- `getPassThroughAs Boolean`
+- `getPassThrough As Boolean`
 - `setPassThrough(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setVisible(Value As Boolean)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `getCloseOnClickAs Boolean`
+- `getCloseOnClick As Boolean`
 - `setCloseOnClick(Value As Boolean)`
-- `getIsAttachedAs Boolean`
-- `getIsOpenAs Boolean`
+- `getIsAttached As Boolean`
+- `getIsOpen As Boolean`
 - `Open`
 - `Close`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyPageScroll
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `PagePadding` | Int | `12` | Content padding in dip from page edges. |
 | `BackgroundColor` | Color | `0x00000000` | Background color for the page (0 uses default light gray). |
+| `BackgroundVariant` | String | `none` | DaisyUI variant color for the page background. none = use BackgroundColor. |
 | `RootColor` | Color | `0x00000000` | Background color for the page parent panel (0 uses default light gray). |
 | `Transparent` | Boolean | `False` | Set to True to make the page background transparent. |
 | `AutoFitHeight` | Boolean | `True` | Automatically resize scroll view panel to fit content. |
 | `YGap` | Int | `12` | Vertical spacing between added elements in dip. |
+| `ScrollEnabled` | Boolean | `True` | Enable or disable scrolling. When False the content stays fixed while children remain interactive. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `SendToBack`
 - `BringToFront`
-- `getPanelAs B4XView`
-- `getScrollViewAs ScrollView`
-- `getUsableWidthAs Int`
+- `getPanel As B4XView`
+- `getScrollView As ScrollView`
+- `ScrollToTop(Animated As Boolean)`
+- `ScrollToBottom(Animated As Boolean)`
+- `ScrollToPosition(Position As Int, Animated As Boolean)`
+- `getScrollPosition As Int`
+- `getMaxScrollPosition As Int`
+- `ScrollToView(TargetView As B4XView, Animated As Boolean)`
+- `setBackgroundVariant(Value As String)`
+- `getBackgroundVariant As String`
+- `getUsableWidth As Int`
 - `AutoFit`
 - `Clear`
 - `AddSectionTitle(Text As String, Y As Int, Center As Boolean) As Int`
 - `AddDivider(Y As Int) As Int`
-- `getPagePaddingAs Int`
+- `getPagePadding As Int`
 - `setPagePadding(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColor(Value As Int)`
-- `getRootColorAs Int`
+- `getRootColor As Int`
 - `setRootColor(Value As Int)`
-- `getTransparentAs Boolean`
+- `getTransparent As Boolean`
 - `setTransparent(Value As Boolean)`
-- `getYGapAs Int`
+- `getYGap As Int`
 - `setYGap(Value As Int)`
-- `getAutoFitHeightAs Boolean`
+- `getScrollEnabled As Boolean`
+- `setScrollEnabled(Value As Boolean)`
+- `getAutoFitHeight As Boolean`
 - `setAutoFitHeight(Value As Boolean)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyPagination
 
 ### Events
-- `PageChanged (PageIndex As Int, ItemId As String)`
+
+- `Changed (PageIndex As Int, ItemId As String)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Size` | String | `md` | Button size token |
@@ -4436,75 +6251,270 @@ This document lists all available custom views, their event hooks, designer prop
 | `PageCount` | Int | `5` | Number of page buttons to display |
 | `EqualWidth` | Boolean | `False` | Make prev/next buttons equal width (grid-cols-2 mode) |
 | `Shadow` | String | `none` | Shadow applied to each button |
-| `Circle` | Boolean | `True` | Each button is square — combine with Rounded=full for circle shape |
+| `Circle` | Boolean | `True` | Each button is square - combine with Rounded=full for circle shape |
 | `GapX` | Int | `1` | Horizontal gap between pagination buttons in dip |
 | `Visible` | Boolean | `True` | Show or hide component |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setVisible(Value As Boolean)`
-- `getSizeAs String`
+- `getSize As String`
 - `setSize(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setStyle(Value As String)`
-- `getActiveColorAs String`
+- `getActiveColor As String`
 - `setActiveColor(Value As String)`
-- `getActiveIndexAs Int`
+- `getActiveIndex As Int`
 - `setActiveIndex(Value As Int)`
-- `getDisabledAs Boolean`
+- `getDisabled As Boolean`
 - `setDisabled(Value As Boolean)`
-- `getShowPrevNextAs Boolean`
+- `getShowPrevNext As Boolean`
 - `setShowPrevNext(Value As Boolean)`
-- `getShowFirstLastAs Boolean`
+- `getShowFirstLast As Boolean`
 - `setShowFirstLast(Value As Boolean)`
-- `getFirstTextAs String`
+- `getFirstText As String`
 - `setFirstText(Value As String)`
-- `getLastTextAs String`
+- `getLastText As String`
 - `setLastText(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setShadow(Value As String)`
-- `getPrevTextAs String`
+- `getPrevText As String`
 - `setPrevText(Value As String)`
-- `getNextTextAs String`
+- `getNextText As String`
 - `setNextText(Value As String)`
-- `getShowPageNumbersAs Boolean`
+- `getShowPageNumbers As Boolean`
 - `setShowPageNumbers(Value As Boolean)`
-- `getPageCountAs Int`
+- `getPageCount As Int`
 - `setPageCount(Value As Int)`
-- `getEqualWidthAs Boolean`
+- `getEqualWidth As Boolean`
 - `setEqualWidth(Value As Boolean)`
-- `getCircleAs Boolean`
+- `getCircle As Boolean`
 - `setCircle(Value As Boolean)`
-- `getGapXAs Int`
+- `getGapX As Int`
 - `setGapX(Value As Int)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `getViewAs B4XView`
-- `GetActualPageCountAs Int`
+- `View As B4XView`
+- `Refresh`
+- `GetActualPageCount As Int`
 - `PrevPage`
 - `NextPage`
 - `GoToPage(Index As Int)`
-- `GetItemCountAs Int`
+- `GetItemCount As Int`
 - `GetItemIdAt(Index As Int) As String`
 - `SetItemDisabled(Id As String, Disabled As Boolean)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisyPDFView
+
+### Events
+
+- `LoadComplete (Pages As Int)`
+- `PageChanged (Page As Int, TotalPages As Int)`
+- `OnTap (Target As Object)`
+- `InitiallyRendered (Page As Int)`
+- `PageNum (Page As Int)`
+- `Show`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `AutoSpacing` | Boolean | `True` | Automatically space PDF pages. |
+| `EnableSwipe` | Boolean | `True` | Allow swipe gestures to turn pages. |
+| `PageSnap` | Boolean | `True` | Snap pages into view when swiping. |
+| `SwipeHorizontal` | Boolean | `False` | Scroll horizontally instead of vertically. |
+| `ShowToolbar` | Boolean | `True` | Show bottom navigation toolbar. |
+| `ToolbarHeight` | Int | `48` | Height of navigation toolbar in dip. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Base_Resize(Width As Int, Height As Int)`
+- `LoadFile(Dir As String, FileName As String)`
+- `LoadAsset(FileName As String)`
+- `Reload`
+- `JumpToPage(Page As Int)`
+- `FirstPage`
+- `PrevPage`
+- `NextPage`
+- `LastPage`
+- `getCurrentPage As Int`
+- `getTotalPages As Int`
+- `setAutoSpacing(Value As Boolean)`
+- `setEnableSwipe(Value As Boolean)`
+- `setPageSnap(Value As Boolean)`
+- `setSwipeHorizontal(Value As Boolean)`
+- `setShowToolbar(Value As Boolean)`
+- `View As B4XView`
+
+---
+
+## B4XDaisyPicker
+
+### Types
+
+- `PickerOption (Text As String, Value As Object, Disabled As Boolean)`
+- `PickerColumn (Name As String, Options As List, sv As ScrollView, pnlInner As B4XView, Prefix As String, Suffix As String, Disabled As Boolean, CurrentIndex As Int, Color As Int, ActiveColor As Int, Role As String)`
+
+### Events
+
+- `Changed (ColumnName As String, Value As Object)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Mode` | String | `md` | Platform rendering mode. |
+| `FadeBackground` | Color | `0xFFFFFFFF` | Maps to --fade-background-rgb gradient masks. |
+| `HighlightBackground` | Color | `0x1A000000` | Maps to --highlight-background. |
+| `HighlightVariant` | String | `` | DaisyUI variant for the selected-item highlight band. Overrides Highlight Color when set. |
+| `ActiveTextColor` | Color | `0` | Text color of the selected (centered) item. 0 = auto (uses the highlight variant -content color when a HighlightVariant is set, else the normal column text color). |
+| `HighlightRadius` | Int | `8` | Maps to --highlight-border-radius. |
+| `VisibleItems` | Int | `5` | Number of option rows visible at once (odd values center cleanly). |
+| `PickerType` | String | `default` | 'default' = user-defined columns; 'auto' = columns auto-generated from InputFormat (date/time/date-time/12h). Legacy date/time/date-time values map to 'auto'. |
+| `InputFormat` | String | `Y-m-d` | flatpickr-style tokens that define auto columns AND the returned value. Y/y year, m/n/M/F month, d/j day, H/G 24h, h/g 12h, i minute, s second, K/a AM-PM. Use [..] for literal text. |
+| `DisplayFormat` | String | `` | flatpickr-style tokens controlling how auto-generated wheels DISPLAY each value (independent of InputFormat, which controls the returned value). e.g. "F" shows full month names on the month wheel, "j" shows day without leading zero, "y" shows 2-digit year. Empty = default labels (short month, 2-digit day, 4-digit year). Only affects PickerType=auto. |
+| `MinYear` | Int | `0` | Lowest year for date/date-time pickers (0 = current year - 10). |
+| `MaxYear` | Int | `0` | Highest year for date/date-time pickers (0 = current year + 10). |
+| `ColumnDelimiter` | String | `` | When set, GetValue returns the column values joined by this delimiter (in column order). Overrides InputFormat formatting. |
+| `TextAlign` | String | `CENTER` | Horizontal alignment of column option text (vertical is always centered). |
+| `Rounded` | String | `rounded-lg` | Corner radius mode applied to the picker root panel. |
+| `Shadow` | String | `none` | Elevation shadow level applied to the picker root panel. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setMode(Value As String)`
+- `getMode As String`
+- `setFadeBackground(Value As Int)`
+- `getFadeBackground As Int`
+- `setHighlightBackground(Value As Int)`
+- `getHighlightBackground As Int`
+- `setHighlightVariant(Value As String)`
+- `getHighlightVariant As String`
+- `setActiveTextColor(Value As Int)`
+- `getActiveTextColor As Int`
+- `setHighlightRadius(Value As Int)`
+- `getHighlightRadius As Int`
+- `setVisibleItems(Value As Int)`
+- `getVisibleItems As Int`
+- `GetComputedHeight As Int`
+- `setPickerType(Value As String)`
+- `getPickerType As String`
+- `setInputFormat(Value As String)`
+- `getInputFormat As String`
+- `setDisplayFormat(Value As String)`
+- `getDisplayFormat As String`
+- `setMinYear(Value As Int)`
+- `getMinYear As Int`
+- `setMaxYear(Value As Int)`
+- `getMaxYear As Int`
+- `setColumnDelimiter(Value As String)`
+- `getColumnDelimiter As String`
+- `setTextAlign(Value As String)`
+- `getTextAlign As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `GetRoundedRadius As Float`
+- `SetColorAndBorder(Color As Int, BorderWidth As Float, BorderColor As Int, CornerRadius As Float)`
+- `AddColumn(ColumnName As String, Prefix As String, Suffix As String, Disabled As Boolean)`
+- `AddColumnDay(ColumnName As String)`
+- `AddColumnMonth(ColumnName As String)`
+- `AddColumnYear(ColumnName As String, StartYear As Int, EndYear As Int)`
+- `AddOption(ColumnName As String, Text As String, Value As Object)`
+- `SetColumnValue(ColumnName As String, Value As Object)`
+- `SetOptionDisabled(ColumnName As String, Value As Object, Disabled As Boolean)`
+- `SetOptionDisabledByIndex(ColumnName As String, Index As Int, Disabled As Boolean)`
+- `GetColumnValue(ColumnName As String) As Object`
+- `GetColumnOptionValues(ColumnName As String) As List`
+- `SetColumnColor(ColumnName As String, Color As Int)`
+- `GetColumnColor(ColumnName As String) As Int`
+- `SetColumnColorVariant(ColumnName As String, Variant As String)`
+- `SetColumnEnabled(ColumnName As String, Enabled As Boolean)`
+- `GetColumnEnabled(ColumnName As String) As Boolean`
+- `SetColumnActiveTextColor(ColumnName As String, Color As Int)`
+- `GetColumnActiveTextColor(ColumnName As String) As Int`
+- `Refresh`
+- `SetValue(Value As String)`
+- `SetValueList(lstValues As List)`
+- `GetValueList As List`
+- `GetValue As String`
+- `GetDisplayValue As String`
+- `View As B4XView`
+
+---
+
+## B4XDaisyPiecePlaceManager
+
+### Public Methods
+
+- `Initialize`
+
+---
+
+## B4XDaisyPocketBase
+
+### Types
+
+- `ProfileType (id As String, email As String, avatar As String, name As String, verified As Boolean, username As String, idnumber As String, token As String, size As Int)`
+
+### Events
+
+- `Connect (data As Map)`
+- `Disconnect (data As Map)`
+- `ConnectError (data As Map)`
+- `RealTime (data As Map)`
+- `Changes (e As Map)`
+- `Change (Action As String, Record As Map, TableName As String)`
+- `AuthChange (Token As String, Model As Map)`
+- `BeforeSend (url As object, options As Object)`
+- `AfterSend (response As Object, data As Object)`
+
+### Public Methods
+
+- `Initialize(Module As Object, EventName As String, Url As String, Table As String) As B4XDaisyPocketBase`
+- `ListKeys As ResumableSub`
+- `GetJWTPayload(Token As String) As Map`
 
 ---
 
 ## B4XDaisyProgress
 
 ### Events
-*(None)*
+
+- `Changed (Value As Float)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Value` | Int | `0` | Current progress value. |
 | `MaxValue` | Int | `100` | Maximum progress bound. |
-| `Variant` | String | `none` |  |
+| `Variant` | String | `neutral` |  |
 | `Size` | String | `none` |  |
 | `Visible` | Boolean | `True` |  |
 | `Width` | String | `w-full` |  |
@@ -4512,50 +6522,97 @@ This document lists all available custom views, their event hooks, designer prop
 | `ShowTooltip` | Boolean | `False` |  |
 | `TooltipPosition` | String | `top` |  |
 | `Indeterminate` | Boolean | `False` | Shows animated repeating-gradient progress (no value needed). |
+| `ShowNumberInline` | Boolean | `False` | Displays the percentage text between the reached and unreached areas (NumberProgressBar style). |
+| `NumberTextColor` | Color | `0x00000000` | Override color for the inline number (0 = variant color). |
+| `Animated` | Boolean | `False` | Animate value changes. |
+| `Duration` | Int | `1000` | Animation duration in milliseconds. |
+| `IconLeft` | String | `` | Left-side SVG icon asset name. |
+| `IconRight` | String | `` | Right-side SVG icon asset name. |
+| `MinValue` | Float | `0` | Minimum progress value. |
+| `StepValue` | Float | `1` | Step increment/decrement amount. |
+| `IconSize` | Int | `0` | Icon size in dip. 0 = auto-scale based on Size. |
+| `LabelAbove` | String | `` | Label text displayed above the progress bar. |
+| `LabelVisible` | Boolean | `False` | Whether the label above is visible. |
+| `TooltipOpen` | Boolean | `True` | When True, tooltip stays permanently visible. When False, tooltip shows briefly on value change then fades out. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `SetValueColor(Color As Int)`
 - `SetTrackColor(Color As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setVariant(VariantName As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setValue(Value As Float)`
-- `getValueAs Float`
-- `SetValueAnimated(Value As Float, Duration As Int)`
+- `getValue As Float`
 - `StartTimer(DurationMs As Int)`
 - `setMaxValue(MaxValue As Float)`
-- `getMaxValueAs Float`
+- `getMaxValue As Float`
 - `setSize(Size As String)`
-- `getSizeAs String`
-- `setShowTooltip(b As Boolean)`
-- `getShowTooltipAs Boolean`
-- `setTooltipPosition(s As String)`
-- `getTooltipPositionAs String`
-- `setIndeterminate(b As Boolean)`
-- `getIndeterminateAs Boolean`
+- `getSize As String`
+- `setShowTooltip(Value As Boolean)`
+- `getShowTooltip As Boolean`
+- `setTooltipPosition(Value As String)`
+- `getTooltipPosition As String`
+- `setIndeterminate(Value As Boolean)`
+- `getIndeterminate As Boolean`
+- `setShowNumberInline(Value As Boolean)`
+- `getShowNumberInline As Boolean`
+- `setNumberTextColor(C As Int)`
+- `getNumberTextColor As Int`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setTag(Tag As Object)`
-- `getTagAs Object`
+- `getTag As Object`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setIconLeft(Value As String)`
+- `getIconLeft As String`
+- `setIconRight(Value As String)`
+- `getIconRight As String`
+- `setMinValue(V As Float)`
+- `getMinValue As Float`
+- `setStepValue(V As Float)`
+- `getStepValue As Float`
+- `setIconSize(V As Int)`
+- `getIconSize As Int`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
 - `StopAnimation`
-- `GetComputedHeightAs Int`
-- `getViewAs B4XView`
+- `setTooltipOpen(Value As Boolean)`
+- `getTooltipOpen As Boolean`
+- `GetComputedHeight As Int`
+- `View As B4XView`
 - `RemoveViewFromParent`
-
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyRadialProgress
 
 ### Events
+
 - `None`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Value` | Int | `0` | Current progress value |
@@ -4570,7 +6627,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `Prefix` | String | `` | Text shown before the value |
 | `Suffix` | String | `%` | Text shown after the value |
 | `TextCountUp` | Boolean | `False` | Animate text value incrementally |
-| `CountUpSpeed` | Int | `300` | Duration for Text CountUp in ms |
+| `Duration` | Int | `300` | Duration for Text CountUp in ms |
 | `SvgAsset` | String | `` | SVG file used when DisplayType is svg |
 | `TrackColor` | Color | `0x00000000` | Color of the background ring (0 uses default base-200) |
 | `BackgroundColor` | Color | `0x00000000` | 0/transparent |
@@ -4579,69 +6636,86 @@ This document lists all available custom views, their event hooks, designer prop
 | `BorderWidth` | String | `0` | Outer border width (e.g. 4dip) |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `DrawComponent`
 - `SetValueAnimated(NewValue As Float, Duration As Int)`
 - `StopAnimation`
 - `StartTimer(DurationMs As Int)`
-- `getMaxValueAs Int`
+- `getMaxValue As Int`
 - `setMaxValue(MaxVal As Int)`
-- `getMinValueAs Int`
+- `getMinValue As Int`
 - `setMinValue(MinVal As Int)`
-- `getValueAs Int`
-- `setValue(Val As Int)`
+- `getValue As Int`
+- `setValue(Value As Int)`
 - `setStepValue(StepVal As Int)`
-- `getStepValueAs Int`
+- `getStepValue As Int`
 - `setDisplayType(DType As String)`
-- `getDisplayTypeAs String`
+- `getDisplayType As String`
 - `setText(NewText As String)`
-- `getTextAs String`
+- `getText As String`
 - `setVariant(NewVariant As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As Object)`
-- `getSizeAs Float`
-- `getWidthAs Float`
-- `getHeightAs Float`
+- `getSize As Float`
+- `getWidth As Float`
+- `getHeight As Float`
 - `setThickness(NewThickness As String)`
-- `getThicknessAs String`
+- `getThickness As String`
 - `setSvgAsset(NewSvgAsset As String)`
-- `getSvgAssetAs String`
+- `getSvgAsset As String`
 - `setPrefix(NewPrefix As String)`
-- `getPrefixAs String`
+- `getPrefix As String`
 - `setSuffix(NewSuffix As String)`
-- `getSuffixAs String`
+- `getSuffix As String`
 - `setTextCountUp(NewTextCountUp As Boolean)`
-- `getTextCountUpAs Boolean`
+- `getTextCountUp As Boolean`
+- `setDuration(NewCountUpSpeed As Int)`
+- `getDuration As Int`
 - `setCountUpSpeed(NewCountUpSpeed As Int)`
-- `getCountUpSpeedAs Int`
+- `getCountUpSpeed As Int`
 - `setTrackColor(NewTrackColor As Int)`
-- `getTrackColorAs Int`
+- `getTrackColor As Int`
 - `setBackgroundColor(NewBackgroundColor As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(NewTextColor As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(NewBorderColor As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderWidth(NewBorderWidth As String)`
-- `getBorderWidthAs String`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
-- `GetComputedHeightAs Int`
+- `getBorderWidth As String`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `setHeight(Value As Int)`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyRadio
 
 ### Events
+
 - `Checked (Checked As Boolean)`
 - `Click (Tag As Object)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `GroupName` | String | `` | Radio group name. |
@@ -4654,88 +6728,109 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 | `Visible` | Boolean | `True` | Visible state. |
 | `Shadow` | String | `none` | Elevation shadow level. |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override label text color. |
 | `CheckedBackgroundColor` | Color | `0x00FFFFFF` | Override checked background color. |
 | `CheckedBorderColor` | Color | `0x00FFFFFF` | Override checked border color. |
 | `CheckedTextColor` | Color | `0x00FFFFFF` | Override checked center dot color. |
+| `Required` | Boolean | `False` | Set field as required. |
+| `ErrorText` | String | `` | Message displayed when field validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setChecked(Value As Boolean)`
-- `getRoleAs String`
+- `getRole As String`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
-- `getCheckedAs Boolean`
+- `getGroupName As String`
+- `getChecked As Boolean`
 - `setValue(Value As String)`
-- `getValueAs String`
+- `getValue As String`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setPosition(Value As String)`
-- `getPositionAs String`
+- `getPosition As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
-- `getIsValidAs Boolean`
+- `getErrorText As String`
+- `getIsValid As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `ValidateAs Boolean`
+- `Validate As Boolean`
 - `setBackgroundColor(Color As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBorderColor(Color As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setTextColor(Color As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setCheckedBackgroundColor(Color As Int)`
-- `getCheckedBackgroundColorAs Int`
+- `getCheckedBackgroundColor As Int`
 - `setCheckedBorderColor(Color As Int)`
-- `getCheckedBorderColorAs Int`
+- `getCheckedBorderColor As Int`
 - `setCheckedTextColor(Color As Int)`
-- `getCheckedTextColorAs Int`
+- `getCheckedTextColor As Int`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getComputedHeightAs Int`
+- `View As B4XView`
+- `getComputedHeight As Int`
 - `RequestFocus`
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RemoveViewFromParent`
 - `Release`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyRadioGroup
 
 ### Events
+
 - `ItemChanged (id As String, text As String, checked As Boolean)`
 - `Changed (SelectedIds As List)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Legend` | String | `Select an option` | Fieldset legend text |
 | `LegendSize` | String | `theme` | Legend text size token |
 | `LegendBold` | Boolean | `False` | Render the fieldset legend caption in bold |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
 | `Variant` | String | `none` | Optional accent variant for border tint |
 | `BorderStyle` | String | `outlined` | Border visual style |
 | `Padding` | Int | `16` | Inner content padding in dip |
 | `AutoHeight` | Boolean | `True` | Automatically grow to fit added content |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use box radius for container |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
 | `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
@@ -4749,97 +6844,119 @@ This document lists all available custom views, their event hooks, designer prop
 | `Gap` | Int | `8` | Gap between elements in dip |
 | `RowGap` | Int | `8` | Row gap for wrapped flow mode in dip |
 | `GroupName` | String | `` | Radio group name for mutual exclusivity |
+| `Required` | Boolean | `False` | Whether at least one option must be selected. |
+| `HintText` | String | `` | Helper text displayed below the group. |
+| `ErrorText` | String | `` | Error text displayed below the group when validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `AddItem(Id As String, Text As String)`
 - `RemoveItem(Id As String)`
-- `ClearItems`
+- `Clear`
 - `setItems(Items As Map)`
-- `getItemsAs Map`
+- `getItems As Map`
 - `setSelectedIndex(Index As Int)`
-- `getSelectedIndexAs Int`
+- `getSelectedIndex As Int`
 - `setChecked(CheckedIds As String)`
-- `getCheckedAs String`
+- `getChecked As String`
 - `setLegend(Value As String)`
-- `getLegendAs String`
+- `getLegend As String`
 - `setLegendSize(Value As String)`
-- `getLegendSizeAs String`
+- `getLegendSize As String`
 - `setLegendBold(Value As Boolean)`
-- `getLegendBoldAs Boolean`
+- `getLegendBold As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setAlignment(Value As String)`
-- `getAlignmentAs String`
+- `getAlignment As String`
 - `setRadioColor(Value As String)`
-- `getRadioColorAs String`
+- `getRadioColor As String`
 - `setRadioSize(Value As String)`
-- `getRadioSizeAs String`
+- `getRadioSize As String`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
+- `getGroupName As String`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setRowGap(Value As Int)`
-- `getRowGapAs Int`
+- `getRowGap As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
-- `getRequiredAs Boolean`
+- `getHintText As String`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `ReceiveFocus`
 - `Blur`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
-- `isRoundedAs Boolean`
+- `getRounded As String`
+- `isRounded As Boolean`
 - `setRoundedBox(Value As Boolean)`
-- `isRoundedBoxAs Boolean`
+- `isRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setInputBorder(Value As Boolean)`
-- `getInputBorderAs Boolean`
-- `GetComputedHeightAs Int`
+- `getInputBorder As Boolean`
+- `GetComputedHeight As Int`
 - `Release`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyRange
 
 ### Events
+
 - `Changed (Value As Int)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `MinValue` | Int | `0` | Minimum slider value. |
@@ -4855,73 +6972,125 @@ This document lists all available custom views, their event hooks, designer prop
 | `ShowFill` | Boolean | `True` | Show progress fill from min to thumb position. |
 | `RTL` | Boolean | `False` | Right-to-left progress direction (--range-dir:-1 parity). |
 | `Visible` | Boolean | `True` | Visible state. |
+| `DisallowParentIntercept` | Boolean | `True` | Prevent parent scroll containers from stealing touch gestures on Android. |
 | `Required` | Boolean | `False` | Whether the value must be greater than the minimum value. |
+| `LabelAbove` | String | `` | Label text displayed above the range slider. |
+| `LabelVisible` | Boolean | `False` | Whether the label above is visible. |
+| `HintText` | String | `` | Helper text displayed below the range slider. |
+| `ErrorText` | String | `` | Text displayed below the range slider when in the error validation state. |
+| `ShowValue` | Boolean | `False` | Show a right-aligned live value readout above the slider. |
+| `ValuePrefix` | String | `` | Text shown before the value (e.g. $). |
+| `ValueSuffix` | String | `` | Text shown after the value (e.g. %, px, s). |
+| `IconLeft` | String | `` | Left-side (prepend) SVG icon asset name. Tapping decrements by Step. |
+| `IconRight` | String | `` | Right-side (append) SVG icon asset name. Tapping increments by Step. |
+| `IconSize` | Int | `0` | Icon size in dip. 0 = auto-scale based on Size (matches thumb). |
+| `ShowTooltip` | Boolean | `False` | Show a tooltip with the current value above the thumb. |
+| `TooltipPosition` | String | `top` | Tooltip position relative to the thumb. |
+| `TooltipOpen` | Boolean | `False` | When True, tooltip stays permanently visible. When False, tooltip shows transiently during drag / on value change then fades out. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setMinValue(Value As Int)`
-- `getMinValueAs Int`
+- `getMinValue As Int`
 - `setMaxValue(Value As Int)`
-- `getMaxValueAs Int`
+- `getMaxValue As Int`
 - `setValue(Value As Int)`
-- `getValueAs Int`
+- `getValue As Int`
 - `setStepValue(Value As Int)`
-- `getStepValueAs Int`
+- `getStepValue As Int`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setShowFill(Value As Boolean)`
-- `getShowFillAs Boolean`
+- `getShowFill As Boolean`
 - `setRTL(Value As Boolean)`
-- `getRTLAs Boolean`
+- `getRTL As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
+- `setDisallowParentIntercept(Value As Boolean)`
+- `getDisallowParentIntercept As Boolean`
 - `setTrackColor(Value As Int)`
-- `getTrackColorAs Int`
+- `getTrackColor As Int`
 - `setProgressColor(Value As Int)`
-- `getProgressColorAs Int`
+- `getProgressColor As Int`
 - `setThumbColor(Value As Int)`
-- `getThumbColorAs Int`
+- `getThumbColor As Int`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setShowValue(Value As Boolean)`
+- `getShowValue As Boolean`
+- `setValuePrefix(Value As String)`
+- `getValuePrefix As String`
+- `setValueSuffix(Value As String)`
+- `getValueSuffix As String`
+- `setIconLeft(Value As String)`
+- `getIconLeft As String`
+- `setIconRight(Value As String)`
+- `getIconRight As String`
+- `setIconSize(Value As Int)`
+- `getIconSize As Int`
+- `setShowTooltip(Value As Boolean)`
+- `getShowTooltip As Boolean`
+- `setTooltipPosition(Value As String)`
+- `getTooltipPosition As String`
+- `setTooltipOpen(Value As Boolean)`
+- `getTooltipOpen As Boolean`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getRoleAs String`
+- `getTag As Object`
+- `getRole As String`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getComputedHeightAs Int`
+- `View As B4XView`
+- `getComputedHeight As Int`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `RequestFocus`
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
-- `getIsValidAs Boolean`
+- `getErrorText As String`
+- `getIsValid As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `ValidateAs Boolean`
+- `Validate As Boolean`
+- `StopAnimation`
 - `RemoveViewFromParent`
 - `Release`
-
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyRating
 
 ### Events
-- `Changed(Value As Float)`
+
+- `Changed (Value As Float)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Value` | Float | `0` | Current rating value (0 = no selection, use 0.5 for half stars). |
@@ -4931,56 +7100,69 @@ This document lists all available custom views, their event hooks, designer prop
 | `IconStyle` | String | `star-2` | Icon mask shape. |
 | `Half` | Boolean | `False` | Enable half-star increments (rating-half parity). |
 | `AllowClear` | Boolean | `False` | Allow clearing the rating by selecting same value (rating-hidden parity). |
-| `ReadOnly` | Boolean | `False` | Read-only mode â€” no interaction, display only. |
+| `ReadOnly` | Boolean | `False` | Read-only mode - no interaction, display only. |
 | `Required` | Boolean | `False` | Whether a rating value greater than 0 is required. |
 | `ActiveColor` | Color | `0` | Custom color for active/filled items (0 = theme default bg-base-content). |
 | `InactiveColor` | Color | `0` | Custom color for inactive/empty items (0 = theme default opacity-20). |
-| `Gap` | Int | `4` | Gap between items in dip (maps to gap-1 â‰ˆ 4dip). |
+| `Gap` | Int | `4` | Gap between items in dip (maps to gap-1 ~ 4dip). |
 | `Enabled` | Boolean | `True` | Enabled state. |
 | `Visible` | Boolean | `True` | Visible state. |
+| `LabelAbove` | String | `` | Label text displayed above the rating. |
+| `LabelVisible` | Boolean | `False` | Whether the label above is visible. |
+| `HintText` | String | `` | Helper text displayed below the rating. |
+| `ErrorText` | String | `` | Text displayed below the rating when in the error validation state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setValue(Value As Float)`
-- `getValueAs Float`
+- `getValue As Float`
 - `setMaxValue(Value As Int)`
-- `getMaxValueAs Int`
+- `getMaxValue As Int`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setIconStyle(Value As String)`
-- `getIconStyleAs String`
+- `getIconStyle As String`
 - `setHalf(Value As Boolean)`
-- `getHalfAs Boolean`
+- `getHalf As Boolean`
 - `setAllowClear(Value As Boolean)`
-- `getAllowClearAs Boolean`
+- `getAllowClear As Boolean`
 - `setReadOnly(Value As Boolean)`
-- `getReadOnlyAs Boolean`
+- `getReadOnly As Boolean`
 - `setActiveColor(Value As Int)`
-- `getActiveColorAs Int`
+- `getActiveColor As Int`
 - `setInactiveColor(Value As Int)`
-- `getInactiveColorAs Int`
-- `SetItemColors(ItemColorList As List)`
+- `getInactiveColor As Int`
+- `SetItemColors(lstItemColorList As List)`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setLeft(Value As Int)`
 - `setTop(Value As Int)`
-- `getRoleAs String`
+- `getRole As String`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getComputedHeightAs Int`
+- `View As B4XView`
+- `getComputedHeight As Int`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setBackgroundColorVariant(Variant As String)`
 - `setTextColorVariant(Variant As String)`
@@ -4988,108 +7170,158 @@ This document lists all available custom views, their event hooks, designer prop
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
-- `getIsValidAs Boolean`
+- `getErrorText As String`
+- `getIsValid As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `ValidateAs Boolean`
+- `Validate As Boolean`
 - `RemoveViewFromParent`
 - `Release`
+- `getLeft As Int`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisySegment
+
+### Types
+
+- `SegmentButtonConfig (Value As String, Text As String, IconPath As String, Layout As String, Disabled As Boolean, ButtonView As B4XView, lblText As Label, svgIcon As B4XDaisySvgIcon, bInitialized As Boolean, MeasuredWidth As Int, HasCustomTextColor As Boolean, CustomTextColor As Int, HasCustomIconColor As Boolean, CustomIconColor As Int, HasCustomButtonColor As Boolean, CustomButtonColor As Int)`
+
+### Events
+
+- `Changed (Value As String)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `BackgroundColor` | String | `none` | Background theme variant or custom color. |
+| `ActiveColor` | String | `none` | Active button text/icon theme variant color. |
+| `ButtonLayout` | String | `icon-start` | The layout position of icon relative to label. |
+| `Scrollable` | Boolean | `False` | Enables horizontal scrolling for buttons. |
+| `ButtonSize` | String | `md` | Button size (xs, sm, md, lg, xl). |
+| `Rounded` | String | `md` | Container corner radius mode. |
+| `Shadow` | String | `none` | Drop shadow elevation level. |
+| `Disabled` | Boolean | `False` | Blocks interactions with the control. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddButton(Value As String, Text As String, IconPath As String)`
+- `AddIcon(Value As String, IconPath As String)`
+- `AddLabel(Value As String, Text As String)`
+- `SetButtonColor(Value As String, Color As Int)`
+- `SetButtonTextColor(Value As String, Color As Int)`
+- `SetButtonIconColor(Value As String, Color As Int)`
+- `Refresh`
+- `SetValue(NewValue As String)`
+- `GetValue As String`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Clear`
+- `RemoveButton(Value As String)`
+- `SetButtonEnabled(Value As String, Enabled As Boolean)`
+- `GetButtonEnabled(Value As String) As Boolean`
+- `setActiveColor(Value As String)`
+- `getActiveColor As String`
+- `setScrollable(Value As Boolean)`
+- `getScrollable As Boolean`
+- `setButtonSize(Value As String)`
+- `getButtonSize As String`
+- `setTextSize(Value As String)`
+- `getTextSize As String`
+- `setBackgroundColor(Value As Object)`
+- `getBackgroundColor As Object`
+- `setDisabled(Value As Boolean)`
+- `getDisabled As Boolean`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setButtonLayout(Value As String)`
+- `getButtonLayout As String`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisySelect
 
-### Events
-- `Changed(Index As Int, Key As String, Value As String)`
-- `Click(Tag As Object)`
-
-### Designer Properties
-| Property Key | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `Variant` | String | `none` | DaisyUI color variant applied to border and focus outline. |
-| `Size` | String | `md` | DaisyUI size variant controlling height and font-size. |
-| `Placeholder` | String | `Pick an option` | Placeholder text shown when no item is selected. |
-| `LabelAbove` | String | `` | Optional label text displayed above the select trigger. |
-| `HintText` | String | `` | Helper text displayed below the select trigger. |
-| `Required` | Boolean | `False` | Whether an option must be selected. |
-| `ErrorText` | String | `` | Error text displayed below the select when validation fails. |
-| `Radius` | String | `theme` | Corner radius token for the select trigger. |
-| `Enabled` | Boolean | `True` | Whether the select is enabled. |
-| `Visible` | Boolean | `True` | Controls view visibility. |
-| `BackgroundColor` | Color | `0x00000000` | Override background color for the trigger. |
-| `TextColor` | Color | `0x00000000` | Override text color for the selected value. |
-| `Shadow` | String | `none` | Elevation shadow level for the trigger. |
-| `Alpha` | Float | `1.0` | View opacity from 0 (invisible) to 1 (fully opaque). |
-| `MaxDropdownRows` | Int | `5` | Maximum number of visible rows in the dropdown before scrolling. |
-
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
+- `View As B4XView`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `IsReadyAs Boolean`
+- `getTag As Object`
+- `IsReady As Boolean`
 - `UpdateTheme`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
+- `setActiveColor(Value As String)`
+- `getActiveColor As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setPlaceholder(Value As String)`
-- `getPlaceholderAs String`
+- `getPlaceholder As String`
 - `setLabelAbove(Value As String)`
-- `getLabelAboveAs String`
+- `getLabelAbove As String`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
+- `getHintText As String`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setRadius(Value As String)`
-- `getRadiusAs String`
+- `getRadius As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setAlpha(Value As Float)`
-- `getAlphaAs Float`
+- `getAlpha As Float`
 - `setMaxDropdownRows(Value As Int)`
-- `getMaxDropdownRowsAs Int`
+- `getMaxDropdownRows As Int`
 - `setItems(KeyValues As Map)`
-- `getItemsAs List`
+- `getItems As List`
 - `setSelectedIndex(Value As Int)`
-- `getSelectedIndexAs Int`
-- `getSelectedValueAs String`
+- `getSelectedIndex As Int`
+- `getSelectedValue As String`
 - `AddItem(Value As String, Text As String)`
 - `LoadMonths`
 - `LoadCountries`
-- `getItemValuesAs List`
-- `getSelectedKeyAs String`
-- `getValueAs String`
+- `getItemValues As List`
+- `getSelectedKey As String`
+- `getValue As String`
 - `setValue(Value As String)`
 - `Clear`
 - `Open`
 - `Close`
 - `Toggle`
-- `getIsOpenAs Boolean`
+- `getIsOpen As Boolean`
 - `RemoveViewFromParent`
 - `Release`
 - `setFocus(Value As Boolean)`
@@ -5097,20 +7329,505 @@ This document lists all available custom views, their event hooks, designer prop
 - `Blur`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
-- `GetComputedHeightAs Int`
+- `getTop As Int`
+- `GetComputedHeight As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisySheetModal
+
+### Events
+
+- `WillPresent`
+- `DidPresent`
+- `WillDismiss`
+- `DidDismiss (Role As String, Data As Object)`
+- `DragStart`
+- `DragMove (Data As Map)`
+- `DragEnd (Data As Map)`
+- `BreakpointDidChange (Breakpoint As Float)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `IsOpen` | Boolean | `False` | Controls the presentation state of the modal. |
+| `CanDismiss` | Boolean | `True` | Whether the modal can be dismissed by the user (replaces swipeToClose). |
+| `BackdropDismiss` | Boolean | `True` | If true, clicking the backdrop will dismiss the modal. |
+| `Animated` | Boolean | `True` | If true, the modal will animate in and out. |
+| `Duration` | Int | `300, MinRange: 0, MaxRange: 3000` | Duration (ms) of the open/close slide animation. 0 = instant. |
+| `ScaleBackground` | Boolean | `False` | If true and PresentingView is set, the presenting view scales back (iOS card-modal effect) behind the sheet. |
+| `BackgroundScale` | Float | `0.94` | Target scale of the presenting view when fully receded (1.0 = none, 0.94 = 94%). |
+| `BackgroundCornerRadius` | Int | `18, MinRange: 0, MaxRange: 64` | Top corner radius (dip) applied to the presenting view. |
+| `BackgroundTranslateY` | Int | `12, MinRange: 0, MaxRange: 200` | Downward shift (dip) of the presenting view when fully receded. |
+| `BackgroundDim` | Float | `0.08` | Dim amount (0 = none, 1 = full) applied to the presenting view. |
+| `BackgroundShadow` | Boolean | `False` | If true, casts an elevation shadow around the receded presenting view. |
+| `BackgroundColor` | Color | `0xFFFFFFFF` | Modal background color. |
+| `Rounded` | String | `box` | Border radius of the modal. |
+| `Breakpoints` | String | `0,0.5,1.0` | Comma-separated list of snapping ratios from 0.0 to 1.0. |
+| `InitialBreakpoint` | Float | `0.5` | Ratio of page height shown when presented. Must exist in Breakpoints. |
+| `BackdropBreakpoint` | Float | `0.0` | Ratio of height above which backdrop is active. |
+| `Handle` | Boolean | `True` | Shows a drag handle at the top of the sheet. |
+| `HandleBehavior` | String | `none` | Behavior on clicking the handle. |
+| `BackdropOpacity` | Int | `40, MinRange: 0, MaxRange: 100` | Backdrop opacity percentage. |
+| `BorderColor` | Color | `0x00000000` | Content box border color. |
+| `BorderWidth` | Int | `0` | Content box border width. |
+| `Width` | String | `w-full` | Tailwind width token or size. |
+| `Height` | String | `h-[400px]` | Tailwind height token or size. |
+| `AutoHeight` | Boolean | `True` | Automatically grow height to fit content children. |
+| `ExpandToScroll` | Boolean | `True` | If true, content may scroll inside the sheet and gestures switch between scrolling and dragging. |
+| `ScrollBehavior` | String | `auto` | auto = scroll when scrollable else drag sheet; drag = always drag sheet; scroll = always scroll content. Only used when ExpandToScroll is true. |
+| `NestedScrollEnabled` | Boolean | `True` | When scrolling reaches the top, continued pull-down hands off to sheet dragging (Ionic-style nested scroll). |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddContentView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddBoxView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `getContentView As B4XView`
+- `getScrollPanel As B4XView`
+- `getScrollView As B4XView`
+- `getContentBox As B4XView`
+- `View As B4XView`
+- `getScrollOffset As Int`
+- `setScrollOffset(Value As Int)`
+- `ScrollToTop`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `Present As ResumableSub`
+- `Dismiss(Data As Object, Role As String) As ResumableSub`
+- `setIsOpen(Value As Boolean)`
+- `getIsOpen As Boolean`
+- `setCanDismiss(Value As Boolean)`
+- `getCanDismiss As Boolean`
+- `setBackdropDismiss(Value As Boolean)`
+- `getBackdropDismiss As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setAnimationTime(Value As Int)`
+- `getAnimationTime As Int`
+- `setBreakpoints(Value As String)`
+- `getBreakpoints As String`
+- `setInitialBreakpoint(Value As Float)`
+- `getInitialBreakpoint As Float`
+- `setBackdropBreakpoint(Value As Float)`
+- `getBackdropBreakpoint As Float`
+- `setHandle(Value As Boolean)`
+- `getHandle As Boolean`
+- `setHandleBehavior(Value As String)`
+- `getHandleBehavior As String`
+- `setCurrentBreakpoint(Breakpoint As Float)`
+- `getCurrentBreakpoint As Float`
+- `setPresentingView(TargetView As B4XView)`
+- `getPresentingView As B4XView`
+- `setScaleBackground(Value As Boolean)`
+- `getScaleBackground As Boolean`
+- `setBackgroundScale(Value As Float)`
+- `getBackgroundScale As Float`
+- `setBackgroundCornerRadius(Value As Int)`
+- `getBackgroundCornerRadius As Int`
+- `setBackgroundTranslateY(Value As Int)`
+- `getBackgroundTranslateY As Int`
+- `setBackgroundDim(Value As Float)`
+- `getBackgroundDim As Float`
+- `setBackgroundShadow(Value As Boolean)`
+- `getBackgroundShadow As Boolean`
+- `setBackdropOpacity(Value As Int)`
+- `getBackdropOpacity As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderWidth(Value As Int)`
+- `getBorderWidth As Int`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `GetComputedHeight As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `getCornerRadius As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setExpandToScroll(Value As Boolean)`
+- `getExpandToScroll As Boolean`
+- `setScrollBehavior(Value As String)`
+- `getScrollBehavior As String`
+- `setNestedScrollEnabled(Value As Boolean)`
+- `getNestedScrollEnabled As Boolean`
+
+---
+
+## B4XDaisyShineButton
+
+### Events
+
+- `CheckChanged (Checked As Boolean)`
+- `Click`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Shape` | String | `heart` | Built-in shape or custom SVG asset |
+| `Size` | String | `md` | DaisyUI size token (xs=28dip, sm=36dip, md=48dip, lg=64dip, xl=80dip) |
+| `CustomSize` | Int | `0` | Custom width/height in dip (overrides Size token when > 0) |
+| `Variant` | String | `primary` | Semantic color variant for checked state |
+| `SvgAsset` | String | `` | SVG file name from File.DirAssets (used when Shape=svg or to override shape) |
+| `Checked` | Boolean | `False` | Initial checked state |
+| `BtnColor` | Color | `0xFF9CA3AF` | Unchecked icon color |
+| `BtnFillColor` | Color | `0x00FFFFFF` | Override checked fill color (0 = auto from Variant) |
+| `BigShineColor` | Color | `0x00FFFFFF` | Main burst particle color (0 = auto) |
+| `SmallShineColor` | Color | `0x00FFFFFF` | Secondary sparkle color (0 = auto) |
+| `AllowRandomColor` | Boolean | `True` | Enables multi-colored burst particles |
+| `EnableFlashing` | Boolean | `False` | Flashes random colors during burst |
+| `AnimDuration` | Int | `1500` | Particle burst duration in ms |
+| `ClickAnimDuration` | Int | `200` | Button press bounce duration in ms |
+| `ShineCount` | Int | `7` | Number of starburst particles |
+| `ShineTurnAngle` | Float | `20` | Rotation angle for flying particles |
+| `ShineDistanceMultiple` | Float | `1.5` | Particle spread radius multiplier |
+| `Visible` | Boolean | `True` | Show or hide component |
+| `Clickable` | Boolean | `True` | Enable or disable touch events |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(SizeDip As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `ApplyAllProperties`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetSvgAsset(FileName As String)`
+- `SetSvg(Dir As String, FileName As String)`
+- `SetSvgContent(SvgMarkup As String)`
+- `SetShapeBitmap(Bmp As Bitmap)`
+- `SetShapeResource(ResourceName As String)`
+- `TriggerShine`
+- `ShowAnim`
+- `setChecked(Value As Boolean)`
+- `getChecked As Boolean`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setShape(Value As String)`
+- `getSvgAsset As String`
+- `getShape As String`
+- `setBtnColor(Color As Int)`
+- `getBtnColor As Int`
+- `setBtnFillColor(Color As Int)`
+- `getBtnFillColor As Int`
+- `setAllowRandomColor(Value As Boolean)`
+- `getAllowRandomColor As Boolean`
+- `setEnableFlashing(Value As Boolean)`
+- `getEnableFlashing As Boolean`
+- `setBigShineColor(Color As Int)`
+- `getBigShineColor As Int`
+- `setSmallShineColor(Color As Int)`
+- `getSmallShineColor As Int`
+- `setAnimDuration(Value As Int)`
+- `getAnimDuration As Int`
+- `setClickAnimDuration(Value As Int)`
+- `getClickAnimDuration As Int`
+- `setShineCount(Value As Int)`
+- `getShineCount As Int`
+- `setShineTurnAngle(Value As Float)`
+- `getShineTurnAngle As Float`
+- `setShineDistanceMultiple(Value As Float)`
+- `getShineDistanceMultiple As Float`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
+
+---
+
+## B4XDaisySignature
+
+### Events
+
+- `BeginStroke`
+- `EndStroke`
+- `Changed`
+- `Saved (Data As String)`
+- `Cleared`
+- `FocusChanged (HasFocus As Boolean)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Legend` | String | `Signature` | Fieldset legend text |
+| `LegendSize` | String | `theme` | Legend text size token |
+| `LegendBold` | Boolean | `False` | Render the fieldset legend caption in bold |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
+| `Variant` | String | `none` | Optional accent variant for border tint |
+| `BorderStyle` | String | `outlined` | Border visual style |
+| `Padding` | Int | `16` | Inner content padding in dip |
+| `AutoHeight` | Boolean | `True` | Automatically grow to fit added content |
+| `Rounded` | String | `theme` | Corner radius mode |
+| `Shadow` | String | `none` | Elevation shadow level |
+| `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
+| `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
+| `BorderColor` | Color | `0x00000000` | Border color override (0 = default border-base-300) |
+| `BorderSize` | Int | `1` | Border width in dip |
+| `InputBorder` | Boolean | `False` | When True, apply B4XDaisyInput border color and width to the fieldset |
+| `Required` | Boolean | `False` | Whether a signature is required |
+| `HintText` | String | `` | Helper text displayed below the group |
+| `ErrorText` | String | `` | Error text displayed below the group when validation fails |
+| `PenColor` | Color | `0xFF000000` | Color used to draw the lines |
+| `PadBackgroundColor` | Color | `0xFFFFFFFF` | Signature canvas background (0 = transparent) |
+| `MinWidth` | Float | `1.5` | Minimum width of a line |
+| `MaxWidth` | Float | `4.0` | Maximum width of a line |
+| `VelocityFilterWeight` | Float | `0.7` | Weight used to modify velocity |
+| `BitMapFormat` | String | `png` | Format of the exported signature bitmap |
+| `BitMapQuality` | Int | `100` | Quality of the exported signature bitmap (0-100) |
+| `DisallowParentIntercept` | Boolean | `True` | Prevent parent scroll containers from stealing touch gestures |
+| `StrokeCap` | String | `ROUND` | Shape of line endpoints |
+| `StrokeJoin` | String | `ROUND` | Shape at line segment corners |
+| `PadEnabled` | Boolean | `True` | Enables or disables drawing on the pad |
+| `PadVisible` | Boolean | `True` | Shows or hides the pad |
+| `MinHeight` | Int | `150` | Minimum signature pad height in dip |
+| `HintColor` | Color | `0x00000000` | Watermark hint text color (0 = theme) |
+| `ClearButtonVisible` | Boolean | `True` | Show the clear button below the pad |
+| `ClearButtonText` | String | `Clear` | Text of the clear button |
+| `SaveButtonVisible` | Boolean | `True` | Show the save button below the pad |
+| `SaveButtonText` | String | `Save` | Text of the save button |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `setPenColor(Value As Int)`
+- `getPenColor As Int`
+- `setPadBackgroundColor(Value As Int)`
+- `getPadBackgroundColor As Int`
+- `setMinWidth(Value As Float)`
+- `getMinWidth As Float`
+- `setMaxWidth(Value As Float)`
+- `getMaxWidth As Float`
+- `setVelocityFilterWeight(Value As Float)`
+- `getVelocityFilterWeight As Float`
+- `setBitMapFormat(Value As String)`
+- `getBitMapFormat As String`
+- `setBitMapQuality(Value As Int)`
+- `getBitMapQuality As Int`
+- `setDisallowParentIntercept(Value As Boolean)`
+- `getDisallowParentIntercept As Boolean`
+- `setStrokeCap(Value As String)`
+- `getStrokeCap As String`
+- `setStrokeJoin(Value As String)`
+- `getStrokeJoin As String`
+- `setPadEnabled(Value As Boolean)`
+- `getPadEnabled As Boolean`
+- `setPadVisible(Value As Boolean)`
+- `getPadVisible As Boolean`
+- `setMinHeight(Value As Int)`
+- `getMinHeight As Int`
+- `setHintColor(Value As Int)`
+- `getHintColor As Int`
+- `setClearButtonVisible(Value As Boolean)`
+- `getClearButtonVisible As Boolean`
+- `setClearButtonText(Value As String)`
+- `getClearButtonText As String`
+- `setSaveButtonVisible(Value As Boolean)`
+- `getSaveButtonVisible As Boolean`
+- `setSaveButtonText(Value As String)`
+- `getSaveButtonText As String`
+- `Clear`
+- `IsEmpty As Boolean`
+- `GetBitmap As B4XBitmap`
+- `GetBase64 As String`
+- `SetBase64(Base64String As String)`
+- `SetBitmap(bmpBmp As B4XBitmap)`
+- `IsBase64(Value As String) As Boolean`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
+- `ReceiveFocus`
+- `Blur`
+- `setLegend(Value As String)`
+- `getLegend As String`
+- `setLegendSize(Value As String)`
+- `getLegendSize As String`
+- `setLegendBold(Value As Boolean)`
+- `getLegendBold As Boolean`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `isRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As Int)`
+- `getPadding As Int`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderSize(Value As Int)`
+- `getBorderSize As Int`
+- `setInputBorder(Value As Boolean)`
+- `getInputBorder As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `RemoveViewFromParent`
+- `Release`
+
+---
+
+## B4XDaisySignaturePad
+
+### Events
+
+- `BeginStroke`
+- `EndStroke`
+- `Changed`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `PenColor` | Color | `0xFF000000` | Color used to draw the lines. |
+| `BackgroundColor` | Color | `0xFFFFFFFF` | Canvas background color (0 uses theme/transparent). |
+| `MinWidth` | Float | `1.5` | Minimum width of a line. |
+| `MaxWidth` | Float | `4.0` | Maximum width of a line. |
+| `VelocityFilterWeight` | Float | `0.7` | Weight used to modify velocity. |
+| `Variant` | String | `none` | Semantic variant for the border. |
+| `Rounded` | String | `theme` | Border radius token. |
+| `Shadow` | String | `none` | Elevation shadow level. |
+| `BitMapFormat` | String | `png` | Format of the exported signature bitmap (png, jpg, webp, bmp). |
+| `BitMapQuality` | Int | `100` | Quality of the exported signature bitmap (0-100). |
+| `DisallowParentIntercept` | Boolean | `True` | Prevent parent scroll containers from stealing touch gestures on Android. |
+| `StrokeCap` | String | `ROUND` | Shape of line endpoints - ROUND gives a natural pen feel, BUTT is flat, SQUARE extends slightly past the end. |
+| `StrokeJoin` | String | `ROUND` | Shape at line segment corners - ROUND gives smooth curves, MITER is sharp, BEVEL is flat. |
+| `Enabled` | Boolean | `True` | Enables or disables drawing. |
+| `Visible` | Boolean | `True` | Shows or hides the component. |
+| `FieldsetMode` | Boolean | `False` | When True, disable own border/background/shadow so a fieldset wrapper can provide them. |
+| `MinHeight` | Int | `150` | Minimum height in dip when used standalone. |
+| `HintText` | String | `` | Watermark text shown when empty. |
+| `HintColor` | Color | `0x00000000` | Watermark text color (0 = theme text color at 40%). |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `UpdateTheme`
+- `Clear`
+- `IsEmpty As Boolean`
+- `GetBitmap As B4XBitmap`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setMinWidth(Value As Float)`
+- `getMinWidth As Float`
+- `setMaxWidth(Value As Float)`
+- `getMaxWidth As Float`
+- `setVelocityFilterWeight(Value As Float)`
+- `getVelocityFilterWeight As Float`
+- `setPenColor(Value As Int)`
+- `getPenColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `View As B4XView`
+- `GetComputedHeight As Int`
+- `GetComputedWidth As Int`
+- `setBitMapFormat(Value As String)`
+- `getBitMapFormat As String`
+- `setBitMapQuality(Value As Int)`
+- `getBitMapQuality As Int`
+- `setDisallowParentIntercept(Value As Boolean)`
+- `getDisallowParentIntercept As Boolean`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setStrokeCap(Value As String)`
+- `getStrokeCap As String`
+- `setStrokeJoin(Value As String)`
+- `getStrokeJoin As String`
+- `setFieldsetMode(Value As Boolean)`
+- `getFieldsetMode As Boolean`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setMinHeight(Value As Int)`
+- `getMinHeight As Int`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setHintColor(Value As Int)`
+- `getHintColor As Int`
+- `SetBitmap(bmpBmp As B4XBitmap)`
+- `GetBase64 As String`
+- `SetBase64(Base64String As String)`
+- `IsBase64(Value As String) As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `getRounded As String`
+- `setRounded(Value As String)`
+- `getShadow As String`
+- `setShadow(Value As String)`
+- `getVariant As String`
+- `setVariant(Value As String)`
+- `Release`
 
 ---
 
 ## B4XDaisyStack
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-10` | Tailwind size token or CSS size (eg w-12, 80px, 4em, 5rem) |
@@ -5122,62 +7839,77 @@ This document lists all available custom views, their event hooks, designer prop
 | `StepSecondary` | Int | `3` | Secondary offset in dip used for the middle layer. |
 | `AutoFillLayers` | Boolean | `True` | Resize each child to fill its layer frame. |
 | `LayoutAnimationMs` | Int | `0` | Animation duration in milliseconds when relayout runs. |
-| `RoundedBox` | Boolean | `False` | Apply 16px rounded corners to the base view. |
+| `Rounded` | String | `rounded-box` | Corner radius token. |
 | `StrictDaisyParity` | Boolean | `True` | Use DaisyUI stack geometry and per-layer opacity (1.0, 0.9, 0.7). |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
+- `View As B4XView`
 - `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `AddLayer(ChildView As B4XView) As Int`
 - `AddLayerWithTag(ChildView As B4XView, Tag As Object) As Int`
-- `SetLayers(Views As List)`
+- `SetLayers(lstViews As List)`
 - `RemoveLayerAt(Index As Int) As Boolean`
 - `Clear`
 - `getLayer(Index As Int) As B4XView`
-- `getLayerCountAs Int`
+- `getLayerCount As Int`
 - `setLayerTag(Index As Int, Tag As Object)`
 - `getLayerTag(Index As Int) As Object`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setSize(Width As Int, Height As Int)`
 - `setStepPrimary(Value As Object)`
-- `getStepPrimaryAs Float`
+- `getStepPrimary As Float`
 - `setStepSecondary(Value As Object)`
-- `getStepSecondaryAs Float`
+- `getStepSecondary As Float`
 - `setAutoFillLayers(Value As Boolean)`
-- `getAutoFillLayersAs Boolean`
+- `getAutoFillLayers As Boolean`
 - `setLayoutAnimationMs(Value As Int)`
-- `getLayoutAnimationMsAs Int`
+- `getLayoutAnimationMs As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setStrictDaisyParity(Value As Boolean)`
-- `getStrictDaisyParityAs Boolean`
+- `getStrictDaisyParity As Boolean`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `AddColorLayer(BackColor As Int, Text As String, TextColor As Int, CornerRadius As Float) As B4XView`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyStat
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Orientation` | String | `horizontal` | Layout orientation. |
@@ -5190,43 +7922,56 @@ This document lists all available custom views, their event hooks, designer prop
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `getContentWidthAs Int`
-- `getContentHeightAs Int`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `getContentWidth As Int`
+- `getContentHeight As Int`
 - `UpdateTheme`
+- `Refresh`
 - `AddItem(Item As B4XDaisyStatItem)`
+- `StartAnimation`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setOrientation(Value As String)`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setBorderWidth(Value As String)`
-- `getBorderWidthAs String`
+- `getBorderWidth As String`
 - `setBorderColor(Value As String)`
-- `getBorderColorAs String`
+- `getBorderColor As String`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setLeft(Value As Int)`
 - `setTop(Value As Int)`
-- `GetComputedHeightAs Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `getLeft As Int`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyStatItem
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Title` | String | `` | The stat title. |
@@ -5242,65 +7987,110 @@ This document lists all available custom views, their event hooks, designer prop
 | `Padding` | String | `px-6 py-4` | Tailwind padding utilities (e.g. px-6 py-4). |
 | `GapX` | Int | `16` | Gap between text column and figure (in dip). |
 | `CenterItems` | Boolean | `False` | Center align all items. |
+| `StartFrom` | Float | `0` | Count-up start value. |
+| `Prefix` | String | `` | Text before the value (e.g. $). |
+| `Suffix` | String | `` | Text after the value (e.g. %, px). |
+| `Separator` | String | `,` | Thousands grouping separator (used when Use Grouping is on). |
+| `Decimal` | String | `.` | Decimal separator character. |
+| `DecimalPlaces` | Int | `0` | Number of decimal places. |
+| `UseGrouping` | Boolean | `True` | Enable thousands grouping separator. |
+| `Animated` | Boolean | `False` | Animate the value from Start From to Value. |
+| `Duration` | Int | `2` | Count-up duration in seconds. |
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
-- `getContentWidthAs Int`
-- `getContentHeightAs Int`
+- `getContentWidth As Int`
+- `getContentHeight As Int`
 - `UpdateTheme`
-- `EstimatePreferredWidthAs Float`
-- `EstimatePreferredHeightAs Float`
+- `Refresh`
+- `EstimatePreferredWidth As Float`
+- `EstimatePreferredHeight As Float`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setOrientation(Value As String)`
 - `setShowSeparator(Value As Boolean)`
 - `setCenterItems(Value As Boolean)`
-- `getCenterItemsAs Boolean`
-- `getFigureAs B4XView`
-- `setFigure(v As B4XView)`
-- `getActionsAs B4XView`
+- `getCenterItems As Boolean`
+- `getFigure As B4XView`
+- `setFigure(View As B4XView)`
+- `getActions As B4XView`
 - `AddAction(btn As B4XDaisyButton)`
+- `AddActionButton(Text As String, Variant As String, EventName As String) As B4XDaisyButton`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
 - `setValue(Value As String)`
-- `getValueAs String`
+- `getValue As String`
 - `setDescription(Value As String)`
-- `getDescriptionAs String`
+- `getDescription As String`
 - `setValueColor(Value As String)`
-- `getValueColorAs String`
+- `getValueColor As String`
 - `setDescriptionColor(Value As String)`
-- `getDescriptionColorAs String`
+- `getDescriptionColor As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setFigureType(Value As String)`
-- `getFigureTypeAs String`
+- `getFigureType As String`
 - `setFigureSource(Value As String)`
-- `getFigureSourceAs String`
+- `getFigureSource As String`
 - `setFigureSize(Value As Int)`
-- `getFigureSizeAs Int`
+- `getFigureSize As Int`
 - `setFigureColor(Value As String)`
-- `getFigureColorAs String`
-- `setFigureValue(v As Int)`
+- `getFigureColor As String`
+- `setFigureValue(V As Int)`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setGapX(Value As Int)`
-- `getGapXAs Int`
+- `getGapX As Int`
+- `setStartFrom(Value As Float)`
+- `getStartFrom As Float`
+- `setPrefix(Value As String)`
+- `getPrefix As String`
+- `setSuffix(Value As String)`
+- `getSuffix As String`
+- `setSeparator(Value As String)`
+- `getSeparator As String`
+- `setDecimal(Value As String)`
+- `getDecimal As String`
+- `setDecimalPlaces(Value As Int)`
+- `getDecimalPlaces As Int`
+- `setUseGrouping(Value As Boolean)`
+- `getUseGrouping As Boolean`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `LogLabelWidths(Tag As String)`
-- `GetComputedHeightAs Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `StartAnimation`
+- `StopAnimation`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyStatus
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `` | Optional width token (Tailwind/CSS). Leave empty to use Size token. |
@@ -5312,55 +8102,62 @@ This document lists all available custom views, their event hooks, designer prop
 | `Margin` | String | `1` | Optional margin utility token(s). |
 | `Visible` | Boolean | `True` | Show or hide status view. |
 | `Clickable` | Boolean | `True` | When False, touch events pass through to parent (useful inside clickable list rows) |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override text color. |
+| `Depth` | Float | `-1` | Three-dimensional shadow depth. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
 - `CenterInParent(Parent As B4XView)`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setAnimation(Value As String)`
-- `getAnimationAs String`
+- `getAnimation As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
 - `setTextColorVariant(VariantName As String)`
 - `setDepth(Value As Float)`
-- `getDepthAs Float`
+- `getDepth As Float`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `RemoveViewFromParent`
-
 
 ---
 
 ## B4XDaisySteps
 
 ### Events
+
 - `StepClick (Index As Int, Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables or disables the component. |
@@ -5371,55 +8168,75 @@ This document lists all available custom views, their event hooks, designer prop
 | `Padding` | String | `` | Tailwind padding tokens (e.g., p-4, px-2 py-1). |
 | `Margin` | String | `` | Tailwind margin tokens (e.g., m-4, mx-auto, mb-2). |
 | `CircleSize` | Int | `32` | Diameter of the step circle in dip. |
+| `StepGap` | Int | `0` | Extra spacing (in dip) added between steps. 0 keeps the default spacing. Widens step columns in horizontal orientation and step rows in vertical orientation. |
 | `Scrollable` | Boolean | `False` | Enables scrolling when steps overflow the container. Horizontal for horizontal orientation, vertical for vertical orientation. |
+| `ConnectOnClick` | Boolean | `False` | When True, clicking a step connects (fills) the connector lines and circles up to and including the clicked step by updating the active step index. |
 | `Width` | String | `w-full` | Tailwind size token or CSS size used as preferred width. |
 | `Height` | String | `h-auto` | Tailwind size token, CSS size, or h-auto. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `getViewAs B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `View As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddStep(Text As String, Variant As String)`
 - `AddStepWithContent(Text As String, Variant As String, Content As String)`
 - `AddStepWithIcon(Text As String, Variant As String, Icon As String)`
 - `AddStepWithSvgIcon(Text As String, Variant As String, SvgFileName As String)`
-- `SetSteps(Steps As List)`
+- `SetSteps(lstSteps As List)`
 - `ClearSteps`
-- `getStepCountAs Int`
+- `getStepCount As Int`
 - `setOrientation(Value As String)`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setActiveColor(Value As String)`
-- `getActiveColorAs String`
+- `getActiveColor As String`
 - `setActiveStep(Value As Int)`
-- `getActiveStepAs Int`
+- `getActiveStep As Int`
 - `setPadding(Value As String)`
-- `getPaddingAs String`
+- `getPadding As String`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
 - `setScrollable(Value As Boolean)`
-- `getScrollableAs Boolean`
+- `getScrollable As Boolean`
+- `getCircleSize As Int`
+- `setCircleSize(Value As Int)`
+- `setConnectOnClick(Value As Boolean)`
+- `getConnectOnClick As Boolean`
+- `setStepGap(Value As Int)`
+- `getStepGap As Int`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `UpdateTheme`
-- `GetComputedHeightAs Int`
-
+- `Refresh`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisySvgIcon
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `SvgAsset` | String | `` | SVG file name from assets or full local path |
@@ -5431,69 +8248,77 @@ This document lists all available custom views, their event hooks, designer prop
 | `BorderWidth` | Int | `0` | Border width in dip |
 | `BorderColor` | Color | `0x00000000` | Border color (transparent by default) |
 | `BackgroundColor` | Color | `0x00000000` | Background fill color (transparent by default) |
-| `RoundedBox` | Boolean | `False` | Applies rounded-box corner radius |
+| `Rounded` | String | `rounded-none` | Corner radius token. |
 | `Variant` | String | `none` | DaisyUI semantic color variant (sets icon color). |
 | `Clickable` | Boolean | `True` | When False, touch events pass through to parent (useful inside clickable list rows) |
+| `SvgContent` | String | `` | SVG inline string content. |
+| `SvgFile` | String | `` | SVG file name from assets. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `ResizeToParent(ParentView As B4XView)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `getViewAs B4XView`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
-- `GetContentViewAs B4XView`
+- `View As B4XView`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
+- `GetContentView As B4XView`
 - `setSvgAsset(Path As String)`
 - `setSvgFile(Dir As String, FileName As String)`
-- `getSvgAssetAs String`
+- `getSvgAsset As String`
 - `setSvgContent(Content As String)`
-- `getSvgContentAs String`
+- `getSvgContent As String`
 - `setColor(Value As Int)`
-- `getColorAs Int`
+- `getColor As Int`
 - `setColorVariant(VariantName As String)`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setPreserveOriginalColors(Value As Boolean)`
-- `getPreserveOriginalColorsAs Boolean`
+- `getPreserveOriginalColors As Boolean`
 - `setPreserveColors(Value As Boolean)`
-- `getPreserveColorsAs Boolean`
-- `getLastRendererAs String`
+- `getPreserveColors As Boolean`
+- `getLastRenderer As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setPadding(Value As Float)`
-- `getPaddingAs Float`
+- `getPadding As Float`
 - `setBorderWidth(Value As Float)`
-- `getBorderWidthAs Float`
+- `getBorderWidth As Float`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderColorVariant(VariantName As String)`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBackgroundColorVariant(VariantName As String)`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setSize(Value As Object)`
-- `GetComputedHeightAs Int`
+- `Refresh`
+- `GetComputedHeight As Int`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `RemoveViewFromParent`
-
 
 ---
 
 ## B4XDaisySwap
 
 ### Events
+
 - `Click (State As String, Checked As Boolean)`
 - `Changed (State As String, Checked As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `SwapType` | String | `text` | Slot content type. For svg/avatar, On/Off/Indeterminate text values are file paths. |
@@ -5508,83 +8333,102 @@ This document lists all available custom views, their event hooks, designer prop
 | `TextSize` | String | `text-sm` | Tailwind text size token (eg text-xs, text-sm, text-lg, text-9xl, text-sm/6) |
 | `Width` | String | `w-12` | Tailwind size token or CSS size (eg w-12, 80px, 4em, 5rem) |
 | `Height` | String | `h-12` | Tailwind size token or CSS size (eg h-12, 80px, 4em, 5rem) |
-| `AnimationMs` | Int | `200` | Visibility animation in milliseconds |
+| `Duration` | Int | `300` | Visibility animation in milliseconds |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
 - `Toggle`
-- `SetOnView(v As B4XView)`
-- `SetOffView(v As B4XView)`
-- `SetIndeterminateView(v As B4XView)`
-- `getOnPanelAs B4XView`
-- `getOffPanelAs B4XView`
-- `getIndeterminatePanelAs B4XView`
+- `SetOnView(View As B4XView)`
+- `SetOffView(View As B4XView)`
+- `SetIndeterminateView(View As B4XView)`
+- `getOnPanel As B4XView`
+- `getOffPanel As B4XView`
+- `getIndeterminatePanel As B4XView`
 - `setOnText(Value As String)`
-- `getOnTextAs String`
+- `getOnText As String`
 - `setOffText(Value As String)`
-- `getOffTextAs String`
+- `getOffText As String`
 - `setIndeterminateText(Value As String)`
-- `getIndeterminateTextAs String`
+- `getIndeterminateText As String`
 - `setState(Value As String)`
-- `getStateAs String`
+- `getState As String`
 - `setChecked(Value As Boolean)`
-- `getCheckedAs Boolean`
+- `getChecked As Boolean`
 - `setSwapStyle(Value As String)`
-- `getSwapStyleAs String`
+- `getSwapStyle As String`
 - `setSwapType(Value As String)`
-- `getSwapTypeAs String`
+- `getSwapType As String`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
-- `getTextLineHeightDipAs Float`
-- `setAnimationMs(Value As Int)`
-- `getAnimationMsAs Int`
+- `getTextSize As String`
+- `getTextLineHeightDip As Float`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setOnColor(Value As Object)`
-- `getOnColorAs Int`
+- `getOnColor As Int`
 - `setOnColorVariant(VariantName As String)`
 - `setOnTextColorVariant(VariantName As String)`
 - `setOffColor(Value As Object)`
-- `getOffColorAs Int`
+- `getOffColor As Int`
 - `setOffColorVariant(VariantName As String)`
 - `setOffTextColorVariant(VariantName As String)`
 - `setIndeterminateColor(Value As Object)`
-- `getIndeterminateColorAs Int`
+- `getIndeterminateColor As Int`
 - `setIndeterminateColorVariant(VariantName As String)`
 - `setIndeterminateTextColorVariant(VariantName As String)`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisySweetAlert
 
 ### Events
+
 - `Result (Result As B4XDaisySweetAlertResult)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Title` | String | `Are you sure?` | The popup title. |
-| `Text` | String | `You will not be able to revert this!` | The popup body text. |
+| `Text` | String | `` | The popup body text. Blank by default; set explicitly when a prompt needs explanatory copy. |
 | `Icon` | String | `none` | Built-in icon type (loading shows a spinner). |
 | `IconColor` | Color | `0xFF545454` | Tint color for the SVG icon. |
 | `IconSize` | Int | `80` | Icon width/height in dip. |
 | `ShowConfirmButton` | Boolean | `True` | Show the confirm button. |
 | `ConfirmButtonText` | String | `OK` | Text for the confirm button. |
+| `ConfirmButtonColor` | Color | `0x00000000` | Background color for the confirm button. Transparent derives it from the primary variant. |
+| `ConfirmButtonTextColor` | Color | `0x00000000` | Label color for the confirm button. Transparent derives it from the primary variant. |
 | `ShowDenyButton` | Boolean | `False` | Show the deny button. |
 | `DenyButtonText` | String | `No` | Text for the deny button. |
+| `DenyButtonColor` | Color | `0x00000000` | Background color for the deny button. Transparent derives it from the warning variant. |
+| `DenyButtonTextColor` | Color | `0x00000000` | Label color for the deny button. Transparent derives it from the warning variant. |
 | `ShowCancelButton` | Boolean | `False` | Show the cancel button. |
 | `CancelButtonText` | String | `Cancel` | Text for the cancel button. |
+| `CancelButtonColor` | Color | `0x00000000` | Background color for the cancel button. Transparent derives it from the error variant. |
+| `CancelButtonTextColor` | Color | `0x00000000` | Label color for the cancel button. Transparent derives it from the error variant. |
 | `ShowCloseButton` | Boolean | `False` | Show a close button top-right. |
 | `AllowOutsideClick` | Boolean | `True` | Close when clicking the backdrop. |
 | `ReverseButtons` | Boolean | `False` | Swap confirm/deny/cancel order. |
@@ -5593,96 +8437,173 @@ This document lists all available custom views, their event hooks, designer prop
 | `TextColor` | Color | `0xFF545454` | Title and body text color. |
 | `Width` | Int | `360` | Maximum modal width in dip. |
 | `TimerMs` | Int | `0` | Auto close timer in milliseconds. 0 disables. |
+| `Rounded` | String | `rounded-box` | Corner radius style for the alert card |
+| `InputType` | String | `none` | Input control type for interactive prompts. |
+| `InputPlaceholder` | String | `` | Placeholder text for prompt inputs. |
+| `InputLabel` | String | `` | Label for prompt inputs or checkboxes. |
+| `InputRequired` | Boolean | `False` | Require non-empty input before confirming. |
+| `InputErrorMessage` | String | `This field is required.` | Error message shown when validation fails. |
+| `InputVariant` | String | `primary` | Color variant for option controls (checkbox, radio, toggle). |
+| `InputMultiple` | Boolean | `False` | Allow multiple selections for checkbox/toggle groups. False = single-select (radio-like). Only applies to checkbox and toggle inputs. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, Parent As B4XView, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Refresh`
 - `Show`
-- `ShowAsyncAs ResumableSub`
+- `ShowAsync As ResumableSub`
 - `showLoading`
 - `hideLoading`
 - `Update(Config As Map)`
 - `Close`
 - `CloseWithReason(Reason As String)`
-- `GetDismissReasonAs Map`
+- `GetDismissReason As Map`
 - `btnConfirm_Click(Tag As Object)`
 - `btnDeny_Click(Tag As Object)`
 - `btnCancel_Click(Tag As Object)`
 - `btnClose_Click(Tag As Object)`
+- `GetActiveInputValue As Object`
+- `setInputType(Value As String)`
+- `getInputType As String`
+- `setInputPlaceholder(Value As String)`
+- `getInputPlaceholder As String`
+- `setInputValue(Value As Object)`
+- `getInputValue As Object`
+- `setInputMultiple(Value As Boolean)`
+- `getInputMultiple As Boolean`
+- `setInputMin(Value As Int)`
+- `getInputMin As Int`
+- `setInputMax(Value As Int)`
+- `getInputMax As Int`
+- `setInputStep(Value As Int)`
+- `getInputStep As Int`
+- `setInputLabel(Value As String)`
+- `getInputLabel As String`
+- `setInputErrorMessage(Value As String)`
+- `getInputErrorMessage As String`
+- `setInputRequired(Value As Boolean)`
+- `getInputRequired As Boolean`
+- `setInputOptions(Options As Map)`
+- `setInputValidator(Callback As Object, SubName As String)`
 - `setParent(Parent As B4XView)`
-- `getParentAs B4XView`
+- `getParent As B4XView`
 - `setTitle(Value As String)`
-- `getTitleAs String`
+- `getTitle As String`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setIcon(Value As String)`
-- `getIconAs String`
+- `getIcon As String`
 - `setIconColor(Value As Int)`
-- `getIconColorAs Int`
+- `getIconColor As Int`
 - `setIconSize(Value As Int)`
-- `getIconSizeAs Int`
+- `getIconSize As Int`
 - `setShowConfirmButton(Value As Boolean)`
-- `getShowConfirmButtonAs Boolean`
+- `getShowConfirmButton As Boolean`
 - `setConfirmButtonText(Value As String)`
-- `getConfirmButtonTextAs String`
+- `getConfirmButtonText As String`
+- `setConfirmButtonColor(Value As Int)`
+- `getConfirmButtonColor As Int`
+- `setConfirmButtonTextColor(Value As Int)`
+- `getConfirmButtonTextColor As Int`
 - `setShowDenyButton(Value As Boolean)`
-- `getShowDenyButtonAs Boolean`
+- `getShowDenyButton As Boolean`
 - `setDenyButtonText(Value As String)`
-- `getDenyButtonTextAs String`
+- `getDenyButtonText As String`
+- `setDenyButtonColor(Value As Int)`
+- `getDenyButtonColor As Int`
+- `setDenyButtonTextColor(Value As Int)`
+- `getDenyButtonTextColor As Int`
 - `setShowCancelButton(Value As Boolean)`
-- `getShowCancelButtonAs Boolean`
+- `getShowCancelButton As Boolean`
 - `setCancelButtonText(Value As String)`
-- `getCancelButtonTextAs String`
+- `getCancelButtonText As String`
+- `setCancelButtonColor(Value As Int)`
+- `getCancelButtonColor As Int`
+- `setCancelButtonTextColor(Value As Int)`
+- `getCancelButtonTextColor As Int`
 - `setShowCloseButton(Value As Boolean)`
-- `getShowCloseButtonAs Boolean`
+- `getShowCloseButton As Boolean`
 - `setAllowOutsideClick(Value As Boolean)`
-- `getAllowOutsideClickAs Boolean`
+- `getAllowOutsideClick As Boolean`
 - `setReverseButtons(Value As Boolean)`
-- `getReverseButtonsAs Boolean`
+- `getReverseButtons As Boolean`
 - `setFooter(Value As String)`
-- `getFooterAs String`
+- `getFooter As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setWidth(Value As Int)`
-- `getWidthAs Int`
+- `getWidth As Int`
 - `setTimerMs(Value As Int)`
-- `getTimerMsAs Int`
-
+- `getTimerMs As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisySweetAlertIcon
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `IconType` | String | `success` | The icon to animate. |
-| `AnimationDuration` | Int | `500` | Duration of the drawing animation in milliseconds. |
+| `Duration` | Int | `500` | Duration of the drawing animation in milliseconds. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Play`
 - `Stop`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setAnimationDuration(Value As Int)`
-- `getAnimationDurationAs Int`
+- `getAnimationDuration As Int`
 - `setIconType(Icon As String)`
-- `getIconTypeAs String`
-
+- `getIconType As String`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyTab
 
 ### Events
+
 - `TabClick (Index As Int)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Enabled` | Boolean | `True` | Enables or disables the component. |
@@ -5698,9 +8619,11 @@ This document lists all available custom views, their event hooks, designer prop
 | `Height` | String | `h-auto` | Tailwind height token or CSS size. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
+- `View As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddTab(Text As String)`
 - `AddTabWithIcon(Text As String, IconText As String)`
@@ -5712,47 +8635,138 @@ This document lists all available custom views, their event hooks, designer prop
 - `SetTabContent(Index As Int, Content As B4XView)`
 - `GetTabContent(Index As Int) As B4XView`
 - `SetTabContentText(Index As Int, Text As String)`
-- `SetTabs(TabsList As List)`
+- `SetTabs(lstTabsList As List)`
 - `ClearTabs`
-- `getTabCountAs Int`
-- `GetComputedHeightAs Int`
+- `getTabCount As Int`
+- `GetComputedHeight As Int`
 - `setActiveIndex(Value As Int)`
-- `getActiveIndexAs Int`
+- `getActiveIndex As Int`
 - `setStyle(Value As String)`
-- `getStyleAs String`
+- `getStyle As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setPlacement(Value As String)`
-- `getPlacementAs String`
+- `getPlacement As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setScrollable(Value As Boolean)`
-- `getScrollableAs Boolean`
+- `getScrollable As Boolean`
 - `setAlignment(Value As String)`
-- `getAlignmentAs String`
+- `getAlignment As String`
 - `setActiveColor(Value As String)`
-- `getActiveColorAs String`
+- `getActiveColor As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `UpdateTheme`
 - `RemoveViewFromParent`
 - `ResizeTab`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
+---
+
+## B4XDaisyTagSphere
+
+### Types
+
+- `TagPoint (x As Float, y As Float, z As Float)`
+
+### Events
+
+- `TagTap (Tag As String)`
+- `TagLongPress (Tag As String)`
+- `DrawTag (Info As Map)`
+
+### Designer Properties
+
+| Property Key | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `Items` | String | `Android|iOS|Flutter|React|Vue|Svelte|Kotlin|Swift|Java|Dart|Node|Python|Rust|Go|PHP|Ruby` | Pipe-separated tag labels. Max 200. |
+| `TextColor` | Color | `0xFF1F2937` | Color of the tag labels. |
+| `TextSize` | Float | `14` | Font size in dip. |
+| `Radius` | Float | `1.5` | World radius of the sphere. Larger value = smaller visual sphere. 1.0 - 10.0. |
+| `Sensitivity` | Int | `11` | Higher = slower drag rotation. 1 - 100. |
+| `CircularAvatars` | Boolean | `True` | Crop avatar images into circles with optional borders. |
+| `AvatarBorderColor` | Color | `0xFFFFFFFF` | Border ring color for circular avatars. |
+| `AvatarBorderWidth` | Float | `2` | Border stroke width in dip. |
+| `AutoRotate` | Boolean | `True` | Spin the sphere continuously when idle. |
+| `Easing` | String | `easeOut` | Alpha curve based on depth (back of sphere fades). |
+| `RotateOnTouch` | Boolean | `True` | Allow drag to rotate the sphere. |
+| `AutoSpeed` | Float | `0.4` | Auto-rotation speed (radians per frame per axis at 60fps). Try 0.1 - 1.0. |
+| `Visible` | Boolean | `True` | Show or hide the sphere. |
+
+### Public Methods
+
+- `Initialize(Callback As Object, EventName As String)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setItems(lstTags As List)`
+- `getItems As List`
+- `setBitmaps(lstBitmaps As List)`
+- `setBitmaps2(lstBitmaps As List, WidthDip As Float, HeightDip As Float)`
+- `getBitmaps As List`
+- `setImageSize(WidthDip As Float, HeightDip As Float)`
+- `getImageWidth As Float`
+- `getImageHeight As Float`
+- `setCircularAvatars(Value As Boolean)`
+- `getCircularAvatars As Boolean`
+- `setAvatarBorderColor(Value As Int)`
+- `getAvatarBorderColor As Int`
+- `setAvatarBorderWidth(Value As Float)`
+- `getAvatarBorderWidth As Float`
+- `getCount As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextSize(Value As Float)`
+- `getTextSize As Float`
+- `setRadius(Value As Float)`
+- `getRadius As Float`
+- `setSensitivity(Value As Int)`
+- `getSensitivity As Int`
+- `setAutoRotate(Value As Boolean)`
+- `getAutoRotate As Boolean`
+- `setEasing(Value As String)`
+- `getEasing As String`
+- `setRotateOnTouch(Value As Boolean)`
+- `getRotateOnTouch As Boolean`
+- `setAutoSpeed(Value As Float)`
+- `getAutoSpeed As Float`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `AddRotation(DeltaX As Float, DeltaY As Float)`
+- `addTag(Tag As String)`
+- `addTagsAt(StartIndex As Int, lstTags As List)`
+- `removeTagAt(Index As Int) As Boolean`
+- `removeTag(Tag As String) As Boolean`
+- `clearTags`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Redraw`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyText
 
 ### Events
+
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-full` | Tailwind size token or CSS size (eg w-12, 80px, 4em, 5rem) |
@@ -5761,6 +8775,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `TextColor` | Color | `0xFF000000` | Text color. |
 | `BackgroundColor` | Color | `0x00000000` | Background color. |
 | `TextSize` | String | `text-sm` | Number in dip or Tailwind token (eg 12, text-sm, text-lg). |
+| `Heading` | String | `none` | Apply Ionic heading settings (font-size 26->16, weight 500, line-height 1.2). Overrides TextSize when not none. |
 | `FontBold` | Boolean | `False` | Use bold font. |
 | `SingleLine` | Boolean | `False` | Single line text. |
 | `Ellipsize` | String | `none` | Truncate with ellipsis when text overflows. Requires Single Line for start/middle/end. |
@@ -5768,7 +8783,7 @@ This document lists all available custom views, their event hooks, designer prop
 | `VAlign` | String | `CENTER` | Text vertical alignment. |
 | `Padding` | Int | `0` | Inner padding in dip. |
 | `Margin` | String | `` | Tailwind/spacing margin utilities (eg m-2, mx-1.5, 1) |
-| `RoundedBox` | Boolean | `False` | Use rounded-box radius. |
+| `Rounded` | String | `rounded-none` | Corner radius token. |
 | `BorderWidth` | Int | `0` | Border width in dip. |
 | `BorderColor` | Color | `0x00000000` | Border color. |
 | `Visible` | Boolean | `True` | Visible state. |
@@ -5783,193 +8798,265 @@ This document lists all available custom views, their event hooks, designer prop
 | `UpperCase` | Boolean | `False` | Transform text to uppercase. |
 | `Italic` | Boolean | `False` | Render text in italic style. |
 | `Strikethrough` | Boolean | `False` | Draw a horizontal line through the text. |
+| `LowerCase` | Boolean | `False` | Transform text to lowercase. |
+| `Capitalize` | Boolean | `False` | Capitalize first letter of each word. |
+| `LetterSpacing` | Float | `0.0` | Letter spacing in em units (eg 0.05, 0.1). |
+| `ShadowRadius` | Float | `0.0` | Blur radius of the text shadow (0 to disable). |
+| `ShadowDx` | Float | `0.0` | Horizontal offset of the text shadow. |
+| `ShadowDy` | Float | `0.0` | Vertical offset of the text shadow. |
+| `ShadowColor` | Color | `0xFF000000` | Color of the text shadow. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
 - `RefreshText`
-- `MeasureTextWidthAs Float`
-- `MeasureTextHeightAs Float`
+- `MeasureTextWidth As Float`
+- `MeasureTextHeight As Float`
 - `GetPreferredHeight(MaxContentWidth As Int) As Int`
-- `GetComputedHeightAs Int`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setWidth(Value As Object)`
-- `getWidthAs Float`
+- `getWidth As Float`
 - `setHeight(Value As Object)`
-- `getHeightAs Float`
+- `getHeight As Float`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColorVariant(VariantName As String)`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setTextSize(Value As Object)`
-- `getTextSizeAs Object`
+- `setHeading(Value As String)`
+- `getHeading As String`
+- `getTextSize As Object`
 - `setFontBold(Value As Boolean)`
-- `getFontBoldAs Boolean`
+- `getFontBold As Boolean`
 - `setSingleLine(Value As Boolean)`
-- `getSingleLineAs Boolean`
+- `getSingleLine As Boolean`
 - `setEllipsize(Value As String)`
-- `getEllipsizeAs String`
+- `getEllipsize As String`
 - `setHAlign(Value As String)`
-- `getHAlignAs String`
+- `getHAlign As String`
 - `setVAlign(Value As String)`
-- `getVAlignAs String`
+- `getVAlign As String`
 - `setPadding(Value As Float)`
-- `getPaddingAs Float`
+- `getPadding As Float`
 - `setMargin(Value As String)`
-- `getMarginAs String`
+- `getMargin As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setBorderWidth(Value As Float)`
-- `getBorderWidthAs Float`
+- `getBorderWidth As Float`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setLink(Value As Boolean)`
-- `getLinkAs Boolean`
+- `getLink As Boolean`
 - `setUnderline(Value As Boolean)`
-- `getUnderlineAs Boolean`
+- `getUnderline As Boolean`
 - `setUrl(Value As String)`
-- `getUrlAs String`
+- `getUrl As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `StartAnimation`
 - `StopAnimation`
 - `setIsSkeleton(Value As Boolean)`
-- `getIsSkeletonAs Boolean`
+- `getIsSkeleton As Boolean`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
+- `getAutoResize As Boolean`
 - `setLeft(Value As Int)`
-- `getLeftAs Int`
+- `getLeft As Int`
 - `setTop(Value As Int)`
-- `getTopAs Int`
+- `getTop As Int`
 - `setColor(BackgroundColor As Int)`
-- `getColorAs Int`
+- `getColor As Int`
 - `SetTextAlignment(Vertical As String, Horizontal As String)`
 - `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
 - `SetColorAndBorder(CBackgroundColor As Int, CBorderW As Float, CBorderC As Int, CornerRadius As Float)`
 - `setClickable(Value As Boolean)`
-- `getClickableAs Boolean`
+- `getClickable As Boolean`
 - `setUpperCase(Value As Boolean)`
-- `getUpperCaseAs Boolean`
+- `getUpperCase As Boolean`
 - `setItalic(Value As Boolean)`
-- `getItalicAs Boolean`
+- `getItalic As Boolean`
 - `setStrikethrough(Value As Boolean)`
-- `getStrikethroughAs Boolean`
+- `getStrikethrough As Boolean`
+- `setLowerCase(Value As Boolean)`
+- `getLowerCase As Boolean`
+- `setCapitalize(Value As Boolean)`
+- `getCapitalize As Boolean`
+- `setLetterSpacing(Value As Float)`
+- `getLetterSpacing As Float`
+- `setShadowRadius(Value As Float)`
+- `getShadowRadius As Float`
+- `setShadowDx(Value As Float)`
+- `getShadowDx As Float`
+- `setShadowDy(Value As Float)`
+- `getShadowDy As Float`
+- `setShadowColor(Value As Int)`
+- `getShadowColor As Int`
 - `RemoveViewFromParent`
-
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyTextRotate
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `Items` | Int | `1` | The number of items to rotate. |
+| `Items` | List | `1` | The number of items to rotate. |
 | `Duration` | String | `3s` | The duration of the rotation (e.g., 3s). |
 | `Variant` | String | `none` | DaisyUI semantic color variant. |
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
-- `SetItems(ItemList As List)`
+- `Refresh`
+- `Stop`
+- `Start`
+- `GetItems As List`
+- `SetItems(lstItemList As List)`
 - `AddItem(dt As B4XDaisyText)`
-- `ClearItems`
+- `Clear`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setDuration(Value As String)`
-- `getDurationAs String`
+- `getDuration As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getViewAs B4XView`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyTimeline
 
 ### Events
-*(None)*
+
+- `ItemClick (Id As String)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Orientation` | String | `vertical` | Timeline orientation. |
 | `Compact` | Boolean | `False` | If True, all items are pushed to one side. |
 | `SnapIcon` | Boolean | `False` | If True, snaps the icon to start instead of middle. |
 | `LineColor` | String | `base-300` | Color of the connecting lines. |
-| `MarkerSize` | Int | `20` | Size of the middle marker. |
+| `MarkerSize` | Int | `20, MinRange: 4, MaxRange: 100` | Size of the middle marker. |
 | `MarkerColor` | String | `neutral` | Color of the middle marker. |
 | `TextSize` | String | `text-xs` | Text size token applied to both start and end content (matches Daisy default for boxes). |
 | `BoxShadow` | String | `sm` | Elevation token for boxed items (shadow-sm by default). |
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `AddItem(Id As String, StartText As String, EndText As String) As String`
 - `AddItemBox(Id As String, StartText As String, EndText As String, BoxOnStart As Boolean, BoxOnEnd As Boolean) As String`
-- `UpdateItem(id As String, StartText As String, MiddleIcon As Object, IconColor As Int, EndText As String, IsBox As Boolean, BoxOnStart As Boolean, BoxOnEnd As Boolean, Variant As String, DashedBorder As Boolean)`
-- `SetItemStartText(id As String, StartText As String)`
-- `SetItemMiddleIcon(id As String, MiddleIcon As Object)`
-- `SetItemIconColor(id As String, IconColor As Int)`
-- `SetItemEndText(id As String, EndText As String)`
-- `SetItemVariant(id As String, Variant As String)`
-- `SetItemDashedBorder(id As String, Dashed As Boolean)`
-- `SetItemDone(id As String, bDone As Boolean)`
+- `UpdateItem(Id As String, StartText As String, MiddleIcon As Object, IconColor As Int, EndText As String, IsBox As Boolean, BoxOnStart As Boolean, BoxOnEnd As Boolean, Variant As String, DashedBorder As Boolean)`
+- `SetItemStartText(Id As String, StartText As String)`
+- `SetItemMiddleIcon(Id As String, MiddleIcon As Object)`
+- `SetItemIconColor(Id As String, IconColor As Int)`
+- `SetItemEndText(Id As String, EndText As String)`
+- `SetItemVariant(Id As String, Variant As String)`
+- `SetItemDashedBorder(Id As String, Dashed As Boolean)`
+- `SetItemDone(Id As String, Done As Boolean)`
+- `GetItemDone(Id As String) As Boolean`
+- `ToggleItem(Id As String)`
 - `Clear`
-- `getSizeAs Int`
+- `getSize As Int`
+- `Refresh`
+- `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `setOrientation(Value As String)`
-- `getOrientationAs String`
+- `getOrientation As String`
 - `setCompact(Value As Boolean)`
-- `getCompactAs Boolean`
+- `getCompact As Boolean`
 - `setSnapIcon(Value As Boolean)`
-- `getSnapIconAs Boolean`
+- `getSnapIcon As Boolean`
 - `setLineColor(Value As String)`
-- `getLineColorAs String`
+- `getLineColor As String`
 - `setMarkerSize(Value As Int)`
-- `getMarkerSizeAs Int`
+- `getMarkerSize As Int`
 - `setMarkerColor(Value As String)`
-- `getMarkerColorAs String`
+- `getMarkerColor As String`
 - `setVisible(Value As Boolean)`
 - `setTextSize(Value As String)`
-- `getTextSizeAs String`
+- `getTextSize As String`
 - `setBoxShadow(Value As String)`
-- `getBoxShadowAs String`
-- `getVisibleAs Boolean`
+- `getBoxShadow As String`
+- `getVisible As Boolean`
 - `setTag(Value As Object)`
-- `getTagAs Object`
-- `getViewAs B4XView`
-- `GetComputedHeightAs Int`
+- `getTag As Object`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetContentHeight As Int`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyToast
 
+### Types
+
+- `ToastItem (View As B4XView, Progress As B4XDaisyProgress, Timer As Timer, StartTime As Long, Duration As Long)`
+
 ### Events
+
 - `NotificationClosed (View As B4XView)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `HorizontalAlignment` | String | `end` |  |
@@ -5977,15 +9064,21 @@ This document lists all available custom views, their event hooks, designer prop
 | `ShowProgress` | Boolean | `True` | Show a progress bar for timed notifications. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `CreateViewAs B4XView`
+- `CreateView As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `ApplyDesignerProps(Props As Map)`
+- `getHorizontalAlignment As String`
+- `setHorizontalAlignment(Value As String)`
+- `getVerticalAlignment As String`
+- `setVerticalAlignment(Value As String)`
 - `SetPosition(Horizontal As String, Vertical As String)`
 - `Show`
 - `Hide`
 - `SetRoot(Root1 As B4XView)`
-- `Attach(View As B4XView)`
-- `Detach(View As B4XView)`
+- `AttachTo(HostView As B4XView)`
+- `Detach(HostView As B4XView)`
 - `Clear`
 - `Success(Message As String)`
 - `SuccessWithDuration(Message As String, DurationMs As Int)`
@@ -5995,23 +9088,39 @@ This document lists all available custom views, their event hooks, designer prop
 - `WarningWithDuration(Message As String, DurationMs As Int)`
 - `Error(Message As String)`
 - `ErrorWithDuration(Message As String, DurationMs As Int)`
-- `AttachWithDuration(View As B4XView, DurationMs As Int)`
+- `AttachWithDuration(HostView As B4XView, DurationMs As Int)`
+- `Base_Resize(Width As Int, Height As Int)`
 - `setShowProgress(Value As Boolean)`
-- `getShowProgressAs Boolean`
-- `GetComputedHeightAs Int`
+- `getShowProgress As Boolean`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ---
 
 ## B4XDaisyToggle
 
 ### Events
+
 - `Checked (Checked As Boolean)`
 - `Click (Tag As Object)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `GroupName` | String | `` | Toggle group name. |
@@ -6025,90 +9134,111 @@ This document lists all available custom views, their event hooks, designer prop
 | `Enabled` | Boolean | `True` | Enabled state. |
 | `Visible` | Boolean | `True` | Visible state. |
 | `Shadow` | String | `none` | Elevation shadow level. |
+| `BackgroundColor` | Color | `0x00FFFFFF` | Override background color. |
+| `BorderColor` | Color | `0x00FFFFFF` | Override border color. |
+| `TextColor` | Color | `0x00FFFFFF` | Override label text color. |
 | `CheckedBackgroundColor` | Color | `0x00FFFFFF` | Override checked background color. |
 | `CheckedBorderColor` | Color | `0x00FFFFFF` | Override checked border color. |
 | `CheckedTextColor` | Color | `0x00FFFFFF` | Override checked text color. |
+| `Required` | Boolean | `False` | Set field as required. |
+| `ErrorText` | String | `` | Message displayed when field validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `setChecked(Value As Boolean)`
-- `getCheckedAs Boolean`
+- `getChecked As Boolean`
 - `setIndeterminate(Value As Boolean)`
-- `getIndeterminateAs Boolean`
+- `getIndeterminate As Boolean`
 - `setText(Value As String)`
-- `getTextAs String`
+- `getText As String`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setSize(Value As String)`
-- `getSizeAs String`
+- `getSize As String`
 - `setPosition(Value As String)`
-- `getPositionAs String`
+- `getPosition As String`
 - `setEnabled(Value As Boolean)`
-- `getEnabledAs Boolean`
+- `getEnabled As Boolean`
 - `setVisible(Value As Boolean)`
-- `getVisibleAs Boolean`
+- `getVisible As Boolean`
 - `setValue(Value As String)`
-- `getValueAs String`
+- `getValue As String`
 - `setGroupName(Value As String)`
-- `getGroupNameAs String`
-- `getRoleAs String`
+- `getGroupName As String`
+- `getRole As String`
 - `setRequired(Value As Boolean)`
-- `getRequiredAs Boolean`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
-- `getIsValidAs Boolean`
+- `getErrorText As String`
+- `getIsValid As Boolean`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `ValidateAs Boolean`
+- `Validate As Boolean`
 - `setBackgroundColor(Color As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBorderColor(Color As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setTextColor(Color As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setCheckedBackgroundColor(Color As Int)`
-- `getCheckedBackgroundColorAs Int`
+- `getCheckedBackgroundColor As Int`
 - `setCheckedBorderColor(Color As Int)`
-- `getCheckedBorderColorAs Int`
+- `getCheckedBorderColor As Int`
 - `setCheckedTextColor(Color As Int)`
-- `getCheckedTextColorAs Int`
+- `getCheckedTextColor As Int`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `UpdateTheme`
+- `Refresh`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `getComputedHeightAs Int`
+- `View As B4XView`
+- `getComputedHeight As Int`
 - `RequestFocus`
 - `setFocus(Value As Boolean)`
 - `ReceiveFocus`
 - `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
 - `RemoveViewFromParent`
 - `Release`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
 ## B4XDaisyToggleGroup
 
 ### Events
+
 - `ItemChanged (id As String, text As String, checked As Boolean)`
 - `Changed (SelectedIds As List)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Legend` | String | `Select options` | Fieldset legend text |
 | `LegendSize` | String | `theme` | Legend text size token |
 | `LegendBold` | Boolean | `False` | Render the fieldset legend caption in bold |
+| `LabelAbove` | Boolean | `False` | If True, the legend text is displayed as a label above the border box |
 | `Variant` | String | `none` | Optional accent variant for border tint |
 | `BorderStyle` | String | `outlined` | Border visual style |
 | `Padding` | Int | `16` | Inner content padding in dip |
 | `AutoHeight` | Boolean | `True` | Automatically grow to fit added content |
 | `Rounded` | String | `theme` | Corner radius mode |
-| `RoundedBox` | Boolean | `True` | Use box radius for container |
 | `Shadow` | String | `none` | Elevation shadow level |
 | `BackgroundColor` | Color | `0x00000000` | Background color (0 = default bg-base-200) |
 | `TextColor` | Color | `0x00000000` | Legend text color (0 = use theme token) |
@@ -6127,160 +9257,212 @@ This document lists all available custom views, their event hooks, designer prop
 | `ErrorText` | String | `` | Error text displayed below the group when validation fails. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `getViewAs B4XView`
-- `ViewAs B4XView`
-- `IsReadyAs Boolean`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
 - `AddItem(Id As String, Text As String)`
 - `RemoveItem(Id As String)`
-- `ClearItems`
+- `Clear`
 - `setItems(Items As Map)`
-- `getItemsAs Map`
+- `getItems As Map`
 - `setItemsSpec(Value As String)`
-- `getItemsSpecAs String`
+- `getItemsSpec As String`
 - `setChecked(CheckedIds As String)`
-- `getCheckedAs String`
+- `getChecked As String`
 - `SetItemChecked(Id As String, Checked As Boolean)`
 - `CheckItem(Id As String)`
 - `UncheckItem(Id As String)`
 - `IsItemChecked(Id As String) As Boolean`
 - `setLegend(Value As String)`
-- `getLegendAs String`
+- `getLegend As String`
 - `setLegendSize(Value As String)`
-- `getLegendSizeAs String`
+- `getLegendSize As String`
 - `setLegendBold(Value As Boolean)`
-- `getLegendBoldAs Boolean`
+- `getLegendBold As Boolean`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setDirection(Value As String)`
-- `getDirectionAs String`
+- `getDirection As String`
 - `setAlignment(Value As String)`
-- `getAlignmentAs String`
+- `getAlignment As String`
 - `setToggleColor(Value As String)`
-- `getToggleColorAs String`
+- `getToggleColor As String`
 - `setToggleSize(Value As String)`
-- `getToggleSizeAs String`
+- `getToggleSize As String`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
+- `getAutoHeight As Boolean`
 - `setPadding(Value As Int)`
-- `getPaddingAs Int`
+- `getPadding As Int`
 - `setGap(Value As Int)`
-- `getGapAs Int`
+- `getGap As Int`
 - `setRowGap(Value As Int)`
-- `getRowGapAs Int`
+- `getRowGap As Int`
 - `setTag(Value As Object)`
-- `getTagAs Object`
+- `getTag As Object`
 - `setRequired(Value As Boolean)`
+- `setLabelAbove(Value As Boolean)`
+- `getLabelAbove As Boolean`
 - `setHintText(Value As String)`
-- `getHintTextAs String`
-- `getRequiredAs Boolean`
+- `getHintText As String`
+- `getRequired As Boolean`
 - `setErrorText(Value As String)`
-- `getErrorTextAs String`
+- `getErrorText As String`
 - `ShowError(ErrorMessage As String)`
 - `ClearError`
-- `getIsValidAs Boolean`
-- `ValidateAs Boolean`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
 - `ReceiveFocus`
 - `Blur`
 - `setBorderStyle(Value As String)`
-- `getBorderStyleAs String`
+- `getBorderStyle As String`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
-- `isRoundedAs Boolean`
+- `getRounded As String`
+- `isRounded As Boolean`
 - `setRoundedBox(Value As Boolean)`
-- `isRoundedBoxAs Boolean`
+- `isRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setBackgroundColor(Value As Int)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
-- `getTextColorAs Int`
+- `getTextColor As Int`
 - `setBorderColor(Value As Int)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setInputBorder(Value As Boolean)`
-- `getInputBorderAs Boolean`
-- `GetComputedHeightAs Int`
+- `getInputBorder As Boolean`
+- `GetComputedHeight As Int`
 - `Release`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
 ## B4XDaisyTooltip
 
 ### Events
+
 - `Shown`
 - `Hidden`
 - `Click (Tag As Object)`
 
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Message` | String | `Tooltip message` | Tooltip text content. |
 | `Position` | String | `top` | Anchor position relative to target. |
+| `Alignment` | String | `center` | Align tooltip to start/center/end of the target (tooltip-start/center/end parity). |
 | `Variant` | String | `neutral` | Daisy variant for tooltip background. |
 | `ShowArrow` | Boolean | `True` | Show the small tail/arrow pointing to target. |
 | `ClickToClose` | Boolean | `True` | Hide tooltip when clicked. |
 | `TextWrapped` | Boolean | `True` | Enable multi-line text wrapping. |
 | `Visible` | Boolean | `True` | Initial visibility. |
 | `AutoResize` | Boolean | `True` | Automatically resize tooltip to fit message content. |
+| `Duration` | Int | `300` | Fade animation duration in milliseconds for hide (0 = instant). |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
-- `CreateView(Props As Map) As B4XView`
-- `AttachToTarget(Target As B4XView)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Refresh`
+- `AttachTo(Target As B4XView)`
 - `DetachTarget`
 - `Show`
 - `ShowAnimated(Duration As Int)`
 - `Hide`
-- `getVisibleAs Boolean`
+- `HideAnimated(DurationMs As Int)`
+- `getVisible As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
 - `setAutoResize(Value As Boolean)`
-- `getAutoResizeAs Boolean`
-- `setVisible(b As Boolean)`
+- `getAutoResize As Boolean`
+- `setVisible(Value As Boolean)`
 - `setVariant(Value As String)`
-- `getVariantAs String`
+- `getVariant As String`
 - `setMessage(Value As String)`
-- `getMessageAs String`
+- `getMessage As String`
 - `setPosition(Value As String)`
-- `getPositionAs String`
-- `SetCustomContent(View As B4XView)`
-- `GetComputedHeightAs Int`
-- `getViewAs B4XView`
-- `GetActualHeightAs Int`
-- `GetActualWidthAs Int`
+- `getPosition As String`
+- `setAlignment(Value As String)`
+- `getAlignment As String`
+- `SetCustomContent(CustomView As B4XView)`
+- `BringToFront`
+- `GetComputedHeight As Int`
+- `View As B4XView`
+- `GetActualHeight As Int`
+- `GetActualWidth As Int`
 - `RemoveViewFromParent`
-
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
+- `getClickToClose As Boolean`
+- `setClickToClose(Value As Boolean)`
+- `getShowArrow As Boolean`
+- `setShowArrow(Value As Boolean)`
+- `getTextWrapped As Boolean`
+- `setTextWrapped(Value As Boolean)`
 
 ---
 
 ## B4XDaisyVariants
 
-### Events
-*(None)*
+### Types
 
-### Designer Properties
-*(None)*
+- `NullableInt (Success As Boolean, Value As Int)`
+- `NullableFloat (Success As Boolean, Value As Float)`
+- `B4XDaisySweetAlertResult (IsConfirmed As Boolean, IsDenied As Boolean, IsDismissed As Boolean, Dismiss As String, Value As Object)`
 
 ### Public Methods
+
+- `HSLToInt(H As Int, S As Double, L As Double, A As Int) As Int`
+- `SetTextOrCSBuilderToLabel(Xlbl As B4XView, Text As Object)`
+- `SetBitmapAndFill(ImageView As B4XView, bmpBmp As B4XBitmap)`
+- `CreateLabel As B4XView`
+- `CreateB4XImageView As B4XImageView`
 - `GetCheckedRadio(Parent As B4XView, GroupName As String) As B4XDaisyRadio`
+- `CreateRipple(Parent As B4XView, TouchX As Float, TouchY As Float, RippleColor As Int, DurationMs As Int, CornerRadius As Int)`
 - `GetCheckedValue(Parent As B4XView, GroupName As String) As String`
 - `SetCheckedByValue(Parent As B4XView, GroupName As String, Value As String) As Boolean`
-- `SetTextOrCSBuilderToLabel(xlbl As B4XView, Text As Object)`
 - `SetActiveTheme(ThemeName As String)`
-- `GetActiveThemeAs String`
+- `GetActiveTheme As String`
 - `HasTheme(ThemeName As String) As Boolean`
 - `RegisterTheme(ThemeName As String, Tokens As Map)`
 - `ResolveAssetImage(FileName As String, DefaultImage As String) As String`
 - `ResolveAssetSVG(FileName As String, DefaultText As String) As String`
 - `GetThemeTokens(ThemeName As String) As Map`
-- `GetActiveTokensAs Map`
-- `SetOverflowHidden(v As B4XView)`
-- `SetStyleVariable(v As B4XView, Name As String, Value As Object)`
+- `GetActiveTokens As Map`
+- `SetOverflowHidden(View As B4XView)`
+- `SetStyleVariable(View As B4XView, Name As String, Value As Object)`
 - `IsClass(Obj As Object, ClassName As String) As Boolean`
 - `GetTokenColor(Token As String, DefaultColor As Int) As Int`
 - `ResolveThemeColorTokenName(Name As String) As String`
@@ -6309,12 +9491,12 @@ This document lists all available custom views, their event hooks, designer prop
 - `GetRadiusBoxDip(DefaultDip As Float) As Float`
 - `GetRadiusFieldDip(DefaultDip As Float) As Float`
 - `GetRadiusSelectorDip(DefaultDip As Float) As Float`
-- `GetVariantPaletteAs Map`
+- `GetVariantPalette As Map`
 - `BuildVariantPalette(ThemeName As String) As Map`
-- `VariantListAs String`
+- `VariantList As String`
 - `NormalizeVariant(Name As String) As String`
 - `BuildVariantMap(BackColor As Int, TextColor As Int) As Map`
-- `DefaultPaletteAs Map`
+- `DefaultPalette As Map`
 - `ResolveVariantMap(Palette As Map, VariantName As String) As Map`
 - `ResolveVariantColor(Palette As Map, VariantName As String, Key As String, DefaultColor As Int) As Int`
 - `ResolveBackgroundColorVariantFromPalette(Palette As Map, VariantOrToken As String, DefaultColor As Int) As Int`
@@ -6327,24 +9509,24 @@ This document lists all available custom views, their event hooks, designer prop
 - `ResolveColorVariantFromPalette(Palette As Map, VariantOrToken As String, PaletteKey As String, DefaultColor As Int) As Int`
 - `ResolveOnlineColor(VariantName As String, DefaultColor As Int) As Int`
 - `ResolveOfflineColor(VariantName As String, DefaultColor As Int) As Int`
-- `Blend(c1 As Int, c2 As Int, t As Double) As Int`
-- `ShadowListAs String`
+- `Blend(C1 As Int, C2 As Int, T As Double) As Int`
+- `ShadowList As String`
 - `NormalizeShadow(Name As String) As String`
 - `ResolveShadowElevation(Level As String) As Float`
 - `ResolveShadowSpec(Level As String) As Map`
-- `MaskListAs String`
-- `MaskListSimpleAs String`
+- `MaskList As String`
+- `MaskListSimple As String`
 - `NormalizeMask(MaskName As String) As String`
 - `CreateMaskPath(Size As Float, MaskName As String) As B4XPath`
 - `CreateMaskPathRect(Width As Float, Height As Float, MaskName As String) As B4XPath`
-- `CreateMaskPathInRect(TargetRect As B4XRect, MaskName As String) As B4XPath`
+- `CreateMaskPathInRect(rcTargetRect As B4XRect, MaskName As String) As B4XPath`
 - `ResolveRoundedRadiusDip(MaskName As String, Size As Float) As Float`
-- `ClipCanvasToShape(cvs As B4XCanvas, TargetRect As B4XRect, MaskName As String) As Boolean`
-- `RestoreCanvasClip(cvs As B4XCanvas)`
-- `DisableViewClipping(v As B4XView)`
-- `EnableShapedClipping(v As B4XView, MaskName As String)`
-- `DisableShapedClipping(v As B4XView)`
-- `SetLineSpacing(v As B4XView, Multiple As Float, Add As Float)`
+- `ClipCanvasToShape(cvsCvs As B4XCanvas, rcTargetRect As B4XRect, MaskName As String) As Boolean`
+- `RestoreCanvasClip(cvsCvs As B4XCanvas)`
+- `DisableViewClipping(View As B4XView)`
+- `EnableShapedClipping(View As B4XView, MaskName As String)`
+- `DisableShapedClipping(View As B4XView)`
+- `SetLineSpacing(View As B4XView, Multiple As Float, Add As Float)`
 - `NormalizeDateTimeFormat(Value As String, DefaultFlatpickrFormat As String) As String`
 - `FormatDateTime(FormatText As String, ValueMillis As Long) As String`
 - `LooksLikeJavaDateFormat(FormatText As String) As Boolean`
@@ -6352,9 +9534,9 @@ This document lists all available custom views, their event hooks, designer prop
 - `GetPropString(Props As Map, Key As String, DefaultValue As String) As String`
 - `GetPropFloat(Props As Map, Key As String, DefaultValue As Float) As Float`
 - `GetPropInt(Props As Map, Key As String, DefaultValue As Int) As Int`
+- `GetPropLong(Props As Map, Key As String, DefaultValue As Long) As Long`
 - `GetPropBool(Props As Map, Key As String, DefaultValue As Boolean) As Boolean`
 - `GetPropColor(Props As Map, Key As String, DefaultValue As Int) As Int`
-- `ResolveColorValue(Value As Object, DefaultColor As Int) As Int`
 - `GetPropDip(Props As Map, Key As String, DefaultDip As Float) As Float`
 - `GetPropSizeDip(Props As Map, Key As String, DefaultDip As Object) As Float`
 - `TailwindSizeToPx(Value As Object, DefaultPx As Float) As Float`
@@ -6363,7 +9545,7 @@ This document lists all available custom views, their event hooks, designer prop
 - `TailwindSpacingToDip(Value As Object, DefaultDip As Float) As Float`
 - `TailwindGapToDip(Value As Object, DefaultDip As Float) As Float`
 - `ParseGapUtilities(Utilities As String, DefaultGapDip As Float) As Map`
-- `BorderStyleListAs String`
+- `BorderStyleList As String`
 - `TailwindBorderWidthToDip(Value As Object, DefaultDip As Float) As Float`
 - `TailwindBorderRadiusToDip(Value As Object, DefaultDip As Float) As Float`
 - `TailwindBorderColorToColor(Value As String, DefaultColor As Int) As Int`
@@ -6375,12 +9557,13 @@ This document lists all available custom views, their event hooks, designer prop
 - `ResolveHeightBase(Base As B4XView, DefaultValue As Float) As Float`
 - `ResolveTextSizeDip(Token As String) As Float`
 - `ResolveLabelSizeDip(SizeToken As String) As Float`
-- `MeasureTextWidthSafe(Text As String, TextSize As Float, tf As Object, BufferDip As Float) As Int`
-- `MeasureTextHeightSafe(Text As String, TextSize As Float, tf As Object, Width As Int, BufferDip As Float) As Int`
-- `GetGlassSpecAs Map`
+- `MeasureTextWidthSafe(Text As String, TextSize As Float, Tf As Object, BufferDip As Float) As Int`
+- `MeasureTextHeightSafe(Text As String, TextSize As Float, Tf As Object, Width As Int, BufferDip As Float) As Int`
+- `GetGlassSpec As Map`
 - `GetGlassSpecForSize(Size As String) As Map`
 - `ApplyGlassStyle(Target As B4XView, RadiusDip As Float, Size As String)`
-- `SetColorPerCornerRadius(v As B4XView, BgColor As Int, TL As Float, TR As Float, BR As Float, BL As Float)`
+- `ApplyGlassStylePerCorner(Target As B4XView, TL As Float, TR As Float, BR As Float, BL As Float, Size As String)`
+- `SetColorPerCornerRadius(View As B4XView, BgColor As Int, TL As Float, TR As Float, BR As Float, BL As Float)`
 - `ApplyGlassTextStyle(TextTarget As B4XView)`
 - `AlphaColor(ColorValue As Int, Alpha01 As Float) As Int`
 - `GetJoinSpec(Orientation As String) As Map`
@@ -6390,41 +9573,39 @@ This document lists all available custom views, their event hooks, designer prop
 - `TailwindTextFontSize(Value As Object, DefaultFontSize As Float) As Float`
 - `TailwindTextLineHeightDip(Value As Object, DefaultLineHeightDip As Float) As Float`
 - `ExtractSpacingValue(Value As String) As String`
-- `ResolveIconTypeface(icon As String) As Typeface`
-- `ContainsAny(Text As String, Needles() As String) As Boolean`
-- `IsRtlAs Boolean`
+- `ResolveIconTypeface(Icon As String) As Typeface`
+- `IsRtl As Boolean`
 - `NormalizeRounded(Value As String) As String`
 - `ResolveRoundedDip(Rounded As String, DefaultDip As Float) As Float`
 - `SetAlpha(Color As Int, Alpha As Int) As Int`
 - `ShiftColor(Color As Int, Factor As Float) As Int`
 - `CloneProps(Props As Map) As Map`
-- `DisableClipping(v As B4XView)`
+- `DisableClipping(View As B4XView)`
 - `DisableClippingChain(StartView As B4XView, MaxLevels As Int)`
-- `DisableClippingRecursive(v As B4XView)`
-- `ApplyElevation(v As B4XView, ShadowLevel As String)`
+- `DisableClippingRecursive(View As B4XView)`
+- `ApplyElevation(View As B4XView, ShadowLevel As String)`
 - `ParseFlexContainerTokens(TokenString As String) As Map`
 - `ApplyFlexContainerTokens(fp As B4XDaisyFlexPanel, TokenString As String, DoRelayout As Boolean)`
 - `ApplyParsedFlexContainerTokens(fp As B4XDaisyFlexPanel, Parsed As Map, DoRelayout As Boolean)`
 - `ParseFlexItemTokens(TokenString As String) As Map`
-- `ApplyFlexItemTokens(fp As B4XDaisyFlexPanel, v As B4XView, TokenString As String, DoRelayout As Boolean)`
-- `ApplyParsedFlexItemTokens(fp As B4XDaisyFlexPanel, v As B4XView, Parsed As Map, DoRelayout As Boolean)`
+- `ApplyFlexItemTokens(fp As B4XDaisyFlexPanel, View As B4XView, TokenString As String, DoRelayout As Boolean)`
+- `ApplyParsedFlexItemTokens(fp As B4XDaisyFlexPanel, View As B4XView, Parsed As Map, DoRelayout As Boolean)`
 - `ApplyThemeToPage(ThemeName As String, RootView As B4XView)`
 - `ApplyDashedBorder(Target As B4XView, FillColor As Int, BorderWidth As Float, BorderColor As Int, Radius As Float, Style As String)`
 - `ShiftSiblingsBelow(View As B4XView, Delta As Int, AnimDuration As Int)`
 - `CreateEditTextBorder(BackgroundColor As Int, BorderWidthDip As Int, BorderColor As Int, CornerDip As Int) As ColorDrawable`
 - `ApplyEditTextBorder(Target As B4XView, BackgroundColor As Int, BorderWidthDip As Int, BorderColor As Int, CornerDip As Int)`
 - `ValidateRequiredControls(Parent As B4XView) As Boolean`
-- `ValidateControls(Controls As List) As Boolean`
-
+- `ValidateControls(lstControls As List) As Boolean`
+- `SubArgCount(Target As Object, SubName As String) As Int`
+- `RequestDisallowParentIntercept(View As B4XView, Action As Int)`
 
 ---
 
 ## B4XDaisyWindow
 
-### Events
-*(None)*
-
 ### Designer Properties
+
 | Property Key | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `Width` | String | `w-full` | Window width (for example w-full, 320dip, 320). |
@@ -6433,7 +9614,6 @@ This document lists all available custom views, their event hooks, designer prop
 | `BorderColor` | Color | `0x00000000` | Window border color (0 uses border-base-300). |
 | `BorderSize` | Int | `1` | Border width in dip. |
 | `Rounded` | String | `theme` | Corner radius mode. |
-| `RoundedBox` | Boolean | `True` | Use rounded-box radius when Rounded is theme. |
 | `Shadow` | String | `none` | Elevation shadow level. |
 | `ShowHeader` | Boolean | `True` | Show top header area. |
 | `HeaderHeight` | Int | `24` | Header height in dip. |
@@ -6443,51 +9623,62 @@ This document lists all available custom views, their event hooks, designer prop
 | `AutoHeight` | Boolean | `True` | Automatically grow/shrink height to fit content panel children. |
 
 ### Public Methods
+
 - `Initialize(Callback As Object, EventName As String)`
 - `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
-- `ContentAs B4XView`
-- `ContentWidthAs Int`
-- `ContentHeightAs Int`
-- `GetHeaderPanelAs B4XView`
-- `AddContentView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
-- `AddHeaderView(v As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Content As B4XView`
+- `ContentWidth As Int`
+- `ContentHeight As Int`
+- `GetHeaderPanel As B4XView`
+- `AddContentView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddHeaderView(View As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `ClearContent`
 - `RefreshContent`
 - `ClearHeader`
-- `getTagAs Object`
+- `getTag As Object`
 - `setTag(Value As Object)`
-- `ViewAs B4XView`
-- `GetComputedHeightAs Int`
+- `View As B4XView`
+- `GetComputedHeight As Int`
 - `RemoveViewFromParent`
 - `setWidth(Value As String)`
-- `getWidthAs String`
+- `getWidth As String`
 - `setHeight(Value As String)`
-- `getHeightAs String`
+- `getHeight As String`
 - `setBackgroundColor(Value As Object)`
-- `getBackgroundColorAs Int`
+- `getBackgroundColor As Int`
 - `setBorderColor(Value As Object)`
-- `getBorderColorAs Int`
+- `getBorderColor As Int`
 - `setBorderSize(Value As Int)`
-- `getBorderSizeAs Int`
+- `getBorderSize As Int`
 - `setRounded(Value As String)`
-- `getRoundedAs String`
+- `getRounded As String`
 - `setRoundedBox(Value As Boolean)`
-- `getRoundedBoxAs Boolean`
+- `getRoundedBox As Boolean`
 - `setShadow(Value As String)`
-- `getShadowAs String`
+- `getShadow As String`
 - `setShowHeader(Value As Boolean)`
-- `getShowHeaderAs Boolean`
+- `getShowHeader As Boolean`
 - `setHeaderHeight(Value As Int)`
-- `getHeaderHeightAs Int`
+- `getHeaderHeight As Int`
 - `setShowControls(Value As Boolean)`
-- `getShowControlsAs Boolean`
+- `getShowControls As Boolean`
 - `setContentPadding(Value As String)`
-- `getContentPaddingAs String`
+- `getContentPadding As String`
 - `setToolBarTitle(Value As String)`
-- `getToolBarTitleAs String`
+- `getToolBarTitle As String`
 - `setAutoHeight(Value As Boolean)`
-- `getAutoHeightAs Boolean`
-
+- `getAutoHeight As Boolean`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---

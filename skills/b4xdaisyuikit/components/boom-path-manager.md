@@ -1,12 +1,12 @@
 # boom-path-manager (`B4XDaisyBoomPathManager`)
 
-DaisyUI `BoomPathManager` component for B4X (B4A/B4i/B4J).
+DaisyUI `BoomPathManager` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyBoomPathManager`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyBoomPathManager.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.boom-path-manager` → `B4XDaisyBoomPathManager`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,16 +26,14 @@ DaisyUI `BoomPathManager` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyBoomPathManager` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `CalculatePath(BoomType As String, StartX As Float, StartY As Float, EndX As Float, EndY As Float, _
-		ParentWidth As Float, ParentHeight As Float, DurationMs As Int) As List`
 - `Initialize`
 
 ## 7. Public Fields
-- `xui As XUI`
+(none declared in packaged source)
 

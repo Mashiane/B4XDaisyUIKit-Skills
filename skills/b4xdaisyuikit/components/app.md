@@ -1,12 +1,12 @@
 # app (`B4XDaisyApp`)
 
-DaisyUI `App` component for B4X (B4A/B4i/B4J).
+DaisyUI `App` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyApp`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyApp.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.app` → `B4XDaisyApp`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,17 +26,17 @@ DaisyUI `App` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyApp` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
 - `ClearSvgTextCache`
-- `GetCachedSvgBitmap(sKey As String) As B4XBitmap`
-- `GetCachedSvgText(sPath As String, sDefaultText As String) As String`
-- `PutCachedSvgBitmap(sKey As String, bmpBmp As B4XBitmap)`
+- `GetCachedSvgBitmap(Key As String) As B4XBitmap`
+- `PutCachedSvgBitmap(Key As String, bmpBmp As B4XBitmap)`
+- `GetCachedSvgText(Path As String, DefaultText As String) As String`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

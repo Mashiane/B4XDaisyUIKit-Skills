@@ -1,12 +1,12 @@
 # page-scroll (`B4XDaisyPageScroll`)
 
-DaisyUI `PageScroll` component for B4X (B4A/B4i/B4J).
+DaisyUI `PageScroll` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPageScroll`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyPageScroll.bas`
-- **Verified Demo Source**: B4XPageActionSheet.bas (lines 15–15), B4XPageAura.bas (lines 16–16), B4XPageBoomMenu.bas (lines 13–13), B4XPageCanvasSpinner.bas (lines 12–12), B4XPageColorWheel.bas (lines 12–12), B4XPageDrawer.bas (lines 20–20), B4XPageDrawerRail.bas (lines 18–18), B4XPageDrawerTree.bas (lines 20–20), B4XPageDualRange.bas (lines 15–15), B4XPageEasing.bas (lines 17–17), B4XPageEnjoyHint.bas (lines 15–15), B4XPageFocus.bas (lines 13–13), B4XPageInput.bas (lines 13–31), B4XPageMediaPicker.bas (lines 13–13), B4XPageNativeDialogs.bas (lines 13–13), B4XPageNavScrollDock.bas (lines 40–40), B4XPageOTP.bas (lines 19–19), B4XPagePicker.bas (lines 15–15), B4XPageProgress.bas (lines 14–14), B4XPageScrollDemo.bas (lines 14–35), B4XPageSegment.bas (lines 15–15), B4XPageSheetModal.bas (lines 15–15), B4XPageShineButton.bas (lines 13–13), B4XPageSignaturePad.bas (lines 12–12), B4XPageSweetAlertInputs.bas (lines 14–14), B4XPageTagSphere.bas (lines 12–12)
+- **Verified Demo Source**: B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageBoomMenu.bas, B4XPageCanvasSpinner.bas, B4XPageColorWheel.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDualRange.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageInput.bas, B4XPageMediaPicker.bas, B4XPageNativeDialogs.bas, B4XPageNavScrollDock.bas, B4XPageOTP.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageScrollDemo.bas, B4XPageSegment.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.page-scroll` → `B4XDaisyPageScroll`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -41,75 +41,72 @@ Private Sub B4XPage_Created(Root1 As B4XView)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `PagePadding` | Page Padding | `Int` | `12` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `BackgroundVariant` | Background Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `RootColor` | Root Color | `Color` | `0x00000000` |  |
-| `Transparent` | Transparent | `Boolean` | `False` |  |
-| `AutoFitHeight` | Auto Fit Height | `Boolean` | `True` |  |
-| `YGap` | Y Gap | `Int` | `12` |  |
-| `ScrollEnabled` | Scroll Enabled | `Boolean` | `True` |  |
+| `PagePadding` | Page Padding | `Int` | 12 |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `BackgroundVariant` | Background Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `RootColor` | Root Color | `Color` | 0x00000000 |  |
+| `Transparent` | Transparent | `Boolean` | False |  |
+| `AutoFitHeight` | Auto Fit Height | `Boolean` | True |  |
+| `YGap` | Y Gap | `Int` | 12 |  |
+| `ScrollEnabled` | Scroll Enabled | `Boolean` | True |  |
 
 ## 5. Declared Events
-- `ScrollStart`
-- `Scrolling (Position As Int)`
-- `ScrollEnd`
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddDivider(iY As Int) As Int`
-- `AddSectionTitle(sText As String, iY As Int, bCenter As Boolean) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AutoFit`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `Refresh`
-- `Resize(dWidth As Double, dHeight As Double)`
-- `ScrollToBottom(bAnimated As Boolean)`
-- `ScrollToPosition(iPosition As Int, bAnimated As Boolean)`
-- `ScrollToTop(bAnimated As Boolean)`
-- `ScrollToView(vTargetView As B4XView, bAnimated As Boolean)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getAutoFitHeight As Boolean`
-- `getBackgroundColor As Int`
-- `getBackgroundVariant As String`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getMaxScrollPosition As Int`
-- `getPagePadding As Int`
+- `BringToFront`
 - `getPanel As B4XView`
-- `getRootColor As Int`
-- `getScrollEnabled As Boolean`
-- `getScrollPosition As Int`
 - `getScrollView As ScrollView`
-- `getTag As Object`
-- `getTop As Int`
-- `getTransparent As Boolean`
+- `ScrollToTop(Animated As Boolean)`
+- `ScrollToBottom(Animated As Boolean)`
+- `ScrollToPosition(Position As Int, Animated As Boolean)`
+- `getScrollPosition As Int`
+- `getMaxScrollPosition As Int`
+- `ScrollToView(TargetView As B4XView, Animated As Boolean)`
+- `setBackgroundVariant(Value As String)`
+- `getBackgroundVariant As String`
 - `getUsableWidth As Int`
-- `getVisible As Boolean`
-- `getWidth As Int`
+- `AutoFit`
+- `Clear`
+- `AddSectionTitle(Text As String, Y As Int, Center As Boolean) As Int`
+- `AddDivider(Y As Int) As Int`
+- `getPagePadding As Int`
+- `setPagePadding(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getRootColor As Int`
+- `setRootColor(Value As Int)`
+- `getTransparent As Boolean`
+- `setTransparent(Value As Boolean)`
 - `getYGap As Int`
-- `setAutoFitHeight(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundVariant(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setPagePadding(iValue As Int)`
-- `setRootColor(iValue As Int)`
-- `setScrollEnabled(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setTransparent(bValue As Boolean)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
-- `setYGap(iValue As Int)`
+- `setYGap(Value As Int)`
+- `getScrollEnabled As Boolean`
+- `setScrollEnabled(Value As Boolean)`
+- `getAutoFitHeight As Boolean`
+- `setAutoFitHeight(Value As Boolean)`
+- `getTag As Object`
+- `setTag(Value As Object)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

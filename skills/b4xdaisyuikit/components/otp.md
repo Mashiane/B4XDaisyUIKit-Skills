@@ -1,12 +1,12 @@
 # otp (`B4XDaisyOTP`)
 
-DaisyUI `OTP` component for B4X (B4A/B4i/B4J).
+DaisyUI `OTP` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyOTP`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyOTP.bas`
-- **Verified Demo Source**: B4XPageOTP.bas (lines 12–492)
+- **Verified Demo Source**: B4XPageOTP.bas
 - **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOTP`
 
 ## DaisyUI Web Class Translation
@@ -74,26 +74,26 @@ DaisyUI `OTP` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Length` | Length | `Int` | `4` |  |
-| `InputType` | Input Type | `String` | `number` | number|text |
-| `Value` | Value | `String` | `` |  |
-| `Separators` | Separators | `String` | `` |  |
-| `Pattern` | Pattern | `String` | `` |  |
-| `Shape` | Shape | `String` | `round` | round|soft|rectangular |
-| `Fill` | Fill | `String` | `outline` | outline|solid |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Gap` | Gap (dip) | `Int` | `-1` |  |
-| `Variant` | Variant/Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `FocusVariant` | Focus Variant | `String` | `primary` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `ReadOnly` | Read Only | `Boolean` | `False` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `ValidationState` | Validation State | `String` | `none` | none|valid|invalid |
-| `LabelAbove` | Label Above | `String` | `` |  |
-| `Description` | Description (slot) | `String` | `` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
+| `Length` | Length | `Int` | 4, MinRange: 2, MaxRange: 10 |  |
+| `InputType` | Input Type | `String` | number | number|text |
+| `Value` | Value | `String` |  |  |
+| `Separators` | Separators | `String` |  |  |
+| `Pattern` | Pattern | `String` |  |  |
+| `Shape` | Shape | `String` | round | round|soft|rectangular |
+| `Fill` | Fill | `String` | outline | outline|solid |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Gap` | Gap (dip) | `Int` | -1, MinRange: -1, MaxRange: 48 |  |
+| `Variant` | Variant/Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `FocusVariant` | Focus Variant | `String` | primary | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `ReadOnly` | Read Only | `Boolean` | False |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Required` | Required | `Boolean` | False |  |
+| `ValidationState` | Validation State | `String` | none | none|valid|invalid |
+| `LabelAbove` | Label Above | `String` |  |  |
+| `Description` | Description (slot) | `String` |  |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
 
 ## 5. Declared Events
 - `Input (Value As String)`
@@ -104,66 +104,65 @@ DaisyUI `OTP` component for B4X (B4A/B4i/B4J).
 - `DescriptionClick`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetActualHeight As Int`
-- `GetComputedHeight As Int`
-- `HandleDeleteKey`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `Release`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getDescription As String`
-- `getEnabled As Boolean`
-- `getErrorText As String`
-- `getFill As String`
-- `getFocusVariant As String`
-- `getFocused As Boolean`
-- `getGap As Int`
-- `getHintText As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getLength As Int`
+- `setLength(Value As Int)`
 - `getInputType As String`
+- `setInputType(Value As String)`
+- `getValue As String`
+- `setValue(Value As String)`
+- `getSeparators As String`
+- `setSeparators(Value As String)`
+- `getPattern As String`
+- `setPattern(Value As String)`
+- `getShape As String`
+- `setShape(Value As String)`
+- `getRounded As String`
+- `setRounded(Value As String)`
+- `getFill As String`
+- `setFill(Value As String)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getGap As Int`
+- `setGap(Value As Int)`
+- `getVariant As String`
+- `setVariant(Value As String)`
+- `getFocusVariant As String`
+- `setFocusVariant(Value As String)`
+- `getEnabled As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getReadOnly As Boolean`
+- `setReadOnly(Value As Boolean)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getRequired As Boolean`
+- `setRequired(Value As Boolean)`
+- `getValidationState As String`
+- `setValidationState(Value As String)`
+- `getLabelAbove As String`
+- `setLabelAbove(Value As String)`
+- `getDescription As String`
+- `setDescription(Value As String)`
+- `getHintText As String`
+- `setHintText(Value As String)`
+- `getErrorText As String`
+- `setErrorText(Value As String)`
 - `getIsComplete As Boolean`
 - `getIsValid As Boolean`
-- `getLabelAbove As String`
-- `getLength As Int`
-- `getPattern As String`
-- `getReadOnly As Boolean`
-- `getRequired As Boolean`
-- `getRounded As String`
-- `getSeparators As String`
-- `getShape As String`
-- `getSize As String`
-- `getTag As Object`
-- `getValidationState As String`
-- `getValue As String`
-- `getVariant As String`
-- `getVisible As Boolean`
-- `setDescription(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setFill(sValue As String)`
-- `setFocus(iIndex As Int)`
-- `setFocusVariant(sValue As String)`
-- `setGap(iValue As Int)`
-- `setHintText(sValue As String)`
-- `setInputType(sValue As String)`
-- `setLabelAbove(sValue As String)`
-- `setLength(iValue As Int)`
-- `setPattern(sValue As String)`
-- `setReadOnly(bValue As Boolean)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setSeparators(sValue As String)`
-- `setShape(sValue As String)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setValidationState(sValue As String)`
-- `setValue(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
+- `getFocused As Boolean`
+- `HandleDeleteKey`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `GetActualHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setFocus(Index As Int)`
+- `Release`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

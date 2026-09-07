@@ -1,12 +1,12 @@
 # animation (`B4XDaisyAnimation`)
 
-DaisyUI `Animation` component for B4X (B4A/B4i/B4J).
+DaisyUI `Animation` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAnimation`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyAnimation.bas`
-- **Verified Demo Source**: B4XPageEasing.bas (lines 34–251)
+- **Verified Demo Source**: B4XPageEasing.bas
 - **Web DaisyUI Mapping**: `.animation` → `B4XDaisyAnimation`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -35,104 +35,91 @@ End Sub
 - Public methods not demonstrated in demo pages: `SetNativeAlpha, SetNativeRotation, SetNativeRotationY` (+ 44 more).
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AnimateAccordionIn(vView As B4XView, iDurationMs As Int)`
-- `AnimateAccordionOut(vView As B4XView, iDurationMs As Int)`
-- `AnimateAlpha(vView As B4XView, fFromAlpha As Float, fToAlpha As Float, iDurationMs As Int)`
-- `AnimateAttentionBounce(vView As B4XView, iDurationMs As Int)`
-- `AnimateCubeLeftIn(vView As B4XView, iDurationMs As Int)`
-- `AnimateCubeLeftOut(vView As B4XView, iDurationMs As Int)`
-- `AnimateExtended(vView As B4XView, fAlpha As Float, fTransX As Float, fTransY As Float, fScaleX As Float, fScaleY As Float, fRotX As Float, fRotY As Float, iDurationMs As Int)`
-- `AnimateExtended2( _
-    vView As B4XView, _
-    fAlpha As Float, _
-    fTransX As Float, _
-    fTransY As Float, _
-    fScaleX As Float, _
-    fScaleY As Float, _
-    fRotation As Float, _
-    fRotX As Float, _
-    fRotY As Float, _
-    iDurationMs As Int, _
-    sEasing As String, _
-    iDelayMs As Int)`
-- `AnimateFadeDirectional(vView As B4XView, sMode As String, sDirection As String, fOffsetPx As Float, iDurationMs As Int)`
-- `AnimateFlash(vView As B4XView, iDurationMs As Int)`
-- `AnimateFlight(vView As B4XView, sMode As String, iDurationMs As Int)`
-- `AnimateFlipDirectional(vView As B4XView, sMode As String, sAxis As String, iDurationMs As Int)`
-- `AnimateHinge(vView As B4XView, iDurationMs As Int)`
-- `AnimateLayerNative(vView As B4XView, fAlphaValue As Float, fDegrees As Float, fDegreesY As Float, iDurationMs As Int)`
-- `AnimatePulse(vView As B4XView, iDurationMs As Int)`
-- `AnimateRoll(vView As B4XView, sMode As String, iDurationMs As Int)`
-- `AnimateRotation(vView As B4XView, fFromDegrees As Float, fToDegrees As Float, iDurationMs As Int)`
-- `AnimateRotationX(vView As B4XView, fDegreesX As Float, iDurationMs As Int)`
-- `AnimateRotationY(vView As B4XView, fDegreesY As Float, iDurationMs As Int)`
-- `AnimateRubberBand(vView As B4XView, iDurationMs As Int)`
-- `AnimateScale(vView As B4XView, fScaleX As Float, fScaleY As Float, iDurationMs As Int)`
-- `AnimateScaleFrom(vView As B4XView, fFromScaleX As Float, fFromScaleY As Float, fToScaleX As Float, fToScaleY As Float, iDurationMs As Int)`
-- `AnimateShake(vView As B4XView, iDurationMs As Int)`
-- `AnimateSlideDirectional(vView As B4XView, sMode As String, sDirection As String, fOffsetPx As Float, iDurationMs As Int)`
-- `AnimateSlidePushLeftIn(vView As B4XView, iScreenWidth As Int, iDurationMs As Int)`
-- `AnimateSlidePushLeftOut(vView As B4XView, iScreenWidth As Int, iDurationMs As Int)`
-- `AnimateStackOut(vView As B4XView, iDurationMs As Int)`
-- `AnimateStandUp(vView As B4XView, iDurationMs As Int)`
-- `AnimateSwing(vView As B4XView, iDurationMs As Int)`
-- `AnimateTada(vView As B4XView, iDurationMs As Int)`
-- `AnimateTranslationX(vView As B4XView, fTranslationXPx As Float, iDurationMs As Int)`
-- `AnimateTranslationXY(vView As B4XView, fTransX As Float, fTransY As Float, iDurationMs As Int)`
-- `AnimateTranslationY(vView As B4XView, fTranslationYPx As Float, iDurationMs As Int)`
-- `AnimateWave(vView As B4XView, iDurationMs As Int)`
-- `AnimateWobble(vView As B4XView, iDurationMs As Int)`
-- `AnimateZoomDirectional(vView As B4XView, sMode As String, sDirection As String, fOffsetPx As Float, iDurationMs As Int)`
-- `AnimateZoomSlideIn(vView As B4XView, iScreenWidth As Int, iDurationMs As Int)`
-- `AnimateZoomSlideOut(vView As B4XView, iScreenWidth As Int, iDurationMs As Int)`
-- `EvaluateEasing(sEaseName As String, fTime As Float, fStartValue As Float, fChangeInValue As Float, iDuration As Int) As Float`
 - `Initialize`
-- `SetNativeAlpha(vView As B4XView, fAlphaValue As Float)`
-- `SetNativeCameraDistance(vView As B4XView, fDistancePx As Float)`
-- `SetNativePivot(vView As B4XView, fPivotX As Float, fPivotY As Float)`
-- `SetNativeRotation(vView As B4XView, fDegrees As Float)`
-- `SetNativeRotationY(vView As B4XView, fDegrees As Float)`
-- `SetNativeScale(vView As B4XView, fScaleX As Float, fScaleY As Float)`
-- `SetTranslationX(vView As B4XView, fTranslationXPx As Float)`
-- `SetTranslationY(vView As B4XView, fTranslationYPx As Float)`
-- `easeInBack (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInBounce (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInCirc (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInCubic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInElastic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInExpo (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutBack (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutBounce (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutCirc (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutCubic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutElastic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutExpo (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutQuad (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutQuart (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutQuint (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInOutSine (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInQuad (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInQuart (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInQuint (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeInSine (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutBack (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutBounce (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutCirc (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutCubic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutElastic (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutExpo (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutQuad (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutQuart (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutQuint (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `easeOutSine (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
-- `linearTween (fTime As Float, fStart As Float, fChangeInValue As Float, iDuration As Int) As Float`
+- `SetNativeAlpha(View As B4XView, AlphaValue As Float)`
+- `SetNativeRotation(View As B4XView, Degrees As Float)`
+- `SetNativeRotationY(View As B4XView, Degrees As Float)`
+- `AnimateLayerNative(View As B4XView, AlphaValue As Float, Degrees As Float, DegreesY As Float, DurationMs As Int)`
+- `SetNativeCameraDistance(View As B4XView, DistancePx As Float)`
+- `SetTranslationX(View As B4XView, TranslationXPx As Float)`
+- `SetTranslationY(View As B4XView, TranslationYPx As Float)`
+- `AnimateTranslationX(View As B4XView, TranslationXPx As Float, DurationMs As Int)`
+- `linearTween(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuad(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutCubic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuart(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutQuint(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutSine(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutExpo(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutCirc(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutBack(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutBounce(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeOutElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `easeInOutElastic(Time As Float, Start As Float, ChangeInValue As Float, Duration As Int) As Float`
+- `AnimateTranslationY(View As B4XView, TranslationYPx As Float, DurationMs As Int)`
+- `AnimateTranslationXY(View As B4XView, TransX As Float, TransY As Float, DurationMs As Int)`
+- `SetNativePivot(View As B4XView, PivotX As Float, PivotY As Float)`
+- `AnimateScaleFrom(View As B4XView, FromScaleX As Float, FromScaleY As Float, ToScaleX As Float, ToScaleY As Float, DurationMs As Int)`
+- `SetNativeScale(View As B4XView, ScaleX As Float, ScaleY As Float)`
+- `AnimateAlpha(View As B4XView, FromAlpha As Float, ToAlpha As Float, DurationMs As Int)`
+- `AnimateRotation(View As B4XView, FromDegrees As Float, ToDegrees As Float, DurationMs As Int)`
+- `AnimateScale(View As B4XView, ScaleX As Float, ScaleY As Float, DurationMs As Int)`
+- `AnimateRotationX(View As B4XView, DegreesX As Float, DurationMs As Int)`
+- `AnimateRotationY(View As B4XView, DegreesY As Float, DurationMs As Int)`
+- `AnimateExtended(View As B4XView, Alpha As Float, TransX As Float, TransY As Float, ScaleX As Float, ScaleY As Float, RotX As Float, RotY As Float, DurationMs As Int)`
+- `AnimateTada(View As B4XView, DurationMs As Int)`
+- `AnimateRubberBand(View As B4XView, DurationMs As Int)`
+- `AnimateShake(View As B4XView, DurationMs As Int)`
+- `AnimateWobble(View As B4XView, DurationMs As Int)`
+- `AnimatePulse(View As B4XView, DurationMs As Int)`
+- `AnimateSlidePushLeftOut(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateSlidePushLeftIn(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateZoomSlideOut(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateZoomSlideIn(View As B4XView, ScreenWidth As Int, DurationMs As Int)`
+- `AnimateStackOut(View As B4XView, DurationMs As Int)`
+- `AnimateCubeLeftOut(View As B4XView, DurationMs As Int)`
+- `AnimateCubeLeftIn(View As B4XView, DurationMs As Int)`
+- `AnimateAccordionOut(View As B4XView, DurationMs As Int)`
+- `AnimateAccordionIn(View As B4XView, DurationMs As Int)`
+- `AnimateFlash(View As B4XView, DurationMs As Int)`
+- `AnimateSwing(View As B4XView, DurationMs As Int)`
+- `AnimateAttentionBounce(View As B4XView, DurationMs As Int)`
+- `AnimateStandUp(View As B4XView, DurationMs As Int)`
+- `AnimateWave(View As B4XView, DurationMs As Int)`
+- `AnimateHinge(View As B4XView, DurationMs As Int)`
+- `AnimateFlight(View As B4XView, Mode As String, DurationMs As Int)`
+- `AnimateRoll(View As B4XView, Mode As String, DurationMs As Int)`
+- `AnimateFadeDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateZoomDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateSlideDirectional(View As B4XView, Mode As String, Direction As String, OffsetPx As Float, DurationMs As Int)`
+- `AnimateFlipDirectional(View As B4XView, Mode As String, Axis As String, DurationMs As Int)`
+- `EvaluateEasing(EaseName As String, Time As Float, StartValue As Float, ChangeInValue As Float, Duration As Int) As Float`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

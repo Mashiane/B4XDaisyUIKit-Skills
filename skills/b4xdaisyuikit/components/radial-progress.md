@@ -1,12 +1,12 @@
 # radial-progress (`B4XDaisyRadialProgress`)
 
-DaisyUI `RadialProgress` component for B4X (B4A/B4i/B4J).
+DaisyUI `RadialProgress` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyRadialProgress`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyRadialProgress.bas`
-- **Verified Demo Source**: B4XPageRadialProgress.bas (lines 15–215), B4XPageStat.bas (lines 315–315)
+- **Verified Demo Source**: B4XPageRadialProgress.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.radial-progress` → `B4XDaisyRadialProgress`
 
 ## DaisyUI Web Class Translation
@@ -70,98 +70,97 @@ currentY = currentY + 40dip
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Value` | Value | `Int` | `0` |  |
-| `MinValue` | Min Value | `Int` | `0` |  |
-| `MaxValue` | Max Value | `Int` | `100` |  |
-| `StepValue` | Step Value | `Int` | `1` |  |
-| `Size` | Size | `String` | `80px` |  |
-| `Thickness` | Thickness | `String` | `10%` |  |
-| `Variant` | Variant | `String` | `none` | none|primary|secondary|accent|info|success|warning|error |
-| `DisplayType` | Display Type | `String` | `text` | text|svg|none |
-| `Text` | Text | `String` | `0` |  |
-| `Prefix` | Prefix | `String` | `` |  |
-| `Suffix` | Suffix | `String` | `%` |  |
-| `TextCountUp` | Text CountUp | `Boolean` | `False` |  |
-| `Duration` | Duration | `Int` | `300` |  |
-| `SvgAsset` | Svg Asset | `String` | `` |  |
-| `TrackColor` | Track Color | `Color` | `0x00000000` |  |
-| `BackgroundColor` | Background Color Override | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color Override | `Color` | `0xFF000000` |  |
-| `BorderColor` | Border Color Override | `Color` | `0x00000000` |  |
-| `BorderWidth` | Border Width | `String` | `0` |  |
+| `Value` | Value | `Int` | 0 |  |
+| `MinValue` | Min Value | `Int` | 0 |  |
+| `MaxValue` | Max Value | `Int` | 100 |  |
+| `StepValue` | Step Value | `Int` | 1 |  |
+| `Size` | Size | `String` | 80px |  |
+| `Thickness` | Thickness | `String` | 10% |  |
+| `Variant` | Variant | `String` | none | none|primary|secondary|accent|info|success|warning|error |
+| `DisplayType` | Display Type | `String` | text | text|svg|none |
+| `Text` | Text | `String` | 0 |  |
+| `Prefix` | Prefix | `String` |  |  |
+| `Suffix` | Suffix | `String` | % |  |
+| `TextCountUp` | Text CountUp | `Boolean` | False |  |
+| `Duration` | Duration | `Int` | 300 |  |
+| `SvgAsset` | Svg Asset | `String` |  |  |
+| `TrackColor` | Track Color | `Color` | 0x00000000 |  |
+| `BackgroundColor` | Background Color Override | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color Override | `Color` | 0xFF000000 |  |
+| `BorderColor` | Border Color Override | `Color` | 0x00000000 |  |
+| `BorderWidth` | Border Width | `String` | 0 |  |
 
 ## 5. Declared Events
 - `None`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
 - `DrawComponent`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetValueAnimated(fNewValue As Float, iDuration As Int)`
-- `StartTimer(iDurationMs As Int)`
+- `SetValueAnimated(NewValue As Float, Duration As Int)`
 - `StopAnimation`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderWidth As String`
-- `getCountUpSpeed As Int`
-- `getDisplayType As String`
-- `getDuration As Int`
-- `getHeight As Float`
-- `getLeft As Int`
+- `StartTimer(DurationMs As Int)`
 - `getMaxValue As Int`
+- `setMaxValue(MaxVal As Int)`
 - `getMinValue As Int`
-- `getPrefix As String`
-- `getSize As Float`
-- `getStepValue As Int`
-- `getSuffix As String`
-- `getSvgAsset As String`
-- `getText As String`
-- `getTextColor As Int`
-- `getTextCountUp As Boolean`
-- `getThickness As String`
-- `getTop As Int`
-- `getTrackColor As Int`
+- `setMinValue(MinVal As Int)`
 - `getValue As Int`
+- `setValue(Value As Int)`
+- `setStepValue(StepVal As Int)`
+- `getStepValue As Int`
+- `setDisplayType(DType As String)`
+- `getDisplayType As String`
+- `setText(NewText As String)`
+- `getText As String`
+- `setVariant(NewVariant As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
+- `setSize(Value As Object)`
+- `getSize As Float`
 - `getWidth As Float`
-- `setBackgroundColor(iNewBackgroundColor As Int)`
-- `setBorderColor(iNewBorderColor As Int)`
-- `setBorderWidth(sNewBorderWidth As String)`
-- `setCountUpSpeed(iNewCountUpSpeed As Int)`
-- `setDisplayType(sDType As String)`
-- `setDuration(iNewCountUpSpeed As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setMaxValue(iMaxVal As Int)`
-- `setMinValue(iMinVal As Int)`
-- `setPrefix(sNewPrefix As String)`
-- `setSize(oValue As Object)`
-- `setStepValue(iStepVal As Int)`
-- `setSuffix(sNewSuffix As String)`
-- `setSvgAsset(sNewSvgAsset As String)`
-- `setText(sNewText As String)`
-- `setTextColor(iNewTextColor As Int)`
-- `setTextCountUp(bNewTextCountUp As Boolean)`
-- `setThickness(sNewThickness As String)`
-- `setTop(iValue As Int)`
-- `setTrackColor(iNewTrackColor As Int)`
-- `setValue(iValue As Int)`
-- `setVariant(sNewVariant As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `getHeight As Float`
+- `setThickness(NewThickness As String)`
+- `getThickness As String`
+- `setSvgAsset(NewSvgAsset As String)`
+- `getSvgAsset As String`
+- `setPrefix(NewPrefix As String)`
+- `getPrefix As String`
+- `setSuffix(NewSuffix As String)`
+- `getSuffix As String`
+- `setTextCountUp(NewTextCountUp As Boolean)`
+- `getTextCountUp As Boolean`
+- `setDuration(NewCountUpSpeed As Int)`
+- `getDuration As Int`
+- `setCountUpSpeed(NewCountUpSpeed As Int)`
+- `getCountUpSpeed As Int`
+- `setTrackColor(NewTrackColor As Int)`
+- `getTrackColor As Int`
+- `setBackgroundColor(NewBackgroundColor As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(NewTextColor As Int)`
+- `getTextColor As Int`
+- `setBorderColor(NewBorderColor As Int)`
+- `getBorderColor As Int`
+- `setBorderWidth(NewBorderWidth As String)`
+- `getBorderWidth As String`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `setHeight(Value As Int)`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

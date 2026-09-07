@@ -3,7 +3,7 @@ name: b4x-verify
 description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA.
 metadata:
   category: technique
-  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ios, desktop, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review
+  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review
 ---
 
 ## Truth and Accuracy — Apply in Every Response

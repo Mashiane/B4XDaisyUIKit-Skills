@@ -1,12 +1,12 @@
 # overlay (`B4XDaisyOverlay`)
 
-DaisyUI `Overlay` component for B4X (B4A/B4i/B4J).
+DaisyUI `Overlay` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyOverlay`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyOverlay.bas`
-- **Verified Demo Source**: B4XPageOverlay.bas (lines 9–300)
+- **Verified Demo Source**: B4XPageOverlay.bas
 - **Web DaisyUI Mapping**: `.overlay` → `B4XDaisyOverlay`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,12 +59,12 @@ lbl1bg.setAutoResize(False)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `OverlayColor` | Overlay Color | `Color` | `0xFF000000` |  |
-| `Opacity` | Opacity | `Float` | `0.4` |  |
-| `Rounded` | Rounded | `String` | `none` | none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `PassThrough` | Pass Through Touches | `Boolean` | `False` |  |
-| `Visible` | Visible | `Boolean` | `False` |  |
-| `CloseOnClick` | Close On Click | `Boolean` | `False` |  |
+| `OverlayColor` | Overlay Color | `Color` | 0xFF000000 |  |
+| `Opacity` | Opacity | `Float` | 0.4 |  |
+| `Rounded` | Rounded | `String` | none | none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `PassThrough` | Pass Through Touches | `Boolean` | False |  |
+| `Visible` | Visible | `Boolean` | False |  |
+| `CloseOnClick` | Close On Click | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -72,50 +72,49 @@ lbl1bg.setAutoResize(False)
 - `Closed (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddChild(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Close`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `GetComputedHeight As Int`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AttachTo(Target As B4XView) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Int, Height As Int)`
+- `AddChild(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `GetHostView As B4XView`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Open`
-- `Resize(iWidth As Int, iHeight As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
+- `getOverlayColor As Int`
+- `setOverlayColor(Value As Int)`
+- `getOpacity As Float`
+- `setOpacity(Value As Float)`
+- `getRounded As String`
+- `setRounded(Value As String)`
+- `getPassThrough As Boolean`
+- `setPassThrough(Value As Boolean)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getTag As Object`
+- `setTag(Value As Object)`
 - `getCloseOnClick As Boolean`
-- `getHeight As Int`
+- `setCloseOnClick(Value As Boolean)`
 - `getIsAttached As Boolean`
 - `getIsOpen As Boolean`
+- `Open`
+- `Close`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getOpacity As Float`
-- `getOverlayColor As Int`
-- `getPassThrough As Boolean`
-- `getRounded As String`
-- `getTag As Object`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setCloseOnClick(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setOpacity(fValue As Float)`
-- `setOverlayColor(iValue As Int)`
-- `setPassThrough(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

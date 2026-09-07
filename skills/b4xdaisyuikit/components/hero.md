@@ -1,12 +1,12 @@
 # hero (`B4XDaisyHero`)
 
-DaisyUI `Hero` component for B4X (B4A/B4i/B4J).
+DaisyUI `Hero` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyHero`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyHero.bas`
-- **Verified Demo Source**: B4XPageHero.bas (lines 52–93)
+- **Verified Demo Source**: B4XPageHero.bas
 - **Web DaisyUI Mapping**: `.hero` → `B4XDaisyHero`
 
 ## DaisyUI Web Class Translation
@@ -70,87 +70,86 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `BackgroundImage` | Background Image | `String` | `` |  |
-| `Variant` | Variant | `String` | `none` | none|primary|secondary|accent|neutral|info|success|warning|error |
-| `BackgroundColor` | Background Color | `Color` | `0xFFF3F4F6` |  |
-| `TextColor` | Text Color | `Color` | `0xFF000000` |  |
-| `Rounded` | Rounded | `String` | `rounded-none` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl |
-| `OverlayVisible` | Overlay Visible | `Boolean` | `False` |  |
-| `OverlayColor` | Overlay Color | `Color` | `0x80000000` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-[320px]` |  |
-| `Direction` | Direction | `String` | `vertical` | vertical|horizontal|reverse |
-| `ContentAlignment` | Content Alignment | `String` | `center` | center|left|right |
-| `Gap` | Gap | `String` | `4` |  |
-| `Padding` | Padding | `String` | `4` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `False` |  |
+| `BackgroundImage` | Background Image | `String` |  |  |
+| `Variant` | Variant | `String` | none | none|primary|secondary|accent|neutral|info|success|warning|error |
+| `BackgroundColor` | Background Color | `Color` | 0xFFF3F4F6 |  |
+| `TextColor` | Text Color | `Color` | 0xFF000000 |  |
+| `Rounded` | Rounded | `String` | rounded-none | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl |
+| `OverlayVisible` | Overlay Visible | `Boolean` | False |  |
+| `OverlayColor` | Overlay Color | `Color` | 0x80000000 |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-[320px] |  |
+| `Direction` | Direction | `String` | vertical | vertical|horizontal|reverse |
+| `ContentAlignment` | Content Alignment | `String` | center | center|left|right |
+| `Gap` | Gap | `String` | 4 |  |
+| `Padding` | Padding | `String` | 4 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AutoResize` | Auto Resize | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `GetContentPanel As B4XView`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getBackgroundColorVariant As String`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setBackgroundImage(Value As String)`
 - `getBackgroundImage As String`
-- `getContentAlignment As String`
-- `getDirection As String`
-- `getGap As String`
-- `getHeight As String`
-- `getLeft As Int`
-- `getOverlayColor As Int`
-- `getOverlayVisible As Boolean`
-- `getPadding As String`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTextColorVariant As String`
-- `getTop As Int`
+- `setVariant(Value As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBackgroundColorVariant(Value As String)`
+- `getBackgroundColorVariant As String`
+- `setTextColorVariant(Value As String)`
+- `getTextColorVariant As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setOverlayVisible(Value As Boolean)`
+- `getOverlayVisible As Boolean`
+- `setOverlayColor(Value As Int)`
+- `getOverlayColor As Int`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sValue As String)`
-- `setBackgroundImage(sValue As String)`
-- `setContentAlignment(sValue As String)`
-- `setDirection(sValue As String)`
-- `setGap(sValue As String)`
-- `setHeight(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setOverlayColor(iValue As Int)`
-- `setOverlayVisible(bValue As Boolean)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setContentAlignment(Value As String)`
+- `getContentAlignment As String`
+- `setGap(Value As String)`
+- `getGap As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `GetContentPanel As B4XView`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

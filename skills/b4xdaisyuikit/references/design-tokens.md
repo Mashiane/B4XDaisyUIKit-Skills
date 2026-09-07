@@ -272,3 +272,35 @@ When calling `.setWidth(SpecString)` or `.setHeight(SpecString)`:
 | `"none"` | No icon |
 | `"arrow"` | Chevron arrow |
 | `"plus"` | Plus/minus toggle |
+
+---
+
+## 13. Semantic Text Roles (convention)
+
+The kit exposes text colors via the §1 variant hex tables (`Content text hex` column). Use these role names when reasoning about typography hierarchy; resolve them with the existing variant tokens — they are naming conventions, not a new API:
+
+| Role | Resolve with | Use |
+|---|---|---|
+| `text.primary` | `base-content` (§1) | Body text, list titles, stat values |
+| `text.secondary` | `neutral` content hex (§1) | Descriptions, helper text, timestamps |
+| `text.disabled` | `base-300` (§1) | Disabled labels, unavailable actions |
+| `text.inverse` | Content hex of the background's variant (§1) | Text on `primary`/`error`/dark surfaces |
+| `text.brand` | `primary` content hex (§1) | Links, active tab labels |
+
+Never invent an unlisted hex for text; pick the closest role, and if none fits, the user decides.
+
+---
+
+## 14. Elevation Ladder (usage guidance)
+
+Maps UX elevation intent to the §5 shadow tokens. Use the left column in design reasoning (screen contracts, ux-review findings); apply the right column in code:
+
+| Elevation intent | Shadow token | Typical surfaces |
+|---|---|---|
+| Flat (same plane as page) | `"none"` | List rows, dividers, inline content |
+| Raised (resting card) | `"sm"` | Cards, stat tiles, timeline boxes |
+| Raised + interactive | `"md"` | Modals, dialogs, popovers |
+| Overlay (above content) | `"lg"` | Dropdowns, tooltips, menus |
+| Topmost (system-level) | `"xl"` / `"2xl"` | Overlays, sheet modals, toasts |
+
+Rule: elevation should increase with distance from the page plane. Two sibling surfaces on the same plane must not carry different shadow tokens.

@@ -19,8 +19,8 @@
       5. Frame jank (logcat Choreographer: Skipped N frames + dumpsys gfxinfo)
          - reinforces ux-review animation / scroll smoothness.
 
-    Exit 1 = crash / class-not-found / resource-not-found (do not ship).
-    Exit 0 = ran, jank/touch/content-desc findings are WARN in the report.
+    Exit 1 = crash / class-not-found / resource-not-found / touch target < 48dp (do not ship).
+    Exit 0 = ran; jank/content-desc findings are WARN in the report.
 
     Best-effort: no device or no dump = skip with a note, exit 0 (not a failure;
     post-build review falls back to "Verification Required: Yes" for those).
@@ -186,8 +186,8 @@ if (Test-Path $dumpLocal) {
         if ($smallTargets.Count -eq 0) {
             $verified += "Touch targets: all clickable views >= 48dp ($minTouchPx px @ $dpi dpi)"
         } else {
-            $warnings += "Touch targets: $($smallTargets.Count) clickable view(s) < 48dp:"
-            foreach ($t in $smallTargets) { $warnings += "  - $t" }
+            $errors += "Touch targets: $($smallTargets.Count) clickable view(s) < 48dp (mandatory, RULE-TOUCH-048):"
+            foreach ($t in $smallTargets) { $errors += "  - $t" }
         }
         if ($missingDesc.Count -eq 0) {
             $verified += "TalkBack: all clickable views have content-desc or text"

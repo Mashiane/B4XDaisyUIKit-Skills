@@ -218,3 +218,18 @@ Do not emit:
 - WebView-based implementations unless the user explicitly requests one
 
 B4XDaisyUIKit is a **native Android framework**. All output must be valid B4X/B4A code.
+
+---
+
+## 10. Screenshot Conversion — No Literal Mapping
+
+When converting a reference image (screenshot, mockup, wireframe), do NOT map visual appearance directly to components:
+
+```text
+WRONG:  "I see a rounded rectangle with a title"  →  use B4XDaisyCard
+CORRECT: "This region groups related form inputs with a legend"  →  B4XDaisyFieldset
+```
+
+A region is a **semantic area** first. Determine what it *means* (self-contained object? form grouping? data list? attention hook? status chip?) before choosing its native expression. Visual similarity is not semantic equivalence — a Card cannot be filtered, a Fieldset has no actions panel, a Badge is not a Filter.
+
+Apply the Stage 0 semantic classification gate in `conversion-workflows.md` §2 and, when the intent is ambiguous, resolve it via `intent-to-component.md` (intent → interaction pattern → component). Every final choice must still exist as **Demonstrated** in `component-manifest.md`.

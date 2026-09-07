@@ -1,12 +1,12 @@
 # card (`B4XDaisyCard`)
 
-DaisyUI `Card` component for B4X (B4A/B4i/B4J).
+DaisyUI `Card` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCard`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyCard.bas`
-- **Verified Demo Source**: B4XPageAura.bas (lines 185–218), B4XPageCard.bas (lines 68–321), B4XPageDrawer.bas (lines 95–123), B4XPageDrawerRail.bas (lines 149–387), B4XPageDrawerTree.bas (lines 96–155), B4XPageMediaPicker.bas (lines 20–20)
+- **Verified Demo Source**: B4XPageAura.bas, B4XPageCard.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
 ## DaisyUI Web Class Translation
@@ -80,102 +80,101 @@ AddSectionTitle("User baseline card")
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `auto` |  |
-| `Title` | Title | `String` | `Card Title` |  |
-| `ImagePath` | Image Path | `String` | `` |  |
-| `ImageWidth` | Image Width | `String` | `w-full` |  |
-| `ImageHeight` | Image Height | `String` | `h-full` |  |
-| `ImageClasses` | Image Classes | `String` | `` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Style` | Style | `String` | `none` | none|border|dash |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `LayoutMode` | Layout Mode | `String` | `top` | top|bottom|side|overlay|none |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `PlaceItemsCenter` | Place Items Center | `Boolean` | `False` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Shadow` | Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | auto |  |
+| `Title` | Title | `String` | Card Title |  |
+| `ImagePath` | Image Path | `String` |  |  |
+| `ImageWidth` | Image Width | `String` | w-full |  |
+| `ImageHeight` | Image Height | `String` | h-full |  |
+| `ImageClasses` | Image Classes | `String` |  |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Style` | Style | `String` | none | none|border|dash |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `LayoutMode` | Layout Mode | `String` | top | top|bottom|side|overlay|none |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `PlaceItemsCenter` | Place Items Center | `Boolean` | False |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | sm | none|xs|sm|md|lg|xl|2xl |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddAction(btn As B4XDaisyButton)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `ClearImage`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Refresh`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `GetComputedHeight As Int`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `HideActions`
-- `HideImage`
-- `HideTitle`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetImage(bmpImage As B4XBitmap)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowActions`
-- `ShowImage`
-- `ShowTitle`
-- `View As B4XView`
-- `getActionsContainer As B4XView`
-- `getActionsCount As Int`
-- `getBackgroundColor As Int`
-- `getBodyContainer As B4XView`
-- `getBodyPartContainer As B4XView`
-- `getCardActions As B4XView`
-- `getCardBody As B4XView`
-- `getCardTitle As B4XView`
-- `getContainer As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `setTop(Value As Int)`
 - `getFigureContainer As B4XView`
-- `getHeight As String`
-- `getImageClasses As String`
-- `getImageHeight As String`
-- `getImageWidth As String`
-- `getLeft As Int`
-- `getPlaceItemsCenter As Boolean`
-- `getSize As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTitle As String`
+- `getCardBody As B4XView`
+- `getBodyPartContainer As B4XView`
 - `getTitleContainer As B4XView`
+- `getCardTitle As B4XView`
+- `getCardActions As B4XView`
+- `getContainer As B4XView`
+- `getBodyContainer As B4XView`
 - `getTitleExtrasContainer As B4XView`
-- `getTop As Int`
+- `getActionsContainer As B4XView`
+- `AddAction(btn As B4XDaisyButton)`
+- `getActionsCount As Int`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setTitle(Value As String)`
+- `getTitle As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setImagePath(Value As String)`
+- `setImageWidth(Value As String)`
+- `getImageWidth As String`
+- `setImageHeight(Value As String)`
+- `getImageHeight As String`
+- `setImageClasses(Value As String)`
+- `getImageClasses As String`
+- `SetImage(bmpImage As B4XBitmap)`
+- `ClearImage`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setStyle(Value As String)`
+- `setPlaceItemsCenter(Value As Boolean)`
+- `getPlaceItemsCenter As Boolean`
+- `ShowTitle`
+- `HideTitle`
+- `ShowActions`
+- `HideActions`
+- `ShowImage`
+- `HideImage`
+- `setVariant(Value As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
+- `setLayoutMode(Value As String)`
+- `setRounded(Value As String)`
+- `setShadow(Value As String)`
+- `setVisible(Value As Boolean)`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColorVariant(VariantName As String)`
+- `getLeft As Int`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setHeight(sValue As String)`
-- `setImageClasses(sValue As String)`
-- `setImageHeight(sValue As String)`
-- `setImagePath(sValue As String)`
-- `setImageWidth(sValue As String)`
-- `setLayoutMode(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setPlaceItemsCenter(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTitle(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `BringToFront`
+- `SendToBack`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

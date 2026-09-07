@@ -1,12 +1,12 @@
 # svg-icon (`B4XDaisySvgIcon`)
 
-DaisyUI `SvgIcon` component for B4X (B4A/B4i/B4J).
+DaisyUI `SvgIcon` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySvgIcon`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisySvgIcon.bas`
-- **Verified Demo Source**: B4XPageDropdown.bas (lines 96–96), B4XPageIndicator.bas (lines 354–354), B4XPageNavbar.bas (lines 202–696), B4XPageSvgIcon.bas (lines 80–216)
+- **Verified Demo Source**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
 - **Web DaisyUI Mapping**: `.svg-icon` → `B4XDaisySvgIcon`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -53,78 +53,77 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `SvgAsset` | SVG Asset | `String` | `` |  |
-| `Width` | Width | `String` | `w-6` |  |
-| `Height` | Height | `String` | `h-6` |  |
-| `Color` | Color | `Color` | `0xFF3B82F6` |  |
-| `PreserveColors` | Preserve Original Colors | `Boolean` | `False` |  |
-| `Padding` | Padding | `Int` | `0` |  |
-| `BorderWidth` | Border Width | `Int` | `0` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `Rounded` | Rounded | `String` | `rounded-none` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
-| `SvgContent` | SVG Content | `String` | `` |  |
-| `SvgFile` | SVG File | `String` | `` |  |
+| `SvgAsset` | SVG Asset | `String` |  |  |
+| `Width` | Width | `String` | w-6 |  |
+| `Height` | Height | `String` | h-6 |  |
+| `Color` | Color | `Color` | 0xFF3B82F6 |  |
+| `PreserveColors` | Preserve Original Colors | `Boolean` | False |  |
+| `Padding` | Padding | `Int` | 0 |  |
+| `BorderWidth` | Border Width | `Int` | 0 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `Rounded` | Rounded | `String` | rounded-none | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Clickable` | Clickable | `Boolean` | True |  |
+| `SvgContent` | SVG Content | `String` |  |  |
+| `SvgFile` | SVG File | `String` |  |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize (dWidth As Double, dHeight As Double)`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `ResizeToParent(ParentView As B4XView)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
 - `GetContentView As B4XView`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `ResizeToParent(vParentView As B4XView)`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderWidth As Float`
-- `getClickable As Boolean`
-- `getColor As Int`
-- `getHeight As Float`
-- `getLastRenderer As String`
-- `getPadding As Float`
-- `getPreserveColors As Boolean`
-- `getPreserveOriginalColors As Boolean`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
+- `setSvgAsset(Path As String)`
+- `setSvgFile(Dir As String, FileName As String)`
 - `getSvgAsset As String`
+- `setSvgContent(Content As String)`
 - `getSvgContent As String`
-- `getTag As Object`
+- `setColor(Value As Int)`
+- `getColor As Int`
+- `setColorVariant(VariantName As String)`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setPreserveOriginalColors(Value As Boolean)`
+- `getPreserveOriginalColors As Boolean`
+- `setPreserveColors(Value As Boolean)`
+- `getPreserveColors As Boolean`
+- `getLastRenderer As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setBorderColor(iValue As Int)`
-- `setBorderColorVariant(sVariantName As String)`
-- `setBorderWidth(fValue As Float)`
-- `setClickable(bValue As Boolean)`
-- `setColor(iValue As Int)`
-- `setColorVariant(sVariantName As String)`
-- `setHeight(oValue As Object)`
-- `setPadding(fValue As Float)`
-- `setPreserveColors(bValue As Boolean)`
-- `setPreserveOriginalColors(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setSize(oValue As Object)`
-- `setSvgAsset(sPath As String)`
-- `setSvgContent(sContent As String)`
-- `setSvgFile(sDir As String, sFileName As String)`
-- `setTag(oValue As Object)`
-- `setVariant(sValue As String)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setPadding(Value As Float)`
+- `getPadding As Float`
+- `setBorderWidth(Value As Float)`
+- `getBorderWidth As Float`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderColorVariant(VariantName As String)`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setSize(Value As Object)`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `RemoveViewFromParent`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

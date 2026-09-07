@@ -1,12 +1,12 @@
 # hover3d (`B4XDaisyHover3d`)
 
-DaisyUI `Hover3d` component for B4X (B4A/B4i/B4J).
+DaisyUI `Hover3d` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyHover3d`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyHover3d.bas`
-- **Verified Demo Source**: B4XPageHover3d.bas (lines 61–232)
+- **Verified Demo Source**: B4XPageHover3d.bas
 - **Web DaisyUI Mapping**: `.hover3d` → `B4XDaisyHover3d`
 
 ## DaisyUI Web Class Translation
@@ -81,100 +81,99 @@ Dim heroW As Int = maxW
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `MaxTilt` | Max Tilt | `Float` | `10` |  |
-| `ScaleOnHover` | Scale On Hover | `Float` | `1.05` |  |
-| `ShineEffect` | Shine Effect | `Boolean` | `True` |  |
-| `Perspective` | Perspective | `Float` | `1200` |  |
-| `ResetDuration` | Reset Duration | `Int` | `500` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Rounded` | Rounded | `String` | `rounded-2xl` | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Padding` | Padding | `String` | `p-0` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-content` |  |
-| `ContentType` | Content Type | `String` | `custom` | custom|image |
-| `Image` | Image | `String` | `` |  |
-| `ContentBackgroundColor` | Content Background Color | `Color` | `0x00000000` |  |
-| `ContentRounded` | Content Rounded | `String` | `none` | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `ContentPadding` | Content Padding | `String` | `` |  |
-| `ContentShadow` | Content Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `MaxTilt` | Max Tilt | `Float` | 10 |  |
+| `ScaleOnHover` | Scale On Hover | `Float` | 1.05 |  |
+| `ShineEffect` | Shine Effect | `Boolean` | True |  |
+| `Perspective` | Perspective | `Float` | 1200 |  |
+| `ResetDuration` | Reset Duration | `Int` | 500 |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Rounded` | Rounded | `String` | rounded-2xl | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Padding` | Padding | `String` | p-0 |  |
+| `Margin` | Margin | `String` |  |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-content |  |
+| `ContentType` | Content Type | `String` | custom | custom|image |
+| `Image` | Image | `String` |  |  |
+| `ContentBackgroundColor` | Content Background Color | `Color` | 0x00000000 |  |
+| `ContentRounded` | Content Rounded | `String` | none | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `ContentPadding` | Content Padding | `String` |  |  |
+| `ContentShadow` | Content Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveAllViews`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `UpdateTheme`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getContentBackgroundColor As Int`
-- `getContentPadding As String`
-- `getContentPanel As B4XView`
-- `getContentRounded As String`
-- `getContentShadow As String`
-- `getContentType As String`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setEnabled(Value As Boolean)`
 - `getEnabled As Boolean`
-- `getHeight As String`
-- `getImage As String`
-- `getLeft As Int`
-- `getMargin As String`
-- `getMaxTilt As Float`
-- `getPadding As String`
-- `getPerspective As Float`
-- `getResetDuration As Int`
-- `getRounded As String`
-- `getScaleOnHover As Float`
-- `getShadow As String`
-- `getShineEffect As Boolean`
-- `getTag As Object`
-- `getTop As Int`
-- `getVariant As String`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setMaxTilt(Value As Float)`
+- `getMaxTilt As Float`
+- `setScaleOnHover(Value As Float)`
+- `getScaleOnHover As Float`
+- `setShineEffect(Value As Boolean)`
+- `getShineEffect As Boolean`
+- `setPerspective(Value As Float)`
+- `getPerspective As Float`
+- `setResetDuration(Value As Int)`
+- `getResetDuration As Int`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setContentBackgroundColor(iValue As Int)`
-- `setContentPadding(sValue As String)`
-- `setContentRounded(sValue As String)`
-- `setContentShadow(sValue As String)`
-- `setContentType(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setImage(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setMaxTilt(fValue As Float)`
-- `setPadding(sValue As String)`
-- `setPerspective(fValue As Float)`
-- `setResetDuration(iValue As Int)`
-- `setRounded(sValue As String)`
-- `setScaleOnHover(fValue As Float)`
-- `setShadow(sValue As String)`
-- `setShineEffect(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setContentType(Value As String)`
+- `getContentType As String`
+- `setImage(Value As String)`
+- `getImage As String`
+- `setContentBackgroundColor(Value As Int)`
+- `getContentBackgroundColor As Int`
+- `setContentRounded(Value As String)`
+- `getContentRounded As String`
+- `setContentPadding(Value As String)`
+- `getContentPadding As String`
+- `setContentShadow(Value As String)`
+- `getContentShadow As String`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `RemoveAllViews`
+- `getContentPanel As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

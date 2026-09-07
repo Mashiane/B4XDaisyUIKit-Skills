@@ -1,12 +1,12 @@
 # action-sheet (`B4XDaisyActionSheet`)
 
-DaisyUI `ActionSheet` component for B4X (B4A/B4i/B4J).
+DaisyUI `ActionSheet` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyActionSheet`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyActionSheet.bas`
-- **Verified Demo Source**: B4XPageActionSheet.bas (lines 28–34)
+- **Verified Demo Source**: B4XPageActionSheet.bas
 - **Web DaisyUI Mapping**: `.action-sheet` → `B4XDaisyActionSheet`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -48,21 +48,21 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Header` | Header | `String` | `` |  |
-| `SubHeader` | SubHeader | `String` | `` |  |
-| `Animated` | Animated | `Boolean` | `True` |  |
-| `BackdropDismiss` | Backdrop Dismiss | `Boolean` | `True` |  |
-| `KeyboardClose` | Keyboard Close | `Boolean` | `True` |  |
-| `Translucent` | Translucent | `Boolean` | `False` |  |
-| `Mode` | Mode | `String` | `md` | ios|md |
-| `ButtonSize` | Button Size | `String` | `md` | xs|sm|md|lg|xl |
-| `TextAlignment` | Text Alignment | `String` | `left` | left|center|right |
-| `BackgroundColor` | Background Color | `String` | `base-100` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
-| `BackdropOpacity` | Backdrop Opacity | `String` | `0.4` |  |
-| `ButtonsColor` | Buttons Color | `String` | `default` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `TextColor` | Text Color | `String` | `base-content` | base-content|base-100|primary|secondary|accent|neutral|info|success|warning|error |
-| `HeaderBold` | Header Bold | `Boolean` | `False` |  |
-| `ButtonGhosted` | Button Ghosted | `Boolean` | `True` |  |
+| `Header` | Header | `String` |  |  |
+| `SubHeader` | SubHeader | `String` |  |  |
+| `Animated` | Animated | `Boolean` | True |  |
+| `BackdropDismiss` | Backdrop Dismiss | `Boolean` | True |  |
+| `KeyboardClose` | Keyboard Close | `Boolean` | True |  |
+| `Translucent` | Translucent | `Boolean` | False |  |
+| `Mode` | Mode | `String` | md | ios|md |
+| `ButtonSize` | Button Size | `String` | md | xs|sm|md|lg|xl |
+| `TextAlignment` | Text Alignment | `String` | left | left|center|right |
+| `BackgroundColor` | Background Color | `String` | base-100 | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `BackdropOpacity` | Backdrop Opacity | `String` | 0.4 |  |
+| `ButtonsColor` | Buttons Color | `String` | default | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `TextColor` | Text Color | `String` | base-content | base-content|base-100|primary|secondary|accent|neutral|info|success|warning|error |
+| `HeaderBold` | Header Bold | `Boolean` | False |  |
+| `ButtonGhosted` | Button Ghosted | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `DidPresent`
@@ -72,59 +72,58 @@ End Sub
 - `ButtonClick (ButtonId As String, Data As Object)`
 
 ## 6. Public Methods & APIs
-- `AddButton(sId As String, sText As String, sRole As String, sIcon As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `Dismiss(oData As Object, sRole As String) As ResumableSub`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Present As ResumableSub`
-- `SetButtonColor(sButtonId As String, sColorVariant As String)`
-- `SetButtonColorByIndex(iIndex As Int, sColorVariant As String)`
-- `SetButtonData(sButtonId As String, oData As Object)`
-- `SetButtonDataByIndex(iIndex As Int, oData As Object)`
-- `SetButtonIcon(sButtonId As String, sIconName As String)`
-- `SetButtonIconByIndex(iIndex As Int, sIconName As String)`
-- `SetButtonIconColor(sButtonId As String, sColorVariant As String)`
-- `SetButtonIconColorByIndex(iIndex As Int, sColorVariant As String)`
-- `View As B4XView`
-- `getAnimated As Boolean`
-- `getBackdropDismiss As Boolean`
-- `getBackdropOpacity As String`
-- `getBackgroundColor As String`
-- `getButtonGhosted As Boolean`
-- `getButtonSize As String`
-- `getButtonsColor As String`
-- `getHeader As String`
-- `getHeaderBold As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `AddButton(Id As String, Text As String, Role As String, Icon As String)`
+- `SetButtonData(ButtonId As String, Data As Object)`
+- `SetButtonDataByIndex(Index As Int, Data As Object)`
+- `SetButtonIcon(ButtonId As String, IconName As String)`
+- `SetButtonIconByIndex(Index As Int, IconName As String)`
+- `SetButtonIconColor(ButtonId As String, ColorVariant As String)`
+- `SetButtonIconColorByIndex(Index As Int, ColorVariant As String)`
+- `SetButtonColor(ButtonId As String, ColorVariant As String)`
+- `SetButtonColorByIndex(Index As Int, ColorVariant As String)`
+- `setIsOpen(Value As Boolean)`
 - `getIsOpen As Boolean`
-- `getKeyboardClose As Boolean`
-- `getMode As String`
-- `getOutline As Boolean`
+- `Present As ResumableSub`
+- `Dismiss(Data As Object, Role As String) As ResumableSub`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setHeader(Value As String)`
+- `getHeader As String`
+- `setSubHeader(Value As String)`
 - `getSubHeader As String`
-- `getTextAlignment As String`
-- `getTextColor As String`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setBackdropDismiss(Value As Boolean)`
+- `getBackdropDismiss As Boolean`
+- `setKeyboardClose(Value As Boolean)`
+- `getKeyboardClose As Boolean`
+- `setTranslucent(Value As Boolean)`
 - `getTranslucent As Boolean`
-- `setAnimated(bValue As Boolean)`
-- `setBackdropDismiss(bValue As Boolean)`
-- `setBackdropOpacity(sValue As String)`
-- `setBackgroundColor(sValue As String)`
-- `setButtonGhosted(bValue As Boolean)`
-- `setButtonSize(sValue As String)`
-- `setButtonsColor(sValue As String)`
-- `setHeader(sValue As String)`
-- `setHeaderBold(bValue As Boolean)`
-- `setIsOpen(bValue As Boolean)`
-- `setKeyboardClose(bValue As Boolean)`
-- `setMode(sValue As String)`
-- `setOutline(bValue As Boolean)`
-- `setSubHeader(sValue As String)`
-- `setTextAlignment(sValue As String)`
-- `setTextColor(sValue As String)`
-- `setTranslucent(bValue As Boolean)`
+- `setMode(Value As String)`
+- `getMode As String`
+- `setOutline(Value As Boolean)`
+- `getOutline As Boolean`
+- `setButtonSize(Value As String)`
+- `getButtonSize As String`
+- `setTextAlignment(Value As String)`
+- `getTextAlignment As String`
+- `setBackgroundColor(Value As String)`
+- `getBackgroundColor As String`
+- `setBackdropOpacity(Value As String)`
+- `getBackdropOpacity As String`
+- `setButtonsColor(Value As String)`
+- `getButtonsColor As String`
+- `setTextColor(Value As String)`
+- `getTextColor As String`
+- `setHeaderBold(Value As Boolean)`
+- `getHeaderBold As Boolean`
+- `setButtonGhosted(Value As Boolean)`
+- `getButtonGhosted As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

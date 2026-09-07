@@ -1,12 +1,12 @@
 # collapse-title (`B4XDaisyCollapseTitle`)
 
-DaisyUI `CollapseTitle` component for B4X (B4A/B4i/B4J).
+DaisyUI `CollapseTitle` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCollapseTitle`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyCollapseTitle.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.collapse-title` → `B4XDaisyCollapseTitle`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -28,55 +28,54 @@ DaisyUI `CollapseTitle` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Text` | Text | `String` | `Collapse Title` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `IconName` | Icon Name | `String` | `` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `IconColor` | Icon Color | `Color` | `0x00000000` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Text` | Text | `String` | Collapse Title |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `IconName` | Icon Name | `String` |  |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `IconColor` | Icon Color | `Color` | 0x00000000 |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getBackgroundColor As Int`
-- `getHeight As Int`
-- `getIconColor As Int`
-- `getIconName As String`
-- `getLeft As Int`
-- `getSize As String`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setText(Value As String)`
 - `getText As String`
+- `setTextColor(Value As Int)`
 - `getTextColor As Int`
-- `getTop As Int`
-- `getVariant As String`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setIconName(Value As String)`
+- `getIconName As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setIconColor(Value As Int)`
+- `getIconColor As Int`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setBackgroundColor(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setIconColor(iValue As Int)`
-- `setIconName(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setSize(sValue As String)`
-- `setText(sValue As String)`
-- `setTextColor(iValue As Int)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

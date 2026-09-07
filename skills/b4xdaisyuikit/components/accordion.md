@@ -1,12 +1,12 @@
 # accordion (`B4XDaisyAccordion`)
 
-DaisyUI `Accordion` component for B4X (B4A/B4i/B4J).
+DaisyUI `Accordion` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAccordion`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyAccordion.bas`
-- **Verified Demo Source**: B4XPageAccordion.bas (lines 47–113)
+- **Verified Demo Source**: B4XPageAccordion.bas
 - **Web DaisyUI Mapping**: `.accordion` → `B4XDaisyAccordion`
 
 ## DaisyUI Web Class Translation
@@ -78,69 +78,68 @@ where content is:
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `OpenOnlyOne` | Open Only One | `Boolean` | `True` |  |
-| `IconPosition` | Icon Position | `String` | `right` | left|right |
-| `Icon` | Icon | `String` | `arrow` | none|arrow|plus |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `SpaceY` | Space Y | `Int` | `2` |  |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `GroupName` | Group Name | `String` | `` |  |
+| `OpenOnlyOne` | Open Only One | `Boolean` | True |  |
+| `IconPosition` | Icon Position | `String` | right | left|right |
+| `Icon` | Icon | `String` | arrow | none|arrow|plus |
+| `Visible` | Visible | `Boolean` | True |  |
+| `SpaceY` | Space Y | `Int` | 2, MinRange: 0, MaxRange: 32 |  |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `GroupName` | Group Name | `String` |  |  |
 
 ## 5. Declared Events
 - `Change (ActiveTag As Object, Status As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Item As B4XDaisyCollapse)`
-- `AddItemBasic(oItemTag As Object, sIcon As String, sTitle As String) As B4XDaisyCollapse`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `HandleChildRequestOpen(RequestedChild As B4XDaisyCollapse)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemActive(oItemTag As Object, bValue As Boolean)`
-- `SetItemTitle(oItemTag As Object, sTitle As String)`
-- `SetItemTitleIcon(oItemTag As Object, sIconName As String)`
-- `SetItemVariant(oItemTag As Object, sVariant As String)`
-- `SetItemVisible(oItemTag As Object, bValue As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
-- `View As B4XView`
-- `getGroupName As String`
-- `getHeight As Int`
-- `getIcon As String`
-- `getIconPosition As String`
-- `getLeft As Int`
+- `Refresh`
+- `AddItem(Item As B4XDaisyCollapse)`
+- `HandleChildRequestOpen(RequestedChild As B4XDaisyCollapse)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setOpenOnlyOne(Value As Boolean)`
 - `getOpenOnlyOne As Boolean`
-- `getRounded As String`
-- `getShadow As String`
+- `setIconPosition(Value As String)`
+- `getIconPosition As String`
+- `setIcon(Value As String)`
+- `getIcon As String`
+- `setSpaceY(Value As Int)`
 - `getSpaceY As Int`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setTag(Value As Object)`
 - `getTag As Object`
+- `setGroupName(Value As String)`
+- `getGroupName As String`
+- `AddItemBasic(ItemTag As Object, Icon As String, Title As String) As B4XDaisyCollapse`
+- `SetItemActive(ItemTag As Object, Value As Boolean)`
+- `SetItemTitle(ItemTag As Object, Title As String)`
+- `SetItemVariant(ItemTag As Object, Variant As String)`
+- `SetItemTitleIcon(ItemTag As Object, IconName As String)`
+- `SetItemVisible(ItemTag As Object, Value As Boolean)`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setGroupName(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setIcon(sValue As String)`
-- `setIconPosition(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setOpenOnlyOne(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setSpaceY(iValue As Int)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

@@ -1,12 +1,12 @@
 # shine-button (`B4XDaisyShineButton`)
 
-DaisyUI `ShineButton` component for B4X (B4A/B4i/B4J).
+DaisyUI `ShineButton` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyShineButton`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyShineButton.bas`
-- **Verified Demo Source**: B4XPageShineButton.bas (lines 17–28)
+- **Verified Demo Source**: B4XPageShineButton.bas
 - **Web DaisyUI Mapping**: `.shine-button` → `B4XDaisyShineButton`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,80 +59,79 @@ DaisyUI `ShineButton` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Shape` | Shape | `String` | `heart` | heart|like|smile|star|svg |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `CustomSize` | Custom Size | `Int` | `0` |  |
-| `Variant` | Variant | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `SvgAsset` | SVG Asset | `String` | `` |  |
-| `Checked` | Checked | `Boolean` | `False` |  |
-| `BtnColor` | Unchecked Color | `Color` | `0xFF9CA3AF` |  |
-| `BtnFillColor` | Fill Color | `Color` | `0x00FFFFFF` |  |
-| `BigShineColor` | Big Shine Color | `Color` | `0x00FFFFFF` |  |
-| `SmallShineColor` | Small Shine Color | `Color` | `0x00FFFFFF` |  |
-| `AllowRandomColor` | Random Particle Colors | `Boolean` | `True` |  |
-| `EnableFlashing` | Enable Flashing | `Boolean` | `False` |  |
-| `AnimDuration` | Animation Duration | `Int` | `1500` |  |
-| `ClickAnimDuration` | Click Duration | `Int` | `200` |  |
-| `ShineCount` | Particle Count | `Int` | `7` |  |
-| `ShineTurnAngle` | Turn Angle | `Float` | `20` |  |
-| `ShineDistanceMultiple` | Distance Multiple | `Float` | `1.5` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
+| `Shape` | Shape | `String` | heart | heart|like|smile|star|svg |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `CustomSize` | Custom Size | `Int` | 0 |  |
+| `Variant` | Variant | `String` | primary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `SvgAsset` | SVG Asset | `String` |  |  |
+| `Checked` | Checked | `Boolean` | False |  |
+| `BtnColor` | Unchecked Color | `Color` | 0xFF9CA3AF |  |
+| `BtnFillColor` | Fill Color | `Color` | 0x00FFFFFF |  |
+| `BigShineColor` | Big Shine Color | `Color` | 0x00FFFFFF |  |
+| `SmallShineColor` | Small Shine Color | `Color` | 0x00FFFFFF |  |
+| `AllowRandomColor` | Random Particle Colors | `Boolean` | True |  |
+| `EnableFlashing` | Enable Flashing | `Boolean` | False |  |
+| `AnimDuration` | Animation Duration | `Int` | 1500 |  |
+| `ClickAnimDuration` | Click Duration | `Int` | 200 |  |
+| `ShineCount` | Particle Count | `Int` | 7 |  |
+| `ShineTurnAngle` | Turn Angle | `Float` | 20 |  |
+| `ShineDistanceMultiple` | Distance Multiple | `Float` | 1.5 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Clickable` | Clickable | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `CheckChanged (Checked As Boolean)`
 - `Click`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(SizeDip As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `ApplyAllProperties`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `CreateView(iSizeDip As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetSvgAsset(FileName As String)`
+- `SetSvg(Dir As String, FileName As String)`
+- `SetSvgContent(SvgMarkup As String)`
 - `SetShapeBitmap(Bmp As Bitmap)`
-- `SetShapeResource(sResourceName As String)`
-- `SetSvg(sDir As String, sFileName As String)`
-- `SetSvgAsset(sFileName As String)`
-- `SetSvgContent(sSvgMarkup As String)`
-- `ShowAnim`
+- `SetShapeResource(ResourceName As String)`
 - `TriggerShine`
-- `View As B4XView`
-- `getAllowRandomColor As Boolean`
-- `getAnimDuration As Int`
-- `getBigShineColor As Int`
-- `getBtnColor As Int`
-- `getBtnFillColor As Int`
+- `ShowAnim`
+- `setChecked(Value As Boolean)`
 - `getChecked As Boolean`
-- `getClickAnimDuration As Int`
-- `getEnableFlashing As Boolean`
-- `getShape As String`
-- `getShineCount As Int`
-- `getShineDistanceMultiple As Float`
-- `getShineTurnAngle As Float`
+- `setSize(Value As String)`
 - `getSize As String`
-- `getSmallShineColor As Int`
-- `getSvgAsset As String`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setShape(Value As String)`
+- `getSvgAsset As String`
+- `getShape As String`
+- `setBtnColor(Color As Int)`
+- `getBtnColor As Int`
+- `setBtnFillColor(Color As Int)`
+- `getBtnFillColor As Int`
+- `setAllowRandomColor(Value As Boolean)`
+- `getAllowRandomColor As Boolean`
+- `setEnableFlashing(Value As Boolean)`
+- `getEnableFlashing As Boolean`
+- `setBigShineColor(Color As Int)`
+- `getBigShineColor As Int`
+- `setSmallShineColor(Color As Int)`
+- `getSmallShineColor As Int`
+- `setAnimDuration(Value As Int)`
+- `getAnimDuration As Int`
+- `setClickAnimDuration(Value As Int)`
+- `getClickAnimDuration As Int`
+- `setShineCount(Value As Int)`
+- `getShineCount As Int`
+- `setShineTurnAngle(Value As Float)`
+- `getShineTurnAngle As Float`
+- `setShineDistanceMultiple(Value As Float)`
+- `getShineDistanceMultiple As Float`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `setAllowRandomColor(bValue As Boolean)`
-- `setAnimDuration(iValue As Int)`
-- `setBigShineColor(iColor As Int)`
-- `setBtnColor(iColor As Int)`
-- `setBtnFillColor(iColor As Int)`
-- `setChecked(bValue As Boolean)`
-- `setClickAnimDuration(iValue As Int)`
-- `setEnableFlashing(bValue As Boolean)`
-- `setShape(sValue As String)`
-- `setShineCount(iValue As Int)`
-- `setShineDistanceMultiple(fValue As Float)`
-- `setShineTurnAngle(fValue As Float)`
-- `setSize(sValue As String)`
-- `setSmallShineColor(iColor As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

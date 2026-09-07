@@ -1,0 +1,24 @@
+{
+  "id": "button",
+  "class": "B4XDaisyButton",
+  "prompt": "Generate B4X code for a primary 'Save' B4XDaisyButton in a B4XPage. The button should be 120dp wide, 40dp tall, and use the Variant='primary' and Size='md' design tokens. Wire a Click event handler named 'btnSave_Click'.",
+  "rubric_hints": [
+    "Use the 3-step lifecycle: Dim, Initialize(Me, ...), AddToParent(...)",
+    "Set Variant = 'primary' (not the DaisyUI web 'btn-primary' class)",
+    "Use dip units, not px",
+    "Do not call .AddView() — that is not the B4XDaisyUIKit API"
+  ],
+  "expected_signatures": [
+    "Dim .* As B4XDaisyButton",
+    "Initialize\\(Me,",
+    "AddToParent\\(",
+    "Variant = .primary.",
+    "btnSave_Click"
+  ],
+  "must_not_contain": [
+    "AddView\\(",
+    "WebView",
+    "btn-primary",
+    "<button"
+  ]
+}

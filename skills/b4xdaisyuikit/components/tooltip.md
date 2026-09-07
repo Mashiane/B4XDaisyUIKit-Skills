@@ -1,12 +1,12 @@
 # tooltip (`B4XDaisyTooltip`)
 
-DaisyUI `Tooltip` component for B4X (B4A/B4i/B4J).
+DaisyUI `Tooltip` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyTooltip`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyTooltip.bas`
-- **Verified Demo Source**: B4XPageTooltip.bas (lines 15–30)
+- **Verified Demo Source**: B4XPageTooltip.bas
 - **Web DaisyUI Mapping**: `.tooltip` → `B4XDaisyTooltip`
 
 ## DaisyUI Web Class Translation
@@ -77,16 +77,16 @@ Dim btnInfo As B4XDaisyButton = CreateButton("Show Info Tooltip", "v_info")
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Message` | Message | `String` | `Tooltip message` |  |
-| `Position` | Position | `String` | `top` | top|bottom|left|right |
-| `Alignment` | Alignment | `String` | `center` | start|center|end |
-| `Variant` | Variant | `String` | `neutral` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `ShowArrow` | Show Arrow | `Boolean` | `True` |  |
-| `ClickToClose` | Click To Close | `Boolean` | `True` |  |
-| `TextWrapped` | Text Wrapped | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
-| `Duration` | Duration | `Int` | `300` |  |
+| `Message` | Message | `String` | Tooltip message |  |
+| `Position` | Position | `String` | top | top|bottom|left|right |
+| `Alignment` | Alignment | `String` | center | start|center|end |
+| `Variant` | Variant | `String` | neutral | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `ShowArrow` | Show Arrow | `Boolean` | True |  |
+| `ClickToClose` | Click To Close | `Boolean` | True |  |
+| `TextWrapped` | Text Wrapped | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
+| `Duration` | Duration | `Int` | 300 |  |
 
 ## 5. Declared Events
 - `Shown`
@@ -94,56 +94,55 @@ Dim btnInfo As B4XDaisyButton = CreateButton("Show Info Tooltip", "v_info")
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `Refresh`
+- `AttachTo(Target As B4XView)`
 - `DetachTarget`
+- `Show`
+- `ShowAnimated(Duration As Int)`
+- `Hide`
+- `HideAnimated(DurationMs As Int)`
+- `getVisible As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setVisible(Value As Boolean)`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setMessage(Value As String)`
+- `getMessage As String`
+- `setPosition(Value As String)`
+- `getPosition As String`
+- `setAlignment(Value As String)`
+- `getAlignment As String`
+- `SetCustomContent(CustomView As B4XView)`
+- `BringToFront`
+- `GetComputedHeight As Int`
+- `View As B4XView`
 - `GetActualHeight As Int`
 - `GetActualWidth As Int`
-- `GetComputedHeight As Int`
-- `Hide`
-- `HideAnimated(iDurationMs As Int)`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `Refresh`
 - `RemoveViewFromParent`
-- `SendToBack`
-- `SetCustomContent(vCustomView As B4XView)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Show`
-- `ShowAnimated(iDuration As Int)`
-- `View As B4XView`
-- `getAlignment As String`
-- `getAutoResize As Boolean`
-- `getClickToClose As Boolean`
-- `getDuration As Int`
-- `getHeight As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getMessage As String`
-- `getPosition As String`
-- `getShowArrow As Boolean`
-- `getTextWrapped As Boolean`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAlignment(sValue As String)`
-- `setAutoResize(bValue As Boolean)`
-- `setClickToClose(bValue As Boolean)`
-- `setDuration(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setMessage(sValue As String)`
-- `setPosition(sValue As String)`
-- `setShowArrow(bValue As Boolean)`
-- `setTextWrapped(bValue As Boolean)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
+- `getClickToClose As Boolean`
+- `setClickToClose(Value As Boolean)`
+- `getShowArrow As Boolean`
+- `setShowArrow(Value As Boolean)`
+- `getTextWrapped As Boolean`
+- `setTextWrapped(Value As Boolean)`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

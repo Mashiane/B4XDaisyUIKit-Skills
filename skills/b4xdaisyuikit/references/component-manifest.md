@@ -13,14 +13,15 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Snapshot
 
-- Generated: 2026-08-20 UTC
+- Generated: 2026-09-07 18:47 UTC
 - Source repository: `Mashiane/0SithasoDaisyUIKit`
-- Library artifact: `B4A/B4XDaisyUIKit.b4xlib`
+- Library artifact: `B4A/B4XDaisyUIKit.b4xlib` (v0.95)
 - B4XPage demos scanned: 94
 - B4XDaisy source modules found: 104
 - Demonstrated components: 86
-- Documented-only components: 14 (4 banned: FlexItem/FlexLayout/FlexPanel/Grid removed)
-- Skills in `components/`: 89 (91 − 2 removed: flex-layout, grid)
+- Documented-only components: 14
+- Banned components: 4 (FlexItem/FlexLayout/FlexPanel/Grid — negative knowledge)
+- Skills in `components/`: 108 (includes 4 banned-component guides kept as negative knowledge)
 
 ## How to use
 
@@ -53,7 +54,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyBoomPathManager | Documented-only | — |
 | B4XDaisyBoxModel | Documented-only | — |
 | B4XDaisyBreadcrumbs | Demonstrated | B4XPageBreadcrumbs.bas |
-| B4XDaisyButton | Demonstrated | B4XPageActionSheet.bas<br>B4XPageAura.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageColorWheel.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageEasing.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFocus.bas<br>B4XPageHero.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageModal.bas<br>B4XPageNavbar.bas<br>B4XPageNavScrollDock.bas<br>B4XPageOverlay.bas<br>B4XPagePicker.bas<br>B4XPageProgress.bas<br>B4XPageRadialProgress.bas<br>B4XPageRange.bas<br>B4XPageRating.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageStat.bas<br>B4XPageSweetAlert.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTagSphere.bas<br>B4XPageToast.bas<br>B4XPageTooltip.bas |
+| B4XDaisyButton | Demonstrated | B4XPageActionSheet.bas<br>B4XPageAura.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageColorWheel.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageEasing.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFocus.bas<br>B4XPageHero.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageModal.bas<br>B4XPageNavScrollDock.bas<br>B4XPageNavbar.bas<br>B4XPageOverlay.bas<br>B4XPagePicker.bas<br>B4XPageProgress.bas<br>B4XPageRadialProgress.bas<br>B4XPageRange.bas<br>B4XPageRating.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageStat.bas<br>B4XPageSweetAlert.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTagSphere.bas<br>B4XPageToast.bas<br>B4XPageTooltip.bas |
 | B4XDaisyButtonPlaceManager | Documented-only | — |
 | B4XDaisyCanvasSpinner | Demonstrated | B4XPageCanvasSpinner.bas |
 | B4XDaisyCard | Demonstrated | B4XPageAura.bas<br>B4XPageCard.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageMediaPicker.bas |
@@ -86,28 +87,28 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyFileHandler | Demonstrated | B4XPageMediaPicker.bas |
 | B4XDaisyFileInput | Demonstrated | B4XPageAvatar.bas<br>B4XPageFileInput.bas<br>B4XPageFocus.bas |
 | B4XDaisyFilter | Demonstrated | B4XPageFilter.bas |
-| B4XDaisyFlexItem | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
-| B4XDaisyFlexLayout | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
-| B4XDaisyFlexPanel | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
-| B4XDaisyGrid | **Banned** — removed skill, do not use (`SKILL.md:260`) | — |
+| B4XDaisyFlexItem | **Banned** — unreliable layout primitive — use B4XDaisyPageScroll | — |
+| B4XDaisyFlexLayout | **Banned** — unreliable layout primitive — use B4XDaisyPageScroll | — |
+| B4XDaisyFlexPanel | **Banned** — unreliable layout primitive — use B4XDaisyPageScroll | — |
+| B4XDaisyGrid | **Banned** — unreliable layout primitive — use B4XDaisyPageScroll | — |
 | B4XDaisyHero | Demonstrated | B4XPageHero.bas |
 | B4XDaisyHover3d | Demonstrated | B4XPageHover3d.bas |
 | B4XDaisyIconButton | Demonstrated | B4XPageIconButton.bas<br>B4XPageList.bas<br>B4XPageMediaPicker.bas |
 | B4XDaisyImage | Demonstrated | B4XPageMediaPicker.bas |
 | B4XDaisyIndicator | Demonstrated | B4XPageDropdown.bas<br>B4XPageIndicator.bas<br>B4XPageNavbar.bas<br>B4XPageSvgIcon.bas |
 | B4XDaisyInfoCard | Demonstrated | B4XPageInfoCard.bas |
-| B4XDaisyInput | Demonstrated | B4XPageColorWheel.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFieldset.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageNavScrollDock.bas<br>B4XPageNativeDialogs.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageTextarea.bas |
+| B4XDaisyInput | Demonstrated | B4XPageColorWheel.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFieldset.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageNativeDialogs.bas<br>B4XPageNavScrollDock.bas<br>B4XPageScrollDemo.bas<br>B4XPageSheetModal.bas<br>B4XPageTextarea.bas |
 | B4XDaisyKbd | Demonstrated | B4XPageKbd.bas |
 | B4XDaisyList | Demonstrated | B4XPageList.bas<br>B4XPageList1K.bas |
 | B4XDaisyLoading | Demonstrated | B4XPageLoading.bas |
 | B4XDaisyMenu | Demonstrated | B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageMenu.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas |
 | B4XDaisyModal | Demonstrated | B4XPageColorWheel.bas<br>B4XPageModal.bas<br>B4XPagePicker.bas |
-| B4XDaisyNavbar | Demonstrated | B4XPageColorWheel.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFabNavbar.bas<br>B4XPageNavbar.bas<br>B4XPageNavScrollDock.bas<br>B4XPagePDFView.bas<br>B4XPagePicker.bas<br>B4XPageSheetModal.bas |
+| B4XDaisyNavbar | Demonstrated | B4XPageColorWheel.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDualRange.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFabNavbar.bas<br>B4XPageNavScrollDock.bas<br>B4XPageNavbar.bas<br>B4XPagePDFView.bas<br>B4XPagePicker.bas<br>B4XPageSheetModal.bas |
 | B4XDaisyOTP | Demonstrated | B4XPageOTP.bas |
 | B4XDaisyOverlay | Demonstrated | B4XPageOverlay.bas |
-| B4XDaisyPDFView | Demonstrated | B4XPagePDFView.bas |
-| B4XDaisyPageScroll | Demonstrated | B4XPageActionSheet.bas<br>B4XPageAura.bas<br>B4XPageBoomMenu.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageColorWheel.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageEasing.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageMediaPicker.bas<br>B4XPageNavScrollDock.bas<br>B4XPageOTP.bas<br>B4XPagePicker.bas<br>B4XPageProgress.bas<br>B4XPageScrollDemo.bas<br>B4XPageSegment.bas<br>B4XPageSheetModal.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTagSphere.bas |
+| B4XDaisyPageScroll | Demonstrated | B4XPageActionSheet.bas<br>B4XPageAura.bas<br>B4XPageBoomMenu.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageColorWheel.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDualRange.bas<br>B4XPageEasing.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFocus.bas<br>B4XPageInput.bas<br>B4XPageMediaPicker.bas<br>B4XPageNativeDialogs.bas<br>B4XPageNavScrollDock.bas<br>B4XPageOTP.bas<br>B4XPagePicker.bas<br>B4XPageProgress.bas<br>B4XPageScrollDemo.bas<br>B4XPageSegment.bas<br>B4XPageSheetModal.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTagSphere.bas |
 | B4XDaisyPagination | Demonstrated | B4XPagePagination.bas |
+| B4XDaisyPDFView | Demonstrated | B4XPagePDFView.bas |
 | B4XDaisyPicker | Demonstrated | B4XPagePicker.bas |
 | B4XDaisyPiecePlaceManager | Documented-only | — |
 | B4XDaisyPocketBase | Documented-only | — |
@@ -134,21 +135,21 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisySweetAlertIcon | Documented-only | — |
 | B4XDaisyTab | Demonstrated | B4XPageTab.bas |
 | B4XDaisyTagSphere | Demonstrated | B4XPageTagSphere.bas |
-| B4XDaisyText | Demonstrated | B4XPageAccordion.bas<br>B4XPageAlert.bas<br>B4XPageBreadcrumbs.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageCarousel.bas<br>B4XPageCheckbox.bas<br>B4XPageCheckboxGroup.bas<br>B4XPageCollapse.bas<br>B4XPageCountdown.bas<br>B4XPageDiff.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageFieldset.bas<br>B4XPageFileInput.bas<br>B4XPageFilter.bas<br>B4XPageHero.bas<br>B4XPageHover3d.bas<br>B4XPageIconButton.bas<br>B4XPageInfoCard.bas<br>B4XPageInput.bas<br>B4XPageKbd.bas<br>B4XPageLink.bas<br>B4XPageList.bas<br>B4XPageMediaPicker.bas<br>B4XPageMenu.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageModal.bas<br>B4XPageNavbar.bas<br>B4XPageOverlay.bas<br>B4XPagePagination.bas<br>B4XPageProgress.bas<br>B4XPageRadialProgress.bas<br>B4XPageRadio.bas<br>B4XPageRadioGroup.bas<br>B4XPageRange.bas<br>B4XPageRating.bas<br>B4XPageSelect.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageSkeleton.bas<br>B4XPageStack.bas<br>B4XPageStat.bas<br>B4XPageSteps.bas<br>B4XPageSweetAlert.bas<br>B4XPageTab.bas<br>B4XPageTagSphere.bas<br>B4XPageText.bas<br>B4XPageTextarea.bas<br>B4XPageTextRotate.bas<br>B4XPageTimeline.bas<br>B4XPageToast.bas<br>B4XPageToggle.bas<br>B4XPageToggleGroup.bas<br>B4XPageTooltip.bas<br>B4XPageWindow.bas |
+| B4XDaisyText | Demonstrated | B4XPageAccordion.bas<br>B4XPageAlert.bas<br>B4XPageBreadcrumbs.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageCarousel.bas<br>B4XPageCheckbox.bas<br>B4XPageCheckboxGroup.bas<br>B4XPageCollapse.bas<br>B4XPageCountdown.bas<br>B4XPageDiff.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageDualRange.bas<br>B4XPageFieldset.bas<br>B4XPageFileInput.bas<br>B4XPageFilter.bas<br>B4XPageHero.bas<br>B4XPageHover3d.bas<br>B4XPageIconButton.bas<br>B4XPageInfoCard.bas<br>B4XPageInput.bas<br>B4XPageKbd.bas<br>B4XPageLink.bas<br>B4XPageList.bas<br>B4XPageMediaPicker.bas<br>B4XPageMenu.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageModal.bas<br>B4XPageNavbar.bas<br>B4XPageOverlay.bas<br>B4XPagePagination.bas<br>B4XPageProgress.bas<br>B4XPageRadialProgress.bas<br>B4XPageRadio.bas<br>B4XPageRadioGroup.bas<br>B4XPageRange.bas<br>B4XPageRating.bas<br>B4XPageSelect.bas<br>B4XPageShineButton.bas<br>B4XPageSignaturePad.bas<br>B4XPageSkeleton.bas<br>B4XPageStack.bas<br>B4XPageStat.bas<br>B4XPageSteps.bas<br>B4XPageSweetAlert.bas<br>B4XPageTab.bas<br>B4XPageTagSphere.bas<br>B4XPageText.bas<br>B4XPageTextRotate.bas<br>B4XPageTextarea.bas<br>B4XPageTimeline.bas<br>B4XPageToast.bas<br>B4XPageToggle.bas<br>B4XPageToggleGroup.bas<br>B4XPageTooltip.bas<br>B4XPageWindow.bas |
 | B4XDaisyTextRotate | Demonstrated | B4XPageTextRotate.bas |
 | B4XDaisyTimeline | Demonstrated | B4XPageTimeline.bas |
 | B4XDaisyToast | Demonstrated | B4XPageCard.bas<br>B4XPageTagSphere.bas<br>B4XPageToast.bas |
 | B4XDaisyToggle | Demonstrated | B4XPageDrawerRail.bas<br>B4XPageEnjoyHint.bas<br>B4XPageFocus.bas<br>B4XPageNavScrollDock.bas<br>B4XPageSignaturePad.bas<br>B4XPageTagSphere.bas<br>B4XPageToggle.bas |
 | B4XDaisyToggleGroup | Demonstrated | B4XPageToggleGroup.bas |
 | B4XDaisyTooltip | Demonstrated | B4XPageTooltip.bas |
-| B4XDaisyVariants | Demonstrated | B4XPageAura.bas<br>B4XPageAvatar.bas<br>B4XPageBadge.bas<br>B4XPageBreadcrumbs.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageChat.bas<br>B4XPageColorWheel.bas<br>B4XPageDivider.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageEasing.bas<br>B4XPageFieldset.bas<br>B4XPageHover3d.bas<br>B4XPageIndicator.bas<br>B4XPageMenu.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageNavbar.bas<br>B4XPagePagination.bas<br>B4XPagePDFView.bas<br>B4XPageSelect.bas<br>B4XPageSignaturePad.bas<br>B4XPageStack.bas<br>B4XPageSteps.bas<br>B4XPageSvgIcon.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTab.bas<br>B4XPageTagSphere.bas<br>B4XPageWindow.bas |
+| B4XDaisyVariants | Demonstrated | B4XPageAura.bas<br>B4XPageAvatar.bas<br>B4XPageBadge.bas<br>B4XPageBreadcrumbs.bas<br>B4XPageButton.bas<br>B4XPageCanvasSpinner.bas<br>B4XPageCard.bas<br>B4XPageChat.bas<br>B4XPageColorWheel.bas<br>B4XPageDivider.bas<br>B4XPageDock.bas<br>B4XPageDrawer.bas<br>B4XPageDrawerRail.bas<br>B4XPageDrawerTree.bas<br>B4XPageDropdown.bas<br>B4XPageEasing.bas<br>B4XPageFieldset.bas<br>B4XPageHover3d.bas<br>B4XPageIndicator.bas<br>B4XPageMenu.bas<br>B4XPageMenuRuntime.bas<br>B4XPageMenuRuntime2.bas<br>B4XPageNavbar.bas<br>B4XPagePDFView.bas<br>B4XPagePagination.bas<br>B4XPageSelect.bas<br>B4XPageSignaturePad.bas<br>B4XPageStack.bas<br>B4XPageSteps.bas<br>B4XPageSvgIcon.bas<br>B4XPageSweetAlertInputs.bas<br>B4XPageTab.bas<br>B4XPageTagSphere.bas<br>B4XPageWindow.bas |
 | B4XDaisyWindow | Demonstrated | B4XPageWindow.bas |
 
 ---
 
 ## Component Skills Directory
 
-All 89 component skill files are located in [`skills/b4xdaisyuikit/components/`](../components/) (2 removed as banned: flex-layout, grid):
+All 108 component skill files are located in [`skills/b4xdaisyuikit/components/`](../components/):
 
 - [accordion](../components/accordion.md)
 - [action-sheet](../components/action-sheet.md)

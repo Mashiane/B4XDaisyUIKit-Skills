@@ -1,12 +1,12 @@
 # indicator (`B4XDaisyIndicator`)
 
-DaisyUI `Indicator` component for B4X (B4A/B4i/B4J).
+DaisyUI `Indicator` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyIndicator`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyIndicator.bas`
-- **Verified Demo Source**: B4XPageDropdown.bas (lines 104–104), B4XPageIndicator.bas (lines 99–456), B4XPageNavbar.bas (lines 15–244), B4XPageSvgIcon.bas (lines 179–225)
+- **Verified Demo Source**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
 - **Web DaisyUI Mapping**: `.indicator` → `B4XDaisyIndicator`
 
 ## DaisyUI Web Class Translation
@@ -75,92 +75,91 @@ Private Sub RenderCountIndicatorSection(MaxW As Int, StartY As Int) As Int
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `HorizontalPlacement` | Horizontal Placement | `String` | `end` | start|center|end |
-| `VerticalPlacement` | Vertical Placement | `String` | `top` | top|middle|bottom |
-| `OffsetX` | Offset X | `String` | `0` |  |
-| `OffsetY` | Offset Y | `String` | `0` |  |
-| `Text` | Text | `String` | `` |  |
-| `Counter` | Counter | `Boolean` | `False` |  |
-| `CapValue` | Cap Value | `Int` | `99` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Size` | Size | `String` | `sm` | xs|sm|md|lg|xl |
-| `IconAsset` | Icon Asset | `String` | `` |  |
-| `Rounded` | Rounded | `String` | `rounded` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Clickable` | Clickable | `Boolean` | `False` |  |
+| `HorizontalPlacement` | Horizontal Placement | `String` | end | start|center|end |
+| `VerticalPlacement` | Vertical Placement | `String` | top | top|middle|bottom |
+| `OffsetX` | Offset X | `String` | 0 |  |
+| `OffsetY` | Offset Y | `String` | 0 |  |
+| `Text` | Text | `String` |  |  |
+| `Counter` | Counter | `Boolean` | False |  |
+| `CapValue` | Cap Value | `Int` | 99 |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Size` | Size | `String` | sm | xs|sm|md|lg|xl |
+| `IconAsset` | Icon Asset | `String` |  |  |
+| `Rounded` | Rounded | `String` | rounded | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Clickable` | Clickable | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `Decrement As Int`
-- `DecrementBy(iAmount As Int) As Int`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `DetachTarget`
-- `GetComputedHeight As Int`
-- `Increment As Int`
-- `IncrementBy(iAmount As Int) As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RefreshPlacement`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getBackgroundColor As Int`
-- `getCapValue As Int`
-- `getClickable As Boolean`
-- `getCounter As Boolean`
-- `getHeight As Int`
+- `IsReady As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AttachTo(Target As B4XView)`
+- `DetachTarget`
+- `RefreshPlacement`
+- `setHorizontalPlacement(Value As String)`
 - `getHorizontalPlacement As String`
-- `getIconAsset As String`
-- `getLeft As Int`
-- `getOffsetX As Float`
-- `getOffsetY As Float`
-- `getRounded As String`
-- `getSize As String`
-- `getTag As Object`
-- `getText As String`
-- `getTextColor As Int`
-- `getTop As Int`
-- `getValue As Int`
-- `getVariant As String`
+- `setVerticalPlacement(Value As String)`
 - `getVerticalPlacement As String`
+- `setOffsetX(Value As Object)`
+- `getOffsetX As Float`
+- `setOffsetY(Value As Object)`
+- `getOffsetY As Float`
+- `setText(Value As String)`
+- `getText As String`
+- `setCounter(Value As Boolean)`
+- `getCounter As Boolean`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setIconAsset(Value As String)`
+- `getIconAsset As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setCapValue(Value As Int)`
+- `getCapValue As Int`
+- `setValue(Value As Int)`
+- `getValue As Int`
+- `GetComputedHeight As Int`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `RemoveViewFromParent`
+- `Increment As Int`
+- `IncrementBy(Amount As Int) As Int`
+- `Decrement As Int`
+- `DecrementBy(Amount As Int) As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setCapValue(iValue As Int)`
-- `setClickable(bValue As Boolean)`
-- `setCounter(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setHorizontalPlacement(sValue As String)`
-- `setIconAsset(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setOffsetX(oValue As Object)`
-- `setOffsetY(oValue As Object)`
-- `setRounded(sValue As String)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTop(iValue As Int)`
-- `setValue(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVerticalPlacement(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

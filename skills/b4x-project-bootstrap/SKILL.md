@@ -1,9 +1,9 @@
 ---
 name: b4x-project-bootstrap
-description: Use when scaffolding a brand-new native Android, iOS, or desktop app built on the B4XDaisyUIKit component library, when creating a new B4X project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition.
+description: Use when scaffolding a brand-new native Android app built on the B4XDaisyUIKit component library, when creating a new B4A project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition.
 metadata:
   category: technique
-  triggers: new app, new project, scaffold app, bootstrap b4x, b4xmainpage, project file, install.ps1, b4a template, greenfield app, user interface, development, user experience, tailwindcss, native, android, ios, desktop
+  triggers: new app, new project, scaffold app, bootstrap b4x, b4xmainpage, project file, install.ps1, b4a template, greenfield app, user interface, development, user experience, tailwindcss, native, android
 ---
 
 ## Truth and Accuracy — Apply in Every Response

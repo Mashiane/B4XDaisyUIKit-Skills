@@ -1,12 +1,12 @@
 # swap (`B4XDaisySwap`)
 
-DaisyUI `Swap` component for B4X (B4A/B4i/B4J).
+DaisyUI `Swap` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySwap`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisySwap.bas`
-- **Verified Demo Source**: B4XPageSwap.bas (lines 116–245)
+- **Verified Demo Source**: B4XPageSwap.bas
 - **Web DaisyUI Mapping**: `.swap` → `B4XDaisySwap`
 
 ## DaisyUI Web Class Translation
@@ -85,89 +85,88 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `SwapType` | Swap Type | `String` | `text` | text|svg|avatar |
-| `SwapStyle` | Swap Style | `String` | `none` | none|rotate|flip |
-| `State` | State | `String` | `off` | off|on|indeterminate |
-| `OnText` | On Text | `String` | `ON` |  |
-| `OffText` | Off Text | `String` | `OFF` |  |
-| `IndeterminateText` | Indeterminate Text | `String` | `` |  |
-| `OnColor` | On Color | `Color` | `0x00000000` |  |
-| `OffColor` | Off Color | `Color` | `0x00000000` |  |
-| `IndeterminateColor` | Indeterminate Color | `Color` | `0x00000000` |  |
-| `TextSize` | Text Size | `String` | `text-sm` |  |
-| `Width` | Width | `String` | `w-12` |  |
-| `Height` | Height | `String` | `h-12` |  |
-| `Duration` | Duration | `Int` | `300` |  |
+| `SwapType` | Swap Type | `String` | text | text|svg|avatar |
+| `SwapStyle` | Swap Style | `String` | none | none|rotate|flip |
+| `State` | State | `String` | off | off|on|indeterminate |
+| `OnText` | On Text | `String` | ON |  |
+| `OffText` | Off Text | `String` | OFF |  |
+| `IndeterminateText` | Indeterminate Text | `String` |  |  |
+| `OnColor` | On Color | `Color` | 0x00000000 |  |
+| `OffColor` | Off Color | `Color` | 0x00000000 |  |
+| `IndeterminateColor` | Indeterminate Color | `Color` | 0x00000000 |  |
+| `TextSize` | Text Size | `String` | text-sm |  |
+| `Width` | Width | `String` | w-12 |  |
+| `Height` | Height | `String` | h-12 |  |
+| `Duration` | Duration | `Int` | 300 |  |
 
 ## 5. Declared Events
 - `Click (State As String, Checked As Boolean)`
 - `Changed (State As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetIndeterminateView(vView As B4XView)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetOffView(vView As B4XView)`
-- `SetOnView(vView As B4XView)`
-- `Toggle`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getChecked As Boolean`
-- `getDuration As Int`
-- `getHeight As Float`
-- `getIndeterminateColor As Int`
-- `getIndeterminatePanel As B4XView`
-- `getIndeterminateText As String`
-- `getLeft As Int`
-- `getOffColor As Int`
-- `getOffPanel As B4XView`
-- `getOffText As String`
-- `getOnColor As Int`
+- `IsReady As Boolean`
+- `Toggle`
+- `SetOnView(View As B4XView)`
+- `SetOffView(View As B4XView)`
+- `SetIndeterminateView(View As B4XView)`
 - `getOnPanel As B4XView`
+- `getOffPanel As B4XView`
+- `getIndeterminatePanel As B4XView`
+- `setOnText(Value As String)`
 - `getOnText As String`
+- `setOffText(Value As String)`
+- `getOffText As String`
+- `setIndeterminateText(Value As String)`
+- `getIndeterminateText As String`
+- `setState(Value As String)`
 - `getState As String`
+- `setChecked(Value As Boolean)`
+- `getChecked As Boolean`
+- `setSwapStyle(Value As String)`
 - `getSwapStyle As String`
+- `setSwapType(Value As String)`
 - `getSwapType As String`
-- `getTag As Object`
-- `getTextLineHeightDip As Float`
+- `setTextSize(Value As String)`
 - `getTextSize As String`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `getTextLineHeightDip As Float`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setWidth(Value As Object)`
 - `getWidth As Float`
-- `setChecked(bValue As Boolean)`
-- `setDuration(iValue As Int)`
-- `setHeight(oValue As Object)`
-- `setIndeterminateColor(oValue As Object)`
-- `setIndeterminateColorVariant(sVariantName As String)`
-- `setIndeterminateText(sValue As String)`
-- `setIndeterminateTextColorVariant(sVariantName As String)`
-- `setLeft(iValue As Int)`
-- `setOffColor(oValue As Object)`
-- `setOffColorVariant(sVariantName As String)`
-- `setOffText(sValue As String)`
-- `setOffTextColorVariant(sVariantName As String)`
-- `setOnColor(oValue As Object)`
-- `setOnColorVariant(sVariantName As String)`
-- `setOnText(sValue As String)`
-- `setOnTextColorVariant(sVariantName As String)`
-- `setState(sValue As String)`
-- `setSwapStyle(sValue As String)`
-- `setSwapType(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextSize(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setOnColor(Value As Object)`
+- `getOnColor As Int`
+- `setOnColorVariant(VariantName As String)`
+- `setOnTextColorVariant(VariantName As String)`
+- `setOffColor(Value As Object)`
+- `getOffColor As Int`
+- `setOffColorVariant(VariantName As String)`
+- `setOffTextColorVariant(VariantName As String)`
+- `setIndeterminateColor(Value As Object)`
+- `getIndeterminateColor As Int`
+- `setIndeterminateColorVariant(VariantName As String)`
+- `setIndeterminateTextColorVariant(VariantName As String)`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

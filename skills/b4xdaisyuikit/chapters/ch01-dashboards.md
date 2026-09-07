@@ -168,3 +168,20 @@ End Sub
     *   `FigureColor` As String (DaisyUI Variant e.g., "primary", "success") [617]
     *   `Animated` As Boolean (Enables value count-up transitions) [611, 617]
     *   `Duration` As Int (Count-up speed in seconds) [611, 617]
+
+---
+
+## 📈 DATA VISUALIZATION RECIPES (No Native Chart Component)
+
+**Important:** B4XDaisyUIKit ships **no chart component** (no donut, pie, bar, line, or wave chart — confirmed against `component-manifest.md`). Never invent a `B4XDaisyChart` class. When a prompt or design calls for charts, express the data with these verified patterns, or state the gap to the user:
+
+| Chart need | Verified recipe | Evidence |
+|---|---|---|
+| Single KPI vs goal (ring gauge) | `B4XDaisyRadialProgress` (`Value` 0–100, `Size`, `StrokeWidth`) — optionally inside a `B4XDaisyStatItem` with `FigureType = "radial"` and `FigureSource` = percentage | `B4XPageRadialProgress.bas`, `B4XPageStat.bas` |
+| Comparison across categories (bar chart) | One `B4XDaisyProgress` row per category (`Value`, `MaxValue`, `Color` variant) stacked in `pageScroll` with `YGap = 8dip`, label via `B4XDaisyText` | `B4XPageProgress.bas` |
+| Trend over time (line/wave chart) | No verified recipe. Options: state the gap and propose a custom Canvas panel (user approval required), or a `B4XDaisyTimeline` of dated entries as a qualitative fallback | `B4XPageTimeline.bas` |
+| Composition / share of total (donut/pie) | No verified recipe. Closest: `B4XDaisyRadialProgress` for the dominant share + `B4XDaisyList` breakdown rows with `Badge` percentages, or `Progress` rows per segment | `B4XPageRadialProgress.bas`, `B4XPageList.bas` |
+| Numeric comparison at a glance | `B4XDaisyStat` + `B4XDaisyStatItem` tiles (`Value`, `Description`, `Animated` count-up) | `B4XPageStat.bas` |
+| Multi-metric dashboard | `B4XDaisyDashboard` (`AddKpi`) or composed `Stat` + `Progress` blocks | `B4XPageDashboard.bas` |
+
+Recipe rule: these patterns visualize *summary* data. If the user needs axis-labeled, interactive, or precise analytical charts, say plainly that the kit does not include one and propose (a) the recipe above, (b) a custom-drawn Canvas view outside the kit, or (c) an external chart library — the user decides. Do not silently ship an approximation as if it were a chart.

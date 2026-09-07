@@ -1,6 +1,6 @@
 # B4X Language Primer for AI Agents
 
-B4X is a BASIC-inspired language for native Android (B4A), iOS (B4i), and desktop (B4J) development. This primer covers every language construct you will encounter when writing B4XDaisyUIKit UI code. Read this before writing any B4X code.
+B4X is a BASIC-inspired language for native Android (B4A), iOS (B4i), and desktop (B4J) development; B4XDaisyUIKit itself targets B4A Android only. This primer covers every language construct you will encounter when writing B4XDaisyUIKit UI code. Read this before writing any B4X code.
 
 > [!TIP]
 > **Companion Skill**: For deep general-purpose B4X syntax, resumable subs, SQLite database operations, and Android manifest editing, install the complementary B4X skill:

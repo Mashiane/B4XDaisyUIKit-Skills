@@ -1,12 +1,12 @@
 # filter (`B4XDaisyFilter`)
 
-DaisyUI `Filter` component for B4X (B4A/B4i/B4J).
+DaisyUI `Filter` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFilter`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyFilter.bas`
-- **Verified Demo Source**: B4XPageFilter.bas (lines 63–134)
+- **Verified Demo Source**: B4XPageFilter.bas
 - **Web DaisyUI Mapping**: `.filter` → `B4XDaisyFilter`
 
 ## DaisyUI Web Class Translation
@@ -84,25 +84,25 @@ Without HTML form
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Options` | Options | `String` | `svelte:Svelte` |  |
-| `ActiveKey` | Active Key | `String` | `` |  |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `FilterStyle` | Filter Style | `String` | `solid` | solid|soft|outline|dash|ghost |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `ResetPosition` | Reset Position | `String` | `left` | left|right |
-| `ResetText` | Reset Text | `String` | `x` |  |
-| `CloseType` | Close Type | `String` | `icon` | icon|text |
-| `CloseIcon` | Close Icon | `String` | `close.svg` |  |
-| `MultiSelect` | MultiSelect (Checkboxes) | `Boolean` | `False` |  |
-| `Orientation` | Orientation | `String` | `horizontal` | horizontal|vertical |
-| `Duration` | Duration | `Int` | `300` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-auto` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Options` | Options | `String` | svelte:Svelte, vue:Vue, react:React |  |
+| `ActiveKey` | Active Key | `String` |  |  |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `FilterStyle` | Filter Style | `String` | solid | solid|soft|outline|dash|ghost |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `ResetPosition` | Reset Position | `String` | left | left|right |
+| `ResetText` | Reset Text | `String` | x |  |
+| `CloseType` | Close Type | `String` | icon | icon|text |
+| `CloseIcon` | Close Icon | `String` | close.svg |  |
+| `MultiSelect` | MultiSelect (Checkboxes) | `Boolean` | False |  |
+| `Orientation` | Orientation | `String` | horizontal | horizontal|vertical |
+| `Duration` | Duration | `Int` | 300 |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-auto |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
 
 ## 5. Declared Events
 - `ResetClick`
@@ -110,78 +110,77 @@ Without HTML form
 - `ItemChanged (Id As String, Text As String, Checked As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `UpdateTheme`
-- `View As B4XView`
-- `getActiveKey As String`
-- `getChecked As String`
-- `getCheckedKeys As List`
-- `getCloseIcon As String`
-- `getCloseType As String`
-- `getDuration As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `setEnabled(Value As Boolean)`
 - `getEnabled As Boolean`
-- `getFilterStyle As String`
-- `getHeight As String`
-- `getItems As Map`
-- `getLeft As Int`
-- `getMargin As String`
-- `getMultiSelect As Boolean`
-- `getOptions As String`
-- `getOptionsList As List`
-- `getOptionsMap As Map`
-- `getOrientation As String`
-- `getPadding As String`
-- `getResetPosition As String`
-- `getResetText As String`
-- `getRounded As String`
-- `getSelectedIds As List`
-- `getSize As String`
-- `getTag As Object`
-- `getTop As Int`
-- `getVariant As String`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `getWidth As String`
-- `isItemChecked(sKey As String) As Boolean`
-- `setActiveKey(sValue As String)`
-- `setChecked(sCheckedKeys As String)`
-- `setCloseIcon(sValue As String)`
-- `setCloseType(sValue As String)`
-- `setDuration(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setFilterStyle(sValue As String)`
-- `setHeight(sValue As String)`
-- `setItemChecked(sKey As String, bChecked As Boolean)`
-- `setItems(mValue As Map)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setMultiSelect(bValue As Boolean)`
-- `setOptions(sValue As String)`
+- `setOptions(Value As String)`
+- `getOptions As String`
+- `setActiveKey(Value As String)`
+- `getActiveKey As String`
+- `setOptionsMap(Value As Map)`
+- `getOptionsMap As Map`
 - `setOptionsList(lstValue As List)`
-- `setOptionsMap(mValue As Map)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
-- `setResetPosition(sValue As String)`
-- `setResetText(sValue As String)`
-- `setRounded(sValue As String)`
+- `getOptionsList As List`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setFilterStyle(Value As String)`
+- `getFilterStyle As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setResetPosition(Value As String)`
+- `getResetPosition As String`
+- `setResetText(Value As String)`
+- `getResetText As String`
+- `setCloseType(Value As String)`
+- `getCloseType As String`
+- `setCloseIcon(Value As String)`
+- `getCloseIcon As String`
+- `setMultiSelect(Value As Boolean)`
+- `getMultiSelect As Boolean`
+- `setOrientation(Value As String)`
+- `getOrientation As String`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setWidth(Value As String)`
+- `getWidth As String`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setItemChecked(Key As String, Checked As Boolean)`
+- `isItemChecked(Key As String) As Boolean`
+- `getCheckedKeys As List`
+- `setChecked(CheckedKeys As String)`
+- `getChecked As String`
+- `setItems(Value As Map)`
+- `getItems As Map`
 - `setSelectedIds(lstIds As List)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `getSelectedIds As List`
+- `Refresh`
+- `UpdateTheme`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `RemoveViewFromParent`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

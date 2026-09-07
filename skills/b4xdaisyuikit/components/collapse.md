@@ -1,12 +1,12 @@
 # collapse (`B4XDaisyCollapse`)
 
-DaisyUI `Collapse` component for B4X (B4A/B4i/B4J).
+DaisyUI `Collapse` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCollapse`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyCollapse.bas`
-- **Verified Demo Source**: B4XPageAccordion.bas (lines 53–145), B4XPageCollapse.bas (lines 45–220)
+- **Verified Demo Source**: B4XPageAccordion.bas, B4XPageCollapse.bas
 - **Web DaisyUI Mapping**: `.collapse` → `B4XDaisyCollapse`
 
 ## DaisyUI Web Class Translation
@@ -75,100 +75,101 @@ DaisyUI `Collapse` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Opened` | Opened | `Boolean` | `False` |  |
-| `Icon` | Icon | `String` | `none` | none|arrow|plus |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `TitleText` | Title Text | `String` | `Click to expand` |  |
-| `TitleVariant` | Title Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `TitleSize` | Title Size | `String` | `text-sm` | text-xs|text-sm|text-base|text-lg|text-xl|text-2xl |
-| `TitleIconName` | Title Icon | `String` | `` |  |
-| `TitleColor` | Title Color | `Color` | `0x00000000` |  |
-| `TitleIconColor` | Title Icon Color | `Color` | `0x00000000` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `BorderWidth` | Border Width | `String` | `border` |  |
-| `BorderStyle` | Border Style | `String` | `solid` | solid|dashed|dotted |
-| `BorderColor` | Border Color | `String` | `border-base-300` |  |
-| `IconPosition` | Icon Position | `String` | `right` | left|right |
-| `GroupName` | Group Name | `String` | `` |  |
+| `Opened` | Opened | `Boolean` | False |  |
+| `Icon` | Icon | `String` | none | none|arrow|plus |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Visible` | Visible | `Boolean` | True |  |
+| `TitleText` | Title Text | `String` | Click to expand |  |
+| `TitleVariant` | Title Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `TitleSize` | Title Size | `String` | text-sm | text-xs|text-sm|text-base|text-lg|text-xl|text-2xl |
+| `TitleIconName` | Title Icon | `String` |  |  |
+| `TitleColor` | Title Color | `Color` | 0x00000000 |  |
+| `TitleIconColor` | Title Icon Color | `Color` | 0x00000000 |  |
+| `Width` | Width | `String` | w-full |  |
+| `BorderWidth` | Border Width | `String` | border |  |
+| `BorderStyle` | Border Style | `String` | solid | solid|dashed|dotted |
+| `BorderColor` | Border Color | `String` | border-base-300 |  |
+| `IconPosition` | Icon Position | `String` | right | left|right |
+| `GroupName` | Group Name | `String` |  |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 - `StateChanged (Open As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CollapseContent As B4XDaisyCollapseContent`
-- `CollapseTitle As B4XDaisyCollapseTitle`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `RefreshContent`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Toggle`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `UpdateTheme`
-- `View As B4XView`
-- `getBorderColor As String`
-- `getBorderStyle As String`
-- `getBorderWidth As String`
-- `getContentView As B4XView`
-- `getGroupName As String`
-- `getHeight As Int`
-- `getIcon As String`
-- `getIconPosition As String`
-- `getLeft As Int`
-- `getOpen As Boolean`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setOpened(Value As Boolean)`
+- `setOpen(Value As Boolean)`
 - `getOpened As Boolean`
-- `getRounded As String`
-- `getShadow As String`
-- `getTag As Object`
-- `getTitleBackgroundColor As Int`
-- `getTitleColor As Int`
-- `getTitleIconColor As Int`
-- `getTitleIconName As String`
-- `getTitleSize As String`
-- `getTitleText As String`
-- `getTitleTextColor As Int`
-- `getTitleVariant As String`
-- `getTop As Int`
+- `getOpen As Boolean`
+- `Toggle`
+- `setIcon(Value As String)`
+- `getIcon As String`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setTitleText(Value As String)`
+- `getTitleText As String`
+- `setTitleVariant(Value As String)`
+- `getTitleVariant As String`
+- `setTitleSize(Value As String)`
+- `getTitleSize As String`
+- `setTitleBackgroundColor(Value As Int)`
+- `getTitleBackgroundColor As Int`
+- `setTitleTextColor(Value As Int)`
+- `getTitleTextColor As Int`
+- `setTitleIconName(Value As String)`
+- `getTitleIconName As String`
+- `setTitleColor(Value As Int)`
+- `getTitleColor As Int`
+- `setTitleIconColor(Value As Int)`
+- `getTitleIconColor As Int`
+- `RefreshContent`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setBorderColor(sValue As String)`
-- `setBorderStyle(sValue As String)`
-- `setBorderWidth(sValue As String)`
-- `setGroupName(sValue As String)`
-- `setHeight(iValue As Int)`
-- `setIcon(sValue As String)`
-- `setIconPosition(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setOpen(bValue As Boolean)`
-- `setOpened(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTitleBackgroundColor(iValue As Int)`
-- `setTitleColor(iValue As Int)`
-- `setTitleIconColor(iValue As Int)`
-- `setTitleIconName(sValue As String)`
-- `setTitleSize(sValue As String)`
-- `setTitleText(sValue As String)`
-- `setTitleTextColor(iValue As Int)`
-- `setTitleVariant(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setBorderStyle(Value As String)`
+- `getBorderStyle As String`
+- `setBorderWidth(Value As String)`
+- `getBorderWidth As String`
+- `setBorderColor(Value As String)`
+- `getBorderColor As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setIconPosition(Value As String)`
+- `getIconPosition As String`
+- `setGroupName(Value As String)`
+- `getGroupName As String`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `CollapseTitle As B4XDaisyCollapseTitle`
+- `CollapseContent As B4XDaisyCollapseContent`
+- `getContentView As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
+- `Title As B4XDaisyCollapseTitle`
+- `Content As B4XDaisyCollapseContent`
 
 ## Canonical Creation Pattern & Recipe
 

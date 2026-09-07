@@ -1,12 +1,12 @@
 # select (`B4XDaisySelect`)
 
-DaisyUI `Select` component for B4X (B4A/B4i/B4J).
+DaisyUI `Select` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySelect`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisySelect.bas`
-- **Verified Demo Source**: B4XPageEnjoyHint.bas (lines 26–26), B4XPageFieldset.bas (lines 184–184), B4XPageFocus.bas (lines 20–100), B4XPageNavScrollDock.bas (lines 180–180), B4XPageSelect.bas (lines 70–373)
+- **Verified Demo Source**: B4XPageEnjoyHint.bas, B4XPageFieldset.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageSelect.bas
 - **Web DaisyUI Mapping**: `.select` → `B4XDaisySelect`
 
 ## DaisyUI Web Class Translation
@@ -77,115 +77,96 @@ DaisyUI `Select` component for B4X (B4A/B4i/B4J).
 - Public methods not demonstrated in demo pages: `getTag, UpdateTheme, getVariant` (+ 33 more).
 
 ## 4. Designer Properties
-| Key | Display Name | Type | Default | Allowed Values |
-| :--- | :--- | :--- | :--- | :--- |
-| `Variant` | Variant | `String` | `none` | none|ghost|neutral|primary|secondary|accent|info|success|warning|error |
-| `Size` | Size | `String` | `md` | md|lg|xl |
-| `Placeholder` | Placeholder | `String` | `Pick an option` |  |
-| `LabelAbove` | Label Above | `String` | `` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
-| `Radius` | Corner Radius | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextColor` | Text Color | `Color` | `0x00000000` |  |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Alpha` | Alpha | `Float` | `1.0` |  |
-| `MaxDropdownRows` | Max Dropdown Rows | `Int` | `5` |  |
-| `ActiveColor` | Active Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
+(none declared in packaged source)
 
 ## 5. Declared Events
-- `Changed(Index As Int, Key As String, Value As String)`
-- `Click(Tag As Object)`
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AddItem(sValue As String, sText As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `Clear`
-- `ClearError`
-- `Close`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `LoadCountries`
-- `LoadMonths`
-- `Open`
-- `ReceiveFocus`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `Toggle`
-- `UpdateTheme`
-- `Validate As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `View As B4XView`
-- `getActiveColor As String`
-- `getAlpha As Float`
-- `getBackgroundColor As Int`
-- `getEnabled As Boolean`
-- `getErrorText As String`
-- `getHeight As Int`
-- `getHintText As String`
-- `getIsOpen As Boolean`
-- `getIsValid As Boolean`
-- `getItemValues As List`
-- `getItems As List`
-- `getLabelAbove As String`
-- `getLeft As Int`
-- `getMaxDropdownRows As Int`
-- `getPlaceholder As String`
-- `getRadius As String`
-- `getRequired As Boolean`
-- `getRounded As String`
-- `getSelectedIndex As Int`
-- `getSelectedKey As String`
-- `getSelectedValue As String`
-- `getShadow As String`
-- `getSize As String`
+- `setTag(Value As Object)`
 - `getTag As Object`
-- `getTextColor As Int`
-- `getTop As Int`
-- `getValue As String`
+- `IsReady As Boolean`
+- `UpdateTheme`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setActiveColor(Value As String)`
+- `getActiveColor As String`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setPlaceholder(Value As String)`
+- `getPlaceholder As String`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `getIsValid As Boolean`
+- `Validate As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setBackgroundColorVariant(VariantName As String)`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setRadius(Value As String)`
+- `getRadius As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setAlpha(Value As Float)`
+- `getAlpha As Float`
+- `setMaxDropdownRows(Value As Int)`
+- `getMaxDropdownRows As Int`
+- `setItems(KeyValues As Map)`
+- `getItems As List`
+- `setSelectedIndex(Value As Int)`
+- `getSelectedIndex As Int`
+- `getSelectedValue As String`
+- `AddItem(Value As String, Text As String)`
+- `LoadMonths`
+- `LoadCountries`
+- `getItemValues As List`
+- `getSelectedKey As String`
+- `getValue As String`
+- `setValue(Value As String)`
+- `Clear`
+- `Open`
+- `Close`
+- `Toggle`
+- `getIsOpen As Boolean`
+- `RemoveViewFromParent`
+- `Release`
+- `setFocus(Value As Boolean)`
+- `ReceiveFocus`
+- `Blur`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `GetComputedHeight As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setActiveColor(sValue As String)`
-- `setAlpha(fValue As Float)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundColorVariant(sVariantName As String)`
-- `setEnabled(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setFocus(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setHintText(sValue As String)`
-- `setItems(mKeyValues As Map)`
-- `setLabelAbove(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setMaxDropdownRows(iValue As Int)`
-- `setPlaceholder(sValue As String)`
-- `setRadius(sValue As String)`
-- `setRequired(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setSelectedIndex(iValue As Int)`
-- `setShadow(sValue As String)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTop(iValue As Int)`
-- `setValue(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

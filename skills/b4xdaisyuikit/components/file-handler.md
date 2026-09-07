@@ -1,12 +1,12 @@
 # file-handler (`B4XDaisyFileHandler`)
 
-DaisyUI `FileHandler` component for B4X (B4A/B4i/B4J).
+DaisyUI `FileHandler` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFileHandler`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyFileHandler.bas`
-- **Verified Demo Source**: B4XPageMediaPicker.bas (lines 17–17)
+- **Verified Demo Source**: B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.file-handler` → `B4XDaisyFileHandler`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -47,23 +47,23 @@ End Sub
 - Public methods not demonstrated in demo pages: `DeleteTemporaryFiles, SaveAs, CheckForReceivedFiles` (+ 2 more).
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `CheckForReceivedFiles As LoadResult`
-- `DeleteTemporaryFiles`
 - `Initialize`
-- `Load (oParentPage As Object, oAnchorView As Object) As ResumableSub`
+- `DeleteTemporaryFiles`
+- `SaveAs(Source As InputStream, MimeType As String, Title As String) As ResumableSub`
 - `Load As ResumableSub`
-- `LoadWithFilter (sMimeType As String, sTitle As String) As ResumableSub`
+- `LoadWithFilter(MimeType As String, Title As String) As ResumableSub`
 - `RecordAudio As ResumableSub`
-- `SaveAs (Source As InputStream, sMimeType As String, sTitle As String) As ResumableSub`
-- `SaveAs(oParentPage As Object, oAnchorView As Object, sText As String) As ResumableSub`
-- `UrlToLoadResult(sUrl As String) As LoadResult`
+- `CheckForReceivedFiles As LoadResult`
+- `SaveAs(ParentPage As Object, AnchorView As Object, Text As String) As ResumableSub`
+- `Load(ParentPage As Object, AnchorView As Object) As ResumableSub`
+- `UrlToLoadResult(Url As String) As LoadResult`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

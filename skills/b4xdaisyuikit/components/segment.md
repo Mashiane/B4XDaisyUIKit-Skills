@@ -1,12 +1,12 @@
 # segment (`B4XDaisySegment`)
 
-DaisyUI `Segment` component for B4X (B4A/B4i/B4J).
+DaisyUI `Segment` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySegment`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisySegment.bas`
-- **Verified Demo Source**: B4XPageSegment.bas (lines 8–537), B4XPageTagSphere.bas (lines 25–25)
+- **Verified Demo Source**: B4XPageSegment.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.segment` → `B4XDaisySegment`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -63,57 +63,56 @@ DaisyUI `Segment` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `BackgroundColor` | Background Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `ActiveColor` | Active Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `ButtonLayout` | Button Layout | `String` | `icon-start` | icon-start|icon-end|icon-top|icon-bottom|label-hide|icon-hide |
-| `Scrollable` | Scrollable Segment | `Boolean` | `False` |  |
-| `ButtonSize` | Button Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Rounded` | Rounded | `String` | `md` | none|sm|md|lg|xl|2xl|3xl|full |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl|2xl |
-| `Disabled` | Disabled | `Boolean` | `False` |  |
+| `BackgroundColor` | Background Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `ActiveColor` | Active Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `ButtonLayout` | Button Layout | `String` | icon-start | icon-start|icon-end|icon-top|icon-bottom|label-hide|icon-hide |
+| `Scrollable` | Scrollable Segment | `Boolean` | False |  |
+| `ButtonSize` | Button Size | `String` | md | xs|sm|md|lg|xl |
+| `Rounded` | Rounded | `String` | md | none|sm|md|lg|xl|2xl|3xl|full |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Disabled` | Disabled | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `Changed (Value As String)`
 
 ## 6. Public Methods & APIs
-- `AddButton(sValue As String, sText As String, sIconPath As String)`
-- `AddIcon(sValue As String, sIconPath As String)`
-- `AddLabel(sValue As String, sText As String)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Clear`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetButtonEnabled(sValue As String) As Boolean`
-- `GetValue As String`
-- `Initialize (oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddButton(Value As String, Text As String, IconPath As String)`
+- `AddIcon(Value As String, IconPath As String)`
+- `AddLabel(Value As String, Text As String)`
+- `SetButtonColor(Value As String, Color As Int)`
+- `SetButtonTextColor(Value As String, Color As Int)`
+- `SetButtonIconColor(Value As String, Color As Int)`
 - `Refresh`
-- `RemoveButton(sValue As String)`
-- `SetButtonColor(sValue As String, iColor As Int)`
-- `SetButtonEnabled(sValue As String, bEnabled As Boolean)`
-- `SetButtonIconColor(sValue As String, iColor As Int)`
-- `SetButtonTextColor(sValue As String, iColor As Int)`
-- `SetValue(sNewValue As String)`
-- `View As B4XView`
+- `SetValue(NewValue As String)`
+- `GetValue As String`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Clear`
+- `RemoveButton(Value As String)`
+- `SetButtonEnabled(Value As String, Enabled As Boolean)`
+- `GetButtonEnabled(Value As String) As Boolean`
+- `setActiveColor(Value As String)`
 - `getActiveColor As String`
-- `getBackgroundColor As Object`
-- `getButtonLayout As String`
-- `getButtonSize As String`
-- `getDisabled As Boolean`
-- `getRounded As String`
+- `setScrollable(Value As Boolean)`
 - `getScrollable As Boolean`
-- `getShadow As String`
+- `setButtonSize(Value As String)`
+- `getButtonSize As String`
+- `setTextSize(Value As String)`
 - `getTextSize As String`
-- `setActiveColor(sValue As String)`
-- `setBackgroundColor(oValue As Object)`
-- `setButtonLayout(sValue As String)`
-- `setButtonSize(sValue As String)`
-- `setDisabled(bValue As Boolean)`
-- `setRounded(sValue As String)`
-- `setScrollable(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setTextSize(sValue As String)`
+- `setBackgroundColor(Value As Object)`
+- `getBackgroundColor As Object`
+- `setDisabled(Value As Boolean)`
+- `getDisabled As Boolean`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setButtonLayout(Value As String)`
+- `getButtonLayout As String`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # carousel (`B4XDaisyCarousel`)
 
-DaisyUI `Carousel` component for B4X (B4A/B4i/B4J).
+DaisyUI `Carousel` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyCarousel`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyCarousel.bas`
-- **Verified Demo Source**: B4XPageCarousel.bas (lines 44–410)
+- **Verified Demo Source**: B4XPageCarousel.bas
 - **Web DaisyUI Mapping**: `.carousel` → `B4XDaisyCarousel`
 
 ## DaisyUI Web Class Translation
@@ -77,115 +77,114 @@ DaisyUI `Carousel` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Orientation` | Orientation | `String` | `horizontal` | horizontal|vertical |
-| `Snap` | Snap Position | `String` | `start` | start|center|end |
-| `Rounded` | Rounded | `String` | `theme` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `Shadow` | Shadow | `String` | `none` | none|xs|sm|md|lg|xl |
-| `NavigationButtons` | Navigation Buttons | `Boolean` | `False` |  |
-| `IndicatorButtons` | Indicator Buttons | `Boolean` | `False` |  |
-| `AutoPlay` | Auto Play | `Boolean` | `False` |  |
-| `AutoPlayInterval` | AutoPlay Interval (ms) | `Int` | `3000` |  |
-| `ItemGap` | Item Gap | `Int` | `0` |  |
-| `Gap` | Gap (Token) | `String` | `` |  |
-| `ContentPadding` | Content Padding | `Int` | `0` |  |
-| `Padding` | Padding (Token) | `String` | `` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-[300px]` |  |
-| `BackgroundColor` | Background Color | `String` | `` |  |
-| `IndicatorBackgroundColor` | Indicator Bg Color | `Color` | `0x50000000` |  |
-| `IndicatorActiveColor` | Indicator Active Color | `Color` | `0xFFFFFFFF` |  |
-| `IndicatorInactiveColor` | Indicator Inactive Color | `Color` | `0x78FFFFFF` |  |
-| `IndicatorDotSize` | Indicator Dot Size | `Int` | `10` |  |
-| `IndicatorDotGap` | Indicator Dot Gap | `Int` | `6` |  |
-| `IndicatorOffset` | Indicator Offset | `Int` | `0` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
+| `Orientation` | Orientation | `String` | horizontal | horizontal|vertical |
+| `Snap` | Snap Position | `String` | start | start|center|end |
+| `Rounded` | Rounded | `String` | theme | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl |
+| `NavigationButtons` | Navigation Buttons | `Boolean` | False |  |
+| `IndicatorButtons` | Indicator Buttons | `Boolean` | False |  |
+| `AutoPlay` | Auto Play | `Boolean` | False |  |
+| `AutoPlayInterval` | AutoPlay Interval (ms) | `Int` | 3000 |  |
+| `ItemGap` | Item Gap | `Int` | 0 |  |
+| `Gap` | Gap (Token) | `String` |  |  |
+| `ContentPadding` | Content Padding | `Int` | 0 |  |
+| `Padding` | Padding (Token) | `String` |  |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-[300px] |  |
+| `BackgroundColor` | Background Color | `String` |  |  |
+| `IndicatorBackgroundColor` | Indicator Bg Color | `Color` | 0x50000000 |  |
+| `IndicatorActiveColor` | Indicator Active Color | `Color` | 0xFFFFFFFF |  |
+| `IndicatorInactiveColor` | Indicator Inactive Color | `Color` | 0x78FFFFFF |  |
+| `IndicatorDotSize` | Indicator Dot Size | `Int` | 10 |  |
+| `IndicatorDotGap` | Indicator Dot Gap | `Int` | 6 |  |
+| `IndicatorOffset` | Indicator Offset | `Int` | 0 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 - `Changed (Index As Int)`
 
 ## 6. Public Methods & APIs
-- `AddItem(Item As B4XDaisyCarouselItem)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Pause`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `UpdateTheme`
 - `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddItem(Item As B4XDaisyCarouselItem)`
 - `RemoveItem(Item As B4XDaisyCarouselItem)`
-- `RemoveViewFromParent`
-- `Resume`
-- `ScrollToItem(iIndex As Int)`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `Clear`
+- `ScrollToItem(Index As Int)`
+- `getOrientation As String`
+- `setOrientation(Value As String)`
+- `getSnap As String`
+- `setSnap(Value As String)`
+- `getRounded As String`
+- `setRounded(Value As String)`
+- `getTag As Object`
+- `setTag(Value As Object)`
+- `getItemGap As Int`
+- `setItemGap(Value As Int)`
+- `getGap As String`
+- `setGap(Value As String)`
+- `getContentPadding As Int`
+- `setContentPadding(Value As Int)`
+- `getPadding As String`
+- `setPadding(Value As String)`
+- `getWidth As String`
+- `setWidth(Value As String)`
+- `getHeight As String`
+- `setHeight(Value As String)`
+- `getBackgroundColor As String`
+- `setBackgroundColor(Value As String)`
+- `getNavigationButtons As Boolean`
+- `setNavigationButtons(Value As Boolean)`
+- `getIndicatorButtons As Boolean`
+- `setIndicatorButtons(Value As Boolean)`
+- `getAutoPlay As Boolean`
+- `setAutoPlay(Value As Boolean)`
+- `getAutoPlayInterval As Int`
+- `setAutoPlayInterval(Value As Int)`
 - `StartAutoPlay`
 - `StopAutoPlay`
-- `UpdateTheme`
-- `View As B4XView`
-- `getAutoPlay As Boolean`
-- `getAutoPlayInterval As Int`
-- `getBackgroundColor As String`
-- `getContentPadding As Int`
+- `Pause`
+- `Resume`
 - `getCurrentIndex As Int`
-- `getEnabled As Boolean`
-- `getGap As String`
-- `getHeight As String`
-- `getIndicatorActiveColor As Int`
-- `getIndicatorBackgroundColor As Int`
-- `getIndicatorButtons As Boolean`
-- `getIndicatorDotGap As Int`
-- `getIndicatorDotSize As Int`
-- `getIndicatorInactiveColor As Int`
-- `getIndicatorOffset As Int`
-- `getItemGap As Int`
-- `getLeft As Int`
-- `getNavigationButtons As Boolean`
-- `getOrientation As String`
-- `getPadding As String`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadow As String`
-- `getSnap As String`
-- `getTag As Object`
-- `getTop As Int`
 - `getVisible As Boolean`
-- `getWidth As String`
-- `setAutoPlay(bValue As Boolean)`
-- `setAutoPlayInterval(iValue As Int)`
-- `setBackgroundColor(sValue As String)`
-- `setContentPadding(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setGap(sValue As String)`
-- `setHeight(sValue As String)`
-- `setIndicatorActiveColor(iValue As Int)`
-- `setIndicatorBackgroundColor(iValue As Int)`
-- `setIndicatorButtons(bValue As Boolean)`
-- `setIndicatorDotGap(iValue As Int)`
-- `setIndicatorDotSize(iValue As Int)`
-- `setIndicatorInactiveColor(iValue As Int)`
-- `setIndicatorOffset(iValue As Int)`
-- `setItemGap(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setNavigationButtons(bValue As Boolean)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadow(sValue As String)`
-- `setSnap(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setVisible(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setRoundedBox(Value As Boolean)`
+- `getShadow As String`
+- `setShadow(Value As String)`
+- `getIndicatorBackgroundColor As Int`
+- `setIndicatorBackgroundColor(Value As Int)`
+- `getIndicatorActiveColor As Int`
+- `setIndicatorActiveColor(Value As Int)`
+- `getIndicatorInactiveColor As Int`
+- `setIndicatorInactiveColor(Value As Int)`
+- `getIndicatorDotSize As Int`
+- `setIndicatorDotSize(Value As Int)`
+- `getIndicatorDotGap As Int`
+- `setIndicatorDotGap(Value As Int)`
+- `getIndicatorOffset As Int`
+- `setIndicatorOffset(Value As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

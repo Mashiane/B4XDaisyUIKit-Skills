@@ -1,6 +1,6 @@
 # avatar (`B4XDaisyAvatar`)
 
-DaisyUI `Avatar` component for B4X (B4A/B4i/B4J).
+DaisyUI `Avatar` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyAvatar`

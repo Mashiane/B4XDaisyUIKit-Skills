@@ -1,12 +1,12 @@
 # button-place-manager (`B4XDaisyButtonPlaceManager`)
 
-DaisyUI `ButtonPlaceManager` component for B4X (B4A/B4i/B4J).
+DaisyUI `ButtonPlaceManager` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyButtonPlaceManager`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyButtonPlaceManager.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.button-place-manager` → `B4XDaisyButtonPlaceManager`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,26 +26,14 @@ DaisyUI `ButtonPlaceManager` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyButtonPlaceManager` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `CalculateCustomPositions(CustomPositions As List, ParentWidth As Float, ParentHeight As Float, _
-		HalfW As Float, HalfH As Float, Width As Int, Height As Int) As List`
-- `CalculateHamPiecePositions(ParentWidth As Float, ParentHeight As Float, _
-		PieceWidth As Int, PieceHeight As Int, VMargin As Int, MaxCount As Int) As List`
-- `CalculatePiecePositions(PiecePlace As String, ParentWidth As Float, ParentHeight As Float, _
-		PieceSize As Int, HMargin As Int, VMargin As Int, IMargin As Int, MaxCount As Int) As List`
-- `CalculatePositions(ButtonPlace As String, ParentWidth As Float, ParentHeight As Float, _
-		ButtonSize As Int, HMargin As Int, VMargin As Int, IMargin As Int, EdgeMargin As Int, _
-		Alignment As String, MaxCount As Int) As List`
-- `CalculateRectPositions(ButtonPlace As String, ParentWidth As Float, ParentHeight As Float, _
-		ButtonWidth As Int, ButtonHeight As Int, HMargin As Int, VMargin As Int, _
-		EdgeMargin As Int, Alignment As String, MaxCount As Int) As List`
 - `Initialize`
 
 ## 7. Public Fields
-- `xui As XUI`
+(none declared in packaged source)
 

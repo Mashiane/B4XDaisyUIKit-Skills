@@ -1,12 +1,12 @@
 # stat-item (`B4XDaisyStatItem`)
 
-DaisyUI `StatItem` component for B4X (B4A/B4i/B4J).
+DaisyUI `StatItem` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyStatItem`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyStatItem.bas`
-- **Verified Demo Source**: B4XPageDrawerRail.bas (lines 284–344), B4XPageStat.bas (lines 73–489)
+- **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.stat-item` → `B4XDaisyStatItem`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,120 +59,119 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Title` | Title | `String` | `` |  |
-| `Value` | Value | `String` | `` |  |
-| `Description` | Description | `String` | `` |  |
-| `ValueColor` | Value Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `DescriptionColor` | Description Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Variant` | Background Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `FigureType` | Figure Type | `String` | `none` | none|svg|image|radial |
-| `FigureSource` | Figure Source | `String` | `` |  |
-| `FigureSize` | Figure Size | `Int` | `48` |  |
-| `FigureColor` | Figure Color | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Padding` | Padding | `String` | `px-6 py-4` |  |
-| `GapX` | Column Gap | `Int` | `16` |  |
-| `CenterItems` | Center Items | `Boolean` | `False` |  |
-| `StartFrom` | Start From | `Float` | `0` |  |
-| `Prefix` | Prefix | `String` | `` |  |
-| `Suffix` | Suffix | `String` | `` |  |
-| `Separator` | Separator | `String` | `` |  |
-| `Decimal` | Decimal | `String` | `.` |  |
-| `DecimalPlaces` | Decimal Places | `Int` | `0` |  |
-| `UseGrouping` | Use Grouping | `Boolean` | `True` |  |
-| `Animated` | Animated | `Boolean` | `False` |  |
-| `Duration` | Duration (s) | `Int` | `2` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Title` | Title | `String` |  |  |
+| `Value` | Value | `String` |  |  |
+| `Description` | Description | `String` |  |  |
+| `ValueColor` | Value Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `DescriptionColor` | Description Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Variant` | Background Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `FigureType` | Figure Type | `String` | none | none|svg|image|radial |
+| `FigureSource` | Figure Source | `String` |  |  |
+| `FigureSize` | Figure Size | `Int` | 48 |  |
+| `FigureColor` | Figure Color | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Padding` | Padding | `String` | px-6 py-4 |  |
+| `GapX` | Column Gap | `Int` | 16 |  |
+| `CenterItems` | Center Items | `Boolean` | False |  |
+| `StartFrom` | Start From | `Float` | 0 |  |
+| `Prefix` | Prefix | `String` |  |  |
+| `Suffix` | Suffix | `String` |  |  |
+| `Separator` | Separator | `String` | , |  |
+| `Decimal` | Decimal | `String` | . |  |
+| `DecimalPlaces` | Decimal Places | `Int` | 0 |  |
+| `UseGrouping` | Use Grouping | `Boolean` | True |  |
+| `Animated` | Animated | `Boolean` | False |  |
+| `Duration` | Duration (s) | `Int` | 2 |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddAction(btn As B4XDaisyButton)`
-- `AddActionButton(sText As String, sVariant As String, sEventName As String) As B4XDaisyButton`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `EstimatePreferredHeight As Float`
-- `EstimatePreferredWidth As Float`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `LogLabelWidths(sTag As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `getContentWidth As Int`
+- `getContentHeight As Int`
+- `UpdateTheme`
 - `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `EstimatePreferredWidth As Float`
+- `EstimatePreferredHeight As Float`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setOrientation(Value As String)`
+- `setShowSeparator(Value As Boolean)`
+- `setCenterItems(Value As Boolean)`
+- `getCenterItems As Boolean`
+- `getFigure As B4XView`
+- `setFigure(View As B4XView)`
+- `getActions As B4XView`
+- `AddAction(btn As B4XDaisyButton)`
+- `AddActionButton(Text As String, Variant As String, EventName As String) As B4XDaisyButton`
+- `setTitle(Value As String)`
+- `getTitle As String`
+- `setValue(Value As String)`
+- `getValue As String`
+- `setDescription(Value As String)`
+- `getDescription As String`
+- `setValueColor(Value As String)`
+- `getValueColor As String`
+- `setDescriptionColor(Value As String)`
+- `getDescriptionColor As String`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setFigureType(Value As String)`
+- `getFigureType As String`
+- `setFigureSource(Value As String)`
+- `getFigureSource As String`
+- `setFigureSize(Value As Int)`
+- `getFigureSize As Int`
+- `setFigureColor(Value As String)`
+- `getFigureColor As String`
+- `setFigureValue(V As Int)`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setGapX(Value As Int)`
+- `getGapX As Int`
+- `setStartFrom(Value As Float)`
+- `getStartFrom As Float`
+- `setPrefix(Value As String)`
+- `getPrefix As String`
+- `setSuffix(Value As String)`
+- `getSuffix As String`
+- `setSeparator(Value As String)`
+- `getSeparator As String`
+- `setDecimal(Value As String)`
+- `getDecimal As String`
+- `setDecimalPlaces(Value As Int)`
+- `getDecimalPlaces As Int`
+- `setUseGrouping(Value As Boolean)`
+- `getUseGrouping As Boolean`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `LogLabelWidths(Tag As String)`
+- `Base_Resize(Width As Double, Height As Double)`
 - `StartAnimation`
 - `StopAnimation`
-- `UpdateTheme`
-- `View As B4XView`
-- `getActions As B4XView`
-- `getAnimated As Boolean`
-- `getCenterItems As Boolean`
-- `getContentHeight As Int`
-- `getContentWidth As Int`
-- `getDecimal As String`
-- `getDecimalPlaces As Int`
-- `getDescription As String`
-- `getDescriptionColor As String`
-- `getDuration As Int`
-- `getFigure As B4XView`
-- `getFigureColor As String`
-- `getFigureSize As Int`
-- `getFigureSource As String`
-- `getFigureType As String`
-- `getGapX As Int`
-- `getHeight As Int`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getPadding As String`
-- `getPrefix As String`
-- `getSeparator As String`
-- `getStartFrom As Float`
-- `getSuffix As String`
-- `getTag As Object`
-- `getTitle As String`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getUseGrouping As Boolean`
-- `getValue As String`
-- `getValueColor As String`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAnimated(bValue As Boolean)`
-- `setCenterItems(bValue As Boolean)`
-- `setDecimal(sValue As String)`
-- `setDecimalPlaces(iValue As Int)`
-- `setDescription(sValue As String)`
-- `setDescriptionColor(sValue As String)`
-- `setDuration(iValue As Int)`
-- `setFigure(vView As B4XView)`
-- `setFigureColor(sValue As String)`
-- `setFigureSize(iValue As Int)`
-- `setFigureSource(sValue As String)`
-- `setFigureType(sValue As String)`
-- `setFigureValue(iV As Int)`
-- `setGapX(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setOrientation(sValue As String)`
-- `setPadding(sValue As String)`
-- `setPrefix(sValue As String)`
-- `setSeparator(sValue As String)`
-- `setShowSeparator(bValue As Boolean)`
-- `setStartFrom(fValue As Float)`
-- `setSuffix(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTitle(sValue As String)`
-- `setTop(iValue As Int)`
-- `setUseGrouping(bValue As Boolean)`
-- `setValue(sValue As String)`
-- `setValueColor(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

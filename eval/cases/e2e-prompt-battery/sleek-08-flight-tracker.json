@@ -1,0 +1,16 @@
+{
+  "id": "sleek-08-flight-tracker",
+  "source": "sleek.design 10-prompt battery #8 (travel-ready flight tracker)",
+  "prompt": "Flight tracker app. Flight card with extra-large airport codes, route timeline with progress indicator, rounded pill status badges, recent flights list, blue primary, generous spacing. Native B4XPage named B4XPageFlights.bas using B4XDaisyUIKit.",
+  "expected_files": ["B4XPageFlights.bas"],
+  "must_contain": [
+    "As B4XDaisyCard",
+    "As B4XDaisyBadge",
+    "As B4XDaisyTimeline"
+  ],
+  "must_not_contain": [
+    "WebView",
+    "<div"
+  ],
+  "compile": false
+}

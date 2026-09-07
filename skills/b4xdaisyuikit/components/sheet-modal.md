@@ -1,12 +1,12 @@
 # sheet-modal (`B4XDaisySheetModal`)
 
-DaisyUI `SheetModal` component for B4X (B4A/B4i/B4J).
+DaisyUI `SheetModal` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisySheetModal`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisySheetModal.bas`
-- **Verified Demo Source**: B4XPageColorWheel.bas (lines 30–30), B4XPagePicker.bas (lines 40–40), B4XPageSheetModal.bas (lines 27–32)
+- **Verified Demo Source**: B4XPageColorWheel.bas, B4XPagePicker.bas, B4XPageSheetModal.bas
 - **Web DaisyUI Mapping**: `.sheet-modal` → `B4XDaisySheetModal`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -62,33 +62,33 @@ Private Sub BuildSheetModals
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `IsOpen` | Is Open | `Boolean` | `False` |  |
-| `CanDismiss` | Can Dismiss | `Boolean` | `True` |  |
-| `BackdropDismiss` | Backdrop Dismiss | `Boolean` | `True` |  |
-| `Animated` | Animated | `Boolean` | `True` |  |
-| `Duration` | Duration | `Int` | `300` |  |
-| `ScaleBackground` | Scale Background | `Boolean` | `False` |  |
-| `BackgroundScale` | Background Scale | `Float` | `0.94` |  |
-| `BackgroundCornerRadius` | Background Corner Radius | `Int` | `18` |  |
-| `BackgroundTranslateY` | Background Translate Y | `Int` | `12` |  |
-| `BackgroundDim` | Background Dim | `Float` | `0.08` |  |
-| `BackgroundShadow` | Background Shadow | `Boolean` | `False` |  |
-| `BackgroundColor` | Background Color | `Color` | `0xFFFFFFFF` |  |
-| `Rounded` | Rounded | `String` | `box` | none|sm|md|lg|xl|2xl|3xl|full|box |
-| `Breakpoints` | Breakpoints | `String` | `` |  |
-| `InitialBreakpoint` | Initial Breakpoint | `Float` | `0.5` |  |
-| `BackdropBreakpoint` | Backdrop Breakpoint | `Float` | `0.0` |  |
-| `Handle` | Show Handle | `Boolean` | `True` |  |
-| `HandleBehavior` | Handle Behavior | `String` | `none` | none|cycle |
-| `BackdropOpacity` | Backdrop Opacity | `Int` | `40` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `BorderWidth` | Border Width | `Int` | `0` |  |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-[400px]` |  |
-| `AutoHeight` | Auto Height | `Boolean` | `True` |  |
-| `ExpandToScroll` | Expand To Scroll | `Boolean` | `True` |  |
-| `ScrollBehavior` | Scroll Behavior | `String` | `auto` | auto|drag|scroll |
-| `NestedScrollEnabled` | Nested Scroll Enabled | `Boolean` | `True` |  |
+| `IsOpen` | Is Open | `Boolean` | False |  |
+| `CanDismiss` | Can Dismiss | `Boolean` | True |  |
+| `BackdropDismiss` | Backdrop Dismiss | `Boolean` | True |  |
+| `Animated` | Animated | `Boolean` | True |  |
+| `Duration` | Duration | `Int` | 300, MinRange: 0, MaxRange: 3000 |  |
+| `ScaleBackground` | Scale Background | `Boolean` | False |  |
+| `BackgroundScale` | Background Scale | `Float` | 0.94 |  |
+| `BackgroundCornerRadius` | Background Corner Radius | `Int` | 18, MinRange: 0, MaxRange: 64 |  |
+| `BackgroundTranslateY` | Background Translate Y | `Int` | 12, MinRange: 0, MaxRange: 200 |  |
+| `BackgroundDim` | Background Dim | `Float` | 0.08 |  |
+| `BackgroundShadow` | Background Shadow | `Boolean` | False |  |
+| `BackgroundColor` | Background Color | `Color` | 0xFFFFFFFF |  |
+| `Rounded` | Rounded | `String` | box | none|sm|md|lg|xl|2xl|3xl|full|box |
+| `Breakpoints` | Breakpoints | `String` | 0,0.5,1.0 |  |
+| `InitialBreakpoint` | Initial Breakpoint | `Float` | 0.5 |  |
+| `BackdropBreakpoint` | Backdrop Breakpoint | `Float` | 0.0 |  |
+| `Handle` | Show Handle | `Boolean` | True |  |
+| `HandleBehavior` | Handle Behavior | `String` | none | none|cycle |
+| `BackdropOpacity` | Backdrop Opacity | `Int` | 40, MinRange: 0, MaxRange: 100 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `BorderWidth` | Border Width | `Int` | 0 |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-[400px] |  |
+| `AutoHeight` | Auto Height | `Boolean` | True |  |
+| `ExpandToScroll` | Expand To Scroll | `Boolean` | True |  |
+| `ScrollBehavior` | Scroll Behavior | `String` | auto | auto|drag|scroll |
+| `NestedScrollEnabled` | Nested Scroll Enabled | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `WillPresent`
@@ -101,91 +101,90 @@ Private Sub BuildSheetModals
 - `BreakpointDidChange (Breakpoint As Float)`
 
 ## 6. Public Methods & APIs
-- `AddBoxView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddContentView(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `Dismiss(oData As Object, sRole As String) As ResumableSub`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Present As ResumableSub`
-- `Refresh`
-- `ScrollToTop`
-- `View As B4XView`
-- `getAnimated As Boolean`
-- `getAnimationTime As Int`
-- `getAutoHeight As Boolean`
-- `getBackdropBreakpoint As Float`
-- `getBackdropDismiss As Boolean`
-- `getBackdropOpacity As Int`
-- `getBackgroundColor As Int`
-- `getBackgroundCornerRadius As Int`
-- `getBackgroundDim As Float`
-- `getBackgroundScale As Float`
-- `getBackgroundShadow As Boolean`
-- `getBackgroundTranslateY As Int`
-- `getBorderColor As Int`
-- `getBorderWidth As Int`
-- `getBreakpoints As String`
-- `getCanDismiss As Boolean`
-- `getContentBox As B4XView`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `AddContentView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddBoxView(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `getContentView As B4XView`
-- `getCornerRadius As Int`
-- `getCurrentBreakpoint As Float`
-- `getDuration As Int`
-- `getExpandToScroll As Boolean`
-- `getHandle As Boolean`
-- `getHandleBehavior As String`
-- `getHeight As String`
-- `getInitialBreakpoint As Float`
-- `getIsOpen As Boolean`
-- `getNestedScrollEnabled As Boolean`
-- `getPresentingView As B4XView`
-- `getRounded As String`
-- `getScaleBackground As Boolean`
-- `getScrollBehavior As String`
-- `getScrollOffset As Int`
 - `getScrollPanel As B4XView`
 - `getScrollView As B4XView`
+- `getContentBox As B4XView`
+- `View As B4XView`
+- `getScrollOffset As Int`
+- `setScrollOffset(Value As Int)`
+- `ScrollToTop`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `Present As ResumableSub`
+- `Dismiss(Data As Object, Role As String) As ResumableSub`
+- `setIsOpen(Value As Boolean)`
+- `getIsOpen As Boolean`
+- `setCanDismiss(Value As Boolean)`
+- `getCanDismiss As Boolean`
+- `setBackdropDismiss(Value As Boolean)`
+- `getBackdropDismiss As Boolean`
+- `setTag(Value As Object)`
 - `getTag As Object`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setAnimationTime(Value As Int)`
+- `getAnimationTime As Int`
+- `setBreakpoints(Value As String)`
+- `getBreakpoints As String`
+- `setInitialBreakpoint(Value As Float)`
+- `getInitialBreakpoint As Float`
+- `setBackdropBreakpoint(Value As Float)`
+- `getBackdropBreakpoint As Float`
+- `setHandle(Value As Boolean)`
+- `getHandle As Boolean`
+- `setHandleBehavior(Value As String)`
+- `getHandleBehavior As String`
+- `setCurrentBreakpoint(Breakpoint As Float)`
+- `getCurrentBreakpoint As Float`
+- `setPresentingView(TargetView As B4XView)`
+- `getPresentingView As B4XView`
+- `setScaleBackground(Value As Boolean)`
+- `getScaleBackground As Boolean`
+- `setBackgroundScale(Value As Float)`
+- `getBackgroundScale As Float`
+- `setBackgroundCornerRadius(Value As Int)`
+- `getBackgroundCornerRadius As Int`
+- `setBackgroundTranslateY(Value As Int)`
+- `getBackgroundTranslateY As Int`
+- `setBackgroundDim(Value As Float)`
+- `getBackgroundDim As Float`
+- `setBackgroundShadow(Value As Boolean)`
+- `getBackgroundShadow As Boolean`
+- `setBackdropOpacity(Value As Int)`
+- `getBackdropOpacity As Int`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setBorderWidth(Value As Int)`
+- `getBorderWidth As Int`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setAnimated(bValue As Boolean)`
-- `setAnimationTime(iValue As Int)`
-- `setAutoHeight(bValue As Boolean)`
-- `setBackdropBreakpoint(fValue As Float)`
-- `setBackdropDismiss(bValue As Boolean)`
-- `setBackdropOpacity(iValue As Int)`
-- `setBackgroundColor(iValue As Int)`
-- `setBackgroundCornerRadius(iValue As Int)`
-- `setBackgroundDim(fValue As Float)`
-- `setBackgroundScale(fValue As Float)`
-- `setBackgroundShadow(bValue As Boolean)`
-- `setBackgroundTranslateY(iValue As Int)`
-- `setBorderColor(iValue As Int)`
-- `setBorderWidth(iValue As Int)`
-- `setBreakpoints(sValue As String)`
-- `setCanDismiss(bValue As Boolean)`
-- `setCurrentBreakpoint(fBreakpoint As Float)`
-- `setDuration(iValue As Int)`
-- `setExpandToScroll(bValue As Boolean)`
-- `setHandle(bValue As Boolean)`
-- `setHandleBehavior(sValue As String)`
-- `setHeight(sValue As String)`
-- `setInitialBreakpoint(fValue As Float)`
-- `setIsOpen(bValue As Boolean)`
-- `setNestedScrollEnabled(bValue As Boolean)`
-- `setPresentingView(vTargetView As B4XView)`
-- `setRounded(sValue As String)`
-- `setScaleBackground(bValue As Boolean)`
-- `setScrollBehavior(sValue As String)`
-- `setScrollOffset(iValue As Int)`
-- `setTag(oValue As Object)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setAutoHeight(Value As Boolean)`
+- `getAutoHeight As Boolean`
+- `GetComputedHeight As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `getCornerRadius As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setExpandToScroll(Value As Boolean)`
+- `getExpandToScroll As Boolean`
+- `setScrollBehavior(Value As String)`
+- `getScrollBehavior As String`
+- `setNestedScrollEnabled(Value As Boolean)`
+- `getNestedScrollEnabled As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

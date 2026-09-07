@@ -1,0 +1,16 @@
+{
+  "id": "sleek-01-sleep-tracker",
+  "source": "sleek.design 10-prompt battery #1 (ethereal glassmorphism sleep dashboard)",
+  "prompt": "Sleep dashboard home screen. Sleep quality score, sleep stages visualization (deep, light, REM), smart alarm widget. Visual style: ethereal, dark indigo/purple surfaces, glowing accents, calming mood. Build as a native B4XPage named B4XPageSleep.bas using B4XDaisyUIKit. The kit has no chart component — use the ch01 data-visualization recipes.",
+  "expected_files": ["B4XPageSleep.bas"],
+  "must_contain": [
+    "As B4XDaisyRadialProgress",
+    "As B4XDaisyPageScroll"
+  ],
+  "must_not_contain": [
+    "B4XDaisyChart",
+    "WebView",
+    "<div"
+  ],
+  "compile": false
+}

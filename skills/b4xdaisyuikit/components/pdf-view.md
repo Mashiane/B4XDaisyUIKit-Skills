@@ -1,12 +1,12 @@
 # pdf-view (`B4XDaisyPDFView`)
 
-DaisyUI `PDFView` component for B4X (B4A/B4i/B4J).
+DaisyUI `PDFView` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPDFView`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyPDFView.bas`
-- **Verified Demo Source**: B4XPagePDFView.bas (lines 12–33)
+- **Verified Demo Source**: B4XPagePDFView.bas
 - **Web DaisyUI Mapping**: `.pdf-view` → `B4XDaisyPDFView`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -50,12 +50,12 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `AutoSpacing` | Auto Spacing | `Boolean` | `True` |  |
-| `EnableSwipe` | Enable Swipe | `Boolean` | `True` |  |
-| `PageSnap` | Page Snap | `Boolean` | `True` |  |
-| `SwipeHorizontal` | Swipe Horizontal | `Boolean` | `False` |  |
-| `ShowToolbar` | Show Toolbar | `Boolean` | `True` |  |
-| `ToolbarHeight` | Toolbar Height | `Int` | `48` |  |
+| `AutoSpacing` | Auto Spacing | `Boolean` | True |  |
+| `EnableSwipe` | Enable Swipe | `Boolean` | True |  |
+| `PageSnap` | Page Snap | `Boolean` | True |  |
+| `SwipeHorizontal` | Swipe Horizontal | `Boolean` | False |  |
+| `ShowToolbar` | Show Toolbar | `Boolean` | True |  |
+| `ToolbarHeight` | Toolbar Height | `Int` | 48 |  |
 
 ## 5. Declared Events
 - `LoadComplete (Pages As Int)`
@@ -63,31 +63,30 @@ End Sub
 - `OnTap (Target As Object)`
 - `InitiallyRendered (Page As Int)`
 - `PageNum (Page As Int)`
-- `Show ()`
+- `Show`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Base_Resize (iWidth As Int, iHeight As Int)`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `FirstPage`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `JumpToPage(iPage As Int)`
-- `LastPage`
-- `LoadAsset(sFileName As String)`
-- `LoadFile(sDir As String, sFileName As String)`
-- `NextPage`
-- `PrevPage`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Base_Resize(Width As Int, Height As Int)`
+- `LoadFile(Dir As String, FileName As String)`
+- `LoadAsset(FileName As String)`
 - `Reload`
-- `View As B4XView`
+- `JumpToPage(Page As Int)`
+- `FirstPage`
+- `PrevPage`
+- `NextPage`
+- `LastPage`
 - `getCurrentPage As Int`
 - `getTotalPages As Int`
-- `setAutoSpacing(bValue As Boolean)`
-- `setEnableSwipe(bValue As Boolean)`
-- `setPageSnap(bValue As Boolean)`
-- `setShowToolbar(bValue As Boolean)`
-- `setSwipeHorizontal(bValue As Boolean)`
+- `setAutoSpacing(Value As Boolean)`
+- `setEnableSwipe(Value As Boolean)`
+- `setPageSnap(Value As Boolean)`
+- `setSwipeHorizontal(Value As Boolean)`
+- `setShowToolbar(Value As Boolean)`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

@@ -1,12 +1,12 @@
 # info-card (`B4XDaisyInfoCard`)
 
-DaisyUI `InfoCard` component for B4X (B4A/B4i/B4J).
+DaisyUI `InfoCard` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyInfoCard`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyInfoCard.bas`
-- **Verified Demo Source**: B4XPageInfoCard.bas (lines 53–237)
+- **Verified Demo Source**: B4XPageInfoCard.bas
 - **Web DaisyUI Mapping**: `.info-card` → `B4XDaisyInfoCard`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -59,105 +59,104 @@ Private Sub RenderExamples(Width As Int, Height As Int)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `InforType` | Type | `String` | `1` | 1|2|3|4|5|6 |
-| `Effect` | Effect | `String` | `none` | none|hover-zoom |
-| `Icon` | Icon | `String` | `user-solid.svg` |  |
-| `IconColor` | Icon Color | `Color` | `0` |  |
-| `IconTextColor` | Icon Text Color | `Color` | `0` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `Title` | Title | `String` | `Employees` |  |
-| `Value` | Value | `String` | `1000` |  |
-| `StartFrom` | Start From | `Float` | `0` |  |
-| `Prefix` | Prefix | `String` | `` |  |
-| `Suffix` | Suffix | `String` | `` |  |
-| `Separator` | Separator | `String` | `` |  |
-| `Decimal` | Decimal | `String` | `.` |  |
-| `DecimalPlaces` | Decimal Places | `Int` | `0` |  |
-| `UseGrouping` | Use Grouping | `Boolean` | `True` |  |
-| `Animated` | Animated | `Boolean` | `True` |  |
-| `Duration` | Duration (s) | `Int` | `2` |  |
-| `BackgroundColor` | Background Color | `Color` | `0` |  |
-| `TextColor` | Text Color | `Color` | `0` |  |
-| `Shadow` | Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `InforType` | Type | `String` | 1 | 1|2|3|4|5|6 |
+| `Effect` | Effect | `String` | none | none|hover-zoom |
+| `Icon` | Icon | `String` | user-solid.svg |  |
+| `IconColor` | Icon Color | `Color` | 0 |  |
+| `IconTextColor` | Icon Text Color | `Color` | 0 |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Title` | Title | `String` | Employees |  |
+| `Value` | Value | `String` | 1000 |  |
+| `StartFrom` | Start From | `Float` | 0 |  |
+| `Prefix` | Prefix | `String` |  |  |
+| `Suffix` | Suffix | `String` |  |  |
+| `Separator` | Separator | `String` | , |  |
+| `Decimal` | Decimal | `String` | . |  |
+| `DecimalPlaces` | Decimal Places | `Int` | 0 |  |
+| `UseGrouping` | Use Grouping | `Boolean` | True |  |
+| `Animated` | Animated | `Boolean` | True |  |
+| `Duration` | Duration (s) | `Int` | 2 |  |
+| `BackgroundColor` | Background Color | `Color` | 0 |  |
+| `TextColor` | Text Color | `Color` | 0 |  |
+| `Shadow` | Shadow | `String` | sm | none|xs|sm|md|lg|xl|2xl |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `getComputedHeight As Int`
+- `UpdateTheme`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setInforType(Value As String)`
+- `getInforType As String`
+- `setEffect(Value As String)`
+- `getEffect As String`
+- `setIcon(Value As String)`
+- `getIcon As String`
+- `setIconColor(Value As Int)`
+- `getIconColor As Int`
+- `setIconTextColor(Value As Int)`
+- `getIconTextColor As Int`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setTitle(Value As String)`
+- `getTitle As String`
+- `setValue(Value As String)`
+- `getValue As String`
+- `setStartFrom(Value As Float)`
+- `getStartFrom As Float`
+- `setPrefix(Value As String)`
+- `getPrefix As String`
+- `setSuffix(Value As String)`
+- `getSuffix As String`
+- `setSeparator(Value As String)`
+- `getSeparator As String`
+- `setDecimal(Value As String)`
+- `getDecimal As String`
+- `setDecimalPlaces(Value As Int)`
+- `getDecimalPlaces As Int`
+- `setUseGrouping(Value As Boolean)`
+- `getUseGrouping As Boolean`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `getRole As String`
+- `Base_Resize(Width As Double, Height As Double)`
 - `StartAnimation`
 - `StopAnimation`
-- `UpdateTheme`
-- `View As B4XView`
-- `getAnimated As Boolean`
-- `getBackgroundColor As Int`
-- `getComputedHeight As Int`
-- `getDecimal As String`
-- `getDecimalPlaces As Int`
-- `getDuration As Int`
-- `getEffect As String`
-- `getEnabled As Boolean`
-- `getHeight As Int`
-- `getIcon As String`
-- `getIconColor As Int`
-- `getIconTextColor As Int`
-- `getInforType As String`
+- `RemoveViewFromParent`
+- `Release`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getPrefix As String`
-- `getRole As String`
-- `getSeparator As String`
-- `getShadow As String`
-- `getStartFrom As Float`
-- `getSuffix As String`
-- `getTag As Object`
-- `getTextColor As Int`
-- `getTitle As String`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getUseGrouping As Boolean`
-- `getValue As String`
-- `getVariant As String`
-- `getVisible As Boolean`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAnimated(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setDecimal(sValue As String)`
-- `setDecimalPlaces(iValue As Int)`
-- `setDuration(iValue As Int)`
-- `setEffect(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setIcon(sValue As String)`
-- `setIconColor(iValue As Int)`
-- `setIconTextColor(iValue As Int)`
-- `setInforType(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setPrefix(sValue As String)`
-- `setSeparator(sValue As String)`
-- `setShadow(sValue As String)`
-- `setStartFrom(fValue As Float)`
-- `setSuffix(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColor(iValue As Int)`
-- `setTitle(sValue As String)`
-- `setTop(iValue As Int)`
-- `setUseGrouping(bValue As Boolean)`
-- `setValue(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

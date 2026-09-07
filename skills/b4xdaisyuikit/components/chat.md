@@ -1,12 +1,12 @@
 # chat (`B4XDaisyChat`)
 
-DaisyUI `Chat` component for B4X (B4A/B4i/B4J).
+DaisyUI `Chat` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyChat`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyChat.bas`
-- **Verified Demo Source**: B4XPageChat.bas (lines 13–212)
+- **Verified Demo Source**: B4XPageChat.bas
 - **Web DaisyUI Mapping**: `.chat` → `B4XDaisyChat`
 
 ## DaisyUI Web Class Translation
@@ -66,126 +66,124 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `AvatarMask` | Avatar Mask | `String` | `squircle` | circle|square|squircle|decagon|diamond|heart|hexagon|hexagon-2|pentagon|star|star-2|triangle|triangle-2|triangle-3|triangle-4|half-1|half-2 |
-| `AvatarSize` | Avatar Size | `Int` | `40` |  |
-| `FromBackgroundColor` | From Background | `Color` | `0xFF4338CA` |  |
-| `FromTextColor` | From Text | `Color` | `0xFFFFFFFF` |  |
-| `ToBackgroundColor` | To Background | `Color` | `0xFF0EA5E9` |  |
-| `ToTextColor` | To Text | `Color` | `0xFF082F49` |  |
-| `UseFromToColors` | Use From/To Colors | `Boolean` | `True` |  |
-| `Theme` | Theme | `String` | `light` | light|default |
-| `DateTimeFormat` | Date Time Format | `String` | `` |  |
-| `UseTimeAgo` | Use Time Ago | `Boolean` | `False` |  |
-| `ShowTimeAgoForToday` | Time Ago For Today | `Boolean` | `True` |  |
-| `VerticalGap` | Vertical Gap | `Int` | `8` |  |
-| `Width` | Width | `Int` | `0` |  |
-| `Height` | Height | `Int` | `0` |  |
-| `Padding` | Padding | `String` | `` |  |
-| `Margin` | Margin | `String` | `` |  |
+| `AvatarMask` | Avatar Mask | `String` | squircle | circle|square|squircle|decagon|diamond|heart|hexagon|hexagon-2|pentagon|star|star-2|triangle|triangle-2|triangle-3|triangle-4|half-1|half-2 |
+| `AvatarSize` | Avatar Size | `Int` | 40 |  |
+| `FromBackgroundColor` | From Background | `Color` | 0xFF4338CA |  |
+| `FromTextColor` | From Text | `Color` | 0xFFFFFFFF |  |
+| `ToBackgroundColor` | To Background | `Color` | 0xFF0EA5E9 |  |
+| `ToTextColor` | To Text | `Color` | 0xFF082F49 |  |
+| `UseFromToColors` | Use From/To Colors | `Boolean` | True |  |
+| `Theme` | Theme | `String` | light | light|default |
+| `DateTimeFormat` | Date Time Format | `String` | D, j M Y H:i |  |
+| `UseTimeAgo` | Use Time Ago | `Boolean` | False |  |
+| `ShowTimeAgoForToday` | Time Ago For Today | `Boolean` | True |  |
+| `VerticalGap` | Vertical Gap | `Int` | 8 |  |
+| `Width` | Width | `Int` | 0 |  |
+| `Height` | Height | `Int` | 0 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
 
 ## 5. Declared Events
 - `AvatarClick (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddMessage(mMessage As Map, bScrollTo As Boolean) As String`
-- `AddToParent(vParent As B4XView)`
-- `AddToParentAt(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddViewToContent(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AppendMessage(mMessage As Map) As String`
-- `AppendMessageAndScroll(mMessage As Map, bSmooth As Boolean) As String`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `ClearConversations`
-- `CreateVariant(iBackColor As Int, iTextColor As Int) As Map`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DeleteMessageById(sBubbleId As String) As Boolean`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `LoadAvatarFilesFromAssets(lstFiles As List)`
-- `RandomAvatarFileOrBlank(iBlankPct As Int) As String`
-- `RandomAvatarStatus As String`
-- `RegisterTheme(sName As String, mPaletteMap As Map)`
-- `RemoveViewFromParent`
-- `ReplaceMessageById(sBubbleId As String, mMessage As Map) As Boolean`
-- `Resize(dWidth As Double, dHeight As Double)`
-- `ScrollToBottom`
-- `ScrollToMessage(sBubbleId As String)`
-- `ScrollToTop`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowOnline(bEnabled As Boolean)`
-- `SmoothScrollToBottom(iDurationMs As Int) As ResumableSub`
-- `SmoothScrollToMessage(sBubbleId As String, iDurationMs As Int) As ResumableSub`
-- `SmoothScrollToPosition(iTarget As Int, iDurationMs As Int) As ResumableSub`
-- `SmoothScrollToTop(iDurationMs As Int) As ResumableSub`
-- `UpdateAvatarById(sBubbleId As String, bmpAvatarBitmap As B4XBitmap) As Boolean`
-- `UpdateFooterById(sBubbleId As String, sFooterText As String) As Boolean`
-- `UpdateHeaderById(sBubbleId As String, sHeaderName As String, sHeaderTime As String) As Boolean`
-- `UpdateMessage(mMessage As Map) As Boolean`
-- `UpdateMessageById(sBubbleId As String, mFields As Map) As Boolean`
-- `UpdateOnlineStatusById(sBubbleId As String, sStatus As String, iOnlineColor As Int) As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `Resize(Width As Double, Height As Double)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView)`
+- `AddToParentAt(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `View As B4XView`
-- `getAvatarFiles As List`
-- `getAvatarMask As String`
-- `getAvatarSize As Int`
-- `getBubbleIds As List`
-- `getDateTimeFormat As String`
-- `getFromBackgroundColor As Int`
-- `getFromTextColor As Int`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getMargin As String`
-- `getMessage(sBubbleId As String) As Map`
-- `getMessageById(sBubbleId As String) As Map`
-- `getOfflineStatusColor As Int`
-- `getOnlineStatusColor As Int`
-- `getPadding As String`
-- `getPalette As Map`
-- `getShowTimeAgoForToday As Boolean`
+- `AddViewToContent(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setTag(Value As Object)`
 - `getTag As Object`
-- `getTheme As String`
-- `getToBackgroundColor As Int`
-- `getToTextColor As Int`
-- `getTop As Int`
-- `getUseFromToColors As Boolean`
-- `getUseTimeAgo As Boolean`
-- `getVerticalGap As Int`
-- `getVisible As Boolean`
-- `getWidth As Int`
-- `setAvatarFiles(lstFiles As List)`
-- `setAvatarMask(sMask As String)`
-- `setAvatarSize(iSize As Int)`
-- `setBubbleAvatarStatusById(sBubbleId As String, sMode As String)`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `Clear`
 - `setConversations(lstMessages As List)`
-- `setDateTimeFormat(sValue As String)`
-- `setFromBackgroundColor(iColor As Int)`
-- `setFromTextColor(iColor As Int)`
-- `setFromToColors(iFromBack As Int, iFromText As Int, iToBack As Int, iToText As Int)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setMargin(sValue As String)`
-- `setMask(sMask As String)`
-- `setOnlineStatusColors(iOnlineColor As Int, iOfflineColor As Int)`
-- `setPadding(sValue As String)`
-- `setShowTimeAgoForToday(bEnabled As Boolean)`
-- `setSize(iWidth As Int, iHeight As Int)`
-- `setTag(oValue As Object)`
-- `setTheme(sName As String)`
-- `setToBackgroundColor(iColor As Int)`
-- `setToTextColor(iColor As Int)`
-- `setTop(iValue As Int)`
-- `setUseFromToColors(bEnabled As Boolean)`
-- `setUseTimeAgo(bEnabled As Boolean)`
-- `setVerticalGap(iGap As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `ClearConversations`
+- `AppendMessage(Message As Map) As String`
+- `AppendMessageAndScroll(Message As Map, Smooth As Boolean) As String`
+- `ScrollToMessage(BubbleId As String)`
+- `ScrollToTop`
+- `ScrollToBottom`
+- `SmoothScrollToTop(DurationMs As Int) As ResumableSub`
+- `SmoothScrollToBottom(DurationMs As Int) As ResumableSub`
+- `SmoothScrollToMessage(BubbleId As String, DurationMs As Int) As ResumableSub`
+- `SmoothScrollToPosition(Target As Int, DurationMs As Int) As ResumableSub`
+- `getMessageById(BubbleId As String) As Map`
+- `getMessage(BubbleId As String) As Map`
+- `UpdateMessageById(BubbleId As String, Fields As Map) As Boolean`
+- `UpdateMessage(Message As Map) As Boolean`
+- `UpdateHeaderById(BubbleId As String, HeaderName As String, HeaderTime As String) As Boolean`
+- `UpdateFooterById(BubbleId As String, FooterText As String) As Boolean`
+- `UpdateAvatarById(BubbleId As String, bmpAvatarBitmap As B4XBitmap) As Boolean`
+- `UpdateOnlineStatusById(BubbleId As String, Status As String, OnlineColor As Int) As Boolean`
+- `ReplaceMessageById(BubbleId As String, Message As Map) As Boolean`
+- `DeleteMessageById(BubbleId As String) As Boolean`
+- `AddMessage(Message As Map, ScrollTo As Boolean) As String`
+- `LoadAvatarFilesFromAssets(lstFiles As List)`
+- `setAvatarFiles(lstFiles As List)`
+- `getAvatarFiles As List`
+- `RandomAvatarFileOrBlank(BlankPct As Int) As String`
+- `RandomAvatarStatus As String`
+- `setBubbleAvatarStatusById(BubbleId As String, Mode As String)`
+- `getBubbleIds As List`
+- `setAvatarMask(Mask As String)`
+- `getAvatarMask As String`
+- `setMask(Mask As String)`
+- `setAvatarSize(Size As Int)`
+- `getAvatarSize As Int`
+- `setFromBackgroundColor(Color As Int)`
+- `getFromBackgroundColor As Int`
+- `setFromTextColor(Color As Int)`
+- `getFromTextColor As Int`
+- `setToBackgroundColor(Color As Int)`
+- `getToBackgroundColor As Int`
+- `setToTextColor(Color As Int)`
+- `getToTextColor As Int`
+- `setFromToColors(FromBack As Int, FromText As Int, ToBack As Int, ToText As Int)`
+- `setUseFromToColors(Enabled As Boolean)`
+- `getUseFromToColors As Boolean`
+- `setTheme(Name As String)`
+- `getTheme As String`
+- `setDateTimeFormat(Value As String)`
+- `getDateTimeFormat As String`
+- `setUseTimeAgo(Enabled As Boolean)`
+- `getUseTimeAgo As Boolean`
+- `setShowTimeAgoForToday(Enabled As Boolean)`
+- `getShowTimeAgoForToday As Boolean`
+- `RegisterTheme(Name As String, PaletteMap As Map)`
+- `getPalette As Map`
+- `CreateVariant(BackColor As Int, TextColor As Int) As Map`
+- `ShowOnline(Enabled As Boolean)`
+- `setOnlineStatusColors(OnlineColor As Int, OfflineColor As Int)`
+- `getOnlineStatusColor As Int`
+- `getOfflineStatusColor As Int`
+- `setVerticalGap(Gap As Int)`
+- `getVerticalGap As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setSize(Width As Int, Height As Int)`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

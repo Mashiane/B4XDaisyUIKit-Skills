@@ -1,12 +1,12 @@
 # timeline (`B4XDaisyTimeline`)
 
-DaisyUI `Timeline` component for B4X (B4A/B4i/B4J).
+DaisyUI `Timeline` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyTimeline`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyTimeline.bas`
-- **Verified Demo Source**: B4XPageTimeline.bas (lines 54–199)
+- **Verified Demo Source**: B4XPageTimeline.bas
 - **Web DaisyUI Mapping**: `.timeline` → `B4XDaisyTimeline`
 
 ## DaisyUI Web Class Translation
@@ -78,79 +78,78 @@ DaisyUI `Timeline` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Orientation` | Orientation | `String` | `vertical` | vertical|horizontal |
-| `Compact` | Compact | `Boolean` | `False` |  |
-| `SnapIcon` | Snap Icon | `Boolean` | `False` |  |
-| `LineColor` | Line Color | `String` | `base-300` | base-300|primary|secondary|accent|info|success|warning|error |
-| `MarkerSize` | Marker Size | `Int` | `20` |  |
-| `MarkerColor` | Marker Color | `String` | `neutral` | neutral|base-300|base-100|primary|secondary|accent|info|success|warning|error |
-| `TextSize` | Text Size | `String` | `text-xs` |  |
-| `BoxShadow` | Box Shadow | `String` | `sm` | none|xs|sm|md|lg|xl|2xl |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Orientation` | Orientation | `String` | vertical | vertical|horizontal |
+| `Compact` | Compact | `Boolean` | False |  |
+| `SnapIcon` | Snap Icon | `Boolean` | False |  |
+| `LineColor` | Line Color | `String` | base-300 | base-300|primary|secondary|accent|info|success|warning|error |
+| `MarkerSize` | Marker Size | `Int` | 20, MinRange: 4, MaxRange: 100 |  |
+| `MarkerColor` | Marker Color | `String` | neutral | neutral|base-300|base-100|primary|secondary|accent|info|success|warning|error |
+| `TextSize` | Text Size | `String` | text-xs |  |
+| `BoxShadow` | Box Shadow | `String` | sm | none|xs|sm|md|lg|xl|2xl |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `ItemClick (Id As String)`
 
 ## 6. Public Methods & APIs
-- `AddItem(sId As String, sStartText As String, sEndText As String) As String`
-- `AddItemBox(sId As String, sStartText As String, sEndText As String, bBoxOnStart As Boolean, bBoxOnEnd As Boolean) As String`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddItem(Id As String, StartText As String, EndText As String) As String`
+- `AddItemBox(Id As String, StartText As String, EndText As String, BoxOnStart As Boolean, BoxOnEnd As Boolean) As String`
+- `UpdateItem(Id As String, StartText As String, MiddleIcon As Object, IconColor As Int, EndText As String, IsBox As Boolean, BoxOnStart As Boolean, BoxOnEnd As Boolean, Variant As String, DashedBorder As Boolean)`
+- `SetItemStartText(Id As String, StartText As String)`
+- `SetItemMiddleIcon(Id As String, MiddleIcon As Object)`
+- `SetItemIconColor(Id As String, IconColor As Int)`
+- `SetItemEndText(Id As String, EndText As String)`
+- `SetItemVariant(Id As String, Variant As String)`
+- `SetItemDashedBorder(Id As String, Dashed As Boolean)`
+- `SetItemDone(Id As String, Done As Boolean)`
+- `GetItemDone(Id As String) As Boolean`
+- `ToggleItem(Id As String)`
 - `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `GetContentHeight As Int`
-- `GetItemDone(sId As String) As Boolean`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItemDashedBorder(sId As String, bDashed As Boolean)`
-- `SetItemDone(sId As String, bDone As Boolean)`
-- `SetItemEndText(sId As String, sEndText As String)`
-- `SetItemIconColor(sId As String, iIconColor As Int)`
-- `SetItemMiddleIcon(sId As String, oMiddleIcon As Object)`
-- `SetItemStartText(sId As String, sStartText As String)`
-- `SetItemVariant(sId As String, sVariant As String)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ToggleItem(sId As String)`
-- `UpdateItem(sId As String, sStartText As String, oMiddleIcon As Object, iIconColor As Int, sEndText As String, bIsBox As Boolean, bBoxOnStart As Boolean, bBoxOnEnd As Boolean, sVariant As String, bDashedBorder As Boolean)`
-- `View As B4XView`
-- `getBoxShadow As String`
-- `getCompact As Boolean`
-- `getHeight As Int`
-- `getLeft As Int`
-- `getLineColor As String`
-- `getMarkerColor As String`
-- `getMarkerSize As Int`
-- `getOrientation As String`
 - `getSize As Int`
+- `Refresh`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setOrientation(Value As String)`
+- `getOrientation As String`
+- `setCompact(Value As Boolean)`
+- `getCompact As Boolean`
+- `setSnapIcon(Value As Boolean)`
 - `getSnapIcon As Boolean`
-- `getTag As Object`
+- `setLineColor(Value As String)`
+- `getLineColor As String`
+- `setMarkerSize(Value As Int)`
+- `getMarkerSize As Int`
+- `setMarkerColor(Value As String)`
+- `getMarkerColor As String`
+- `setVisible(Value As Boolean)`
+- `setTextSize(Value As String)`
 - `getTextSize As String`
-- `getTop As Int`
+- `setBoxShadow(Value As String)`
+- `getBoxShadow As String`
 - `getVisible As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `GetContentHeight As Int`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setBoxShadow(sValue As String)`
-- `setCompact(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setLineColor(sValue As String)`
-- `setMarkerColor(sValue As String)`
-- `setMarkerSize(iValue As Int)`
-- `setOrientation(sValue As String)`
-- `setSnapIcon(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTextSize(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

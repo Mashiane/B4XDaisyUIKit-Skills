@@ -1,12 +1,12 @@
 # toast (`B4XDaisyToast`)
 
-DaisyUI `Toast` component for B4X (B4A/B4i/B4J).
+DaisyUI `Toast` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyToast`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyToast.bas`
-- **Verified Demo Source**: B4XPageCard.bas (lines 17–17), B4XPageTagSphere.bas (lines 32–32), B4XPageToast.bas (lines 13–13)
+- **Verified Demo Source**: B4XPageCard.bas, B4XPageTagSphere.bas, B4XPageToast.bas
 - **Web DaisyUI Mapping**: `.toast` → `B4XDaisyToast`
 
 ## DaisyUI Web Class Translation
@@ -71,61 +71,60 @@ Root = Root1
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `HorizontalAlignment` | Horizontal Alignment | `String` | `end` | start|center|end |
-| `VerticalAlignment` | Vertical Alignment | `String` | `bottom` | top|middle|bottom |
-| `ShowProgress` | Show Progress | `Boolean` | `True` |  |
+| `HorizontalAlignment` | Horizontal Alignment | `String` | end | start|center|end |
+| `VerticalAlignment` | Vertical Alignment | `String` | bottom | top|middle|bottom |
+| `ShowProgress` | Show Progress | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `NotificationClosed (View As B4XView)`
 
 ## 6. Public Methods & APIs
-- `ApplyDesignerProps(mProps As Map)`
-- `AttachTo(vHostView As B4XView)`
-- `AttachWithDuration(vHostView As B4XView, iDurationMs As Int)`
-- `Base_Resize (iWidth As Int, iHeight As Int)`
-- `BringToFront`
-- `Clear`
+- `Initialize(Callback As Object, EventName As String)`
 - `CreateView As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `Detach(vHostView As B4XView)`
-- `Error(sMessage As String)`
-- `ErrorWithDuration(sMessage As String, iDurationMs As Int)`
-- `GetComputedHeight As Int`
-- `Hide`
-- `Info(sMessage As String)`
-- `InfoWithDuration(sMessage As String, iDurationMs As Int)`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetPosition(sHorizontal As String, sVertical As String)`
-- `SetRoot(vRoot1 As B4XView)`
-- `Show`
-- `Success(sMessage As String)`
-- `SuccessWithDuration(sMessage As String, iDurationMs As Int)`
-- `View As B4XView`
-- `Warning(sMessage As String)`
-- `WarningWithDuration(sMessage As String, iDurationMs As Int)`
-- `getHeight As Int`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `ApplyDesignerProps(Props As Map)`
 - `getHorizontalAlignment As String`
-- `getLeft As Int`
-- `getShowProgress As Boolean`
-- `getTop As Int`
+- `setHorizontalAlignment(Value As String)`
 - `getVerticalAlignment As String`
-- `getVisible As Boolean`
+- `setVerticalAlignment(Value As String)`
+- `SetPosition(Horizontal As String, Vertical As String)`
+- `Show`
+- `Hide`
+- `SetRoot(Root1 As B4XView)`
+- `AttachTo(HostView As B4XView)`
+- `Detach(HostView As B4XView)`
+- `Clear`
+- `Success(Message As String)`
+- `SuccessWithDuration(Message As String, DurationMs As Int)`
+- `Info(Message As String)`
+- `InfoWithDuration(Message As String, DurationMs As Int)`
+- `Warning(Message As String)`
+- `WarningWithDuration(Message As String, DurationMs As Int)`
+- `Error(Message As String)`
+- `ErrorWithDuration(Message As String, DurationMs As Int)`
+- `AttachWithDuration(HostView As B4XView, DurationMs As Int)`
+- `Base_Resize(Width As Int, Height As Int)`
+- `setShowProgress(Value As Boolean)`
+- `getShowProgress As Boolean`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setHeight(iValue As Int)`
-- `setHorizontalAlignment(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setShowProgress(bValue As Boolean)`
-- `setTop(iValue As Int)`
-- `setVerticalAlignment(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 
@@ -137,7 +136,8 @@ Dim toast As B4XDaisyToast
 toast.Initialize(Me, "toast")
 toast.SetRoot(Root)
 
-' Trigger toast anywhere in the page:
-' toast.ShowToast(Title, Message, Variant ["info"|"success"|"warning"|"error"], DurationMs, Position ["top-right"|"bottom-center"])
-toast.ShowToast("Stock Saved", "Count recorded successfully.", "success", 3000, "top-center")
+' Trigger toast anywhere in the page (see B4XPageToast.bas):
+toast.SetPosition("end", "top")                 ' optional: position before showing
+toast.Success("Count recorded successfully.")   ' variants: Info / Success / Warning / Error
+toast.InfoWithDuration("New message arrived.", 3000)  ' auto-hide after 3000 ms
 ```

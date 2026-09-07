@@ -1,6 +1,6 @@
 # input (`B4XDaisyInput`)
 
-DaisyUI `Input` component for B4X (B4A/B4i/B4J).
+DaisyUI `Input` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyInput`

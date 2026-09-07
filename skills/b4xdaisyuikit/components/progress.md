@@ -1,12 +1,12 @@
 # progress (`B4XDaisyProgress`)
 
-DaisyUI `Progress` component for B4X (B4A/B4i/B4J).
+DaisyUI `Progress` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyProgress`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyProgress.bas`
-- **Verified Demo Source**: B4XPageDrawerRail.bas (lines 334–334), B4XPageProgress.bas (lines 18–197)
+- **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageProgress.bas
 - **Web DaisyUI Mapping**: `.progress` → `B4XDaisyProgress`
 
 ## DaisyUI Web Class Translation
@@ -70,100 +70,99 @@ Private Sub RenderExamples
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Value` | Value | `Int` | `0` |  |
-| `MaxValue` | Max Value | `Int` | `100` |  |
-| `Variant` | Variant/Color | `String` | `neutral` | none|primary|secondary|accent|info|success|warning|error|neutral |
-| `Size` | Size | `String` | `none` | none|xs|sm|md|lg|xl |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Width` | CSS Width | `String` | `w-full` |  |
-| `Height` | CSS Height | `String` | `h-2` |  |
-| `ShowTooltip` | Show Tooltip | `Boolean` | `False` |  |
-| `TooltipPosition` | Tooltip Position | `String` | `top` | top|bottom|left|right |
-| `Indeterminate` | Indeterminate | `Boolean` | `False` |  |
-| `ShowNumberInline` | Show Number Inline | `Boolean` | `False` |  |
-| `NumberTextColor` | Number Text Color | `Color` | `0x00000000` |  |
-| `Animated` | Animated | `Boolean` | `False` |  |
-| `Duration` | Animation Duration | `Int` | `1000` |  |
-| `IconLeft` | Icon Left | `String` | `` |  |
-| `IconRight` | Icon Right | `String` | `` |  |
-| `MinValue` | Min Value | `Float` | `0` |  |
-| `StepValue` | Step Value | `Float` | `1` |  |
-| `IconSize` | Icon Size | `Int` | `0` |  |
-| `LabelAbove` | Label Above | `String` | `` |  |
-| `LabelVisible` | Label Visible | `Boolean` | `False` |  |
-| `TooltipOpen` | Tooltip Open | `Boolean` | `True` |  |
+| `Value` | Value | `Int` | 0 |  |
+| `MaxValue` | Max Value | `Int` | 100 |  |
+| `Variant` | Variant/Color | `String` | neutral | none|primary|secondary|accent|info|success|warning|error|neutral |
+| `Size` | Size | `String` | none | none|xs|sm|md|lg|xl |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Width` | CSS Width | `String` | w-full |  |
+| `Height` | CSS Height | `String` | h-2 |  |
+| `ShowTooltip` | Show Tooltip | `Boolean` | False |  |
+| `TooltipPosition` | Tooltip Position | `String` | top | top|bottom|left|right |
+| `Indeterminate` | Indeterminate | `Boolean` | False |  |
+| `ShowNumberInline` | Show Number Inline | `Boolean` | False |  |
+| `NumberTextColor` | Number Text Color | `Color` | 0x00000000 |  |
+| `Animated` | Animated | `Boolean` | False |  |
+| `Duration` | Animation Duration | `Int` | 1000 |  |
+| `IconLeft` | Icon Left | `String` |  |  |
+| `IconRight` | Icon Right | `String` |  |  |
+| `MinValue` | Min Value | `Float` | 0 |  |
+| `StepValue` | Step Value | `Float` | 1 |  |
+| `IconSize` | Icon Size | `Int` | 0 |  |
+| `LabelAbove` | Label Above | `String` |  |  |
+| `LabelVisible` | Label Visible | `Boolean` | False |  |
+| `TooltipOpen` | Tooltip Open | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Changed (Value As Float)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize (dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView (oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize (oCallback As Object, sEventName As String)`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeftPos As Int, iTopPos As Int, iWidth As Int, iHeight As Int)`
-- `SetTrackColor(iColor As Int)`
-- `SetValueColor(iColor As Int)`
-- `StartTimer(iDurationMs As Int)`
-- `StopAnimation`
-- `View As B4XView`
-- `getAnimated As Boolean`
-- `getDuration As Int`
-- `getHeight As Int`
-- `getIconLeft As String`
-- `getIconRight As String`
-- `getIconSize As Int`
-- `getIndeterminate As Boolean`
-- `getLabelAbove As String`
-- `getLabelVisible As Boolean`
-- `getLeft As Int`
-- `getMaxValue As Float`
-- `getMinValue As Float`
-- `getNumberTextColor As Int`
-- `getShowNumberInline As Boolean`
-- `getShowTooltip As Boolean`
-- `getSize As String`
-- `getStepValue As Float`
-- `getTag As Object`
-- `getTooltipOpen As Boolean`
-- `getTooltipPosition As String`
-- `getTop As Int`
-- `getValue As Float`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `SetValueColor(Color As Int)`
+- `SetTrackColor(Color As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setVariant(VariantName As String)`
 - `getVariant As String`
-- `getVisible As Boolean`
+- `setValue(Value As Float)`
+- `getValue As Float`
+- `StartTimer(DurationMs As Int)`
+- `setMaxValue(MaxValue As Float)`
+- `getMaxValue As Float`
+- `setSize(Size As String)`
+- `getSize As String`
+- `setShowTooltip(Value As Boolean)`
+- `getShowTooltip As Boolean`
+- `setTooltipPosition(Value As String)`
+- `getTooltipPosition As String`
+- `setIndeterminate(Value As Boolean)`
+- `getIndeterminate As Boolean`
+- `setShowNumberInline(Value As Boolean)`
+- `getShowNumberInline As Boolean`
+- `setNumberTextColor(C As Int)`
+- `getNumberTextColor As Int`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setTag(Tag As Object)`
+- `getTag As Object`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setIconLeft(Value As String)`
+- `getIconLeft As String`
+- `setIconRight(Value As String)`
+- `getIconRight As String`
+- `setMinValue(V As Float)`
+- `getMinValue As Float`
+- `setStepValue(V As Float)`
+- `getStepValue As Float`
+- `setIconSize(V As Int)`
+- `getIconSize As Int`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
+- `StopAnimation`
+- `setTooltipOpen(Value As Boolean)`
+- `getTooltipOpen As Boolean`
+- `GetComputedHeight As Int`
+- `View As B4XView`
+- `RemoveViewFromParent`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAnimated(bValue As Boolean)`
-- `setDuration(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setIconLeft(sValue As String)`
-- `setIconRight(sValue As String)`
-- `setIconSize(iV As Int)`
-- `setIndeterminate(bValue As Boolean)`
-- `setLabelAbove(sValue As String)`
-- `setLabelVisible(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setMaxValue(fMaxValue As Float)`
-- `setMinValue(fV As Float)`
-- `setNumberTextColor(iC As Int)`
-- `setShowNumberInline(bValue As Boolean)`
-- `setShowTooltip(bValue As Boolean)`
-- `setSize(sSize As String)`
-- `setStepValue(fV As Float)`
-- `setTag(oTag As Object)`
-- `setTooltipOpen(bValue As Boolean)`
-- `setTooltipPosition(sValue As String)`
-- `setTop(iValue As Int)`
-- `setValue(fValue As Float)`
-- `setVariant(sVariantName As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

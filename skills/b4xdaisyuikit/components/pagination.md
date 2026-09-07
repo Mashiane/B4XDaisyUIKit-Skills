@@ -1,12 +1,12 @@
 # pagination (`B4XDaisyPagination`)
 
-DaisyUI `Pagination` component for B4X (B4A/B4i/B4J).
+DaisyUI `Pagination` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyPagination`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyPagination.bas`
-- **Verified Demo Source**: B4XPagePagination.bas (lines 67–233)
+- **Verified Demo Source**: B4XPagePagination.bas
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
 ## DaisyUI Web Class Translation
@@ -71,95 +71,94 @@ DaisyUI `Pagination` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Style` | Style | `String` | `solid` | solid|outline|ghost|link|soft|dash |
-| `ActiveColor` | Active Color | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `ActiveIndex` | Active Index | `Int` | `0` |  |
-| `Disabled` | Disabled | `Boolean` | `False` |  |
-| `ShowPrevNext` | Show Prev/Next | `Boolean` | `True` |  |
-| `PrevText` | Prev Text | `String` | `chevron-left-solid.svg` |  |
-| `NextText` | Next Text | `String` | `chevron-right-solid.svg` |  |
-| `ShowFirstLast` | Show First/Last | `Boolean` | `False` |  |
-| `FirstText` | First Text | `String` | `angles-left-solid.svg` |  |
-| `LastText` | Last Text | `String` | `angles-right-solid.svg` |  |
-| `ShowPageNumbers` | Show Page Numbers | `Boolean` | `True` |  |
-| `PageCount` | Page Count | `Int` | `5` |  |
-| `EqualWidth` | Equal Width | `Boolean` | `False` |  |
-| `Shadow` | Shadow | `String` | `none` | none|sm|md|lg|xl |
-| `Circle` | Circle | `Boolean` | `True` |  |
-| `GapX` | Gap X | `Int` | `1` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Style` | Style | `String` | solid | solid|outline|ghost|link|soft|dash |
+| `ActiveColor` | Active Color | `String` | primary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `ActiveIndex` | Active Index | `Int` | 0 |  |
+| `Disabled` | Disabled | `Boolean` | False |  |
+| `ShowPrevNext` | Show Prev/Next | `Boolean` | True |  |
+| `PrevText` | Prev Text | `String` | chevron-left-solid.svg |  |
+| `NextText` | Next Text | `String` | chevron-right-solid.svg |  |
+| `ShowFirstLast` | Show First/Last | `Boolean` | False |  |
+| `FirstText` | First Text | `String` | angles-left-solid.svg |  |
+| `LastText` | Last Text | `String` | angles-right-solid.svg |  |
+| `ShowPageNumbers` | Show Page Numbers | `Boolean` | True |  |
+| `PageCount` | Page Count | `Int` | 5 |  |
+| `EqualWidth` | Equal Width | `Boolean` | False |  |
+| `Shadow` | Shadow | `String` | none | none|sm|md|lg|xl |
+| `Circle` | Circle | `Boolean` | True |  |
+| `GapX` | Gap X | `Int` | 1 |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Changed (PageIndex As Int, ItemId As String)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetActualPageCount As Int`
-- `GetItemCount As Int`
-- `GetItemIdAt(iIndex As Int) As String`
-- `GoToPage(iIndex As Int)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `NextPage`
-- `PrevPage`
-- `Refresh`
-- `SendToBack`
-- `SetItemDisabled(sId As String, bDisabled As Boolean)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getActiveColor As String`
-- `getActiveIndex As Int`
-- `getCircle As Boolean`
-- `getDisabled As Boolean`
-- `getEqualWidth As Boolean`
-- `getFirstText As String`
-- `getGapX As Int`
-- `getHeight As Int`
-- `getLastText As String`
-- `getLeft As Int`
-- `getNextText As String`
-- `getPageCount As Int`
-- `getPrevText As String`
-- `getShadow As String`
-- `getShowFirstLast As Boolean`
-- `getShowPageNumbers As Boolean`
-- `getShowPrevNext As Boolean`
-- `getSize As String`
-- `getStyle As String`
-- `getTag As Object`
-- `getTop As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `getSize As String`
+- `setSize(Value As String)`
+- `getStyle As String`
+- `setStyle(Value As String)`
+- `getActiveColor As String`
+- `setActiveColor(Value As String)`
+- `getActiveIndex As Int`
+- `setActiveIndex(Value As Int)`
+- `getDisabled As Boolean`
+- `setDisabled(Value As Boolean)`
+- `getShowPrevNext As Boolean`
+- `setShowPrevNext(Value As Boolean)`
+- `getShowFirstLast As Boolean`
+- `setShowFirstLast(Value As Boolean)`
+- `getFirstText As String`
+- `setFirstText(Value As String)`
+- `getLastText As String`
+- `setLastText(Value As String)`
+- `getShadow As String`
+- `setShadow(Value As String)`
+- `getPrevText As String`
+- `setPrevText(Value As String)`
+- `getNextText As String`
+- `setNextText(Value As String)`
+- `getShowPageNumbers As Boolean`
+- `setShowPageNumbers(Value As Boolean)`
+- `getPageCount As Int`
+- `setPageCount(Value As Int)`
+- `getEqualWidth As Boolean`
+- `setEqualWidth(Value As Boolean)`
+- `getCircle As Boolean`
+- `setCircle(Value As Boolean)`
+- `getGapX As Int`
+- `setGapX(Value As Int)`
+- `getTag As Object`
+- `setTag(Value As Object)`
+- `View As B4XView`
+- `Refresh`
+- `GetActualPageCount As Int`
+- `PrevPage`
+- `NextPage`
+- `GoToPage(Index As Int)`
+- `GetItemCount As Int`
+- `GetItemIdAt(Index As Int) As String`
+- `SetItemDisabled(Id As String, Disabled As Boolean)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setActiveColor(sValue As String)`
-- `setActiveIndex(iValue As Int)`
-- `setCircle(bValue As Boolean)`
-- `setDisabled(bValue As Boolean)`
-- `setEqualWidth(bValue As Boolean)`
-- `setFirstText(sValue As String)`
-- `setGapX(iValue As Int)`
-- `setHeight(iValue As Int)`
-- `setLastText(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setNextText(sValue As String)`
-- `setPageCount(iValue As Int)`
-- `setPrevText(sValue As String)`
-- `setShadow(sValue As String)`
-- `setShowFirstLast(bValue As Boolean)`
-- `setShowPageNumbers(bValue As Boolean)`
-- `setShowPrevNext(bValue As Boolean)`
-- `setSize(sValue As String)`
-- `setStyle(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

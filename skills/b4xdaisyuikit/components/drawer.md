@@ -1,12 +1,12 @@
 # drawer (`B4XDaisyDrawer`)
 
-DaisyUI `Drawer` component for B4X (B4A/B4i/B4J).
+DaisyUI `Drawer` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyDrawer`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyDrawer.bas`
-- **Verified Demo Source**: B4XPageDrawer.bas (lines 15–15), B4XPageDrawerRail.bas (lines 15–15), B4XPageDrawerTree.bas (lines 15–15)
+- **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas
 - **Web DaisyUI Mapping**: `.drawer` → `B4XDaisyDrawer`
 
 ## DaisyUI Web Class Translation
@@ -152,29 +152,29 @@ Example: This sidebar is always visible. When it's close we only see icons, when
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Opened` | Opened | `Boolean` | `False` |  |
-| `AlwaysOpen` | Always Open | `Boolean` | `False` |  |
-| `Side` | Side | `String` | `left` | left|right|both |
-| `LeftSideWidth` | Left Side Width | `String` | `300dip` |  |
-| `RightSideWidth` | Right Side Width | `String` | `300dip` |  |
-| `CollapseWidth` | Collapse Width | `String` | `60dip` |  |
-| `NormalWidth` | Normal Width | `String` | `300dip` |  |
-| `IsCollapsed` | Is Collapsed | `Boolean` | `False` |  |
-| `RailWidth` | Rail Width | `String` | `60dip` |  |
-| `RailMode` | Rail Mode | `Boolean` | `False` |  |
-| `GestureEnabled` | Gesture / Swipe Enabled | `Boolean` | `True` |  |
-| `LeftSideBackgroundColor` | Left Side Background Color | `String` | `base-200` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
-| `RightSideBackgroundColor` | Right Side Background Color | `String` | `base-200` | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
-| `ContentBackgroundColor` | Content Background Color | `String` | `none` | none|base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
-| `OverlayColor` | Overlay Color | `Color` | `0xFF000000` |  |
-| `OverlayOpacity` | Overlay Opacity | `Int` | `40` |  |
-| `Rounded` | Rounded | `String` | `rounded-box` | theme|none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box |
-| `Shadow` | Shadow | `String` | `lg` | none|xs|sm|md|lg|xl|2xl |
-| `Padding` | Padding | `String` | `p-4` |  |
-| `Animated` | Animated | `Boolean` | `True` |  |
-| `Duration` | Duration | `Int` | `300` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Opened` | Opened | `Boolean` | False |  |
+| `AlwaysOpen` | Always Open | `Boolean` | False |  |
+| `Side` | Side | `String` | left | left|right|both |
+| `LeftSideWidth` | Left Side Width | `String` | 300dip |  |
+| `RightSideWidth` | Right Side Width | `String` | 300dip |  |
+| `CollapseWidth` | Collapse Width | `String` | 60dip |  |
+| `NormalWidth` | Normal Width | `String` | 300dip |  |
+| `IsCollapsed` | Is Collapsed | `Boolean` | False |  |
+| `RailWidth` | Rail Width | `String` | 60dip |  |
+| `RailMode` | Rail Mode | `Boolean` | False |  |
+| `GestureEnabled` | Gesture / Swipe Enabled | `Boolean` | True |  |
+| `LeftSideBackgroundColor` | Left Side Background Color | `String` | base-200 | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `RightSideBackgroundColor` | Right Side Background Color | `String` | base-200 | base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `ContentBackgroundColor` | Content Background Color | `String` | none | none|base-100|base-200|base-300|primary|secondary|accent|neutral|info|success|warning|error |
+| `OverlayColor` | Overlay Color | `Color` | 0xFF000000 |  |
+| `OverlayOpacity` | Overlay Opacity | `Int` | 40, MinRange: 0, MaxRange: 100 |  |
+| `Rounded` | Rounded | `String` | rounded-box | theme|none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box |
+| `Shadow` | Shadow | `String` | lg | none|xs|sm|md|lg|xl|2xl |
+| `Padding` | Padding | `String` | p-4 |  |
+| `Animated` | Animated | `Boolean` | True |  |
+| `Duration` | Duration | `Int` | 300, MinRange: 0, MaxRange: 2000 |  |
 
 ## 5. Declared Events
 - `Closed`
@@ -183,111 +183,110 @@ Example: This sidebar is always visible. When it's close we only see icons, when
 - `StateChanged (Open As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToCenter(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToLeft(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AddToRight(vChildView As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `CenterPanel As B4XView`
+- `LeftPanel As B4XView`
+- `RightPanel As B4XView`
+- `DarkPanel As B4XView`
+- `AddToCenter(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddToLeft(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `AddToRight(ChildView As B4XView, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `ClearCenter`
 - `ClearLeft`
 - `ClearRight`
-- `Close`
-- `CloseLeft`
-- `CloseRight`
-- `CreateView(vParent As B4XView, oTag As Object) As B4XView`
-- `DarkPanel As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `LeftPanel As B4XView`
-- `Open`
-- `OpenLeft`
-- `OpenRight`
-- `Refresh`
-- `RemoveViewFromParent`
-- `Resize(iWidth As Int, iHeight As Int)`
-- `RightPanel As B4XView`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetSideWidthAnimated(fWidth As Float, bSmooth As Boolean)`
-- `Toggle`
-- `UpdateTheme`
-- `View As B4XView`
-- `getAlwaysOpen As Boolean`
-- `getAnimated As Boolean`
-- `getBackgroundColorVariant As String`
-- `getCollapseWidth As String`
-- `getCollapsed As Boolean`
-- `getContentBackgroundColor As String`
-- `getDuration As Int`
-- `getEnabled As Boolean`
-- `getGestureEnabled As Boolean`
-- `getHeight As Int`
-- `getIsCollapsed As Boolean`
-- `getIsOpen As Boolean`
-- `getLeft As Int`
 - `getLeftOpen As Boolean`
-- `getLeftSideBackgroundColor As String`
-- `getLeftSideWidth As String`
-- `getNormalWidth As String`
-- `getOpened As Boolean`
-- `getOverlayColor As Int`
-- `getOverlayOpacity As Int`
-- `getPadding As String`
-- `getRailWidth As String`
+- `setLeftOpen(Value As Boolean)`
+- `OpenLeft`
+- `CloseLeft`
 - `getRightOpen As Boolean`
-- `getRightSideBackgroundColor As String`
-- `getRightSideWidth As String`
-- `getRounded As String`
-- `getShadow As String`
-- `getSide As String`
-- `getSideBackgroundColor As String`
+- `setRightOpen(Value As Boolean)`
+- `OpenRight`
+- `CloseRight`
+- `Open`
+- `Close`
+- `Toggle`
+- `getIsOpen As Boolean`
+- `setIsOpen(Value As Boolean)`
+- `SetSideWidthAnimated(Width As Float, Smooth As Boolean)`
+- `setSideWidth(Value As String)`
 - `getSideWidth As String`
-- `getTag As Object`
-- `getTextColorVariant As String`
-- `getTop As Int`
+- `setLeftSideWidth(Value As String)`
+- `getLeftSideWidth As String`
+- `setRightSideWidth(Value As String)`
+- `getRightSideWidth As String`
+- `setCollapseWidth(Value As String)`
+- `getCollapseWidth As String`
+- `setRailWidth(Value As String)`
+- `getRailWidth As String`
+- `setNormalWidth(Value As String)`
+- `getNormalWidth As String`
+- `setIsCollapsed(Value As Boolean)`
+- `getIsCollapsed As Boolean`
+- `setCollapsed(Value As Boolean)`
+- `getCollapsed As Boolean`
+- `getGestureEnabled As Boolean`
+- `setGestureEnabled(Value As Boolean)`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setAlwaysOpen(Value As Boolean)`
+- `getAlwaysOpen As Boolean`
+- `setSide(Value As String)`
+- `getSide As String`
+- `setLeftSideBackgroundColor(Value As String)`
+- `getLeftSideBackgroundColor As String`
+- `setRightSideBackgroundColor(Value As String)`
+- `getRightSideBackgroundColor As String`
+- `setSideBackgroundColor(Value As String)`
+- `getSideBackgroundColor As String`
+- `setContentBackgroundColor(Value As String)`
+- `getContentBackgroundColor As String`
+- `setOverlayColor(Value As Object)`
+- `getOverlayColor As Int`
+- `setOverlayOpacity(Value As Int)`
+- `getOverlayOpacity As Int`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setShadow(Value As String)`
+- `getShadow As String`
+- `setPadding(Value As String)`
+- `getPadding As String`
+- `setAnimated(Value As Boolean)`
+- `getAnimated As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setBackgroundColorVariant(Value As String)`
+- `getBackgroundColorVariant As String`
+- `setTextColorVariant(Value As String)`
+- `getTextColorVariant As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `View As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `CreateView(Parent As B4XView, Tag As Object) As B4XView`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Resize(Width As Int, Height As Int)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAlwaysOpen(bValue As Boolean)`
-- `setAnimated(bValue As Boolean)`
-- `setBackgroundColorVariant(sValue As String)`
-- `setCollapseWidth(sValue As String)`
-- `setCollapsed(bValue As Boolean)`
-- `setContentBackgroundColor(sValue As String)`
-- `setDuration(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setGestureEnabled(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setIsCollapsed(bValue As Boolean)`
-- `setIsOpen(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLeftOpen(bValue As Boolean)`
-- `setLeftSideBackgroundColor(sValue As String)`
-- `setLeftSideWidth(sValue As String)`
-- `setNormalWidth(sValue As String)`
-- `setOpened(bValue As Boolean)`
-- `setOverlayColor(oValue As Object)`
-- `setOverlayOpacity(iValue As Int)`
-- `setPadding(sValue As String)`
-- `setRailWidth(sValue As String)`
-- `setRightOpen(bValue As Boolean)`
-- `setRightSideBackgroundColor(sValue As String)`
-- `setRightSideWidth(sValue As String)`
-- `setRounded(sValue As String)`
-- `setShadow(sValue As String)`
-- `setSide(sValue As String)`
-- `setSideBackgroundColor(sValue As String)`
-- `setSideWidth(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColorVariant(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `RemoveViewFromParent`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

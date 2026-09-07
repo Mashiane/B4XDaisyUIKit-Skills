@@ -1,12 +1,12 @@
 # flex-item (`B4XDaisyFlexItem`)
 
-DaisyUI `FlexItem` component for B4X (B4A/B4i/B4J).
+DaisyUI `FlexItem` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFlexItem`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyFlexItem.bas`
-- **Verified Demo Source**: None (no demo found in B4A demo pages)
+- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.flex-item` → `B4XDaisyFlexItem`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -26,41 +26,41 @@ DaisyUI `FlexItem` component for B4X (B4A/B4i/B4J).
 - Component `B4XDaisyFlexItem` exists in B4A source but has no corresponding demo usage in B4XPage*.bas / B4XMainPage.bas.
 
 ## 4. Designer Properties
-*(No `#DesignerProperty` attributes defined in source — configured purely in code)*
+(none declared in packaged source)
 
 ## 5. Declared Events
-- *(No custom events declared)*
+(none declared in packaged source)
 
 ## 6. Public Methods & APIs
-- `AlignSelf(sValue As String) As B4XDaisyFlexItem`
-- `Apply As B4XDaisyFlexItem`
-- `ApplyEx(bDoRelayout As Boolean) As B4XDaisyFlexItem`
-- `ApplyNoRelayout As B4XDaisyFlexItem`
-- `Basis(iW As Int, iH As Int) As B4XDaisyFlexItem`
-- `BasisPercent(fMainPct As Float, fCrossPct As Float) As B4XDaisyFlexItem`
-- `Flex(fGrowValue As Float, fShrinkValue As Float) As B4XDaisyFlexItem`
+- `Initialize(Owner As B4XDaisyFlexPanel, View As B4XView)`
+- `Reset As B4XDaisyFlexItem`
+- `Grow(Value As Float) As B4XDaisyFlexItem`
+- `Shrink(Value As Float) As B4XDaisyFlexItem`
+- `Flex(GrowValue As Float, ShrinkValue As Float) As B4XDaisyFlexItem`
 - `Flex1 As B4XDaisyFlexItem`
 - `FlexAuto As B4XDaisyFlexItem`
 - `FlexInitial As B4XDaisyFlexItem`
 - `FlexNone As B4XDaisyFlexItem`
-- `Grow(fValue As Float) As B4XDaisyFlexItem`
-- `Initialize(Owner As B4XDaisyFlexPanel, vView As B4XView)`
-- `MarginAll(iValue As Int) As B4XDaisyFlexItem`
-- `MarginX(iValue As Int) As B4XDaisyFlexItem`
-- `MarginY(iValue As Int) As B4XDaisyFlexItem`
-- `Margins(iLeft As Int, iTop As Int, iRight As Int, iBottom As Int) As B4XDaisyFlexItem`
-- `MaxH(iValue As Int) As B4XDaisyFlexItem`
-- `MaxSize(iW As Int, iH As Int) As B4XDaisyFlexItem`
-- `MaxW(iValue As Int) As B4XDaisyFlexItem`
-- `MinH(iValue As Int) As B4XDaisyFlexItem`
-- `MinSize(iW As Int, iH As Int) As B4XDaisyFlexItem`
-- `MinW(iValue As Int) As B4XDaisyFlexItem`
-- `Order(iValue As Int) As B4XDaisyFlexItem`
-- `Reset As B4XDaisyFlexItem`
-- `Shrink(fValue As Float) As B4XDaisyFlexItem`
+- `MinW(Value As Int) As B4XDaisyFlexItem`
+- `MaxW(Value As Int) As B4XDaisyFlexItem`
+- `MinH(Value As Int) As B4XDaisyFlexItem`
+- `MaxH(Value As Int) As B4XDaisyFlexItem`
+- `MinSize(W As Int, H As Int) As B4XDaisyFlexItem`
+- `MaxSize(W As Int, H As Int) As B4XDaisyFlexItem`
+- `Basis(W As Int, H As Int) As B4XDaisyFlexItem`
+- `BasisPercent(MainPct As Float, CrossPct As Float) As B4XDaisyFlexItem`
+- `Margins(Left As Int, Top As Int, Right As Int, Bottom As Int) As B4XDaisyFlexItem`
+- `MarginAll(Value As Int) As B4XDaisyFlexItem`
+- `MarginX(Value As Int) As B4XDaisyFlexItem`
+- `MarginY(Value As Int) As B4XDaisyFlexItem`
+- `AlignSelf(Value As String) As B4XDaisyFlexItem`
+- `Order(Value As Int) As B4XDaisyFlexItem`
+- `WrapBefore(Value As Boolean) As B4XDaisyFlexItem`
+- `Apply As B4XDaisyFlexItem`
+- `ApplyNoRelayout As B4XDaisyFlexItem`
+- `ApplyEx(DoRelayout As Boolean) As B4XDaisyFlexItem`
 - `View As B4XView`
-- `WrapBefore(bValue As Boolean) As B4XDaisyFlexItem`
 
 ## 7. Public Fields
-- `mBase As B4XView`
+(none declared in packaged source)
 

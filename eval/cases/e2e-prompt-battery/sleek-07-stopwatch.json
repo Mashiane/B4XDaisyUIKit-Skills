@@ -1,0 +1,16 @@
+{
+  "id": "sleek-07-stopwatch",
+  "source": "sleek.design 10-prompt battery #7 (Swiss International Style stopwatch)",
+  "prompt": "Stopwatch and timer screen, Swiss International Style: extreme minimalism, rigid grid, massive bold time display ('00:45.32'), lap times listed below as a clean borderless table, simple Start/Stop controls, off-white background with a single red accent. Native B4XPage named B4XPageStopwatch.bas using B4XDaisyUIKit.",
+  "expected_files": ["B4XPageStopwatch.bas"],
+  "must_contain": [
+    "As B4XDaisyText",
+    "As B4XDaisyList",
+    "As B4XDaisyButton"
+  ],
+  "must_not_contain": [
+    "WebView",
+    "<div"
+  ],
+  "compile": false
+}

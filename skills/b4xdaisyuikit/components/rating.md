@@ -1,12 +1,12 @@
 # rating (`B4XDaisyRating`)
 
-DaisyUI `Rating` component for B4X (B4A/B4i/B4J).
+DaisyUI `Rating` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyRating`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyRating.bas`
-- **Verified Demo Source**: B4XPageEnjoyHint.bas (lines 31–31), B4XPageFocus.bas (lines 44–44), B4XPageNavScrollDock.bas (lines 222–222), B4XPageRating.bas (lines 57–512)
+- **Verified Demo Source**: B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageRating.bas
 - **Web DaisyUI Mapping**: `.rating` → `B4XDaisyRating`
 
 ## DaisyUI Web Class Translation
@@ -83,103 +83,102 @@ Private Sub RenderExamples(Width As Int, Height As Int)
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Value` | Value | `Float` | `0` |  |
-| `MaxValue` | Max Value | `Int` | `5` |  |
-| `Size` | Size | `String` | `md` | xs|sm|md|lg|xl |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `IconStyle` | Icon Style | `String` | `star-2` | circle|square|squircle|decagon|diamond|heart|hexagon|hexagon-2|pentagon|star|star-2|triangle|triangle-2|triangle-3|triangle-4 |
-| `Half` | Half Star | `Boolean` | `False` |  |
-| `AllowClear` | Allow Clear | `Boolean` | `False` |  |
-| `ReadOnly` | Read Only | `Boolean` | `False` |  |
-| `Required` | Required | `Boolean` | `False` |  |
-| `ActiveColor` | Active Color | `Color` | `0` |  |
-| `InactiveColor` | Inactive Color | `Color` | `0` |  |
-| `Gap` | Gap (dip) | `Int` | `4` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `LabelAbove` | Label Above | `String` | `` |  |
-| `LabelVisible` | Label Visible | `Boolean` | `False` |  |
-| `HintText` | Hint Text | `String` | `` |  |
-| `ErrorText` | Error Text | `String` | `` |  |
+| `Value` | Value | `Float` | 0 |  |
+| `MaxValue` | Max Value | `Int` | 5 |  |
+| `Size` | Size | `String` | md | xs|sm|md|lg|xl |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `IconStyle` | Icon Style | `String` | star-2 | circle|square|squircle|decagon|diamond|heart|hexagon|hexagon-2|pentagon|star|star-2|triangle|triangle-2|triangle-3|triangle-4 |
+| `Half` | Half Star | `Boolean` | False |  |
+| `AllowClear` | Allow Clear | `Boolean` | False |  |
+| `ReadOnly` | Read Only | `Boolean` | False |  |
+| `Required` | Required | `Boolean` | False |  |
+| `ActiveColor` | Active Color | `Color` | 0 |  |
+| `InactiveColor` | Inactive Color | `Color` | 0 |  |
+| `Gap` | Gap (dip) | `Int` | 4 |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `LabelAbove` | Label Above | `String` |  |  |
+| `LabelVisible` | Label Visible | `Boolean` | False |  |
+| `HintText` | Hint Text | `String` |  |  |
+| `ErrorText` | Error Text | `String` |  |  |
 
 ## 5. Declared Events
-- `Changed(Value As Float)`
+- `Changed (Value As Float)`
 - `FocusChanged (HasFocus As Boolean)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `Blur`
-- `BringToFront`
-- `ClearError`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `ReceiveFocus`
-- `Refresh`
-- `Release`
-- `RemoveViewFromParent`
-- `RequestFocus`
-- `SendToBack`
-- `SetItemColors(lstItemColorList As List)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `ShowError(sErrorMessage As String)`
-- `UpdateTheme`
-- `Validate As Boolean`
-- `View As B4XView`
-- `getActiveColor As Int`
-- `getAllowClear As Boolean`
-- `getComputedHeight As Int`
-- `getEnabled As Boolean`
-- `getErrorText As String`
-- `getGap As Int`
-- `getHalf As Boolean`
-- `getHeight As String`
-- `getHintText As String`
-- `getIconStyle As String`
-- `getInactiveColor As Int`
-- `getIsValid As Boolean`
-- `getLabelAbove As String`
-- `getLabelVisible As Boolean`
-- `getLeft As Int`
-- `getMaxValue As Int`
-- `getReadOnly As Boolean`
-- `getRequired As Boolean`
-- `getRole As String`
-- `getSize As String`
-- `getTag As Object`
-- `getTop As Int`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `setValue(Value As Float)`
 - `getValue As Float`
+- `setMaxValue(Value As Int)`
+- `getMaxValue As Int`
+- `setSize(Value As String)`
+- `getSize As String`
+- `setVariant(Value As String)`
 - `getVariant As String`
+- `setIconStyle(Value As String)`
+- `getIconStyle As String`
+- `setHalf(Value As Boolean)`
+- `getHalf As Boolean`
+- `setAllowClear(Value As Boolean)`
+- `getAllowClear As Boolean`
+- `setReadOnly(Value As Boolean)`
+- `getReadOnly As Boolean`
+- `setActiveColor(Value As Int)`
+- `getActiveColor As Int`
+- `setInactiveColor(Value As Int)`
+- `getInactiveColor As Int`
+- `SetItemColors(lstItemColorList As List)`
+- `setGap(Value As Int)`
+- `getGap As Int`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setLabelAbove(Value As String)`
+- `getLabelAbove As String`
+- `setLabelVisible(Value As Boolean)`
+- `getLabelVisible As Boolean`
+- `setHintText(Value As String)`
+- `getHintText As String`
+- `setWidth(Value As String)`
 - `getWidth As String`
-- `setActiveColor(iValue As Int)`
-- `setAllowClear(bValue As Boolean)`
-- `setBackgroundColorVariant(sVariant As String)`
-- `setEnabled(bValue As Boolean)`
-- `setErrorText(sValue As String)`
-- `setFocus(bValue As Boolean)`
-- `setGap(iValue As Int)`
-- `setHalf(bValue As Boolean)`
-- `setHeight(sValue As String)`
-- `setHintText(sValue As String)`
-- `setIconStyle(sValue As String)`
-- `setInactiveColor(iValue As Int)`
-- `setLabelAbove(sValue As String)`
-- `setLabelVisible(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setMaxValue(iValue As Int)`
-- `setReadOnly(bValue As Boolean)`
-- `setRequired(bValue As Boolean)`
-- `setSize(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTextColorVariant(sVariant As String)`
-- `setTop(iValue As Int)`
-- `setValue(fValue As Float)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(sValue As String)`
+- `setHeight(Value As String)`
+- `getHeight As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setLeft(Value As Int)`
+- `setTop(Value As Int)`
+- `getRole As String`
+- `UpdateTheme`
+- `Refresh`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `getComputedHeight As Int`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setBackgroundColorVariant(Variant As String)`
+- `setTextColorVariant(Variant As String)`
+- `RequestFocus`
+- `setFocus(Value As Boolean)`
+- `ReceiveFocus`
+- `Blur`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setRequired(Value As Boolean)`
+- `getRequired As Boolean`
+- `setErrorText(Value As String)`
+- `getErrorText As String`
+- `getIsValid As Boolean`
+- `ShowError(ErrorMessage As String)`
+- `ClearError`
+- `Validate As Boolean`
+- `RemoveViewFromParent`
+- `Release`
+- `getLeft As Int`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

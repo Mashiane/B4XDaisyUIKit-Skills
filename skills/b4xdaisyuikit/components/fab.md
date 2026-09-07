@@ -1,12 +1,12 @@
 # fab (`B4XDaisyFab`)
 
-DaisyUI `Fab` component for B4X (B4A/B4i/B4J).
+DaisyUI `Fab` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyFab`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyFab.bas`
-- **Verified Demo Source**: B4XPageBoomMenu.bas (lines 105–105), B4XPageFab.bas (lines 16–16), B4XPageFabBasic.bas (lines 16–16), B4XPageFabFlower.bas (lines 16–16), B4XPageFabNavbar.bas (lines 18–18), B4XPageNavbar.bas (lines 20–20)
+- **Verified Demo Source**: B4XPageBoomMenu.bas, B4XPageFab.bas, B4XPageFabBasic.bas, B4XPageFabFlower.bas, B4XPageFabNavbar.bas, B4XPageNavbar.bas
 - **Web DaisyUI Mapping**: `.fab` → `B4XDaisyFab`
 
 ## DaisyUI Web Class Translation
@@ -141,38 +141,38 @@ End Sub
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Opened` | Opened | `Boolean` | `False` |  |
-| `PlacementMode` | Placement Mode | `String` | `fixed` | fixed|anchored|manual |
-| `Placement` | Placement | `String` | `bottom-end` | bottom-end|bottom-start|bottom-center|top-end|top-start|top-center|center-end|center-start|center |
-| `AnchorAlignment` | Anchor Alignment | `String` | `start` | start|center|end |
-| `OnEdge` | On Edge | `Boolean` | `False` |  |
-| `OpenMode` | Open Mode | `String` | `click` | click|hover|focus |
-| `LayoutMode` | Layout Mode | `String` | `vertical` | vertical|flower|toolbar |
-| `Direction` | Direction | `String` | `top` | top|right|bottom|left |
-| `BackdropEnabled` | Backdrop Enabled | `Boolean` | `True` |  |
-| `AutoCloseOnActionClick` | Auto Close On Action Click | `Boolean` | `True` |  |
-| `TriggerText` | Trigger Text | `String` | `F` |  |
-| `TriggerVariant` | Trigger Variant | `String` | `primary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `TriggerStyle` | Trigger Style | `String` | `solid` | solid|soft|outline|dash|ghost|link |
-| `TriggerSize` | Trigger Size | `String` | `lg` | xs|sm|md|lg|xl |
-| `ChildActionSize` | Child Action Size | `String` | `sm` | xs|sm|md|lg|xl |
-| `TriggerIconName` | Trigger Icon Name | `String` | `` |  |
-| `TriggerCircle` | Trigger Circle | `Boolean` | `True` |  |
-| `UseMainAction` | Use Main Action | `Boolean` | `False` |  |
-| `MainActionText` | Main Action Text | `String` | `M` |  |
-| `MainActionVariant` | Main Action Variant | `String` | `secondary` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `MainActionIconName` | Main Action Icon Name | `String` | `` |  |
-| `UseCloseAction` | Use Close Action | `Boolean` | `False` |  |
-| `CloseActionText` | Close Action Text | `String` | `X` |  |
-| `CloseActionVariant` | Close Action Variant | `String` | `error` | default|neutral|primary|secondary|accent|info|success|warning|error|none |
-| `CloseActionIconName` | Close Action Icon Name | `String` | `` |  |
-| `TriggerSizeDip` | Trigger Size (dip) | `Int` | `56` |  |
-| `TriggerIconSize` | Trigger Icon Size (dip) | `Int` | `24` |  |
-| `ChildActionSizeDip` | Child Action Size (dip) | `Int` | `40` |  |
-| `ChildActionIconSize` | Child Action Icon Size (dip) | `Int` | `20` |  |
-| `Duration` | Duration | `Int` | `300` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Opened` | Opened | `Boolean` | False |  |
+| `PlacementMode` | Placement Mode | `String` | fixed | fixed|anchored|manual |
+| `Placement` | Placement | `String` | bottom-end | bottom-end|bottom-start|bottom-center|top-end|top-start|top-center|center-end|center-start|center |
+| `AnchorAlignment` | Anchor Alignment | `String` | start | start|center|end |
+| `OnEdge` | On Edge | `Boolean` | False |  |
+| `OpenMode` | Open Mode | `String` | click | click|hover|focus |
+| `LayoutMode` | Layout Mode | `String` | vertical | vertical|flower|toolbar |
+| `Direction` | Direction | `String` | top | top|right|bottom|left |
+| `BackdropEnabled` | Backdrop Enabled | `Boolean` | True |  |
+| `AutoCloseOnActionClick` | Auto Close On Action Click | `Boolean` | True |  |
+| `TriggerText` | Trigger Text | `String` | F |  |
+| `TriggerVariant` | Trigger Variant | `String` | primary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `TriggerStyle` | Trigger Style | `String` | solid | solid|soft|outline|dash|ghost|link |
+| `TriggerSize` | Trigger Size | `String` | lg | xs|sm|md|lg|xl |
+| `ChildActionSize` | Child Action Size | `String` | sm | xs|sm|md|lg|xl |
+| `TriggerIconName` | Trigger Icon Name | `String` |  |  |
+| `TriggerCircle` | Trigger Circle | `Boolean` | True |  |
+| `UseMainAction` | Use Main Action | `Boolean` | False |  |
+| `MainActionText` | Main Action Text | `String` | M |  |
+| `MainActionVariant` | Main Action Variant | `String` | secondary | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `MainActionIconName` | Main Action Icon Name | `String` |  |  |
+| `UseCloseAction` | Use Close Action | `Boolean` | False |  |
+| `CloseActionText` | Close Action Text | `String` | X |  |
+| `CloseActionVariant` | Close Action Variant | `String` | error | default|neutral|primary|secondary|accent|info|success|warning|error|none |
+| `CloseActionIconName` | Close Action Icon Name | `String` |  |  |
+| `TriggerSizeDip` | Trigger Size (dip) | `Int` | 56, MinRange: 0 |  |
+| `TriggerIconSize` | Trigger Icon Size (dip) | `Int` | 24, MinRange: 0 |  |
+| `ChildActionSizeDip` | Child Action Size (dip) | `Int` | 40, MinRange: 0 |  |
+| `ChildActionIconSize` | Child Action Icon Size (dip) | `Int` | 20, MinRange: 0 |  |
+| `Duration` | Duration | `Int` | 300, MinRange: 0, MaxRange: 2000 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
@@ -183,113 +183,112 @@ End Sub
 - `Closed`
 
 ## 6. Public Methods & APIs
-- `AddAction(oTagValue As Object, sVariant As String, sIconName As String) As Int`
-- `AddActionDetailed(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object) As Int`
-- `AddActionEx(sText As String, sLabelText As String, sVariant As String, sStyle As String, sSize As String, sIconName As String, bCircle As Boolean, oTagValue As Object) As Int`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `ClearActions`
-- `Close`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetActionButtonView(iIndex As Int) As B4XView`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsOpen As Boolean`
-- `Open`
+- `Initialize(Callback As Object, EventName As String)`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
 - `Refresh`
-- `RemoveViewFromParent`
-- `Resize(dWidth As Double, dHeight As Double)`
-- `SendToBack`
-- `SetActionVisible(iIndex As Int, bValue As Boolean)`
-- `SetCloseAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `SetMainAction(sText As String, sLabelText As String, sVariant As String, sIconName As String, oTagValue As Object)`
-- `Toggle`
 - `UpdateTheme`
-- `View As B4XView`
-- `getAnchorAlignment As String`
+- `Open`
+- `Close`
+- `Toggle`
+- `ClearActions`
+- `AddActionEx(Text As String, LabelText As String, Variant As String, Style As String, Size As String, IconName As String, Circle As Boolean, TagValue As Object) As Int`
+- `AddAction(TagValue As Object, Variant As String, IconName As String) As Int`
+- `AddActionDetailed(Text As String, LabelText As String, Variant As String, IconName As String, TagValue As Object) As Int`
+- `SetMainAction(Text As String, LabelText As String, Variant As String, IconName As String, TagValue As Object)`
+- `SetCloseAction(Text As String, LabelText As String, Variant As String, IconName As String, TagValue As Object)`
+- `GetActionButtonView(Index As Int) As B4XView`
+- `SetActionVisible(Index As Int, Value As Boolean)`
+- `setAnchorTarget(Value As B4XView)`
 - `getAnchorTarget As B4XView`
+- `setAnchorAlignment(Value As String)`
+- `getAnchorAlignment As String`
+- `setAnchorView(Value As B4XView)`
 - `getAnchorView As B4XView`
-- `getAutoCloseOnActionClick As Boolean`
-- `getBackdropEnabled As Boolean`
-- `getChildActionIconSize As Int`
-- `getChildActionSize As String`
-- `getChildActionSizeDip As Int`
-- `getCloseActionIconName As String`
-- `getCloseActionText As String`
-- `getCloseActionVariant As String`
-- `getDirection As String`
-- `getDuration As Int`
-- `getEnabled As Boolean`
-- `getHeight As Int`
-- `getLayoutMode As String`
-- `getLeft As Int`
-- `getMainActionIconName As String`
-- `getMainActionText As String`
-- `getMainActionVariant As String`
-- `getOnEdge As Boolean`
-- `getOpenMode As String`
-- `getOpened As Boolean`
+- `setOverlayHost(Value As B4XView)`
 - `getOverlayHost As B4XView`
-- `getPlacement As String`
-- `getPlacementMode As String`
-- `getTag As Object`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Resize(Width As Double, Height As Double)`
+- `BringToFront`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getTriggerCircle As Boolean`
-- `getTriggerIconName As String`
-- `getTriggerIconSize As Int`
-- `getTriggerSize As String`
-- `getTriggerSizeDip As Int`
-- `getTriggerStyle As String`
-- `getTriggerText As String`
-- `getTriggerVariant As String`
-- `getUseCloseAction As Boolean`
-- `getUseMainAction As Boolean`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setDuration(Value As Int)`
+- `getDuration As Int`
+- `setOpened(Value As Boolean)`
+- `getOpened As Boolean`
+- `IsOpen As Boolean`
+- `setPlacementMode(Value As String)`
+- `getPlacementMode As String`
+- `setPlacement(Value As String)`
+- `getPlacement As String`
+- `setOnEdge(Value As Boolean)`
+- `getOnEdge As Boolean`
+- `setOpenMode(Value As String)`
+- `getOpenMode As String`
+- `setLayoutMode(Value As String)`
+- `getLayoutMode As String`
+- `setDirection(Value As String)`
+- `getDirection As String`
+- `setBackdropEnabled(Value As Boolean)`
+- `getBackdropEnabled As Boolean`
+- `setAutoCloseOnActionClick(Value As Boolean)`
+- `getAutoCloseOnActionClick As Boolean`
+- `setTriggerText(Value As String)`
+- `getTriggerText As String`
+- `setTriggerVariant(Value As String)`
+- `getTriggerVariant As String`
+- `setTriggerStyle(Value As String)`
+- `getTriggerStyle As String`
+- `setTriggerSize(Value As String)`
+- `getTriggerSize As String`
+- `setChildActionSize(Value As String)`
+- `getChildActionSize As String`
+- `setTriggerSizeDip(Value As Int)`
+- `getTriggerSizeDip As Int`
+- `setTriggerIconSize(Value As Int)`
+- `getTriggerIconSize As Int`
+- `setChildActionSizeDip(Value As Int)`
+- `getChildActionSizeDip As Int`
+- `setChildActionIconSize(Value As Int)`
+- `getChildActionIconSize As Int`
+- `setTriggerIconName(Value As String)`
+- `getTriggerIconName As String`
+- `setTriggerCircle(Value As Boolean)`
+- `getTriggerCircle As Boolean`
+- `setUseMainAction(Value As Boolean)`
+- `getUseMainAction As Boolean`
+- `setMainActionText(Value As String)`
+- `getMainActionText As String`
+- `setMainActionVariant(Value As String)`
+- `getMainActionVariant As String`
+- `setMainActionIconName(Value As String)`
+- `getMainActionIconName As String`
+- `setUseCloseAction(Value As Boolean)`
+- `getUseCloseAction As Boolean`
+- `setCloseActionText(Value As String)`
+- `getCloseActionText As String`
+- `setCloseActionVariant(Value As String)`
+- `getCloseActionVariant As String`
+- `setCloseActionIconName(Value As String)`
+- `getCloseActionIconName As String`
+- `GetComputedHeight As Int`
+- `RemoveViewFromParent`
+- `Base_Resize(Width As Double, Height As Double)`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setAnchorAlignment(sValue As String)`
-- `setAnchorTarget(vValue As B4XView)`
-- `setAnchorView(vValue As B4XView)`
-- `setAutoCloseOnActionClick(bValue As Boolean)`
-- `setBackdropEnabled(bValue As Boolean)`
-- `setChildActionIconSize(iValue As Int)`
-- `setChildActionSize(sValue As String)`
-- `setChildActionSizeDip(iValue As Int)`
-- `setCloseActionIconName(sValue As String)`
-- `setCloseActionText(sValue As String)`
-- `setCloseActionVariant(sValue As String)`
-- `setDirection(sValue As String)`
-- `setDuration(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setLayoutMode(sValue As String)`
-- `setLeft(iValue As Int)`
-- `setMainActionIconName(sValue As String)`
-- `setMainActionText(sValue As String)`
-- `setMainActionVariant(sValue As String)`
-- `setOnEdge(bValue As Boolean)`
-- `setOpenMode(sValue As String)`
-- `setOpened(bValue As Boolean)`
-- `setOverlayHost(vValue As B4XView)`
-- `setPlacement(sValue As String)`
-- `setPlacementMode(sValue As String)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setTriggerCircle(bValue As Boolean)`
-- `setTriggerIconName(sValue As String)`
-- `setTriggerIconSize(iValue As Int)`
-- `setTriggerSize(sValue As String)`
-- `setTriggerSizeDip(iValue As Int)`
-- `setTriggerStyle(sValue As String)`
-- `setTriggerText(sValue As String)`
-- `setTriggerVariant(sValue As String)`
-- `setUseCloseAction(bValue As Boolean)`
-- `setUseMainAction(bValue As Boolean)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `SendToBack`
+- `View As B4XView`
 
 ## 7. Public Fields
-- `mBase As B4XView`
-- `xui As XUI`
+(none declared in packaged source)
 

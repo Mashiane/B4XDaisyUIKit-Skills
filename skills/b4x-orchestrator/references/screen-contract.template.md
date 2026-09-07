@@ -35,6 +35,9 @@ Every entry must exist in `references/component-manifest.md`. No invented member
 - **Page Architecture:** `ARCH-01 NavScrollDock | ARCH-02 Auth | ARCH-03 Dashboard | ARCH-04 Form | ARCH-05 Master-Detail | ARCH-06 Stock-Take | ARCH-07 Wizard` (`references/page-architectures.md`)
 - **Inset:** `pageScroll` inset `NAVBAR_H=56dip` / `DOCK_H=64dip` vs full-screen
 - **Back behavior:** `B4XPage_CloseRequest` `true|false` if unsaved changes
+- **Entry points:** where users arrive from (e.g. `Dock` tab, `B4XPages.ShowPage("home")` after login success, deep-link intent)
+- **Exit points:** where users go next (e.g. back to list, submit → next page, logout → auth page)
+- **Data contract:** source (`PocketBase` collection / SQLite / asset / none-static), fields read + written, and sync direction (read-only | write | read-write)
 
 ## 5. Density
 - **Level:** `High (telemetry, YGap=8dip) | Comfortable (form, YGap=12dip) | Spacious (hero, YGap=20dip)` (`creative-director.md:36`)
@@ -46,12 +49,15 @@ Every entry must exist in `references/component-manifest.md`. No invented member
 - [ ] **Empty:** `B4XDaisyHero`/`B4XDaisyCard` + SVG + `No items found` + `Create New` CTA
 - [ ] **Error:** `B4XDaisyAlert error` + `Retry` + `pageScroll.AutoFit` after Validate
 - [ ] **Confirmation:** `B4XDaisySweetAlert` for destructive (`Wait For swal.ShowAsync`)
+- [ ] **Offline** *(data-driven pages only):* last-synced cache display or explicit offline notice — no silent failure
+- [ ] **Permission denied** *(runtime-permission pages only):* graceful fallback + rationale + path to app settings
 
 ## 7. Interaction Constraints
 - **Touch target:** ≥48dip per interactive view (`RULE-INTERACT-003`, verified at build by `build-watch.ps1`)
 - **Nav bounds:** ≤5 dock items (`RULE-INTERACT-004`)
 - **Touch conflict:** `DisallowParentIntercept` if `ColorWheel|Range|DualRange|Carousel` inside scroll (`RULE-INTERACT-002`)
 - **Navbar:** `navbar.BringToFront` direct, not `getView.BringToFront` (`RULE-INTERACT-001`)
+- **Responsive behavior:** rotation/resize re-renders via `B4XPage_Resize` → `pageScroll` Clear + re-compile (ch01 lifecycle template); on tablets/foldables, constrain content width (`maxW`) rather than stretching rows edge-to-edge
 
 ## 8. Accessibility (WCAG 2.2 AA)
 - [ ] Semantic roles only (`primary` once per viewport)

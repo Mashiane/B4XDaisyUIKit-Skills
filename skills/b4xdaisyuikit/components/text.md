@@ -1,12 +1,12 @@
 # text (`B4XDaisyText`)
 
-DaisyUI `Text` component for B4X (B4A/B4i/B4J).
+DaisyUI `Text` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyText`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyText.bas`
-- **Verified Demo Source**: B4XPageAccordion.bas (lines 131–146), B4XPageAlert.bas (lines 135–246), B4XPageBreadcrumbs.bas (lines 174–189), B4XPageButton.bas (lines 629–629), B4XPageCanvasSpinner.bas (lines 168–259), B4XPageCard.bas (lines 279–346), B4XPageCarousel.bas (lines 429–429), B4XPageCheckbox.bas (lines 385–385), B4XPageCheckboxGroup.bas (lines 17–219), B4XPageCollapse.bas (lines 221–234), B4XPageCountdown.bas (lines 111–111), B4XPageDiff.bas (lines 96–96), B4XPageDock.bas (lines 437–455), B4XPageDrawer.bas (lines 105–133), B4XPageDrawerRail.bas (lines 162–400), B4XPageDrawerTree.bas (lines 110–168), B4XPageDropdown.bas (lines 365–377), B4XPageDualRange.bas (lines 26–231), B4XPageFieldset.bas (lines 62–62), B4XPageFileInput.bas (lines 173–175), B4XPageFilter.bas (lines 151–151), B4XPageHero.bas (lines 81–106), B4XPageHover3d.bas (lines 205–219), B4XPageIconButton.bas (lines 311–311), B4XPageInfoCard.bas (lines 212–212), B4XPageInput.bas (lines 420–445), B4XPageKbd.bas (lines 257–257), B4XPageLink.bas (lines 50–190), B4XPageList.bas (lines 186–461), B4XPageMediaPicker.bas (lines 19–150), B4XPageMenu.bas (lines 395–406), B4XPageMenuRuntime.bas (lines 354–376), B4XPageMenuRuntime2.bas (lines 312–334), B4XPageModal.bas (lines 418–456), B4XPageNavbar.bas (lines 133–133), B4XPageOverlay.bas (lines 20–351), B4XPagePagination.bas (lines 167–264), B4XPageProgress.bas (lines 48–48), B4XPageRadialProgress.bas (lines 43–200), B4XPageRadio.bas (lines 395–395), B4XPageRadioGroup.bas (lines 17–219), B4XPageRange.bas (lines 468–468), B4XPageRating.bas (lines 394–397), B4XPageSelect.bas (lines 393–393), B4XPageShineButton.bas (lines 35–35), B4XPageSignaturePad.bas (lines 35–35), B4XPageSkeleton.bas (lines 15–132), B4XPageStack.bas (lines 44–153), B4XPageStat.bas (lines 454–454), B4XPageSteps.bas (lines 425–442), B4XPageSweetAlert.bas (lines 66–66), B4XPageTab.bas (lines 404–416), B4XPageTagSphere.bas (lines 26–28), B4XPageText.bas (lines 51–316), B4XPageTextRotate.bas (lines 39–201), B4XPageTextarea.bas (lines 209–260), B4XPageTimeline.bas (lines 171–171), B4XPageToast.bas (lines 43–89), B4XPageToggle.bas (lines 371–371), B4XPageToggleGroup.bas (lines 17–219), B4XPageTooltip.bas (lines 49–238), B4XPageWindow.bas (lines 60–200)
+- **Verified Demo Source**: B4XPageAccordion.bas, B4XPageAlert.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageCarousel.bas, B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageCollapse.bas, B4XPageCountdown.bas, B4XPageDiff.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageDualRange.bas, B4XPageFieldset.bas, B4XPageFileInput.bas, B4XPageFilter.bas, B4XPageHero.bas, B4XPageHover3d.bas, B4XPageIconButton.bas, B4XPageInfoCard.bas, B4XPageInput.bas, B4XPageKbd.bas, B4XPageLink.bas, B4XPageList.bas, B4XPageMediaPicker.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavbar.bas, B4XPageOverlay.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageSelect.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageSkeleton.bas, B4XPageStack.bas, B4XPageStat.bas, B4XPageSteps.bas, B4XPageSweetAlert.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageText.bas, B4XPageTextRotate.bas, B4XPageTextarea.bas, B4XPageTimeline.bas, B4XPageToast.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas, B4XPageTooltip.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.text` → `B4XDaisyText`
 
 ## DaisyUI Web Class Translation
@@ -71,153 +71,152 @@ DaisyUI `Text` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Width` | Width | `String` | `w-full` |  |
-| `Height` | Height | `String` | `h-auto` |  |
-| `Text` | Text | `String` | `` |  |
-| `TextColor` | Text Color | `Color` | `0xFF000000` |  |
-| `BackgroundColor` | Background Color | `Color` | `0x00000000` |  |
-| `TextSize` | Text Size | `String` | `text-sm` |  |
-| `Heading` | Heading | `String` | `none` | none|h1|h2|h3|h4|h5|h6 |
-| `FontBold` | Font Bold | `Boolean` | `False` |  |
-| `SingleLine` | Single Line | `Boolean` | `False` |  |
-| `Ellipsize` | Ellipsize | `String` | `none` | none|start|middle|end|marquee |
-| `HAlign` | Horizontal Align | `String` | `LEFT` | LEFT|CENTER|RIGHT |
-| `VAlign` | Vertical Align | `String` | `CENTER` | TOP|CENTER|BOTTOM |
-| `Padding` | Padding | `Int` | `0` |  |
-| `Margin` | Margin | `String` | `` |  |
-| `Rounded` | Rounded | `String` | `rounded-none` | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
-| `BorderWidth` | Border Width | `Int` | `0` |  |
-| `BorderColor` | Border Color | `Color` | `0x00000000` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `IsSkeleton` | Is Skeleton | `Boolean` | `False` |  |
-| `Variant` | Variant | `String` | `none` | none|neutral|primary|secondary|accent|info|success|warning|error |
-| `AutoResize` | Auto Resize | `Boolean` | `True` |  |
-| `Link` | Link | `Boolean` | `False` |  |
-| `Underline` | Underline | `Boolean` | `False` |  |
-| `Url` | URL | `String` | `` |  |
-| `Clickable` | Clickable | `Boolean` | `True` |  |
-| `UpperCase` | Upper Case | `Boolean` | `False` |  |
-| `Italic` | Italic | `Boolean` | `False` |  |
-| `Strikethrough` | Strikethrough | `Boolean` | `False` |  |
-| `LowerCase` | Lower Case | `Boolean` | `False` |  |
-| `Capitalize` | Capitalize | `Boolean` | `False` |  |
-| `LetterSpacing` | Letter Spacing | `Float` | `0.0` |  |
-| `ShadowRadius` | Shadow Radius | `Float` | `0.0` |  |
-| `ShadowDx` | Shadow Dx | `Float` | `0.0` |  |
-| `ShadowDy` | Shadow Dy | `Float` | `0.0` |  |
-| `ShadowColor` | Shadow Color | `Color` | `0xFF000000` |  |
+| `Width` | Width | `String` | w-full |  |
+| `Height` | Height | `String` | h-auto |  |
+| `Text` | Text | `String` |  |  |
+| `TextColor` | Text Color | `Color` | 0xFF000000 |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `TextSize` | Text Size | `String` | text-sm |  |
+| `Heading` | Heading | `String` | none | none|h1|h2|h3|h4|h5|h6 |
+| `FontBold` | Font Bold | `Boolean` | False |  |
+| `SingleLine` | Single Line | `Boolean` | False |  |
+| `Ellipsize` | Ellipsize | `String` | none | none|start|middle|end|marquee |
+| `HAlign` | Horizontal Align | `String` | LEFT | LEFT|CENTER|RIGHT |
+| `VAlign` | Vertical Align | `String` | CENTER | TOP|CENTER|BOTTOM |
+| `Padding` | Padding | `Int` | 0 |  |
+| `Margin` | Margin | `String` |  |  |
+| `Rounded` | Rounded | `String` | rounded-none | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `BorderWidth` | Border Width | `Int` | 0 |  |
+| `BorderColor` | Border Color | `Color` | 0x00000000 |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `IsSkeleton` | Is Skeleton | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `AutoResize` | Auto Resize | `Boolean` | True |  |
+| `Link` | Link | `Boolean` | False |  |
+| `Underline` | Underline | `Boolean` | False |  |
+| `Url` | URL | `String` |  |  |
+| `Clickable` | Clickable | `Boolean` | True |  |
+| `UpperCase` | Upper Case | `Boolean` | False |  |
+| `Italic` | Italic | `Boolean` | False |  |
+| `Strikethrough` | Strikethrough | `Boolean` | False |  |
+| `LowerCase` | Lower Case | `Boolean` | False |  |
+| `Capitalize` | Capitalize | `Boolean` | False |  |
+| `LetterSpacing` | Letter Spacing | `Float` | 0.0 |  |
+| `ShadowRadius` | Shadow Radius | `Float` | 0.0 |  |
+| `ShadowDx` | Shadow Dx | `Float` | 0.0 |  |
+| `ShadowDy` | Shadow Dy | `Float` | 0.0 |  |
+| `ShadowColor` | Shadow Color | `Color` | 0xFF000000 |  |
 
 ## 5. Declared Events
 - `Click (Tag As Object)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `GetPreferredHeight(iMaxContentWidth As Int) As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `IsReady As Boolean`
-- `MeasureTextHeight As Float`
-- `MeasureTextWidth As Float`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
+- `UpdateTheme`
 - `RefreshText`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetColorAndBorder(iCBackgroundColor As Int, fCBorderW As Float, iCBorderC As Int, fCornerRadius As Float)`
-- `SetLayoutAnimated(iDuration As Int, iLeftPos As Int, iTopPos As Int, iWidth As Int, iHeight As Int)`
-- `SetTextAlignment(sVertical As String, sHorizontal As String)`
+- `MeasureTextWidth As Float`
+- `MeasureTextHeight As Float`
+- `GetPreferredHeight(MaxContentWidth As Int) As Int`
+- `GetComputedHeight As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `View As B4XView`
+- `IsReady As Boolean`
+- `setText(Value As String)`
+- `getText As String`
+- `setWidth(Value As Object)`
+- `getWidth As Float`
+- `setHeight(Value As Object)`
+- `getHeight As Float`
+- `setTextColor(Value As Int)`
+- `getTextColor As Int`
+- `setBackgroundColor(Value As Int)`
+- `getBackgroundColor As Int`
+- `setTextColorVariant(VariantName As String)`
+- `setVariant(Value As String)`
+- `getVariant As String`
+- `setTextSize(Value As Object)`
+- `setHeading(Value As String)`
+- `getHeading As String`
+- `getTextSize As Object`
+- `setFontBold(Value As Boolean)`
+- `getFontBold As Boolean`
+- `setSingleLine(Value As Boolean)`
+- `getSingleLine As Boolean`
+- `setEllipsize(Value As String)`
+- `getEllipsize As String`
+- `setHAlign(Value As String)`
+- `getHAlign As String`
+- `setVAlign(Value As String)`
+- `getVAlign As String`
+- `setPadding(Value As Float)`
+- `getPadding As Float`
+- `setMargin(Value As String)`
+- `getMargin As String`
+- `setRounded(Value As String)`
+- `getRounded As String`
+- `setRoundedBox(Value As Boolean)`
+- `getRoundedBox As Boolean`
+- `setBorderWidth(Value As Float)`
+- `getBorderWidth As Float`
+- `setBorderColor(Value As Int)`
+- `getBorderColor As Int`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setLink(Value As Boolean)`
+- `getLink As Boolean`
+- `setUnderline(Value As Boolean)`
+- `getUnderline As Boolean`
+- `setUrl(Value As String)`
+- `getUrl As String`
+- `setTag(Value As Object)`
+- `getTag As Object`
 - `StartAnimation`
 - `StopAnimation`
-- `UpdateTheme`
-- `View As B4XView`
-- `getAutoResize As Boolean`
-- `getBackgroundColor As Int`
-- `getBorderColor As Int`
-- `getBorderWidth As Float`
-- `getCapitalize As Boolean`
-- `getClickable As Boolean`
-- `getColor As Int`
-- `getEllipsize As String`
-- `getEnabled As Boolean`
-- `getFontBold As Boolean`
-- `getHAlign As String`
-- `getHeading As String`
-- `getHeight As Float`
+- `setIsSkeleton(Value As Boolean)`
 - `getIsSkeleton As Boolean`
-- `getItalic As Boolean`
+- `setAutoResize(Value As Boolean)`
+- `getAutoResize As Boolean`
+- `setLeft(Value As Int)`
 - `getLeft As Int`
-- `getLetterSpacing As Float`
-- `getLink As Boolean`
-- `getLowerCase As Boolean`
-- `getMargin As String`
-- `getPadding As Float`
-- `getRounded As String`
-- `getRoundedBox As Boolean`
-- `getShadowColor As Int`
-- `getShadowDx As Float`
-- `getShadowDy As Float`
-- `getShadowRadius As Float`
-- `getSingleLine As Boolean`
-- `getStrikethrough As Boolean`
-- `getTag As Object`
-- `getText As String`
-- `getTextColor As Int`
-- `getTextSize As Object`
+- `setTop(Value As Int)`
 - `getTop As Int`
-- `getUnderline As Boolean`
+- `setColor(BackgroundColor As Int)`
+- `getColor As Int`
+- `SetTextAlignment(Vertical As String, Horizontal As String)`
+- `SetLayoutAnimated(Duration As Int, LeftPos As Int, TopPos As Int, Width As Int, Height As Int)`
+- `SetColorAndBorder(CBackgroundColor As Int, CBorderW As Float, CBorderC As Int, CornerRadius As Float)`
+- `setClickable(Value As Boolean)`
+- `getClickable As Boolean`
+- `setUpperCase(Value As Boolean)`
 - `getUpperCase As Boolean`
-- `getUrl As String`
-- `getVAlign As String`
-- `getVariant As String`
-- `getVisible As Boolean`
-- `getWidth As Float`
-- `setAutoResize(bValue As Boolean)`
-- `setBackgroundColor(iValue As Int)`
-- `setBorderColor(iValue As Int)`
-- `setBorderWidth(fValue As Float)`
-- `setCapitalize(bValue As Boolean)`
-- `setClickable(bValue As Boolean)`
-- `setColor(iBackgroundColor As Int)`
-- `setEllipsize(sValue As String)`
-- `setEnabled(bValue As Boolean)`
-- `setFontBold(bValue As Boolean)`
-- `setHAlign(sValue As String)`
-- `setHeading(sValue As String)`
-- `setHeight(oValue As Object)`
-- `setIsSkeleton(bValue As Boolean)`
-- `setItalic(bValue As Boolean)`
-- `setLeft(iValue As Int)`
-- `setLetterSpacing(fValue As Float)`
-- `setLink(bValue As Boolean)`
-- `setLowerCase(bValue As Boolean)`
-- `setMargin(sValue As String)`
-- `setPadding(fValue As Float)`
-- `setRounded(sValue As String)`
-- `setRoundedBox(bValue As Boolean)`
-- `setShadowColor(iValue As Int)`
-- `setShadowDx(fValue As Float)`
-- `setShadowDy(fValue As Float)`
-- `setShadowRadius(fValue As Float)`
-- `setSingleLine(bValue As Boolean)`
-- `setStrikethrough(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setText(sValue As String)`
-- `setTextColor(iValue As Int)`
-- `setTextColorVariant(sVariantName As String)`
-- `setTextSize(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setUnderline(bValue As Boolean)`
-- `setUpperCase(bValue As Boolean)`
-- `setUrl(sValue As String)`
-- `setVAlign(sValue As String)`
-- `setVariant(sValue As String)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(oValue As Object)`
+- `setItalic(Value As Boolean)`
+- `getItalic As Boolean`
+- `setStrikethrough(Value As Boolean)`
+- `getStrikethrough As Boolean`
+- `setLowerCase(Value As Boolean)`
+- `getLowerCase As Boolean`
+- `setCapitalize(Value As Boolean)`
+- `getCapitalize As Boolean`
+- `setLetterSpacing(Value As Float)`
+- `getLetterSpacing As Float`
+- `setShadowRadius(Value As Float)`
+- `getShadowRadius As Float`
+- `setShadowDx(Value As Float)`
+- `getShadowDx As Float`
+- `setShadowDy(Value As Float)`
+- `getShadowDy As Float`
+- `setShadowColor(Value As Int)`
+- `getShadowColor As Int`
+- `RemoveViewFromParent`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 

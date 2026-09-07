@@ -1,12 +1,12 @@
 # color-wheel (`B4XDaisyColorWheel`)
 
-DaisyUI `ColorWheel` component for B4X (B4A/B4i/B4J).
+DaisyUI `ColorWheel` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyColorWheel`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source**: `B4XDaisyColorWheel.bas`
-- **Verified Demo Source**: B4XPageColorWheel.bas (lines 15–32)
+- **Verified Demo Source**: B4XPageColorWheel.bas
 - **Web DaisyUI Mapping**: `.color-wheel` → `B4XDaisyColorWheel`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -63,77 +63,70 @@ y = pageScroll.AddSectionTitle("1. Medium-Thin Donut (16dip thickness)", y, Fals
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `InitialColor` | Initial Color | `Color` | `0xFFEF4444` |  |
-| `WheelThickness` | Wheel Thickness | `Int` | `24` |  |
-| `HandleSize` | Handle Size | `Int` | `24` |  |
-| `Shadow` | Handle Shadow | `String` | `md` | none|xs|sm|md|lg|xl|2xl |
-| `WheelReflectsSaturation` | Reflect Saturation | `Boolean` | `False` |  |
-| `ShowColorIndicator` | Show Color Indicator | `Boolean` | `True` |  |
-| `CenterOnParent` | Center On Parent | `Boolean` | `False` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
+| `InitialColor` | Initial Color | `Color` | 0xFFEF4444 |  |
+| `WheelThickness` | Wheel Thickness | `Int` | 24 |  |
+| `HandleSize` | Handle Size | `Int` | 24 |  |
+| `Shadow` | Handle Shadow | `String` | md | none|xs|sm|md|lg|xl|2xl |
+| `WheelReflectsSaturation` | Reflect Saturation | `Boolean` | False |  |
+| `ShowColorIndicator` | Show Color Indicator | `Boolean` | True |  |
+| `CenterOnParent` | Center On Parent | `Boolean` | False |  |
+| `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
 - `Changed (Color As Int)`
 
 ## 6. Public Methods & APIs
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `AttachTo(vTarget As B4XView)`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `Release`
-- `SendToBack`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `View As B4XView`
-- `getCenterOnParent As Boolean`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `getColor As Int`
-- `getHSL As Float`
-- `getHSV As Float`
-- `getHandleDiameter As Int`
-- `getHandleSize As Int`
-- `getHeight As Int`
+- `setColor(NewColor As Int)`
+- `setHSV3(Hue As Float, Saturation As Float, Value As Float)`
 - `getHex As String`
-- `getIndicatorHeight As Int`
-- `getInitialColor As Int`
-- `getLeft As Int`
-- `getRGB As Int`
-- `getShadow As String`
-- `getShowColorIndicator As Boolean`
-- `getTop As Int`
-- `getVisible As Boolean`
+- `setHex(HexStr As String)`
 - `getWheelDiameter As Int`
+- `setWheelDiameter(Diameter As Int)`
 - `getWheelReflectsSaturation As Boolean`
+- `setWheelReflectsSaturation(Value As Boolean)`
+- `setShowColorIndicator(Value As Boolean)`
+- `getShowColorIndicator As Boolean`
+- `setIndicatorHeight(HeightDip As Int)`
+- `getIndicatorHeight As Int`
+- `setInitialColor(Value As Int)`
+- `getInitialColor As Int`
+- `View As B4XView`
+- `setTag(Value As Object)`
+- `setWheelThickness(Thickness As Int)`
+- `setCenterOnParent(Value As Boolean)`
+- `getCenterOnParent As Boolean`
 - `getWheelThickness As Int`
+- `setHandleSize(Size As Int)`
+- `getHandleSize As Int`
+- `setHandleDiameter(Size As Int)`
+- `getHandleDiameter As Int`
+- `Base_Resize(Width As Double, Height As Double)`
+- `Refresh`
+- `AttachTo(Target As B4XView)`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setCenterOnParent(bValue As Boolean)`
-- `setColor(iNewColor As Int)`
-- `setHSL(oHsl() As Float`
-- `setHSV(oHsv() As Float`
-- `setHSV3(fHue As Float, fSaturation As Float, fValue As Float)`
-- `setHandleDiameter(iSize As Int)`
-- `setHandleSize(iSize As Int)`
-- `setHeight(iValue As Int)`
-- `setHex(sHexStr As String)`
-- `setIndicatorHeight(iHeightDip As Int)`
-- `setInitialColor(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setRGB(oRgb() As Int`
-- `setShadow(sValue As String)`
-- `setShowColorIndicator(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWheelDiameter(iDiameter As Int)`
-- `setWheelReflectsSaturation(bValue As Boolean)`
-- `setWheelThickness(iThickness As Int)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `getShadow As String`
+- `setShadow(Value As String)`
+- `getVisible As Boolean`
+- `setVisible(Value As Boolean)`
+- `Release`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

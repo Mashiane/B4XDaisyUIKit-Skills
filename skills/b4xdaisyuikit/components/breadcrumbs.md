@@ -1,12 +1,12 @@
 # breadcrumbs (`B4XDaisyBreadcrumbs`)
 
-DaisyUI `Breadcrumbs` component for B4X (B4A/B4i/B4J).
+DaisyUI `Breadcrumbs` component for B4X (B4A Android).
 
 ## 1. Overview
 - **Class**: `B4XDaisyBreadcrumbs`
 - **Lifecycle Type**: `Standard`
 - **Library Source**: `B4XDaisyBreadcrumbs.bas`
-- **Verified Demo Source**: B4XPageBreadcrumbs.bas (lines 60–155)
+- **Verified Demo Source**: B4XPageBreadcrumbs.bas
 - **Web DaisyUI Mapping**: `.breadcrumbs` → `B4XDaisyBreadcrumbs`
 
 ## DaisyUI Web Class Translation
@@ -71,57 +71,56 @@ DaisyUI `Breadcrumbs` component for B4X (B4A/B4i/B4J).
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
 | :--- | :--- | :--- | :--- | :--- |
-| `Enabled` | Enabled | `Boolean` | `True` |  |
-| `Visible` | Visible | `Boolean` | `True` |  |
-| `TextSize` | Text Size | `String` | `text-sm` | text-sm|text-base|text-lg|text-xl |
-| `CurrentIndex` | Current Index | `Int` | `-1` |  |
-| `RTL` | Right-To-Left | `Boolean` | `False` |  |
+| `Enabled` | Enabled | `Boolean` | True |  |
+| `Visible` | Visible | `Boolean` | True |  |
+| `TextSize` | Text Size | `String` | text-sm | text-sm|text-base|text-lg|text-xl |
+| `CurrentIndex` | Current Index | `Int` | -1 |  |
+| `RTL` | Right-To-Left | `Boolean` | False |  |
 
 ## 5. Declared Events
 - `ItemClick (ItemId As String)`
 
 ## 6. Public Methods & APIs
-- `AddItem(sId As String, sText As String, sIconPath As String, bClickable As Boolean)`
-- `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
-- `Base_Resize(dWidth As Double, dHeight As Double)`
-- `BringToFront`
-- `Clear`
-- `CreateView(iWidth As Int, iHeight As Int) As B4XView`
-- `DesignerCreateView(oBase As Object, lblLbl As Label, mProps As Map)`
-- `GetComputedHeight As Int`
-- `Initialize(oCallback As Object, sEventName As String)`
-- `Refresh`
-- `RemoveViewFromParent`
-- `SendToBack`
-- `SetItems(lstItems As List)`
-- `SetLayoutAnimated(iDuration As Int, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int)`
-- `UpdateTheme`
+- `Initialize(Callback As Object, EventName As String)`
+- `CreateView(Width As Int, Height As Int) As B4XView`
+- `DesignerCreateView(Base As Object, lblLbl As Label, Props As Map)`
 - `View As B4XView`
-- `getCurrentIndex As Int`
-- `getEnabled As Boolean`
-- `getHeight As Int`
+- `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `UpdateTheme`
+- `Refresh`
+- `GetComputedHeight As Int`
+- `SetItems(lstItems As List)`
 - `getItems As List`
-- `getLeft As Int`
-- `getRTL As Boolean`
-- `getTag As Object`
-- `getTextSize As String`
-- `getTop As Int`
+- `Clear`
+- `AddItem(Id As String, Text As String, IconPath As String, Clickable As Boolean)`
+- `setEnabled(Value As Boolean)`
+- `getEnabled As Boolean`
+- `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
+- `setTextSize(Value As String)`
+- `getTextSize As String`
+- `setCurrentIndex(Value As Int)`
+- `getCurrentIndex As Int`
+- `setTag(Value As Object)`
+- `getTag As Object`
+- `RemoveViewFromParent`
+- `Base_Resize(Width As Double, Height As Double)`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
 - `getWidth As Int`
-- `setCurrentIndex(iValue As Int)`
-- `setEnabled(bValue As Boolean)`
-- `setHeight(iValue As Int)`
-- `setLeft(iValue As Int)`
-- `setRTL(bValue As Boolean)`
-- `setTag(oValue As Object)`
-- `setTextSize(sValue As String)`
-- `setTop(iValue As Int)`
-- `setVisible(bValue As Boolean)`
-- `setWidth(iValue As Int)`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `getRTL As Boolean`
+- `setRTL(Value As Boolean)`
 
 ## 7. Public Fields
 - `mBase As B4XView`
-- `xui As XUI`
 
 ## Canonical Creation Pattern & Recipe
 

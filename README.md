@@ -1,17 +1,17 @@
 # ⚡ B4XDaisyUIKit-Skills
 
-> **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4X (B4A Android, B4i iOS, B4J Desktop) mobile apps with DaisyUI / Tailwind CSS design semantics.**
+> **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4A (Android) apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.2.4-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.4.0-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Library Parity](https://img.shields.io/badge/Components-108_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
+[![Library Parity](https://img.shields.io/badge/Components-104_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 
 ---
 
 ## 📖 Overview
 
-**`B4XDaisyUIKit-Skills`** is the official AI agent skill suite for **[B4XDaisyUIKit](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)**. It equips AI developer agents (Claude Code, Antigravity, OpenCode, Codex, Cursor) with full, verified knowledge to autonomously scaffold, design, compose, verify, and review native cross-platform B4X applications.
+**`B4XDaisyUIKit-Skills`** is the official AI agent skill suite for **[B4XDaisyUIKit](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)**. It equips AI developer agents (Claude Code, Antigravity, OpenCode, Codex, Cursor) with full, verified knowledge to autonomously scaffold, design, compose, verify, and review native B4A (Android) applications.
 
 ### 🌟 Key Capabilities
 * 🎯 **100% Native Code Generation**: Converts web-oriented Tailwind CSS and DaisyUI concepts into robust native B4X views, layouts, and event handlers.
@@ -20,14 +20,14 @@
 * 📋 **Canonical Complex Component Patterns**: Hardened construction recipes for `B4XDaisyList` (3-pillar virtualized recycling), `B4XDaisyCard` (multi-subpanel), `B4XDaisyHero`, `B4XDaisyAccordion`, `B4XDaisySweetAlert` (async `Wait For` dialogs), `B4XDaisyDrawer`, `B4XDaisyDock`, and `B4XDaisyCarousel`.
 * 📚 **9 Domain-Specific Recipe Cookbooks**: Step-by-step guides for Dashboards, Forms & Validation, Navigation, Feedback & Overlays, Media & Cards, Data Display, Onboarding Tours, Sliders, and Real-Time CRUD with PocketBase.
 * 🏛️ **HCI & UX Master Doctrine**: Enforces quantitative design laws (Fitts's Law $\ge 48\text{dp}$ touch targets, Hick's Law $\le 5$ nav items, WCAG 2.2 AA contrast $\ge 4.5:1$, and 4-state UI completeness).
-* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI models to exact, verified signatures across 108 native component classes.
+* 🛡️ **Zero-Hallucination API Guardrails**: Constrains AI models to exact, verified signatures across 104 native component classes.
 * ⚡ **Greenfield Bootstrap & Verification**: Automatic app shell generation (`b4x-project-bootstrap`) and multi-stage pre-scan and quality inspection gates (`b4x-verify`, `b4x-orchestrator`).
 
 ---
 
 ## 💻 System & Toolchain Requirements
 
-* **Target Platform:** Native Android APKs generated via B4A (Basic4Android), B4i (iOS), and B4J (Desktop).
+* **Target Platform:** Native Android APKs generated via B4A (Basic4Android). B4XDaisyUIKit targets B4A/Android only.
 * **Host Operating System:** Windows 10/11 (standard B4A development environment).
 * **Required Tooling:**
   - **B4A 12+** with `B4XDaisyUIKit.b4xlib` in Additional Libraries.

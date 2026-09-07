@@ -209,11 +209,13 @@ End Sub
 
 ---
 
-## 👁️ 2. UI Screenshot & Image Vision Engine (5-Stage Protocol)
+## 👁️ 2. UI Screenshot & Image Vision Engine (6-Stage Protocol)
 
-When converting mobile screenshots or visual designs, execute through 5 systematic vision stages:
+When converting mobile screenshots or visual designs, execute through 6 systematic vision stages:
 
 ```text
+STAGE 0: Semantic Region Classification (anti-cargo-culting gate)
+   ↓
 STAGE 1: Spatial Inset & Shell Segmentation
    ↓
 STAGE 2: Semantic Color & Theme Extraction
@@ -223,27 +225,89 @@ STAGE 3: Hierarchical View Tree Construction
 STAGE 4: Dynamic State & Geometry Formulation
    ↓
 STAGE 5: Native B4X Code Generation & Verification
+   ↓
+STAGE 6: Screenshot-vs-Reference Comparison & Correction
 ```
 
+### Rule: Classify Semantics First, Never Pixels Directly
+
+A visual region in the reference image is a **semantic area**, not a component. Do not map pixels directly to views ("I see a rounded rectangle, therefore `B4XDaisyCard`"). Instead, determine what the region *means* before choosing its native expression:
+
+| Visual appearance | Semantic question | Possible native expressions |
+| :--- | :--- | :--- |
+| Rounded container with a title and body | "Is this a *self-contained object the user compares or acts on*, or just a *grouped section of related controls*?" | `B4XDaisyCard` / `B4XDaisyInfoCard` — or `B4XDaisyDivision` + heading, or `B4XDaisyFieldset` |
+| Outlined box around several inputs | "Is this a *form grouping* with a legend?" | `B4XDaisyFieldset` (not Card) |
+| Row of icon + text repeating | "Is this a *data list* the user scans/acts on, or *static copy*?" | `B4XDaisyList` — or `B4XDaisyText` stack |
+| Large area of color at top | "Is this an *attention hook* (hero) or just a *header*?" | `B4XDaisyHero` — or `B4XDaisyNavbar` |
+| Pill-shaped label | "Does it *convey status* or is it *interactive filtering*?" | `B4XDaisyBadge` — or `B4XDaisyFilter` / `B4XDaisyBadgeGroupSelect` |
+
+Misclassification shows up later as wrong interaction models (a Card cannot be filtered; a Fieldset has no actions panel). When in doubt, check the intent-level mapping in [`intent-to-component.md`](intent-to-component.md) before Stage 5.
+
+### Stage 0: Semantic Region Classification (Anti-Cargo-Culting Gate)
+1. Segment the reference into **census regions** (every visually distinct block, counted and listed).
+2. For each region, answer the semantic questions above and write one line: `Region 4: "grouped form controls" → B4XDaisyFieldset`.
+3. Only after every region has a semantic label, proceed to Stage 1.
+
 ### Stage 1: Spatial Inset & Shell Segmentation
-1. **Top Inset (Status + Navbar):** Pinned title/action bar detected $\rightarrow$ Map to `B4XDaisyNavbar` (`Top = 0, Height = 64dip`).
+1. **Top Inset (Status + Navbar):** Pinned title/action bar detected $\rightarrow$ Map to `B4XDaisyNavbar` (`Top = 0, Height = 56dip` — matches `screen-contract.template.md` inset contract).
 2. **Bottom Inset (Navigation Dock / Tabs):** Pinned bottom tab bar detected $\rightarrow$ Map to `B4XDaisyDock` (`Top = Root.Height - 64dip, Height = 64dip`).
-3. **Scrollable Content Viewport:** Vertical area between insets $\rightarrow$ Map to `B4XDaisyPageScroll` (`Top = 64dip, Height = Root.Height - 128dip`).
+3. **Floating primary action:** Circular button overlapping the bottom-right $\rightarrow$ `B4XDaisyFab` pinned to `Root` (never inside `pnlHost`).
+4. **Scrollable Content Viewport:** Vertical area between insets $\rightarrow$ Map to `B4XDaisyPageScroll` (`Top = 56dip, Height = Root.Height - 56dip - 64dip`).
+5. Record each inset decision in the reasoning trace; the orchestrator audits it at Gate 6/7.
 
 ### Stage 2: Semantic Color & Theme Extraction
-* **Primary Brand Accent:** Identify main interactive buttons and active states $\rightarrow$ Assign `Color = "primary"`.
-* **Secondary Accent:** Identify badges, secondary highlights, or tags $\rightarrow$ Assign `Color = "secondary"` or `"accent"`.
-* **Surface Background:** Identify card backgrounds $\rightarrow$ `Color = "base-100"` / `"base-200"`.
-* **Feedback Indicators:** Green $\rightarrow$ `"success"`, Red $\rightarrow$ `"error"`, Yellow $\rightarrow$ `"warning"`, Blue $\rightarrow$ `"info"`.
+Extract roles, not hex values. Fill this worksheet per screenshot and carry it into the Screen Contract:
+
+| Extracted visual element | Ask | Assign token |
+| :--- | :--- | :--- |
+| Dominant interactive button + active tab | "Which color is *reserved for the one primary action*?" | `Color = "primary"` |
+| Badges, tags, secondary highlights | "What accents *support* without competing?" | `"secondary"` / `"accent"` |
+| Card and page surfaces | "What is the background hierarchy (page vs card vs input)?" | `"base-100"` / `"base-200"` / `"base-300"` |
+| Green / red / yellow / blue indicators | "Which semantic feedback role does each serve?" | `"success"` / `"error"` / `"warning"` / `"info"` |
+| Overall lightness/darkness | "Is the reference dark-mode?" | Theme selection via `B4XDaisyVariants` (`colors-and-themes.md`) |
+
+* Never hardcode an extracted hex in a component setter. Map to the closest semantic token per [`design-tokens.md`](design-tokens.md); custom hex is only acceptable when no token matches and the user approved it.
 
 ### Stage 3: Hierarchical View Tree Construction
-Map visual clusters into a parent-child native view tree (PageRoot $\rightarrow$ Viewport $\rightarrow$ Cards $\rightarrow$ Controls).
+Build an explicit parent-child native view tree before writing any layout code:
+
+```text
+Root (B4XPage)
+├── B4XDaisyNavbar                ← pinned top inset (Stage 1)
+├── B4XDaisyPageScroll (pnlHost)  ← scrollable viewport
+│   ├── [Stage 0 Region 1] → component
+│   ├── [Stage 0 Region 2] → component (mount children via getBodyContainer / getContentView)
+│   └── ...
+└── B4XDaisyDock / B4XDaisyFab    ← pinned bottom inset
+```
+
+Rules:
+1. Every Stage 0 region appears exactly once as a node. Orphan regions = missed segmentation; revisit Stage 0.
+2. Child views mount inside the parent's exposed content panel (`getBodyContainer`, `getContentView`), never directly on `pnlHost` when the parent is a container component.
+3. Verify every chosen component exists and is **Demonstrated** in [`component-manifest.md`](component-manifest.md) before committing it to the tree.
 
 ### Stage 4: Dynamic State & Geometry Formulation
-Convert visual spacing and auto-layout configurations into exact B4X positioning math (`curY = curY + comp.GetComputedHeight + gap`).
+1. Convert visual spacing to the token scale (`dip = step × 4dip`, [`design-tokens.md`](design-tokens.md) §2): estimate gaps as `YGap` (8–20dip by density level, `creative-director.md` §2) and page padding as `PagePadding` (16/20dip).
+2. Compile the sequential Y-cursor layout math: `curY = curY + comp.GetComputedHeight + gap`.
+3. Enforce `≥ 48dip` on every interactive region (`RULE-INTERACT-003`); if the reference shows a smaller target, widen it and note the deviation.
+4. Identify dynamic states the screenshot implies (loading placeholders, empty regions, badges) and add the missing states per Screen Contract §6 — a screenshot only shows the Populated state.
 
 ### Stage 5: Native B4X Code Generation & Verification
-Assemble pure native B4X code and run `b4x-verify` to ensure conformance.
+1. Assemble pure native B4X code: `Initialize` → `AddToParent` → property setters (creation order per [`component-creation-patterns.md`](component-creation-patterns.md)).
+2. Cite `RULE-*` IDs in the reasoning trace.
+3. Run `b4x-verify` (`pre-scan.ps1` → `verify-conformance.ps1`) to ensure conformance; repair until PASS.
+
+### Stage 6: Screenshot-vs-Reference Comparison & Correction
+The reference is not "done" until the rendered result is compared against it:
+
+1. **Build + install** (`b4x-verify` Gate 5), then capture the generated screen (`capture-screens.ps1`).
+2. **Compare** generated PNG against the reference image on: inset placement (navbar/dock/FAB), section order, density and spacing rhythm, color-role mapping, component type per Stage 0 region.
+3. **Correct criteria** — a mismatch requires a fix ticket when:
+   - A Stage 0 semantic region rendered as a different component than the tree says.
+   - A color appears as arbitrary hex instead of its assigned token.
+   - Section order or inset geometry deviates from Stage 1.
+   - The 4/5 required states from the Screen Contract are missing.
+4. Apply corrections, re-render, re-compare. **Cap: 2 comparison rounds**; after that, record residual deviations in the UX review report instead of looping.
 
 ---
 
@@ -266,6 +330,18 @@ Assemble pure native B4X code and run `b4x-verify` to ensure conformance.
 | Input Format | Primary Strategy | First Reference Document |
 | :--- | :--- | :--- |
 | **Web HTML / JSX** | Strip HTML/DOM $\rightarrow$ Map DaisyUI classes to B4X types $\rightarrow$ Mount in `RenderContent` | [`daisyui-native-compatibility.md`](daisyui-native-compatibility.md) |
-| **Screenshot / Mockup Image** | 5-Stage Vision Decomposition $\rightarrow$ Isolate insets $\rightarrow$ Construct tree | [`conversion-workflows.md`](conversion-workflows.md) |
+| **Screenshot / Mockup Image** | 6-Stage Vision Decomposition (semantic regions → insets → tree → tokens → B4X → compare) | [`conversion-workflows.md`](conversion-workflows.md) |
+| **Wireframe / Hand Sketch** | Semantic region classification only — no style extraction → layout intent → component tree | [`conversion-workflows.md`](conversion-workflows.md) §5 |
 | **Figma Component Spec** | Frame auto-layout math $\rightarrow$ Spacing tokens $\rightarrow$ Native B4X layout | [`design-tokens.md`](design-tokens.md) |
 | **REST / PocketBase Data** | 4-State UI pattern (Loading, Populated, Empty, Error) | [`ux-master-doctrine.md`](ux-master-doctrine.md) |
+
+---
+
+## ✏️ 5. Wireframe / Hand-Sketch Interpretation Protocol
+
+A rough sketch or wireframe is a **layout-intent** input, not a style input. A good native B4X screen must not require a beautiful reference — this is the lowest-fidelity supported entry point.
+
+1. **Run Stage 0 only for structure.** Classify each sketched region semantically (form grouping, list, nav inset, primary action) exactly as for screenshots. Do **not** extract colors, shadows, radii, or typography — sketches carry none reliably.
+2. **Skip Stage 2.** Assign neutral/default theme tokens (`base-100` surfaces, one `primary` action) unless the user supplied brand colors; if unspecified, ask once rather than inventing a palette.
+3. **Run Stages 1, 3, 4, 5 as normal** (insets → view tree → geometry → code → verify), then the Stage 6 comparison uses the *sketch* as the structural reference: section order, inset presence, and region count must match; visual polish differences do not count as mismatches.
+4. **Ask, don't guess, on ambiguity.** A sketch box can mean Card, Fieldset, List row, or plain grouping — if the drawing cannot disambiguate, apply the semantic questions in §2's anti-cargo-culting rule and state the interpretation chosen in the reasoning trace.

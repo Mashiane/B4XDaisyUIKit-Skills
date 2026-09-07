@@ -14,7 +14,7 @@ One app folder `<AppFolder>` per run. Folder name must match `.b4a` file name.
 $app = "C:\b4a\workspace\MyApp"
 # per screen (e.g. login, dashboard, stock_take)
 Copy-Item skills/b4x-orchestrator/references/screen-contract.template.md $app/contract/login.md
-# fill 9 acceptance checkboxes, component table, architecture id
+# fill all acceptance checkboxes, component table, architecture id
 if (-not (Test-Path $app/contract/login.md)) { Write-Host "FAIL: missing contract"; exit 1 }
 ```
 

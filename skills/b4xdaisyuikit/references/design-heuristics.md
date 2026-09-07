@@ -60,3 +60,28 @@ Standard SVG icons bundled in the app's `Assets/Files/` directory:
 - Navigation: `"arrow-left-solid.svg"`, `"chevron-right-solid.svg"`, `"home-solid.svg"`, `"bars-solid.svg"`, `"cog-solid.svg"`
 - User & Social: `"user-solid.svg"`, `"users-solid.svg"`, `"envelope-solid.svg"`, `"phone-solid.svg"`, `"bell-solid.svg"`, `"heart-solid.svg"`, `"star-solid.svg"`
 - Media & Commerce: `"shopping-cart-solid.svg"`, `"credit-card-solid.svg"`, `"dollar-sign-solid.svg"`, `"file-pdf-solid.svg"`, `"camera-solid.svg"`
+
+---
+
+## 4. Design Intelligence: Scanning, Disclosure & Cognitive Load
+
+Consolidates the perceptual/cognitive layer used during Stage 3 (Creative Director) and Stage 4 (Page Architect). Quantitative laws (Fitts, Hick, Miller) and WCAG live in `ux-master-doctrine.md` — this section covers how *visual composition* serves them. Cite these when defending a layout choice.
+
+### A. Scanning patterns
+1. **F-pattern (text-heavy screens):** users scan left edges and first lines. Front-load list titles and card headings; never hide the key word past the midpoint of a line. Applies to `B4XDaisyList`, feeds, search results.
+2. **Z-pattern (action screens with sparse content):** eyes travel top-left → top-right → bottom-left → bottom-right. Put the screen identity at the top (`Navbar` title) and the primary action at the end of the sweep (bottom button or `Fab`/`Dock`).
+3. **Thumb-zone dominance (mobile-first override):** mobile scanning is vertical; the F/Z patterns matter less than vertical order. Rank content strictly by task priority top-to-bottom, actions in the bottom thumb zone (`creative-director.md` §1).
+
+### B. Progressive disclosure
+1. Show the decision, hide the detail: surface only what is needed for the current task; defer everything else behind `B4XDaisyCollapse`/`Accordion`, `SheetModal`, `Modal`, or a second page.
+2. Wizards over mega-forms: more than ~7 input groups on one screen → split into `B4XDaisySteps` (Hick's law pressure on a single screen).
+3. Disclosure must be discoverable: every collapsed/hidden region needs an affordance (icon, chevron, count badge) — never invisible taps.
+
+### C. Cognitive load
+1. **Chunk to 3–5 groups per screen.** A screen with more visual groups than that needs dividers, density reduction, or a second screen.
+2. **One decision per screen section.** Each visual group should answer one question; mixed-purpose groups are a ux-review finding.
+3. **Recognition over recall:** show valid options (`Select`/`Dropdown`, `BadgeGroupSelect`) rather than forcing users to remember and type.
+4. **Consistency is load-bearing:** the same intent must use the same component and variant across screens (`intent-to-component.md` is the single mapping source).
+
+### D. Applying it
+When writing or reviewing a screen, state in one line per section: *what the user is scanning for, what is disclosed now vs later, and what decision the section supports*. If a line can't be written, the section is a candidate for removal or restructuring.
