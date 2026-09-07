@@ -88,6 +88,12 @@ b4xdaisyuikit-skills/
     ├── b4x-verify/                          # Quality inspection & conformance gate
     │   ├── SKILL.md
     │   └── references/                      # Static AST rule checker & UX review rules
+    ├── sd5-book-to-skill/                   # Regenerator (port from SithasoDaisy5 — B4A rewrite pending)
+    │   ├── SKILL.md
+    │   ├── scripts/
+    │   │   ├── extract.py                   # framework .bas → components.json (B4A targets TBD)
+    │   │   └── gen_components.py            # components.json → per-component .md (B4A targets TBD)
+    │   └── work/                            # extraction artifacts (empty until first run)
     └── b4xdaisyuikit/                       # Core UI/UX design & component synthesis skill
         ├── SKILL.md                         # 6-Stage Blueprint workflow orchestrator
         ├── chapters/                        # 9 End-to-End Domain Recipe Cookbooks
