@@ -18,6 +18,8 @@ One skill, ~150 lines of logic, zero new knowledge. It only sequences the 3 exis
 ```
 USER REQUIREMENT
   ↓
+b4x-application-planner → APPLICATION / FEATURE CONTRACTS  — L5 gate (greenfield / major feature)
+  ↓
 SCREEN CONTRACT (references/screen-contract.template.md)  — L5 gate
   ↓
 b4x-project-bootstrap (if greenfield)                      — L5 gate
@@ -37,6 +39,8 @@ capture-screens.ps1  — L3 evidence (PNG must exist)
 ux-review.md (full)  — L5 hard fail if severity ≥4 or BUILD-WATCH Errors
   ↓
 REMEDIATION LOOP     — L6 (fix → re-verify → re-capture → re-review, cap 3)
+  ↓
+b4x-regression (existing-app changes: baseline → impact → targeted + critical regression) — L5 gate
   ↓
 RELEASE BUNDLE (PASS)
 ```
@@ -128,7 +132,10 @@ All four must exist, last audit `Ready` / `Ready with Minor Fixes`, 0 `severity�
 | "One good screen proves the flow" | No. Capture every screen in contract, review flow assessment. |
 
 ## References
-- `references/screen-contract.template.md` (contract gate, L5)
+- `references/screen-contract.template.md` (screen gate, L5; canonical screen contract — `b4x-application-planner` points here, its local copy is a mirror)
+- `../b4x-application-planner/SKILL.md` (app/feature contracts, L5 gate for greenfield)
+- `../b4x-feature-engineer/SKILL.md` (vertical-slice implementation)
+- `../b4x-regression/SKILL.md` (existing-app change gate, L5)
 - `references/runbook.md` (step-by-step with exact pwsh lines)
 - `../b4x-project-bootstrap/references/bootstrap-workflow.md` (steps 1-8)
 - `../b4xdaisyuikit/references/component-manifest.md` (source of truth)
