@@ -6,7 +6,7 @@ DaisyUI `App` component for B4X (B4A Android).
 - **Class**: `B4XDaisyApp`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source**: `B4XDaisyApp.bas`
-- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
+- **Verified Demo Source**: B4XPageBoomMenu.bas, B4XPageButton.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDashboard.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageHover3d.bas, B4XPageMediaPicker.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRange.bas, B4XPageSelect.bas
 - **Web DaisyUI Mapping**: `.app` → `B4XDaisyApp`
 
 ## 2. Verified B4X Syntax & Recipe

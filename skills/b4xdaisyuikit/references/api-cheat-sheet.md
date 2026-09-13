@@ -2,7 +2,7 @@
 
 This document lists all available custom views, their event hooks, designer properties, and public methods. Use this reference when building user interfaces dynamically.
 
-Auto-generated from the packaged library source (v0.95) on 2026-09-07 18:47 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
+Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
 
 ## Table of Contents
 
@@ -7919,6 +7919,8 @@ Auto-generated from the packaged library source (v0.95) on 2026-09-07 18:47 UTC.
 | `BorderColor` | String | `base-300` | Border color token. |
 | `Width` | String | `w-content` | Card width: empty = use AddToParent width, "w-content" = shrink-wrap to content, or a number (dip). |
 | `Height` | String | `` | Card height: empty or "h-content" = driven by tallest item, or a number (dip) to force a fixed height. |
+| `EqualWidths` | Boolean | `False` | Give every horizontal stat item the same width within the available width. |
+| `MaxWidth` | Int | `0` | Maximum available width in dip. 0 uses the width supplied to AddToParent. |
 | `Visible` | Boolean | `True` | Visible state. |
 
 ### Public Methods
@@ -7942,6 +7944,10 @@ Auto-generated from the packaged library source (v0.95) on 2026-09-07 18:47 UTC.
 - `getBorderWidth As String`
 - `setBorderColor(Value As String)`
 - `getBorderColor As String`
+- `setEqualWidths(Value As Boolean)`
+- `getEqualWidths As Boolean`
+- `setMaxWidth(Value As Int)`
+- `getMaxWidth As Int`
 - `setWidth(Value As String)`
 - `getWidth As String`
 - `setHeight(Value As String)`
@@ -7997,6 +8003,8 @@ Auto-generated from the packaged library source (v0.95) on 2026-09-07 18:47 UTC.
 | `Animated` | Boolean | `False` | Animate the value from Start From to Value. |
 | `Duration` | Int | `2` | Count-up duration in seconds. |
 | `Visible` | Boolean | `True` | Visible state. |
+
+Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `DecimalPlaces`, and `UseGrouping` whether `Animated` is `True` or `False`. Non-numeric values remain raw strings.
 
 ### Public Methods
 

@@ -122,7 +122,7 @@ if ($log -match "ANR in $Package|Application Not Responding") {
 if ($log -match "ClassNotFoundException") {
     $errors += "ClassNotFoundException in logcat (missing class - invented API or missing module)"
 }
-if ($log -match "Resources\$NotFoundException") {
+if ($log -match "Resources\.NotFoundException") {
     $errors += "Resources.NotFoundException in logcat (missing asset - FileN wiring mismatch)"
 }
 if ($errors.Count -eq 0) {

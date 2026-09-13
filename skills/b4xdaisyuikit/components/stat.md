@@ -81,6 +81,8 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 | `BorderColor` | Border Color | `String` | base-300 | base-300|base-200|base-content|primary|secondary|accent|info|success|warning|error|none |
 | `Width` | Width | `String` | w-content |  |
 | `Height` | Height | `String` |  |  |
+| `EqualWidths` | Equal Widths | `Boolean` | False |  |
+| `MaxWidth` | Maximum Width | `Int` | 0 | dip; 0 uses the width supplied to `AddToParent` |
 | `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
@@ -106,6 +108,10 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 - `getBorderWidth As String`
 - `setBorderColor(Value As String)`
 - `getBorderColor As String`
+- `setEqualWidths(Value As Boolean)`
+- `getEqualWidths As Boolean`
+- `setMaxWidth(Value As Int)`
+- `getMaxWidth As Int`
 - `setWidth(Value As String)`
 - `getWidth As String`
 - `setHeight(Value As String)`
@@ -138,6 +144,8 @@ Dim stat As B4XDaisyStat
 stat.Initialize(Me, "stat")
 stat.Orientation = "horizontal"                ' Set BEFORE AddToParent ("horizontal" | "vertical")
 stat.Width = "w-full"                          ' Set BEFORE AddToParent
+stat.EqualWidths = True                         ' Equal item widths within the available row width
+stat.MaxWidth = maxW                            ' Usable width after page padding, in dip
 stat.AddToParent(pnlHost, pad, y, maxW, 0)
 stat.Shadow = "md"
 stat.Rounded = "rounded-box"
@@ -165,3 +173,5 @@ stat.AddItem(item2)
 stat.Refresh
 y = y + stat.GetComputedHeight + gap
 ```
+
+Numeric stat values are formatted even when `Animated = False`. Use `Prefix`, `Suffix`, `Separator`, `Decimal`, `DecimalPlaces`, and `UseGrouping`; non-numeric values such as `"4.2%"` remain unchanged.

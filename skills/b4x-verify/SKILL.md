@@ -31,11 +31,22 @@ unwired page modules.
 ## Full Pipeline (shift-left)
 
 ```text
+G0 contract       ->  verify-contract.ps1 (schema gate; build-manifest.ps1
+                      regenerates application-manifest.json)  ->
 Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
   ./install.ps1  (auto-runs build-watch.ps1 after launch)  ->
   capture-screens.ps1  ->  ux-review.md (consumes BUILD-WATCH report)
 ```
 
+- **verify-contract.ps1** (this skill): G0 contract-schema gate
+  (docs/contracts/CONTRACT-SCHEMA.md §6). Validates `contract/*.md` +
+  `.agent` state mechanically before any generation: sections, defined IDs,
+  OPEN dependencies, critical REQ→TEST, screen parentage, provenance.
+  Exit 1 = do not generate.
+- **build-manifest.ps1** (this skill): regenerates
+  `application-manifest.json` (+ timestamped prior) from `contract/`,
+  source modules, and `component-provenance.json`
+  (docs/architecture/MANIFEST-GENERATOR.md). Never hand-edit the manifest.
 - **pre-scan.ps1** (this skill): fast negative-knowledge grep. Catches the bans
   the conformance gate does not (web tech, Flex/Grid, Parent.AddView, broken
   validator, documented-only misuse). Advisory + hard-fail on clear bans. Run
@@ -65,7 +76,7 @@ Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
 - Scaffolding the shell (use `b4x-project-bootstrap`).
 - The library source itself (immutable; out of scope).
 
-## The Quality Inspector Gate (Four Checks)
+## The Quality Inspector Gate (Five Checks)
 
 Run the checker from the app folder:
 
@@ -75,18 +86,20 @@ pwsh -File <skill>/references/verify-conformance.ps1 -AppFolder C:\b4a\workspace
 
 Exit 0 = pass, 1 = fail.
 
-1. **Conformance.** Every `B4XDaisy*` type referenced in the app's `.bas` files must exist in `component-manifest.md`. Catches invented APIs and misspelled component names.
+1. **Component conformance.** Every `B4XDaisy*` type referenced in the app's `.bas` files must exist in `component-manifest.md`. Catches invented APIs and misspelled component names.
 
-2. **Documented-only.** Flags use of components marked `Documented-only` (per manifest rule: requires explicit user approval before introducing).
+2. **API-member conformance.** Every member called on a declared B4XDaisy component variable must exist in the generated API corpus.
 
-3. **Compile-readiness.** Catches `.b4a` project file and module wiring defects before invoking `B4ABuilder`:
+3. **Documented-only.** Flags use of components marked `Documented-only` (per manifest rule: requires explicit user approval before introducing).
+
+4. **Compile-readiness.** Catches `.b4a` project file and module wiring defects before invoking `B4ABuilder`:
    - Every `ModuleN=<Name>` has a matching `<Name>.bas` file; `NumberOfModules` matches the count; `B4XMainPage` is present.
    - One `FileGroupN=Default Group` per `FileN`, and `NumberOfFiles` matches.
    - Every `FileN` exists in `Files\`.
    - `#AdditionalRes` target folder exists.
    - The `.b4a` first line is `Build1=` and every `.bas` first line is `B4A=true`.
 
-4. **Static Layout & UX Quality Gate.** Inspects code patterns against mandatory runtime rules and Definition of Done:
+5. **Static Layout & UX Quality Gate.** Inspects code patterns against mandatory runtime rules and Definition of Done:
    - Verifies that any file referencing `B4XDaisyPageScroll` calls `.AutoFit` at the end of rendering (`RULE-LAYOUT-003`).
    - Verifies that `navbar.BringToFront` is called directly, rejecting `.getView.BringToFront` anti-patterns (`RULE-INTERACT-001`).
    - Verifies that structured error logging is present (detects empty `Catch` blocks, `RULE-CODE-002`).
@@ -118,7 +131,7 @@ Launch ./install.ps1
 ```
 
 1. **If Conformance Fails**: Locate the flagged token in the `.bas` file. Replace it with a verified method or component from `component-manifest.md` and `components/<name>.md`.
-2. **If Compile-Readiness Fails**: Adjust `.b4a` `ModuleN` entries, bump `NumberOfModules`, or fix file headers.
+2. **If API-member or Compile-Readiness Fails**: Replace the member with an API from the generated corpus, or adjust `.b4a` `ModuleN` entries, bump `NumberOfModules`, or fix file headers.
 3. **If Static Layout Fails**: Add `pageScroll.AutoFit` to the end of the page render routine or fix `navbar.BringToFront`.
 4. **Re-run Gate**: Loop until the script exits with `RESULT: PASS`. Then run `./install.ps1`.
 
@@ -136,7 +149,7 @@ Launch ./install.ps1
    skill. Do NOT "fix" by editing the library.
 4. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
    `Demonstrated` component.
-5. If COMPILE-READINESS fails: add the missing `ModuleN=<Name>` line to the
+5. If API-member or COMPILE-READINESS fails: replace the invalid member, or add the missing `ModuleN=<Name>` line to the
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
 6. Re-run until PASS.
@@ -228,8 +241,12 @@ empty state, or a primary action buried below the fold.
 
 ## References
 
+- `references/verify-contract.ps1` (G0 contract-schema gate per docs/contracts/CONTRACT-SCHEMA.md §6)
+- `references/build-contract-index.ps1` (contract.index.json generator per CONTRACT-SCHEMA.md DECISION-001; run before verify-contract.ps1)
+- `references/build-manifest.ps1` (application-manifest.json generator + gate evidence write-back per docs/architecture/MANIFEST-GENERATOR.md)
 - `references/pre-scan.ps1` (fast negative-knowledge pre-scan, run before the gate)
 - `references/verify-conformance.ps1` (static pre-build gate script)
+- `references/production-hardening.md` and `references/verify-production-hardening.ps1` (release-only security gate)
 - `references/capture-screens.ps1` (Phase 2 adb screenshot capture)
 - `references/ux-review.md` (Phase 2 reviewer prompt + report format)
 - `../b4x-project-bootstrap/references/build-watch.template.ps1` (build-stage runtime gate; dropped as `build-watch.ps1` and auto-run by `install.ps1`; writes `ux-review/BUILD-WATCH-<YYYYMMDD>.md` consumed by Phase 2)

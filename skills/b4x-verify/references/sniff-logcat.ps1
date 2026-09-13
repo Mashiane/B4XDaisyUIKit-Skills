@@ -144,9 +144,9 @@ function Process-CrashLog {
 
         Show-SourceContext -AppPath $AppFolder -ModuleName $module -LineNumber $lineNum
         $reportLines += "## B4A Exception in $module (Line $lineNum)"
-        $reportLines += "```text"
+        $reportLines += ([string][char]96 + [string][char]96 + [string][char]96 + 'text')
         $reportLines += $m.Value
-        $reportLines += "```"
+        $reportLines += ([string][char]96 + [string][char]96 + [string][char]96)
     }
 
     # Check for AndroidRuntime FATAL exceptions
@@ -159,9 +159,9 @@ function Process-CrashLog {
         Write-Host $crashBlock -ForegroundColor DarkYellow
         Write-Host "------------------------------------------------------------------" -ForegroundColor Red
         $reportLines += "## AndroidRuntime FATAL EXCEPTION"
-        $reportLines += "```text"
+        $reportLines += ([string][char]96 + [string][char]96 + [string][char]96 + 'text')
         $reportLines += $crashBlock
-        $reportLines += "```"
+        $reportLines += ([string][char]96 + [string][char]96 + [string][char]96)
     }
 
     if ($hasCrash) {

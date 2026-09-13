@@ -101,5 +101,9 @@ y = y + 180dip + gap
   ```
 - When live data arrives, either toggle `IsSkeleton = False` or replace the skeleton panel views with real content panels.
 
-## 4. Alternative: Animated Loading Spinners
+## 4. Designer Properties
+
+This is a mode component, so it has no designer-only properties of its own. Configure the companion `B4XDaisyDivision`, `B4XDaisyText`, or `B4XDaisyLoading` instance at runtime.
+
+## 5. Alternative: Animated Loading Spinners
 For dynamic loading animations alongside skeleton layouts, see [loading.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/loading.md) (`B4XDaisyLoading`).

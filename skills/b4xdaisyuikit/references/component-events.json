@@ -1,0 +1,729 @@
+{
+  "generated": "2026-09-10 23:25 UTC",
+  "components": {
+    "B4XDaisyAccordion": [
+      {
+        "signature": "Change (ActiveTag As Object, Status As Boolean)"
+      }
+    ],
+    "B4XDaisyActionSheet": [
+      {
+        "signature": "DidPresent"
+      },
+      {
+        "signature": "WillPresent"
+      },
+      {
+        "signature": "DidDismiss (Data As Object, Role As String)"
+      },
+      {
+        "signature": "WillDismiss (Data As Object, Role As String)"
+      },
+      {
+        "signature": "ButtonClick (ButtonId As String, Data As Object)"
+      }
+    ],
+    "B4XDaisyAlert": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "ActionClick (Tag As Object)"
+      }
+    ],
+    "B4XDaisyAnimation": [],
+    "B4XDaisyApp": [],
+    "B4XDaisyAura": [],
+    "B4XDaisyAvatar": [
+      {
+        "signature": "Click"
+      }
+    ],
+    "B4XDaisyAvatarGroup": [],
+    "B4XDaisyBadge": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "CloseClick (Tag As Object)"
+      },
+      {
+        "signature": "Checked (Id As String, Checked As Boolean)"
+      }
+    ],
+    "B4XDaisyBadgeGroupSelect": [
+      {
+        "signature": "ItemChanged (Item As Map)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      },
+      {
+        "signature": "Changed (SelectedIds As List)"
+      }
+    ],
+    "B4XDaisyBoomMenu": [
+      {
+        "signature": "BoomButtonClick (Index As Int, Tag As Object)"
+      },
+      {
+        "signature": "BackgroundClick"
+      },
+      {
+        "signature": "WillShow"
+      },
+      {
+        "signature": "DidShow"
+      },
+      {
+        "signature": "WillHide"
+      },
+      {
+        "signature": "DidHide"
+      }
+    ],
+    "B4XDaisyBoomPathManager": [],
+    "B4XDaisyBoxModel": [],
+    "B4XDaisyBreadcrumbs": [
+      {
+        "signature": "ItemClick (ItemId As String)"
+      }
+    ],
+    "B4XDaisyButton": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyButtonPlaceManager": [],
+    "B4XDaisyCanvasSpinner": [],
+    "B4XDaisyCard": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyCardActions": [],
+    "B4XDaisyCardBody": [],
+    "B4XDaisyCardTitle": [],
+    "B4XDaisyCarousel": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "Changed (Index As Int)"
+      }
+    ],
+    "B4XDaisyCarouselItem": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyChat": [
+      {
+        "signature": "AvatarClick (Tag As Object)"
+      }
+    ],
+    "B4XDaisyChatBubble": [
+      {
+        "signature": "AvatarClick (Payload As Object)"
+      },
+      {
+        "signature": "BubbleClick (Tag As Object)"
+      }
+    ],
+    "B4XDaisyCheckbox": [
+      {
+        "signature": "Checked (Checked As Boolean)"
+      },
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyCheckboxGroup": [
+      {
+        "signature": "ItemChanged (id As String, text As String, checked As Boolean)"
+      },
+      {
+        "signature": "Changed (SelectedIds As List)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyCollapse": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "StateChanged (Open As Boolean)"
+      }
+    ],
+    "B4XDaisyCollapseContent": [],
+    "B4XDaisyCollapseTitle": [],
+    "B4XDaisyColorWheel": [
+      {
+        "signature": "Changed (Color As Int)"
+      }
+    ],
+    "B4XDaisyCountdown": [],
+    "B4XDaisyCountdownItem": [],
+    "B4XDaisyDashboard": [
+      {
+        "signature": "ButtonClick (ButtonId As String)"
+      },
+      {
+        "signature": "Changed (PageIndex As Int, PageCount As Int)"
+      }
+    ],
+    "B4XDaisyDiff": [],
+    "B4XDaisyDivider": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyDivision": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyDock": [
+      {
+        "signature": "ItemClick (ItemId As String)"
+      }
+    ],
+    "B4XDaisyDrawer": [
+      {
+        "signature": "Closed"
+      },
+      {
+        "signature": "Opened"
+      },
+      {
+        "signature": "CloseClick (Tag As Object)"
+      },
+      {
+        "signature": "StateChanged (Open As Boolean)"
+      }
+    ],
+    "B4XDaisyDropdown": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "ItemClick (Tag As Object, Text As String)"
+      },
+      {
+        "signature": "SubmenuToggle (Tag As Object, IsOpen As Boolean)"
+      },
+      {
+        "signature": "Opened"
+      },
+      {
+        "signature": "Closed"
+      }
+    ],
+    "B4XDaisyDualRange": [
+      {
+        "signature": "Changed (LowerValue As Int, UpperValue As Int)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyEnjoyHint": [],
+    "B4XDaisyFab": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "ActionClick (Index As Int, Tag As Object)"
+      },
+      {
+        "signature": "MainActionClick (Tag As Object)"
+      },
+      {
+        "signature": "CloseClick (Tag As Object)"
+      },
+      {
+        "signature": "Opened"
+      },
+      {
+        "signature": "Closed"
+      }
+    ],
+    "B4XDaisyFieldset": [],
+    "B4XDaisyFileHandler": [],
+    "B4XDaisyFileInput": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "FileSelected (FileName As String)"
+      },
+      {
+        "signature": "Cancelled"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      },
+      {
+        "signature": "AppendClick"
+      }
+    ],
+    "B4XDaisyFilter": [
+      {
+        "signature": "ResetClick"
+      },
+      {
+        "signature": "Changed (Keys As List)"
+      },
+      {
+        "signature": "ItemChanged (Id As String, Text As String, Checked As Boolean)"
+      }
+    ],
+    "B4XDaisyFlexItem": [],
+    "B4XDaisyFlexLayout": [],
+    "B4XDaisyFlexPanel": [
+      {
+        "signature": "Ready"
+      }
+    ],
+    "B4XDaisyGrid": [
+      {
+        "signature": "LayoutChanged (ContentHeight As Float)"
+      },
+      {
+        "signature": "ItemPlaced (Info As Map)"
+      },
+      {
+        "signature": "BeforePlace (Key As String, Info As Map)"
+      },
+      {
+        "signature": "AfterPlace (Key As String, Info As Map)"
+      },
+      {
+        "signature": "LayoutDiff (Changes As List)"
+      }
+    ],
+    "B4XDaisyHero": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyHover3d": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyIconButton": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyImage": [],
+    "B4XDaisyIndicator": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyInfoCard": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyInput": [],
+    "B4XDaisyKbd": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyList": [
+      {
+        "signature": "ItemClick (Index As Int, Tag As Object)"
+      },
+      {
+        "signature": "ItemLongClick (Index As Int, Tag As Object)"
+      },
+      {
+        "signature": "CreateRowContent (Index As Int)"
+      },
+      {
+        "signature": "ReachEnd"
+      },
+      {
+        "signature": "ScrollChanged (Offset As Int)"
+      }
+    ],
+    "B4XDaisyLoading": [],
+    "B4XDaisyMenu": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "ItemClick (Tag As Object, Text As String)"
+      },
+      {
+        "signature": "SubmenuToggle (Tag As Object, Open As Boolean)"
+      }
+    ],
+    "B4XDaisyModal": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "CloseClick (Tag As Object)"
+      },
+      {
+        "signature": "YesClick (Tag As Object)"
+      },
+      {
+        "signature": "NoClick (Tag As Object)"
+      },
+      {
+        "signature": "CancelClick (Tag As Object)"
+      },
+      {
+        "signature": "OkClick (Tag As Object)"
+      },
+      {
+        "signature": "RetryClick (Tag As Object)"
+      },
+      {
+        "signature": "AbortClick (Tag As Object)"
+      },
+      {
+        "signature": "IgnoreClick (Tag As Object)"
+      }
+    ],
+    "B4XDaisyNavbar": [
+      {
+        "signature": "Click (Payload As Object)"
+      },
+      {
+        "signature": "Opened"
+      },
+      {
+        "signature": "Closed"
+      },
+      {
+        "signature": "Back (Tag As Object)"
+      }
+    ],
+    "B4XDaisyOTP": [
+      {
+        "signature": "Input (Value As String)"
+      },
+      {
+        "signature": "Changed (Value As String)"
+      },
+      {
+        "signature": "Complete (Value As String)"
+      },
+      {
+        "signature": "Focus"
+      },
+      {
+        "signature": "Blur"
+      },
+      {
+        "signature": "DescriptionClick"
+      }
+    ],
+    "B4XDaisyOverlay": [
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "Opened (Tag As Object)"
+      },
+      {
+        "signature": "Closed (Tag As Object)"
+      }
+    ],
+    "B4XDaisyPageScroll": [],
+    "B4XDaisyPagination": [
+      {
+        "signature": "Changed (PageIndex As Int, ItemId As String)"
+      }
+    ],
+    "B4XDaisyPDFView": [
+      {
+        "signature": "LoadComplete (Pages As Int)"
+      },
+      {
+        "signature": "PageChanged (Page As Int, TotalPages As Int)"
+      },
+      {
+        "signature": "OnTap (Target As Object)"
+      },
+      {
+        "signature": "InitiallyRendered (Page As Int)"
+      },
+      {
+        "signature": "PageNum (Page As Int)"
+      },
+      {
+        "signature": "Show"
+      }
+    ],
+    "B4XDaisyPicker": [
+      {
+        "signature": "Changed (ColumnName As String, Value As Object)"
+      }
+    ],
+    "B4XDaisyPiecePlaceManager": [],
+    "B4XDaisyPocketBase": [
+      {
+        "signature": "Connect (data As Map)"
+      },
+      {
+        "signature": "Disconnect (data As Map)"
+      },
+      {
+        "signature": "ConnectError (data As Map)"
+      },
+      {
+        "signature": "RealTime (data As Map)"
+      },
+      {
+        "signature": "Changes (e As Map)"
+      },
+      {
+        "signature": "Change (Action As String, Record As Map, TableName As String)"
+      },
+      {
+        "signature": "AuthChange (Token As String, Model As Map)"
+      },
+      {
+        "signature": "BeforeSend (url As object, options As Object)"
+      },
+      {
+        "signature": "AfterSend (response As Object, data As Object)"
+      }
+    ],
+    "B4XDaisyProgress": [
+      {
+        "signature": "Changed (Value As Float)"
+      }
+    ],
+    "B4XDaisyRadialProgress": [
+      {
+        "signature": "None"
+      }
+    ],
+    "B4XDaisyRadio": [
+      {
+        "signature": "Checked (Checked As Boolean)"
+      },
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyRadioGroup": [
+      {
+        "signature": "ItemChanged (id As String, text As String, checked As Boolean)"
+      },
+      {
+        "signature": "Changed (SelectedIds As List)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyRange": [
+      {
+        "signature": "Changed (Value As Int)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyRating": [
+      {
+        "signature": "Changed (Value As Float)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisySegment": [
+      {
+        "signature": "Changed (Value As String)"
+      }
+    ],
+    "B4XDaisySelect": [],
+    "B4XDaisySheetModal": [
+      {
+        "signature": "WillPresent"
+      },
+      {
+        "signature": "DidPresent"
+      },
+      {
+        "signature": "WillDismiss"
+      },
+      {
+        "signature": "DidDismiss (Role As String, Data As Object)"
+      },
+      {
+        "signature": "DragStart"
+      },
+      {
+        "signature": "DragMove (Data As Map)"
+      },
+      {
+        "signature": "DragEnd (Data As Map)"
+      },
+      {
+        "signature": "BreakpointDidChange (Breakpoint As Float)"
+      }
+    ],
+    "B4XDaisyShineButton": [
+      {
+        "signature": "CheckChanged (Checked As Boolean)"
+      },
+      {
+        "signature": "Click"
+      }
+    ],
+    "B4XDaisySignature": [
+      {
+        "signature": "BeginStroke"
+      },
+      {
+        "signature": "EndStroke"
+      },
+      {
+        "signature": "Changed"
+      },
+      {
+        "signature": "Saved (Data As String)"
+      },
+      {
+        "signature": "Cleared"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisySignaturePad": [
+      {
+        "signature": "BeginStroke"
+      },
+      {
+        "signature": "EndStroke"
+      },
+      {
+        "signature": "Changed"
+      }
+    ],
+    "B4XDaisyStack": [],
+    "B4XDaisyStat": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyStatItem": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyStatus": [],
+    "B4XDaisySteps": [
+      {
+        "signature": "StepClick (Index As Int, Tag As Object)"
+      }
+    ],
+    "B4XDaisySvgIcon": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisySwap": [
+      {
+        "signature": "Click (State As String, Checked As Boolean)"
+      },
+      {
+        "signature": "Changed (State As String, Checked As Boolean)"
+      }
+    ],
+    "B4XDaisySweetAlert": [
+      {
+        "signature": "Result (Result As B4XDaisySweetAlertResult)"
+      }
+    ],
+    "B4XDaisySweetAlertIcon": [],
+    "B4XDaisyTab": [
+      {
+        "signature": "TabClick (Index As Int)"
+      }
+    ],
+    "B4XDaisyTagSphere": [
+      {
+        "signature": "TagTap (Tag As String)"
+      },
+      {
+        "signature": "TagLongPress (Tag As String)"
+      },
+      {
+        "signature": "DrawTag (Info As Map)"
+      }
+    ],
+    "B4XDaisyText": [
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyTextRotate": [],
+    "B4XDaisyTimeline": [
+      {
+        "signature": "ItemClick (Id As String)"
+      }
+    ],
+    "B4XDaisyToast": [
+      {
+        "signature": "NotificationClosed (View As B4XView)"
+      }
+    ],
+    "B4XDaisyToggle": [
+      {
+        "signature": "Checked (Checked As Boolean)"
+      },
+      {
+        "signature": "Click (Tag As Object)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyToggleGroup": [
+      {
+        "signature": "ItemChanged (id As String, text As String, checked As Boolean)"
+      },
+      {
+        "signature": "Changed (SelectedIds As List)"
+      },
+      {
+        "signature": "FocusChanged (HasFocus As Boolean)"
+      }
+    ],
+    "B4XDaisyTooltip": [
+      {
+        "signature": "Shown"
+      },
+      {
+        "signature": "Hidden"
+      },
+      {
+        "signature": "Click (Tag As Object)"
+      }
+    ],
+    "B4XDaisyVariants": [],
+    "B4XDaisyWindow": []
+  }
+}

@@ -13,13 +13,13 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Snapshot
 
-- Generated: 2026-09-07 18:47 UTC
+- Generated: 2026-09-10 23:25 UTC
 - Source repository: `Mashiane/0SithasoDaisyUIKit`
-- Library artifact: `B4A/B4XDaisyUIKit.b4xlib` (v0.95)
+- Library artifact: `B4A/B4XDaisyUIKit.b4xlib` (v0.96)
 - B4XPage demos scanned: 94
 - B4XDaisy source modules found: 104
-- Demonstrated components: 86
-- Documented-only components: 14
+- Demonstrated components: 87
+- Documented-only components: 13
 - Banned components: 4 (FlexItem/FlexLayout/FlexPanel/Grid — negative knowledge)
 - Skills in `components/`: 108 (includes 4 banned-component guides kept as negative knowledge)
 
@@ -44,7 +44,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 | B4XDaisyActionSheet | Demonstrated | B4XPageActionSheet.bas |
 | B4XDaisyAlert | Demonstrated | B4XPageAlert.bas |
 | B4XDaisyAnimation | Demonstrated | B4XPageEasing.bas |
-| B4XDaisyApp | Documented-only | — |
+| B4XDaisyApp | Demonstrated | B4XPageBoomMenu.bas<br>B4XPageButton.bas<br>B4XPageCard.bas<br>B4XPageColorWheel.bas<br>B4XPageDashboard.bas<br>B4XPageDivider.bas<br>B4XPageDock.bas<br>B4XPageEasing.bas<br>B4XPageEnjoyHint.bas<br>B4XPageHover3d.bas<br>B4XPageMediaPicker.bas<br>B4XPagePDFView.bas<br>B4XPagePagination.bas<br>B4XPageProgress.bas<br>B4XPageRange.bas<br>B4XPageSelect.bas |
 | B4XDaisyAura | Demonstrated | B4XPageAura.bas |
 | B4XDaisyAvatar | Demonstrated | B4XPageAvatar.bas<br>B4XPageDropdown.bas<br>B4XPageEnjoyHint.bas<br>B4XPageIndicator.bas<br>B4XPageList.bas<br>B4XPageMask.bas<br>B4XPageNavbar.bas<br>B4XPageScrollDemo.bas<br>B4XPageStack.bas<br>B4XPageStat.bas |
 | B4XDaisyAvatarGroup | Demonstrated | B4XPageAvatar.bas |

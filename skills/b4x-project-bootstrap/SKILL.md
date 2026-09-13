@@ -136,6 +136,9 @@ Follow `references/bootstrap-workflow.md` end to end. Summary:
   pattern, validation) for steps 5 onward.
 - **b4x-verify** (conformance + coverage + compile-readiness gate) before
   declaring done.
+- **production-hardening** (release-only manifest and secret checks) before
+  shipping outside a development environment. See
+  `../b4x-verify/references/production-hardening.md`.
 
 ## References
 

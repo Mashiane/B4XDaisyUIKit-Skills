@@ -13,14 +13,16 @@ You are committed to truth and accuracy above everything else. Never invent APIs
 
 # B4X Orchestrator — First-Time-Right Thin Layer
 
-One skill, ~150 lines of logic, zero new knowledge. It only sequences the 3 existing skills and treats their scripts as hard gates (`L5`). No duplication of `creative-director`, `page-architectures`, or `component-manifest`.
+One thin sequencing skill. It invokes the top-level `b4x-application-planner`, `b4x-feature-engineer`, `b4xdaisyuikit`, `b4x-project-bootstrap`, `b4x-verify`, and `b4x-regression` skills without duplicating their knowledge.
 
-```
+```text
 USER REQUIREMENT
   ↓
-b4x-application-planner → APPLICATION / FEATURE CONTRACTS  — L5 gate (greenfield / major feature)
+APPLICATION CONTRACT (G0: build-contract-index.ps1 + verify-contract.ps1 — L5 gate)
   ↓
-SCREEN CONTRACT (references/screen-contract.template.md)  — L5 gate
+ARCHITECTURE + FEATURE PLAN (`b4x-application-planner`) — G1 contract gate
+  ↓
+FEATURE IMPLEMENTATION (`b4x-feature-engineer`) — vertical slice
   ↓
 b4x-project-bootstrap (if greenfield)                      — L5 gate
   ↓
@@ -37,13 +39,17 @@ build-watch.ps1      — L4 evidence (crash/ClassNotFound/ResourceNotFound=dFAIL
 capture-screens.ps1  — L3 evidence (PNG must exist)
   ↓
 ux-review.md (full)  — L5 hard fail if severity ≥4 or BUILD-WATCH Errors
+  ↓ G6
+b4x-regression (G7: impact analysis → targeted tests → report) — L5 gate
   ↓
-REMEDIATION LOOP     — L6 (fix → re-verify → re-capture → re-review, cap 3)
+production-hardening.ps1 (G8: release-only security gate)
   ↓
-b4x-regression (existing-app changes: baseline → impact → targeted + critical regression) — L5 gate
+REMEDIATION LOOP     — L6 (fix → re-verify → re-capture → re-review, cap 3 per (gate, scope) per GATE-STATE-MACHINE.md §3)
   ↓
-RELEASE BUNDLE (PASS)
+RELEASE BUNDLE (PASS: contract + BUILD-WATCH + PNGs + UX-REVIEW + regression report + PASS logs — G8)
 ```
+
+v2 gate mapping (normative detail in `docs/architecture/GATE-STATE-MACHINE.md` §1–§2): G0→contract index + verification, G1→architecture/navigation/data contracts, G2→feature implementation with component provenance, G3→pre-scan+verify-conformance, G4→install exit 0, G5→build-watch launch/scenarios, G6→capture+ux-review, G7→regression, G8→release bundle. Constitution: `ENGINEERING-CONSTITUTION.md`.
 
 ## When to Use
 - "Build a stock-taking app / store / full app"
@@ -56,52 +62,62 @@ RELEASE BUNDLE (PASS)
 
 ## Procedure (hard gates, not advice)
 
-### 0. Contract Gate (L5)
+### 0. Application Contract Gate (G0, L5)
 ```powershell
-# per screen, before any generation
-Test-Path <AppFolder>/contract/<ScreenId>.md  # must exist, filled from template
-# orchestrator does: Get-Content, check 9 Acceptance checkboxes are ticked
+pwsh -File <skill>/../b4x-verify/references/build-contract-index.ps1 -AppFolder <AppFolder>
+pwsh -File <skill>/../b4x-verify/references/verify-contract.ps1 -AppFolder <AppFolder>
+# Contract files must use contract/application.md and contract/screens/*.md.
+# A failed index or verification blocks planning and generation.
 ```
-Missing or unchecked → `exit 1` (do not generate).
+Missing, malformed, stale, OPEN-dependent, or unapproved → `exit 1` (do not generate).
 
-### 1. Bootstrap (if new app)
+### 1. Architecture and Feature Plan (G1)
+Run `b4x-application-planner`. Confirm that requirements, navigation, domain, data, business rules, feature contracts, screen contracts, and critical acceptance tests exist. For an existing app, record impact before implementation.
+
+### 2. Feature Implementation (G2)
+Run `b4x-feature-engineer` for each feature as a vertical slice. Update `.agent/STATE.md` and trace `REQ → FEATURE → RULE → SCREEN → COMPONENT → CODE → TEST`.
+
+### 3. Bootstrap (if new app)
 Follow `b4x-project-bootstrap/references/bootstrap-workflow.md` steps 1-8 exactly. Verify `ModuleN=` + `NumberOfModules` immediately (fail fast).
 
-### 2. Generation
+### 4. Generation
 Invoke `b4xdaisyuikit` Stage 2-5 per screen. Cite `RULE-*` IDs in reasoning trace. Every component must exist in `component-manifest.md:Manifest` or its `components/<name>.md`.
 
-### 3. Pre-Scan (L4)
+### 5. Pre-Scan (L4)
 ```powershell
 pwsh -File skills/b4x-verify/references/pre-scan.ps1 -AppFolder <AppFolder>
 # FAIL → fix bans (HTML, Flex/Grid) → re-run. Do not proceed to verify-conformance.
 ```
 
-### 4. Verify-Conformance (L5)
+### 6. Verify-Conformance (L5)
 ```powershell
 pwsh -File skills/b4x-verify/references/verify-conformance.ps1 -AppFolder <AppFolder>
 # FAIL on invented API / wiring / AutoFit / BringToFront → fix → loop. WARNs are advisory.
 ```
 
-### 5. Build + Build-Watch (L5/L4)
+### 7. Build + Build-Watch (L5/L4)
 ```powershell
 ./install.ps1  # cleans Objects, calls B4ABuilder, installs, launches, auto-runs build-watch.ps1
 # build-watch writes ux-review/BUILD-WATCH-<YYYYMMDD>.md
 # exit 1 if logcat has FATAL/ANR/ClassNotFound/Resources.NotFound → do not capture
 ```
 
-### 6. Capture (L3 evidence)
+### 8. Capture (L3 evidence)
 ```powershell
 pwsh -File skills/b4x-verify/references/capture-screens.ps1 -AppFolder <AppFolder> -Label <ScreenId>
 # fallback: user drops PNG into ux-review/screens/ OR if running headless without attached ADB device, verify-conformance.ps1 evaluates static layout XML hierarchy tree.
 ```
 
-### 7. Visual Review (L5)
+### 9. Visual Review (L5)
 Run `b4x-verify/references/ux-review.md` `full` mode over `ux-review/screens/*.png` + `BUILD-WATCH-*.md`.
 - Mark `Verified at build` items from BUILD-WATCH, not `Verification Required`.
 - Cap severity at 5. Ship blocker = `severity≥4`.
 - Every finding carries `Rule:` + `Fix Ticket` (draft, NOT applied — `.bas` are locked).
 
-### 8. Remediation Loop (L6, cap 3)
+### 10. Regression (G7)
+Run `b4x-regression` after the feature and UX gates. Produce `.agent/impact-analysis.md` and `.agent/REGRESSION.md`. A failed critical journey, build, static gate, or security check blocks release.
+
+### 11. Remediation Loop (L6, cap 3)
 ```
 detect (ux-review severity≥4 or build-watch Errors)
   → diagnose (rule ID)
@@ -111,15 +127,20 @@ detect (ux-review severity≥4 or build-watch Errors)
 ```
 Each loop re-runs gates 3-7. If `severity≥4` persists after 3 loops → human escalation, do not ship.
 
-### 9. Release Bundle
+### 12. Release Bundle
 ```
-<AppFolder>/contract/<ScreenId>.md
+pwsh -File skills/b4x-verify/references/verify-production-hardening.ps1 -AppFolder <AppFolder> *> <AppFolder>/production-hardening.log
+
+<AppFolder>/contract/screens/<screen>.md
+<AppFolder>/contract.index.json
 <AppFolder>/ux-review/BUILD-WATCH-<date>.md
 <AppFolder>/ux-review/screens/*.png
 <AppFolder>/ux-review/UX-REVIEW-<date>.md
+<AppFolder>/.agent/REGRESSION.md
+<AppFolder>/production-hardening.log
 verify-conformance.log (PASS)
 ```
-All four must exist, last audit `Ready` / `Ready with Minor Fixes`, 0 `severity≥4`, 0 BUILD-WATCH Errors.
+All listed evidence must exist, the hardening gate must pass, the last audit must be `Ready` / `Ready with Minor Fixes`, with 0 `severity≥4` and 0 BUILD-WATCH Errors.
 
 ## Red Flags (STOP → exit 1)
 | Thought | Reality |
@@ -132,10 +153,10 @@ All four must exist, last audit `Ready` / `Ready with Minor Fixes`, 0 `severity�
 | "One good screen proves the flow" | No. Capture every screen in contract, review flow assessment. |
 
 ## References
-- `references/screen-contract.template.md` (screen gate, L5; canonical screen contract — `b4x-application-planner` points here, its local copy is a mirror)
-- `../b4x-application-planner/SKILL.md` (app/feature contracts, L5 gate for greenfield)
+- `references/screen-contract.template.md` (canonical screen contract template)
+- `../b4x-application-planner/SKILL.md` (requirements and contract planning)
 - `../b4x-feature-engineer/SKILL.md` (vertical-slice implementation)
-- `../b4x-regression/SKILL.md` (existing-app change gate, L5)
+- `../b4x-regression/SKILL.md` (impact and release regression)
 - `references/runbook.md` (step-by-step with exact pwsh lines)
 - `../b4x-project-bootstrap/references/bootstrap-workflow.md` (steps 1-8)
 - `../b4xdaisyuikit/references/component-manifest.md` (source of truth)

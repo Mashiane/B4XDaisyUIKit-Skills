@@ -12,6 +12,21 @@ One app folder `<AppFolder>` per run. Folder name must match `.b4a` file name.
 ### Gate 0 — Contract
 ```powershell
 $app = "C:\b4a\workspace\MyApp"
+# v2 app contract first (G0), then per-screen contracts
+pwsh -File skills/b4x-verify/references/build-contract-index.ps1 -AppFolder $app
+# DECISION-001: contract.index.json is generated, never hand-maintained.
+# FAIL (unparseable front matter / malformed contract) -> fix contract files, re-run.
+pwsh -File skills/b4x-verify/references/verify-contract.ps1 -AppFolder $app
+# G0 FAIL (index missing/stale; schema §6: sections, IDs, OPEN, critical REQ→TEST, parentage, provenance) → fix contracts, re-run
+pwsh -File skills/b4x-verify/references/build-manifest.ps1 -AppFolder $app -Gate G0 -GateResult PASS -Scope whole-app -EvidencePath contract.index.json -EvidenceType contract-index
+# manifest write-back closes G0 and snapshots evidence (traceability §5-6)
+```
+
+> **PowerShell note:** `pwsh` = PowerShell 7+. On hosts with only Windows
+> PowerShell 5.1, substitute `powershell -NoProfile -ExecutionPolicy Bypass`
+> (all gate scripts run unchanged on both).
+
+```powershell
 # per screen (e.g. login, dashboard, stock_take)
 Copy-Item skills/b4x-orchestrator/references/screen-contract.template.md $app/contract/login.md
 # fill all acceptance checkboxes, component table, architecture id
@@ -71,7 +86,13 @@ while (severity≥4 -or BUILD-WATCH Errors) -and (loop < 3) {
   re-run: verify-conformance → install → build-watch → capture → ux-review
   loop++
 }
-if (severity≥4) { "Esculate to human, do not ship"; exit 1 }
+if (severity≥4) { "Escalate to human, do not ship"; exit 1 }
+```
+
+### Gate 8 — Regression (G7) + Release (G8)
+```powershell
+# impact analysis + targeted tests + regression report (b4x-regression skill writes .agent/REGRESSION.md)
+Test-Path $app/.agent/REGRESSION.md
 ```
 
 ### Release Check

@@ -113,32 +113,7 @@ Public Sub ShowResolutionDialog (SettingsStatus As LocationSettingsStatus) As Re
 End Sub
 
 #Region Pin to Home Screen
-Private Sub FirstRunPinNeeded As Boolean
-	#If B4A
-	Dim flagFile As String = "daisy_pin_asked.dat"
-	If File.Exists(File.DirInternal, flagFile) Then Return False
-	Try
-		File.WriteString(File.DirInternal, flagFile, "1")
-	Catch
-		Log("PinToHome flag write failed: " & LastException)
-	End Try
-	Return True
-	#Else
-		Return False
-	#End If
-End Sub
-
-Private Sub TryPinToHomeScreen
-	#If B4A
-	Try
-		Dim jo As JavaObject
-		jo.InitializeStatic("com.sithaso.daisyuikit.main")
-		jo.RunMethod("_pinToHome", Null)
-	Catch
-		Log("TryPinToHomeScreen failed: " & LastException)
-	End Try
-	#End If
-End Sub
+' Pin to home screen is optional and disabled by default.
 #End Region
 
 #Region Delegates
@@ -153,12 +128,16 @@ Sub Activity_KeyPress (KeyCode As Int) As Boolean
 End Sub
 
 Sub Activity_Resume
-	Try
-		If FirstRunPinNeeded Then TryPinToHomeScreen
-	Catch
-		Log("PinToHome: " & LastException)
-	End Try
 	B4XPages.Delegate.Activity_Resume
+
+	' Ensure top page root matches the actual stabilized activity dimensions
+	Dim top As B4XPageInfo = B4XPages.GetManager.GetTopPage
+	If top <> Null And top.Root.IsInitialized Then
+		If top.Root.Width <> Activity.Width Or top.Root.Height <> Activity.Height Then
+			top.Root.SetLayoutAnimated(0, 0, 0, Activity.Width, Activity.Height)
+			B4XPages.GetManager.RaiseEvent(top, "B4XPage_Resize", Array(Activity.Width, Activity.Height))
+		End If
+	End If
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)

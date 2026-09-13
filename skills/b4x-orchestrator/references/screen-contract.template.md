@@ -1,78 +1,82 @@
-# Screen Contract — B4XDaisyUIKit (Phase 3 Gate)
-
-One contract per screen/page. Fill before generating code. Orchestrator blocks `generate` if this file is missing.
+# Screen Contract: <SCREEN-ID> <NAME>
+<!-- Canonical application contract. Stored at contract/screens/<screen>.md. -->
 
 ---
+id: <SCREEN-###>
+status: DRAFT
+version: 1
+last-updated: <ISO date>
+depends-on: [<FEATURE-###>]
+---
 
-## 0. Identity
-- **Screen ID:** `home | login | stock_take | variance | ...` (matches `B4XPages.AddPage` id)
-- **Class Name:** `B4XPageHome` (PascalCase, one file per screen)
-- **Route:** `B4XPages.ShowPage("home")` / entry screen `true|false`
+## SCREEN-003: <name>
+- feature: FEATURE-002
+- journey: <user journey ID or name>
+- navigation-in: [SCREEN-001]
+- navigation-out: [SCREEN-004]
+- components:
+  - COMPONENT-B4XDaisyButton — usage: <what for> — provenance-checked: yes/no
+- states-handled: [LOADING, POPULATED, EMPTY, ERROR]
+- tests: [TEST-008]
 
-## 1. User Goal (one sentence)
-> e.g. "Count physical stock for a location, reconcile vs system, resolve variances."
+## Purpose
 
-## 2. Actions
-- **Primary (1 per viewport, `primary` variant):** e.g. `Submit Count`
-- **Secondary (neutral/ghost/outline):** e.g. `Save Draft`, `Scan Barcode`
-- **Destructive (separated ≥16dip, `error` + SweetAlert):** e.g. `Void Stock Count`
+## User Goal
 
-## 3. Information Hierarchy (top → thumb zone)
-1. Top context `B4XDaisyNavbar` (title, back, overflow)
-2. Scroll body `B4XDaisyPageScroll` (ordered list of components)
-3. Bottom thumb zone `B4XDaisyDock` / `B4XDaisyFab` (≤5 items, Hick's Law)
+## Entry Conditions
 
-List body components in mount order with verified APIs:
-| # | Component | Props / Variant | Demo ref |
+## Exit Conditions
+
+## Information Hierarchy
+
+List components in mount order. Every component must exist in the Level-3 manifest.
+
+| # | Component | Props / Variant | API source |
 |---|---|---|---|
-| 1 | `B4XDaisyStat` | `setOrientation(horizontal)` + `StatItem(s)` | `B4XPageStat.bas` |
-| 2 | `B4XDaisyInput` | `SingleLine=True, InputType=text` | `B4XPageInput.bas` |
-| ... | | | |
 
-Every entry must exist in `references/component-manifest.md`. No invented members (`RULE-ANTI-002`).
+## Navigation & Architecture
 
-## 4. Navigation & Architecture
-- **Page Architecture:** `ARCH-01 NavScrollDock | ARCH-02 Auth | ARCH-03 Dashboard | ARCH-04 Form | ARCH-05 Master-Detail | ARCH-06 Stock-Take | ARCH-07 Wizard` (`references/page-architectures.md`)
-- **Inset:** `pageScroll` inset `NAVBAR_H=56dip` / `DOCK_H=64dip` vs full-screen
-- **Back behavior:** `B4XPage_CloseRequest` `true|false` if unsaved changes
-- **Entry points:** where users arrive from (e.g. `Dock` tab, `B4XPages.ShowPage("home")` after login success, deep-link intent)
-- **Exit points:** where users go next (e.g. back to list, submit → next page, logout → auth page)
-- **Data contract:** source (`PocketBase` collection / SQLite / asset / none-static), fields read + written, and sync direction (read-only | write | read-write)
+- Page architecture: `ARCH-01` through `ARCH-10` from `page-architectures.md`.
+- Route and back behavior:
+- Entry and exit points:
 
-## 5. Density
-- **Level:** `High (telemetry, YGap=8dip) | Comfortable (form, YGap=12dip) | Spacious (hero, YGap=20dip)` (`creative-director.md:36`)
-- **Metrics:** `pad=pageScroll.PagePadding`, `gap=pageScroll.YGap`, `maxW=pageScroll.UsableWidth`, `y` cursor, `AutoFit` last
+## Actions / Events
 
-## 6. Required States (Pillar 3, RULE-STATE-001)
-- [ ] **Loading:** `B4XDaisyLoading` or `B4XDaisyDivision.IsSkeleton=True` or `AppLoader.Show`
-- [ ] **Populated:** component hierarchy above
-- [ ] **Empty:** `B4XDaisyHero`/`B4XDaisyCard` + SVG + `No items found` + `Create New` CTA
-- [ ] **Error:** `B4XDaisyAlert error` + `Retry` + `pageScroll.AutoFit` after Validate
-- [ ] **Confirmation:** `B4XDaisySweetAlert` for destructive (`Wait For swal.ShowAsync`)
-- [ ] **Offline** *(data-driven pages only):* last-synced cache display or explicit offline notice — no silent failure
-- [ ] **Permission denied** *(runtime-permission pages only):* graceful fallback + rationale + path to app settings
+| Action | Source | Expected effect |
+|---|---|---|
 
-## 7. Interaction Constraints
-- **Touch target:** ≥48dip per interactive view (`RULE-INTERACT-003`, verified at build by `build-watch.ps1`)
-- **Nav bounds:** ≤5 dock items (`RULE-INTERACT-004`)
-- **Touch conflict:** `DisallowParentIntercept` if `ColorWheel|Range|DualRange|Carousel` inside scroll (`RULE-INTERACT-002`)
-- **Navbar:** `navbar.BringToFront` direct, not `getView.BringToFront` (`RULE-INTERACT-001`)
-- **Responsive behavior:** rotation/resize re-renders via `B4XPage_Resize` → `pageScroll` Clear + re-compile (ch01 lifecycle template); on tablets/foldables, constrain content width (`maxW`) rather than stretching rows edge-to-edge
+## States
 
-## 8. Accessibility (WCAG 2.2 AA)
-- [ ] Semantic roles only (`primary` once per viewport)
-- [ ] Contrast not claimed from screenshot (verified via `ux-review.md` + `build-watch` content-desc)
-- [ ] All interactive views have `content-desc` or `text` (build-watch gate)
+- [ ] Loading
+- [ ] Populated
+- [ ] Empty
+- [ ] Error
+- [ ] Retry
+- [ ] Submitting
+- [ ] Success
+- [ ] Unauthorized
+- [ ] Offline
 
-## 9. Acceptance & Release Gates
-- [ ] `pre-scan.ps1` PASS (no web tech, no Flex/Grid)
-- [ ] `verify-conformance.ps1` PASS (conformance + wiring + AutoFit/BringToFront)
-- [ ] `./install.ps1` builds, `build-watch.ps1` — 0 Errors (crash/ClassNotFound/ResourceNotFound)
-- [ ] `capture-screens.ps1` → `ux-review/screens/*.png` exists
-- [ ] `ux-review.md` full pass — 0 `Severity ≥4`, `Sign-off` checked, re-ran static gate after fixes
+## Validation
 
-## 10. Rule Trace (cite IDs you will honor)
-- `RULE-SETUP-004, RULE-LAYOUT-001, RULE-LAYOUT-003, RULE-INTERACT-001, RULE-STATE-001, RULE-CODE-002, RULE-ANTI-002`
+## Data Dependencies
 
----
-**Fill this file as `<AppFolder>/contract/<ScreenId>.md` before invoking `b4xdaisyuikit` generation. Orchestrator enforces it (`L5`).**
+## Accessibility
+
+- Touch targets are at least 48dip where interactive.
+- Interactive views have text or a content description.
+- Contrast and runtime-only claims are verified through build and UX evidence.
+
+## Acceptance Criteria
+
+- [ ] `pre-scan.ps1` passes.
+- [ ] `verify-conformance.ps1` passes.
+- [ ] Build and build-watch pass.
+- [ ] Required screenshots exist.
+- [ ] UX review has no severity 4 or 5 findings.
+
+## Visual Review Criteria
+
+## Rule Trace
+
+`RULE-SETUP-004, RULE-LAYOUT-001, RULE-LAYOUT-003, RULE-INTERACT-001, RULE-STATE-001, RULE-CODE-002`

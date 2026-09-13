@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "b4xdaisyuikit-skills",
   "description": "Native Android UI/UX design and development suite for B4A powered by B4XDaisyUIKit.",
@@ -10,7 +10,7 @@
     {
       "name": "b4xdaisyuikit-skills",
       "description": "Assemble native Android (B4A) screens using B4XDaisyUIKit (inspired by DaisyUI / Tailwind CSS).",
-      "version": "1.4.0",
+      "version": "1.4.2",
       "source": "./",
       "category": "developer-tools"
     }

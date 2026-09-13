@@ -63,10 +63,14 @@ Next
 | `circle` | Perfect circular clip |
 | `badge` | Scalloped badge frame |
 
-## 4. Native Composition Rules & Gotchas
+## 3. Native Composition Rules & Gotchas
 - **No separate `B4XDaisyMask` class exists**: Always use `B4XDaisyAvatar` and invoke `.SetAvatarMask(sMaskType)`.
 - When using masked images inside cards or custom panels, set `avatar.SetCenterOnParent(True)` for automatic geometric alignment.
 - Combine with `avatar.SetShadow("md")` or border properties if outline rings are needed.
+
+## 4. Designer Properties
+
+This is a mode component, so it has no designer-only properties of its own. Configure the companion `B4XDaisyAvatar` instance through its runtime properties and `SetAvatarMask(...)` API.
 
 ## 5. Key APIs for Masking
 - `SetAvatarMask(sMask As String)`

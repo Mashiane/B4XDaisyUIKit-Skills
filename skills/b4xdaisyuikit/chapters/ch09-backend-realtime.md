@@ -1,6 +1,8 @@
 # Chapter 9: Realtime Backend Integration, Media Attachments & Signatures
 
-This chapter demonstrates how to integrate `B4XDaisyPocketBase` for backend authentication, realtime live data streams, file attachments via `B4XDaisyFileHandler`, digital signature capture with `B4XDaisySignaturePad`, and document rendering with `B4XDaisyPDFView`.
+This chapter demonstrates how to integrate `B4XDaisyPocketBase` for backend authentication, REST data access (polling — no realtime streaming; see limits below), file attachments via `B4XDaisyFileHandler`, digital signature capture with `B4XDaisySignaturePad`, and document rendering with `B4XDaisyPDFView`.
+
+> **Backend limits (negative-knowledge.md §2, binding):** `B4XDaisyPocketBase` is **Documented-only** — needs explicit user approval before use. REST-only: no offline/local sync, no realtime SSE (`SubscribeToCollection` does not exist — poll instead), no JWT auto-refresh (sessions expire silently; re-authenticate), large file uploads encode Base64 in memory first (~5MB crash risk on low-memory devices), no multi-record transactions, no schema migration from app code.
 
 ---
 

@@ -23,6 +23,11 @@ DaisyUI `Toast` component for B4X (B4A Android).
 ```b4x
 Root = Root1
 
+	Dim pageScroll As B4XDaisyPageScroll
+	pageScroll.Initialize(Me, "pageScroll")
+	pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+	Dim content As B4XView = pageScroll.Panel
+
 	toast.Initialize(Me, "toast")
 	' Attach the toast container to the Root of this page.
 	toast.SetRoot(Root)
@@ -34,10 +39,6 @@ Root = Root1
 	b.SetLayoutAnimated(0, 0, 0, 1dip, 1dip)
 	toast.DesignerCreateView(b, Null, CreateMap())
 
-	Dim sv As ScrollView
-	sv.Initialize(Max(1dip, Root.Height))
-	Root.AddView(sv, 0, 0, Root.Width, Root.Height)
-	Dim content As B4XView = sv.Panel
 	content.Color = xui.Color_Transparent
 	
 	Dim currentY As Int = 20dip

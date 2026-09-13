@@ -1,217 +1,51 @@
 ---
 name: b4x-application-planner
-description: Use when a user asks an AI coding agent to plan or generate a complete B4A/B4X mobile application, major feature, or substantial application change. Converts natural-language requirements into an explicit application contract, features, user journeys, domain entities, data requirements, business rules, navigation, screen contracts, acceptance tests, and an implementation plan. Does not invent B4XDaisyUIKit APIs.
+description: Plan a complete B4A/B4X application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md.
 metadata:
   category: application-engineering
   triggers: build app, create application, mobile app, b4a app, b4x app, feature planning, application architecture, requirements
+  gates: G0-Contract, G1-Bootstrap, G2-Conformance, G3-15checks, G4-Build, G5-Runtime, G6-UX, G7-Regression, G8-Release
 ---
 
 # B4X Application Planner
 
-## Mission
+Use this skill before implementing a complete application, a major feature, or a substantial change. It is the planning gate above `b4xdaisyuikit`, `b4x-project-bootstrap`, `b4x-feature-engineer`, and `b4x-verify`.
 
-Transform a natural-language application request into a coherent, testable application specification before implementation begins.
+## Required behavior
 
-This skill is the application-level planning layer above `b4xdaisyuikit`, `b4x-project-bootstrap`, and `b4x-verify`.
+- Classify statements as `REQUIREMENT`, `CONSTRAINT`, `BUSINESS RULE`, `ASSUMPTION`, or `OPEN QUESTION`.
+- Do not invent B4XDaisyUIKit APIs, backend endpoints, database fields, or permissions. Mark unresolved details `OPEN`.
+- Preserve existing architecture unless the contract explicitly authorizes a change.
+- Every critical requirement maps to an acceptance test.
+- Every screen belongs to exactly one feature and user journey.
+- Treat the B4XDaisyUIKit library as immutable application infrastructure.
 
-## Non-negotiable rules
+## Required artifacts
 
-1. Do not invent B4XDaisyUIKit methods, properties, events, enums, constructors, or component behavior.
-2. Do not invent backend endpoints or database fields. Mark unresolved information as `OPEN`.
-3. Do not silently turn assumptions into requirements.
-4. Separate requirements, business rules, implementation decisions, and assumptions.
-5. Every feature must have at least one user journey or explicit reason why it is non-user-facing.
-6. Every critical requirement must map to an acceptance test.
-7. Every screen must belong to a feature and a user journey.
-8. Prefer the smallest architecture that satisfies the requirements.
-9. Preserve existing application architecture when extending an existing project unless a documented architectural change is approved.
-10. Treat the B4XDaisyUIKit library as immutable application infrastructure.
-
-## Inputs
-
-The agent may receive:
-
-- a new application request;
-- a feature request;
-- an existing project;
-- a design/mockup;
-- backend requirements;
-- a database schema;
-- an API description;
-- constraints such as offline support, authentication, GPS, camera, notifications, or permissions.
-
-## Required outputs
-
-Create or update:
+Create or update the canonical contract set:
 
 ```text
-.agent/
-  PLAN.md
-  STATE.md
-  DECISIONS.md
-
-contract/
-  application.md
-  navigation.md
-  domain-model.md
-  data-contract.md
-  business-rules.md
-  acceptance-tests.md
-
-contract/features/
-  <feature>.md
-
-contract/screens/
-  <screen>.md
+.agent/PLAN.md
+.agent/STATE.md
+.agent/DECISIONS.md
+contract/application.md
+contract/navigation.md
+contract/domain-model.md
+contract/data-contract.md
+contract/business-rules.md
+contract/acceptance-tests.md
+contract/features/<feature>.md
+contract/screens/<screen>.md
 ```
 
-For small changes, only create the contracts required by the change, but do not omit a required contract merely to save work.
+All contract files use the front matter and IDs defined by `docs/contracts/CONTRACT-SCHEMA.md`. Use the screen template at [screen-contract.template.md](../b4x-orchestrator/skills/b4x-application-planner/references/screen-contract.template.md).
 
-## Planning sequence
-
-### Step 1 — Extract requirements
-
-Classify each statement as:
-
-- REQUIREMENT
-- CONSTRAINT
-- BUSINESS RULE
-- ASSUMPTION
-- OPEN QUESTION
-
-Do not merge these categories.
-
-### Step 2 — Identify actors and roles
-
-For each actor define:
-
-- identity;
-- role;
-- permissions;
-- primary goals;
-- restrictions.
-
-### Step 3 — Define features
-
-A feature must state:
-
-- ID;
-- name;
-- purpose;
-- actors;
-- preconditions;
-- business rules;
-- data dependencies;
-- screens;
-- success criteria;
-- failure conditions.
-
-### Step 4 — Define user journeys
-
-Use:
+## Planning order
 
 ```text
-JOURNEY-ID
-Actor
-Goal
-Preconditions
-Steps
-Expected result
-Failure paths
-Acceptance criteria
+requirements → actors → features → journeys → domain → data → navigation
+→ screen contracts → acceptance tests → dependency-ordered implementation plan
 ```
 
-### Step 5 — Define the domain model
+For an existing project, inspect modules, current contracts, `.agent/STATE.md`, data/API boundaries, and known verification failures before changing the plan. Finish only when critical requirements are classified, dependencies are explicit, screens have parents, and acceptance tests cover the critical path.
 
-Identify entities, value objects, enums, relationships, validation rules, and ownership.
-
-Do not choose database field names unless they are known.
-
-### Step 6 — Define data requirements
-
-Record:
-
-- local persistence;
-- remote persistence;
-- API dependencies;
-- synchronization;
-- authentication;
-- caching;
-- offline behavior;
-- error mapping.
-
-Unknown details become `OPEN`.
-
-### Step 7 — Define navigation
-
-Navigation is derived from journeys, not invented independently per screen.
-
-### Step 8 — Define screen contracts
-
-Each screen contract must contain:
-
-- purpose;
-- entry conditions;
-- exit actions;
-- components required;
-- view states;
-- actions/events;
-- validation;
-- data dependencies;
-- accessibility considerations;
-- acceptance criteria.
-
-Use the existing B4XDaisyUIKit Screen Contract conventions where present.
-
-### Step 9 — Define acceptance tests
-
-Every critical requirement receives an acceptance-test ID.
-
-### Step 10 — Produce implementation plan
-
-Order work by dependency:
-
-```text
-project/bootstrap
-→ domain
-→ data
-→ services
-→ navigation
-→ screens
-→ integration
-→ tests
-→ verification
-```
-
-## Existing-project mode
-
-Before planning a change:
-
-1. Inspect project/module structure.
-2. Inspect existing contracts and `.agent/` state.
-3. Identify architectural patterns already in use.
-4. Build an impact summary.
-5. Preserve unrelated functionality.
-6. Update contracts before implementation.
-
-## Completion gate
-
-Planning is complete only when:
-
-- no critical requirement is unclassified;
-- all critical features have journeys;
-- all critical requirements have acceptance tests;
-- screens map to features;
-- unresolved assumptions are explicitly marked;
-- implementation dependencies are ordered;
-- existing-project changes have an impact scope.
-
-## Companion skills
-
-Use with:
-
-- `b4xdaisyuikit`
-- `b4x-project-bootstrap`
-- `b4x-feature-engineer`
-- `b4x-regression`
-- `b4x-verify`

@@ -1,14 +1,6 @@
 Build1=Default,com.example.myapp
 Group=Default Group
 Library1=ac_leafletview
-Library2=b4xpages
-Library3=bitmapcreator
-Library4=bitmapcreatoreffectsext
-Library5=contentresolver
-Library6=core
-Library7=fileprovider
-Library8=fusedlocationprovider
-Library9=geocoder
 Library10=gps
 Library11=ime
 Library12=javaobject
@@ -19,6 +11,7 @@ Library16=okhttputils2
 Library17=reflection
 Library18=runtimepermissions
 Library19=simplemediamanager
+Library2=b4xpages
 Library20=sql
 Library21=stringutils
 Library22=xcustomlistview
@@ -26,13 +19,18 @@ Library23=xui
 Library24=xui views
 Library25=shinebutton
 Library26=pdfium
-Library27=ac_nativedialogs
-Library28=dateutils
-Library29=b4xdaisyuikit
+Library27=b4xdaisyuikit
+Library3=bitmapcreator
+Library4=bitmapcreatoreffectsext
+Library5=contentresolver
+Library6=core
+Library7=fileprovider
+Library8=fusedlocationprovider
+Library9=geocoder
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="35"/>~\n~<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:debuggable, "true")~\n~SetApplicationAttribute(android:theme, "@style/LightTheme")~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~    <style~\n~        name="LightTheme" parent="@android:style/Theme.Material.Light">~\n~       <item name="android:actionMenuTextAppearance">@style/LowerCaseMenu</item>~\n~       <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>~\n~    </style>~\n~     <style name="LowerCaseMenu" parent="android:TextAppearance.Material.Widget.ActionBar.Menu">~\n~        <item name="android:textAllCaps">false</item>~\n~    </style>~\n~</resources>~\n~)~\n~'End of default text.~\n~SetActivityAttribute(Main, android:windowSoftInputMode, adjustResize|stateHidden)~\n~AddPermission(android.permission.CAMERA)~\n~AddApplicationText(~\n~  <provider~\n~  android:name="android.support.v4.content.FileProvider"~\n~  android:authorities="$PACKAGE$.provider"~\n~  android:exported="false"~\n~  android:grantUriPermissions="true">~\n~  <meta-data~\n~  android:name="android.support.FILE_PROVIDER_PATHS"~\n~  android:resource="@xml/provider_paths"/>~\n~  </provider>~\n~)~\n~CreateResource(xml, provider_paths,~\n~   <files-path name="name" path="shared" />~\n~)~\n~AddPermission(android.permission.RECORD_AUDIO)~\n~AddManifestText(<uses-permission~\n~    android:name="android.permission.WRITE_EXTERNAL_STORAGE"~\n~    android:maxSdkVersion="19" />~\n~)~\n~CreateResourceFromFile(Macro, Core.NetworkClearText)~\n~AddPermission(android.permission.FOREGROUND_SERVICE)~\n~SetServiceAttribute(KeepRunningService, android:foregroundServiceType, shortService)~\n~AddPermission(android.permission.ACCESS_FINE_LOCATION)~\n~AddPermission(android.permission.ACCESS_COARSE_LOCATION)~\n~AddApplicationText(<meta-data~\n~    android:name="com.google.android.gms.version"~\n~    android:value="@integer/google_play_services_version" />)
 Module1=B4XMainPage
 NumberOfFiles=0
-NumberOfLibraries=29
+NumberOfLibraries=27
 NumberOfModules=1
 Version=13.7
 @EndOfDesignText@
@@ -86,6 +84,7 @@ End Sub
 
 Sub Globals
 	Private ime As IME
+
 End Sub
 
 Sub Activity_Create (FirstTime As Boolean)
@@ -96,6 +95,13 @@ Sub Activity_Create (FirstTime As Boolean)
 End Sub
 
 Sub IME_HeightChanged (NewHeight As Int, OldHeight As Int)
+	Dim top As B4XPageInfo = B4XPages.GetManager.GetTopPage
+	If top <> Null And top.Root.IsInitialized Then
+		If top.Root.Height <> NewHeight Then
+			top.Root.SetLayoutAnimated(0, 0, 0, Activity.Width, NewHeight)
+			B4XPages.GetManager.RaiseEvent(top, "B4XPage_Resize", Array(Activity.Width, NewHeight))
+		End If
+	End If
 	B4XPages.GetManager.RaiseEvent(B4XPages.GetManager.GetTopPage, "IME_HeightChanged", Array(NewHeight, OldHeight))
 End Sub
 
@@ -106,38 +112,7 @@ Public Sub ShowResolutionDialog (SettingsStatus As LocationSettingsStatus) As Re
 End Sub
 
 #Region Pin to Home Screen
-' Returns True only on the very first launch (persisted flag in DirInternal).
-Private Sub FirstRunPinNeeded As Boolean
-	#If B4A
-	Dim flagFile As String = "daisy_pin_asked.dat"
-	If File.Exists(File.DirInternal, flagFile) Then Return False
-	Try
-		File.WriteString(File.DirInternal, flagFile, "1")
-	Catch
-		Log("PinToHome flag write failed: " & LastException)
-	End Try
-	Return True
-	#Else
-	Return False
-	#End If
-End Sub
-
-' Asks the default launcher to pin a B4XDaisy UIKit shortcut on the home screen.
-' Shows the system Add automatically? dialog (a single tap by the user). No-op below API 26.
-Private Sub TryPinToHomeScreen
-	'The actual work is done in inline Java (_pinToHome) to avoid JavaObject
-	'constructor/method type-matching issues (Context / CharSequence params).
-	#If B4A
-	Try
-		Dim jo As JavaObject
-		jo.InitializeStatic("com.example.myapp.main")
-		jo.RunMethod("_pinToHome", Null)
-	Catch
-		Log("TryPinToHomeScreen failed: " & LastException)
-	End Try
-	#End If
-End Sub
-
+' Pin to home screen disabled
 #End Region
 
 'Template version: B4A-1.01
@@ -154,14 +129,16 @@ Sub Activity_KeyPress (KeyCode As Int) As Boolean
 End Sub
 
 Sub Activity_Resume
-	' One-time prompt: ask the launcher to pin the app icon to the home screen.
-	' Uses ShortcutManager.requestPinShortcut (Android 8+). Skipped on older devices.
-	Try
-		If FirstRunPinNeeded Then TryPinToHomeScreen
-	Catch
-		Log("PinToHome: " & LastException)
-	End Try
 	B4XPages.Delegate.Activity_Resume
+
+	' Ensure top page root matches the actual stabilized activity dimensions
+	Dim top As B4XPageInfo = B4XPages.GetManager.GetTopPage
+	If top <> Null And top.Root.IsInitialized Then
+		If top.Root.Width <> Activity.Width Or top.Root.Height <> Activity.Height Then
+			top.Root.SetLayoutAnimated(0, 0, 0, Activity.Width, Activity.Height)
+			B4XPages.GetManager.RaiseEvent(top, "B4XPage_Resize", Array(Activity.Width, Activity.Height))
+		End If
+	End If
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
@@ -183,31 +160,3 @@ End Sub
 '}
 '#End If
 #End Region
-
-#If Java
-public static void _pinToHome() {
-	try {
-		android.app.Activity act = mostCurrent;
-		if (act == null) return;
-		if (android.os.Build.VERSION.SDK_INT < 26) return;
-		android.content.Context ctx = act;
-		android.content.pm.ShortcutManager sm =
-			(android.content.pm.ShortcutManager) ctx.getSystemService(android.content.Context.SHORTCUT_SERVICE);
-		if (sm == null) return;
-		if (!sm.isRequestPinShortcutSupported()) return;
-		String pkg = ctx.getPackageName();
-		int iconResId = ctx.getResources().getIdentifier("icon", "drawable", pkg);
-		android.content.pm.ShortcutInfo.Builder b = new android.content.pm.ShortcutInfo.Builder(ctx, "daisy_main");
-		b.setShortLabel("My App");
-		b.setLongLabel("My App");
-		if (iconResId != 0) b.setIcon(android.graphics.drawable.Icon.createWithResource(ctx, iconResId));
-		android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_MAIN);
-		intent.addCategory(android.content.Intent.CATEGORY_LAUNCHER);
-		intent.setClassName(pkg, pkg + ".main");
-		b.setIntent(intent);
-		sm.requestPinShortcut(b.build(), null);
-	} catch (Throwable t) {
-		android.util.Log.w("B4A", "PinToHome failed", t);
-	}
-}
-#End If
