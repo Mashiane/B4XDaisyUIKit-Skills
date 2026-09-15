@@ -74,6 +74,7 @@ The Rules Enforcer is the authoritative, non-negotiable constraint layer of the 
 
 * **`RULE-CODE-001` `L4` (Hungarian Parameter & Variable Prefixes)** — `verify-conformance.ps1:Warn` (spot-check): Use strict type-based Hungarian prefixes for all subroutine parameters and local variables to prevent compiler shadowing (`sText`, `iLeft`, `bEnabled`, `vParent`, `mProps`, `lstItems`, `bmpImage`, `joView`).
 * **`RULE-CODE-002` `L4` (Structured Error Logging)** — `verify-conformance.ps1:224`: Empty `Catch` blocks are strictly forbidden. Catch blocks must log errors using the standard gated prefix: `If B4XDaisyApp.DebugLogs Then Log("B4XDaisy<Module>.<Sub>: " & LastException.Message)`.
+* **`RULE-CODE-003` `L4` (Resilient Backend Calls)** — `ch09-backend-realtime.md §9.2`: Every backend call classifies failures (network → retry max 3 with exponential backoff; auth 401/403 → re-authenticate once then retry once; validation → no retry, inline error; parse → gated log + cached fallback; unexpected → gated log + retry alert). No blind retries, no swallowed errors. Local SQLite/KeyValueStore is the source of truth (cache-first); PocketBase has no offline sync.
 
 ---
 

@@ -15,7 +15,7 @@ generic app shell. Do not hand-write the shell from scratch.
 ## Prerequisites
 
 - B4A installed at `C:\Program Files\Anywhere Software\B4A\`.
-- The `b4xdaisyuikit` b4xlib referenced.
+- The `b4xdaisyuikit` b4xlib referenced. Pin the exact b4xlib version per app (record it in the app folder, e.g. `b4xdaisyuikit-vX.Y.Z.b4xlib` + version note); never float across library updates without re-running the verify gate.
 - A connected Android device or emulator for the final build.
 
 ## Files in this skill

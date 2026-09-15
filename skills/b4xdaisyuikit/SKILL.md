@@ -1,4 +1,4 @@
----
+﻿---
 name: b4xdaisyuikit
 description: Use when composing native Android user interface (UI) and user experience (UX) for B4A from the B4XDaisyUIKit component library, when building forms, dashboards, navigation, modals, feedback, media, or data-display screens, when translating a DaisyUI / TailwindCSS web mock into native B4X views, or when wiring component properties, events, and validation. Produces only native B4X code; never HTML, CSS, Tailwind, or WebView.
 metadata:
@@ -6,19 +6,8 @@ metadata:
   triggers: b4xdaisy, b4x page, b4a screen, compose ui, daisyui native, form, dashboard, navbar, modal, sweetalert, component recipe, navscrolldock, validate controls, user interface, development, user experience, tailwindcss, native, android
 ---
 
-## Truth and Accuracy — Apply in Every Response
 
-You are committed to truth and accuracy above everything else, including being helpful. A wrong answer delivered confidently is worse than no answer. Follow these 7 rules in every response:
-
-1. **UNCERTAINTY**: If you are not fully certain about something, say so clearly. Use phrases like "I am not certain, but..." or "You may want to verify this...". Never state guesses as facts.
-2. **SOURCES**: Do not invent paper titles, author names, URLs, or book references. If you cannot name a real, verifiable source, say "I do not have a verified source for this."
-3. **STATISTICS**: Flag any number you are not 100 percent confident in. Say "approximately" and recommend I verify it from a primary source.
-4. **RECENT EVENTS**: Remind me when a topic may have changed since your knowledge cutoff. Do not present outdated info as current.
-5. **PEOPLE and QUOTES**: Never attribute a quote to a real person unless you are certain they said it. If unsure, say "I cannot confirm this quote is accurate."
-6. **CODE and TECHNICAL**: Never invent function names, library methods, or API syntax. If unsure a function exists, tell me to verify it in the current docs.
-7. **LOGIC GAPS**: Do not fill missing context with assumptions. If something is unclear, ask a clarifying question before answering.
-
-If a response would require breaking any of these rules, choose honesty over helpfulness every time.
+See [truth-and-accuracy.md](references/truth-and-accuracy.md) — applies to every response.
 
 ---
 
@@ -52,7 +41,7 @@ For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contr
 
 For every component you use, consult **[component-manifest.md](references/component-manifest.md)**.
 
-For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all library components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is auto-generated from the packaged library and is the ground truth for all designer properties, events, public methods, and which demo pages prove a component is safe to use.
+For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all library components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is an auto-generated index of the packaged library (not ground truth itself); conflicts resolve to the `.b4xlib` via `component-api.json` + provenance. Demo safety: only the manifest Support index proves a component is safe to use.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
 
@@ -146,8 +135,8 @@ STAGE 6: Quality Inspector & Conformance Gate (b4x-verify → pre-scan L4 → ve
 ### Stage 5: Component Syntax Expert
 * Map the user's intent to components via **[intent-to-component.md](references/intent-to-component.md)** (intent → interaction pattern → component) before retrieving syntax.
 * Retrieve exact constructor signatures, properties, events, and mount sequences:
-  * Consult **[component-manifest.md](references/component-manifest.md)** (only use methods under `### Public methods`).
-  * Consult individual component specs in **`components/<name>.md`** (86 verified components).
+  * Consult **[component-manifest.md](references/component-manifest.md)** for component status (Demonstrated vs Documented-only); retrieve exact member signatures from **[api-cheat-sheet.md](references/api-cheat-sheet.md)** `## <Class>` sections and `component-api.json` (only use members recorded there).
+  * Consult individual component specs in **`components/<name>.md`** (108 spec files covering 104 library modules; compose only from rows the manifest marks Demonstrated).
   * Verify initialization order in **[component-creation-patterns.md](references/component-creation-patterns.md)** (watch for container deviations like `Stat`, `Dock`, `Timeline`, `Accordion`, `SweetAlert`).
 
 ### Stage 6: Quality Inspector & Repair Loop
@@ -233,5 +222,5 @@ Before delivering any output, verify every item:
 - [ ] Page lifecycle follows a named B4XPage demo: `B4XPage_Created` → `pageScroll.Initialize` → `RenderPage`. `B4XPage_Resize` calls `pageScroll.Base_Resize` then `RenderPage`. `pageScroll.Clear` is first inside `RenderPage`. `pageScroll.AutoFit` is last.
 - [ ] Output contains only native B4X code. No HTML, CSS, Tailwind, or browser logic.
 - [ ] Event handler names and parameter signatures match the manifest exactly.
-- [ ] All tokens (colors, sizes, variants) are values declared in [design-tokens.md](references/design-tokens.md) or the manifest's allowed-values column.
+- [ ] All tokens (colors, sizes, variants) are values declared in [design-tokens.md](references/design-tokens.md) or [api-cheat-sheet.md](references/api-cheat-sheet.md).
 - [ ] The response states which demo(s) were adapted and confirms `B4A verified`.

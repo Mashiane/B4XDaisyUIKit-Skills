@@ -1,4 +1,4 @@
----
+﻿---
 name: b4x-verify
 description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA.
 metadata:
@@ -6,19 +6,8 @@ metadata:
   triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review
 ---
 
-## Truth and Accuracy — Apply in Every Response
 
-You are committed to truth and accuracy above everything else, including being helpful. A wrong answer delivered confidently is worse than no answer. Follow these 7 rules in every response:
-
-1. **UNCERTAINTY**: If you are not fully certain about something, say so clearly. Use phrases like "I am not certain, but..." or "You may want to verify this...". Never state guesses as facts.
-2. **SOURCES**: Do not invent paper titles, author names, URLs, or book references. If you cannot name a real, verifiable source, say "I do not have a verified source for this."
-3. **STATISTICS**: Flag any number you are not 100 percent confident in. Say "approximately" and recommend I verify it from a primary source.
-4. **RECENT EVENTS**: Remind me when a topic may have changed since your knowledge cutoff. Do not present outdated info as current.
-5. **PEOPLE and QUOTES**: Never attribute a quote to a real person unless you are certain they said it. If unsure, say "I cannot confirm this quote is accurate."
-6. **CODE and TECHNICAL**: Never invent function names, library methods, or API syntax. If unsure a function exists, tell me to verify it in the current docs.
-7. **LOGIC GAPS**: Do not fill missing context with assumptions. If something is unclear, ask a clarifying question before answering.
-
-If a response would require breaking any of these rules, choose honesty over helpfulness every time.
+See [truth-and-accuracy.md](../b4xdaisyuikit/references/truth-and-accuracy.md) — applies to every response.
 
 ---
 
@@ -133,7 +122,17 @@ Launch ./install.ps1
 1. **If Conformance Fails**: Locate the flagged token in the `.bas` file. Replace it with a verified method or component from `component-manifest.md` and `components/<name>.md`.
 2. **If API-member or Compile-Readiness Fails**: Replace the member with an API from the generated corpus, or adjust `.b4a` `ModuleN` entries, bump `NumberOfModules`, or fix file headers.
 3. **If Static Layout Fails**: Add `pageScroll.AutoFit` to the end of the page render routine or fix `navbar.BringToFront`.
-4. **Re-run Gate (cap 3 per scope, then escalate):** track attempts in `.agent/STATE.md` as `remediation-loop-count: {<gate>: {<scope-id>: <n>}}` (scope = feature/screen ID per GATE-STATE-MACHINE §2; a global-per-gate counter is wrong). Each re-evaluation appends a new `GATE-INSTANCE` node — never overwrite. Pass resets that `(gate, scope)` counter to 0. On the 4th failure of the same `(gate, scope)`: halt, do NOT attempt again, and escalate to the human with failing gate, scope, all prior `GATE-INSTANCE` refs, and the specific unresolved question (Constitution Art X, GATE-STATE-MACHINE §3). Then run `./install.ps1`.
+4. **Re-run Gate (cap 3 per scope, then escalate):** track attempts in `.agent/STATE.md` as `remediation-loop-count: {<gate>: {<scope-id>: <n>}}` (scope = feature/screen ID per GATE-STATE-MACHINE §2; a global-per-gate counter is wrong). Each re-evaluation appends a new `GATE-INSTANCE` node — never overwrite. Pass resets that `(gate, scope)` counter to 0. On the 4th failure of the same `(gate, scope)`: halt, do NOT attempt again, do NOT run `./install.ps1`, and escalate to the human with failing gate, scope, all prior `GATE-INSTANCE` refs, and the specific unresolved question (Constitution Art X, GATE-STATE-MACHINE §3). Await human decision recorded in DECISIONS.md.
+
+## Testing Pyramid (70 / 20 / 10, B4X-adapted)
+
+Static gates prove the app is wired; tests prove it behaves. Three tiers:
+
+1. **Unit (70%)** — pure logic: validation subs, formatters, state mappers, coordinate math. Isolate from views/HttpJob (pass Maps/Lists in, assert out). Target: every validation + mapper sub covered.
+2. **Integration (20%)** — SQLite round-trips (in-memory or scratch DB) and HttpJob calls against staging with recorded fixtures. Verifies cache + remote coordination and the §9.2 retry paths (force timeout once, assert backoff + fallback).
+3. **E2E (10%)** — critical journeys only (login, core action, checkout): `build-watch.ps1` (crash/ANR, touch dp, TalkBack, startup, jank) + `capture-screens.ps1` + `ux-review.md`. Run on a real device before release; smoke subset on every PR.
+
+Rules: hermetic tests (no shared mutable state), factories over copy-paste fixtures, one failing-before/passing-after test per bug fix (root-cause proof).
 
 ## Procedure
 
@@ -153,7 +152,7 @@ Launch ./install.ps1
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
 6. Re-run until PASS subject to the same cap-3 per `(gate, scope)` rule as step 4 of the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
-7. Then run `./install.ps1` for the real build. install.ps1 auto-runs
+7. Then run `./install.ps1` for the real build ONLY on PASS or human override recorded in DECISIONS.md. install.ps1 auto-runs
    build-watch.ps1 after launch; read its `ux-review/BUILD-WATCH-*.md` output
    before the post-build visual review.
 
@@ -195,7 +194,9 @@ empty state, or a primary action buried below the fold.
    ```
    Navigate the app to the next screen, re-run with a new `-Label`. With no
    device attached, the script prints the fallback folder
-   (`<AppFolder>/ux-review/screens/`); drop PNGs there manually.
+   (`<AppFolder>/ux-review/screens/`); drop PNGs there manually. Manually
+   dropped PNGs are unverified evidence — G6 stays OPEN until provenance
+   (adb capture or human DECISION accepting the shots) is recorded.
 3. **Read the build-stage report first**: open
    `<AppFolder>/ux-review/BUILD-WATCH-<YYYYMMDD>.md` (auto-generated by
    build-watch.ps1 during install). Mark its **Verified at build** items
@@ -218,11 +219,8 @@ empty state, or a primary action buried below the fold.
    Checklist, Performance Perception Risks, Strengths, Design Consistency
    Risks), Flow Assessment (multi-screen), and Final Assessment (Release
    Readiness tier).
-5. **Apply fixes**: the user unlocks the flagged `.bas` (per
-   `lock-bas-synchfree.ps1`), pastes the drafted snippet, re-locks. Do not
-   apply fixes yourself; `.bas` are immutable.
-6. **Re-verify**: re-run the static gate, re-capture, re-review until no
-   severity >= 4 remains.
+5. **Apply fixes**: the user unlocks the flagged app-authored page `.bas` (orchestrator/human unlock flow with existing tooling), pastes the drafted snippet, re-locks. Do not edit `B4A/B4XDaisy*.bas` library source; app-authored page `.bas` remain agent-editable pre-release per Constitution Art II.5.
+6. **Re-verify (cap 3 per `(gate, scope)`, then escalate):** re-run the static gate, re-capture, re-review until no severity >= 4 remains, subject to the same cap-3 per `(G6, screen)` rule as the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
 
 ### Output Contract
 

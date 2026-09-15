@@ -50,3 +50,13 @@
 - [ ] Traceability updated
 
 **Decision:** PASS / BLOCKED
+
+## Verdict
+
+```text
+Swept: <commit> / Sweep: <baseline + targeted + smoke results> / Goals: <acceptance test → satisfied/not satisfied + evidence>
+/ Fixed: <what + re-sweep result> / Open: <warns/nits> / Unseen: <what could not be observed + why>
+/ Verdict: READY | NOT READY
+```
+
+Rules: unmeasured = not satisfied. No "ready with caveats."

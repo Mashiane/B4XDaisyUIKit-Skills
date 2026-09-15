@@ -2,6 +2,10 @@
 
 One app folder `<AppFolder>` per run. Folder name must match `.b4a` file name.
 
+## Skill selection
+
+Resolve skills per `skills/b4xdaisyuikit/references/intent-to-skill.md` (keyword match → platform/status filter → depends → authority order) and emit the diagnostic block (Task / Selected + reason / Rejected + reason / Evidence) into `.agent/STATE.md`. `b4x-verify` is selected for every code-producing task.
+
 ## Prereqs
 - B4A at `C:\Program Files\Anywhere Software\B4A\`
 - `adb` resolvable (same candidates as `install.ps1`)
@@ -51,6 +55,8 @@ pwsh -File skills/b4x-verify/references/pre-scan.ps1 -AppFolder $app
 pwsh -File skills/b4x-verify/references/verify-conformance.ps1 -AppFolder $app
 # FAIL (invented API / wiring / AutoFit) → fix, re-run until PASS
 # WARNs are advisory; do not block but review
+# SCOPE-CREEP: every changed .bas must belong to the contracted scope
+# (feature/screen/component chain). Out-of-scope file → NOT READY: amend contract or remove.
 ```
 
 ### Gate 5 — Build + Build-Watch
@@ -82,9 +88,10 @@ if (-not (Test-Path $app/ux-review/screens/*.png)) { Write-Host "FAIL: no screen
 ```
 while (severity≥4 -or BUILD-WATCH Errors) -and (loop < 3) {
   draft Fix Ticket per ux-review.md:326 (file, sub, approx line, manifest property, 3-8 line snippet)
-  user unlocks flagged .bas (lock-bas-synchfree.ps1), applies, re-locks
-  re-run: verify-conformance → install → build-watch → capture → ux-review
-  record in .agent/STATE.md remediation-loop-count: {<gate>: {<scope-id>: <n>}}; append new GATE-INSTANCE (never overwrite); reset to 0 on pass
+  user unlocks flagged app-authored page .bas (orchestrator/human unlock flow), applies, re-locks (never touch B4A/B4XDaisy*.bas library source)
+   re-run: verify-conformance → install → build-watch → capture → ux-review
+   (full sweep every round, never just the failed check)
+   record in .agent/STATE.md remediation-loop-count: {<gate>: {<scope-id>: <n>}}; append new GATE-INSTANCE (never overwrite); reset to 0 on pass
   loop++
 }
 # 4th failure of same (gate, scope): halt, escalate per Constitution Art X — no 4th attempt.

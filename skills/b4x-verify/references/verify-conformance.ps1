@@ -33,7 +33,8 @@
 
 .PARAMETER ApiCheatSheet
     Path to api-cheat-sheet.md (extracted library API). Defaults to the sibling
-    references folder. If missing, API member verification is skipped with a warning.
+    references folder. If missing, the gate fails closed (exit 1): member
+    existence cannot be verified without the corpus.
 
 .EXAMPLE
     ./verify-conformance.ps1 -AppFolder C:\b4a\workspace\MyStore
@@ -79,6 +80,7 @@ foreach ($line in ($manifestText -split "`n")) {
 }
 
 Write-Host "Manifest known B4XDaisy* tokens: $($known.Count) ($($docOnly.Count) Documented-only components)" -ForegroundColor Gray
+Write-Host "Severity: [P0]=ship-blocker (exit 1)  [P2]=advisory (exit 0)" -ForegroundColor Gray
 
 # --- API corpus: parse api-cheat-sheet.md into component -> member map.
 # Only the extracted library API establishes member existence; documentation prose
@@ -183,7 +185,7 @@ foreach ($f in $basFiles) {
 }
 
 Write-Host ""
-Write-Host "=== CONFORMANCE (invented APIs) ===" -ForegroundColor Cyan
+Write-Host "=== [P0] CONFORMANCE (invented APIs) ===" -ForegroundColor Cyan
 $invented = @()
 foreach ($r in ($referenced | Sort-Object)) {
     if (-not $known.Contains($r)) { $invented += $r }
@@ -197,7 +199,7 @@ if ($invented.Count -eq 0) {
 }
 
 Write-Host ""
-Write-Host "=== DOCUMENTED-ONLY usage (hard gate) ===" -ForegroundColor Cyan
+Write-Host "=== [P0] DOCUMENTED-ONLY usage (hard gate) ===" -ForegroundColor Cyan
 $docUsed = @()
 foreach ($r in ($referenced | Sort-Object)) {
     if ($docOnly.Contains($r)) { $docUsed += $r }
@@ -235,10 +237,11 @@ if ($docUsed.Count -eq 0) {
 # --- API MEMBER VERIFICATION: member existence against the extracted library API ---
 $apiProblems = @()
 Write-Host ""
-Write-Host "=== API MEMBERS (member-level verification vs extracted library API) ===" -ForegroundColor Cyan
+Write-Host "=== [P0] API MEMBERS (member-level verification vs extracted library API) ===" -ForegroundColor Cyan
 if ($apiMissing) {
-    Write-Host "WARN: api-cheat-sheet.md not found at $ApiCheatSheetPath" -ForegroundColor Yellow
-    Write-Host "WARN: API member verification SKIPPED - this run must NOT be treated as API-verified" -ForegroundColor Yellow
+    Write-Host "ERROR: api-cheat-sheet.md not found at $ApiCheatSheetPath" -ForegroundColor Red
+    Write-Host "ERROR: API corpus missing - cannot verify members. Failing closed." -ForegroundColor Red
+    exit 1
 } else {
     foreach ($f in $basFiles) {
         $text = Get-Content $f.FullName -Raw
@@ -301,7 +304,7 @@ if ($apiMissing) {
 # --- COMPILE-READINESS: project file + module wiring + file groups + headers ---
 $b4a = Get-ChildItem -Path $AppFolder -Filter "*.b4a" -File -ErrorAction SilentlyContinue | Select-Object -First 1
 Write-Host ""
-Write-Host "=== COMPILE-READINESS (project file) ===" -ForegroundColor Cyan
+Write-Host "=== [P0] COMPILE-READINESS (project file) ===" -ForegroundColor Cyan
 if ($null -eq $b4a) {
     $exitCode = 1
     Write-Host "FAIL: no .b4a project file in $AppFolder" -ForegroundColor Red
@@ -380,7 +383,7 @@ if ($problems.Count -eq 0) {
 
 # --- STATIC LAYOUT & UX QUALITY GATE ---
 Write-Host ""
-Write-Host "=== STATIC LAYOUT & UX QUALITY GATE ===" -ForegroundColor Cyan
+Write-Host "=== [P0/P2] STATIC LAYOUT & UX QUALITY GATE ([P0] violations, [P2] advisories) ===" -ForegroundColor Cyan
 $layoutProblems = @()
 $warnings = @()
 
@@ -446,7 +449,7 @@ if ($layoutProblems.Count -eq 0) {
 }
 
 if ($warnings.Count -gt 0) {
-    Write-Host "WARN: Quality and UX advisory warning(s):" -ForegroundColor Yellow
+    Write-Host "WARN [P2]: Quality and UX advisory warning(s):" -ForegroundColor Yellow
     foreach ($w in $warnings) { Write-Host "  - $w" -ForegroundColor Yellow }
 }
 
@@ -456,6 +459,6 @@ if ($problems.Count -eq 0 -and $layoutProblems.Count -eq 0 -and $invented.Count 
     Write-Host "RESULT: PASS (all conformance, API member, compile-readiness, and UX layout checks passed)" -ForegroundColor Green
 } else {
     Write-Host ""
-    Write-Host "RESULT: FAIL (fix errors above before ./install.ps1)" -ForegroundColor Red
+    Write-Host "RESULT: FAIL [P0] (fix errors above before ./install.ps1)" -ForegroundColor Red
 }
 exit $exitCode

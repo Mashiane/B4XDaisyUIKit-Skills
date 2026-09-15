@@ -1,10 +1,10 @@
 ---
 name: b4x-application-planner
-description: Plan a complete B4A/B4X application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md.
+description: Plan a complete B4A application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md.
 metadata:
   category: application-engineering
   triggers: build app, create application, mobile app, b4a app, b4x app, feature planning, application architecture, requirements
-  gates: G0-Contract, G1-Bootstrap, G2-Conformance, G3-15checks, G4-Build, G5-Runtime, G6-UX, G7-Regression, G8-Release
+  gates: G0-Requirements, G1-Architecture, G2-Conformance, G3-Source, G4-Compile, G5-Runtime, G6-UX, G7-Regression, G8-Release
 ---
 
 # B4X Application Planner
@@ -38,7 +38,10 @@ contract/features/<feature>.md
 contract/screens/<screen>.md
 ```
 
-All contract files use the front matter and IDs defined by `docs/contracts/CONTRACT-SCHEMA.md`. Use the screen template at [screen-contract.template.md](../b4x-orchestrator/skills/b4x-application-planner/references/screen-contract.template.md).
+All contract files use the front matter and IDs defined by `docs/contracts/CONTRACT-SCHEMA.md`. Templates:
+- application: [application-contract.template.md](../b4x-orchestrator/skills/b4x-application-planner/references/application-contract.template.md)
+- feature: [feature-contract.template.md](../b4x-orchestrator/skills/b4x-application-planner/references/feature-contract.template.md)
+- screen: [screen-contract.template.md](../b4x-orchestrator/references/screen-contract.template.md).
 
 ## Planning order
 

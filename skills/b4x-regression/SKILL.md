@@ -1,6 +1,6 @@
 ---
 name: b4x-regression
-description: Safely change an existing B4A/B4X application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence.
+description: Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence.
 metadata:
   category: quality-engineering
   triggers: regression, modify existing app, change feature, refactor, bug fix, verify change, prevent breakage

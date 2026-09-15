@@ -120,7 +120,7 @@ DISCOVERED → PLANNED → CONTRACTED → BOOTSTRAPPED → IMPLEMENTED
 
 ## Article VIII — Quality Gates
 
-`RELEASE = G0 ∧ G1 ∧ G2 ∧ G3 ∧ G4 ∧ G5 ∧ G6 ∧ G7`
+`RELEASE = G0 AND G1 AND G2 AND G3 AND G4 AND G5 AND G6 AND G7 AND G8`
 
 | Gate | Name | Closes when |
 |---|---|---|

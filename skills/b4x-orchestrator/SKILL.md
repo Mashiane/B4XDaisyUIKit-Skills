@@ -42,7 +42,7 @@ ux-review.md (full)  — L5 hard fail if severity ≥4 or BUILD-WATCH Errors
   ↓ G6
 b4x-regression (G7: impact analysis → targeted tests → report) — L5 gate
   ↓
-production-hardening.ps1 (G8: release-only security gate)
+verify-production-hardening.ps1 (G8: release-only security gate)
   ↓
 REMEDIATION LOOP     — L6 (fix → re-verify → re-capture → re-review, cap 3 per (gate, scope) per GATE-STATE-MACHINE.md §3)
   ↓
@@ -105,7 +105,7 @@ pwsh -File skills/b4x-verify/references/verify-conformance.ps1 -AppFolder <AppFo
 ### 8. Capture (L3 evidence)
 ```powershell
 pwsh -File skills/b4x-verify/references/capture-screens.ps1 -AppFolder <AppFolder> -Label <ScreenId>
-# fallback: user drops PNG into ux-review/screens/ OR if running headless without attached ADB device, verify-conformance.ps1 evaluates static layout XML hierarchy tree.
+# fallback: user drops PNG into ux-review/screens/. With no device attached, capture is blocked — mark G6 OPEN, never PASS on manual drop alone.
 ```
 
 ### 9. Visual Review (L5)
@@ -122,7 +122,7 @@ Run `b4x-regression` after the feature and UX gates. Produce `.agent/impact-anal
 detect (ux-review severity≥4 or build-watch Errors)
   → diagnose (rule ID)
   → create fix ticket (manifest property only)
-  → apply (unlock → paste → re-lock per lock-bas-synchfree.ps1)
+   → apply (orchestrator/human unlock flow with existing tooling → paste → re-lock per b4x-verify Procedure Phase 2 step 5)
   → rebuild → re-verify → re-capture → re-audit
 ```
 Each loop re-runs gates 3-7. Count per `(gate, scope-id)` in `.agent/STATE.md` as `remediation-loop-count: {<gate>: {<scope-id>: <n>}}` (scope per GATE-STATE-MACHINE §2; never a global-per-gate counter). Each re-evaluation appends a new `GATE-INSTANCE` node (never overwrite); pass resets that `(gate, scope)` counter to 0. If `severity≥4` persists after 3 loops → human escalation, do not ship.

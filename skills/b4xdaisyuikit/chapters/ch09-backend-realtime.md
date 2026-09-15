@@ -155,4 +155,36 @@ Private Sub btnSaveOrder_Click (Tag As Object)
     orderStatusAlert.Text = "Order successfully synced to cloud!"
 End Sub
 
+---
+
+## 9.2 Error Taxonomy, Retry & Cache-First (Resilience)
+
+Every backend call must classify failures — never swallow them, never retry blindly:
+
+| Failure | Strategy |
+|---|---|
+| Network (timeout, offline) | Retry with exponential backoff (max 3); show retry UI |
+| Auth (401/403, expired session) | Re-authenticate once, then retry once; else force login (PocketBase has no JWT auto-refresh) |
+| Validation (4xx, bad payload) | No retry — surface inline field error immediately |
+| Parse (unexpected shape) | Gated log + fall back to cached state |
+| Unexpected (5xx, crash in handler) | Gated log + error alert with retry action |
+
+Retry pattern (ResumableSub, backoff 500ms -> 1s -> 2s):
+
+```b4x
+Private Sub SaveRecordWithRetry(mapRecord As Map) As ResumableSub
+    Dim iAttempt As Int
+    For iAttempt = 1 To 3
+        Try
+            Wait For (pb.Create(mapRecord)) Complete (mapResult As Map)
+            If mapResult.Get("success") = True Then Return True
+        Catch
+            If B4XDaisyApp.DebugLogs Then Log("B4XPageOrders.SaveRecordWithRetry attempt " & iAttempt & ": " & LastException.Message)
+        End Try
+        If iAttempt < 3 Then Sleep(500 * Power(2, iAttempt - 1))
+    Next
+    Return False
+End Sub
 ```
+
+Cache-first: PocketBase offers no offline sync, so treat local SQLite/KeyValueStore as the source of truth — render cached data immediately, sync in background, reconcile on success. Auth-gated calls re-authenticate on 401 before one retry, then redirect to login.

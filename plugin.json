@@ -1,6 +1,6 @@
 ﻿{
   "name": "b4xdaisyuikit-skills",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Comprehensive native Android UI/UX design and application development suite for B4A (Basic4Android) powered by B4XDaisyUIKit — inspired by DaisyUI / Tailwind CSS semantics, built as 100% native Android views (no HTML/CSS/WebView). Builds native screens with verified layout heuristics, rules enforcer, B4XPages lifecycle management, and automated quality gates. Web daisyUI skill not included.",
   "author": {
     "name": "Mashiane",

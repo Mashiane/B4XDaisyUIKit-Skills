@@ -1,5 +1,5 @@
 # Screen Contract: <SCREEN-ID> <NAME>
-<!-- Canonical application contract. Stored at contract/screens/<screen>.md. -->
+<!-- Canonical application contract. Stored at contract/screens/<screen>.md. Emits per docs/contracts/CONTRACT-SCHEMA.md §4.8. Sole canonical copy (nested mirror removed 2026-09-15, see DECISIONS.md). -->
 
 ---
 id: <SCREEN-###>
@@ -21,6 +21,12 @@ depends-on: [<FEATURE-###>]
 
 ## Purpose
 
+## Feature
+
+<FEATURE-###> — must match exactly one parent feature (schema §6.5).
+
+## User Journey
+
 ## User Goal
 
 ## Entry Conditions
@@ -30,6 +36,8 @@ depends-on: [<FEATURE-###>]
 ## Information Hierarchy
 
 List components in mount order. Every component must exist in the Level-3 manifest.
+Only verified B4XDaisyUIKit APIs. COMPONENT-<Name> normalizes to manifest class
+B4XDaisy<Name> (schema §2). `provenance-checked: yes` required before APPROVED.
 
 | # | Component | Props / Variant | API source |
 |---|---|---|---|
@@ -47,6 +55,7 @@ List components in mount order. Every component must exist in the Level-3 manife
 
 ## States
 
+- [ ] Initial
 - [ ] Loading
 - [ ] Populated
 - [ ] Empty

@@ -141,6 +141,12 @@ slow, frozen, unresponsive, uncertain, or broken. Move real performance
 checks to the Runtime Verification Checklist. Do not infer poor performance
 from visual complexity alone.
 
+Build budgets (measured by build-watch.ps1, enforced at build stage):
+startup `ActivityManager: Displayed` ≤ 2000 ms (warn above, error above
+3000 ms); heavy jank = Choreographer skip ≥ 20 frames (warn); all
+clickable views ≥ 48 dp (error); no FATAL EXCEPTION / ANR (error). Carry
+build-watch warnings/errors into the Issue Register at severity ≥ 4.
+
 ### 11. Dark Mode Review (full; when dark-mode screenshots available)
 Text readability; surface hierarchy; contrast; elevation perception; icon
 visibility; disabled states; error states; color meaning; brand
@@ -322,14 +328,14 @@ screenshots.
 4. **Fix tickets are drafts, never applied.** Every finding carries a
    drafted B4X fix ticket appended after the Recommendation/Expected Impact:
    file, sub, approximate line, the property to set, and a 3-8 line
-   paste-ready snippet. `.bas` files are locked (immutable); the user
-   unlocks the flagged file via `lock-bas-synchfree.ps1`, applies, re-locks.
+   paste-ready snippet. App-authored page `.bas` files are user-locked pre-release (orchestrator/human unlock flow); `B4A/B4XDaisy*.bas` library source is immutable and never edited. The user
+   unlocks the flagged file, applies, re-locks.
    Do not apply fixes yourself. (This is the explicit project-level request
    for implementation detail that §15 of the generic spec makes optional.)
 
    ```
    **Fix Ticket** (drafted, NOT applied):
-       File: <PageName>.bas  (locked — needs unlock per lock-bas-synchfree.ps1)
+        File: <PageName>.bas  (user-locked pre-release — needs orchestrator/human unlock)
        Location: <sub name> / approx line
        Change: <concrete B4X property set or layout delta>
        <preformatted B4X snippet, 3-8 lines, ready to paste>
@@ -358,7 +364,18 @@ sign-off checklist:
 - [ ] All severity 4-5 findings fixed and re-verified on device
 - [ ] No invented component APIs in fix tickets
 - [ ] Re-ran static gate (verify-conformance.ps1) after fixes
+- [ ] Full gate sweep re-run after fixes (not just the failed check)
 ```
+
+End the report with the verdict block (one line each, every line names the tool run or file read):
+
+```text
+Swept: <commit> / Sweep: <check + output per gate> / Goals: <acceptance test → satisfied/not satisfied + evidence>
+/ Fixed: <what + re-sweep result> / Open: <warns/nits w/ severity> / Unseen: <what could not be observed + why>
+/ Verdict: READY | NOT READY
+```
+
+Rules: unmeasured = not satisfied. No "ready with caveats" — a caveat is a warn or a blocker, name it.
 
 ## Loop
 

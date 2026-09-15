@@ -1,6 +1,6 @@
 ---
 name: b4x-feature-engineer
-description: Implement a B4A/B4X application feature as a traceable vertical slice from contract through domain, data, state, native UI, navigation, errors, acceptance tests, and verification.
+description: Implement a B4A application feature as a traceable vertical slice from contract through domain, data, state, native UI, navigation, errors, acceptance tests, and verification.
 metadata:
   category: application-engineering
   triggers: implement feature, add feature, build feature, b4x feature, connect screen, CRUD feature, backend integration

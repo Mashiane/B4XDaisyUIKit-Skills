@@ -92,7 +92,7 @@ skills/
   b4x-regression/
 ```
 
-Do not place these skills below `b4x-orchestrator/skills/`. Nested copies are not reliably discovered by skill loaders.
+Do not place skill copies below `b4x-orchestrator/skills/`. Nested copies are not reliably discovered by skill loaders. Exception: `b4x-orchestrator/skills/*/references/` holds the canonical contract templates linked from the top-level planner/engineer/regression skills — do not move or duplicate them without updating those links.
 
 ## Important design principle
 
