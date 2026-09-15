@@ -206,7 +206,7 @@ picker.SetItems(Array As String("Warehouse Zone A", "Warehouse Zone B", "Warehou
 picker.SelectedIndex = 0
 
 Private Sub picker_IndexChange(Index As Int, Value As Object)
-    Log("Selected Zone: " & Value)
+    If B4XDaisyApp.DebugLogs Then Log("Selected Zone: " & Value)
 End Sub
 
 y = y + 180dip + gap

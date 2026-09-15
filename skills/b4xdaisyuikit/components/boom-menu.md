@@ -22,15 +22,15 @@ Private Sub EnsureBoomAdded(Width As Int, Height As Int)
     Dim bTop As Int = Height - sz - margin
     Try
         If mbBoomAdded = False Then
-            Log("BoomPage: Adding boom to Root at " & bLeft & "," & bTop & " " & sz & "x" & sz)
+            If B4XDaisyApp.DebugLogs Then Log("BoomPage: Adding boom to Root at " & bLeft & "," & bTop & " " & sz & "x" & sz)
             boom.AddToParent(Root, bLeft, bTop, sz, sz)
             mbBoomAdded = True
-            Log("BoomPage: boom added, isInit=" & boom.getIsInitialized)
+            If B4XDaisyApp.DebugLogs Then Log("BoomPage: boom added, isInit=" & boom.getIsInitialized)
         Else
             boom.Reposition(bLeft, bTop, sz, sz)
         End If
     Catch
-        Log("B4XPageBoomMenu.EnsureBoomAdded: " & LastException.Message)
+        If B4XDaisyApp.DebugLogs Then Log("B4XPageBoomMenu.EnsureBoomAdded: " & LastException.Message)
     End Try
 End Sub
 ```
@@ -240,6 +240,6 @@ boom.AddButton("add", "plus-solid.svg", "Manual Entry", "secondary")
 
 ' Click event:
 Private Sub boom_BoomClick(Index As Int, Tag As Object)
-    Log("Boom item clicked: " & Tag)
+    If B4XDaisyApp.DebugLogs Then Log("Boom item clicked: " & Tag)
 End Sub
 ```

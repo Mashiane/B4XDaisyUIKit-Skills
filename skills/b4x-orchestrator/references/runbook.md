@@ -78,14 +78,16 @@ if (-not (Test-Path $app/ux-review/screens/*.png)) { Write-Host "FAIL: no screen
 - Ship blocker: any `Severity: 4/5` or `Errors:` in BUILD-WATCH.
 - Cite `Verified at build` for touch-target / TalkBack / startup / jank items that BUILD-WATCH evidences.
 
-### Loop — Remediation (cap 3)
+### Loop — Remediation (cap 3 per `(gate, scope)`)
 ```
 while (severity≥4 -or BUILD-WATCH Errors) -and (loop < 3) {
   draft Fix Ticket per ux-review.md:326 (file, sub, approx line, manifest property, 3-8 line snippet)
   user unlocks flagged .bas (lock-bas-synchfree.ps1), applies, re-locks
   re-run: verify-conformance → install → build-watch → capture → ux-review
+  record in .agent/STATE.md remediation-loop-count: {<gate>: {<scope-id>: <n>}}; append new GATE-INSTANCE (never overwrite); reset to 0 on pass
   loop++
 }
+# 4th failure of same (gate, scope): halt, escalate per Constitution Art X — no 4th attempt.
 if (severity≥4) { "Escalate to human, do not ship"; exit 1 }
 ```
 

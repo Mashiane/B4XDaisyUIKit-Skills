@@ -227,7 +227,7 @@ Private Sub navbar_Back(Tag As Object)
 End Sub
 
 Private Sub dock_ItemClick(ItemId As String)
-    Log("Tab clicked: " & ItemId)
+    If B4XDaisyApp.DebugLogs Then Log("Tab clicked: " & ItemId)
     Select Case ItemId
         Case "tab_settings"
             ' Navigate to settings page instance via the global AppLoader
@@ -352,7 +352,7 @@ End Sub
 '================================================================
 
 Private Sub tabs_TabClick(Index As Int)
-    Log("Switched to Tab Index: " & Index)
+    If B4XDaisyApp.DebugLogs Then Log("Switched to Tab Index: " & Index)
     ' Tab panel swaps are handled internally by B4XDaisyTab using visibility toggles on SetTabContent views.
 End Sub
 

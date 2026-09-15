@@ -322,7 +322,7 @@ modal.Show                                     ' or modal.Hide
 ' Action click handler:
 Private Sub modal_ActionClick(Action As String)
     If Action = "confirm" Then
-        Log("Confirmed")
+        If B4XDaisyApp.DebugLogs Then Log("Confirmed")
     End If
     modal.Hide
 End Sub

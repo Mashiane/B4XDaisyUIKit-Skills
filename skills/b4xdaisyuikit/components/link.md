@@ -58,7 +58,7 @@ y = y + lnkHover.GetComputedHeight + gap
 - Handle custom click logic via the `Click` event:
   ```b4x
   Private Sub lnk_Click (Tag As Object)
-      Log("Link clicked: " & Tag)
+      If B4XDaisyApp.DebugLogs Then Log("Link clicked: " & Tag)
   End Sub
   ```
 

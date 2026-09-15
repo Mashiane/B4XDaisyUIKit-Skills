@@ -73,7 +73,7 @@ The Rules Enforcer is the authoritative, non-negotiable constraint layer of the 
 ## 6. Code Style & Hungarian Standards (`RULE-CODE-*`)
 
 * **`RULE-CODE-001` `L4` (Hungarian Parameter & Variable Prefixes)** — `verify-conformance.ps1:Warn` (spot-check): Use strict type-based Hungarian prefixes for all subroutine parameters and local variables to prevent compiler shadowing (`sText`, `iLeft`, `bEnabled`, `vParent`, `mProps`, `lstItems`, `bmpImage`, `joView`).
-* **`RULE-CODE-002` `L4` (Structured Error Logging)** — `verify-conformance.ps1:224`: Empty `Catch` blocks are strictly forbidden. Catch blocks must log errors using the standard prefix: `Log("B4XDaisy<Module>.<Sub>: " & LastException.Message)`.
+* **`RULE-CODE-002` `L4` (Structured Error Logging)** — `verify-conformance.ps1:224`: Empty `Catch` blocks are strictly forbidden. Catch blocks must log errors using the standard gated prefix: `If B4XDaisyApp.DebugLogs Then Log("B4XDaisy<Module>.<Sub>: " & LastException.Message)`.
 
 ---
 

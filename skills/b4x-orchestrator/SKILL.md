@@ -125,7 +125,7 @@ detect (ux-review severity≥4 or build-watch Errors)
   → apply (unlock → paste → re-lock per lock-bas-synchfree.ps1)
   → rebuild → re-verify → re-capture → re-audit
 ```
-Each loop re-runs gates 3-7. If `severity≥4` persists after 3 loops → human escalation, do not ship.
+Each loop re-runs gates 3-7. Count per `(gate, scope-id)` in `.agent/STATE.md` as `remediation-loop-count: {<gate>: {<scope-id>: <n>}}` (scope per GATE-STATE-MACHINE §2; never a global-per-gate counter). Each re-evaluation appends a new `GATE-INSTANCE` node (never overwrite); pass resets that `(gate, scope)` counter to 0. If `severity≥4` persists after 3 loops → human escalation, do not ship.
 
 ### 12. Release Bundle
 ```

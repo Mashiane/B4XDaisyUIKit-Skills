@@ -99,7 +99,7 @@ Private Sub btnPrompt_Click(Tag As Object)
 
     Wait For (swalInput.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
     If Result.IsConfirmed Then
-        Log("Captured value: " & Result.Value)
+        If B4XDaisyApp.DebugLogs Then Log("Captured value: " & Result.Value)
     End If
 End Sub
 ```
@@ -119,7 +119,7 @@ Private Sub btnSelectTheme_Click(Tag As Object)
 
     Wait For (swalSelect.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
     If Result.IsConfirmed Then
-        Log("Selected Theme: " & Result.Value)
+        If B4XDaisyApp.DebugLogs Then Log("Selected Theme: " & Result.Value)
     End If
 End Sub
 ```

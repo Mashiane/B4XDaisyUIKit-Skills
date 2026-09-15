@@ -249,6 +249,6 @@ End Sub
 ### 3. Click Event
 ```vb
 Private Sub lst_ItemClick(Index As Int, Tag As Object)
-	Log("Clicked item: " & Tag)
+	If B4XDaisyApp.DebugLogs Then Log("Clicked item: " & Tag)
 End Sub
 ```

@@ -17,7 +17,7 @@ DaisyUI `EnjoyHint` component for B4X (B4A Android).
             enjoyHint.EndTour
         End If
     Catch
-        Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
+        If B4XDaisyApp.DebugLogs Then Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
     End Try
     tourRunning = False
     
@@ -29,7 +29,7 @@ DaisyUI `EnjoyHint` component for B4X (B4A Android).
     Try
         enjoyHint.Initialize(Me, "enjoyHint", Root)
     Catch
-        Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
+        If B4XDaisyApp.DebugLogs Then Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
         Return
     End Try
     tourRunning = True

@@ -10,7 +10,7 @@
     {
       "name": "b4xdaisyuikit-skills",
       "description": "Assemble native Android (B4A) screens using B4XDaisyUIKit (inspired by DaisyUI / Tailwind CSS).",
-      "version": "1.4.2",
+      "version": "1.4.3",
       "source": "./",
       "category": "developer-tools"
     }

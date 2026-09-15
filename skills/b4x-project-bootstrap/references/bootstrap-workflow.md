@@ -90,7 +90,7 @@ generic app shell. Do not hand-write the shell from scratch.
 7. **Prune unused libraries** in `<AppName>.b4a` (optional but recommended).
    The template ships the standard component library set. Drop what the app does not use
    (gps, geocoder, fusedlocationprovider, ac_leafletview, pdfium,
-   shinebutton, mediachooser, simplemediamanager) and their matching
+   shinebutton, mediachooser, simplemediamanager, b4xbitmapeffects) and their matching
    `#AdditionalJar` lines + manifest permissions. Keep the minimum set:
    `b4xpages, xui, xui views, xcustomlistview, json, okhttp, okhttputils2,
    stringutils, javaobject, reflection, runtimepermissions, sql,

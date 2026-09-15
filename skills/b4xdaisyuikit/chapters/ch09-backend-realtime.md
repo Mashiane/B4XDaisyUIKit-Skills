@@ -130,7 +130,7 @@ Private Sub photoFileInput_Click (Tag As Object)
     Wait For (fileHandler.LoadWithFilter("image/*", "Pick Image")) Complete (Loaded As LoadResult)
     If Loaded.Success Then
         photoFileInput.FileName = Loaded.FileName
-        Log("Image selected: " & Loaded.FileName)
+        If B4XDaisyApp.DebugLogs Then Log("Image selected: " & Loaded.FileName)
     End If
 End Sub
 

@@ -24,7 +24,7 @@ Private Sub B4XPage_Created(Root1 As B4XView)
 	Try
 		FileHandler.Initialize
 	Catch
-		Log("B4XPageMediaPicker FileHandler.Initialize Error: " & LastException.Message)
+		If B4XDaisyApp.DebugLogs Then Log("B4XPageMediaPicker FileHandler.Initialize Error: " & LastException.Message)
 	End Try
 	RenderExamples(Root.Width, Root.Height)
 End Sub

@@ -7,9 +7,12 @@ Version=13.70
 
 #IgnoreWarnings:12,9
 Sub Class_Globals
-	Private focusedInput As B4XDaisyInput
 	Private Root As B4XView
 	Private xui As XUI
+	Private focusedInput As B4XDaisyInput
+	#If B4A
+	Private ime As IME
+	#End If
 
 	' Page Frame & Navigation Containers (Navbar + Bottom Dock)
 	Private pageScroll As B4XDaisyPageScroll
@@ -24,6 +27,7 @@ Sub Class_Globals
 	Private y          As Int
 	Private NAVBAR_H   As Int = 56dip
 	Private DOCK_H     As Int = 64dip
+	Private lastWidth  As Int
 
 	' Page UI Components
 	' Private statRow  As B4XDaisyStat
@@ -34,13 +38,18 @@ Public Sub Initialize As Object
 	Return Me
 End Sub
 
-Private Sub B4XPage_Created(Root1 As B4XView)
-	Root = Root1
+Private Sub B4XPage_Created(vRoot As B4XView)
+	Root = vRoot
 	Root.RemoveAllViews
+
+	#If B4A
+	ime.Initialize("IME")
+	#End If
 
 	BuildScroll
 	BuildNavbar
 	BuildDock
+	lastWidth = vRoot.Width
 	RenderContent
 End Sub
 
@@ -50,12 +59,15 @@ Private Sub B4XPage_Appear
 	If dock.IsInitialized Then dock.ActiveIndex = 0
 End Sub
 
-Private Sub B4XPage_Resize(Width As Int, Height As Int)
-	If navbar.IsInitialized Then navbar.SetLayoutAnimated(0, 0, 0, Width, NAVBAR_H)
-	If dock.IsInitialized Then dock.View.SetLayoutAnimated(0, 0, Height - DOCK_H, Width, DOCK_H)
+Private Sub B4XPage_Resize(iWidth As Int, iHeight As Int)
+	If navbar.IsInitialized Then navbar.SetLayoutAnimated(0, 0, 0, iWidth, NAVBAR_H)
+	If dock.IsInitialized Then dock.View.SetLayoutAnimated(0, 0, iHeight - DOCK_H, iWidth, DOCK_H)
 	If pageScroll.IsInitialized Then
-		pageScroll.Base_Resize(Width, Height - NAVBAR_H - DOCK_H)
-		RenderContent
+		pageScroll.Base_Resize(iWidth, iHeight - NAVBAR_H - DOCK_H)
+		If lastWidth <> iWidth Then
+			lastWidth = iWidth
+			RenderContent
+		End If
 	End If
 End Sub
 
@@ -99,10 +111,6 @@ Private Sub RenderContent
 	Dim isTablet As Boolean = (Root.Width >= 600dip)
 	Dim colW As Int = IIf(isTablet, (maxW - gap) / 2, maxW)
 
-	' Responsive Layout Metrics (Adapts automatically between Phone single-column vs Tablet/Landscape dual-column)
-	Dim isTablet As Boolean = (Root.Width >= 600dip)
-	Dim colW As Int = IIf(isTablet, (maxW - gap) / 2, maxW)
-
 	' Compose components sequentially using the Vertical Coordinate Accumulator
 	' Example:
 	' y = pageScroll.AddSectionTitle("Section Heading", y, False) + gap
@@ -110,8 +118,8 @@ Private Sub RenderContent
 	pageScroll.AutoFit
 End Sub
 
-Private Sub dock_ItemClick (Tag As String)
-	Select Case Tag
+Private Sub dock_ItemClick (sTag As String)
+	Select Case sTag
 		Case "home"
 			' B4XPages.MainPage.ShowPageWithLoader("home")
 		Case "settings"
@@ -135,7 +143,22 @@ End Sub
 #Region Keyboard & Focus Management
 #If B4A
 Public Sub IME_HeightChanged(iNewHeight As Int, iOldHeight As Int)
-	If pageScroll.IsInitialized Then pageScroll.IME_HeightChanged(iNewHeight, iOldHeight, focusedInput)
+	Try
+		If pageScroll.IsInitialized = False Then Return
+		If iNewHeight < iOldHeight Then
+			' Keyboard opened: hide dock, shrink scroll view to available viewport height
+			If dock.IsInitialized Then dock.Visible = False
+			pageScroll.SetLayoutAnimated(0, 0, NAVBAR_H, Root.Width, iNewHeight - NAVBAR_H)
+			Sleep(50)
+			ScrollFocusedInputIntoView
+		Else
+			' Keyboard closed: restore dock and scroll view to full page height
+			If dock.IsInitialized Then dock.Visible = True
+			pageScroll.SetLayoutAnimated(0, 0, NAVBAR_H, Root.Width, Root.Height - NAVBAR_H - DOCK_H)
+		End If
+	Catch
+		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.IME_HeightChanged: " & LastException.Message)
+	End Try
 End Sub
 
 Public Sub ScrollFocusedInputIntoView
@@ -143,7 +166,7 @@ Public Sub ScrollFocusedInputIntoView
 		If focusedInput.IsInitialized = False Or pageScroll.IsInitialized = False Then Return
 		pageScroll.ScrollToViewWithMargin(focusedInput.View, 28dip, True)
 	Catch
-		Log("Page.ScrollFocusedInputIntoView: " & LastException.Message)
+		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.ScrollFocusedInputIntoView: " & LastException.Message)
 	End Try
 End Sub
 
@@ -164,8 +187,23 @@ Private Sub HandleInputFocus(bHasFocus As Boolean)
 			End If
 		End If
 	Catch
-		Log("Page.HandleInputFocus: " & LastException.Message)
+		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.HandleInputFocus: " & LastException.Message)
 	End Try
+End Sub
+
+Public Sub HideKeyboard
+	ime.HideKeyboard
+End Sub
+
+Public Sub ShowKeyboard(inpTarget As B4XDaisyInput)
+	If inpTarget.IsInitialized Then
+		inpTarget.RequestFocus
+		ime.ShowKeyboard(inpTarget.EditText)
+	End If
+End Sub
+
+Private Sub HandleInputEnter(sText As String)
+	HideKeyboard
 End Sub
 #End If
 #End Region

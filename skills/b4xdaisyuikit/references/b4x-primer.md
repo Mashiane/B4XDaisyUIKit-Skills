@@ -142,11 +142,11 @@ RenderPage(Root.Width, Root.Height)
 If pageScroll.IsInitialized = False Then Return
 
 If value > 0 Then
-    Log("Positive")
+    If B4XDaisyApp.DebugLogs Then Log("Positive")
 Else If value = 0 Then
-    Log("Zero")
+    If B4XDaisyApp.DebugLogs Then Log("Zero")
 Else
-    Log("Negative")
+    If B4XDaisyApp.DebugLogs Then Log("Negative")
 End If
 
 Select Case itemId
@@ -155,7 +155,7 @@ Select Case itemId
     Case "settings"
         B4XPages.ShowPage("B4XPageSettings")
     Case Else
-        Log("Unknown: " & itemId)
+        If B4XDaisyApp.DebugLogs Then Log("Unknown: " & itemId)
 End Select
 
 ```
@@ -168,12 +168,12 @@ End Select
 ' For loop
 For i = 0 To items.Size - 1
     Dim item As String = items.Get(i)
-    Log(item)
+    If B4XDaisyApp.DebugLogs Then Log(item)
 Next
 
 ' For Each loop
 For Each v As B4XView In pnlHost.GetAllViewsRecursive
-    Log(v.Tag)
+    If B4XDaisyApp.DebugLogs Then Log(v.Tag)
 Next
 
 ' Do While loop
@@ -192,7 +192,7 @@ Use `&` to concatenate strings. No `+` for strings.
 
 ```vb
 Dim msg As String = "Hello " & username & "!"
-Log("Value: " & someInt)
+If B4XDaisyApp.DebugLogs Then Log("Value: " & someInt)
 
 ```
 
@@ -213,14 +213,14 @@ navbar.Initialize(Me, "navbar")
 ' The component raises: navbar_Click(Payload As Object)
 ' You handle it with this exact sub name:
 Private Sub navbar_Click(Payload As Object)
-    Log("Navbar clicked: " & Payload)
+    If B4XDaisyApp.DebugLogs Then Log("Navbar clicked: " & Payload)
 End Sub
 
 ' Another example:
 btnSave.Initialize(Me, "btnSave")
 
 Private Sub btnSave_Click(Tag As Object)
-    Log("Save pressed")
+    If B4XDaisyApp.DebugLogs Then Log("Save pressed")
 End Sub
 
 ```
@@ -302,7 +302,7 @@ Dim result As B4XDaisySweetAlertResult
 Wait For (swal.ShowAsync) Complete (result As B4XDaisySweetAlertResult)
 
 If result.IsConfirmed Then
-    Log("User confirmed: " & result.Value)
+    If B4XDaisyApp.DebugLogs Then Log("User confirmed: " & result.Value)
 End If
 
 ```
@@ -327,7 +327,7 @@ If pageScroll.IsInitialized = False Then Return
 ## 13. Logging
 
 ```vb
-Log("Debug message: " & someVar)
+If B4XDaisyApp.DebugLogs Then Log("Debug message: " & someVar)
 
 ```
 
@@ -411,7 +411,7 @@ Empty `Catch` blocks are prohibited. Every `Catch` block must log the failure us
 Try
     ' ... operation ...
 Catch
-    Log("B4XDaisy<Component>.<SubName>: " & LastException.Message)
+    If B4XDaisyApp.DebugLogs Then Log("B4XDaisy<Component>.<SubName>: " & LastException.Message)
 End Try
 ```
 *(Exception: `DisallowParentIntercept` climbing to `ViewRootImpl` where platform exceptions are expected and silently exited).*

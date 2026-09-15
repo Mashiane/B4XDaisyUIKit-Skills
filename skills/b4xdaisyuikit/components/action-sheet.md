@@ -147,7 +147,7 @@ asSheet.Show
 
 ' Action click event:
 Private Sub asSheet_ActionClick(ActionId As String)
-    Log("Action selected: " & ActionId)
+    If B4XDaisyApp.DebugLogs Then Log("Action selected: " & ActionId)
     asSheet.Dismiss
 End Sub
 ```

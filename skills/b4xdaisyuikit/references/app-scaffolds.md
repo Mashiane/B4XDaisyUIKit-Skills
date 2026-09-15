@@ -1,4 +1,4 @@
-# B4XDaisyUIKit App Scaffolds
+﻿# B4XDaisyUIKit App Scaffolds
 
 Every code block in this file uses only methods confirmed in `component-manifest.md`. Method signatures are quoted exactly from the manifest.
 
@@ -16,7 +16,7 @@ Each code block notes which manifest entries it relies on:
 
 ## 0. Standard .b4a Project File Template
 
-When creating a new B4A project file (`[AppName].b4a`), use this exact template. It includes all 27 required library definitions (including `b4xdaisyuikit`), the full `ManifestCode`, and the exact delegates/inline code after `@EndOfDesignText@` from `B4XDaisyUIKitDemo.b4a`:
+When creating a new B4A project file (`[AppName].b4a`), use this exact template. It includes all 26 required library definitions (including `b4xdaisyuikit`), the full `ManifestCode`, and the exact delegates/inline code after `@EndOfDesignText@` from `B4XDaisyUIKitDemo.b4a`:
 
 ```ini
 AppType=JavaObject
@@ -26,29 +26,29 @@ Group=Default Group
 Library1=ac_leafletview
 Library2=b4xpages
 Library3=bitmapcreator
-Library4=bitmapcreatoreffectsext
-Library5=contentresolver
-Library6=core
-Library7=fileprovider
-Library8=fusedlocationprovider
-Library9=geocoder
-Library10=gps
-Library11=ime
-Library12=javaobject
-Library13=json
-Library14=mediachooser
-Library15=okhttp
-Library16=okhttputils2
-Library17=reflection
-Library18=runtimepermissions
-Library19=simplemediamanager
-Library20=sql
-Library21=stringutils
-Library22=xcustomlistview
-Library23=xui
-Library24=xui views
-Library25=shinebutton
-Library26=pdfium
+Library4=contentresolver
+Library5=core
+Library6=fileprovider
+Library7=fusedlocationprovider
+Library8=geocoder
+Library9=gps
+Library10=ime
+Library11=javaobject
+Library12=json
+Library13=mediachooser
+Library14=okhttp
+Library15=okhttputils2
+Library16=reflection
+Library17=runtimepermissions
+Library18=simplemediamanager
+Library19=sql
+Library20=stringutils
+Library21=xcustomlistview
+Library22=xui
+Library23=xui views
+Library24=shinebutton
+Library25=pdfium
+Library26=b4xbitmapeffects
 Library27=b4xdaisyuikit
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="35"/>~\n~<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:debuggable, "true")~\n~SetApplicationAttribute(android:theme, "@style/LightTheme")~\n~CreateResource(values, theme.xml,~\n~<resources>~\n~    <style~\n~        name="LightTheme" parent="@android:style/Theme.Material.Light">~\n~       <item name="android:actionMenuTextAppearance">@style/LowerCaseMenu</item>~\n~       <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>~\n~    </style>~\n~     <style name="LowerCaseMenu" parent="android:TextAppearance.Material.Widget.ActionBar.Menu">~\n~        <item name="android:textAllCaps">false</item>~\n~    </style>~\n~</resources>~\n~)~\n~'End of default text.~\n~SetActivityAttribute(Main, android:windowSoftInputMode, adjustResize|stateHidden)~\n~AddPermission(android.permission.CAMERA)~\n~AddApplicationText(~\n~  <provider~\n~  android:name="android.support.v4.content.FileProvider"~\n~  android:authorities="$PACKAGE$.provider"~\n~  android:exported="false"~\n~  android:grantUriPermissions="true">~\n~  <meta-data~\n~  android:name="android.support.FILE_PROVIDER_PATHS"~\n~  android:resource="@xml/provider_paths"/>~\n~  </provider>~\n~)~\n~CreateResource(xml, provider_paths,~\n~   <files-path name="name" path="shared" />~\n~)~\n~AddPermission(android.permission.RECORD_AUDIO)~\n~AddManifestText(<uses-permission~\n~    android:name="android.permission.WRITE_EXTERNAL_STORAGE"~\n~    android:maxSdkVersion="19" />~\n~)~\n~CreateResourceFromFile(Macro, Core.NetworkClearText)~\n~AddPermission(android.permission.FOREGROUND_SERVICE)~\n~SetServiceAttribute(KeepRunningService, android:foregroundServiceType, shortService)~\n~AddPermission(android.permission.ACCESS_FINE_LOCATION)~\n~AddPermission(android.permission.ACCESS_COARSE_LOCATION)~\n~AddApplicationText(<meta-data~\n~    android:name="com.google.android.gms.version"~\n~    android:value="@integer/google_play_services_version" />)
 Module1=B4XMainPage
@@ -90,8 +90,7 @@ Version=13.7
 #AdditionalJar: com.android.support:support-v4
 #AdditionalJar: com.google.android.gms:play-services-location
 #AdditionalJar: android-pdf-viewer.aar
-#AdditionalJar: com.android.support:support-v4
-#AdditionalJar: Pdfium.aar
+#AdditionalJar: Pdfium.androidx.aar
 
 Sub Process_Globals
 	Public ActionBarHomeClicked As Boolean
@@ -246,7 +245,7 @@ Public Sub ShowPageWithLoader(PageId As String)
         Sleep(150)
         B4XPages.ShowPage(PageId)
     Catch
-        Log("B4XMainPage.ShowPageWithLoader: " & LastException.Message)
+        If B4XDaisyApp.DebugLogs Then Log("B4XMainPage.ShowPageWithLoader: " & LastException.Message)
         If AppLoader.IsInitialized Then AppLoader.Hide
     End Try
 End Sub
@@ -260,7 +259,7 @@ Public Sub ClosePageWithLoader(Page As Object)
         Sleep(150)
         B4XPages.ClosePage(Page)
     Catch
-        Log("B4XMainPage.ClosePageWithLoader: " & LastException.Message)
+        If B4XDaisyApp.DebugLogs Then Log("B4XMainPage.ClosePageWithLoader: " & LastException.Message)
         If AppLoader.IsInitialized Then AppLoader.Hide
     End Try
 End Sub
@@ -389,7 +388,7 @@ Private Sub btnSave_Click(Tag As Object)
     End If
     ' getText As String [M]
     Dim name As String = inputName.getText
-    Log("Saving: " & name)
+    If B4XDaisyApp.DebugLogs Then Log("Saving: " & name)
 End Sub
 ```
 

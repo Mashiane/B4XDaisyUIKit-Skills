@@ -209,6 +209,6 @@ Private Sub lstAudit_CreateRowContent(Index As Int)
 End Sub
 
 Private Sub lstAudit_ItemClick(Index As Int, Tag As Object)
-	Log("Clicked batch: " & Tag)
+	If B4XDaisyApp.DebugLogs Then Log("Clicked batch: " & Tag)
 End Sub
 ```

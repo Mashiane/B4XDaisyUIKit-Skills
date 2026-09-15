@@ -133,7 +133,7 @@ Launch ./install.ps1
 1. **If Conformance Fails**: Locate the flagged token in the `.bas` file. Replace it with a verified method or component from `component-manifest.md` and `components/<name>.md`.
 2. **If API-member or Compile-Readiness Fails**: Replace the member with an API from the generated corpus, or adjust `.b4a` `ModuleN` entries, bump `NumberOfModules`, or fix file headers.
 3. **If Static Layout Fails**: Add `pageScroll.AutoFit` to the end of the page render routine or fix `navbar.BringToFront`.
-4. **Re-run Gate**: Loop until the script exits with `RESULT: PASS`. Then run `./install.ps1`.
+4. **Re-run Gate (cap 3 per scope, then escalate):** track attempts in `.agent/STATE.md` as `remediation-loop-count: {<gate>: {<scope-id>: <n>}}` (scope = feature/screen ID per GATE-STATE-MACHINE §2; a global-per-gate counter is wrong). Each re-evaluation appends a new `GATE-INSTANCE` node — never overwrite. Pass resets that `(gate, scope)` counter to 0. On the 4th failure of the same `(gate, scope)`: halt, do NOT attempt again, and escalate to the human with failing gate, scope, all prior `GATE-INSTANCE` refs, and the specific unresolved question (Constitution Art X, GATE-STATE-MACHINE §3). Then run `./install.ps1`.
 
 ## Procedure
 
@@ -152,7 +152,7 @@ Launch ./install.ps1
 5. If API-member or COMPILE-READINESS fails: replace the invalid member, or add the missing `ModuleN=<Name>` line to the
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
-6. Re-run until PASS.
+6. Re-run until PASS subject to the same cap-3 per `(gate, scope)` rule as step 4 of the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
 7. Then run `./install.ps1` for the real build. install.ps1 auto-runs
    build-watch.ps1 after launch; read its `ux-review/BUILD-WATCH-*.md` output
    before the post-build visual review.

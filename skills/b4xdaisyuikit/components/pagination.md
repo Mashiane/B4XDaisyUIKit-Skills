@@ -174,7 +174,7 @@ pag.Size = "md"
 
 ' Page change event:
 Private Sub pag_PageChange(Index As Int)
-    Log("Switched to page: " & (Index + 1))
+    If B4XDaisyApp.DebugLogs Then Log("Switched to page: " & (Index + 1))
 End Sub
 
 y = y + 44dip + gap

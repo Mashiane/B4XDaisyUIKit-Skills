@@ -236,8 +236,8 @@ swal.TimerMs = 0                              ' 0 = stay until user clicks a but
 ' Asynchronous display and result handling:
 Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
 If Result.IsConfirmed Then
-    Log("User confirmed action")
+    If B4XDaisyApp.DebugLogs Then Log("User confirmed action")
 Else If Result.IsDismissed Then
-    Log("User dismissed dialog")
+    If B4XDaisyApp.DebugLogs Then Log("User dismissed dialog")
 End If
 ```

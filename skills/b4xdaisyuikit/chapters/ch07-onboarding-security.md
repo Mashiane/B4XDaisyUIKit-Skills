@@ -103,7 +103,7 @@ Private Sub RenderPage(W As Int, H As Int)
 End Sub
 
 Private Sub otpInput_Complete (Code As String)
-    Log("OTP Code Filled: " & Code)
+    If B4XDaisyApp.DebugLogs Then Log("OTP Code Filled: " & Code)
     btnVerify_Click(Null)
 End Sub
 

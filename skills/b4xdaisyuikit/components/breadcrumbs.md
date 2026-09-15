@@ -138,7 +138,7 @@ crumbs.AddItem("current", "Batch #1042", "", False)
 crumbs.CurrentIndex = 2
 
 Private Sub crumbs_ItemClick(Tag As Object)
-    Log("Selected breadcrumb: " & Tag)
+    If B4XDaisyApp.DebugLogs Then Log("Selected breadcrumb: " & Tag)
 End Sub
 
 y = y + crumbs.GetComputedHeight + gap

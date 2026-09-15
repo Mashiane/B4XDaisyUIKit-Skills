@@ -248,7 +248,7 @@ menu.AddItem("settings", "App Settings", "cog-solid.svg")
 
 ' Click event:
 Private Sub menu_ItemClick(Tag As Object)
-    Log("Menu clicked: " & Tag)
+    If B4XDaisyApp.DebugLogs Then Log("Menu clicked: " & Tag)
 End Sub
 
 y = y + menu.GetComputedHeight + gap

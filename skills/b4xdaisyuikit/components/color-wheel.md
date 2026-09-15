@@ -139,7 +139,7 @@ wheel.AddToParent(pnlHost, pad, y, maxW, 200dip)
 
 ' Color change event:
 Private Sub wheel_ColorChange(Color As Int)
-    Log("Selected color: " & Color)
+    If B4XDaisyApp.DebugLogs Then Log("Selected color: " & Color)
 End Sub
 
 y = y + 200dip + gap
