@@ -5,7 +5,7 @@ DaisyUI `Steps` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySteps`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySteps.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySteps.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySteps.bas)
 - **Verified Demo Source**: B4XPageSteps.bas
 - **Web DaisyUI Mapping**: `.steps` → `B4XDaisySteps`
 
@@ -23,37 +23,28 @@ DaisyUI `Steps` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-y = AddDescription(contentLeft, y, maxW, "Completed steps use step-primary; pending steps use the default base color. ConnectOnClick is enabled ? tap any step to fill the connector line and circles up to and including that step.")
+' Step progress wizard indicator:
+Dim steps As B4XDaisySteps
+steps.Initialize(Me, "steps")
+steps.setConnectOnClick(True)
+steps.setActiveColor("primary")
 
-    Dim ex1 As B4XDaisySteps
-    ex1.Initialize(Me, "steps")
-    ex1.setConnectOnClick(True)
-    ex1.setActiveColor("primary")
-    ex1.AddStep("Register", "primary")
-    ex1.AddStep("Choose plan", "primary")
-    ex1.AddStep("Purchase", "")
-    ex1.AddStep("Receive", "")
-    Dim ex1H As Int = ex1.GetComputedHeight
-    ex1.AddToParent(pnlHost, contentLeft, y, maxW, ex1H)
-    y = y + ex1H + 20dip
+' Add step items (title, variant):
+steps.AddStep("Register", "primary")
+steps.AddStep("Choose Plan", "primary")
+steps.AddStep("Payment", "")
+steps.AddStep("Complete", "")
 
-    ' -
-    ''' <summary>
-    ''' Example 2: Vertical steps.
-    ''' Mirrors the steps-vertical DaisyUI docs example.
-    ''' </summary>
-    y = AddSectionTitle(contentLeft, y, maxW, "2. Vertical steps")
-    y = AddDescription(contentLeft, y, maxW, "Same steps rendered vertically ? connector bars become vertical lines.")
+Dim stepsH As Int = steps.GetComputedHeight
+steps.AddToParent(pnlHost, 16dip, y, maxW, stepsH)
+y = y + stepsH + 16dip
 
-    Dim ex2 As B4XDaisySteps
-    ex2.Initialize(Me, "steps")
-    ex2.setOrientation("vertical")
-    ex2.AddStep("Register", "primary")
-    ex2.AddStep("Choose plan", "primary")
-    ex2.AddStep("Purchase", "")
-    ex2.AddStep("Receive Product", "")
-    Dim ex2H As Int = ex2.GetComputedHeight
+' Step click event:
+Private Sub steps_StepClick(Index As Int, StepName As String)
+	If B4XDaisyApp.DebugLogs Then Log("Step tapped: " & Index & " - " & StepName)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -148,24 +139,3 @@ y = AddDescription(contentLeft, y, maxW, "Completed steps use step-primary; pend
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisySteps` renders a horizontal or vertical step progress wizard indicator.
-
-```vb
-Dim steps As B4XDaisySteps
-steps.Initialize(Me, "steps")
-steps.AddToParent(pnlHost, pad, y, maxW, 60dip)
-steps.Direction = "horizontal"                 ' "horizontal" | "vertical"
-
-' Add step items:
-steps.AddItem("1", "Scan")
-steps.AddItem("2", "Variance")
-steps.AddItem("3", "Resolve")
-
-' Mark active step:
-steps.ActiveIndex = 1                          ' 0-indexed: Step 2 is active
-steps.SetStepDone("1", True)                   ' Step 1 completed (primary color)
-
-y = y + steps.GetComputedHeight + gap
-```

@@ -5,7 +5,7 @@ DaisyUI `OTP` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyOTP`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyOTP.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyOTP.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyOTP.bas)
 - **Verified Demo Source**: B4XPageOTP.bas
 - **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOTP`
 
@@ -31,13 +31,12 @@ DaisyUI `OTP` component for B4X (B4A Android).
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' Demo page regenerating every Ionic v8 ion-input-otp example for
-' the B4XDaisyOTP component (parity reference).
-'-
-
-#Region Variables
-    Sub Class_Globals
-        Private Root As B4XView
+' One-time password pin input
+Dim otp As B4XDaisyOTP
+otp.Initialize(Me, "otp")
+otp.AddToParent(pnlHost, 12dip, 12dip, maxW - 24dip, 50dip)
+otp.Length = 6
+otp.Mask = False Root As B4XView
         Private xui As XUI
         Private pageScroll As B4XDaisyPageScroll
         Private pnlHost As B4XView
@@ -162,6 +161,17 @@ DaisyUI `OTP` component for B4X (B4A Android).
 - `Base_Resize(Width As Double, Height As Double)`
 - `setFocus(Index As Int)`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

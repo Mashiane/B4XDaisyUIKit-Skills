@@ -5,18 +5,20 @@ DaisyUI `Animation` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyAnimation`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyAnimation.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAnimation.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAnimation.bas)
 - **Verified Demo Source**: B4XPageEasing.bas
 - **Web DaisyUI Mapping**: `.animation` → `B4XDaisyAnimation`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Public Sub Initialize As Object
-    animObj.Initialize
-    graphX.Initialize
-    graphY.Initialize
-    Return Me
-End Sub
+' Declare and initialize animation helper
+Dim anim As B4XDaisyAnimation
+anim.Initialize
+
+' Animate views with built-in easings
+anim.AnimateTranslationX(targetView, 100dip, 300)
+anim.AnimateAlpha(targetView, 0.5, 250)
+anim.AnimateScale(targetView, 1.2, 1.2, 300)
 ```
 
 ## 3. Native Composition Rules & Gotchas

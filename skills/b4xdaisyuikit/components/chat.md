@@ -5,7 +5,7 @@ DaisyUI `Chat` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyChat`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyChat.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyChat.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyChat.bas)
 - **Verified Demo Source**: B4XPageChat.bas
 - **Web DaisyUI Mapping**: `.chat` → `B4XDaisyChat`
 
@@ -29,20 +29,20 @@ DaisyUI `Chat` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub B4XPage_Created(Root1 As B4XView)
-	Root = Root1
-	Root.Color = xui.Color_RGB(245,245,245)
-	
-	'Create the chat control once and attach it to the page root.
-	DaisyChat.Initialize(Me, "daisy")
-	DaisyChat.AddToParent(Root)
-	
-	'Load/copy avatar image candidates from assets for demo use.
-	LocalAvatarPaths = GetLocalAvatarPaths
-	
-	'Populate initial conversations when the view is ready.
-	EnsureSamples
+' Mount full-page DaisyUI chat container onto Root:
+Dim DaisyChat As B4XDaisyChat
+DaisyChat.Initialize(Me, "chat")
+DaisyChat.AddToParent(Root)
+
+' Populate chat bubbles:
+DaisyChat.AddIncomingMessage("John Doe", "avatar1.webp", "Hey, did you review the project proposal?", "10:30 AM", "Delivered")
+DaisyChat.AddOutgoingMessage("Me", "avatar2.webp", "Yes! Everything looks great and ready to ship.", "10:32 AM", "Seen")
+
+' Handle sending messages:
+Private Sub chat_SendMessage(Message As String)
+	DaisyChat.AddOutgoingMessage("Me", "avatar2.webp", Message, "Just now", "Sent")
 End Sub
 ```
 
@@ -185,23 +185,3 @@ End Sub
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyChat` is a self-contained conversational messaging UI.
-
-```vb
-Dim chat As B4XDaisyChat
-chat.Initialize(Me, "chat")
-chat.AddToParent(Root)                         ' Fills entire root or parent container
-chat.SetDateTimeFormat("D, j M Y H:i")
-chat.SetUseTimeAgo(True)
-
-' Feed messages:
-chat.AddMessage("1", "Auditor", "Scanned Bin A-12", "09:30", "face_3.jpg", "start", "DELIVERED")
-chat.AddMessage("2", "Supervisor", "Count confirmed", "09:32", "face_13.jpg", "end", "SEEN")
-
-' User Send Event:
-Private Sub chat_Send(Message As String)
-    chat.AddMessage(DateTime.Now, "Me", Message, "Just now", "avatar.png", "end", "SENT")
-End Sub
-```

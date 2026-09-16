@@ -5,7 +5,7 @@ DaisyUI `Diff` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDiff`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyDiff.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDiff.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDiff.bas)
 - **Verified Demo Source**: B4XPageDiff.bas
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
@@ -26,37 +26,18 @@ DaisyUI `Diff` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-y = AddSectionTitle("Diff", y, maxW)
-    
-    Dim diffimg As B4XDaisyDiff
-    diffimg.Initialize(Me, "component")
-    diffimg.AddToParent(pnlHost, PAGE_PAD, y, maxW, imageHeight)
-    diffimg.Tag = "diff-image"
-    diffimg.DiffType = "image"
-    diffimg.Height = "h-[300px]"
-    diffimg.Image1 = "photo-1560717789-0ac7c58ac90a.webp"
-    diffimg.Image2 = "photo-1560717789-0ac7c58ac90a-blur.webp"
-    diffimg.Position = 0.5
-    
-    y = y + imageHeight + 20dip
-    ' #endregion
 
-    ' #region Example 2: Diff text
-    y = AddSectionTitle("Diff text", y, maxW)
-    
-    Dim difftext As B4XDaisyDiff
-    difftext.Initialize(Me, "component")
-    difftext.AddToParent(pnlHost, PAGE_PAD, y, maxW, imageHeight)
-    difftext.Tag = "diff-text"
-    difftext.DiffType = "text"
-    difftext.Height = "h-[300px]"
-    difftext.Text1 = "DAISY"
-    difftext.Text2 = "DAISY"
-    difftext.TextSize = "text-4xl"
-    difftext.Text1Color = "primary"
-    difftext.Text2Color = "success"
-    difftext.Position = 0.4
+```b4x
+' Interactive before/after split slider:
+Dim diff As B4XDaisyDiff
+diff.Initialize(Me, "diff")
+diff.AddToParent(pnlHost, 16dip, y, maxW, 220dip)
+diff.DiffType = "image"
+diff.Image1 = "photo-1560717789-0ac7c58ac90a.webp"
+diff.Image2 = "photo-1560717789-0ac7c58ac90a-blur.webp"
+diff.Position = 0.5
+
+y = y + 220dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -159,18 +140,3 @@ y = AddSectionTitle("Diff", y, maxW)
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyDiff` renders an interactive before/after image comparison slider.
-
-```vb
-Dim diff As B4XDaisyDiff
-diff.Initialize(Me, "diff")
-diff.AddToParent(pnlHost, pad, y, maxW, 220dip)
-diff.Rounded = "rounded-box"
-diff.SetOriginalImage("before_audit.jpg")
-diff.SetModifiedImage("after_audit.jpg")
-diff.SplitPosition = 50                        ' 50% split position
-
-y = y + 220dip + gap
-```

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-10 23:25 UTC",
+  "generated": "2026-09-16 08:16 UTC",
   "components": {
     "B4XDaisyAccordion": {
       "designer": [
@@ -2992,7 +2992,7 @@
         {
           "key": "LineSpacingMult",
           "displayName": "Line Spacing Multiplier",
-          "type": "Double",
+          "type": "Float",
           "default": "1.0",
           "list": "",
           "description": "Line spacing multiplier."
@@ -11363,6 +11363,22 @@
           "default": "",
           "list": "",
           "description": "Card height: empty or \"h-content\" = driven by tallest item, or a number (dip) to force a fixed height."
+        },
+        {
+          "key": "EqualWidths",
+          "displayName": "Equal Widths",
+          "type": "Boolean",
+          "default": "False",
+          "list": "",
+          "description": "Give every horizontal stat item the same width within the available width."
+        },
+        {
+          "key": "MaxWidth",
+          "displayName": "Maximum Width",
+          "type": "Int",
+          "default": "0",
+          "list": "",
+          "description": "Maximum available width in dip. 0 uses the width supplied to AddToParent."
         },
         {
           "key": "Visible",

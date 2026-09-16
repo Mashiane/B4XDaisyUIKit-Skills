@@ -5,7 +5,7 @@ DaisyUI `Toggle` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyToggle`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyToggle.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyToggle.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyToggle.bas)
 - **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageSignaturePad.bas, B4XPageTagSphere.bas, B4XPageToggle.bas
 - **Web DaisyUI Mapping**: `.toggle` → `B4XDaisyToggle`
 

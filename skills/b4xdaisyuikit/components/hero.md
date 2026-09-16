@@ -5,7 +5,7 @@ DaisyUI `Hero` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyHero`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyHero.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyHero.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyHero.bas)
 - **Verified Demo Source**: B4XPageHero.bas
 - **Web DaisyUI Mapping**: `.hero` → `B4XDaisyHero`
 
@@ -22,36 +22,26 @@ DaisyUI `Hero` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' 1. Centered hero (rounded-box, bg-neutral)
-    y = AddSectionTitle("1. Centered Hero (DaisyUI)", y, maxW)
-    Dim h1 As B4XDaisyHero
-    h1.Initialize(Me, "hero")
-    h1.AddToParent(pnlHost, targetX, y, useW, H_HEIGHT)
-    h1.Direction = "vertical"
-    h1.ContentAlignment = "center"
-    h1.Gap = "4"
-    h1.BackgroundColorVariant = "bg-neutral"
-    h1.Rounded = "rounded-box"
-    AddHeroContent(h1, useW, H_HEIGHT, "Hello there", "Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi.", "Get Started", xui.Color_White)
-    y = y + H_HEIGHT + SECTION_GAP
+' Full-width hero banner container:
+Dim hero As B4XDaisyHero
+hero.Initialize(Me, "hero")
+hero.AddToParent(pnlHost, 16dip, y, maxW, 220dip)
+hero.Direction = "vertical"
+hero.ContentAlignment = "center"
+hero.BackgroundColorVariant = "bg-neutral"
+hero.Rounded = "rounded-box"
 
-    ' 2. Hero with overlay image
-    y = AddSectionTitle("2. Hero with Overlay Image (DaisyUI)", y, maxW)
-    Dim h2 As B4XDaisyHero
-    h2.Initialize(Me, "hero")
-    h2.AddToParent(pnlHost, targetX, y, useW, H_HEIGHT)
-    h2.Direction = "vertical"
-    h2.ContentAlignment = "center"
-    h2.Rounded = "rounded"
-    h2.Shadow = "lg"
-    h2.OverlayVisible = True
-    h2.BackgroundImage = "photo-1507358522600-9f71e620c44e.webp"
-    AddHeroContent(h2, useW, H_HEIGHT, "Hello there", "Provident cupiditate voluptatem et in.", "Get Started", xui.Color_White)
-    y = y + H_HEIGHT + SECTION_GAP
+' Add hero headline and actions into hero content:
+Dim txtHero As B4XDaisyText
+txtHero.Initialize(Me, "")
+txtHero.Text = "Welcome to DaisyUI"
+txtHero.TextSize = 24
+txtHero.HAlign = "CENTER"
+txtHero.AddToParent(hero.getContainer, 0, 20dip, maxW, 40dip)
 
-    pnlHost.Height = Max(Height, y + PAGE_PAD)
-End Sub
+y = y + 220dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -151,31 +141,3 @@ End Sub
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyHero` is a layout banner container with internal flex alignment.
-
-```vb
-Dim hero As B4XDaisyHero
-hero.Initialize(Me, "hero")
-hero.AddToParent(pnlHost, x, y, maxW, 300dip)
-hero.Direction = "vertical"                    ' "vertical" | "horizontal"
-hero.ContentAlignment = "center"               ' "center" | "start" | "end"
-hero.Gap = "4"
-hero.BackgroundColorVariant = "bg-neutral"     ' or hero.BackgroundImage = "cover.webp"
-hero.Rounded = "rounded-box"
-
-' Mount children onto hero content panel:
-Dim pnlHero As B4XView = hero.GetContentPanel
-Dim txtHero As B4XDaisyText
-txtHero.Initialize(Me, "")
-txtHero.AddToParent(pnlHero, 0, 0, pnlHero.Width, 40dip)
-txtHero.Text = "Hero Headline"
-txtHero.TextSize = 22
-txtHero.FontBold = True
-txtHero.HAlign = "CENTER"
-
-' Reflow flex layout after child additions:
-hero.Base_Resize(maxW, 300dip)
-y = y + 300dip + gap
-```

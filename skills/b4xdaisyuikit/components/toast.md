@@ -5,7 +5,7 @@ DaisyUI `Toast` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyToast`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyToast.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyToast.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyToast.bas)
 - **Verified Demo Source**: B4XPageCard.bas, B4XPageTagSphere.bas, B4XPageToast.bas
 - **Web DaisyUI Mapping**: `.toast` → `B4XDaisyToast`
 
@@ -20,37 +20,16 @@ DaisyUI `Toast` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Root = Root1
+' Initialize toast manager onto page Root:
+Dim toast As B4XDaisyToast
+toast.Initialize(Me, "toast")
+toast.SetRoot(Root)
 
-	Dim pageScroll As B4XDaisyPageScroll
-	pageScroll.Initialize(Me, "pageScroll")
-	pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-	Dim content As B4XView = pageScroll.Panel
-
-	toast.Initialize(Me, "toast")
-	' Attach the toast container to the Root of this page.
-	toast.SetRoot(Root)
-	' We use a dummy view to trigger DesignerCreateView if needed, 
-	' or just use code-only path.
-	Dim dummy As Panel
-	dummy.Initialize("")
-	Dim b As B4XView = dummy
-	b.SetLayoutAnimated(0, 0, 0, 1dip, 1dip)
-	toast.DesignerCreateView(b, Null, CreateMap())
-
-	content.Color = xui.Color_Transparent
-	
-	Dim currentY As Int = 20dip
-	
-	'Header
-	Dim lblHeader As B4XDaisyText
-	lblHeader.Initialize(Me, "")
-	lblHeader.AddToParent(content, 10dip, currentY, 300dip, 40dip)
-	lblHeader.Text = "Toast Notifications"
-	lblHeader.TextSize = "text-sm"
-	lblHeader.FontBold = True
-	currentY = currentY + 60dip
+' Trigger toast anywhere in the page:
+toast.SetPosition("end", "top")                 ' Position: start|center|end, top|middle|bottom
+toast.Success("Settings saved successfully!")   ' Presets: Success, Error, Warning, Info
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -127,18 +106,3 @@ Root = Root1
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyToast` renders floating toast alerts on the screen.
-
-```vb
-' Mount toast coordinator onto root in B4XPage_Created:
-Dim toast As B4XDaisyToast
-toast.Initialize(Me, "toast")
-toast.SetRoot(Root)
-
-' Trigger toast anywhere in the page (see B4XPageToast.bas):
-toast.SetPosition("end", "top")                 ' optional: position before showing
-toast.Success("Count recorded successfully.")   ' variants: Info / Success / Warning / Error
-toast.InfoWithDuration("New message arrived.", 3000)  ' auto-hide after 3000 ms
-```

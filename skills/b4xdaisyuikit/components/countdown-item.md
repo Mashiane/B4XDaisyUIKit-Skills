@@ -5,13 +5,18 @@ DaisyUI `CountdownItem` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCountdownItem`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyCountdownItem.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCountdownItem.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCountdownItem.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.countdown-item` → `B4XDaisyCountdownItem`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyCountdownItem
+' Single unit item within a countdown timer
+Dim cdItem As B4XDaisyCountdownItem
+cdItem.Initialize(Me, "cdItem")
+cdItem.AddToParent(pnlHost, 10dip, 10dip, 60dip, 60dip)
+cdItem.Value = 42
+cdItem.Label = "sec"
 ```
 
 ## 3. Native Composition Rules & Gotchas

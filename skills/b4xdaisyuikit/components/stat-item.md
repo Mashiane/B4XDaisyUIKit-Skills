@@ -5,42 +5,26 @@ DaisyUI `StatItem` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyStatItem`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyStatItem.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStatItem.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStatItem.bas)
 - **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.stat-item` → `B4XDaisyStatItem`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
-    If svHost.IsInitialized = False Then Return False
-    pnlHost = svHost.Panel
-    pnlHost.RemoveAllViews
-    Dim maxW As Int = Max(220dip, Width - (PAGE_PAD * 2))
-    Dim currentY As Int = PAGE_PAD
-    
-    ' #region Example 1: Stat (Basic) - single item, horizontal
-    ''' Demonstrates the minimal stat: one item with title, value and description.
-    ''' CSS: .stats = inline-grid (content-width, not full-width).
-    currentY = AddSectionTitle("1. Stat (Basic)", currentY, maxW)
-    Dim stats1 As B4XDaisyStat
-    stats1.Initialize(Me, "")
-    stats1.AddToParent(pnlHost, PAGE_PAD, currentY, maxW, 1dip)
+Dim stats1 As B4XDaisyStat
+stats1.Initialize(Me, "stats1")
+stats1.AddToParent(pnlHost, padding, currentY, maxW, 1dip)
 
-    Dim item1 As B4XDaisyStatItem
-    item1.Initialize(Me, "component")
-    item1.Title = "Total Page Views"
-    item1.Value = "89400"
-    item1.Animated = True
-    item1.Description = "21% more than last month"
-    stats1.AddItem(item1)
-    stats1.Refresh
-    ' Shrink-wrap to measured content width (inline-grid fit-content)
-    If stats1.ContentWidth > 0 Then stats1.SetLayoutAnimated(0, PAGE_PAD, currentY, stats1.ContentWidth, stats1.ContentHeight)
+Dim item1 As B4XDaisyStatItem
+item1.Initialize(Me, "item1")
+item1.Title = "Total Page Views"
+item1.Value = "89,400"
+item1.Animated = True
+item1.Description = "21% more than last month"
+stats1.AddItem(item1)
+stats1.Refresh
 
-    item1.LogLabelWidths("Example 1: item1")
-    
-    currentY = currentY + stats1.ContentHeight + 6dip
-    currentY = AddAnimateButton("Animate", stats1, currentY, maxW)
+currentY = currentY + stats1.ContentHeight + gap
 ```
 
 ## 3. Native Composition Rules & Gotchas

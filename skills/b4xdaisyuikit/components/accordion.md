@@ -5,7 +5,7 @@ DaisyUI `Accordion` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyAccordion`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyAccordion.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAccordion.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAccordion.bas)
 - **Verified Demo Source**: B4XPageAccordion.bas
 - **Web DaisyUI Mapping**: `.accordion` → `B4XDaisyAccordion`
 
@@ -29,37 +29,33 @@ where content is:
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-' #region Example 1: Standard Accordion (Single Open)
-    y = AddSectionTitle("Standard Accordion (Single Open)", y, maxW)
-    Dim acc1 As B4XDaisyAccordion
-    acc1.Initialize(Me, "acc1")
-    acc1.GroupName = "standard-accordion"
-    acc1.OpenOnlyOne = True
-    acc1.AddToParent(pnlHost, PAGE_PAD, y, maxW, 10dip)
-    
-    Dim c1a As B4XDaisyCollapse = acc1.AddItemBasic("item1", "arrow", "Click to open item 1")
-    AddContent(c1a, "This is the content for the first item. Opening it will close others.")
-    
-    Dim c1b As B4XDaisyCollapse = acc1.AddItemBasic("item2", "arrow", "Click to open item 2")
-    AddContent(c1b, "This is the second item's content. It also belongs to the same accordion group.")
-    
-    y = y + acc1.GetComputedHeight + PAGE_PAD
-    ' #endregion
 
-    ' #region Example 2: Multiple Open Allowed
-    y = AddSectionTitle("Accordion (Multiple Open Allowed)", y, maxW)
-    Dim acc2 As B4XDaisyAccordion
-    acc2.Initialize(Me, "acc2")
-    acc2.GroupName = "multi-open-accordion"
-    acc2.OpenOnlyOne = False
-    acc2.AddToParent(pnlHost, PAGE_PAD, y, maxW, 10dip)
-    
-    Dim c2a As B4XDaisyCollapse = acc2.AddItemBasic("itemA", "plus", "Item A (Independent)")
-    acc2.SetItemVariant("itemA", "primary")
-    AddContent(c2a, "You can open multiple items here because OpenOnlyOne is False.")
-    
-    Dim c2b As B4XDaisyCollapse = acc2.AddItemBasic("itemB", "plus", "Item B (Independent)")
+```b4x
+' Standard accordion with collapsible content panels:
+Dim acc As B4XDaisyAccordion
+acc.Initialize(Me, "acc")
+acc.GroupName = "standard-accordion"
+acc.OpenOnlyOne = True
+acc.AddToParent(pnlHost, 16dip, y, maxW, 10dip)
+
+' Add collapsible items:
+Dim c1 As B4XDaisyCollapse = acc.AddItemBasic("item1", "arrow", "How do I create an account?")
+Dim txtA As B4XDaisyText
+txtA.Initialize(Me, "")
+txtA.Text = "Click the 'Sign Up' button in the top right corner and follow the prompts."
+txtA.TextSize = "text-sm"
+txtA.AddToParent(c1.getContentView, 0dip, 8dip, c1.getContentView.Width, 60dip)
+c1.RefreshContent
+
+Dim c2 As B4XDaisyCollapse = acc.AddItemBasic("item2", "arrow", "Can I upgrade my plan later?")
+Dim txtB As B4XDaisyText
+txtB.Initialize(Me, "")
+txtB.Text = "Yes, you can upgrade or downgrade your subscription at any time from Settings."
+txtB.TextSize = "text-sm"
+txtB.AddToParent(c2.getContentView, 0dip, 8dip, c2.getContentView.Width, 60dip)
+c2.RefreshContent
+
+y = y + acc.GetComputedHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -141,31 +137,3 @@ where content is:
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyAccordion` manages a group of expandable items where expanding one automatically collapses others (or allows multi-open).
-
-```vb
-Dim acc As B4XDaisyAccordion
-acc.Initialize(Me, "acc")
-acc.GroupName = "faq-group"
-acc.OpenOnlyOne = True                         ' True = single active item, False = multi-open
-acc.AddToParent(pnlHost, x, y, maxW, 10dip)
-
-' Add items (returns B4XDaisyCollapse wrapper):
-Dim c1 As B4XDaisyCollapse = acc.AddItemBasic("q1", "arrow", "What is StockTake?")
-Dim pnlC1 As B4XView = c1.getContentView
-Dim txtA1 As B4XDaisyText
-txtA1.Initialize(Me, "")
-txtA1.AddToParent(pnlC1, 16dip, 8dip, pnlC1.Width - 32dip, 40dip)
-txtA1.Text = "StockTake is a physical count audit application."
-
-Dim c2 As B4XDaisyCollapse = acc.AddItemBasic("q2", "arrow", "How to sync barcodes?")
-Dim pnlC2 As B4XView = c2.getContentView
-Dim txtA2 As B4XDaisyText
-txtA2.Initialize(Me, "")
-txtA2.AddToParent(pnlC2, 16dip, 8dip, pnlC2.Width - 32dip, 40dip)
-txtA2.Text = "Use the Scan Barcode screen or upload CSV files."
-
-y = y + acc.GetComputedHeight + gap
-```

@@ -13,7 +13,7 @@ Use this generated reference to prevent invented B4XDaisyUIKit APIs while assemb
 
 ## Snapshot
 
-- Generated: 2026-09-10 23:25 UTC
+- Generated: 2026-09-16 08:16 UTC
 - Source repository: `Mashiane/0SithasoDaisyUIKit`
 - Library artifact: `B4A/B4XDaisyUIKit.b4xlib` (v0.96)
 - B4XPage demos scanned: 94

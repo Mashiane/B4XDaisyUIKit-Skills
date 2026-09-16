@@ -8,8 +8,8 @@ In B4XDaisyUIKit, shape masking is integrated directly into `B4XDaisyAvatar` usi
 ## 1. Overview
 - **Class**: `B4XDaisyAvatar`
 - **Status**: `Demonstrated`
-- **Library Source**: `B4XDaisyAvatar.bas`
-- **Reference Page**: `B4XPageMask.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAvatar.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAvatar.bas)
+- **Verified Demo Source**: B4XPageAvatar.bas, B4XPageDropdown.bas, B4XPageEnjoyHint.bas, B4XPageIndicator.bas, B4XPageList.bas, B4XPageMask.bas, B4XPageNavbar.bas, B4XPageScrollDemo.bas, B4XPageStack.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.mask` / `.mask-*` → `B4XDaisyAvatar.SetAvatarMask(...)`
 - **Companion Reference**: See [avatar.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/avatar.md) for full avatar options.
 
@@ -69,8 +69,36 @@ Next
 - Combine with `avatar.SetShadow("md")` or border properties if outline rings are needed.
 
 ## 4. Designer Properties
-
-This is a mode component, so it has no designer-only properties of its own. Configure the companion `B4XDaisyAvatar` instance through its runtime properties and `SetAvatarMask(...)` API.
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Image` | Image Path | `String` | mashymain.jpg |  |
+| `Mask` | Mask | `String` | circle | circle|square|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|squircle|decagon|diamond|heart|hexagon|hexagon-2|pentagon|star|star-2|triangle|triangle-2|triangle-3|triangle-4|half-1|half-2 |
+| `Rounded` | Rounded | `String` | rounded-full | theme|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `Width` | Width | `String` | w-10 |  |
+| `Height` | Height | `String` | h-10 |  |
+| `AvatarType` | Avatar Type | `String` | image | image|svg|text |
+| `PlaceHolder` | Placeholder | `String` |  |  |
+| `TextSize` | Text Size | `String` | text-sm |  |
+| `TextColor` | Text Color | `Color` | 0x00000000 |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00000000 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `CenterOnParent` | Center On Parent | `Boolean` | True |  |
+| `ChatImage` | Chat Image Mode | `Boolean` | False |  |
+| `Status` | Status | `String` | none | none|online|offline |
+| `ShowOnline` | Show Online Indicator | `Boolean` | False |  |
+| `UseVariantStatusColors` | Use Variant Colors | `Boolean` | False |  |
+| `OnlineColor` | Online Color | `Color` | 0x00000000 |  |
+| `OfflineColor` | Offline Color | `Color` | 0x00000000 |  |
+| `RingColor` | Ring Color | `Color` | 0x00000000 |  |
+| `RingWidth` | Ring Width | `Int` | 0 |  |
+| `RingOffset` | Ring Offset | `Int` | 0 |  |
+| `Clickable` | Clickable | `Boolean` | True |  |
+| `ResizeMode` | Resize Mode | `String` | FILL_NO_DISTORTIONS | FIT|FILL|FILL_NO_DISTORTIONS|NONE |
+| `BlurRadius` | Blur Radius | `Int` | 0 |  |
+| `Glass` | Glass Effect | `Boolean` | False |  |
 
 ## 5. Key APIs for Masking
 - `SetAvatarMask(sMask As String)`

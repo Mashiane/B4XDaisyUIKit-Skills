@@ -5,7 +5,7 @@ DaisyUI `Segment` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySegment`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySegment.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySegment.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySegment.bas)
 - **Verified Demo Source**: B4XPageSegment.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.segment` → `B4XDaisySegment`
 
@@ -112,6 +112,19 @@ DaisyUI `Segment` component for B4X (B4A Android).
 - `setButtonLayout(Value As String)`
 - `getButtonLayout As String`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`

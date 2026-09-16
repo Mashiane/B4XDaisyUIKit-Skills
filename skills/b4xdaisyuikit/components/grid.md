@@ -5,13 +5,18 @@ DaisyUI `Grid` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyGrid`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyGrid.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyGrid.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyGrid.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.grid` → `B4XDaisyGrid`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyGrid
+' Responsive grid layout container
+Dim grid As B4XDaisyGrid
+grid.Initialize(Me, "grid")
+grid.AddToParent(pnlHost, 0, 0, maxW, 200dip)
+grid.Columns = 3
+grid.Gap = 8dip
 ```
 
 ## 3. Native Composition Rules & Gotchas

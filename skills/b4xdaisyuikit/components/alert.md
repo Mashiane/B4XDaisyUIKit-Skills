@@ -5,7 +5,7 @@ DaisyUI `Alert` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyAlert`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyAlert.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAlert.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAlert.bas)
 - **Verified Demo Source**: B4XPageAlert.bas
 - **Web DaisyUI Mapping**: `.alert` → `B4XDaisyAlert`
 
@@ -166,6 +166,15 @@ End Sub
 - `getTag As Object`
 - `GetComputedHeight As Int`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`

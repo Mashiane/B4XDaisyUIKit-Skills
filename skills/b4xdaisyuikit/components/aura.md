@@ -5,7 +5,7 @@ DaisyUI `Aura` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyAura`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyAura.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAura.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAura.bas)
 - **Verified Demo Source**: B4XPageAura.bas
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
@@ -23,31 +23,26 @@ DaisyUI `Aura` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-Private Sub AddButtonAura(CenterX As Int, CenterY As Int, W As Int, H As Int, Style As String, Size As String, Color As Int, Duration As Int, Label As String)
-    Dim btn As B4XDaisyButton
-    btn.Initialize(Me, "")
-    btn.AddToParent(pnlHost, -10000, -10000, W, H)
-    btn.Text = Label
-    btn.Variant = "primary"
-    btn.Size = "md"
-    Dim bw As Int = btn.View.Width
-    Dim bh As Int = btn.View.Height
 
-    Dim a As B4XDaisyAura
-    a.Initialize(Me, "")
-    a.setStyle(Style)
-    a.setSize(Size)
-    If Color <> 0 Then a.setColor(Color)
-    a.setDuration(Duration)
-    Dim thick As Int = AuraThicknessDip(Size)
-    Dim wrapperW As Int = bw + 2 * thick
-    Dim wrapperH As Int = bh + 2 * thick
-    a.AddToParent(pnlHost, CenterX - wrapperW / 2, CenterY - wrapperH / 2, bw, bh)
-    a.Wrap(btn.View)
-    a.StartRotation
-    auras.Add(a)
-End Sub
+```b4x
+' 1. Create the host card / view to wrap:
+Dim card As B4XDaisyCard
+card.Initialize(Me, "card")
+card.AddToParent(pnlHost, 16dip, y, maxW, 120dip)
+card.Title = "Pro Subscription"
+card.Size = "md"
+
+' 2. Wrap the view with an animated rotating glow aura:
+Dim aura As B4XDaisyAura
+aura.Initialize(Me, "aura")
+aura.setStyle("rainbow")                       ' "default" | "dual" | "rainbow" | "holo" | "glow" | "gold" | "silver"
+aura.setSize("md")                             ' "xs" | "sm" | "md" | "lg" | "xl"
+aura.setDuration(3000)                         ' Rotation cycle duration in ms
+aura.AddToParent(pnlHost, 16dip, y, card.GetActualWidth, card.GetActualHeight)
+aura.Wrap(card.getContainer)
+aura.StartRotation
+
+y = y + card.GetActualHeight + 24dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -124,21 +119,11 @@ End Sub
 - `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
 - `getTextColor As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyAura` provides ambient glow highlight effects.
-
-```vb
-Dim aura As B4XDaisyAura
-aura.Initialize(Me, "aura")
-aura.AddToParent(pnlHost, x, y, maxW, 100dip)
-aura.Blur = "md"                               ' "sm" | "md" | "lg"
-aura.Variant = "primary"
-aura.StartRotation                             ' Start rotation in B4XPage_Appear
-
-y = y + 100dip + gap
-```

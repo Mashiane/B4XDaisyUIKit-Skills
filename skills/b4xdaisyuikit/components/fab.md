@@ -5,7 +5,7 @@ DaisyUI `Fab` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFab`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyFab.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFab.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFab.bas)
 - **Verified Demo Source**: B4XPageBoomMenu.bas, B4XPageFab.bas, B4XPageFabBasic.bas, B4XPageFabFlower.bas, B4XPageFabNavbar.bas, B4XPageNavbar.bas
 - **Web DaisyUI Mapping**: `.fab` → `B4XDaisyFab`
 
@@ -102,7 +102,8 @@ FAB Flower with tooltips. There's no space for a text label in a quarter circle,
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-If fab.IsInitialized = False Then
+Dim fab As B4XDaisyFab
+    If fab.IsInitialized = False Then
         fab.Initialize(Me, "fabdemo")
         fab.Tag = "speed-dial"
         fab.TriggerText = ""

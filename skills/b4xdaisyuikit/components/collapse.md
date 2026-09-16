@@ -5,7 +5,7 @@ DaisyUI `Collapse` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCollapse`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyCollapse.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCollapse.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCollapse.bas)
 - **Verified Demo Source**: B4XPageAccordion.bas, B4XPageCollapse.bas
 - **Web DaisyUI Mapping**: `.collapse` → `B4XDaisyCollapse`
 
@@ -26,37 +26,25 @@ DaisyUI `Collapse` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' #region Example 1: Basic collapse (tap to expand)
-    y = AddSectionTitle("Basic Collapse", y, maxW)
-    Dim c1 As B4XDaisyCollapse
-    c1.Initialize(Me, "collapse1")
-    c1.AddToParent(pnlHost, PAGE_PAD, y, maxW, titleH)
-    c1.TitleText = "Click to open!"
-    AddBodyLabel(c1, "Hello! I am the collapse body.", maxW)
-    y = y + titleH + gap
-    ' #endregion
+' Expandable/collapsible section with animated indicator:
+Dim col As B4XDaisyCollapse
+col.Initialize(Me, "col")
+col.AddToParent(pnlHost, 16dip, y, maxW, 60dip)
+col.TitleText = "Click to reveal details"
+col.Icon = "arrow"                             ' "arrow" | "plus" | "none"
+col.setVariant("base-200")
 
-    ' #region Example 2: With arrow icon
-    y = AddSectionTitle("With Arrow Icon", y, maxW)
-    Dim c2 As B4XDaisyCollapse
-    c2.Initialize(Me, "collapse2")
-    c2.AddToParent(pnlHost, PAGE_PAD, y, maxW, titleH)
-    c2.Icon = "arrow"
-    c2.TitleText = "Click to open!"
-    AddBodyLabel(c2, "Hello! I am the collapse body.", maxW)
-    y = y + titleH + gap
-    ' #endregion
+' Add content into contentView:
+Dim txtContent As B4XDaisyText
+txtContent.Initialize(Me, "")
+txtContent.Text = "Here is the expanded content placed directly inside the collapse panel."
+txtContent.TextSize = "text-sm"
+txtContent.AddToParent(col.getContentView, 0dip, 8dip, col.getContentView.Width, 40dip)
+col.RefreshContent
 
-    ' #region Example 3: With plus/minus icon
-    y = AddSectionTitle("With Plus/Minus Icon", y, maxW)
-    Dim c3 As B4XDaisyCollapse
-    c3.Initialize(Me, "collapse3")
-    c3.AddToParent(pnlHost, PAGE_PAD, y, maxW, titleH)
-    c3.Icon = "plus"
-    c3.TitleText = "Click to open!"
-    AddBodyLabel(c3, "Hello! I am the collapse body.", maxW)
-    y = y + titleH + gap
+y = y + col.GetComputedHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -171,25 +159,3 @@ DaisyUI `Collapse` component for B4X (B4A Android).
 - `Title As B4XDaisyCollapseTitle`
 - `Content As B4XDaisyCollapseContent`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyCollapse` is a standalone disclosure panel.
-
-```vb
-Dim col As B4XDaisyCollapse
-col.Initialize(Me, "col")
-col.AddToParent(pnlHost, x, y, maxW, 60dip)
-col.TitleText = "Click to Expand Details"
-col.Icon = "arrow"                             ' "arrow" | "plus" | "none"
-col.IconPosition = "right"                     ' "left" | "right"
-col.Variant = "base-200"
-
-' Add custom content onto getContentView:
-Dim pnlC As B4XView = col.getContentView
-Dim txtC As B4XDaisyText
-txtC.Initialize(Me, "")
-txtC.AddToParent(pnlC, 16dip, 8dip, maxW - 32dip, 30dip)
-txtC.Text = "Expanded details visible on tap."
-
-y = y + col.GetComputedHeight + gap
-```

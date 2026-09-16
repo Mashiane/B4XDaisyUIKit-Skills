@@ -5,7 +5,7 @@ DaisyUI `Modal` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyModal`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyModal.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyModal.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyModal.bas)
 - **Verified Demo Source**: B4XPageColorWheel.bas, B4XPageModal.bas, B4XPagePicker.bas
 - **Web DaisyUI Mapping**: `.modal` → `B4XDaisyModal`
 
@@ -88,27 +88,36 @@ Using anchor links (legacy)
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub AddLabel(m As B4XDaisyModal, Text As String)
-    Dim body As B4XView = m.getBodyContainer
-    Dim bodyW As Int = Max(1dip, body.Width)
-    Dim lbl As B4XDaisyText
-    lbl.Initialize(Me, "")
-    lbl.Text = Text
-    lbl.TextSize = "text-base"
-    lbl.SingleLine = False        ' wrap long text across multiple lines
-    ' Add at the body's inner width; the text view auto-resizes its height to
-    ' fit the wrapped content.
-    lbl.AddToParent(body, 0, 0, bodyW, 24dip)
-    ' Measure the wrapped height for this content width and apply it explicitly
-    ' so the modal's h-auto box sizes to fit the (possibly multi-line) label.
-    Dim prefH As Int = Max(24dip, lbl.GetPreferredHeight(bodyW))
-    If lbl.View.Height <> prefH Then
-        lbl.View.SetLayoutAnimated(0, 0, 0, bodyW, prefH)
-        lbl.RefreshText
-    End If
-    ' Re-calculate modal auto-height so the box fits the label.
-    m.Refresh
+' Modal dialog overlaying page Root:
+Dim modal As B4XDaisyModal
+modal.Initialize(Me, "modal")
+modal.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+modal.Title = "Confirm Action"
+modal.ClickOutsideToClose = True
+modal.Visible = False
+
+' Add description text into modal content:
+Dim txtDesc As B4XDaisyText
+txtDesc.Initialize(Me, "")
+txtDesc.Text = "Are you sure you want to delete this record permanently?"
+txtDesc.AddToParent(modal.Content, 0, 0, modal.Content.Width, 40dip)
+
+' Add action buttons:
+modal.AddActionButton("btnCancel", "Cancel", "ghost")
+modal.AddActionButton("btnConfirm", "Confirm", "primary")
+modal.Refresh
+
+' Open modal programmatically:
+modal.Open
+
+' Handle action button clicks:
+Private Sub modal_ActionButtonClick(Key As String)
+	If Key = "btnConfirm" Then
+		If B4XDaisyApp.DebugLogs Then Log("Confirmed deletion")
+	End If
+	modal.Close
 End Sub
 ```
 
@@ -291,39 +300,3 @@ End Sub
 ## 7. Public Fields
 (none declared in packaged source)
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyModal` is a modal dialog container overlaying the page root.
-
-```vb
-' In RenderPage / B4XPage_Created:
-Dim modal As B4XDaisyModal
-modal.Initialize(Me, "modal")
-modal.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-modal.Title = "Dialog Title"
-modal.ClickOutsideToClose = True
-modal.Visible = False                          ' Hidden by default
-
-' Add body content:
-Dim pnlBody As B4XView = modal.GetContentPanel
-Dim txtDesc As B4XDaisyText
-txtDesc.Initialize(Me, "")
-txtDesc.AddToParent(pnlBody, 0, 0, pnlBody.Width, 40dip)
-txtDesc.Text = "Modal description message."
-
-' Add action buttons:
-modal.AddActionButton("confirm", "Confirm", "primary")
-modal.AddActionButton("cancel", "Cancel", "ghost")
-modal.Refresh
-
-' Open/Close:
-modal.Show                                     ' or modal.Hide
-
-' Action click handler:
-Private Sub modal_ActionClick(Action As String)
-    If Action = "confirm" Then
-        If B4XDaisyApp.DebugLogs Then Log("Confirmed")
-    End If
-    modal.Hide
-End Sub
-```

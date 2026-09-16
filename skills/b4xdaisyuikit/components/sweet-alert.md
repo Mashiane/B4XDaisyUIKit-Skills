@@ -5,42 +5,31 @@ DaisyUI `SweetAlert` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySweetAlert`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySweetAlert.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySweetAlert.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySweetAlert.bas)
 - **Verified Demo Source**: B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas
 - **Web DaisyUI Mapping**: `.sweet-alert` → `B4XDaisySweetAlert`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub DemoAction_Click(Tag As Object)
-	Dim action As String = Tag
+' Asynchronous confirmation modal dialog:
+Private Sub ShowAlertConfirmation
 	Dim swal As B4XDaisySweetAlert
 	swal.Initialize(Me, Root, "swal")
-	
-	Select Case action
-		Case "btnBasic"
-			swal.Title = "Any fool can use a computer"
-			Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
-			B4XPages.MainPage.ShowToast("Basic alert dismissed", False)
-			
-		Case "btnTitleText"
-			swal.Title = "The Internet?"
-			swal.Text = "That thing is still around?"
-			swal.Icon = "question"
-			swal.ShowCancelButton = True
-			swal.ConfirmButtonText = "Yes"
-			swal.CancelButtonText = "No"
-			Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
-			If Result.IsConfirmed Then
-				B4XPages.MainPage.ShowToast("User clicked: Yes", False)
-			Else
-				B4XPages.MainPage.ShowToast("User clicked: No", False)
-			End If			
-		Case "btnError"
-			swal.Icon = "error"
-			swal.Title = "Oops..."
-			swal.Text = "Something went wrong!"
-			swal.ShowCancelButton = True
-			Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
+	swal.Title = "Confirm Action"
+	swal.Text = "Are you sure you want to post this inventory batch?"
+	swal.Icon = "question"                         ' "success" | "warning" | "error" | "info" | "question"
+	swal.ShowCancelButton = True
+	swal.ConfirmButtonText = "Yes, Proceed"
+	swal.CancelButtonText = "Cancel"
+
+	Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
+	If Result.IsConfirmed Then
+		If B4XDaisyApp.DebugLogs Then Log("User confirmed action")
+	Else If Result.IsDismissed Then
+		If B4XDaisyApp.DebugLogs Then Log("User cancelled action")
+	End If
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -147,6 +136,9 @@ Private Sub DemoAction_Click(Tag As Object)
 - `getInputRequired As Boolean`
 - `setInputOptions(Options As Map)`
 - `setInputValidator(Callback As Object, SubName As String)`
+- `View As B4XView`
+- `getView As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setParent(Parent As B4XView)`
 - `getParent As B4XView`
 - `setTitle(Value As String)`
@@ -201,7 +193,8 @@ Private Sub DemoAction_Click(Tag As Object)
 - `getTimerMs As Int`
 - `setRounded(Value As String)`
 - `getRounded As String`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `IME_HeightChanged(NewHeight As Int, OldHeight As Int)`
 - `setLeft(Value As Int)`
 - `getLeft As Int`
 - `setTop(Value As Int)`
@@ -212,32 +205,7 @@ Private Sub DemoAction_Click(Tag As Object)
 - `SendToBack`
 - `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `View As B4XView`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisySweetAlert` is an asynchronous modal alert/confirmation dialog with inputs, timer, and buttons.
-
-```vb
-' Initialize taking 3 arguments (Callback, EventName, Root View):
-Dim swal As B4XDaisySweetAlert
-swal.Initialize(Me, "swal", Root)
-swal.Title = "Confirm Stock Batch?"
-swal.Text = "This will lock the current count and post variances."
-swal.Icon = "warning"                         ' "success" | "warning" | "error" | "info" | "question"
-swal.ShowCancelButton = True
-swal.ConfirmButtonText = "Yes, Post Batch"
-swal.CancelButtonText = "Cancel"
-swal.TimerMs = 0                              ' 0 = stay until user clicks a button
-
-' Asynchronous display and result handling:
-Wait For (swal.ShowAsync) Complete (Result As B4XDaisySweetAlertResult)
-If Result.IsConfirmed Then
-    If B4XDaisyApp.DebugLogs Then Log("User confirmed action")
-Else If Result.IsDismissed Then
-    If B4XDaisyApp.DebugLogs Then Log("User dismissed dialog")
-End If
-```

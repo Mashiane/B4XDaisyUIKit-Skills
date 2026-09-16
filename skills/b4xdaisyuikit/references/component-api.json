@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-10 23:25 UTC",
+  "generated": "2026-09-16 08:16 UTC",
   "components": {
     "B4XDaisyAccordion": [
       {
@@ -288,6 +288,45 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyAlert": [
@@ -503,6 +542,33 @@
       },
       {
         "signature": "RemoveViewFromParent"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyAnimation": [
@@ -887,6 +953,18 @@
       },
       {
         "signature": "getTextColor As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
       }
     ],
     "B4XDaisyAvatar": [
@@ -1592,6 +1670,27 @@
       },
       {
         "signature": "Release"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyBadgeGroupSelect": [
@@ -2253,6 +2352,39 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyBoomPathManager": [
@@ -3290,6 +3422,36 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyCarousel": [
@@ -7104,6 +7266,9 @@
         "signature": "getHeight As Int"
       },
       {
+        "signature": "BringToFront"
+      },
+      {
         "signature": "SendToBack"
       }
     ],
@@ -7395,6 +7560,12 @@
       },
       {
         "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyEnjoyHint": [
@@ -11122,6 +11293,39 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyMenu": [
@@ -11499,6 +11703,9 @@
       },
       {
         "signature": "setRightBorderColor(Value As Int)"
+      },
+      {
+        "signature": "BringToFront"
       },
       {
         "signature": "SendToBack"
@@ -12324,6 +12531,39 @@
       },
       {
         "signature": "Release"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyOverlay": [
@@ -12505,6 +12745,12 @@
       },
       {
         "signature": "ScrollToView(TargetView As B4XView, Animated As Boolean)"
+      },
+      {
+        "signature": "ScrollToViewWithMargin(TargetView As B4XView, MarginTop As Int, Animated As Boolean)"
+      },
+      {
+        "signature": "IME_HeightChanged(NewHeight As Int, OldHeight As Int, FocusedView As Object)"
       },
       {
         "signature": "setBackgroundVariant(Value As String)"
@@ -12860,6 +13106,45 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyPicker": [
@@ -13048,6 +13333,45 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyPiecePlaceManager": [
@@ -14548,6 +14872,45 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisySelect": [
@@ -15044,6 +15407,33 @@
       },
       {
         "signature": "getNestedScrollEnabled As Boolean"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisyShineButton": [
@@ -15187,6 +15577,39 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisySignature": [
@@ -15713,6 +16136,27 @@
       },
       {
         "signature": "Release"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyStack": [
@@ -15905,10 +16349,28 @@
         "signature": "AddItem(Item As B4XDaisyStatItem)"
       },
       {
+        "signature": "AddItem1(EventName As String, Title As String, Value As String) As B4XDaisyStatItem"
+      },
+      {
+        "signature": "AddItem2(EventName As String, Title As String, Value As String, Description As String) As B4XDaisyStatItem"
+      },
+      {
         "signature": "StartAnimation"
       },
       {
         "signature": "AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView"
+      },
+      {
+        "signature": "getEqualWidths As Boolean"
+      },
+      {
+        "signature": "setEqualWidths(Value As Boolean)"
+      },
+      {
+        "signature": "getMaxWidth As Int"
+      },
+      {
+        "signature": "setMaxWidth(Value As Int)"
       },
       {
         "signature": "setOrientation(Value As String)"
@@ -16369,6 +16831,27 @@
       },
       {
         "signature": "RemoveViewFromParent"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisySteps": [
@@ -16676,6 +17159,33 @@
       },
       {
         "signature": "RemoveViewFromParent"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
+      },
+      {
+        "signature": "setVisible(Value As Boolean)"
+      },
+      {
+        "signature": "getVisible As Boolean"
       }
     ],
     "B4XDaisySwap": [
@@ -16982,6 +17492,15 @@
         "signature": "setInputValidator(Callback As Object, SubName As String)"
       },
       {
+        "signature": "View As B4XView"
+      },
+      {
+        "signature": "getView As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
         "signature": "setParent(Parent As B4XView)"
       },
       {
@@ -17144,7 +17663,10 @@
         "signature": "getRounded As String"
       },
       {
-        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+        "signature": "Base_Resize(Width As Double, Height As Double)"
+      },
+      {
+        "signature": "IME_HeightChanged(NewHeight As Int, OldHeight As Int)"
       },
       {
         "signature": "setLeft(Value As Int)"
@@ -17175,9 +17697,6 @@
       },
       {
         "signature": "getVisible As Boolean"
-      },
-      {
-        "signature": "View As B4XView"
       }
     ],
     "B4XDaisySweetAlertIcon": [
@@ -17568,6 +18087,39 @@
       },
       {
         "signature": "View As B4XView"
+      },
+      {
+        "signature": "SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)"
+      },
+      {
+        "signature": "setLeft(Value As Int)"
+      },
+      {
+        "signature": "getLeft As Int"
+      },
+      {
+        "signature": "setTop(Value As Int)"
+      },
+      {
+        "signature": "getTop As Int"
+      },
+      {
+        "signature": "setWidth(Value As Int)"
+      },
+      {
+        "signature": "getWidth As Int"
+      },
+      {
+        "signature": "setHeight(Value As Int)"
+      },
+      {
+        "signature": "getHeight As Int"
+      },
+      {
+        "signature": "BringToFront"
+      },
+      {
+        "signature": "SendToBack"
       }
     ],
     "B4XDaisyText": [

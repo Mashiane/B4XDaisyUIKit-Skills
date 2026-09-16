@@ -5,7 +5,7 @@ DaisyUI `Button` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyButton`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyButton.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyButton.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyButton.bas)
 - **Verified Demo Source**: B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageHero.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavScrollDock.bas, B4XPageNavbar.bas, B4XPageOverlay.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageScrollDemo.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageStat.bas, B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas, B4XPageToast.bas, B4XPageTooltip.bas
 - **Web DaisyUI Mapping**: `.button` → `B4XDaisyButton`
 
@@ -27,7 +27,7 @@ DaisyUI `Button` component for B4X (B4A Android).
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-'  */
+    ' Example 1: Standard button
     y = AddSectionTitle("Button", y, maxW)
     Dim bDefault As B4XDaisyButton
     bDefault.Initialize(Me, "component")

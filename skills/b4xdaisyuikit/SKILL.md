@@ -1,4 +1,4 @@
-﻿---
+---
 name: b4xdaisyuikit
 description: Use when composing native Android user interface (UI) and user experience (UX) for B4A from the B4XDaisyUIKit component library, when building forms, dashboards, navigation, modals, feedback, media, or data-display screens, when translating a DaisyUI / TailwindCSS web mock into native B4X views, or when wiring component properties, events, and validation. Produces only native B4X code; never HTML, CSS, Tailwind, or WebView.
 metadata:
@@ -6,6 +6,26 @@ metadata:
   triggers: b4xdaisy, b4x page, b4a screen, compose ui, daisyui native, form, dashboard, navbar, modal, sweetalert, component recipe, navscrolldock, validate controls, user interface, development, user experience, tailwindcss, native, android
 ---
 
+
+## GitHub Repository
+
+All published sources are in the public repository:
+**[Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)**
+
+| Folder | Contents | Browse |
+|--------|----------|--------|
+| [`B4XDaisyUIKit/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4XDaisyUIKit) | All component `.bas` source files (extracted from `B4XDaisyUIKit.b4xlib`) | Component implementation |
+| [`B4A/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4A) | All `B4XPage*.bas` demo pages — verified API usage examples | Demo code |
+
+Every component spec in `components/<name>.md` carries direct links:
+- **Library Source** → the `.bas` implementation file in `B4XDaisyUIKit/`. **For reading/understanding only. Never add these files to a user project.**
+- **Verified Demo Source** → the `B4XPage*.bas` demo file(s) in `B4A/`. Read these for API usage examples.
+
+> [!CAUTION]
+> **Never copy or add any `B4XDaisyXxx.bas` file to a user's project.**
+> The component library is pre-compiled into `B4XDaisyUIKit.b4xlib`. Adding the raw `.bas` files alongside the `.b4xlib` will cause duplicate class errors and broken builds. The `Library Source` links in each component spec exist solely so AI agents can read the implementation — not to be copied into projects.
+>
+> **Demo source files (`B4XPage*.bas`) are also not for inclusion.** They are reference-only examples showing how to call component APIs. Generate new, app-specific `B4XPage*.bas` files instead.
 
 See [truth-and-accuracy.md](references/truth-and-accuracy.md) — applies to every response.
 
@@ -24,14 +44,22 @@ A user's project starts as a standard B4A project. It contains:
 - The `B4XDaisyUIKit.b4xlib` library added via **Tools → Additional Libraries**
 - An `Assets/Files/` folder containing SVG icon files
 
-**None of the B4XDaisyUIKit source `.bas` files exist in the user's project.** The components (`B4XDaisyButton`, `B4XDaisyInput`, etc.) are compiled inside the `.b4xlib` and accessed via their public API only.
+**PROHIBITED — do not add to user projects:** The `B4XDaisyUIKit` source `.bas` files (`B4XDaisyButton.bas`, `B4XDaisyInput.bas`, etc.) must never be placed in a user's project folder. They are pre-compiled inside the `.b4xlib`. Adding them causes duplicate class errors. Use them only for reading the implementation via the GitHub `Library Source` links.
 
-**None of the reference demo pages (`B4XPageInput.bas`, `B4XPageNavbar.bas`, etc.) exist in the user's project.** Those demos live only in the reference repository (`0SithasoDaisyUIKit/B4A/`) and serve as API usage examples that document how components behave.
+**PERMITTED — read demo source for component API patterns only:** The demo pages (`B4XPageInput.bas`, `B4XPageNavbar.bas`, etc.) are published at [`B4A/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4A). When reading them, extract only **component instantiation, property assignments, and event wiring**. Ignore the demo's page structure, scaffold boilerplate, and lifecycle shape — those are demo-specific, not patterns to replicate. Page structure comes from the templates (see below).
 
 ### What you (the AI) do
-You **generate new B4XPage `.bas` files** with names chosen for the user's app. You write those files using the component APIs from [component-manifest.md](references/component-manifest.md), using code patterns from [app-scaffolds.md](references/app-scaffolds.md) and [layout-patterns.md](references/layout-patterns.md) as your structural foundation.
 
-The `B4XPage*.bas` names in the Pattern Reference Index ([pattern-index.md](references/pattern-index.md)) are **API usage examples** — they tell you which component APIs have been verified in practice. They are not files to copy or reference at the file path level.
+**Templates are the structural source of truth.** Do not derive app or page structure from demo source.
+
+- **App skeleton** — always generated from `B4XMainPage.template.bas` (via the `b4x-project-bootstrap` skill). It provides the proven shell: global loader, `SweetAlert`, `ShowPageWithLoader` / `ClosePageWithLoader`, animation check, and pin-to-home. Do not hand-write this.
+- **Page files** — always generated from the page templates in `b4x-project-bootstrap/references/`:
+  - `B4XPageNavDock.template.bas` — top-level pages with pinned navbar and bottom dock tabs
+  - `B4XPageNavOnly.template.bas` — sub-pages with navbar and back button, no dock
+  - `B4XPage.template.bas` — bare page for custom layouts
+- **Component usage** — read the `Verified Demo Source` links in `components/<name>.md` to learn how to initialize, configure, and wire a component. Extract only the component code blocks. The surrounding demo page structure is irrelevant.
+
+You write app-specific `B4XPage*.bas` files using the component APIs from [component-manifest.md](references/component-manifest.md), with page scaffolding drawn from the templates above and component patterns drawn from the demo source.
 
 ## Read Before Anything Else
 

@@ -5,7 +5,7 @@ DaisyUI `PDFView` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyPDFView`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyPDFView.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPDFView.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPDFView.bas)
 - **Verified Demo Source**: B4XPagePDFView.bas
 - **Web DaisyUI Mapping**: `.pdf-view` → `B4XDaisyPDFView`
 
@@ -15,22 +15,27 @@ Private Sub B4XPage_Created (Root1 As B4XView)
 	Root = Root1
 	Root.Color = B4XDaisyVariants.GetTokenColor("--color-base-200", xui.Color_RGB(245, 247, 250))
 
+	Dim iNavHeight As Int = 56dip
+	Dim iPagePad As Int = 12dip
+
 	' Top Navbar
+	Dim Navbar As B4XDaisyNavbar
 	Navbar.Initialize(Me, "Navbar")
-	Navbar.AddToParent(Root, 0, 0, Root.Width, NAVBAR_HEIGHT)
-	Navbar.Title = "PDF Viewer Demo"
+	Navbar.AddToParent(Root, 0, 0, Root.Width, iNavHeight)
+	Navbar.Title = "PDF Viewer"
 	Navbar.BackVisible = True
 
 	' B4XDaisyPDFView Component below navbar with padding
-	Dim pdfTop As Int = NAVBAR_HEIGHT + PAGE_PAD
-	Dim pdfW As Int = Max(10dip, Root.Width - (PAGE_PAD * 2))
-	Dim pdfH As Int = Max(10dip, Root.Height - pdfTop - PAGE_PAD)
+	Dim iPdfTop As Int = iNavHeight + iPagePad
+	Dim iPdfW As Int = Max(10dip, Root.Width - (iPagePad * 2))
+	Dim iPdfH As Int = Max(10dip, Root.Height - iPdfTop - iPagePad)
 
+	Dim pdfViewer As B4XDaisyPDFView
 	pdfViewer.Initialize(Me, "pdfViewer")
-	pdfViewer.AddToParent(Root, PAGE_PAD, pdfTop, pdfW, pdfH)
+	pdfViewer.AddToParent(Root, iPagePad, iPdfTop, iPdfW, iPdfH)
 
 	' Load sample PDF asset
-	pdfViewer.LoadAsset("chapter_5.pdf")
+	pdfViewer.LoadAsset("sample.pdf")
 End Sub
 ```
 
@@ -86,6 +91,19 @@ End Sub
 - `setSwipeHorizontal(Value As Boolean)`
 - `setShowToolbar(Value As Boolean)`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`

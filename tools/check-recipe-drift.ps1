@@ -20,9 +20,8 @@ foreach ($jf in @('component-api.json','component-events.json','component-proper
   $jt = Get-Content -LiteralPath (Join-Path $skill "references/$jf") -Raw -Encoding UTF8
   foreach ($m in ([regex]'B4XDaisy[A-Za-z0-9]+').Matches($jt)) { $known[$m.Value] = $true }
 }
-# Allowlist (earned, with evidence):
-# - B4XDaisyUIKitDemo: demo app .b4a file name cited as template source in app-scaffolds.md:19, not API.
-$allow = @('B4XDaisyUIKit','B4XDaisyUIKitDemo','B4XDaisyFlexItem','B4XDaisyFlexLayout','B4XDaisyFlexPanel','B4XDaisyGrid')
+# - B4XDaisyXxx: Wildcard placeholder in cautionary guidelines (e.g. never copy B4XDaisyXxx.bas).
+$allow = @('B4XDaisyUIKit','B4XDaisyUIKitDemo','B4XDaisyFlexItem','B4XDaisyFlexLayout','B4XDaisyFlexPanel','B4XDaisyGrid','B4XDaisyXxx')
 $files = @()
 $files += Get-ChildItem -LiteralPath (Join-Path $skill 'chapters') -Filter '*.md' -File
 $files += Get-ChildItem -LiteralPath (Join-Path $skill 'references') -Filter '*.md' -File | Where-Object { $_.Name -notin @('component-manifest.md','api-cheat-sheet.md') }

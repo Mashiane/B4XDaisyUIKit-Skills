@@ -5,7 +5,7 @@ DaisyUI `InfoCard` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyInfoCard`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyInfoCard.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyInfoCard.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyInfoCard.bas)
 - **Verified Demo Source**: B4XPageInfoCard.bas
 - **Web DaisyUI Mapping**: `.info-card` → `B4XDaisyInfoCard`
 

@@ -5,13 +5,18 @@ DaisyUI `SweetAlertIcon` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySweetAlertIcon`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisySweetAlertIcon.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySweetAlertIcon.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySweetAlertIcon.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.sweet-alert-icon` → `B4XDaisySweetAlertIcon`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisySweetAlertIcon
+' Display animated modal alert icon (success, error, warning, info, question)
+Dim swalIcon As B4XDaisySweetAlertIcon
+swalIcon.Initialize(Me, "swalIcon")
+swalIcon.AddToParent(pnlHost, (maxW - 80dip)/2, 20dip, 80dip, 80dip)
+swalIcon.Icon = "success"
+swalIcon.PlayAnimation
 ```
 
 ## 3. Native Composition Rules & Gotchas

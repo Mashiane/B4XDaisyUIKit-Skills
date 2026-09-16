@@ -4,6 +4,7 @@ Exit 1 on errors; WARNs advisory. #>
 [CmdletBinding()] param([string]$RepoRoot = '')
 if (-not $RepoRoot) { $RepoRoot = Split-Path -Parent $PSScriptRoot }
 if (-not $RepoRoot) { $RepoRoot = (Get-Location).Path }
+$RepoRoot = (Resolve-Path $RepoRoot).Path.TrimEnd('\', '/')
 $ErrorActionPreference = 'Stop'
 $errors = New-Object Collections.Generic.List[string]
 $warns  = New-Object Collections.Generic.List[string]
@@ -61,8 +62,15 @@ foreach ($f in $mdFiles) {
   }
 }
 
-# skill lint
+# skill lint & registration check
+$registeredEntries = @{}
+if ($reg -and $reg.skills) {
+    foreach ($s in $reg.skills) { $registeredEntries[($s.entry -replace '\\','/').ToLower()] = $s.id }
+}
+
 foreach ($f in (Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'skills') -Recurse -Filter 'SKILL.md' -File)) {
+  $rel = $f.FullName.Substring($RepoRoot.Length).TrimStart('\','/').Replace('\','/').ToLower()
+  if (-not $registeredEntries.ContainsKey($rel)) { Fail("unregistered skill on disk: $rel not in skills-registry.json") }
   $lines = (Get-Content -LiteralPath $f.FullName).Count
   if ($lines -gt 300) { Warn("oversize SKILL.md ($lines lines): $($f.FullName.Replace($RepoRoot,''))") }
   $head = (Get-Content -LiteralPath $f.FullName -TotalCount 12) -join "`n"

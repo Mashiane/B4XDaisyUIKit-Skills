@@ -5,8 +5,8 @@ DaisyUI `Division` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDivision`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDivision.bas`
-- **Verified Demo Source**: B4XPageDivider.bas (lines 175–175), B4XPageIndicator.bas (lines 74–417), B4XPageSkeleton.bas (lines 14–23), B4XPageStack.bas (lines 64–92)
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDivision.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDivision.bas)
+- **Verified Demo Source**: [B4XPageDivider.bas (lines 175–175)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4A/B4XPageDivider.bas), [B4XPageIndicator.bas (lines 74–417)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4A/B4XPageIndicator.bas), [B4XPageSkeleton.bas (lines 14–23)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4A/B4XPageSkeleton.bas), [B4XPageStack.bas (lines 64–92)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4A/B4XPageStack.bas)
 - **Web DaisyUI Mapping**: `.division` → `B4XDaisyDivision`
 
 ## DaisyUI Web Class Translation
@@ -45,6 +45,7 @@ Example with text skeleton:
 	lblEx1.TextSize = "text-sm"
 	currentY = currentY + 35dip
 	
+	Dim divCircle As B4XDaisyDivision
 	divCircle.Initialize(Me, "")
 	divCircle.AddToParent(content, 10dip, currentY, 64dip, 64dip)
 	divCircle.Width = "w-16"
@@ -52,6 +53,7 @@ Example with text skeleton:
 	divCircle.Rounded = "rounded-full"
 	divCircle.BackgroundColor = 0xFFF3F4F6
 	
+	Dim divRect As B4XDaisyDivision
 	divRect.Initialize(Me, "")
 	divRect.AddToParent(content, 90dip, currentY + 10dip, 128dip, 16dip)
 	divRect.Width = "w-32"

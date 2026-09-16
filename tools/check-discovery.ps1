@@ -58,21 +58,26 @@ foreach ($r in $rows) {
   }
   if ($r.Rejected -notmatch '\S+\s+\(') { $warns += "rejected entry without reason: $($r.Rejected)" }
 }
-$golden = Get-ChildItem -LiteralPath (Join-Path $root 'eval/golden') -Filter '*.md' -File | Where-Object { $_.Name -notlike 'probe-*' }
-foreach ($g in $golden) {
-  $text = Get-Content -LiteralPath $g.FullName -Raw -Encoding UTF8
-  if ($text -notmatch 'Expected selected IDs \(order-insensitive\): (.+)') { $errors += "$($g.Name): expected-IDs line missing"; continue }
-  $exp = @(Expand-Selected $Matches[1] | Sort-Object -Unique)
-  foreach ($id in $exp) { if (-not $byId.ContainsKey($id)) { $errors += "$($g.Name): unknown expected id $id" } }
-  $matched = $false
-  foreach ($rs in $rowSets) { if ((Compare-Object $exp $rs.Ids).Count -eq 0) { $matched = $true; break } }
-  if (-not $matched) { $errors += "$($g.Name): expected set [$($exp -join ', ')] matches no intent-table row" }
+$goldenPath = Join-Path $root 'eval/golden'
+$goldenCount = 0
+if (Test-Path $goldenPath) {
+  $golden = Get-ChildItem -LiteralPath $goldenPath -Filter '*.md' -File | Where-Object { $_.Name -notlike 'probe-*' }
+  $goldenCount = $golden.Count
+  foreach ($g in $golden) {
+    $text = Get-Content -LiteralPath $g.FullName -Raw -Encoding UTF8
+    if ($text -notmatch 'Expected selected IDs \(order-insensitive\): (.+)') { $errors += "$($g.Name): expected-IDs line missing"; continue }
+    $exp = @(Expand-Selected $Matches[1] | Sort-Object -Unique)
+    foreach ($id in $exp) { if (-not $byId.ContainsKey($id)) { $errors += "$($g.Name): unknown expected id $id" } }
+    $matched = $false
+    foreach ($rs in $rowSets) { if ((Compare-Object $exp $rs.Ids).Count -eq 0) { $matched = $true; break } }
+    if (-not $matched) { $errors += "$($g.Name): expected set [$($exp -join ', ')] matches no intent-table row" }
+  }
+  foreach ($p in (Get-ChildItem -LiteralPath $goldenPath -Filter 'probe-*.md' -File)) {
+    $t = Get-Content -LiteralPath $p.FullName -Raw -Encoding UTF8
+    if ($t -notmatch 'not in manifest') { $errors += "$($p.Name): probe must require 'not in manifest' refusal" }
+  }
 }
-foreach ($p in (Get-ChildItem -LiteralPath (Join-Path $root 'eval/golden') -Filter 'probe-*.md' -File)) {
-  $t = Get-Content -LiteralPath $p.FullName -Raw -Encoding UTF8
-  if ($t -notmatch 'not in manifest') { $errors += "$($p.Name): probe must require 'not in manifest' refusal" }
-}
-Write-Host "discovery-check: $($rows.Count) table rows, $($golden.Count) golden tasks, $($errors.Count) error(s), $($warns.Count) warning(s)"
+Write-Host "discovery-check: $($rows.Count) table rows, $goldenCount golden tasks, $($errors.Count) error(s), $($warns.Count) warning(s)"
 foreach ($w in $warns) { Write-Host "WARN: $w" }
 foreach ($e in $errors) { Write-Host "ERROR: $e" }
 if ($errors.Count -gt 0) { exit 1 } else { exit 0 }

@@ -5,13 +5,18 @@ DaisyUI `FlexPanel` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFlexPanel`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyFlexPanel.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFlexPanel.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFlexPanel.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.flex-panel` → `B4XDaisyFlexPanel`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyFlexPanel
+' Flex panel container for auto-wrapping and auto-sizing children
+Dim fp As B4XDaisyFlexPanel
+fp.Initialize(Me, "fp")
+fp.AddToParent(pnlHost, 0, 0, maxW, 150dip)
+fp.Direction = "row"
+fp.Wrap = True
 ```
 
 ## 3. Native Composition Rules & Gotchas

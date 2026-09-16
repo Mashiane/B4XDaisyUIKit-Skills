@@ -5,7 +5,7 @@ DaisyUI `Tooltip` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyTooltip`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyTooltip.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTooltip.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTooltip.bas)
 - **Verified Demo Source**: B4XPageTooltip.bas
 - **Web DaisyUI Mapping**: `.tooltip` → `B4XDaisyTooltip`
 
@@ -31,6 +31,7 @@ DaisyUI `Tooltip` component for B4X (B4A Android).
 ```b4x
 Dim btnInfo As B4XDaisyButton = CreateButton("Show Info Tooltip", "v_info")
 	btnInfo.AddToParent(content, 20dip, currentY, 260dip, 40dip)
+	Dim ttInfo As B4XDaisyTooltip
 	ttInfo.Initialize(Me, "ttInfo")
 	ttInfo.CreateView(100dip, 100dip)
 	ttInfo.Message = "Info: System details"

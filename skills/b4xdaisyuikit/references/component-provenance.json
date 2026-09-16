@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-10 23:25 UTC",
+  "generated": "2026-09-16 08:16 UTC",
   "library_version": "0.96",
-  "source_commit": "8a083cc5",
+  "source_commit": "bb4b3b18",
   "components": {
     "B4XDaisyAccordion": {
       "source-class": "B4XDaisyAccordion",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "637e3529df6bc0858b75f47302c5c4d6871c0275f0b0ac608339ed5990a4a911",
       "member_checksums": {
@@ -65,13 +65,13 @@
       "demos": [
         "B4XPageAccordion.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyActionSheet": {
       "source-class": "B4XDaisyActionSheet",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "cac51380f063d3d42bda977b632bca60399fd3919e9c336ac781eef4d89b844c",
+      "checksum": "c7aae65145b7b1a8044a13f146952fdefc6d33fbfb8a30e588461ccce93e130a",
       "member_checksums": {
         "#Event": "41b83e26e5e540361e611d9dfc419e3890c9d4692f585eb4c108a15caa3b8de3",
         "#DesignerProperty": "2c19174b3326ee69a7cc7ecdff379b5860793fc9fa7c4bd38c455af74e4c02de",
@@ -123,7 +123,20 @@
         "Public Sub getHeaderBold As Boolean": "a9940cf43d7cbc5e3d5f9ee93e0a4938f10f02bfe13c778121ae961d96cc44d7",
         "Public Sub setButtonGhosted": "26933b39ce7706bca8bc0896409bb32425e875a45bd2ec83b74e4eef9dfdabea",
         "Public Sub getButtonGhosted As Boolean": "ab83ccc938adcceb5ee04faca5e47e7f40f0f844cc10d313b4dda85c6c752f8e",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -132,13 +145,13 @@
       "demos": [
         "B4XPageActionSheet.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyAlert": {
       "source-class": "B4XDaisyAlert",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "81e955a923986118b845a967fc7eab0a065b7fb8b25eef98c30387a3c8c76b9a",
+      "checksum": "d581a0f2622a8afcab031c65276b9963579b7906b14a63e14d3b793fb621408d",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "2dca55fea35e3ab0a76c8d19d6772f88f0b1b1cd8cf6953aa69702c8040825a2",
@@ -212,7 +225,16 @@
         "Public Sub setTag": "fccd614f2cd7dffec4427802cd30bcb56e4000f20ebfcf9c6b2be447c4e30ec5",
         "Public Sub getTag As Object": "28262d05cac94bc88f187ee8b62eaa347819a19d64ec48212195ba8707fa019e",
         "Public Sub GetComputedHeight As Int": "c5aabd8923712bb5fd06745328f2ffc0235426de80f12ec9a2985322aa4b0ccb",
-        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf"
+        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -221,11 +243,11 @@
       "demos": [
         "B4XPageAlert.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyAnimation": {
       "source-class": "B4XDaisyAnimation",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9eb511da2d16094f56bb5075657d984e54d6ba137118c9e1622ad05f443de4b8",
       "member_checksums": {
@@ -315,11 +337,11 @@
       "demos": [
         "B4XPageEasing.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyApp": {
       "source-class": "B4XDaisyApp",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "48eccd96c1171f752fc4b1d37ba20ad3829afe750ffb3f1d06b26e13c3d5090e",
       "member_checksums": {
@@ -350,13 +372,13 @@
         "B4XPageRange.bas",
         "B4XPageSelect.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyAura": {
       "source-class": "B4XDaisyAura",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "9b23a1bbb0549822f484477786f2339c60566ce9b23d9f23563a0915a2930bac",
+      "checksum": "5a18f2b417244b7ce22e9ccc468cb1c24587910c432e8df5200523ce5da50d6b",
       "member_checksums": {
         "#DesignerProperty": "b243a149665bd645457d7bb116ff2ddc7dd6fdf02ddb49a2b644531ba64e1c73",
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
@@ -402,7 +424,11 @@
         "Public Sub setBackgroundColor": "e5b2a2da6e451b56bc9c63af1904e0ed4edbfa0b4214875feaefa2fff178c376",
         "Public Sub getBackgroundColor As Int": "b2beaeb46b70566604ae0dd943ad853996786e80ed7cc9e7c330b1fd7634a7a4",
         "Public Sub setTextColor": "8453ebeab4c74eb49bf1de58963654a676434ff1b9b50e337f1ac0ab9044d0b5",
-        "Public Sub getTextColor As Int": "70a3dee7bee534515dd5cb23ade51d1d5b65f06eef3291aa33778f31d8fceecb"
+        "Public Sub getTextColor As Int": "70a3dee7bee534515dd5cb23ade51d1d5b65f06eef3291aa33778f31d8fceecb",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -411,11 +437,11 @@
       "demos": [
         "B4XPageAura.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyAvatar": {
       "source-class": "B4XDaisyAvatar",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "baf7cbfb67acb39b92ee0b43eeca5605c8a64b42b755a3a03e0589e23831cdd4",
       "member_checksums": {
@@ -549,11 +575,11 @@
         "B4XPageStack.bas",
         "B4XPageStat.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyAvatarGroup": {
       "source-class": "B4XDaisyAvatarGroup",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "74e2d556b454b7c6cd67fc9dbe8debd0b170b41f04936d8b0e6e13e9a9c84411",
       "member_checksums": {
@@ -604,13 +630,13 @@
       "demos": [
         "B4XPageAvatar.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBadge": {
       "source-class": "B4XDaisyBadge",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "7c6716ac8680921cbd9e5a6245058df3ec9fe685ce9fad861a1283fedda388aa",
+      "checksum": "d7106cd3c1b65b22fcd16b5f6641fd18beeb95e6858764bc06440499b27fbdff",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "65f6c2f80c8b2aff96adf9a48856fab34d3bc3b3bab16757d664f8b5cd537678",
@@ -697,7 +723,14 @@
         "Public Sub setClickable": "fc43c23970437d668ac07d2bc6229fb7450e40ea2789cc5896122078c73788d7",
         "Public Sub getClickable As Boolean": "0dec496e4e23ffebb279ba00c80508a6d9ca039594e55423fcd5d24acb84931c",
         "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf",
-        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270"
+        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -710,11 +743,11 @@
         "B4XPageTooltip.bas",
         "B4XPageWindow.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBadgeGroupSelect": {
       "source-class": "B4XDaisyBadgeGroupSelect",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "b5f68c986cc3bd4a8c08e09bb388062e7b43221a733a203892f730bdb06dc8ce",
       "member_checksums": {
@@ -833,13 +866,13 @@
       "demos": [
         "B4XPageBadge.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBoomMenu": {
       "source-class": "B4XDaisyBoomMenu",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "d069118fd8ab9a1478675f7b42d9bc27b1edacc5494673e64a4c9e726e96385a",
+      "checksum": "bb8354446b394083886909f03922138706a2f0bb94b2751c8e68eaee844bfabe",
       "member_checksums": {
         "#Event": "48722c0f2d9eac8174e4dded47628de29e8de40e516c862b060f922feef7841a",
         "#DesignerProperty": "490e95a54d483319e24dda19628a63fd53393258372316a1c9b0062f8088e46b",
@@ -956,7 +989,18 @@
         "Public Sub boombutton_Click": "099648eff3655d977827144c6f4e1c234623d12cb8c6e952a96da24c63e2f184",
         "Public Sub boombtn_Click": "4b1eb1ff7f15e0d5ed5e8d05776605229169e0b9fb044f8d412325485eb11aa9",
         "Public Sub boombackdrop_Click": "50ef009b00b82e4fa924a4ef135675a22ec85ddf5dfe11fc3fb22062dc8cb29b",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -965,11 +1009,11 @@
       "demos": [
         "B4XPageBoomMenu.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBoomPathManager": {
       "source-class": "B4XDaisyBoomPathManager",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ef1ae52f554d289a1abd0a78ba4664a25d4a968dc8355b76beebe41ba945b7e6",
       "member_checksums": {
@@ -980,11 +1024,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBoxModel": {
       "source-class": "B4XDaisyBoxModel",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "8dfa810a440891b003194f1b9b6d838e863e523410966411ec172699a6e3d879",
       "member_checksums": {
@@ -1012,11 +1056,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyBreadcrumbs": {
       "source-class": "B4XDaisyBreadcrumbs",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "64e5351f337453c13e0eb4a96b8559b77cec5895a7ec9a78bbed396485deba18",
       "member_checksums": {
@@ -1067,11 +1111,11 @@
       "demos": [
         "B4XPageBreadcrumbs.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyButton": {
       "source-class": "B4XDaisyButton",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "b431639cebfd6b77c27da33c42a845b0ec0223e2f71cd8bc6d7f65f7bbee5c29",
       "member_checksums": {
@@ -1201,11 +1245,11 @@
         "B4XPageToast.bas",
         "B4XPageTooltip.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyButtonPlaceManager": {
       "source-class": "B4XDaisyButtonPlaceManager",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "0c8475aaa47bbcb6d88e66365958a8b8efe0bb92513c90090c54f4f79e3006ed",
       "member_checksums": {
@@ -1216,11 +1260,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCanvasSpinner": {
       "source-class": "B4XDaisyCanvasSpinner",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "e369a09b4491270a4a83e202a736d361485ebad2c3509e9100d59cb5127e9d4c",
       "member_checksums": {
@@ -1271,11 +1315,11 @@
       "demos": [
         "B4XPageCanvasSpinner.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCard": {
       "source-class": "B4XDaisyCard",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "389b6504fac5d3e78bd43a7dab085875a64155bfee07dd742db2b3c7a67df564",
       "member_checksums": {
@@ -1364,11 +1408,11 @@
         "B4XPageDrawerTree.bas",
         "B4XPageMediaPicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCardActions": {
       "source-class": "B4XDaisyCardActions",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "674e6026f442f91257ee7a1d300e471d6661907172a04ef96fc66b9f124afa1b",
       "member_checksums": {
@@ -1409,11 +1453,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCardBody": {
       "source-class": "B4XDaisyCardBody",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "dcd10bb999f4e6df439a930d9a93bc6f3faf8748e5e6060344b3b57ff39f7af2",
       "member_checksums": {
@@ -1452,13 +1496,13 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCardTitle": {
       "source-class": "B4XDaisyCardTitle",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "73ae9b44a7f0b129506fa4a0c5672697413b727191c1d421a9e03b0a31fedf10",
+      "checksum": "8d1e8b56d2c2d4deacf122b5f731a019832cdad75b1c2f7384cacec164f8bfe7",
       "member_checksums": {
         "#DesignerProperty": "69907bd24945ed77f2f6cc75be6fe41de57298ff8c4d4e60845fbc27a255b5d8",
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
@@ -1495,18 +1539,28 @@
         "Public Sub getTag As Object": "28262d05cac94bc88f187ee8b62eaa347819a19d64ec48212195ba8707fa019e",
         "Public Sub setAutoResize": "598baf5b8c2ddbc815363aeebbc63a46e0757759b811b0fe290df7b40ce9a553",
         "Public Sub getAutoResize As Boolean": "54c0609a94ee2a4f22e8a2ac750a34f2fb74776a74f127a8e0c6ab7eae3fce86",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCarousel": {
       "source-class": "B4XDaisyCarousel",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9f494cb558719ed0df276f70eaa2831c48ee414b9344ba5f10762a14bb0163f2",
       "member_checksums": {
@@ -1596,11 +1650,11 @@
       "demos": [
         "B4XPageCarousel.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCarouselItem": {
       "source-class": "B4XDaisyCarouselItem",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "8066b194d2af41465e00730e0bfada3ec4a952e02c36bce4c452e81762e82550",
       "member_checksums": {
@@ -1656,11 +1710,11 @@
       "demos": [
         "B4XPageCarousel.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyChat": {
       "source-class": "B4XDaisyChat",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "7d1529988bfa8d2c2ed285f36b28c6c8780867f2300b3abdfd21ca88941f9477",
       "member_checksums": {
@@ -1768,11 +1822,11 @@
       "demos": [
         "B4XPageChat.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyChatBubble": {
       "source-class": "B4XDaisyChatBubble",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "8561c93fd4b35ea647c826684df19d3f3b1da0493b718bec8fa33d5a147b41d9",
       "member_checksums": {
@@ -1876,13 +1930,13 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCheckbox": {
       "source-class": "B4XDaisyCheckbox",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "3b04e5eda42b071258ed7af9f9ea7cbb3ed99741f22da825b930875c6a0b8c3d",
+      "checksum": "0ac588465b7e884b153001d086bfe6454123a2d9c8802c3233f8260dae3f338c",
       "member_checksums": {
         "#Event": "49a4b0fb3558efff5deb39a4c43ef834878666d0589d8f8f85c40657e52eb8c5",
         "#DesignerProperty": "6a0ae720674e15c4bdabc8b912aab6c0d835cda4dde34cf73447f9229dc10a55",
@@ -1975,11 +2029,11 @@
         "B4XPageFocus.bas",
         "B4XPageNavScrollDock.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCheckboxGroup": {
       "source-class": "B4XDaisyCheckboxGroup",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "68af6092d565f12ecf385aff5321af002df61b35777d650908fbb59871a0efcb",
       "member_checksums": {
@@ -2088,11 +2142,11 @@
       "demos": [
         "B4XPageCheckboxGroup.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCollapse": {
       "source-class": "B4XDaisyCollapse",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "0a4345ec9b23eb39ca366545af48296d71071706be1d97754e77ee1dfa3b9f68",
       "member_checksums": {
@@ -2173,11 +2227,11 @@
         "B4XPageAccordion.bas",
         "B4XPageCollapse.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCollapseContent": {
       "source-class": "B4XDaisyCollapseContent",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "35636e0b0b92b8b9955c7266d421994b5f789334d9272cd5138dbfb284ca7605",
       "member_checksums": {
@@ -2216,11 +2270,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCollapseTitle": {
       "source-class": "B4XDaisyCollapseTitle",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9b8c3a33313294f7f79c0a9a8ef02ef7a4ea0cf6e74ce0e603507b478797da82",
       "member_checksums": {
@@ -2265,11 +2319,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyColorWheel": {
       "source-class": "B4XDaisyColorWheel",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ba6c6a39043e80dabf8ce6a0fbeaaea8fb907c5792ffe909afb25e71f7ceb466",
       "member_checksums": {
@@ -2331,11 +2385,11 @@
       "demos": [
         "B4XPageColorWheel.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCountdown": {
       "source-class": "B4XDaisyCountdown",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "a1d77ac0de98b73561b38fcd0d08e39947ec5dff41ed256b3e380d4120aa0c18",
       "member_checksums": {
@@ -2416,11 +2470,11 @@
       "demos": [
         "B4XPageCountdown.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyCountdownItem": {
       "source-class": "B4XDaisyCountdownItem",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "3d3401bc01ca2e18e07eafd3c5e69298b5aa10414d468f4b621d8ba9790797e5",
       "member_checksums": {
@@ -2484,13 +2538,13 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDashboard": {
       "source-class": "B4XDaisyDashboard",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "90e7e934c766b89efbc1b562f837c7676bcf8a5b55f3ffcfee71014aa568dfaf",
+      "checksum": "8032700db22cc2b466c8d32ece19c53f13f36a5b6bc1cde8f2f4c5c2e740af28",
       "member_checksums": {
         "#Event": "f75ef0ad705aa3f4b6a69e2e0ec31e32fabb68ef486c1b3b11849e09e2c9412c",
         "#DesignerProperty": "f19cc90c0c795844265142bcb062c438cc5ff3e809f20d0971317212318b96f5",
@@ -2575,11 +2629,11 @@
       "demos": [
         "B4XPageDashboard.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDiff": {
       "source-class": "B4XDaisyDiff",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "cee976588a3cb7d9861c4ccf9c3cff709b991cd03b5484871178727f2888a8ca",
       "member_checksums": {
@@ -2647,11 +2701,11 @@
       "demos": [
         "B4XPageDiff.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDivider": {
       "source-class": "B4XDaisyDivider",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9bdcfb6f5007e06ea4b2669983896144152cfcd03e1f410b3870aeab159fb556",
       "member_checksums": {
@@ -2716,11 +2770,11 @@
       "demos": [
         "B4XPageDivider.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDivision": {
       "source-class": "B4XDaisyDivision",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ed203efc46f7e2c514df2ffe6eafa914e405176f62b7b48751b460e9daf3714d",
       "member_checksums": {
@@ -2802,11 +2856,11 @@
         "B4XPageSkeleton.bas",
         "B4XPageStack.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDock": {
       "source-class": "B4XDaisyDock",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "c0d086578537b9965143d18e41cd550e37c623ace54ea15de2dcd98b5d792a72",
       "member_checksums": {
@@ -2880,11 +2934,11 @@
         "B4XPageDock.bas",
         "B4XPageNavScrollDock.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDrawer": {
       "source-class": "B4XDaisyDrawer",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "71d97284871f9cb52379cdff050b1ca9eb0b61209ecf93b3d0307cc85502b878",
       "member_checksums": {
@@ -3001,13 +3055,13 @@
         "B4XPageDrawerRail.bas",
         "B4XPageDrawerTree.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDropdown": {
       "source-class": "B4XDaisyDropdown",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "a8b16d89d41dd5c778c2ddf1ad1586ee99199ff9d8f473f0c4a53ddb7a4455fe",
+      "checksum": "a1fd6e665b83e0492c9d839bdf4dcb33da498c7996d0cafbb4a5b289f800b959",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "716372fb29985fd83c8c41d4b4d63c35e6afef2e740dc2bc58e22ab433d5af06",
@@ -3091,6 +3145,7 @@
         "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
         "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
         "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
         "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
@@ -3100,13 +3155,13 @@
       "demos": [
         "B4XPageDropdown.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyDualRange": {
       "source-class": "B4XDaisyDualRange",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "b29b4a577aacdb5a93f5eec2544f89e9be5cb8fc5aacc3e6a4c1fee0a647e50b",
+      "checksum": "f3f47d5f5745948f6e530dcda85d18e767fc03c8778ae7e3be6a1a1fdd548c05",
       "member_checksums": {
         "#Event": "a6abb17a887ee0ed1592dc03db47fee692a0d72ba44e4f6d093848eccd7c6c36",
         "#DesignerProperty": "5665384d50fec989626ae6eaf6553bfc4fd55e14aeb0c2c610e5a0af80a755a2",
@@ -3205,7 +3260,9 @@
         "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
         "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
         "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
-        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -3214,11 +3271,11 @@
       "demos": [
         "B4XPageDualRange.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyEnjoyHint": {
       "source-class": "B4XDaisyEnjoyHint",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "814c9b0a5ffc2ea96bf9e366608101a32f6defc554ddff0aa8c1320c4799d791",
       "member_checksums": {
@@ -3236,11 +3293,11 @@
       "demos": [
         "B4XPageEnjoyHint.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFab": {
       "source-class": "B4XDaisyFab",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "70e77a408af991e38de23e9eb6f51fbe2632b501543023439cb954f1066ea3d2",
       "member_checksums": {
@@ -3364,11 +3421,11 @@
         "B4XPageFabNavbar.bas",
         "B4XPageNavbar.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFieldset": {
       "source-class": "B4XDaisyFieldset",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "b5f18e2b3301bdd04243a04cb48b7609a4409aa2902ad53840ed25bb3518b99b",
       "member_checksums": {
@@ -3452,11 +3509,11 @@
         "B4XPageToggle.bas",
         "B4XPageToggleGroup.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFileHandler": {
       "source-class": "B4XDaisyFileHandler",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "adc8a9736d1c424bfa849ec08904d3e4bbe0a177968d30234f81f83f14df9777",
       "member_checksums": {
@@ -3477,11 +3534,11 @@
       "demos": [
         "B4XPageMediaPicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFileInput": {
       "source-class": "B4XDaisyFileInput",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "80bea728bf93c724c55f182b30056a368a0c376c31351b588e84acf4210d27a1",
       "member_checksums": {
@@ -3604,11 +3661,11 @@
         "B4XPageFileInput.bas",
         "B4XPageFocus.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFilter": {
       "source-class": "B4XDaisyFilter",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "6a6f33a9800c35a3bd6ef06852ab81d91ad82b6a6e11562a4fb7fdc2e3136a5e",
       "member_checksums": {
@@ -3692,11 +3749,11 @@
       "demos": [
         "B4XPageFilter.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFlexItem": {
       "source-class": "B4XDaisyFlexItem",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "dd8b476ebe6fbaa4d9512b4c08fe8915a15b0da2af3cc45ead4f925fcd8bf6c5",
       "member_checksums": {
@@ -3734,11 +3791,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFlexLayout": {
       "source-class": "B4XDaisyFlexLayout",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "4bfd7e887e1b63dfdf6450e4ebdd868bb8182cf0bbd1120d6f66601a9b34fd22",
       "member_checksums": {
@@ -3766,11 +3823,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyFlexPanel": {
       "source-class": "B4XDaisyFlexPanel",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "8fb8b9f6e4ee50510bad0163503491f3360f5b59745280ddf3653982bec0cb67",
       "member_checksums": {
@@ -3865,11 +3922,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyGrid": {
       "source-class": "B4XDaisyGrid",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "e416f7af4b35e335c6dcb04b1f20854dd423062015063ea47b37473a2c3ba5b0",
       "member_checksums": {
@@ -3966,11 +4023,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyHero": {
       "source-class": "B4XDaisyHero",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "0d5e611deb878ad0bed4d4da0d53ebde85dda0d20e6a333182ed5766dc8f31be",
       "member_checksums": {
@@ -4040,11 +4097,11 @@
       "demos": [
         "B4XPageHero.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyHover3d": {
       "source-class": "B4XDaisyHover3d",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "7aa3c9cf219577bb279ecc15a3a929cd02590425262ea5d4a7b6568be020d180",
       "member_checksums": {
@@ -4122,11 +4179,11 @@
       "demos": [
         "B4XPageHover3d.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyIconButton": {
       "source-class": "B4XDaisyIconButton",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "8c71732c7b64390ab1cc6024ebd65e42f54a63ce006192e3c5f8ca323bcd886f",
       "member_checksums": {
@@ -4199,11 +4256,11 @@
         "B4XPageList.bas",
         "B4XPageMediaPicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyImage": {
       "source-class": "B4XDaisyImage",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "59b45b7e3adafb32b1b83ee2ecd7493714537c27f1c7e7b04eb8b7a3a47a82f0",
       "member_checksums": {
@@ -4251,11 +4308,11 @@
       "demos": [
         "B4XPageMediaPicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyIndicator": {
       "source-class": "B4XDaisyIndicator",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "dff3bdefb950eb48316dbfe60dc90c00be3bd4c6ce5675f46581b45d72cdd0a7",
       "member_checksums": {
@@ -4336,11 +4393,11 @@
         "B4XPageNavbar.bas",
         "B4XPageSvgIcon.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyInfoCard": {
       "source-class": "B4XDaisyInfoCard",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9952ef86a7286a2ec8669114fb02890bee9a58a276f9d089c21110e217881d43",
       "member_checksums": {
@@ -4424,13 +4481,13 @@
       "demos": [
         "B4XPageInfoCard.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyInput": {
       "source-class": "B4XDaisyInput",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "79e0f49fa3c4c35a0dd6f4ddfc74bc7e13ff94f6fcf965c65b11643243438269",
+      "checksum": "49004ce07a911f3948ac525a0ca4f727cf01a6264b1d54d9ae2cd60b9b7d70ea",
       "member_checksums": {
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
         "Public Sub DesignerCreateView": "6a3038994582ef842ff7cdaadac21192468c2376d9eb757eb66f22ae6c257211",
@@ -4611,11 +4668,11 @@
         "B4XPageSheetModal.bas",
         "B4XPageTextarea.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyKbd": {
       "source-class": "B4XDaisyKbd",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "d42acdcaf7c8f5fd61754a7c1a7dea4daaa9f5a342147b9601319b5cabdd8025",
       "member_checksums": {
@@ -4667,11 +4724,11 @@
       "demos": [
         "B4XPageKbd.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyList": {
       "source-class": "B4XDaisyList",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ee87592fc626d348d3554ce5fb9c50a87555b4bb28dd6a1605901145761feaa6",
       "member_checksums": {
@@ -4766,13 +4823,13 @@
         "B4XPageList.bas",
         "B4XPageList1K.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyLoading": {
       "source-class": "B4XDaisyLoading",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "8d2134d1515a631813408221b03d5074d280761854b039609dc7b0c923a15c54",
+      "checksum": "1ec4b2a9fbed88f56dd84a313bfb58d5ba69fe3d54ea5167f7a0e480ac6538cb",
       "member_checksums": {
         "#DesignerProperty": "677033c8925accc1af2addd934fd9bf4e0aaa15e41f7b6a144987e8544360d4c",
         "Public Sub Initialize": "f6541cfdf80d4c263db917c5264d8459946a21bd9a6620bd0e2176fccdf86d46",
@@ -4800,7 +4857,18 @@
         "Public Sub setColor": "edd08f27ea7965cc47b31dd419fb0890c1f52d1a0f74e79f13552b07fafb7cca",
         "Public Sub getColor As Int": "102289b72f3208d6259e1ea904603bd73ec3e388e93e84c9249187d460928d9f",
         "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -4809,13 +4877,13 @@
       "demos": [
         "B4XPageLoading.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyMenu": {
       "source-class": "B4XDaisyMenu",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "21866f54a87ebcf5bca10e8618e456f35592aa8d607b0d45406c216899f1bbee",
+      "checksum": "3f7a97406352f5653770abc10cfd394804331fecb5327c277d070a4c08639cf6",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "58f9e91202d20312f577bb4e2b2ab0c018742bf797f43102aa0554b126e618f2",
@@ -4944,6 +5012,7 @@
         "Public Sub setRightBorder": "b79ab732e8c249b817be2268c5bee395187856b3cb8f78f0f06491044a66c078",
         "Public Sub getRightBorder As Boolean": "b707a764404fb319931a4e04a5be6d1561fe37c0891448f0b714c2413aad97c2",
         "Public Sub setRightBorderColor": "356b1c19e1d822c81d4e468257ba0d457392e8b4045dd3a7a34dc1b5c803b898",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
         "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
@@ -4959,11 +5028,11 @@
         "B4XPageMenuRuntime.bas",
         "B4XPageMenuRuntime2.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyModal": {
       "source-class": "B4XDaisyModal",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "4bdc47ba7a8b496cd764bac9e4f1abddd75dc874b628664752c65f227cdc6e96",
       "member_checksums": {
@@ -5087,11 +5156,11 @@
         "B4XPageModal.bas",
         "B4XPagePicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyNavbar": {
       "source-class": "B4XDaisyNavbar",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "1c7e5c49fcdbd5bd7648abb986532b66dffbd51027bbd8e506fb6c1e84126c4a",
       "member_checksums": {
@@ -5222,13 +5291,13 @@
         "B4XPagePicker.bas",
         "B4XPageSheetModal.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyOTP": {
       "source-class": "B4XDaisyOTP",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "d67129cd75cf7af2944d4fd21489815c591ce422810e76f201164c84a4c7ad38",
+      "checksum": "9fde7468ac54878ea514b7fa6626d919b0e0aa85fa1ffcd2f2681159a95270c4",
       "member_checksums": {
         "#Event": "4bc33b45b61640edd7dd32a1463bc2082d2e625f9b9e96102511ef8b8943f7e0",
         "#DesignerProperty": "6a212d8b92e56f512fc841296dd76e831a48e6f30a37146895bfe6fc337bb4d9",
@@ -5289,7 +5358,18 @@
         "Public Sub GetActualHeight As Int": "834ed5e38b25784977e6ae17d193e239a1d3e93b46c9d1c5f15cb8be45c1a6ee",
         "Public Sub Base_Resize": "521c648daffbd557f51a3425866f12eab716c471be81f24e65b5adff462c2fe0",
         "Public Sub setFocus": "61d6ffa25293886af77d4bea9cccde0636769c6aa219c13b2937188a4a675aca",
-        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270"
+        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -5298,11 +5378,11 @@
       "demos": [
         "B4XPageOTP.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyOverlay": {
       "source-class": "B4XDaisyOverlay",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "25a65df18e3da9d51b8164cfc26f5c346d3dcfd624d81af4c3558cf8a28e75f6",
       "member_checksums": {
@@ -5358,13 +5438,13 @@
       "demos": [
         "B4XPageOverlay.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPageScroll": {
       "source-class": "B4XDaisyPageScroll",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "ff2df8b27229245dd24188a39b9bedf259bce7cf3cd93b88b6001aa46d8d05b6",
+      "checksum": "6495af9bf31d808eb7f300bdb58cd968bd6139f7bf7043f3e0910474406cffad",
       "member_checksums": {
         "#DesignerProperty": "09f050648a084f085acab2e2b91620248097b5ca08df782cb810e38629af006b",
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
@@ -5384,6 +5464,8 @@
         "Public Sub getScrollPosition As Int": "49d2ef2dceaf0537f752ec14f5111db00d1cf3c487afdcfa0feaf1a507bc4f2a",
         "Public Sub getMaxScrollPosition As Int": "5c1d69174b789cab26f6940f7ad2d155060985f4baf61e33aac3d3fa782ed73a",
         "Public Sub ScrollToView": "7367e393d80fee35b1b7860462a55cc528353b2d3ea6b7bcb5984b61fa86287e",
+        "Public Sub ScrollToViewWithMargin": "f12db060856fb206e6bd5857d9a79add39c8f35fbfeb7b995efa11bfe095d0e3",
+        "Public Sub IME_HeightChanged": "3dd8e62725c6721a8afaf4b84bc002f0d476e85c369ac15819b3ef7419f2a095",
         "Public Sub setBackgroundVariant": "47a310bce75e8a8eb5d1acfe5521151ed56cd783bf238d75a9c3b975d7f1d2ee",
         "Public Sub getBackgroundVariant As String": "7823f0136a3af6ea51d86073485f007639560491573f293dcdfe0235a66d867e",
         "Public Sub getUsableWidth As Int": "0e138286cdeef48c0bb8844c75b02e30d31f26c48357895a89ec0b9d123919ff",
@@ -5452,11 +5534,11 @@
         "B4XPageSweetAlertInputs.bas",
         "B4XPageTagSphere.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPagination": {
       "source-class": "B4XDaisyPagination",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "77e37ed53236396b1bec31da169ce4406f505e57fb79f4ce38c687abcef0d3b8",
       "member_checksums": {
@@ -5532,13 +5614,13 @@
       "demos": [
         "B4XPagePagination.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPDFView": {
       "source-class": "B4XDaisyPDFView",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "82601a4ea7592cc9d1f24c787298cc888fc4e236610dfcad81ced8121bf14a21",
+      "checksum": "3288bffc2ab4c74b241f9459be6aa681268342e1c7b8309871b80850d103c311",
       "member_checksums": {
         "#Event": "5e33827492e27fb36b01b60e3e1c6c0d334689a271a4c7902bdd18d0d976d760",
         "#DesignerProperty": "7302238acfc33ecd7dac0000bb294066a394daa59edd62d5669cbf23ebdff5f9",
@@ -5561,7 +5643,20 @@
         "Public Sub setPageSnap": "57a476e6e79d81b69a6cab46b893b0d8750b8e51f75b31cd478d84a9488e0ba1",
         "Public Sub setSwipeHorizontal": "7c8001591980fe52f57509c9a7df6ec02dcac6b78f726f8afeabae2890e8538c",
         "Public Sub setShowToolbar": "39f317744916c689b7f7e10f4a7202eed15beddb0dd2b90457d75b110279ce6a",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -5570,13 +5665,13 @@
       "demos": [
         "B4XPagePDFView.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPicker": {
       "source-class": "B4XDaisyPicker",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "b89330432b7e745308c35dee3f34dd7a45c6fd3b239755a7dcb957cd23bb7c97",
+      "checksum": "a7eb040aa62bf5a748d343afbe07be8ec75cc74433e90ed757d6f53a0172a1bf",
       "member_checksums": {
         "#Event": "28f2659bcc6fe75e3064e6e6de0768db608f5bdaa6e30572e491b8499d42c977",
         "#DesignerProperty": "3e1c921415fbf3757efb47b00dfe4e68cac9ad53b46258337eaf3b110cd5ff99",
@@ -5641,7 +5736,20 @@
         "Public Sub GetValueList As List": "b3e262ec9628004057ef9ec95153b01029b7628e0765430fc1b3c2ccf74fd787",
         "Public Sub GetValue As String": "125d50b274b0dc85a2416db055f1ad8df6e8d5d026a232d9076b97ef53c02044",
         "Public Sub GetDisplayValue As String": "b76ea8208f1516dd66b653b5e0e98e02d6c8f0013d1f6da4bc5de69b9400a0d5",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -5650,11 +5758,11 @@
       "demos": [
         "B4XPagePicker.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPiecePlaceManager": {
       "source-class": "B4XDaisyPiecePlaceManager",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "56373b5f1e7261a936e2c73f65eed1a24b56da7e4deee002102f83b109149250",
       "member_checksums": {
@@ -5665,11 +5773,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyPocketBase": {
       "source-class": "B4XDaisyPocketBase",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ed0810c6a825a0e2c2347c59d16a084af3748b77d54d8f130771670579ad9e6c",
       "member_checksums": {
@@ -5683,11 +5791,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyProgress": {
       "source-class": "B4XDaisyProgress",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "68a85b37d67b0f63dabd7d5a69183cfc210c6158213850a541fef67cb1cef768",
       "member_checksums": {
@@ -5767,11 +5875,11 @@
         "B4XPageDrawerRail.bas",
         "B4XPageProgress.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyRadialProgress": {
       "source-class": "B4XDaisyRadialProgress",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "fb3135d91b52b419db42122333b43ef691f9e41a98cb22963ac2faa8dbeecffc",
       "member_checksums": {
@@ -5852,11 +5960,11 @@
         "B4XPageRadialProgress.bas",
         "B4XPageStat.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyRadio": {
       "source-class": "B4XDaisyRadio",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ba7f7e9f5e4ab1fce1b4b89552dd8821079d501637ed12b35fc09198b6786fdf",
       "member_checksums": {
@@ -5939,11 +6047,11 @@
         "B4XPageFocus.bas",
         "B4XPageRadio.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyRadioGroup": {
       "source-class": "B4XDaisyRadioGroup",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "72b91421d635c69c712606a86a5403d170f3120b9da1c10897cba5eed8f29dd3",
       "member_checksums": {
@@ -6052,11 +6160,11 @@
       "demos": [
         "B4XPageRadioGroup.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyRange": {
       "source-class": "B4XDaisyRange",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "691101af7f868d1b9f51d28cd858cc4a0ffa775d1c8da8f1d938a1eb5ce00e5f",
       "member_checksums": {
@@ -6165,11 +6273,11 @@
         "B4XPageSignaturePad.bas",
         "B4XPageTagSphere.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyRating": {
       "source-class": "B4XDaisyRating",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "1f3012d74603db5fe21afed4769dcb9882c3bc9aaafa7f586fbde01897f4e3c7",
       "member_checksums": {
@@ -6257,13 +6365,13 @@
         "B4XPageNavScrollDock.bas",
         "B4XPageRating.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySegment": {
       "source-class": "B4XDaisySegment",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "0b321b0317448c2d705e86b1130884f0986be518bb29edb4f9627fba25d429a9",
+      "checksum": "46761293c19ff38bde5abdf840e1f6fe5eec88e0ccc73530b18bff49c1c17862",
       "member_checksums": {
         "#Event": "d6a92907698d91a76bf41f21b59d38e97ede3a6d4ff2b6bb47ec7c61acf73d04",
         "#DesignerProperty": "37559168fac7d08003b6294fbfa8d86f87e657f8ebc5265bad7a873a689be951",
@@ -6302,7 +6410,20 @@
         "Public Sub getShadow As String": "fac0ea861d02ab39f01f85678c9803144b6fdb257127ebae824a31b06ee21ac4",
         "Public Sub setButtonLayout": "349fc5c6500393733c58f8f247222a433eb8d6f832833442c26083ff51b213c4",
         "Public Sub getButtonLayout As String": "60689658e5d8995ca754b73e6cfb5e9db8ba1c916b8672cb6dffcc759b672846",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -6312,13 +6433,13 @@
         "B4XPageSegment.bas",
         "B4XPageTagSphere.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySelect": {
       "source-class": "B4XDaisySelect",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "3c6d4af002ea241bc1da01df29b2033737b641232461885ff199f7756d2ef751",
+      "checksum": "e69c2602187c9f666a35cdb3d0dcab4a3330ba0a2c8118acd3c7d7c681acc42e",
       "member_checksums": {
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
         "Public Sub DesignerCreateView": "6a3038994582ef842ff7cdaadac21192468c2376d9eb757eb66f22ae6c257211",
@@ -6415,13 +6536,13 @@
         "B4XPageNavScrollDock.bas",
         "B4XPageSelect.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySheetModal": {
       "source-class": "B4XDaisySheetModal",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "b89fcd3c6b18a59fd90e4e61b2b66cfb88f7fb0ffed3574285e90fb86910a337",
+      "checksum": "c2974fe3a0210ff97fb68b0954148266bba950f31ccba5f5598785e7d1dc7139",
       "member_checksums": {
         "#Event": "e2b91f5e775fb586a9a561649dc61549190ccc107868d83dfc59e570b514a74f",
         "#DesignerProperty": "13116ab4fa7994c83e6927de67ab3f47d043640f36a461c6c79ea630d828d260",
@@ -6505,7 +6626,16 @@
         "Public Sub setScrollBehavior": "3c482e00200d256118746cc726798bcc678ebeaf7b7ab3f51b1c7ac7166089d6",
         "Public Sub getScrollBehavior As String": "2b9b52eecb64bde91a2c233335008b54c520931a31d9dae813a4f96fd01d34ad",
         "Public Sub setNestedScrollEnabled": "39368cc72be2ae0034eb8b5401033079b9997232320caa59cd6823afb4035321",
-        "Public Sub getNestedScrollEnabled As Boolean": "3b38abb0587685c0f632d98470de64716c3664ca1725c210ebb1d2cc07c1cb12"
+        "Public Sub getNestedScrollEnabled As Boolean": "3b38abb0587685c0f632d98470de64716c3664ca1725c210ebb1d2cc07c1cb12",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -6516,13 +6646,13 @@
         "B4XPagePicker.bas",
         "B4XPageSheetModal.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyShineButton": {
       "source-class": "B4XDaisyShineButton",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "91dec1c2b283a2f2f1424aa23b979cf2608347422f22f3955f982e773f9891ed",
+      "checksum": "1b9f78472e74895e33234137227a2aaeaf27ac51ad7b4476bff66267638079dd",
       "member_checksums": {
         "#Event": "efd75b23caefd22eb32543637812ec31065295a774d9bcc825af57c16000b323",
         "#DesignerProperty": "bcb7267f281a58bb23daa4752796303548befbff8e1ead4259d2310579d69354",
@@ -6572,7 +6702,18 @@
         "Public Sub getShineDistanceMultiple As Float": "c1826a16b24c4df3575f6aee1a2c26c5b2be02f5f8bed322d10efa6ad3fc548c",
         "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
         "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -6581,11 +6722,11 @@
       "demos": [
         "B4XPageShineButton.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySignature": {
       "source-class": "B4XDaisySignature",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "5fce810e37d2a0c30f7b63f35ff32cd901afe3048a5d4e4f6c21f72e2d36b7d0",
       "member_checksums": {
@@ -6711,13 +6852,13 @@
       "demos": [
         "B4XPageSignaturePad.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySignaturePad": {
       "source-class": "B4XDaisySignaturePad",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "25c58f5d0a83945cc110ac3d85f043bc4b414e7e409b6d652f84365ca39ab7a8",
+      "checksum": "a09764e9497ed5b594fa315dd2570ca62ceb331b7b354794a0ee331ea55b3ec9",
       "member_checksums": {
         "#Event": "a2d20311acda2a4b32693585999d9232eee8fd56c0511a6a25aac21250f54373",
         "#DesignerProperty": "1927b66798b2a5a14c575c4ea1577599d6febec9d47bb8e2525b32d8ff089f8a",
@@ -6782,7 +6923,14 @@
         "Public Sub setShadow": "cee1bcfde211dfe80ddec0a48fea8913dac34c74a94fd44b024ea1c903fa5f8a",
         "Public Sub getVariant As String": "53c93305f44b3e4b5ec7da0845ca4b1b8283510f651d370d3668a7cce0dd6af7",
         "Public Sub setVariant": "75410278039ed156f9f9b2d7db214d4e92b662537d48b7ecac5a9568964a078f",
-        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270"
+        "Public Sub Release": "d7a1a34f43b82c6213f01a4fbc164c3f103a82f2efaaeebfea0243c552249270",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -6791,11 +6939,11 @@
       "demos": [
         "B4XPageSignaturePad.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyStack": {
       "source-class": "B4XDaisyStack",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "05cdc583b04f71d2d76ddd14ed64f3ff788d2afd242fd0c927e46e20c313e89a",
       "member_checksums": {
@@ -6863,13 +7011,13 @@
       "demos": [
         "B4XPageStack.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyStat": {
       "source-class": "B4XDaisyStat",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "922084d23191d5757a6b1f385b2d01daf877f14aed1b0f845ffd6cd46fe81bef",
+      "checksum": "93a017ec3373a54160a28bb31fe883e59bf81971d41e3bea89202c72ef0af9b4",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "d8e2501b5bde6ed0ba9a57b4dae81d59fa449448fceed2f7e9fa83b3da86ce76",
@@ -6880,8 +7028,14 @@
         "Public Sub UpdateTheme": "7d4f9e58ce817fd55b5952855ed079424541df2dfd6c6e3be5fad4b52877f22e",
         "Public Sub Refresh": "d2376e728ce7bd5840061b3e8a4be16466e7fab7f74e4c7bb7c0834f1cf6645a",
         "Public Sub AddItem": "bb514fd9a030e1f893c380f6ccdd5818889cfe4dec513d36174127336ed533ce",
+        "Public Sub AddItem1": "3f435ff3d22b7867517e46326089f3e355c46b8ea28dc973c4b346ab385485ef",
+        "Public Sub AddItem2": "c86097df9bb0be9b15fc3344a649e2731b4a7acfe3e8d6b458be73623fdef5d1",
         "Public Sub StartAnimation": "73774e1e1c6fb58560bd3df24f7c2fbc6fd3e57e3b05f2ade6049d14abd04154",
         "Public Sub AddToParent": "3bbb65d7b80d5379f4d6ddae09650365a1a1110ae83eeb8ef23019d61e95386f",
+        "Public Sub getEqualWidths As Boolean": "8b526429b10acf5abe0f5e297f01ed285740b0c5dc12f5d86e7986be2293be2c",
+        "Public Sub setEqualWidths": "5750c37ae42ea43309132479f4ac14ca9492d0617cdabd2542e753f5f236b9d4",
+        "Public Sub getMaxWidth As Int": "0809f355b8ff79fb35ecfc8719ec00f8821e16a70bd05ca604d12e3ec60eaf60",
+        "Public Sub setMaxWidth": "5773476c167f4d6cdca6a97ac2f0ec577810d1a382706dc2279f0cd3e0167c6c",
         "Public Sub setOrientation": "c74f47ad406f0d5e65bb87574ad037c36198b6bf5e0900c873561a6fd7bd33eb",
         "Public Sub getOrientation As String": "ae3c8b9aab0e33b144be613e143d93242cccfda7ef69e7ccfb87979304f53a32",
         "Public Sub setShadow": "cee1bcfde211dfe80ddec0a48fea8913dac34c74a94fd44b024ea1c903fa5f8a",
@@ -6920,13 +7074,13 @@
         "B4XPageDrawerRail.bas",
         "B4XPageStat.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyStatItem": {
       "source-class": "B4XDaisyStatItem",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "e6293f6fc026575a3cb89f64db2657e4b486b129c0f79953afe865cf421edbd7",
+      "checksum": "4d17de56e8d710c525767351c990a8f6313840da89e641906727f7f4d8e6977a",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "02d0e6143ef50b9abaa5c0917f17e46bdfab1c5881a1982583168bf61f042a6a",
@@ -7023,13 +7177,13 @@
         "B4XPageDrawerRail.bas",
         "B4XPageStat.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyStatus": {
       "source-class": "B4XDaisyStatus",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "4d19963d57a693a084de0d9a7ab80e44a6849e5eee11ec060cda3e0fbf1020ab",
+      "checksum": "64f441f200a9f4ac1525d30e95eb088d7032c824627556a2f9eed7a884474de4",
       "member_checksums": {
         "#DesignerProperty": "e7f8779b070c5ba103e53c9efc83d708ba60170685b2cf266dfa05d0d277d96b",
         "Public Sub Initialize": "1eeaa14d5c4542ac373f425f8ab0d90f390efaa8ed30d8203e74e5ed0ccfeb2a",
@@ -7070,7 +7224,14 @@
         "Public Sub GetComputedHeight As Int": "c5aabd8923712bb5fd06745328f2ffc0235426de80f12ec9a2985322aa4b0ccb",
         "Public Sub setClickable": "fc43c23970437d668ac07d2bc6229fb7450e40ea2789cc5896122078c73788d7",
         "Public Sub getClickable As Boolean": "0dec496e4e23ffebb279ba00c80508a6d9ca039594e55423fcd5d24acb84931c",
-        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf"
+        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -7079,11 +7240,11 @@
       "demos": [
         "B4XPageStatus.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySteps": {
       "source-class": "B4XDaisySteps",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "9d6d95c577a431d07148a335c32e100689ebe28af35bf58dfe6b8e016aeeadc1",
       "member_checksums": {
@@ -7147,13 +7308,13 @@
       "demos": [
         "B4XPageSteps.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySvgIcon": {
       "source-class": "B4XDaisySvgIcon",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "d400b949048fcb8ba0d78b6139234e90189e0aecefaade17b5a56c676d21c149",
+      "checksum": "65a53eec5b5e13a071f4db6ccee0e18c21dd317534ce59a5cc7e6c5506087005",
       "member_checksums": {
         "#Event": "4af0c25f8de8e8b4cebd74eaff1503b23965b8aef3e46a56b8801a0f7a0f0024",
         "#DesignerProperty": "9f275c23ee0607c066493de7c8fa999faa524dd8a06cc34a9c74ee1020e62ec9",
@@ -7207,7 +7368,16 @@
         "Public Sub GetComputedHeight As Int": "c5aabd8923712bb5fd06745328f2ffc0235426de80f12ec9a2985322aa4b0ccb",
         "Public Sub setClickable": "fc43c23970437d668ac07d2bc6229fb7450e40ea2789cc5896122078c73788d7",
         "Public Sub getClickable As Boolean": "0dec496e4e23ffebb279ba00c80508a6d9ca039594e55423fcd5d24acb84931c",
-        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf"
+        "Public Sub RemoveViewFromParent": "a87320b341ad7fb028fd5db21e775f550facf35787a1aefb09881fa831dd1ecf",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
+        "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -7219,11 +7389,11 @@
         "B4XPageNavbar.bas",
         "B4XPageSvgIcon.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySwap": {
       "source-class": "B4XDaisySwap",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ad25e9b70280787fdfd180d5de1efc825c5c361e1c489a0ea22f17a1f0c1e278",
       "member_checksums": {
@@ -7299,13 +7469,13 @@
       "demos": [
         "B4XPageSwap.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySweetAlert": {
       "source-class": "B4XDaisySweetAlert",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "7d66c28fcc5204a20bfe5a470fb9d22ba3c6483e58da9ad7345dc7de46f726fc",
+      "checksum": "006a040805f8ba0c8e33af980f86bc3271ba33403b18f42a7a3dd27707a854c4",
       "member_checksums": {
         "#Event": "c4ed1a3f77fe997d53a2bb24d5688a6a0e07055f39446ab7d93e5c190a081a52",
         "#DesignerProperty": "d7ea9693219126c2da43a0f9548f259f9bd0d3e2e9313045c0016027d7ff02b8",
@@ -7347,6 +7517,9 @@
         "Public Sub getInputRequired As Boolean": "6e824ad499265d8b321a04049e3b4928de512cf42f2b36e5e944be1102fce5de",
         "Public Sub setInputOptions": "be6b5a2d49a4fb829cb1b09589e5edf97278aa1133838d63b77f380fa057839e",
         "Public Sub setInputValidator": "fe8624bbd10d4f2da39f91315bcfaef193237ae2d77ff830e0f4cebca7c40b0f",
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub getView As B4XView": "f45b97d4fa380628c39ad8d123f590ba4ff8a6454debc277527322d7257d7da1",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
         "Public Sub setParent": "bd50f8e2e2814731b7384282b4dba8f25ebbbcf7bab75222585557d105372542",
         "Public Sub getParent As B4XView": "d72e9b2f8c3ce5d5bee9fae9e90b4c714f8d0b77b5b33ed7eeaa6031cef2940b",
         "Public Sub setTitle": "d4f303c9188698bddb0ceaa13fdb3002c29304582cac857f794264e4376a27a9",
@@ -7401,7 +7574,8 @@
         "Public Sub getTimerMs As Int": "d593d7757dad9b4b1f975e74cccb85f46326043926911ffd08d18c445bdd1685",
         "Public Sub setRounded": "6e496c33dfcbae68d72cd716be1b0377ecc810dbd2d4ad48e443e631cc1c7307",
         "Public Sub getRounded As String": "6d5df423cff096111d94d51cc2d88894224012a18c804fd8eee0e79d70ec4576",
-        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub Base_Resize": "521c648daffbd557f51a3425866f12eab716c471be81f24e65b5adff462c2fe0",
+        "Public Sub IME_HeightChanged": "7c38f156b843af5fe169f32ccd2e263dc548c402d426a5b7b07a0e196fb60b12",
         "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
         "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
         "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
@@ -7411,8 +7585,7 @@
         "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
         "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a",
         "Public Sub setVisible": "6d6a1bef28bf12ef180036694862c57873e3cd4c6b3030413731b94610170fa3",
-        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub getVisible As Boolean": "7ee1f80401e5dd5f72bb76cead4ad666977adfac8588afa3f3cbdd96ae4c638e"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -7422,11 +7595,11 @@
         "B4XPageSweetAlert.bas",
         "B4XPageSweetAlertInputs.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisySweetAlertIcon": {
       "source-class": "B4XDaisySweetAlertIcon",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "4c99a835427b21d5f9afd5a2f086555c13fbc132e1a05998e3e5210a27ff7e2c",
       "member_checksums": {
@@ -7464,11 +7637,11 @@
       "event-verification-status": "confirmed",
       "styling-verification-status": "confirmed",
       "demos": [],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyTab": {
       "source-class": "B4XDaisyTab",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "a3c19e330300fd5d2e3d761b45f92d239444699158cef185104d4618c2839d13",
       "member_checksums": {
@@ -7537,13 +7710,13 @@
       "demos": [
         "B4XPageTab.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyTagSphere": {
       "source-class": "B4XDaisyTagSphere",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
-      "checksum": "65bb45398d6716c728feb9da6f8ec6679e36fe21d2346ecada0504bc8a4ce6e3",
+      "checksum": "547d419e35c4ed5194a0fe58a128bb4c7ad0fdbc3fa464d552ec04c5e3924b27",
       "member_checksums": {
         "#Event": "f532d76d4ad1b9f064ccf9b2c8c1e5851ff7acf93f6684a869f8247d5fd12b3e",
         "#DesignerProperty": "0d8456ce14373b4d0fce6b98f53f5ac2ab669dcf6237ce7772649e4173d08eda",
@@ -7592,7 +7765,18 @@
         "Public Sub clearTags": "8535c87bc1b1accc0f85f15d931e603be5a8ec5a863e0d69c9150269c73963ff",
         "Public Sub Base_Resize": "521c648daffbd557f51a3425866f12eab716c471be81f24e65b5adff462c2fe0",
         "Public Sub Redraw": "37e94224897de2686ac300db745ff593a7177003950ca00527745e5718f8c152",
-        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d"
+        "Public Sub View As B4XView": "7be5d04118b589983ae2d9eaf0f185ce8e4e3f8622451f14630b4b417967f55d",
+        "Public Sub SetLayoutAnimated": "898e332bf231aa29b2583e4ed6731d08cf072029692011eb993fd0d4a260f775",
+        "Public Sub setLeft": "a7f2b7c1faff4248267735e51555e8cf0cf61a7132c69337ab648dc4afb912cd",
+        "Public Sub getLeft As Int": "2f8da37d8ddf37c1c2b475e9f3cc59f3c0a9ac4837e0576b7b4adc6344f080c4",
+        "Public Sub setTop": "edd8756b712c16f5938eed065745a66fecb77d7ec93e1901f40afba289680585",
+        "Public Sub getTop As Int": "48bb611314b75e2f530495430fa004ba7a5b285f87c0aa6e24282d090773cba5",
+        "Public Sub setWidth": "23c7524c8bf9f031e3e61320875d8db5126ad70926ff568cd4f29c1af5aabcf3",
+        "Public Sub getWidth As Int": "3d698adcda355f3f8009fb7cfa9edbeab7e1dbf5d10e118eb8a4c26e6c7f437b",
+        "Public Sub setHeight": "73c5ae4d528aa09fa4eddccd1e600ca78574d124e08459d4c0f1dc7ebdb4d8b7",
+        "Public Sub getHeight As Int": "8afe5c39ffa17f9499b4f68c77ab4b220a96aacab11c2ea020c97508e9f44421",
+        "Public Sub BringToFront": "92747712c4c1c6459bb240dcb3f39fcb1a79f10ef1044f9e0316437a255d6492",
+        "Public Sub SendToBack": "debd923b7823c8e5b42a15c4ff52c80a4f390c64c95c99885e66fa085593284a"
       },
       "api-verification-status": "confirmed",
       "property-verification-status": "confirmed",
@@ -7601,11 +7785,11 @@
       "demos": [
         "B4XPageTagSphere.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyText": {
       "source-class": "B4XDaisyText",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "505c18ae2ba8e2d0086a5f2297ed1b45a6236231a50a7cf3cf481f0ed7ee4d2c",
       "member_checksums": {
@@ -7784,11 +7968,11 @@
         "B4XPageTooltip.bas",
         "B4XPageWindow.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyTextRotate": {
       "source-class": "B4XDaisyTextRotate",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "5bc45aac00441a184d56fd12b10dda46db2502c472490feaf53faec97bd294df",
       "member_checksums": {
@@ -7835,11 +8019,11 @@
       "demos": [
         "B4XPageTextRotate.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyTimeline": {
       "source-class": "B4XDaisyTimeline",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "d038a6744c0d04bfc52f629e1b1342886abee0e6e86a1871c1f8ed41a33a0414",
       "member_checksums": {
@@ -7908,11 +8092,11 @@
       "demos": [
         "B4XPageTimeline.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyToast": {
       "source-class": "B4XDaisyToast",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ed5c9fc8158499662051f1107afcd15a98919d277fce8347b2fb8a3ac3f9d913",
       "member_checksums": {
@@ -7971,11 +8155,11 @@
         "B4XPageTagSphere.bas",
         "B4XPageToast.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyToggle": {
       "source-class": "B4XDaisyToggle",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "d645fbc495a27051a506b480590ceec117805abbd70c0a369dff3522cc2169ed",
       "member_checksums": {
@@ -8065,11 +8249,11 @@
         "B4XPageTagSphere.bas",
         "B4XPageToggle.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyToggleGroup": {
       "source-class": "B4XDaisyToggleGroup",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "bc6b4669b010027554e6e4e12cdfdab1d8b31949a6a555588fe6a86463ad9cb3",
       "member_checksums": {
@@ -8180,11 +8364,11 @@
       "demos": [
         "B4XPageToggleGroup.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyTooltip": {
       "source-class": "B4XDaisyTooltip",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "b7f959bfe70557dae69c82105b8113ae5de4698332ce285b70e086691f2136ac",
       "member_checksums": {
@@ -8246,11 +8430,11 @@
       "demos": [
         "B4XPageTooltip.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyVariants": {
       "source-class": "B4XDaisyVariants",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "ccabe45de3b8bbfb756330c811be3165144ef4ed5d0113b7f4967523a0d1d32a",
       "member_checksums": {
@@ -8450,11 +8634,11 @@
         "B4XPageTagSphere.bas",
         "B4XPageWindow.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     },
     "B4XDaisyWindow": {
       "source-class": "B4XDaisyWindow",
-      "source-commit": "8a083cc5",
+      "source-commit": "bb4b3b18",
       "library-version": "0.96",
       "checksum": "81f4db81377914ea2c7e4f2faf8956ee8ab48e2398f6897960b69bbfefcfe303",
       "member_checksums": {
@@ -8523,7 +8707,7 @@
       "demos": [
         "B4XPageWindow.bas"
       ],
-      "last-verification-timestamp": "2026-09-10 23:25 UTC"
+      "last-verification-timestamp": "2026-09-16 08:16 UTC"
     }
   }
 }

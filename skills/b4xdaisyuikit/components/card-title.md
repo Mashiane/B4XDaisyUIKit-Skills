@@ -5,13 +5,18 @@ DaisyUI `CardTitle` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCardTitle`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyCardTitle.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCardTitle.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCardTitle.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.card-title` → `B4XDaisyCardTitle`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyCardTitle
+' Direct composition: Card title container
+Dim cardTitle As B4XDaisyCardTitle
+cardTitle.Initialize(Me, "cardTitle")
+cardTitle.AddToParent(pnlHost, 0, 0, maxW, 40dip)
+cardTitle.Text = "Card Title"
+cardTitle.Size = "md"
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -77,6 +82,16 @@ DaisyUI `CardTitle` component for B4X (B4A Android).
 - `setAutoResize(Value As Boolean)`
 - `getAutoResize As Boolean`
 - `View As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

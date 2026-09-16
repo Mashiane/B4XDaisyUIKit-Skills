@@ -5,7 +5,7 @@ DaisyUI `Countdown` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCountdown`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyCountdown.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCountdown.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCountdown.bas)
 - **Verified Demo Source**: B4XPageCountdown.bas
 - **Web DaisyUI Mapping**: `.countdown` → `B4XDaisyCountdown`
 
@@ -23,28 +23,19 @@ DaisyUI `Countdown` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub AddAutoCountdown(Title As String, Y As Int, Width As Int, Height As Int, Format As String, Labels As String, Gap As String, Padding As String, TextSize As String, LabelPos As String, Variant As String, Outline As Boolean) As Int
-    Y = AddSectionTitle(Title, Y, Width)
-    Dim cnt As B4XDaisyCountdown
-    cnt.Initialize(Me, "")
-    cnt.CountDownType = "auto"
-    cnt.Format = Format
-    cnt.Gap = Gap
-    cnt.AutoWidth = True
-    cnt.Padding = Padding
-    cnt.TextSize = TextSize
-    cnt.Variant = Variant
-    cnt.Outline = Outline
-    cnt.setTargetDate("2026-12-31")
-    cnt.AutoStart = True
-    If Labels <> "" Then cnt.Labels = Labels
-    If LabelPos = "right" Or LabelPos = "bottom" Or LabelPos = "none" Then cnt.LabelPosition = LabelPos
-    cnt.AddToParent(pnlHost, PAGE_PAD, Y, Width, Height)
-    mCountdowns.Add(cnt)
-    mCountdownTitles.Add(Title)
-    Return Y + Height + 25dip
-End Sub
+' Animated flip/counter countdown timer:
+Dim cnt As B4XDaisyCountdown
+cnt.Initialize(Me, "cnt")
+cnt.CountDownType = "auto"
+cnt.Format = "dhms"
+cnt.Variant = "primary"
+cnt.setTargetDate("2026-12-31")
+cnt.AutoStart = True
+cnt.AddToParent(pnlHost, 16dip, y, maxW, 80dip)
+
+y = y + 80dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -158,21 +149,3 @@ End Sub
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyCountdown` is a ticking countdown timer.
-
-```vb
-Dim cd As B4XDaisyCountdown
-cd.Initialize(Me, "cd")
-cd.Format = "dd:hh:mm:ss"                      ' "dd:hh:mm:ss" | "hh:mm:ss" | "mm:ss"
-cd.LabelPosition = "bottom"                    ' "bottom" | "right" | "none"
-cd.Variant = "primary"
-cd.AddToParent(pnlHost, x, y, maxW, 60dip)
-
-' Lifecycle management:
-' In B4XPage_Appear: cd.Start
-' In B4XPage_Disappear: cd.Stop
-
-y = y + 60dip + gap
-```

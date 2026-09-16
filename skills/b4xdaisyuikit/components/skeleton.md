@@ -8,8 +8,8 @@ In B4XDaisyUIKit, skeleton screens are composed natively using `B4XDaisyDivision
 ## 1. Overview
 - **Class**: `B4XDaisyDivision` / `B4XDaisyLoading`
 - **Status**: `Demonstrated`
-- **Library Source**: `B4XDaisyDivision.bas`
-- **Reference Page**: `B4XPageSkeleton.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDivision.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDivision.bas)
+- **Verified Demo Source**: B4XPageDivider.bas, B4XPageIndicator.bas, B4XPageSkeleton.bas, B4XPageStack.bas
 - **Web DaisyUI Mapping**: `.skeleton` → `B4XDaisyDivision (Skeleton Placeholder)`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -102,8 +102,27 @@ y = y + 180dip + gap
 - When live data arrives, either toggle `IsSkeleton = False` or replace the skeleton panel views with real content panels.
 
 ## 4. Designer Properties
-
-This is a mode component, so it has no designer-only properties of its own. Configure the companion `B4XDaisyDivision`, `B4XDaisyText`, or `B4XDaisyLoading` instance at runtime.
+| Key | Display Name | Type | Default | Allowed Values |
+| :--- | :--- | :--- | :--- | :--- |
+| `Width` | Width | `String` | w-10 |  |
+| `Height` | Height | `String` | h-10 |  |
+| `Padding` | Padding | `String` |  |  |
+| `Margin` | Margin | `String` |  |  |
+| `BackgroundColor` | Background Color | `Color` | 0x00FFFFFF |  |
+| `TextColor` | Text Color | `Color` | 0xFF000000 |  |
+| `TextSize` | Text Size | `String` | text-sm |  |
+| `Text` | Text | `String` |  |  |
+| `Rounded` | Rounded | `String` | none | none|rounded-none|rounded-sm|rounded|rounded-md|rounded-lg|rounded-xl|rounded-2xl|rounded-3xl|rounded-full|rounded-box|rounded-field|rounded-selector |
+| `Shadow` | Shadow | `String` | none | none|xs|sm|md|lg|xl|2xl |
+| `PlaceContentCenter` | Place Content Center | `Boolean` | False |  |
+| `BorderWidth` | Border Width | `Int` | 0 |  |
+| `BorderColor` | Border Color | `Color` | 0xFF000000 |  |
+| `BorderStyle` | Border Style | `String` | solid | none|hidden|solid|double|dashed|dotted|groove|ridge|inset|outset |
+| `BorderReliefStrength` | Relief Strength | `Int` | 55 |  |
+| `AutoReliefByStyle` | Auto Relief By Style | `Boolean` | True |  |
+| `IsSkeleton` | Is Skeleton | `Boolean` | False |  |
+| `Variant` | Variant | `String` | none | none|neutral|primary|secondary|accent|info|success|warning|error |
+| `AutoResize` | Auto Resize | `Boolean` | False |  |
 
 ## 5. Alternative: Animated Loading Spinners
 For dynamic loading animations alongside skeleton layouts, see [loading.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/loading.md) (`B4XDaisyLoading`).

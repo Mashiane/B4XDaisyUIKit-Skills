@@ -5,7 +5,7 @@ DaisyUI `Fieldset` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFieldset`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyFieldset.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFieldset.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFieldset.bas)
 - **Verified Demo Source**: B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageFieldset.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas
 - **Web DaisyUI Mapping**: `.fieldset` → `B4XDaisyFieldset`
 
@@ -26,37 +26,23 @@ DaisyUI `Fieldset` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub AddLabelAboveFieldset
-    Dim fs As B4XDaisyFieldset
-    fs.Initialize(Me, "fs_labelabove")
+' Bordered form section with floating title legend:
+Dim fs As B4XDaisyFieldset
+fs.Initialize(Me, "fs")
+fs.AddToParent(pnlHost, 16dip, y, maxW, 1dip)
+fs.setAutoHeight(True)
+fs.setLegend("Account Details")
 
-    Dim boxW As Int = Min(Root.Width - 24dip, 320dip)
-    Dim left As Int = 12dip
-    Dim h As Int = 1dip
-    If boxW < Root.Width - 24dip Then left = (Root.Width - boxW) / 2
+' Add input view inside fieldset content:
+Dim inpUser As B4XDaisyInput
+inpUser.Initialize(Me, "inpUser")
+inpUser.AddToParent(fs.Content, 0, 0, maxW - 32dip, 44dip)
+inpUser.Placeholder = "Enter username"
 
-    Dim v As B4XView = fs.AddToParent(pnlContent, left, currentY, boxW, h)
-    fs.setAutoHeight(True)
-    fs.setLabelAbove(True)
-    fs.setLegend("Label Above Fieldset (Visual Consistency)")
-    ApplyDemoFieldsetStyle(fs)
-
-    Dim inputView As B4XView = CreateNativeInput("Some input text")
-    fs.AddContentView(inputView, 0, 0, boxW - (fs.getPadding * 2dip), 42dip)
-
-    fs.Refresh
-    currentY = currentY + v.Height + gap
-
-    Dim fsRequired As B4XDaisyFieldset
-    fsRequired.Initialize(Me, "fs_labelabove_required")
-
-    Dim v2 As B4XView = fsRequired.AddToParent(pnlContent, left, currentY, boxW, h)
-    fsRequired.setAutoHeight(True)
-    fsRequired.setLabelAbove(True)
-    fsRequired.setRequired(True)
-    fsRequired.setLegend("Required Label Above Fieldset")
-    ApplyDemoFieldsetStyle(fsRequired)
+fs.Refresh
+y = y + fs.GetActualHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -165,25 +151,3 @@ Private Sub AddLabelAboveFieldset
 ## 7. Public Fields
 (none declared in packaged source)
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyFieldset` groups related form inputs with a legend title and border.
-
-```vb
-Dim fs As B4XDaisyFieldset
-fs.Initialize(Me, "fs")
-fs.Legend = "Personal Information"
-fs.Border = True
-fs.AddToParent(pnlHost, pad, y, maxW, 1dip)
-
-' Mount form inputs inside GetContentPanel:
-Dim pnlFs As B4XView = fs.GetContentPanel
-Dim inpName As B4XDaisyInput
-inpName.Initialize(Me, "inpName")
-inpName.LabelAbove = "Full Name"
-inpName.AddToParent(pnlFs, 12dip, 12dip, pnlFs.Width - 24dip, 48dip)
-
-' Adjust height to wrap children:
-fs.FitContentHeight
-y = y + fs.GetComputedHeight + gap
-```

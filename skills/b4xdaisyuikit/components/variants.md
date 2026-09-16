@@ -5,31 +5,26 @@ DaisyUI `Variants` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyVariants`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyVariants.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyVariants.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyVariants.bas)
 - **Verified Demo Source**: B4XPageAura.bas, B4XPageAvatar.bas, B4XPageBadge.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageChat.bas, B4XPageColorWheel.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageFieldset.bas, B4XPageHover3d.bas, B4XPageIndicator.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageNavbar.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageSelect.bas, B4XPageSignaturePad.bas, B4XPageStack.bas, B4XPageSteps.bas, B4XPageSvgIcon.bas, B4XPageSweetAlertInputs.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.variants` → `B4XDaisyVariants`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Private Sub B4XPage_Created (Root1 As B4XView)
-    Root = Root1
-    Root.Color = B4XDaisyVariants.GetTokenColor("--color-base-200", xui.Color_RGB(245, 247, 250))
+' 1. Resolve semantic DaisyUI theme colors dynamically
+Dim cPrimary As Int = B4XDaisyVariants.GetTokenColor("--color-primary", xui.Color_Blue)
+Dim cBase200 As Int = B4XDaisyVariants.GetTokenColor("--color-base-200", xui.Color_RGB(245, 247, 250))
+Dim cMutedText As Int = B4XDaisyVariants.GetTokenColor("--color-base-content", xui.Color_Black)
 
-    ' Initialize PageScroll Host
-    pageScroll.Initialize(Me, "pageScroll")
-    pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-    pnlHost = pageScroll.Panel
+' 2. Resolve border colors and alpha transparency
+Dim cBorder As Int = B4XDaisyVariants.ResolveBorderColorVariant("base-content/10", xui.Color_LightGray)
+Dim cFaint As Int = B4XDaisyVariants.SetAlpha(cPrimary, 30)
 
-    ' Pre-initialize the overlay loader
-    overlaySpinner.Initialize(Me, "overlaySpinner")
-    overlaySpinner.setOverlayColor(xui.Color_Black)
-    overlaySpinner.setOverlayOpacity(0.5)
-    overlaySpinner.setColor1(xui.Color_Yellow)
-    overlaySpinner.setColor2(xui.Color_Red)
-    overlaySpinner.setColor3(xui.Color_Cyan)
+' 3. Resolve standardized box corner radiuses
+Dim iRadius As Int = B4XDaisyVariants.GetRadiusBoxDip(8dip)
 
-    RenderExamples(Root.Width, Root.Height)
-End Sub
+' 4. Switch application theme dynamically at runtime
+B4XDaisyVariants.SetTheme("dark")
 ```
 
 ## 3. Native Composition Rules & Gotchas

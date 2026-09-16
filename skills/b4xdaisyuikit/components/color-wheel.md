@@ -5,42 +5,27 @@ DaisyUI `ColorWheel` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyColorWheel`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyColorWheel.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyColorWheel.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyColorWheel.bas)
 - **Verified Demo Source**: B4XPageColorWheel.bas
 - **Web DaisyUI Mapping**: `.color-wheel` → `B4XDaisyColorWheel`
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-y = pageScroll.AddSectionTitle("1. Medium-Thin Donut (16dip thickness)", y, False)
-    
-	cwBasic.Initialize(Me, "cwBasic")
-	cwBasic.AddToParent(pnlHost, padding, y, 180dip, 212dip)
-	cwBasic.setWheelThickness(16dip)
-	cwBasic.setHandleSize(16dip)
-    
-	y = y + 220dip + gap
 
-	' -------------------------------------------------------------
-	' Example 2: Large Scaled Wheel (Thick Donut with Saturation Reflection)
-	' -------------------------------------------------------------
-	y = pageScroll.AddSectionTitle("2. Large Thick Donut (Reflects Saturation)", y, False)
-    
-	cwLarge.Initialize(Me, "cwLarge")
-	cwLarge.AddToParent(pnlHost, padding, y, 240dip, 272dip)
-	cwLarge.setColor(B4XDaisyVariants.GetTokenColor("--color-success", xui.Color_RGB(34, 197, 94)))
-	cwLarge.setWheelThickness(32dip)
-	cwLarge.setHandleDiameter(32dip)
-	cwLarge.setWheelReflectsSaturation(True)
-    
-	y = y + 280dip + gap
- 
-	' -------------------------------------------------------------
-	' Example 3: Programmatic API Control (Very Thick Donut)
-	' -------------------------------------------------------------
-	y = pageScroll.AddSectionTitle("3. Programmatic Control (Hex & HSL)", y, False)
-    
-	cwProgrammatic.Initialize(Me, "cwProgrammatic")
-	cwProgrammatic.AddToParent(pnlHost, padding, y, 180dip, 212dip)
+```b4x
+' Circular HSV color selection wheel:
+Dim cw As B4XDaisyColorWheel
+cw.Initialize(Me, "cw")
+cw.AddToParent(pnlHost, 16dip, y, 200dip, 230dip)
+cw.setWheelThickness(20dip)
+cw.setHandleSize(20dip)
+cw.setColor(xui.Color_RGB(59, 130, 246))
+
+y = y + 230dip + 16dip
+
+' Color changed event:
+Private Sub cw_ColorChanged(Color As Int)
+	If B4XDaisyApp.DebugLogs Then Log("Selected color: " & Color)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -128,19 +113,3 @@ y = pageScroll.AddSectionTitle("1. Medium-Thin Donut (16dip thickness)", y, Fals
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyColorWheel` provides a color picker hue wheel.
-
-```vb
-Dim wheel As B4XDaisyColorWheel
-wheel.Initialize(Me, "wheel")
-wheel.AddToParent(pnlHost, pad, y, maxW, 200dip)
-
-' Color change event:
-Private Sub wheel_ColorChange(Color As Int)
-    If B4XDaisyApp.DebugLogs Then Log("Selected color: " & Color)
-End Sub
-
-y = y + 200dip + gap
-```

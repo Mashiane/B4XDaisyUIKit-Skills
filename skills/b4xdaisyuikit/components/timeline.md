@@ -5,7 +5,7 @@ DaisyUI `Timeline` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyTimeline`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyTimeline.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTimeline.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTimeline.bas)
 - **Verified Demo Source**: B4XPageTimeline.bas
 - **Web DaisyUI Mapping**: `.timeline` → `B4XDaisyTimeline`
 
@@ -26,36 +26,21 @@ DaisyUI `Timeline` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' - 1. Default Timeline (Vertical) -
-    y = AddSectionTitle("1. Default Timeline", y, maxW)
-    Dim tl1 As B4XDaisyTimeline
-    tl1.Initialize(Me, "tl")
-    tl1.Orientation = "vertical"
-    tl1.AddToParent(pnlHost, PAGE_PAD, y, maxW, 300dip)
-    tl1.AddItemBox("tl1_1", "1984", "First Macintosh computer", False, True)
-    tl1.AddItemBox("tl1_2", "1998", "iMac", False, True)
-    tl1.AddItemBox("tl1_3", "2001", "iPod", False, True)
-    tl1.AddItemBox("tl1_4", "2007", "iPhone", False, True)
-    tl1.AddItemBox("tl1_5", "2015", "Apple Watch", False, True)
-    tl1.SetItemDone("tl1_4", False)   
-    tl1.SetItemDone("tl1_5", False)  
-    y = y + 320dip
+' Chronological milestone timeline:
+Dim tl As B4XDaisyTimeline
+tl.Initialize(Me, "tl")
+tl.Orientation = "vertical"
+tl.AddToParent(pnlHost, 16dip, y, maxW, 260dip)
 
-    ' - 2. Timeline with icons -
-    y = AddSectionTitle("2. Timeline with icons", y, maxW)
-    Dim tl2 As B4XDaisyTimeline
-    tl2.Initialize(Me, "tl")
-    tl2.Orientation = "vertical"
-    tl2.AddToParent(pnlHost, PAGE_PAD, y, maxW, 300dip)
-    tl2.AddItemBox("tl2_1", "1984", "First Macintosh computer", False, True)
-    tl2.AddItemBox("tl2_2", "1998", "iMac", False, True)
-    tl2.AddItemBox("tl2_3", "2001", "iPod", False, True)
-    tl2.AddItemBox("tl2_4", "2007", "iPhone", False, True)
-    tl2.AddItemBox("tl2_5", "2015", "Apple Watch", False, True)
-    y = y + 320dip
+' Add milestone boxes (key, title, subtitle, done, showBox):
+tl.AddItemBox("step1", "1984", "First Macintosh computer", True, True)
+tl.AddItemBox("step2", "1998", "iMac released", True, True)
+tl.AddItemBox("step3", "2007", "iPhone launched", True, True)
+tl.AddItemBox("step4", "2024", "Vision Pro", False, True)
 
-    ' - 3. Timeline with different sides -
+y = y + 260dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -151,32 +136,3 @@ DaisyUI `Timeline` component for B4X (B4A Android).
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyTimeline` renders chronological step sequences and milestone events.
-
-```vb
-Dim tl As B4XDaisyTimeline
-tl.Initialize(Me, "tl")
-tl.Orientation = "vertical"                    ' Set BEFORE AddToParent ("vertical" | "horizontal")
-tl.Compact = False                             ' False = centered track with left/right text
-tl.AddToParent(pnlHost, pad, y, maxW, 180dip)
-
-' Add sequential milestone items:
-tl.AddItem("step1", "09:30", "SKU-89214: Variance -3 units")
-tl.AddItem("step2", "11:15", "SKU-44102: Variance +2 units")
-tl.AddItem("step3", "14:00", "Batch Audit Completed")
-
-' Mark status:
-tl.SetItemDone("step1", True)
-tl.SetItemDone("step2", True)
-tl.Refresh
-
-' Auto-resize frame to measured content height:
-Dim contentH As Int = tl.GetContentHeight
-If contentH > 0 Then
-    tl.SetLayoutAnimated(0, pad, y, maxW, contentH)
-    tl.Refresh
-End If
-y = y + tl.GetContentHeight + gap
-```

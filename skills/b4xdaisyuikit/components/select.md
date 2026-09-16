@@ -5,7 +5,7 @@ DaisyUI `Select` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySelect`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySelect.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySelect.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySelect.bas)
 - **Verified Demo Source**: B4XPageEnjoyHint.bas, B4XPageFieldset.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageSelect.bas
 - **Web DaisyUI Mapping**: `.select` → `B4XDaisySelect`
 

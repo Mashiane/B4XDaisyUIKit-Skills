@@ -5,42 +5,30 @@ DaisyUI `AvatarGroup` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyAvatarGroup`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyAvatarGroup.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAvatarGroup.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAvatarGroup.bas)
 - **Verified Demo Source**: B4XPageAvatar.bas
 - **Web DaisyUI Mapping**: `.avatar-group` → `B4XDaisyAvatarGroup`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-pnlHost.AddView(cardG1, 0, 0, 10dip, 10dip)
+' Overlapping avatar group container:
+Dim avGroup As B4XDaisyAvatarGroup
+avGroup.Initialize(Me, "avGroup")
+avGroup.AddToParent(pnlHost, 16dip, y, 160dip, 48dip)
+avGroup.setLimitTo(4)
 
-	Dim groupG1 As B4XDaisyAvatarGroup
-	groupG1.Initialize(Me, "avatar_group1")
-	Dim groupViewG1 As B4XView = groupG1.AddToParent(cardG1, 0, 0, 120dip, 120dip)
-	
-	For Each img As String In Array As String("face11.jpg", "face12.jpg", "face14.jpg", "face16.jpg")
-		Dim av As B4XDaisyAvatar
-		av.Initialize(Me, "grp_av")
-		av.CreateView(48dip, 48dip)
-		av.SetImage(img)
-		av.SetAvatarMask("rounded-full")
-		groupG1.AddAvatar(av)
-	Next
+' Add individual avatars to the group:
+For Each img As String In Array As String("face11.jpg", "face12.jpg", "face14.jpg", "face16.jpg")
+	Dim av As B4XDaisyAvatar
+	av.Initialize(Me, "grp_av")
+	av.CreateView(48dip, 48dip)
+	av.SetImage(img)
+	av.SetAvatarMask("rounded-full")
+	avGroup.AddAvatar(av)
+Next
 
-	groupViewG1.Tag = "avatar-group -space-x-6"
-
-	Dim lblTitleG1 As Label
-	lblTitleG1.Initialize("")
-	Dim xlblTitleG1 As B4XView = lblTitleG1
-	xlblTitleG1.Text = "Group -space-x-6 (Overlap)"
-	xlblTitleG1.TextColor = xui.Color_RGB(15, 23, 42)
-	xlblTitleG1.TextSize = 13
-	xlblTitleG1.SetTextAlignment("CENTER", "CENTER")
-	cardG1.AddView(xlblTitleG1, 0, 0, 10dip, 10dip)
-
-	Dim itemG1 As Map = CreateMap( _
-		"panel": cardG1, _
-		"avatar": groupG1, _
-		"avatar_view": groupViewG1, _
+y = y + 48dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -113,20 +101,3 @@ pnlHost.AddView(cardG1, 0, 0, 10dip, 10dip)
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyAvatarGroup` stacks overlapping avatar bubbles.
-
-```vb
-Dim avGroup As B4XDaisyAvatarGroup
-avGroup.Initialize(Me, "avGroup")
-avGroup.AddToParent(pnlHost, pad, y, maxW, 48dip)
-avGroup.AvatarSize = "size-10"
-
-avGroup.AddAvatar("face_1.jpg")
-avGroup.AddAvatar("face_2.jpg")
-avGroup.AddAvatar("face_3.jpg")
-avGroup.SetCounter(12)                         ' Shows "+12" bubble at the end
-
-y = y + 48dip + gap
-```

@@ -5,42 +5,26 @@ DaisyUI `EnjoyHint` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyEnjoyHint`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyEnjoyHint.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyEnjoyHint.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyEnjoyHint.bas)
 - **Verified Demo Source**: B4XPageEnjoyHint.bas
 - **Web DaisyUI Mapping**: `.enjoy-hint` → `B4XDaisyEnjoyHint`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' End any previous tour and remove stale overlay before re-initializing
-    Try
-        If tourRunning And enjoyHint.IsInitialized Then
-            enjoyHint.EndTour
-        End If
-    Catch
-        If B4XDaisyApp.DebugLogs Then Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
-    End Try
-    tourRunning = False
-    
-    ' Scroll to top so the first spotlight is positioned correctly
-    If pageScroll.IsInitialized Then
-        pageScroll.ScrollToTop(False)
-    End If
-    
-    Try
-        enjoyHint.Initialize(Me, "enjoyHint", Root)
-    Catch
-        If B4XDaisyApp.DebugLogs Then Log("B4XPageEnjoyHint.StartTour: " & LastException.Message)
-        Return
-    End Try
-    tourRunning = True
-    enjoyHint.BtnNextText = "Next"
-    enjoyHint.BtnSkipText = "Skip"
-    enjoyHint.BtnPrevText = "Previous"
-    enjoyHint.BtnFinishText = "Done"
-    
-    enjoyHint.AddStep(refAvatar.View, "This is your profile picture. Tap to change it.", "circle", 8dip, 0, "center")
-    enjoyHint.AddStep(refNameInput.View, "Enter your full name here.", "rect", 4dip, 0, "left")
-    enjoyHint.AddStep(refEmailInput.View, "Provide a valid email address.", "rect", 4dip, 0, "left")
+' Interactive user onboarding tour over UI elements:
+Dim enjoyHint As B4XDaisyEnjoyHint
+enjoyHint.Initialize(Me, "enjoyHint", Root)
+enjoyHint.BtnNextText = "Next"
+enjoyHint.BtnSkipText = "Skip"
+enjoyHint.BtnFinishText = "Done"
+
+' Add tour steps pointing to existing view targets:
+enjoyHint.AddStep(btnSearch.View, "Tap here to search catalog items.", "circle", 8dip, 0, "center")
+enjoyHint.AddStep(cardTotal.View, "This card displays your total balances.", "rect", 4dip, 0, "left")
+
+' Start the spotlight tour:
+enjoyHint.RunWithResume
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -76,19 +60,3 @@ DaisyUI `EnjoyHint` component for B4X (B4A Android).
 ## 7. Public Fields
 (none declared in packaged source)
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyEnjoyHint` runs step-by-step interactive onboarding spotlight tours over target views.
-
-```vb
-Dim hint As B4XDaisyEnjoyHint
-hint.Initialize(Me, "hint")
-hint.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-
-' Add steps:
-hint.AddStep(btnScan.getView, "Tap here to scan product barcodes.", "next")
-hint.AddStep(btnSave.getView, "Tap here when physical count is done.", "finish")
-
-' Start tour:
-hint.StartTour
-```

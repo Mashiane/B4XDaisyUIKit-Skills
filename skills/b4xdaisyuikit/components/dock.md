@@ -5,7 +5,7 @@ DaisyUI `Dock` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDock`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDock.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDock.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDock.bas)
 - **Verified Demo Source**: B4XPageDock.bas, B4XPageNavScrollDock.bas
 - **Web DaisyUI Mapping**: `.dock` → `B4XDaisyDock`
 
@@ -30,38 +30,26 @@ where content is a list of buttons:
 </button>
 ```
 
+## 2. Verified B4XOrigin Syntax & Recipe
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Dim cardDock As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePreviewHeightDip("md"))
-    Dim hostDock As B4XView = AddPreviewDockHost(cardDock, ResolveDockHeightDip("md"), True)
-    Dim dockBase As B4XDaisyDock
-    dockBase.Initialize(Me, "dockBase")
-    dockBase.Size = "md"
-    dockBase.ActiveIndex = 1
-    dockBase.AddToParent(hostDock, 0, 0, hostDock.Width, 0)
-    dockBase.AddItem("home", "Home", "dock-home.svg")
-    dockBase.AddItem("inbox", "Inbox", "dock-inbox.svg")
-    dockBase.AddItem("settings", "Settings", "dock-settings.svg")
-    currentY = currentY + cardDock.Height + 18dip
+' Floating bottom macOS-style navigation dock:
+Dim dock As B4XDaisyDock
+dock.Initialize(Me, "dock")
+dock.Size = "md"
+dock.ActiveIndex = 0
+dock.AddToParent(Root, 16dip, Root.Height - 70dip, Root.Width - 32dip, 60dip)
 
-    ''' <summary>
-    ''' Example 2: Dock Extra Small size
-    ''' </summary>
-    currentY = AddSectionTitle(contentLeft, currentY, maxW, "Dock Extra Small size")
-    currentY = AddDescription(contentLeft, currentY, maxW, "Extra small dock with icon-only items.")
-    Dim cardXs As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePreviewHeightDip("xs"))
-    Dim hostXs As B4XView = AddPreviewDockHost(cardXs, ResolveDockHeightDip("xs"), True)
-    Dim dockXs As B4XDaisyDock
-    dockXs.Initialize(Me, "dockXs")
-    dockXs.Size = "xs"
-    dockXs.ActiveIndex = 1
-    dockXs.AddToParent(hostXs, 0, 0, hostXs.Width, 0)
-    dockXs.AddItem("xs-home", "", "dock-home.svg")
-    dockXs.AddItem("xs-inbox", "", "dock-inbox.svg")
-    dockXs.AddItem("xs-settings", "", "dock-settings.svg")
-    currentY = currentY + cardXs.Height + 18dip
+' Add navigation items (key, text, iconPath):
+dock.AddItem("home", "Home", "dock-home.svg")
+dock.AddItem("inbox", "Inbox", "dock-inbox.svg")
+dock.AddItem("settings", "Settings", "dock-settings.svg")
 
-    ''' <summary>
+' Item selection event:
+Private Sub dock_ItemClick(Index As Int, Key As String)
+	If B4XDaisyApp.DebugLogs Then Log("Dock item tapped: " & Key)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -161,26 +149,3 @@ Dim cardDock As B4XView = AddPreviewCard(contentLeft, currentY, maxW, ResolvePre
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyDock` is a bottom navigation bar.
-
-```vb
-Dim dock As B4XDaisyDock
-dock.Initialize(Me, "dock")
-dock.Size = "md"                               ' Set BEFORE AddToParent
-dock.ActiveIndex = 0                           ' Set BEFORE AddToParent
-dock.AddToParent(Root, 0, Root.Height - 64dip, Root.Width, 64dip)
-
-' Add tab buttons:
-dock.AddItem("home", "Home", "home-solid.svg")
-dock.AddItem("scan", "Scan", "qrcode-solid.svg")
-dock.AddItem("audit", "Audit", "clipboard-solid.svg")
-dock.AddItem("settings", "Settings", "cog-solid.svg")
-
-' Tab switch event:
-Private Sub dock_ItemClick(Tag As Object)
-    Dim sTab As String = Tag
-    pgMain.ShowPageWithLoader(sTab)
-End Sub
-```

@@ -5,7 +5,7 @@ DaisyUI `Dropdown` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDropdown`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDropdown.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDropdown.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDropdown.bas)
 - **Verified Demo Source**: B4XPageDropdown.bas
 - **Web DaisyUI Mapping**: `.dropdown` → `B4XDaisyDropdown`
 
@@ -35,47 +35,40 @@ Using details and summary (only opens/closes on click)
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int
-    Y = AddSectionTitle("Notification bell", Y, Width)
-    Y = AddSectionNote("An SVG bell icon acts as the trigger. A red indicator badge shows unread count. The menu lists mixed single-line and multi-line notifications.", Y, Width)
+' --- Pattern A: Attached Dropdown (Anchored to a Button or Avatar trigger) ---
+' 1. Create trigger view
+Dim btnTrigger As B4XDaisyButton
+btnTrigger.Initialize(Me, "btnTrigger")
+btnTrigger.Text = "Options Menu"
+btnTrigger.Variant = "primary"
+Dim triggerView As B4XView = btnTrigger.AddToParent(pnlHost, 12dip, 12dip, 160dip, 40dip)
 
-    Dim iconSize As Int = 48dip
-    Dim iconPad As Int = 12dip
+' 2. Create dropdown and add menu items
+Dim dd As B4XDaisyDropdown
+dd.Initialize(Me, "dropdown")
+dd.Placement = "start"      ' start, center, end
+dd.Direction = "bottom"     ' top, bottom, left, right
+dd.MenuWidth = "w-auto"
+dd.MenuPadding = "p-2"
+dd.MenuRounded = "theme"
+dd.MenuShadow = "sm"
+dd.AddItem("profile", "Profile")
+dd.AddItem("settings", "Settings")
+dd.AddItem("logout", "Logout")
 
-    ' Container row ? needed so the indicator badge can overflow the bell without being clipped
-    Dim row As B4XView = xui.CreatePanel("")
-    row.Color = xui.Color_Transparent
-    B4XDaisyVariants.DisableClipping(row)
-    pnlHost.AddView(row, PAGE_PAD, Y, iconSize + iconPad * 2, iconSize + iconPad * 2)
-
-    ' Bell SVG icon ? the visual trigger, centered in row with padding
-    Dim bell As B4XDaisySvgIcon
-    bell.Initialize(Me, "bell")
-    Dim bellView As B4XView = bell.AddToParent(row, iconPad, iconPad, iconSize, iconSize)
-    bell.SvgAsset = "bell-solid.svg"
-    bell.ColorVariant = "base-content"
-    bell.Padding = 8dip
-
-    ' Red counter indicator overlaid top-right of the bell
-    Dim ind As B4XDaisyIndicator
-    ind.Initialize(Me, "ind")
-    ind.AddToParent(row, iconPad, iconPad, iconSize, iconSize)
-    ind.setCounter(True)
-    ind.setText("3")
-    ind.setVariant("error")
-    ind.setSize("xs")
-    ind.setHorizontalPlacement("end")
+' 3. Attach directly to trigger view (automatically handles positioning and clicks)
+dd.AttachTo(triggerView)
 ```
 
 ## 3. Native Composition Rules & Gotchas
 ### Lifecycle Sequence
 1. **Declaration:** Declare variable `Dim <var> As B4XDaisyDropdown` (in `Class_Globals` or local sub).
 2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
-3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
-4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+3. **Parent Attachment / Anchoring:** Either attach to host container (`<var>.AddToParent(pnlHost, Left, Top, Width, Height)`) or anchor directly to an interactive trigger view (`<var>.AttachTo(vTrigger)`), such as a button or avatar.
+4. **Property Configuration:** Set visual themes, sizes, variants, typography, and menu content items via `.AddItem(...)`.
 
 ### Preconditions & Gotchas
-- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+- When using `AttachTo(vTarget)`, the target view must already be added to its parent container so parent bounds can be resolved.
 
 ### Discrepancies & API Nuances
 - Public methods not demonstrated in demo pages: `getMenu, GetPreferredMenuWidth, Detach` (+ 37 more).
@@ -187,6 +180,7 @@ Private Sub ExampleNotificationBell(Y As Int, Width As Int) As Int
 - `getWidth As Int`
 - `setHeight(Value As Int)`
 - `getHeight As Int`
+- `BringToFront`
 - `SendToBack`
 
 ## 7. Public Fields

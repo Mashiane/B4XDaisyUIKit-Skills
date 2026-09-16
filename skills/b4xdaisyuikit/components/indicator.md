@@ -5,7 +5,7 @@ DaisyUI `Indicator` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyIndicator`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyIndicator.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyIndicator.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyIndicator.bas)
 - **Verified Demo Source**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
 - **Web DaisyUI Mapping**: `.indicator` → `B4XDaisyIndicator`
 
@@ -27,47 +27,38 @@ DaisyUI `Indicator` component for B4X (B4A Android).
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Private Sub RenderCountIndicatorSection(MaxW As Int, StartY As Int) As Int
-	Dim y As Int = StartY
-	Dim titleLbl As B4XView = CreateSectionLabel("Count indicator", 14, xui.Color_RGB(30, 41, 59), True)
-	pnlHost.AddView(titleLbl, PAGE_PAD, y, MaxW, 20dip)
-	y = y + 22dip
+' --- Pattern: Indicator Badge Attached to a Target View (Button, Avatar, Box) ---
+' 1. Create base target view
+Dim btn As B4XDaisyButton
+btn.Initialize(Me, "btn")
+btn.Text = "Inbox"
+btn.Variant = "primary"
+Dim btnView As B4XView = btn.AddToParent(pnlHost, 12dip, 12dip, 120dip, 40dip)
 
-	Dim row As B4XView = xui.CreatePanel("")
-	row.Color = xui.Color_Transparent
-	B4XDaisyVariants.DisableClipping(row)
-	pnlHost.AddView(row, PAGE_PAD, y, MaxW, 1dip)
+' 2. Create and configure indicator
+Dim ind As B4XDaisyIndicator
+ind.Initialize(Me, "ind")
+ind.setCounter(True)
+ind.setText("8")
+ind.setVariant("error")
+ind.setSize("sm")
+ind.setHorizontalPlacement("end")  ' start, center, end
+ind.setVerticalPlacement("top")     ' top, middle, bottom
 
-	Dim boxSize As Int = B4XDaisyVariants.TailwindSizeToDip("32", 128dip)
-	Dim boxLeft As Int = Max(0, (MaxW - boxSize) / 2)
-	Dim boxTop As Int = 22dip
-
-	Dim baseDiv As B4XDaisyDivision
-	baseDiv.Initialize(Me, "")
-	Dim baseView As B4XView = baseDiv.AddToParent(row, boxLeft, boxTop, boxSize, boxSize)
-	baseDiv.setWidth("32")
-	baseDiv.setHeight("32")
-	baseDiv.setPlaceContentCenter(True)
-	baseDiv.setRounded("rounded-box")
-	baseDiv.setText("content")
-	baseDiv.setTextSize("text-sm")
-	baseDiv.setBackgroundColorVariant("bg-neutral")
-	baseDiv.setTextColorVariant("text-neutral-content")
-
-	Dim countInd As B4XDaisyIndicator
-	countInd.Initialize(Me, "indicator")
-	countInd.setTag("count-3")
+' 3. Add to host and attach to target view (automatically handles alignment & placement)
+ind.AddToParent(pnlHost, 12dip, 12dip, 120dip, 40dip)
+ind.AttachTo(btnView)
 ```
 
 ## 3. Native Composition Rules & Gotchas
 ### Lifecycle Sequence
 1. **Declaration:** Declare variable `Dim <var> As B4XDaisyIndicator` (in `Class_Globals` or local sub).
 2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
-3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
-4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+3. **Parent Attachment & Target Anchoring:** Attach to host container with `<var>.AddToParent(...)`, then anchor to the target view with `<var>.AttachTo(vTarget)`.
+4. **Property Configuration:** Configure placement (`setHorizontalPlacement`, `setVerticalPlacement`), style (`setVariant`, `setSize`), and content (`setText`, `setCounter`).
 
 ### Preconditions & Gotchas
-- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+- When attaching to a target view, `B4XDaisyVariants.DisableClipping` is automatically applied to ensure the badge displays cleanly over container bounds.
 
 ### Discrepancies & API Nuances
 - Public methods not demonstrated in demo pages: `AddToParentAt, DetachTarget, RefreshPlacement` (+ 24 more).

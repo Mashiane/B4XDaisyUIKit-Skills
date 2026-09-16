@@ -5,7 +5,7 @@ DaisyUI `Drawer` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDrawer`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyDrawer.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDrawer.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDrawer.bas)
 - **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas
 - **Web DaisyUI Mapping**: `.drawer` → `B4XDaisyDrawer`
 
@@ -99,37 +99,28 @@ Example: This sidebar is always visible. When it's close we only see icons, when
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' 1. FULLSCREEN ROOT DRAWER (Left side only, AlwaysOpen = False by default)
-	' -
-	mainDrawer.Initialize(Me, "mainDrawer")
-	mainDrawer.AddToParent(Root, 0, 0, Width, Height)
+' Page drawer layout with side panel and center content:
+Dim mainDrawer As B4XDaisyDrawer
+mainDrawer.Initialize(Me, "mainDrawer")
+mainDrawer.AddToParent(Root, 0, 0, Root.Width, Root.Height)
 
-	' -
-	' 2. LEFT SIDEBAR MENU (Inside mainDrawer.LeftPanel)
-	' -
-	BuildLeftSidebar(mainDrawer.LeftPanel, SIDEBAR_WIDTH, Height)
+' Mount sidebar menu into LeftPanel:
+Dim sideMenu As B4XDaisyMenu
+sideMenu.Initialize(Me, "sideMenu")
+sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 240dip, Root.Height)
+sideMenu.AddIconItem("dashboard", "Dashboard", "house-solid.svg")
+sideMenu.AddIconItem("settings", "Settings", "gear-solid.svg")
 
-	' -
-	' 3. TOP NAVBAR (Inside mainDrawer.CenterPanel)
-	' -
-	topNavbar.Initialize(Me, "topNavbar")
-	topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Width, NAVBAR_HEIGHT)
-	topNavbar.Variant = "base-100"
-	topNavbar.Shadow = "sm"
-	topNavbar.Title = "DaisyUI Drawer"
-	topNavbar.TitlePosition = "center"
+' Mount top navigation into CenterPanel:
+Dim topNavbar As B4XDaisyNavbar
+topNavbar.Initialize(Me, "topNavbar")
+topNavbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Root.Width, 48dip)
+topNavbar.Title = "My Application"
 
-	' Enable built-in Hamburger menu button (Toggles the drawer)
-	topNavbar.HamburgerVisible = True
-
-	' -
-	' 4. CENTER DAISYUI PAGE SCROLL CONTAINER
-	' -
-	Dim contentH As Int = Max(1dip, Height - NAVBAR_HEIGHT)
-	pageScroll.Initialize(Me, "pageScroll")
-	pageScroll.AddToParent(mainDrawer.CenterPanel, 0, NAVBAR_HEIGHT, Width, contentH)
-	pageScroll.Transparent = True
+' Toggle sidebar drawer open/closed:
+mainDrawer.Toggle
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -288,31 +279,3 @@ Example: This sidebar is always visible. When it's close we only see icons, when
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyDrawer` provides a sliding left sidebar menu with overlay and main content area.
-
-```vb
-' In B4XPage_Created:
-mainDrawer.Initialize(Me, "mainDrawer")
-mainDrawer.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-
-' 1. Left sidebar (inside mainDrawer.LeftPanel):
-sideMenu.Initialize(Me, "sideMenu")
-sideMenu.AddToParent(mainDrawer.LeftPanel, 0, 0, 300dip, Root.Height)
-sideMenu.AddItem("dash", "Dashboard", "home-solid.svg")
-sideMenu.AddItem("scan", "Stock Scan", "qrcode-solid.svg")
-
-' 2. Center content (inside mainDrawer.CenterPanel):
-navbar.Initialize(Me, "navbar")
-navbar.AddToParent(mainDrawer.CenterPanel, 0, 0, Root.Width, 56dip)
-navbar.HamburgerVisible = True                 ' Drawer toggle icon
-
-pageScroll.Initialize(Me, "pageScroll")
-pageScroll.AddToParent(mainDrawer.CenterPanel, 0, 56dip, Root.Width, Root.Height - 56dip)
-
-' Hamburger click handler:
-Private Sub navbar_HamburgerClick(oTag As Object)
-    mainDrawer.ToggleLeftDrawer
-End Sub
-```

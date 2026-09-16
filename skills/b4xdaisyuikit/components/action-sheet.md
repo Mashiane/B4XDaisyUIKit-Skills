@@ -5,26 +5,33 @@ DaisyUI `ActionSheet` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyActionSheet`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyActionSheet.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyActionSheet.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyActionSheet.bas)
 - **Verified Demo Source**: B4XPageActionSheet.bas
 - **Web DaisyUI Mapping**: `.action-sheet` → `B4XDaisyActionSheet`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub btnBasic_Click(Tag As Object)
-	asBasic.Initialize(Me, "asBasic")
-	asBasic.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-	asBasic.Header = "Albums"
-	asBasic.SubHeader = "Select an album to play"
-	asBasic.Outline = False
-	asBasic.TextAlignment = "left"
-    
-	asBasic.AddButton("delete", "Delete", "destructive", "")
-	asBasic.AddButton("share", "Share", "", "")
-	asBasic.AddButton("play", "Play", "", "")
-	asBasic.AddButton("cancel", "Cancel", "cancel", "")
-    
-	asBasic.Present
+' Mount action sheet coordinator onto the page root:
+Dim asSheet As B4XDaisyActionSheet
+asSheet.Initialize(Me, "asSheet")
+asSheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+asSheet.Header = "Select Action"
+asSheet.SubHeader = "Choose what you want to do with this record"
+asSheet.TextAlignment = "left"
+
+' Add action buttons (key, text, role, icon):
+asSheet.AddButton("edit", "Edit Record", "", "")
+asSheet.AddButton("share", "Share", "", "")
+asSheet.AddButton("delete", "Delete Record", "destructive", "")
+asSheet.AddButton("cancel", "Cancel", "cancel", "")
+
+' Display action sheet:
+asSheet.Present
+
+' Handle dismissal event:
+Private Sub asSheet_DidDismiss(Data As Object, Role As String)
+	If B4XDaisyApp.DebugLogs Then Log("ActionSheet dismissed with role: " & Role)
 End Sub
 ```
 
@@ -121,33 +128,20 @@ End Sub
 - `setButtonGhosted(Value As Boolean)`
 - `getButtonGhosted As Boolean`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyActionSheet` provides a bottom sheet action sheet with option items and a cancel action.
-
-```vb
-Dim asSheet As B4XDaisyActionSheet
-asSheet.Initialize(Me, "asSheet")
-asSheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-asSheet.Title = "Select Action"
-asSheet.Message = "Choose an operation to perform"
-
-' Add action buttons:
-asSheet.AddAction("edit", "Edit Record", "pencil-solid.svg", "default")
-asSheet.AddAction("share", "Share Report", "share-solid.svg", "primary")
-asSheet.AddAction("delete", "Delete Record", "trash-solid.svg", "error")
-asSheet.SetCancelButton("Cancel")
-
-' Open:
-asSheet.Show
-
-' Action click event:
-Private Sub asSheet_ActionClick(ActionId As String)
-    If B4XDaisyApp.DebugLogs Then Log("Action selected: " & ActionId)
-    asSheet.Dismiss
-End Sub
-```

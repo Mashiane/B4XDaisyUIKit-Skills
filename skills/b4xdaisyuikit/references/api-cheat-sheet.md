@@ -2,7 +2,7 @@
 
 This document lists all available custom views, their event hooks, designer properties, and public methods. Use this reference when building user interfaces dynamically.
 
-Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
+Auto-generated from the packaged library source (v0.96) on 2026-09-16 08:16 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
 
 ## Table of Contents
 
@@ -266,6 +266,19 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setButtonGhosted(Value As Boolean)`
 - `getButtonGhosted As Boolean`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -374,6 +387,15 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getTag As Object`
 - `GetComputedHeight As Int`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -535,6 +557,10 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getBackgroundColor As Int`
 - `setTextColor(Value As Int)`
 - `getTextColor As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
 
 ---
 
@@ -878,6 +904,13 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -1201,6 +1234,17 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `boombtn_Click`
 - `boombackdrop_Click`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -1729,6 +1773,16 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setAutoResize(Value As Boolean)`
 - `getAutoResize As Boolean`
 - `View As B4XView`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -2199,7 +2253,7 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 | `CheckedTextColor` | Color | `0x00FFFFFF` | Override checked checkmark/text color. |
 | `Multiline` | Boolean | `False` | Enable multi-line label text wrapping. |
 | `LineSpacing` | Int | `0` | Extra space added between lines in pixels. |
-| `LineSpacingMult` | Double | `1.0` | Line spacing multiplier. |
+| `LineSpacingMult` | Float | `1.0` | Line spacing multiplier. |
 | `Required` | Boolean | `False` | Set field as required. |
 | `ErrorText` | String | `` | Message displayed when field validation fails. |
 
@@ -3582,6 +3636,7 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getWidth As Int`
 - `setHeight(Value As Int)`
 - `getHeight As Int`
+- `BringToFront`
 - `SendToBack`
 
 ---
@@ -3727,6 +3782,8 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getTop As Int`
 - `BringToFront`
 - `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -5501,6 +5558,17 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getColor As Int`
 - `RemoveViewFromParent`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -5669,6 +5737,7 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setRightBorder(Value As Boolean)`
 - `getRightBorder As Boolean`
 - `setRightBorderColor(Value As Int)`
+- `BringToFront`
 - `SendToBack`
 
 ---
@@ -6085,6 +6154,17 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `Base_Resize(Width As Double, Height As Double)`
 - `setFocus(Index As Int)`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -6188,6 +6268,8 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getScrollPosition As Int`
 - `getMaxScrollPosition As Int`
 - `ScrollToView(TargetView As B4XView, Animated As Boolean)`
+- `ScrollToViewWithMargin(TargetView As B4XView, MarginTop As Int, Animated As Boolean)`
+- `IME_HeightChanged(NewHeight As Int, OldHeight As Int, FocusedView As Object)`
 - `setBackgroundVariant(Value As String)`
 - `getBackgroundVariant As String`
 - `getUsableWidth As Int`
@@ -6366,6 +6448,19 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setSwipeHorizontal(Value As Boolean)`
 - `setShowToolbar(Value As Boolean)`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -6465,6 +6560,19 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `GetValue As String`
 - `GetDisplayValue As String`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -7249,6 +7357,19 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setButtonLayout(Value As String)`
 - `getButtonLayout As String`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -7470,6 +7591,15 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getScrollBehavior As String`
 - `setNestedScrollEnabled(Value As Boolean)`
 - `getNestedScrollEnabled As Boolean`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -7553,6 +7683,17 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -7821,6 +7962,13 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getVariant As String`
 - `setVariant(Value As String)`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -7932,8 +8080,14 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `UpdateTheme`
 - `Refresh`
 - `AddItem(Item As B4XDaisyStatItem)`
+- `AddItem1(EventName As String, Title As String, Value As String) As B4XDaisyStatItem`
+- `AddItem2(EventName As String, Title As String, Value As String, Description As String) As B4XDaisyStatItem`
 - `StartAnimation`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `getEqualWidths As Boolean`
+- `setEqualWidths(Value As Boolean)`
+- `getMaxWidth As Int`
+- `setMaxWidth(Value As Int)`
 - `setOrientation(Value As String)`
 - `getOrientation As String`
 - `setShadow(Value As String)`
@@ -7944,10 +8098,6 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 - `getBorderWidth As String`
 - `setBorderColor(Value As String)`
 - `getBorderColor As String`
-- `setEqualWidths(Value As Boolean)`
-- `getEqualWidths As Boolean`
-- `setMaxWidth(Value As Int)`
-- `getMaxWidth As Int`
 - `setWidth(Value As String)`
 - `getWidth As String`
 - `setHeight(Value As String)`
@@ -8003,8 +8153,6 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-10 23:25 UTC.
 | `Animated` | Boolean | `False` | Animate the value from Start From to Value. |
 | `Duration` | Int | `2` | Count-up duration in seconds. |
 | `Visible` | Boolean | `True` | Visible state. |
-
-Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `DecimalPlaces`, and `UseGrouping` whether `Animated` is `True` or `False`. Non-numeric values remain raw strings.
 
 ### Public Methods
 
@@ -8155,6 +8303,13 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `setClickable(Value As Boolean)`
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 
@@ -8315,6 +8470,15 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `setClickable(Value As Boolean)`
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ---
 
@@ -8494,6 +8658,9 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `getInputRequired As Boolean`
 - `setInputOptions(Options As Map)`
 - `setInputValidator(Callback As Object, SubName As String)`
+- `View As B4XView`
+- `getView As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
 - `setParent(Parent As B4XView)`
 - `getParent As B4XView`
 - `setTitle(Value As String)`
@@ -8548,7 +8715,8 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `getTimerMs As Int`
 - `setRounded(Value As String)`
 - `getRounded As String`
-- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `Base_Resize(Width As Double, Height As Double)`
+- `IME_HeightChanged(NewHeight As Int, OldHeight As Int)`
 - `setLeft(Value As Int)`
 - `getLeft As Int`
 - `setTop(Value As Int)`
@@ -8559,7 +8727,6 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `SendToBack`
 - `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
-- `View As B4XView`
 
 ---
 
@@ -8764,6 +8931,17 @@ Numeric `Value` strings use `Prefix`, `Suffix`, `Separator`, `Decimal`, `Decimal
 - `Base_Resize(Width As Double, Height As Double)`
 - `Redraw`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ---
 

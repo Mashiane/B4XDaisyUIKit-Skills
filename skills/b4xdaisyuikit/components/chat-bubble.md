@@ -5,13 +5,18 @@ DaisyUI `ChatBubble` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyChatBubble`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyChatBubble.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyChatBubble.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyChatBubble.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.chat-bubble` → `B4XDaisyChatBubble`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyChatBubble
+' Create standalone chat message bubble
+Dim bubble As B4XDaisyChatBubble
+bubble.Initialize(Me, "bubble")
+bubble.AddToParent(pnlHost, 12dip, 12dip, maxW - 24dip, 50dip)
+bubble.Text = "Hello! How can I help you today?"
+bubble.Variant = "primary"
 ```
 
 ## 3. Native Composition Rules & Gotchas

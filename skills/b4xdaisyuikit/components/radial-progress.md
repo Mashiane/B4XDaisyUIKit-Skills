@@ -5,7 +5,7 @@ DaisyUI `RadialProgress` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyRadialProgress`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyRadialProgress.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyRadialProgress.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyRadialProgress.bas)
 - **Verified Demo Source**: B4XPageRadialProgress.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.radial-progress` → `B4XDaisyRadialProgress`
 

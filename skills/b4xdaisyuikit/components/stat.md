@@ -5,7 +5,7 @@ DaisyUI `Stat` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyStat`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyStat.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStat.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStat.bas)
 - **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.stat` → `B4XDaisyStat`
 
@@ -25,37 +25,33 @@ DaisyUI `Stat` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
-    If svHost.IsInitialized = False Then Return False
-    pnlHost = svHost.Panel
-    pnlHost.RemoveAllViews
-    Dim maxW As Int = Max(220dip, Width - (PAGE_PAD * 2))
-    Dim currentY As Int = PAGE_PAD
-    
-    ' #region Example 1: Stat (Basic) - single item, horizontal
-    ''' Demonstrates the minimal stat: one item with title, value and description.
-    ''' CSS: .stats = inline-grid (content-width, not full-width).
-    currentY = AddSectionTitle("1. Stat (Basic)", currentY, maxW)
-    Dim stats1 As B4XDaisyStat
-    stats1.Initialize(Me, "")
-    stats1.AddToParent(pnlHost, PAGE_PAD, currentY, maxW, 1dip)
+' KPI metric container hosting one or more stat item tiles:
+Dim stat As B4XDaisyStat
+stat.Initialize(Me, "stat")
+stat.Orientation = "horizontal"
+stat.Width = "w-full"
+stat.AddToParent(pnlHost, 16dip, y, maxW, 1dip)
 
-    Dim item1 As B4XDaisyStatItem
-    item1.Initialize(Me, "component")
-    item1.Title = "Total Page Views"
-    item1.Value = "89400"
-    item1.Animated = True
-    item1.Description = "21% more than last month"
-    stats1.AddItem(item1)
-    stats1.Refresh
-    ' Shrink-wrap to measured content width (inline-grid fit-content)
-    If stats1.ContentWidth > 0 Then stats1.SetLayoutAnimated(0, PAGE_PAD, currentY, stats1.ContentWidth, stats1.ContentHeight)
+Dim item1 As B4XDaisyStatItem
+item1.Initialize(Me, "item1")
+item1.Title = "Total Revenue"
+item1.Value = "$48,200"
+item1.Description = "+12% from last month"
+item1.Animated = True
+stat.AddItem(item1)
 
-    item1.LogLabelWidths("Example 1: item1")
-    
-    currentY = currentY + stats1.ContentHeight + 6dip
-    currentY = AddAnimateButton("Animate", stats1, currentY, maxW)
+Dim item2 As B4XDaisyStatItem
+item2.Initialize(Me, "item2")
+item2.Title = "Active Customers"
+item2.Value = "1,250"
+item2.Description = "84 new this week"
+item2.Animated = True
+stat.AddItem(item2)
+
+stat.Refresh
+y = y + stat.GetComputedHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -82,7 +78,7 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 | `Width` | Width | `String` | w-content |  |
 | `Height` | Height | `String` |  |  |
 | `EqualWidths` | Equal Widths | `Boolean` | False |  |
-| `MaxWidth` | Maximum Width | `Int` | 0 | dip; 0 uses the width supplied to `AddToParent` |
+| `MaxWidth` | Maximum Width | `Int` | 0 |  |
 | `Visible` | Visible | `Boolean` | True |  |
 
 ## 5. Declared Events
@@ -96,8 +92,14 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 - `UpdateTheme`
 - `Refresh`
 - `AddItem(Item As B4XDaisyStatItem)`
+- `AddItem1(EventName As String, Title As String, Value As String) As B4XDaisyStatItem`
+- `AddItem2(EventName As String, Title As String, Value As String, Description As String) As B4XDaisyStatItem`
 - `StartAnimation`
 - `AddToParent(Parent As B4XView, Left As Int, Top As Int, Width As Int, Height As Int) As B4XView`
+- `getEqualWidths As Boolean`
+- `setEqualWidths(Value As Boolean)`
+- `getMaxWidth As Int`
+- `setMaxWidth(Value As Int)`
 - `setOrientation(Value As String)`
 - `getOrientation As String`
 - `setShadow(Value As String)`
@@ -108,10 +110,6 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 - `getBorderWidth As String`
 - `setBorderColor(Value As String)`
 - `getBorderColor As String`
-- `setEqualWidths(Value As Boolean)`
-- `getEqualWidths As Boolean`
-- `setMaxWidth(Value As Int)`
-- `getMaxWidth As Int`
 - `setWidth(Value As String)`
 - `getWidth As String`
 - `setHeight(Value As String)`
@@ -135,43 +133,3 @@ Private Sub RenderExamples(Width As Int, Height As Int) As ResumableSub
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyStat` is a KPI metric container hosting one or more `B4XDaisyStatItem` tiles.
-
-```vb
-Dim stat As B4XDaisyStat
-stat.Initialize(Me, "stat")
-stat.Orientation = "horizontal"                ' Set BEFORE AddToParent ("horizontal" | "vertical")
-stat.Width = "w-full"                          ' Set BEFORE AddToParent
-stat.EqualWidths = True                         ' Equal item widths within the available row width
-stat.MaxWidth = maxW                            ' Usable width after page padding, in dip
-stat.AddToParent(pnlHost, pad, y, maxW, 0)
-stat.Shadow = "md"
-stat.Rounded = "rounded-box"
-
-' Metric 1: Counted items
-Dim item1 As B4XDaisyStatItem
-item1.Initialize(Me, "item1")
-item1.Title = "Total Counted"
-item1.Value = "1,240"
-item1.Description = "+12% today"
-item1.DescriptionColor = "success"
-item1.FigureType = "svg"
-item1.FigureSource = "check-solid.svg"
-stat.AddItem(item1)
-
-' Metric 2: Variances
-Dim item2 As B4XDaisyStatItem
-item2.Initialize(Me, "item2")
-item2.Title = "Variances"
-item2.Value = "8"
-item2.Description = "Needs recount"
-item2.DescriptionColor = "warning"
-stat.AddItem(item2)
-
-stat.Refresh
-y = y + stat.GetComputedHeight + gap
-```
-
-Numeric stat values are formatted even when `Animated = False`. Use `Prefix`, `Suffix`, `Separator`, `Decimal`, `DecimalPlaces`, and `UseGrouping`; non-numeric values such as `"4.2%"` remain unchanged.

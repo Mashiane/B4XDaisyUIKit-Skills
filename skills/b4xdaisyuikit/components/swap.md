@@ -5,7 +5,7 @@ DaisyUI `Swap` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySwap`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySwap.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySwap.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySwap.bas)
 - **Verified Demo Source**: B4XPageSwap.bas
 - **Web DaisyUI Mapping**: `.swap` → `B4XDaisySwap`
 

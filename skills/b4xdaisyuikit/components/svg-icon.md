@@ -5,7 +5,7 @@ DaisyUI `SvgIcon` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySvgIcon`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisySvgIcon.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySvgIcon.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySvgIcon.bas)
 - **Verified Demo Source**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
 - **Web DaisyUI Mapping**: `.svg-icon` → `B4XDaisySvgIcon`
 
@@ -123,6 +123,15 @@ End Sub
 - `setClickable(Value As Boolean)`
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -5,7 +5,7 @@ DaisyUI `Window` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyWindow`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyWindow.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyWindow.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyWindow.bas)
 - **Verified Demo Source**: B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.window` → `B4XDaisyWindow`
 
@@ -23,29 +23,23 @@ DaisyUI `Window` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub AddSimpleWindow
-	Dim win As B4XDaisyWindow
-	win.Initialize(Me, "win_simple")
+' Mock window frame container:
+Dim win As B4XDaisyWindow
+win.Initialize(Me, "win")
+win.AddToParent(pnlHost, 16dip, y, maxW, 200dip)
+win.setContentPadding("p-3")
 
-	Dim boxW As Int = Min(Root.Width - 24dip, 360dip)
-	Dim left As Int = 12dip
-	If boxW < Root.Width - 24dip Then left = (Root.Width - boxW) / 2
+' Add hosted content inside win.Content:
+Dim lblContent As B4XDaisyText
+lblContent.Initialize(Me, "")
+lblContent.AddToParent(win.Content, 0, 0, win.ContentWidth, win.ContentHeight)
+lblContent.Text = "Terminal Output: Build succeeded."
+lblContent.TextSize = 14
+win.RefreshContent
 
-	Dim v As B4XView = win.AddToParent(pnlContent, left, currentY, boxW, 230dip)
-	win.setContentPadding("p-3")
-
-	Dim lbl As B4XDaisyText
-	lbl.Initialize(Me, "")
-	lbl.AddToParent(win.Content, 0, 0, win.ContentWidth, win.ContentHeight)
-	lbl.Text = "Hello!"
-	lbl.TextColor = B4XDaisyVariants.GetTokenColor("--color-base-content", xui.Color_Black)
-	lbl.TextSize = 30
-	lbl.HAlign = "CENTER"
-	lbl.VAlign = "CENTER"
-	win.RefreshContent
-	currentY = currentY + v.Height + gap
-End Sub
+y = y + 200dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -142,24 +136,3 @@ End Sub
 ## 7. Public Fields
 (none declared in packaged source)
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyWindow` renders a mock macOS/Windows application window frame.
-
-```vb
-Dim win As B4XDaisyWindow
-win.Initialize(Me, "win")
-win.AddToParent(pnlHost, pad, y, maxW, 240dip)
-win.Title = "Terminal / Code Editor"
-win.Variant = "base-200"
-win.TrafficLights = True                       ' Shows red/yellow/green macOS window buttons
-
-' Mount custom views inside GetContentPanel:
-Dim pnlWin As B4XView = win.GetContentPanel
-Dim txtCode As B4XDaisyText
-txtCode.Initialize(Me, "")
-txtCode.AddToParent(pnlWin, 12dip, 12dip, pnlWin.Width - 24dip, 80dip)
-txtCode.Text = "$ git commit -m 'Initial commit'"
-
-y = y + 240dip + gap
-```

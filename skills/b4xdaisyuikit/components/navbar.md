@@ -5,7 +5,7 @@ DaisyUI `Navbar` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyNavbar`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyNavbar.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyNavbar.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyNavbar.bas)
 - **Verified Demo Source**: B4XPageColorWheel.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDualRange.bas, B4XPageEnjoyHint.bas, B4XPageFabNavbar.bas, B4XPageNavScrollDock.bas, B4XPageNavbar.bas, B4XPagePDFView.bas, B4XPagePicker.bas, B4XPageSheetModal.bas
 - **Web DaisyUI Mapping**: `.navbar` → `B4XDaisyNavbar`
 

@@ -5,7 +5,7 @@ DaisyUI `Loading` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyLoading`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyLoading.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyLoading.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyLoading.bas)
 - **Verified Demo Source**: B4XPageLoading.bas
 - **Web DaisyUI Mapping**: `.loading` → `B4XDaisyLoading`
 
@@ -93,6 +93,17 @@ End Sub
 - `getColor As Int`
 - `RemoveViewFromParent`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

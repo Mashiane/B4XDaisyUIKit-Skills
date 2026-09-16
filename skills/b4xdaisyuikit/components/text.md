@@ -5,7 +5,7 @@ DaisyUI `Text` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyText`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyText.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyText.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyText.bas)
 - **Verified Demo Source**: B4XPageAccordion.bas, B4XPageAlert.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageCarousel.bas, B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageCollapse.bas, B4XPageCountdown.bas, B4XPageDiff.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageDualRange.bas, B4XPageFieldset.bas, B4XPageFileInput.bas, B4XPageFilter.bas, B4XPageHero.bas, B4XPageHover3d.bas, B4XPageIconButton.bas, B4XPageInfoCard.bas, B4XPageInput.bas, B4XPageKbd.bas, B4XPageLink.bas, B4XPageList.bas, B4XPageMediaPicker.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageModal.bas, B4XPageNavbar.bas, B4XPageOverlay.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRadialProgress.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageRange.bas, B4XPageRating.bas, B4XPageSelect.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageSkeleton.bas, B4XPageStack.bas, B4XPageStat.bas, B4XPageSteps.bas, B4XPageSweetAlert.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageText.bas, B4XPageTextRotate.bas, B4XPageTextarea.bas, B4XPageTimeline.bas, B4XPageToast.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas, B4XPageTooltip.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.text` → `B4XDaisyText`
 

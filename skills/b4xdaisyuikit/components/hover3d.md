@@ -5,7 +5,7 @@ DaisyUI `Hover3d` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyHover3d`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyHover3d.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyHover3d.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyHover3d.bas)
 - **Verified Demo Source**: B4XPageHover3d.bas
 - **Web DaisyUI Mapping**: `.hover3d` → `B4XDaisyHover3d`
 
@@ -33,36 +33,20 @@ DaisyUI `Hover3d` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Dim heroW As Int = maxW
-    Dim hoverImage As B4XDaisyHover3d
-    hoverImage.Initialize(Me, "hoverImage")
-    hoverImage.AddToParent(pnlHost, PAGE_PAD, y, heroW, 214dip)
-    hoverImage.setWidth("w-full")
-    hoverImage.setHeight("h-auto")
-    hoverImage.Rounded = "rounded-2xl"
-    hoverImage.Padding = "p-[15px]"
-    hoverImage.setContentType("image")
-    hoverImage.setImage("creditcard.webp")
-    hoverImage.ScaleOnHover = 1.05
-    hoverImage.MaxTilt = 10
-    hoverImage.Refresh
-    y = y + hoverImage.GetComputedHeight + 24dip
+' 3D tilting perspective card on touch drag:
+Dim hover As B4XDaisyHover3d
+hover.Initialize(Me, "hover")
+hover.AddToParent(pnlHost, 16dip, y, maxW, 200dip)
+hover.Rounded = "rounded-2xl"
+hover.setContentType("image")
+hover.setImage("creditcard.webp")
+hover.ScaleOnHover = 1.05
+hover.MaxTilt = 10
+hover.Refresh
 
-    ''' <summary>
-    ''' Example 2: 3D card hover effect.
-    ''' </summary>
-    y = AddSectionTitle("3D card hover effect", y, maxW)
-    y = AddSectionNote("The wrapper stays general-purpose while the hosted content recreates the dark credit-card example from DaisyUI.", y, maxW)
-
-    Dim cardW As Int = maxW
-    Dim hoverCard As B4XDaisyHover3d
-    hoverCard.Initialize(Me, "hoverCard")
-    hoverCard.setWidth("w-full")
-    hoverCard.setHeight("h-auto")
-    hoverCard.AddToParent(pnlHost, PAGE_PAD, y, cardW, 236dip)
-    hoverCard.setContentType("custom")
-    hoverCard.setPadding("p-[15px]")
+y = y + hover.GetComputedHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -175,24 +159,3 @@ Dim heroW As Int = maxW
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyHover3d` applies interactive 3D perspective tilt to inner card views.
-
-```vb
-Dim hover As B4XDaisyHover3d
-hover.Initialize(Me, "hover")
-hover.AddToParent(pnlHost, pad, y, maxW, 160dip)
-hover.Rounded = "rounded-box"
-hover.Depth = 15
-
-' Mount inner content onto GetContentPanel:
-Dim pnlInner As B4XView = hover.GetContentPanel
-Dim txtH As B4XDaisyText
-txtH.Initialize(Me, "")
-txtH.AddToParent(pnlInner, 16dip, 16dip, pnlInner.Width - 32dip, 40dip)
-txtH.Text = "Interactive 3D Perspective Card"
-txtH.FontBold = True
-
-y = y + 160dip + gap
-```

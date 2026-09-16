@@ -5,7 +5,7 @@ DaisyUI `List` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyList`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyList.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyList.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyList.bas)
 - **Verified Demo Source**: B4XPageList.bas, B4XPageList1K.bas
 - **Web DaisyUI Mapping**: `.list` → `B4XDaisyList`
 
@@ -22,37 +22,49 @@ DaisyUI `List` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-' - DaisyUI: List (2 columns, second column grows - default) -
-    currentY = AddSectionTitle("List (2nd column grows - default)", currentY, maxW)
-    List1.Clear
-    List1.Initialize(Me, "List1")
-    List1.Rounded = "rounded-box"
-    List1.Shadow = "shadow-md"
-    List1.BackgroundColor = "base-100"
-    List1.Padding = 0
-    List1.RowPadding = 16dip
-    List1.Divider = True
-    List1.DividerColor = "base-content/5"
-    List1.RowHeight = 72dip
-    List1.AutoHeight = True
-    List1.AddToParent(pnlHost, PAGE_PAD, currentY, maxW, 320dip)
-    List1.AddHeader("Most played songs this week")
-    List1.AddRowData(CreateMap("Tag": "row1", "_height": 72, "title": "Dio Lupa", "subtitle": "Remaining Reason", "avatar": "face_3.jpg", "rowType": "song"))
-    List1.AddRowData(CreateMap("Tag": "row2", "_height": 72, "title": "Ellie Beilish", "subtitle": "Bears of a fever", "avatar": "face_13.jpg", "rowType": "song"))
-    List1.AddRowData(CreateMap("Tag": "row3", "_height": 72, "title": "Sabrino Gardener", "subtitle": "Cappuccino", "avatar": "face_profile13.jpeg", "rowType": "song"))
-    currentY = currentY + List1.getHeight + SECTION_GAP
 
-    ' - DaisyUI: List (3 columns, 3rd column grows) -
-    currentY = AddSectionTitle("List (3rd column grows)", currentY, maxW)
-    List2.Clear
-    List2.Initialize(Me, "List2")
-    List2.Rounded = "rounded-box"
-    List2.Shadow = "shadow-md"
-    List2.BackgroundColor = "base-100"
-    List2.Padding = 0
-    List2.RowPadding = 16dip
-    List2.Divider = True
+```b4x
+' High-performance virtualized recycling list container:
+Dim lstExpenses As B4XDaisyList
+lstExpenses.Initialize(Me, "lstExpenses")
+lstExpenses.AddToParent(pnlHost, 16dip, y, maxW, 300dip)
+lstExpenses.Rounded = "rounded-box"
+lstExpenses.Shadow = "shadow-sm"
+
+' 1. Register named row template:
+lstExpenses.RegisterTemplate("ExpenseRow", 64dip, Me, "ExpenseRow_Create", "ExpenseRow_Bind")
+
+' 2. Batch load records without UI thrashing:
+Dim lstBatch As List
+lstBatch.Initialize
+lstBatch.Add(CreateMap("id": 1, "title": "Office Supplies", "amount": "-$45.20", "cat": "Office"))
+lstBatch.Add(CreateMap("id": 2, "title": "Client Lunch", "amount": "-$82.50", "cat": "Meals"))
+lstExpenses.AddRowDataBatch("ExpenseRow", lstBatch)
+
+y = y + 300dip + 16dip
+
+' Template Row Creator:
+Private Sub ExpenseRow_Create(vRowPanel As B4XView)
+	Dim lblTitle As B4XDaisyText
+	lblTitle.Initialize(Me, "")
+	lblTitle.Tag = "lblTitle"
+	lblTitle.AddToParent(vRowPanel, 16dip, 10dip, 180dip, 22dip)
+	lblTitle.TextSize = 14
+
+	Dim lblAmt As B4XDaisyText
+	lblAmt.Initialize(Me, "")
+	lblAmt.Tag = "lblAmt"
+	lblAmt.AddToParent(vRowPanel, vRowPanel.Width - 116dip, 10dip, 100dip, 22dip)
+	lblAmt.HAlign = "RIGHT"
+End Sub
+
+' Template Row Binder:
+Private Sub ExpenseRow_Bind(vRowPanel As B4XView, mRowData As Map)
+	Dim lblTitle As B4XDaisyText = vRowPanel.FindViewWithTag("lblTitle").Tag
+	Dim lblAmt As B4XDaisyText = vRowPanel.FindViewWithTag("lblAmt").Tag
+	lblTitle.Text = mRowData.Get("title")
+	lblAmt.Text = mRowData.Get("amount")
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -60,13 +72,21 @@ DaisyUI `List` component for B4X (B4A Android).
 1. **Declaration:** Declare variable `Dim <var> As B4XDaisyList` (in `Class_Globals` or local sub).
 2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
 3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
-4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+4. **Template / Event Binding:** Either register named templates with `RegisterTemplate` or implement the `<EventName>_CreateRowContent(iIndex As Int)` callback.
+5. **Batch / Row Population:** Populate using `AddRowDataBatch(lstBatch)` for high performance, or `AddRowData(mapItem)`.
 
 ### Preconditions & Gotchas
-- Ensure host parent panel has valid positive layout dimensions before calling `AddToParent`.
+- **Touch Event Pass-Through (`.setClickable(False)`):**
+  When mounting text labels (`B4XDaisyText`), avatars (`B4XDaisyAvatar`), or passive layout containers inside list rows, you **must** call `.setClickable(False)` on them. If passive child views remain clickable, Android's touch dispatcher routes clicks to the label instead of the row panel, preventing the list's `ItemClick` and `ItemLongClick` events from firing!
+- **Interactive Action Buttons Inside Rows:**
+  When adding action buttons (e.g. `B4XDaisyIconButton`) inside rows, pass row metadata in the button's `Tag` property. Handle the button click in a dedicated event sub (e.g. `btnHeart_Click(Tag As Object)`), using `Dim btn As B4XDaisyIconButton = Sender` to toggle state independently of row selection.
+- **Scroll Container Integration (`AutoHeight` vs Standalone):**
+  - **Embedded inside `ScrollView` or `B4XDaisyPageScroll`:** Set `AutoHeight = True`. The list automatically resizes its container to match total row height (`GetComputedHeight`), avoiding nested scroll interception conflicts.
+  - **Standalone (Full-Screen Viewport):** Do NOT set `AutoHeight = True`. Set list dimensions to `Root.Width` and `Root.Height`. The underlying `CustomListView` handles view recycling across thousands of rows.
 
 ### Discrepancies & API Nuances
-- Public methods not demonstrated in demo pages: `ResizeToFitContent, AddRowDataWithTemplate, SetRowCount` (+ 44 more).
+- `AddRowDataBatch` is significantly faster than repeated `AddRowData` calls because it batches CLV panel creation and triggers a single refresh.
+- Section headers can be added via `List.AddHeader(sTitle)` or by passing `"_header": True` in any row map.
 
 ## 4. Designer Properties
 | Key | Display Name | Type | Default | Allowed Values |
@@ -177,78 +197,3 @@ DaisyUI `List` component for B4X (B4A Android).
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyList` is a virtualized recycling list container powered by `CustomListView`. It follows a 3-pillar pattern:
-
-### 1. Setup in `RenderPage`
-```vb
-Dim lst As B4XDaisyList
-lst.Initialize(Me, "lst")
-lst.Rounded = "rounded-box"
-lst.Shadow = "shadow-md"
-lst.BackgroundColor = "base-100"
-lst.RowHeight = 64dip            ' Height allocated per item
-lst.AutoHeight = True             ' Sizes list container to fit total items
-lst.AddToParent(pnlHost, pad, y, maxW, 320dip)
-
-' Populate data rows (Maps with custom properties)
-lst.AddHeader("Category Title")
-lst.AddRowData(CreateMap("Tag": "id1", "title": "Main Title", "subtitle": "Detail text", "status": "ACTIVE", "variant": "success"))
-lst.AddRowData(CreateMap("Tag": "id2", "title": "Second Title", "subtitle": "Another detail", "status": "PENDING", "variant": "warning"))
-
-y = y + lst.GetComputedHeight + gap
-```
-
-### 2. Row View Creation Event (`_CreateRowContent`)
-```vb
-Private Sub lst_CreateRowContent(Index As Int)
-	Dim pnlRow As B4XView = lst.GetCurrentRowPanel
-	Dim data As Map = lst.GetCurrentRowData
-	If pnlRow = Null Or pnlRow.IsInitialized = False Or data = Null Then Return
-	
-	' Handle section header rows
-	If data.GetDefault("_header", False) Then
-		Dim txtHeader As B4XDaisyText
-		txtHeader.Initialize(Me, "")
-		txtHeader.AddToParent(pnlRow, 16dip, 0, pnlRow.Width - 32dip, pnlRow.Height)
-		txtHeader.Text = data.GetDefault("title", "")
-		txtHeader.TextSize = 12
-		txtHeader.TextColor = xui.Color_ARGB(160, 0, 0, 0)
-		txtHeader.UpperCase = True
-		txtHeader.FontBold = True
-		txtHeader.VAlign = "CENTER"
-		Return
-	End If
-	
-	' Mount child views onto pnlRow
-	Dim txtTitle As B4XDaisyText
-	txtTitle.Initialize(Me, "")
-	txtTitle.AddToParent(pnlRow, 16dip, 10dip, pnlRow.Width - 110dip, 22dip)
-	txtTitle.Text = data.GetDefault("title", "")
-	txtTitle.TextSize = 14
-	txtTitle.FontBold = True
-	
-	Dim txtSub As B4XDaisyText
-	txtSub.Initialize(Me, "")
-	txtSub.AddToParent(pnlRow, 16dip, 32dip, pnlRow.Width - 110dip, 20dip)
-	txtSub.Text = data.GetDefault("subtitle", "")
-	txtSub.TextSize = 11
-	txtSub.TextColor = xui.Color_ARGB(150, 0, 0, 0)
-	
-	Dim badge As B4XDaisyBadge
-	badge.Initialize(Me, "")
-	badge.SetVariant(data.GetDefault("variant", "info"))
-	badge.SetStyle("soft")
-	badge.SetSize("sm")
-	badge.SetText(data.GetDefault("status", ""))
-	badge.AddToParent(pnlRow, pnlRow.Width - 92dip, (pnlRow.Height - 24dip) / 2, 76dip, 24dip)
-End Sub
-```
-
-### 3. Click Event
-```vb
-Private Sub lst_ItemClick(Index As Int, Tag As Object)
-	If B4XDaisyApp.DebugLogs Then Log("Clicked item: " & Tag)
-End Sub
-```

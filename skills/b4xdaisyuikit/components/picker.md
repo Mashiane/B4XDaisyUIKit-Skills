@@ -5,7 +5,7 @@ DaisyUI `Picker` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyPicker`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyPicker.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPicker.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPicker.bas)
 - **Verified Demo Source**: B4XPagePicker.bas
 - **Web DaisyUI Mapping**: `.picker` → `B4XDaisyPicker`
 
@@ -27,64 +27,28 @@ For React Day Picker:
 <DayPicker className="react-day-picker"></DayPicker>
 ```
 
-For Vanilla Calendar Pro:
-
-```html
-<div id="calendar" class="vc"></div>
-```
-
-```js
-import { Calendar } from "vanilla-calendar-pro"
-
-const calendar = new Calendar("#calendar")
-calendar.init()
-```
-
-Or using CDN:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/index.js" defer></script>
-<div id="calendar" class="vc"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const { Calendar } = window.VanillaCalendarPro
-    const calendar = new Calendar("#calendar")
-    calendar.init()
-  })
-</script>
-```
-
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' Inline picker sized to its computed height (VisibleItems * item height) so no row is clipped.
-	pickerBasic.Initialize(Me, "pickerBasic")
-	pickerBasic.AddToParent(pnlHost, padding, y, maxW, pickerBasic.GetComputedHeight)
-	pickerBasic.SetColorAndBorder(xui.Color_White, 1dip, xui.Color_RGB(226, 232, 240), 8dip)
-	pickerBasic.AddColumn("pets", "", "", False)
-	pickerBasic.AddOption("pets", "Dog", "dog")
-	pickerBasic.AddOption("pets", "Cat", "cat")
-	pickerBasic.AddOption("pets", "Bird", "bird")
-	pickerBasic.AddOption("pets", "Lizard", "lizard")
-	pickerBasic.AddOption("pets", "Chinchilla", "chinchilla")
-	pickerBasic.Refresh
-    
-	y = y + pickerBasic.GetComputedHeight + gap
+' Drum wheel item selector:
+Dim picker As B4XDaisyPicker
+picker.Initialize(Me, "picker")
+picker.AddToParent(pnlHost, 16dip, y, maxW, picker.GetComputedHeight)
+picker.SetColorAndBorder(xui.Color_White, 1dip, xui.Color_RGB(226, 232, 240), 8dip)
 
-	btnDisableCat.Initialize(Me, "btnDisableCat")
-	btnDisableCat.AddToParent(pnlHost, padding, y, maxW, 40dip)
-	btnDisableCat.Text = "Disable 'Cat' option"
-	btnDisableCat.Variant = "secondary"
-	y = y + btnDisableCat.GetComputedHeight + gap
+' Add columns and options:
+picker.AddColumn("category", "", "", False)
+picker.AddOption("category", "Electronics", "elec")
+picker.AddOption("category", "Groceries", "groc")
+picker.AddOption("category", "Apparel", "app")
+picker.Refresh
 
-	' ----------------------------------------------------
-	' 2. Picker inside a Modal
-	' Mimics the legacy popup dialog by wrapping the inline picker in a modal.
-	' ----------------------------------------------------
-	y = pageScroll.AddSectionTitle("2. Open Picker in a Modal", y, False)
-    
-	btnOpenModal.Initialize(Me, "btnOpenModal")
-	btnOpenModal.AddToParent(pnlHost, padding, y, maxW, 40dip)
-	btnOpenModal.Text = "Open Modal Picker"
+y = y + picker.GetComputedHeight + 16dip
+
+' Change event:
+Private Sub picker_Change(ColumnKey As String, OptionKey As String)
+	If B4XDaisyApp.DebugLogs Then Log("Picker changed: " & ColumnKey & " -> " & OptionKey)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -190,24 +154,20 @@ Or using CDN:
 - `GetValue As String`
 - `GetDisplayValue As String`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyPicker` provides a vertical drum wheel item picker.
-
-```vb
-Dim picker As B4XDaisyPicker
-picker.Initialize(Me, "picker")
-picker.AddToParent(pnlHost, pad, y, maxW, 180dip)
-picker.SetItems(Array As String("Warehouse Zone A", "Warehouse Zone B", "Warehouse Zone C", "Cold Storage", "Receiving Dock"))
-picker.SelectedIndex = 0
-
-Private Sub picker_IndexChange(Index As Int, Value As Object)
-    If B4XDaisyApp.DebugLogs Then Log("Selected Zone: " & Value)
-End Sub
-
-y = y + 180dip + gap
-```

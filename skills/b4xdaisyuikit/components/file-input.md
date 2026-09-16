@@ -5,7 +5,7 @@ DaisyUI `FileInput` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFileInput`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyFileInput.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFileInput.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFileInput.bas)
 - **Verified Demo Source**: B4XPageAvatar.bas, B4XPageFileInput.bas, B4XPageFocus.bas
 - **Web DaisyUI Mapping**: `.file-input` → `B4XDaisyFileInput`
 

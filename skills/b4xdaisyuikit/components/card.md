@@ -5,7 +5,7 @@ DaisyUI `Card` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCard`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyCard.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCard.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCard.bas)
 - **Verified Demo Source**: B4XPageAura.bas, B4XPageCard.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
@@ -32,36 +32,33 @@ DaisyUI `Card` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-AddSectionTitle("User baseline card")
-	Dim cBase As B4XDaisyCard
-	cBase.Initialize(Me, "card")
-	Dim vBase As B4XView = cBase.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
-	ApplyCardDefaults(cBase, "baseline")
-	cBase.ImagePath = "photo-1606107557195-0e29a4b5b4aa.webp"
-	SetCardContent(cBase, "Card Title", "A card component has a figure, a body part, and inside body there are title and actions parts", "Buy Now", "buynow")
-	AddTitleBadges(cBase)
-	cBase.Size = "md"
-	cBase.Style = "none"
-	cBase.LayoutMode = "top"
-	cBase.Shadow = "sm"
-	currentY = currentY + vBase.Height + SECTION_GAP
-	Sleep(0)
+Dim card As B4XDaisyCard
+card.Initialize(Me, "card")
+card.AddToParent(pnlHost, 16dip, y, maxW, 0)
+card.Title = "Card Title"
+card.ImagePath = "photo-1606107557195-0e29a4b5b4aa.webp"
+card.Size = "md"
+card.Shadow = "sm"
 
-	AddSectionTitle("Border and dash styles")
-	Dim cBorder As B4XDaisyCard
-	cBorder.Initialize(Me, "card")
-	Dim vBorder As B4XView = cBorder.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
-	ApplyCardDefaults(cBorder, "border")
-	cBorder.ImagePath = "photo-1606107557195-0e29a4b5b4aa.webp"
-	cBorder.Style = "border"
-	SetCardContent(cBorder, "Card Title", "A card component has a figure, a body part, and inside body there are title and actions parts", "Buy Now", "buynow")
-	currentY = currentY + vBorder.Height + 10dip
+' Add body text into CardBody:
+Dim bodyTxt As B4XDaisyText
+bodyTxt.Initialize(Me, "")
+bodyTxt.Text = "A card component has a figure, a body, a title, and an action row."
+bodyTxt.setTextSize(14)
+bodyTxt.setTextColor(xui.Color_RGB(51, 65, 85))
+bodyTxt.AddToParent(card.CardBody, 0, 0, card.CardBody.Width, 20dip)
 
-	Dim cDash As B4XDaisyCard
-	cDash.Initialize(Me, "card")
-	Dim vDash As B4XView = cDash.AddToParent(pnlHost, leftBase, currentY, baseW, 0)
-	ApplyCardDefaults(cDash, "dash")
+' Add action button into CardActions:
+Dim btnAction As B4XDaisyButton
+btnAction.Initialize(Me, "btnBuy")
+btnAction.Text = "Buy Now"
+btnAction.Variant = "primary"
+btnAction.AddToParent(card.CardActions, 0, 0, 0, 0)
+
+card.Base_Resize(card.GetActualWidth, card.GetActualHeight)
+y = y + card.GetActualHeight + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -176,41 +173,3 @@ AddSectionTitle("User baseline card")
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyCard` is a composite container with dedicated sub-panels for title, body content, and action buttons.
-
-```vb
-Dim card As B4XDaisyCard
-card.Initialize(Me, "card")
-card.AddToParent(pnlHost, x, y, maxW, 0)
-card.ImagePath = "sample.webp"                 ' Top/side image asset
-card.LayoutMode = "top"                        ' "top" | "side" | "bottom" | "responsive"
-card.Style = "border"                          ' "none" | "border" | "dash"
-card.Shadow = "md"                             ' "none" | "sm" | "md" | "lg" | "xl"
-
-' 1. Title sub-panel:
-Dim pnlTitle As B4XView = card.GetTitlePanel
-Dim txtT As B4XDaisyText
-txtT.Initialize(Me, "")
-txtT.AddToParent(pnlTitle, 0, 0, pnlTitle.Width, 24dip)
-txtT.Text = "Card Title"
-txtT.FontBold = True
-
-' 2. Body sub-panel:
-Dim pnlContent As B4XView = card.GetContentPanel
-Dim txtB As B4XDaisyText
-txtB.Initialize(Me, "")
-txtB.AddToParent(pnlContent, 0, 0, pnlContent.Width, 40dip)
-txtB.Text = "Body description text goes here."
-
-' 3. Action button sub-panel:
-Dim pnlActions As B4XView = card.GetActionsPanel
-Dim btnAction As B4XDaisyButton
-btnAction.Initialize(Me, "btnAction")
-btnAction.AddToParent(pnlActions, 0, 0, 100dip, 36dip)
-btnAction.Text = "Action"
-btnAction.Variant = "primary"
-
-y = y + card.GetComputedHeight + gap
-```

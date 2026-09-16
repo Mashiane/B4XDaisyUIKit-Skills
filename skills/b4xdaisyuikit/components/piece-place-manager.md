@@ -5,13 +5,16 @@ DaisyUI `PiecePlaceManager` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyPiecePlaceManager`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyPiecePlaceManager.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPiecePlaceManager.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPiecePlaceManager.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.piece-place-manager` → `B4XDaisyPiecePlaceManager`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyPiecePlaceManager
+' Internal piece placement manager utilized by B4XDaisyBoomMenu
+Dim pieceManager As B4XDaisyPiecePlaceManager
+' Configured via PiecePlace on the host BoomMenu:
+boom.setPiecePlace("DOT_9_1") ' Dot indicator piece placement grid
 ```
 
 ## 3. Native Composition Rules & Gotchas

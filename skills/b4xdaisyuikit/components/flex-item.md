@@ -5,13 +5,17 @@ DaisyUI `FlexItem` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFlexItem`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyFlexItem.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFlexItem.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFlexItem.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.flex-item` → `B4XDaisyFlexItem`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyFlexItem
+' Flex item styling and growth helper
+Dim fi As B4XDaisyFlexItem
+fi.Initialize(Me, "fi")
+fi.Grow = 1.0
+fi.Shrink = 1.0
 ```
 
 ## 3. Native Composition Rules & Gotchas

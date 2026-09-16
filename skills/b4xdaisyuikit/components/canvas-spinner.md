@@ -5,13 +5,14 @@ DaisyUI `CanvasSpinner` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCanvasSpinner`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyCanvasSpinner.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCanvasSpinner.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCanvasSpinner.bas)
 - **Verified Demo Source**: B4XPageCanvasSpinner.bas
 - **Web DaisyUI Mapping**: `.canvas-spinner` → `B4XDaisyCanvasSpinner`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
 ' Spinner XS: 24dip
+    Dim spinnerXS As B4XDaisyCanvasSpinner
     spinnerXS.Initialize(Me, "spinnerXS")
     spinnerXS.AddToParent(pnlHost, padding, y + (rowH - 24dip)/2, 24dip, 24dip)
     spinnerXS.setColor1(B4XDaisyVariants.GetTokenColor("--color-primary", 0xFF3FC3EE))
@@ -39,14 +40,21 @@ DaisyUI `CanvasSpinner` component for B4X (B4A Android).
     spinnerMD.setColor3(B4XDaisyVariants.GetTokenColor("--color-neutral", 0xFF1F2937))
     spinnerMD.setStrokeWidth(4dip)
     spinnerMD.Show(Null)
+
+    ' --- Pattern B: View Loader Overlay ---
+    ' Attaches spinner directly over a target view (e.g. card, button, panel) and covers its bounds
+    Dim spinnerOverlay As B4XDaisyCanvasSpinner
+    spinnerOverlay.Initialize(Me, "spinnerOverlay")
+    spinnerOverlay.AttachTo(pnlHost)
+    spinnerOverlay.Show(Null)
 ```
 
 ## 3. Native Composition Rules & Gotchas
 ### Lifecycle Sequence
 1. **Declaration:** Declare variable `Dim <var> As B4XDaisyCanvasSpinner` (in `Class_Globals` or local sub).
 2. **Initialization:** Initialize instance with callback and event name: `<var>.Initialize(Me, "<EventName>")`.
-3. **Parent Attachment:** Attach to host container: `<var>.AddToParent(pnlHost, Left, Top, Width, Height)`.
-4. **Property Configuration:** Set visual themes, sizes, variants, typography, and content properties.
+3. **Parent Attachment / Target Anchoring:** Either attach with `<var>.AddToParent(...)` or overlay directly onto any target view with `<var>.AttachTo(vTarget)`.
+4. **Property Configuration:** Set colors, stroke widths, and call `.Show(Null)` to begin spinning.
 
 ### Preconditions & Gotchas
 - Dynamic programmatic resizing requires calling `.Resize` or updating bounds to ensure inner canvas/background repaints properly.

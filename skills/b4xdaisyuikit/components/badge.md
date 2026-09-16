@@ -5,7 +5,7 @@ DaisyUI `Badge` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyBadge`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyBadge.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBadge.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBadge.bas)
 - **Verified Demo Source**: B4XPageAlert.bas, B4XPageBadge.bas, B4XPageCard.bas, B4XPageTooltip.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.badge` → `B4XDaisyBadge`
 
@@ -25,36 +25,23 @@ DaisyUI `Badge` component for B4X (B4A Android).
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-Private Sub RenderBadgeGroupSelectSections(MaxW As Int, StartY As Int) As Int
-	Dim y As Int = StartY
-	
-	Dim titleLbl As B4XView = CreateSectionLabel("BadgeGroupSelect - Single Select", 14, xui.Color_RGB(30, 41, 59), True)
-	pnlHost.AddView(titleLbl, PAGE_PAD, y, MaxW, 20dip)
-	y = y + 22dip
-	
-	singleGroup.Initialize(Me, "singlegroup")
-	Dim v1 As B4XView = singleGroup.AddToParent(pnlHost, PAGE_PAD, y, MaxW, 1dip)
-	singleGroup.setLegend("Priority")
-	singleGroup.setBadgeSelectionMode("single")
-	singleGroup.setBadgeColor("neutral")
-	singleGroup.setBadgeStyle("solid")
-	singleGroup.setBadgeCheckedColor(B4XDaisyVariants.ResolveBackgroundColorVariant("success", xui.Color_RGB(34, 197, 94)))
-	singleGroup.setBadgeCheckedTextColor(B4XDaisyVariants.ResolveTextColorVariant("success", xui.Color_White))
-	singleGroup.setItemsSpec("low:Low|normal:Normal|high:High|urgent:Urgent")
-	
-		singleGroup.setChecked("normal")
-	
-	lblSingleState = CreateStateLabel("Selected: normal")
-	pnlHost.AddView(lblSingleState, PAGE_PAD, y + v1.Height + 8dip, MaxW, 18dip)
-	y = y + v1.Height + 34dip
+' Standard badge creation
+Dim badge1 As B4XDaisyBadge
+badge1.Initialize(Me, "badge1")
+badge1.AddToParent(pnlHost, 12dip, 12dip, 0, 0)
+badge1.Text = "New"
+badge1.Variant = "primary"
+badge1.Style = "solid"
+badge1.Size = "md"
 
-	Dim titleLbl2 As B4XView = CreateSectionLabel("BadgeGroupSelect - Multi Select", 14, xui.Color_RGB(30, 41, 59), True)
-	pnlHost.AddView(titleLbl2, PAGE_PAD, y, MaxW, 20dip)
-	y = y + 22dip
-	
-	multiGroup.Initialize(Me, "multigroup")
-	Dim v2 As B4XView = multiGroup.AddToParent(pnlHost, PAGE_PAD, y, MaxW, 1dip)
-	multiGroup.setLegend("Skills")
+' Ghost styled badge with accent variant
+Dim badgeGhost As B4XDaisyBadge
+badgeGhost.Initialize(Me, "badgeGhost")
+badgeGhost.AddToParent(pnlHost, 80dip, 12dip, 0, 0)
+badgeGhost.Text = "Ghost"
+badgeGhost.Variant = "accent"
+badgeGhost.Style = "ghost"
+badgeGhost.Size = "sm"
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -193,6 +180,13 @@ Private Sub RenderBadgeGroupSelectSections(MaxW As Int, StartY As Int) As Int
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

@@ -5,7 +5,7 @@ DaisyUI `Image` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyImage`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyImage.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyImage.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyImage.bas)
 - **Verified Demo Source**: B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.image` → `B4XDaisyImage`
 
@@ -13,34 +13,13 @@ DaisyUI `Image` component for B4X (B4A Android).
 ```b4x
 currentY = currentY + 68dip
 
-	' --- Photo Preview Section (B4XDaisyImage) ---
-	currentY = pageScroll.AddSectionTitle("Captured Photo Preview", currentY, False)
-	
-	imgPreview.Initialize(Me, "imgPreview")
-	imgPreview.AddToParent(pnlHost, padding, currentY, maxW, 200dip)
-	imgPreview.Rounded = True
-	imgPreview.ResizeMode = "FIT"
-	currentY = currentY + 210dip
+Dim imgPreview As B4XDaisyImage
+imgPreview.Initialize(Me, "imgPreview")
+imgPreview.AddToParent(pnlHost, padding, currentY, maxW, 200dip)
+imgPreview.Rounded = True
+imgPreview.ResizeMode = "FIT"
 
-	' --- Selected Media Information Card ---
-	currentY = pageScroll.AddSectionTitle("Selected Media Metadata", currentY, False)
-	
-	lblMediaInfo.Initialize(Me, "lblMediaInfo")
-	lblMediaInfo.Text = "No media selected yet. Tap an icon button above to capture or select media."
-	lblMediaInfo.TextColor = xui.Color_RGB(100, 116, 139)
-	lblMediaInfo.AddToParent(pnlHost, padding, currentY, maxW, 80dip)
-	currentY = currentY + 90dip
-
-	' --- Placeholder Sections for Video/Audio & PDF Viewers ---
-	currentY = pageScroll.AddSectionTitle("Video & Audio Player Placeholder", currentY, False)
-	currentY = AddDescription("Placeholder section for video and audio playback components.", currentY, maxW)
-	currentY = currentY + 10dip
-
-	currentY = pageScroll.AddSectionTitle("Document & PDF Viewer Placeholder", currentY, False)
-	currentY = AddDescription("Placeholder section for PDF and document rendering components.", currentY, maxW)
-	currentY = currentY + 20dip
-
-	pageScroll.AutoFit
+currentY = currentY + 200dip + gap
 ```
 
 ## 3. Native Composition Rules & Gotchas

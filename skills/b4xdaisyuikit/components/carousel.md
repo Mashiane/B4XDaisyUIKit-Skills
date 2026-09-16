@@ -5,7 +5,7 @@ DaisyUI `Carousel` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCarousel`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyCarousel.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCarousel.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCarousel.bas)
 - **Verified Demo Source**: B4XPageCarousel.bas
 - **Web DaisyUI Mapping**: `.carousel` → `B4XDaisyCarousel`
 
@@ -24,37 +24,29 @@ DaisyUI `Carousel` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-' Each item has a click handler that shows a toast notification.
-    currentY = AddSectionTitle("Snap to start (default)", currentY, maxW)
-    Dim carousel1 As B4XDaisyCarousel
-    carousel1.Initialize(Me, "carousel1")
-    carousel1.Rounded = "rounded-box"
-    carousel1.Width = "w-full"
-    carousel1.Height = "h-[300px]"
-    carousel1.AddToParent(pnlHost, PAGE_PAD, currentY, maxW, 300dip)
-    
-    Dim images1() As String = Array As String("photo-1559703248-dcaaec9fab78.webp", _
-                                             "photo-1565098772267-60af42b81ef2.webp", _
-                                             "photo-1572635148818-ef6fd45eb394.webp", _
-                                             "photo-1494253109108-2e30c049369b.webp", _
-                                             "photo-1550258987-190a2d41a8ba.webp", _
-                                             "photo-1559181567-c3190ca9959b.webp", _
-                                             "photo-1601004890684-d8cbf643f5f2.webp")
-    Dim idx1 As Int = 0                                         
-    For Each img As String In images1
-        Dim itm As B4XDaisyCarouselItem
-        itm.Initialize(Me, "item")
-        itm.Tag = "Start #" & (idx1 + 1) & ": " & img
-        itm.ItemType = "image"
-        itm.Source = img
-        itm.Snap = "start"
-        itm.Width = "w-full"
-        itm.Height = "h-full"
-        carousel1.AddItem(itm)
-        idx1 = idx1 + 1
-    Next
-    carousel1.Refresh
+' Horizontal scrolling carousel with snap points:
+Dim carousel As B4XDaisyCarousel
+carousel.Initialize(Me, "carousel")
+carousel.Snap = "snap-start"
+carousel.AddToParent(pnlHost, 16dip, y, maxW, 220dip)
+
+' Add carousel item images or panels:
+Dim itm1 As B4XDaisyCarouselItem
+itm1.Initialize(Me, "itm1")
+itm1.AddToParent(carousel.getContainer, 0, 0, maxW, 220dip)
+itm1.Image = "photo-1559703248-dcaaec9fab78.webp"
+carousel.AddItem(itm1)
+
+Dim itm2 As B4XDaisyCarouselItem
+itm2.Initialize(Me, "itm2")
+itm2.AddToParent(carousel.getContainer, 0, 0, maxW, 220dip)
+itm2.Image = "photo-1565098772267-60af42b81ef2.webp"
+carousel.AddItem(itm2)
+
+carousel.Refresh
+y = y + 220dip + 16dip
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -186,28 +178,3 @@ DaisyUI `Carousel` component for B4X (B4A Android).
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyCarousel` is a touch-swipeable image and card carousel.
-
-```vb
-Dim carousel As B4XDaisyCarousel
-carousel.Initialize(Me, "carousel")
-carousel.Rounded = "rounded-box"
-carousel.Width = "w-full"
-carousel.Height = "h-[260px]"
-carousel.AddToParent(pnlHost, x, y, maxW, 260dip)
-
-' Add items:
-Dim itm1 As B4XDaisyCarouselItem
-itm1.Initialize(Me, "itm1")
-itm1.Image = "photo1.webp"
-carousel.AddItem(itm1)
-
-Dim itm2 As B4XDaisyCarouselItem
-itm2.Initialize(Me, "itm2")
-itm2.Image = "photo2.webp"
-carousel.AddItem(itm2)
-
-y = y + 260dip + gap
-```

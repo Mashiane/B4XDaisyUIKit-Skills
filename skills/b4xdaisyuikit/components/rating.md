@@ -5,7 +5,7 @@ DaisyUI `Rating` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyRating`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyRating.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyRating.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyRating.bas)
 - **Verified Demo Source**: B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageRating.bas
 - **Web DaisyUI Mapping**: `.rating` → `B4XDaisyRating`
 

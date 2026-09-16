@@ -5,7 +5,7 @@ DaisyUI `Status` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyStatus`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyStatus.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStatus.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStatus.bas)
 - **Verified Demo Source**: B4XPageStatus.bas
 - **Web DaisyUI Mapping**: `.status` → `B4XDaisyStatus`
 
@@ -125,6 +125,13 @@ Private Sub RenderPingSection(Section As Map, MaxW As Int, StartY As Int) As Int
 - `setClickable(Value As Boolean)`
 - `getClickable As Boolean`
 - `RemoveViewFromParent`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

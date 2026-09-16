@@ -5,13 +5,24 @@ DaisyUI `FlexLayout` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyFlexLayout`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyFlexLayout.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFlexLayout.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFlexLayout.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.flex-layout` → `B4XDaisyFlexLayout`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyFlexLayout
+' Initialize flex layout engine targeting a host container panel
+Dim flex As B4XDaisyFlexLayout
+flex.Initialize(pnlHost)
+flex.SetPadding(12dip)
+flex.SetGap(8dip, 8dip)
+
+' Configure child flex items
+flex.SetItemFlexEx(childView1, 1.0, 1.0, 50dip, 200dip, 30dip, 60dip)
+flex.SetItemFlexEx(childView2, 2.0, 1.0, 50dip, 200dip, 30dip, 60dip)
+
+' Perform layout calculation
+flex.Relayout
 ```
 
 ## 3. Native Composition Rules & Gotchas

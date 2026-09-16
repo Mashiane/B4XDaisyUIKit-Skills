@@ -5,7 +5,7 @@ DaisyUI `BadgeGroupSelect` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyBadgeGroupSelect`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyBadgeGroupSelect.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBadgeGroupSelect.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBadgeGroupSelect.bas)
 - **Verified Demo Source**: B4XPageBadge.bas
 - **Web DaisyUI Mapping**: `.badge-group-select` → `B4XDaisyBadgeGroupSelect`
 
@@ -13,6 +13,7 @@ DaisyUI `BadgeGroupSelect` component for B4X (B4A Android).
 ```b4x
 y = y + 22dip
 	
+	Dim singleGroup As B4XDaisyBadgeGroupSelect
 	singleGroup.Initialize(Me, "singlegroup")
 	Dim v1 As B4XView = singleGroup.AddToParent(pnlHost, PAGE_PAD, y, MaxW, 1dip)
 	singleGroup.setLegend("Priority")

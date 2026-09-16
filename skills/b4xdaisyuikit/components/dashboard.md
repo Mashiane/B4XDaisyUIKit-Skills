@@ -5,7 +5,7 @@ DaisyUI `Dashboard` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDashboard`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDashboard.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDashboard.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDashboard.bas)
 - **Verified Demo Source**: B4XPageDashboard.bas
 - **Web DaisyUI Mapping**: `.dashboard` → `B4XDaisyDashboard`
 
@@ -15,6 +15,7 @@ Private Sub B4XPage_Created (Root1 As B4XView)
 	Root = Root1
 	Root.Color = xui.Color_RGB(240, 244, 249)
 
+	Dim Dashboard As B4XDaisyDashboard
 	Dashboard.Initialize(Me, "dash")
 	Dashboard.AddToParent(Root)
 	Dashboard.setBackgroundImage("janis-kloter-GipF6xThS6g-unsplash.jpg")

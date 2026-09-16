@@ -5,13 +5,15 @@ DaisyUI `BoxModel` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyBoxModel`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyBoxModel.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBoxModel.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBoxModel.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.box-model` → `B4XDaisyBoxModel`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyBoxModel
+' CSS Box Model spacing and sizing helpers (StaticCode module)
+Dim spacingPx As Float = B4XDaisyBoxModel.GetSpacingScalePx("4")
+Dim normalizedSpacing As String = B4XDaisyBoxModel.NormalizeSpacing("p-4")
 ```
 
 ## 3. Native Composition Rules & Gotchas

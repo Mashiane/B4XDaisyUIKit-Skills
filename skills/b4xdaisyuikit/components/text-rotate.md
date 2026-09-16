@@ -5,7 +5,7 @@ DaisyUI `TextRotate` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyTextRotate`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyTextRotate.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTextRotate.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTextRotate.bas)
 - **Verified Demo Source**: B4XPageTextRotate.bas
 - **Web DaisyUI Mapping**: `.text-rotate` → `B4XDaisyTextRotate`
 

@@ -5,13 +5,17 @@ DaisyUI `CollapseContent` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCollapseContent`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyCollapseContent.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCollapseContent.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCollapseContent.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.collapse-content` → `B4XDaisyCollapseContent`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyCollapseContent
+' Collapse expandable content container
+Dim colContent As B4XDaisyCollapseContent
+colContent.Initialize(Me, "colContent")
+colContent.AddToParent(pnlHost, 0, 0, maxW, 100dip)
+colContent.Visible = True
 ```
 
 ## 3. Native Composition Rules & Gotchas

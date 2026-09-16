@@ -5,42 +5,28 @@ DaisyUI `Signature` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySignature`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisySignature.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySignature.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySignature.bas)
 - **Verified Demo Source**: B4XPageSignaturePad.bas
 - **Web DaisyUI Mapping**: `.signature` → `B4XDaisySignature`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
-    
-	spDemo.Initialize(Me, "spDemo")
-	spDemo.AddToParent(pnlHost, padding, y, maxW, 220dip)
-	spDemo.PenColor = xui.Color_Black
-	spDemo.BackgroundColor = xui.Color_White
-	spDemo.MinWidth = 2
-	spDemo.MaxWidth = 6
-	spDemo.BitMapFormat = "png"
-	spDemo.BitMapQuality = 100
-	spDemo.DisallowParentIntercept = True
-	y = y + spDemo.GetComputedHeight + gap
-    
-	' -------------------------------------------------------------
-	' Section 2: Drawing Actions & Settings
-	' Buttons are stacked vertically (one per row) using full width.
-	' -------------------------------------------------------------
-	y = pageScroll.AddSectionTitle("Canvas Controls & Settings", y, False)
-    
-	btnClear.Initialize(Me, "btnClear")
-	btnClear.AddToParent(pnlHost, padding, y, maxW, 36dip)
-	btnClear.Text = "Clear"
-	btnClear.Variant = "error"
-	y = y + btnClear.GetComputedHeight + gap
-    
-	btnCheckEmpty.Initialize(Me, "btnCheckEmpty")
-	btnCheckEmpty.AddToParent(pnlHost, padding, y, maxW, 36dip)
-	btnCheckEmpty.Text = "Check Empty"
-	btnCheckEmpty.Variant = "neutral"
-	y = y + btnCheckEmpty.GetComputedHeight + gap
+' Digital handwriting and signature pad:
+Dim sig As B4XDaisySignaturePad
+sig.Initialize(Me, "sig")
+sig.AddToParent(pnlHost, 16dip, y, maxW, 180dip)
+sig.PenColor = xui.Color_Black
+sig.BackgroundColor = xui.Color_White
+sig.MinWidth = 2
+sig.MaxWidth = 5
+sig.DisallowParentIntercept = True
+
+y = y + sig.GetComputedHeight + 16dip
+
+' Helper actions:
+' sig.Clear
+' Dim bmp As B4XBitmap = sig.GetBitmap
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -221,21 +207,3 @@ y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisySignature` / `B4XDaisySignaturePad` captures digital touch signatures.
-
-```vb
-Dim sig As B4XDaisySignature
-sig.Initialize(Me, "sig")
-sig.AddToParent(pnlHost, pad, y, maxW, 160dip)
-sig.StrokeColor = xui.Color_Black
-sig.StrokeWidth = 3dip
-sig.Rounded = "rounded-box"
-
-' Actions:
-' sig.Clear
-' Dim bmp As B4XBitmap = sig.GetBitmap
-
-y = y + 160dip + gap
-```

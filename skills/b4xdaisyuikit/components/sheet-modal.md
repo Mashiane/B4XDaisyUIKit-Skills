@@ -5,41 +5,31 @@ DaisyUI `SheetModal` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySheetModal`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisySheetModal.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySheetModal.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySheetModal.bas)
 - **Verified Demo Source**: B4XPageColorWheel.bas, B4XPagePicker.bas, B4XPageSheetModal.bas
 - **Web DaisyUI Mapping**: `.sheet-modal` → `B4XDaisySheetModal`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub BuildSheetModals
-	' 1. Online Modal
-	smOnline.Initialize(Me, "smOnline")
-	smOnline.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-	smOnline.Breakpoints = "0.0,1.0"
-	smOnline.InitialBreakpoint = 1.0
-	smOnline.Handle = False
-	smOnline.HandleBehavior = "none"
-	smOnline.BackdropOpacity = 40
-	smOnline.Rounded = "lg"
-	smOnline.AutoHeight = False
-	smOnline.Height = "h-full"
-	smOnline.Animated = True
-	smOnline.AnimationTime = 600
+' Draggable bottom sheet modal:
+Dim sheet As B4XDaisySheetModal
+sheet.Initialize(Me, "sheet")
+sheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
+sheet.Breakpoints = "0.0,0.5,1.0"
+sheet.InitialBreakpoint = 0.5
+sheet.Handle = True
+sheet.Rounded = "lg"
+sheet.Animated = True
 
-	Dim nb As B4XDaisyNavbar
-	nb.Initialize(Me, "nbOnline")
-	Dim nbHost As B4XView = xui.CreatePanel("")
-	nb.AddToParent(nbHost, 0, 0, Root.Width, 44dip)
-	nb.setHeight("h-[44px]")
-	nb.Variant = "none"
-	nb.BackgroundColor = xui.Color_RGB(247, 247, 247)
-	nb.Shadow = "md"
+' Mount content into sheet:
+Dim txtContent As B4XDaisyText
+txtContent.Initialize(Me, "")
+txtContent.Text = "Swipe sheet down to dismiss or up to expand full screen."
+txtContent.AddToParent(sheet.GetContentPanel, 16dip, 20dip, Root.Width - 32dip, 60dip)
 
-	Dim btnCancel As B4XDaisyButton = nb.AddButtonToStart("smOnlineCancel", "Cancel", "none", 80dip, 32dip, True)
-	nb.AddTitleToCenter("Welcome")
-	Dim btnConfirm As B4XDaisyButton = nb.AddButtonToEnd("smOnlineConfirm", "Confirm", "primary", 80dip, 32dip, True)
-
-	smOnline.AddBoxView(nb.View, 0, 0, Root.Width, 44dip)
+' Present sheet:
+sheet.Present
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -182,26 +172,16 @@ Private Sub BuildSheetModals
 - `getScrollBehavior As String`
 - `setNestedScrollEnabled(Value As Boolean)`
 - `getNestedScrollEnabled As Boolean`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisySheetModal` provides a draggable bottom sheet container.
-
-```vb
-Dim sheet As B4XDaisySheetModal
-sheet.Initialize(Me, "sheet")
-sheet.AddToParent(Root, 0, 0, Root.Width, Root.Height)
-sheet.Title = "Bottom Sheet"
-
-' Mount custom views onto GetContentPanel:
-Dim pnlSheet As B4XView = sheet.GetContentPanel
-Dim txtSheet As B4XDaisyText
-txtSheet.Initialize(Me, "")
-txtSheet.AddToParent(pnlSheet, 16dip, 10dip, pnlSheet.Width - 32dip, 40dip)
-txtSheet.Text = "Custom bottom sheet content."
-
-sheet.Show
-```

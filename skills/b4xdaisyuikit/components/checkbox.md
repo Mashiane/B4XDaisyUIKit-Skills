@@ -5,7 +5,7 @@ DaisyUI `Checkbox` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCheckbox`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyCheckbox.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCheckbox.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCheckbox.bas)
 - **Verified Demo Source**: B4XPageCheckbox.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas
 - **Web DaisyUI Mapping**: `.checkbox` → `B4XDaisyCheckbox`
 
@@ -90,7 +90,7 @@ DaisyUI `Checkbox` component for B4X (B4A Android).
 | `CheckedTextColor` | Checked Checkmark Color | `Color` | 0x00FFFFFF |  |
 | `Multiline` | Multiline | `Boolean` | False |  |
 | `LineSpacing` | Line Spacing Extra | `Int` | 0 |  |
-| `LineSpacingMult` | Line Spacing Multiplier | `Double` | 1.0 |  |
+| `LineSpacingMult` | Line Spacing Multiplier | `Float` | 1.0 |  |
 | `Required` | Required | `Boolean` | False |  |
 | `ErrorText` | Error Text | `String` |  |  |
 

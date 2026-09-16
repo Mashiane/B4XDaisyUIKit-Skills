@@ -5,7 +5,7 @@ DaisyUI `Divider` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDivider`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDivider.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDivider.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDivider.bas)
 - **Verified Demo Source**: B4XPageDivider.bas
 - **Web DaisyUI Mapping**: `.divider` → `B4XDaisyDivider`
 

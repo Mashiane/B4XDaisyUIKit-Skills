@@ -5,13 +5,18 @@ DaisyUI `CardBody` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyCardBody`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
-- **Library Source**: `B4XDaisyCardBody.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCardBody.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCardBody.bas)
 - **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
 - **Web DaisyUI Mapping**: `.card-body` → `B4XDaisyCardBody`
 
 ## 2. Verified B4X Syntax & Recipe
 ```b4x
-' No demo found for B4XDaisyCardBody
+' Direct composition: Card body inside a parent card container
+Dim cardBody As B4XDaisyCardBody
+cardBody.Initialize(Me, "cardBody")
+cardBody.AddToParent(pnlHost, 0, 0, maxW, 120dip)
+cardBody.Size = "md"
+cardBody.Visible = True
 ```
 
 ## 3. Native Composition Rules & Gotchas

@@ -5,7 +5,7 @@ DaisyUI `Range` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyRange`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyRange.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyRange.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyRange.bas)
 - **Verified Demo Source**: B4XPageCanvasSpinner.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas, B4XPageRange.bas, B4XPageSignaturePad.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.range` → `B4XDaisyRange`
 

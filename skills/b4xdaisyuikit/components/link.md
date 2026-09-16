@@ -7,9 +7,8 @@ In B4XDaisyUIKit, links are implemented by configuring `B4XDaisyText` with `Link
 
 ## 1. Overview
 - **Class**: `B4XDaisyText`
-- **Status**: `Demonstrated`
-- **Library Source**: `B4XDaisyText.bas`
-- **Reference Page**: `B4XPageLink.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyText.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyText.bas)
+- **Verified Demo Source**: [B4XPageLink.bas](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4A/B4XPageLink.bas)
 - **Web DaisyUI Mapping**: `.link` → `B4XDaisyText (Link = True)`
 
 ## 2. Verified B4X Syntax & Recipe

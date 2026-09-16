@@ -5,7 +5,7 @@ DaisyUI `Menu` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyMenu`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyMenu.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyMenu.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyMenu.bas)
 - **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas
 - **Web DaisyUI Mapping**: `.menu` → `B4XDaisyMenu`
 
@@ -34,20 +34,29 @@ Horizontal menu:
 ```
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub ExampleFileTree(Y As Int, Width As Int) As Int
-    Y = AddSectionTitle("File tree", Y, Width)
-    Dim menu As B4XDaisyMenu = CreateMenu("menu-file-tree", "vertical", "md")
-    menu.AddIconItem("resume.pdf", "resume.pdf", "file-lines-solid.svg")
-    Dim rootFiles As B4XDaisyMenu = menu.AddSubmenu("my-files", "My Files", True)
-    rootFiles.AddIconItem("Project", "Project", "folder-solid.svg")
-    Dim images As B4XDaisyMenu = rootFiles.AddSubmenu("Images", "Images", True)
-    images.AddIconItem("hero.png", "hero.png", "image-solid.svg")
-    images.AddIconItem("logo.png", "logo.png", "image-solid.svg")
-    Dim docs As B4XDaisyMenu = rootFiles.AddSubmenu("Documents", "Documents", True)
-    docs.AddIconItem("Notes.txt", "Notes.txt", "file-lines-solid.svg")
-    docs.AddIconItem("Invoice.pdf", "Invoice.pdf", "file-lines-solid.svg")
-    Return AddMenuBlock(menu, Y, Width)
+' Vertical navigation menu with hierarchy:
+Dim menu As B4XDaisyMenu
+menu.Initialize(Me, "menu")
+menu.AddToParent(pnlHost, 16dip, y, maxW, 180dip)
+menu.Orientation = "vertical"
+menu.Rounded = "rounded-box"
+menu.Dividers = True
+
+' Add top-level icon items:
+menu.AddIconItem("dashboard", "Dashboard", "house-solid.svg")
+
+' Add expandable submenu:
+Dim subReports As B4XDaisyMenu = menu.AddSubmenu("reports", "Reports", True)
+subReports.AddIconItem("sales", "Sales Report", "file-lines-solid.svg")
+subReports.AddIconItem("inventory", "Inventory Count", "file-lines-solid.svg")
+
+y = y + 180dip + 16dip
+
+' Item click event:
+Private Sub menu_ItemClick(Key As String)
+	If B4XDaisyApp.DebugLogs Then Log("Menu selected: " & Key)
 End Sub
 ```
 
@@ -224,32 +233,9 @@ End Sub
 - `setRightBorder(Value As Boolean)`
 - `getRightBorder As Boolean`
 - `setRightBorderColor(Value As Int)`
+- `BringToFront`
 - `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyMenu` renders vertical navigation menus with parent/child collapsible items.
-
-```vb
-Dim menu As B4XDaisyMenu
-menu.Initialize(Me, "menu")
-menu.AddToParent(pnlHost, pad, y, maxW, 200dip)
-menu.Rounded = "rounded-box"
-
-' Add menu items:
-menu.AddItem("home", "Home Dashboard", "home-solid.svg")
-menu.AddParentItem("inventory", "Inventory Management", "box-solid.svg")
-menu.AddChildItem("inventory", "scan", "Barcode Scanner")
-menu.AddChildItem("inventory", "count", "Physical Count")
-menu.AddItem("settings", "App Settings", "cog-solid.svg")
-
-' Click event:
-Private Sub menu_ItemClick(Tag As Object)
-    If B4XDaisyApp.DebugLogs Then Log("Menu clicked: " & Tag)
-End Sub
-
-y = y + menu.GetComputedHeight + gap
-```

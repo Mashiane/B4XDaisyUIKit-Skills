@@ -5,7 +5,7 @@ DaisyUI `ShineButton` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyShineButton`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyShineButton.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyShineButton.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyShineButton.bas)
 - **Verified Demo Source**: B4XPageShineButton.bas
 - **Web DaisyUI Mapping**: `.shine-button` → `B4XDaisyShineButton`
 
@@ -13,6 +13,7 @@ DaisyUI `ShineButton` component for B4X (B4A Android).
 ```b4x
 ' --- Row 1: xs, sm, md, lg ---
 	' xs: 28dip
+	Dim dsbXs As B4XDaisyShineButton
 	dsbXs.Initialize(Me, "dsbXs")
 	dsbXs.AddToParent(pnlSizes, 16dip, 26dip, 28dip, 28dip)
 	dsbXs.Shape = "heart"
@@ -131,6 +132,17 @@ DaisyUI `ShineButton` component for B4X (B4A Android).
 - `setVisible(Value As Boolean)`
 - `getVisible As Boolean`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

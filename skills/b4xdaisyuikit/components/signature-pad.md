@@ -5,7 +5,7 @@ DaisyUI `SignaturePad` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisySignaturePad`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisySignaturePad.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySignaturePad.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySignaturePad.bas)
 - **Verified Demo Source**: B4XPageSignaturePad.bas
 - **Web DaisyUI Mapping**: `.signature-pad` → `B4XDaisySignaturePad`
 
@@ -13,6 +13,7 @@ DaisyUI `SignaturePad` component for B4X (B4A Android).
 ```b4x
 y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
     
+	Dim spDemo As B4XDaisySignaturePad
 	spDemo.Initialize(Me, "spDemo")
 	spDemo.AddToParent(pnlHost, padding, y, maxW, 220dip)
 	spDemo.PenColor = xui.Color_Black
@@ -148,6 +149,13 @@ y = pageScroll.AddSectionTitle("Interactive Drawing Area", y, False)
 - `getVariant As String`
 - `setVariant(Value As String)`
 - `Release`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 - `mBase As B4XView`

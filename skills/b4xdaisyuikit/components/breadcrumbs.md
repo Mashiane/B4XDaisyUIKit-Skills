@@ -5,7 +5,7 @@ DaisyUI `Breadcrumbs` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyBreadcrumbs`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyBreadcrumbs.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBreadcrumbs.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBreadcrumbs.bas)
 - **Verified Demo Source**: B4XPageBreadcrumbs.bas
 - **Web DaisyUI Mapping**: `.breadcrumbs` → `B4XDaisyBreadcrumbs`
 
@@ -23,36 +23,28 @@ DaisyUI `Breadcrumbs` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-''' <summary>
-    ''' Example 1: Basic breadcrumbs.
-    ''' </summary>
-    currentY = AddSectionTitle(contentLeft, currentY, maxW, "1. Basic breadcrumbs")
-    currentY = AddDescription(contentLeft, currentY, maxW, "Earlier crumbs are clickable and the final crumb stays passive as the current location.")
-    Dim basic As B4XDaisyBreadcrumbs
-    basic.Initialize(Me, "crumbs")
-    basic.AddToParent(pnlHost, contentLeft, currentY, maxW, 40dip)
-    basic.TextSize = "text-sm"
-    basic.CurrentIndex = 2
-    basic.Clear
-    basic.AddItem("home", "Home", "", True)
-    basic.AddItem("documents", "Documents", "", True)
-    basic.AddItem("add-document", "Add Document", "", False)
-    basic.SetLayoutAnimated(0, basic.Left, basic.Top, basic.Width, basic.GetComputedHeight)
-    currentY = currentY + basic.GetComputedHeight + 18dip
 
-    ''' <summary>
-    ''' Example 2: Breadcrumbs with icons.
-    ''' </summary>
-    currentY = AddSectionTitle(contentLeft, currentY, maxW, "2. Breadcrumbs with icons")
-    currentY = AddDescription(contentLeft, currentY, maxW, "Each breadcrumb can include a Daisy-style SVG icon while keeping the same horizontal flow and separator treatment.")
-    Dim withIcons As B4XDaisyBreadcrumbs
-    withIcons.Initialize(Me, "crumbs")
-    withIcons.AddToParent(pnlHost, contentLeft, currentY, maxW, 40dip)
-    withIcons.TextSize = "text-sm"
-    withIcons.CurrentIndex = 2
-    withIcons.Clear
-    withIcons.AddItem("home-icon", "Home", "breadcrumb-folder.svg", True)
+```b4x
+' Horizontal breadcrumb trail navigation:
+Dim crumbs As B4XDaisyBreadcrumbs
+crumbs.Initialize(Me, "crumbs")
+crumbs.AddToParent(pnlHost, 16dip, y, maxW, 40dip)
+crumbs.TextSize = "text-sm"
+crumbs.CurrentIndex = 2
+crumbs.Clear
+
+' Add items with icons (key, text, iconPath, clickable):
+crumbs.AddItem("home", "Home", "breadcrumb-folder.svg", True)
+crumbs.AddItem("docs", "Documents", "breadcrumb-folder.svg", True)
+crumbs.AddItem("invoice", "Invoice #1024", "breadcrumb-document.svg", False)
+crumbs.SetLayoutAnimated(0, crumbs.Left, crumbs.Top, crumbs.Width, crumbs.GetComputedHeight)
+
+y = y + crumbs.GetComputedHeight + 16dip
+
+' Item click event:
+Private Sub crumbs_ItemClick(Index As Int, Key As String)
+	If B4XDaisyApp.DebugLogs Then Log("Breadcrumb clicked: " & Key)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -122,24 +114,3 @@ DaisyUI `Breadcrumbs` component for B4X (B4A Android).
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyBreadcrumbs` is a horizontal navigation breadcrumb trail.
-
-```vb
-Dim crumbs As B4XDaisyBreadcrumbs
-crumbs.Initialize(Me, "crumbs")
-crumbs.AddToParent(pnlHost, x, y, maxW, 40dip)
-crumbs.TextSize = "text-sm"
-crumbs.Clear
-crumbs.AddItem("home", "Home", "home-solid.svg", True)
-crumbs.AddItem("inventory", "Inventory", "", True)
-crumbs.AddItem("current", "Batch #1042", "", False)
-crumbs.CurrentIndex = 2
-
-Private Sub crumbs_ItemClick(Tag As Object)
-    If B4XDaisyApp.DebugLogs Then Log("Selected breadcrumb: " & Tag)
-End Sub
-
-y = y + crumbs.GetComputedHeight + gap
-```

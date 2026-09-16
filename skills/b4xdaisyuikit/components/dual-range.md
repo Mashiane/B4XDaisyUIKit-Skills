@@ -5,7 +5,7 @@ DaisyUI `DualRange` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyDualRange`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyDualRange.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDualRange.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDualRange.bas)
 - **Verified Demo Source**: B4XPageDualRange.bas
 - **Web DaisyUI Mapping**: `.dual-range` → `B4XDaisyDualRange`
 
@@ -192,6 +192,8 @@ DaisyUI `DualRange` component for B4X (B4A Android).
 - `getTop As Int`
 - `BringToFront`
 - `SendToBack`
+- `setVisible(Value As Boolean)`
+- `getVisible As Boolean`
 
 ## 7. Public Fields
 - `mBase As B4XView`

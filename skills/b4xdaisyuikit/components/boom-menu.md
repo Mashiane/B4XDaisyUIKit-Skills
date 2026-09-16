@@ -5,33 +5,31 @@ DaisyUI `BoomMenu` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyBoomMenu`
 - **Lifecycle Type**: `Non-standard`
-- **Library Source**: `B4XDaisyBoomMenu.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBoomMenu.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBoomMenu.bas)
 - **Verified Demo Source**: B4XPageBoomMenu.bas
 - **Web DaisyUI Mapping**: `.boom-menu` → `B4XDaisyBoomMenu`
 
 ## 2. Verified B4X Syntax & Recipe
+
 ```b4x
-Private Sub EnsureBoomAdded(Width As Int, Height As Int)
-    If Width <= 0 Or Height <= 0 Then Return
-    ' Note: do NOT guard on boom.getIsInitialized here - that checks mBase, which is
-    ' only created inside AddToParent. BuildBoomMenu (boom.Initialize) runs first, so
-    ' the instance is valid; the Try/Catch covers any failure.
-    Dim margin As Int = 24dip
-    Dim sz As Int = 56dip
-    Dim bLeft As Int = Width - sz - margin
-    Dim bTop As Int = Height - sz - margin
-    Try
-        If mbBoomAdded = False Then
-            If B4XDaisyApp.DebugLogs Then Log("BoomPage: Adding boom to Root at " & bLeft & "," & bTop & " " & sz & "x" & sz)
-            boom.AddToParent(Root, bLeft, bTop, sz, sz)
-            mbBoomAdded = True
-            If B4XDaisyApp.DebugLogs Then Log("BoomPage: boom added, isInit=" & boom.getIsInitialized)
-        Else
-            boom.Reposition(bLeft, bTop, sz, sz)
-        End If
-    Catch
-        If B4XDaisyApp.DebugLogs Then Log("B4XPageBoomMenu.EnsureBoomAdded: " & LastException.Message)
-    End Try
+' Floating action radial explosion menu:
+Dim boom As B4XDaisyBoomMenu
+boom.Initialize(Me, "boom")
+Dim sz As Int = 56dip
+Dim margin As Int = 24dip
+boom.AddToParent(Root, Root.Width - sz - margin, Root.Height - sz - margin, sz, sz)
+boom.DimBackground = True
+boom.Duration = 300
+
+' Add sub-buttons:
+boom.AddSubButton("share", "Share", "square-share-nodes-solid.svg", xui.Color_RGB(59, 130, 246))
+boom.AddSubButton("export", "Export", "file-export-solid.svg", xui.Color_RGB(16, 185, 129))
+boom.AddSubButton("delete", "Delete", "trash-solid.svg", xui.Color_RGB(239, 68, 68))
+boom.Build
+
+' Event handler:
+Private Sub boom_ButtonClicked(Index As Int, Tag As Object)
+	If B4XDaisyApp.DebugLogs Then Log("Boom button clicked: " & Index)
 End Sub
 ```
 
@@ -218,28 +216,18 @@ End Sub
 - `boombtn_Click`
 - `boombackdrop_Click`
 - `View As B4XView`
+- `SetLayoutAnimated(Duration As Int, Left As Int, Top As Int, Width As Int, Height As Int)`
+- `setLeft(Value As Int)`
+- `getLeft As Int`
+- `setTop(Value As Int)`
+- `getTop As Int`
+- `setWidth(Value As Int)`
+- `getWidth As Int`
+- `setHeight(Value As Int)`
+- `getHeight As Int`
+- `BringToFront`
+- `SendToBack`
 
 ## 7. Public Fields
 (none declared in packaged source)
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyBoomMenu` provides a floating action button expanding into radial circular sub-buttons.
-
-```vb
-Dim boom As B4XDaisyBoomMenu
-boom.Initialize(Me, "boom")
-boom.AddToParent(Root, Root.Width - 72dip, Root.Height - 72dip, 56dip, 56dip)
-boom.ButtonShape = "circle"
-boom.PiecePlaceEnum = "DOT_9_1"
-boom.ButtonPlaceEnum = "SC_9_1"
-
-' Add sub-buttons:
-boom.AddButton("scan", "qrcode-solid.svg", "Scan SKU", "primary")
-boom.AddButton("add", "plus-solid.svg", "Manual Entry", "secondary")
-
-' Click event:
-Private Sub boom_BoomClick(Index As Int, Tag As Object)
-    If B4XDaisyApp.DebugLogs Then Log("Boom item clicked: " & Tag)
-End Sub
-```

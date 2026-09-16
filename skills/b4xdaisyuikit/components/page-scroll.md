@@ -5,7 +5,7 @@ DaisyUI `PageScroll` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyPageScroll`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyPageScroll.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPageScroll.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPageScroll.bas)
 - **Verified Demo Source**: B4XPageActionSheet.bas, B4XPageAura.bas, B4XPageBoomMenu.bas, B4XPageCanvasSpinner.bas, B4XPageColorWheel.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDualRange.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageInput.bas, B4XPageMediaPicker.bas, B4XPageNativeDialogs.bas, B4XPageNavScrollDock.bas, B4XPageOTP.bas, B4XPagePicker.bas, B4XPageProgress.bas, B4XPageScrollDemo.bas, B4XPageSegment.bas, B4XPageSheetModal.bas, B4XPageShineButton.bas, B4XPageSignaturePad.bas, B4XPageSweetAlertInputs.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.page-scroll` → `B4XDaisyPageScroll`
 
@@ -14,6 +14,7 @@ DaisyUI `PageScroll` component for B4X (B4A Android).
 Private Sub B4XPage_Created(Root1 As B4XView)
         Root = Root1
 
+        Dim pageScroll As B4XDaisyPageScroll
         pageScroll.Initialize(Me, "pageScroll")
         pageScroll.PagePadding = PAGE_PAD
         pageScroll.YGap = ROW_GAP
@@ -71,6 +72,8 @@ Private Sub B4XPage_Created(Root1 As B4XView)
 - `getScrollPosition As Int`
 - `getMaxScrollPosition As Int`
 - `ScrollToView(TargetView As B4XView, Animated As Boolean)`
+- `ScrollToViewWithMargin(TargetView As B4XView, MarginTop As Int, Animated As Boolean)`
+- `IME_HeightChanged(NewHeight As Int, OldHeight As Int, FocusedView As Object)`
 - `setBackgroundVariant(Value As String)`
 - `getBackgroundVariant As String`
 - `getUsableWidth As Int`

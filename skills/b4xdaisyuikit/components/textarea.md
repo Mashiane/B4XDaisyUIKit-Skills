@@ -8,8 +8,8 @@ In B4XDaisyUIKit, textareas are created by configuring `B4XDaisyInput` with `Sin
 ## 1. Overview
 - **Class**: `B4XDaisyInput`
 - **Status**: `Demonstrated`
-- **Library Source**: `B4XDaisyInput.bas`
-- **Reference Page**: `B4XPageTextarea.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyInput.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyInput.bas)
+- **Verified Demo Source**: B4XPageColorWheel.bas, B4XPageEnjoyHint.bas, B4XPageFieldset.bas, B4XPageFocus.bas, B4XPageInput.bas, B4XPageNativeDialogs.bas, B4XPageNavScrollDock.bas, B4XPageScrollDemo.bas, B4XPageSheetModal.bas, B4XPageTextarea.bas
 - **Web DaisyUI Mapping**: `.textarea` → `B4XDaisyInput (SingleLine = False)`
 
 ## 2. Verified B4X Syntax & Recipe

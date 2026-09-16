@@ -5,7 +5,7 @@ DaisyUI `Pagination` component for B4X (B4A Android).
 ## 1. Overview
 - **Class**: `B4XDaisyPagination`
 - **Lifecycle Type**: `Standard`
-- **Library Source**: `B4XDaisyPagination.bas`
+- **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPagination.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPagination.bas)
 - **Verified Demo Source**: B4XPagePagination.bas
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
@@ -23,36 +23,22 @@ DaisyUI `Pagination` component for B4X (B4A Android).
 ```
 
 ## 2. Verified B4X Syntax & Recipe
-```b4x
-' Add pagination directly to pnlHost with explicit dimensions (bypass card/host structure)
-    Dim pag1 As B4XDaisyPagination
-    pag1.Initialize(Me, "pag1")
-    pag1.Size = "md"
-    pag1.ShowPrevNext = False
-    pag1.PageCount = 4
-    pag1.ActiveIndex = 1
-    pag1.AddToParent(pnlHost, contentLeft, currentY, maxW, 64dip)
-    currentY = currentY + 64dip + 18dip
 
-    ''' <summary>
-    ''' Example 2: Sizes
-    ''' </summary>
-    currentY = AddSectionTitle(contentLeft, currentY, maxW, "2. Sizes")
-    currentY = AddDescription(contentLeft, currentY, maxW, "Pagination at xs, sm, md, lg, and xl button sizes.")
-    
-    ' XS
-    currentY = currentY + 8dip
-    Dim pagXs As B4XDaisyPagination
-    pagXs.Initialize(Me, "pagXs")
-    pagXs.Size = "xs"
-    pagXs.ShowPrevNext = False
-    pagXs.PageCount = 4
-    pagXs.ActiveIndex = 1
-    pagXs.AddToParent(pnlHost, contentLeft, currentY, maxW, 24dip)
-    currentY = currentY + 32dip
-    
-    ' SM
-    currentY = currentY + 8dip
+```b4x
+' Page navigation button strip:
+Dim pag As B4XDaisyPagination
+pag.Initialize(Me, "pag")
+pag.PageCount = 5
+pag.ActiveIndex = 1
+pag.Size = "md"
+pag.AddToParent(pnlHost, 16dip, y, maxW, 44dip)
+
+y = y + 44dip + 16dip
+
+' Page change event (Index is 1-indexed):
+Private Sub pag_PageChange(Index As Int)
+	If B4XDaisyApp.DebugLogs Then Log("Selected page: " & Index)
+End Sub
 ```
 
 ## 3. Native Composition Rules & Gotchas
@@ -160,22 +146,3 @@ DaisyUI `Pagination` component for B4X (B4A Android).
 ## 7. Public Fields
 - `mBase As B4XView`
 
-## Canonical Creation Pattern & Recipe
-
-`B4XDaisyPagination` provides button-based page number navigation.
-
-```vb
-Dim pag As B4XDaisyPagination
-pag.Initialize(Me, "pag")
-pag.AddToParent(pnlHost, pad, y, maxW, 44dip)
-pag.PageCount = 5
-pag.ActiveIndex = 0                            ' 0-indexed active page
-pag.Size = "md"
-
-' Page change event:
-Private Sub pag_PageChange(Index As Int)
-    If B4XDaisyApp.DebugLogs Then Log("Switched to page: " & (Index + 1))
-End Sub
-
-y = y + 44dip + gap
-```
