@@ -3,8 +3,8 @@
 > **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4A (Android) apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.4.5-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
-[![Skills Suite](https://img.shields.io/badge/Skills-8_Modules-purple.svg)](#-skill-suite-architecture--capability-matrix)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.4.6-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![Skills Suite](https://img.shields.io/badge/Skills-7_Modules-purple.svg)](#-skill-suite-architecture--capability-matrix)
 [![Library Parity](https://img.shields.io/badge/Components-108_Components-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -49,7 +49,6 @@ AI agents and developers can route directly to the appropriate starting skill ba
 | **verify, conformance, invented API, module wiring, before build** | $sel | static gate before compile | — (gate never skipped; failed gate blocks) |
 | **release, ship app, end-to-end, full app, screen contract** | $sel | thin sequencer owns G0-G8 for multi-scope release | single-component shortcut (release requires full gate chain) |
 | **change existing app, fix, regression, impact** | $sel | baseline → impact → targeted + smoke | bootstrap (not greenfield), planner (unless contract changes) |
-| **regenerate corpus, sync truth, library bump, API drift** | $sel | owns L3 provenance pipeline | hand-edit of generated files (never allowed) |
 <!-- AUTOGEN_ROUTER_END -->
 
 ---
@@ -68,7 +67,6 @@ The suite is comprised of 8 specialized skills with strict authority tiers (mirr
 | **b4x-regression** | L4 | quality | regression, modify existing app, refactor, bug fix, verify change... | Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence. |
 | **b4x-verify** | L4 | verification | verify app, conformance check, invented api, module wiring, NumberOfModules... | Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA. |
 | **b4xdaisyuikit** | L2 | domain | b4xdaisy, b4x page, b4a screen, compose ui, daisyui native... | Native Android UI/UX composition from B4XDaisyUIKit (108 components, 9 chapters, 20 references). |
-| **sd5-book-to-skill** | L3 | tooling | regenerate skill corpus, sync truth, library version bump, api drift, extract component api... | Regenerate the b4xdaisyuikit skill corpus from the packaged B4A library source. Extracts component APIs (classes, designer properties, methods, events, demos) into components.json, then regenerates per-component .md files, api-cheat-sheet.md, component-manifest.md, and the component-api/events/properties/provenance JSON truth files with per-member drift detection. Use when the B4XDaisyUIKit library version changes or when skill docs drift from the library. |
 <!-- AUTOGEN_SKILLS_END -->
 
 ---

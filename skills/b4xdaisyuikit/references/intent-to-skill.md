@@ -1,4 +1,4 @@
-# intent-to-skill — deterministic task → skill resolution
+﻿# intent-to-skill — deterministic task → skill resolution
 
 Deterministic first: keyword match against `skills-registry.json` keywords/triggers → filter by platform + status (exclude deprecated unless explicitly requested) → resolve `depends` transitively → order by authority (domain first) → emit selected + rejected-with-reason. No embeddings. This file is the human-readable form of that rule; the registry is the machine-readable form.
 
@@ -15,7 +15,6 @@ Deterministic first: keyword match against `skills-registry.json` keywords/trigg
 | verify, conformance, invented API, module wiring, before build | b4x-verify | static gate before compile | — (gate never skipped; failed gate blocks) |
 | release, ship app, end-to-end, full app, screen contract | b4x-orchestrator + all depends | thin sequencer owns G0-G8 for multi-scope release | single-component shortcut (release requires full gate chain) |
 | change existing app, fix, regression, impact | b4x-regression, b4x-verify | baseline → impact → targeted + smoke | bootstrap (not greenfield), planner (unless contract changes) |
-| regenerate corpus, sync truth, library bump, API drift | sd5-book-to-skill | owns L3 provenance pipeline | hand-edit of generated files (never allowed) |
 
 ## Rules
 
