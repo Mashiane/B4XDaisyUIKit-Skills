@@ -6,7 +6,7 @@ DaisyUI `Variants` component for B4X (B4A Android).
 - **Class**: `B4XDaisyVariants`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyVariants.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyVariants.bas)
-- **Verified Demo Source**: B4XPageAura.bas, B4XPageAvatar.bas, B4XPageBadge.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageChat.bas, B4XPageColorWheel.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageFieldset.bas, B4XPageHover3d.bas, B4XPageIndicator.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageNavbar.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageSelect.bas, B4XPageSignaturePad.bas, B4XPageStack.bas, B4XPageSteps.bas, B4XPageSvgIcon.bas, B4XPageSweetAlertInputs.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageWindow.bas
+- **Demo Reference**: B4XPageAura.bas, B4XPageAvatar.bas, B4XPageBadge.bas, B4XPageBreadcrumbs.bas, B4XPageButton.bas, B4XPageCanvasSpinner.bas, B4XPageCard.bas, B4XPageChat.bas, B4XPageColorWheel.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageEasing.bas, B4XPageFieldset.bas, B4XPageHover3d.bas, B4XPageIndicator.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas, B4XPageNavbar.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageSelect.bas, B4XPageSignaturePad.bas, B4XPageStack.bas, B4XPageSteps.bas, B4XPageSvgIcon.bas, B4XPageSweetAlertInputs.bas, B4XPageTab.bas, B4XPageTagSphere.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.variants` → `B4XDaisyVariants`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -165,6 +165,9 @@ B4XDaisyVariants.SetTheme("dark")
 - `ResolveLabelSizeDip(SizeToken As String) As Float`
 - `MeasureTextWidthSafe(Text As String, TextSize As Float, Tf As Object, BufferDip As Float) As Int`
 - `MeasureTextHeightSafe(Text As String, TextSize As Float, Tf As Object, Width As Int, BufferDip As Float) As Int`
+- `EnjoyHintFontCached As Boolean`
+- `GetEnjoyHintFont As B4XFont`
+- `SetEnjoyHintFont(fntFont As B4XFont)`
 - `GetGlassSpec As Map`
 - `GetGlassSpecForSize(Size As String) As Map`
 - `ApplyGlassStyle(Target As B4XView, RadiusDip As Float, Size As String)`

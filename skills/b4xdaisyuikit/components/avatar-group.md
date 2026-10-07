@@ -6,7 +6,7 @@ DaisyUI `AvatarGroup` component for B4X (B4A Android).
 - **Class**: `B4XDaisyAvatarGroup`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAvatarGroup.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAvatarGroup.bas)
-- **Verified Demo Source**: B4XPageAvatar.bas
+- **Demo Reference**: B4XPageAvatar.bas
 - **Web DaisyUI Mapping**: `.avatar-group` → `B4XDaisyAvatarGroup`
 
 ## 2. Verified B4X Syntax & Recipe

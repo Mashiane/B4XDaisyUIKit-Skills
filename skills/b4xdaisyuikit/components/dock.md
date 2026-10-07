@@ -6,7 +6,7 @@ DaisyUI `Dock` component for B4X (B4A Android).
 - **Class**: `B4XDaisyDock`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDock.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDock.bas)
-- **Verified Demo Source**: B4XPageDock.bas, B4XPageNavScrollDock.bas
+- **Demo Reference**: B4XPageDock.bas, B4XPageNavScrollDock.bas
 - **Web DaisyUI Mapping**: `.dock` → `B4XDaisyDock`
 
 ## DaisyUI Web Class Translation

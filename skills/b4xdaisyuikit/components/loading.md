@@ -6,7 +6,7 @@ DaisyUI `Loading` component for B4X (B4A Android).
 - **Class**: `B4XDaisyLoading`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyLoading.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyLoading.bas)
-- **Verified Demo Source**: B4XPageLoading.bas
+- **Demo Reference**: B4XPageLoading.bas
 - **Web DaisyUI Mapping**: `.loading` → `B4XDaisyLoading`
 
 ## DaisyUI Web Class Translation

@@ -6,7 +6,7 @@ DaisyUI `CarouselItem` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCarouselItem`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCarouselItem.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCarouselItem.bas)
-- **Verified Demo Source**: B4XPageCarousel.bas
+- **Demo Reference**: B4XPageCarousel.bas
 - **Web DaisyUI Mapping**: `.carousel-item` → `B4XDaisyCarouselItem`
 
 ## 2. Verified B4X Syntax & Recipe

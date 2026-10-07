@@ -6,7 +6,7 @@ DaisyUI `Badge` component for B4X (B4A Android).
 - **Class**: `B4XDaisyBadge`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBadge.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBadge.bas)
-- **Verified Demo Source**: B4XPageAlert.bas, B4XPageBadge.bas, B4XPageCard.bas, B4XPageTooltip.bas, B4XPageWindow.bas
+- **Demo Reference**: B4XPageAlert.bas, B4XPageBadge.bas, B4XPageCard.bas, B4XPageTooltip.bas, B4XPageWindow.bas
 - **Web DaisyUI Mapping**: `.badge` → `B4XDaisyBadge`
 
 ## DaisyUI Web Class Translation

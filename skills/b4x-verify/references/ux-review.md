@@ -352,6 +352,15 @@ screenshots.
 6. **Cap severity at 5.** No dramatics. A 5 means task completion is blocked
    or user data is at risk, nothing less.
 
+7. **Review against the approved visual direction.** Read the screen contract's
+   `Visual Direction` and `Visual Review Criteria`. Compare the rendered
+   screenshot with its stated hierarchy, density, visual character, and
+   guardrails. Report concrete, observable departures with screenshot evidence;
+   do not turn personal taste into a defect. An approved direction never
+   overrides accessibility, Android conventions, product requirements, or
+   verified B4XDaisyUIKit constraints. If the contract has no direction, assess
+   consistency with the existing app and report that basis.
+
 ## Report
 
 Write the report to `<AppFolder>/ux-review/UX-REVIEW-<YYYYMMDD>.md` using the

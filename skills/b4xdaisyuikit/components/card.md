@@ -6,7 +6,7 @@ DaisyUI `Card` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCard`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCard.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCard.bas)
-- **Verified Demo Source**: B4XPageAura.bas, B4XPageCard.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageMediaPicker.bas
+- **Demo Reference**: B4XPageAura.bas, B4XPageCard.bas, B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.card` → `B4XDaisyCard`
 
 ## DaisyUI Web Class Translation

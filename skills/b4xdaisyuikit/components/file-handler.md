@@ -6,7 +6,7 @@ DaisyUI `FileHandler` component for B4X (B4A Android).
 - **Class**: `B4XDaisyFileHandler`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFileHandler.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFileHandler.bas)
-- **Verified Demo Source**: B4XPageMediaPicker.bas
+- **Demo Reference**: B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.file-handler` → `B4XDaisyFileHandler`
 
 ## 2. Verified B4X Syntax & Recipe

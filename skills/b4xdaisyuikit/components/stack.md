@@ -6,7 +6,7 @@ DaisyUI `Stack` component for B4X (B4A Android).
 - **Class**: `B4XDaisyStack`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStack.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStack.bas)
-- **Verified Demo Source**: B4XPageStack.bas
+- **Demo Reference**: B4XPageStack.bas
 - **Web DaisyUI Mapping**: `.stack` → `B4XDaisyStack`
 
 ## DaisyUI Web Class Translation

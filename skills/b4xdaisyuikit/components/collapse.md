@@ -6,7 +6,7 @@ DaisyUI `Collapse` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCollapse`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCollapse.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCollapse.bas)
-- **Verified Demo Source**: B4XPageAccordion.bas, B4XPageCollapse.bas
+- **Demo Reference**: B4XPageAccordion.bas, B4XPageCollapse.bas
 - **Web DaisyUI Mapping**: `.collapse` → `B4XDaisyCollapse`
 
 ## DaisyUI Web Class Translation

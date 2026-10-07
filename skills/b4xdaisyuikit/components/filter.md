@@ -6,7 +6,7 @@ DaisyUI `Filter` component for B4X (B4A Android).
 - **Class**: `B4XDaisyFilter`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFilter.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFilter.bas)
-- **Verified Demo Source**: B4XPageFilter.bas
+- **Demo Reference**: B4XPageFilter.bas
 - **Web DaisyUI Mapping**: `.filter` → `B4XDaisyFilter`
 
 ## DaisyUI Web Class Translation

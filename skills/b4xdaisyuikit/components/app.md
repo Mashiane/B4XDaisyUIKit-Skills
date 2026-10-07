@@ -6,7 +6,7 @@ DaisyUI `App` component for B4X (B4A Android).
 - **Class**: `B4XDaisyApp`
 - **Lifecycle Type**: `StaticCode (Global Helper / Configuration)`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyApp.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyApp.bas)
-- **Verified Demo Source**: B4XPageBoomMenu.bas, B4XPageButton.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDashboard.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageHover3d.bas, B4XPageMediaPicker.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRange.bas, B4XPageSelect.bas
+- **Demo Reference**: B4XPageBoomMenu.bas, B4XPageButton.bas, B4XPageCard.bas, B4XPageColorWheel.bas, B4XPageDashboard.bas, B4XPageDivider.bas, B4XPageDock.bas, B4XPageEasing.bas, B4XPageEnjoyHint.bas, B4XPageHover3d.bas, B4XPageMediaPicker.bas, B4XPagePDFView.bas, B4XPagePagination.bas, B4XPageProgress.bas, B4XPageRange.bas, B4XPageSelect.bas
 - **Web DaisyUI Mapping**: `.app` → `B4XDaisyApp`
 
 ## 2. Verified B4X Syntax & Recipe
@@ -27,7 +27,7 @@ Dim sSvg As String = B4XDaisyApp.GetCachedSvgText("icons/arrow.svg", "")
 2. Call its public methods directly from anywhere in your project: `B4XDaisyApp.<MethodName>`.
 
 ### Preconditions & Gotchas
-- Demonstrated per manifest, but no extracted recipe in this file yet.
+- Demo-referenced per manifest; inspect linked sources to confirm actual usage. No extracted recipe is in this file yet.
 - Verify member calls against api-cheat-sheet.md before production use.
 
 ### Discrepancies & API Nuances

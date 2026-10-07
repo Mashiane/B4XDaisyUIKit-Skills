@@ -6,7 +6,7 @@ DaisyUI `Progress` component for B4X (B4A Android).
 - **Class**: `B4XDaisyProgress`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyProgress.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyProgress.bas)
-- **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageProgress.bas
+- **Demo Reference**: B4XPageDrawerRail.bas, B4XPageProgress.bas
 - **Web DaisyUI Mapping**: `.progress` → `B4XDaisyProgress`
 
 ## DaisyUI Web Class Translation

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-16 08:16 UTC",
+  "generated": "2026-10-07 01:17 UTC",
   "components": {
     "B4XDaisyAccordion": [
       {
@@ -7266,9 +7266,6 @@
         "signature": "getHeight As Int"
       },
       {
-        "signature": "BringToFront"
-      },
-      {
         "signature": "SendToBack"
       }
     ],
@@ -11703,9 +11700,6 @@
       },
       {
         "signature": "setRightBorderColor(Value As Int)"
-      },
-      {
-        "signature": "BringToFront"
       },
       {
         "signature": "SendToBack"
@@ -19834,6 +19828,15 @@
       },
       {
         "signature": "MeasureTextHeightSafe(Text As String, TextSize As Float, Tf As Object, Width As Int, BufferDip As Float) As Int"
+      },
+      {
+        "signature": "EnjoyHintFontCached As Boolean"
+      },
+      {
+        "signature": "GetEnjoyHintFont As B4XFont"
+      },
+      {
+        "signature": "SetEnjoyHintFont(fntFont As B4XFont)"
       },
       {
         "signature": "GetGlassSpec As Map"

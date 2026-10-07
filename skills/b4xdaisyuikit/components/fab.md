@@ -6,7 +6,7 @@ DaisyUI `Fab` component for B4X (B4A Android).
 - **Class**: `B4XDaisyFab`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFab.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFab.bas)
-- **Verified Demo Source**: B4XPageBoomMenu.bas, B4XPageFab.bas, B4XPageFabBasic.bas, B4XPageFabFlower.bas, B4XPageFabNavbar.bas, B4XPageNavbar.bas
+- **Demo Reference**: B4XPageBoomMenu.bas, B4XPageFab.bas, B4XPageFabBasic.bas, B4XPageFabFlower.bas, B4XPageFabNavbar.bas, B4XPageNavbar.bas
 - **Web DaisyUI Mapping**: `.fab` → `B4XDaisyFab`
 
 ## DaisyUI Web Class Translation

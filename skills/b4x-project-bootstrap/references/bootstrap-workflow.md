@@ -100,16 +100,20 @@ generic app shell. Do not hand-write the shell from scratch.
    ```
    ./install.ps1
    ```
-   Never call `B4ABuilder.exe` or `adb` directly. The script cleans Objects,
-   builds, installs the APK to every connected device, and launches it.
+   Never call `B4ABuilder.exe` or `adb` directly. By default, the script cleans
+   Objects, builds, updates the APK on every connected device, preserves local
+   app data, and launches it. Use `-DeviceId <id>` to target one device. Add
+   `-CleanInstall` only when intentionally uninstalling the app; Android
+   uninstall removes that app's local data. For example:
+   `./install.ps1 -DeviceId emulator-5554 -CleanInstall`.
 
 ## Verification gate
 
 Before declaring done, run the `b4x-verify` skill:
 - **Conformance:** every component type referenced in generated `.bas` files
   exists in the component manifest.
-- **Coverage:** every component the app needs has a Demonstrated example +
-  recipe (use `b4xdaisyuikit` to fill gaps).
+- **Coverage:** every component the app needs has a relevant demo reference
+  inspected for actual API usage, plus a recipe (use `b4xdaisyuikit` to fill gaps).
 - **Compile-readiness:** no missing page refs, every page wired as
   `ModuleN`, `./install.ps1` builds green.
 

@@ -6,7 +6,7 @@ DaisyUI `ActionSheet` component for B4X (B4A Android).
 - **Class**: `B4XDaisyActionSheet`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyActionSheet.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyActionSheet.bas)
-- **Verified Demo Source**: B4XPageActionSheet.bas
+- **Demo Reference**: B4XPageActionSheet.bas
 - **Web DaisyUI Mapping**: `.action-sheet` → `B4XDaisyActionSheet`
 
 ## 2. Verified B4X Syntax & Recipe

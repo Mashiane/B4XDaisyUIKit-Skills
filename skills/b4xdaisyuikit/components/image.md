@@ -6,7 +6,7 @@ DaisyUI `Image` component for B4X (B4A Android).
 - **Class**: `B4XDaisyImage`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyImage.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyImage.bas)
-- **Verified Demo Source**: B4XPageMediaPicker.bas
+- **Demo Reference**: B4XPageMediaPicker.bas
 - **Web DaisyUI Mapping**: `.image` → `B4XDaisyImage`
 
 ## 2. Verified B4X Syntax & Recipe

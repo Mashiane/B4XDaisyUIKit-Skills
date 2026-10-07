@@ -15,11 +15,11 @@ All published sources are in the public repository:
 | Folder | Contents | Browse |
 |--------|----------|--------|
 | [`B4XDaisyUIKit/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4XDaisyUIKit) | All component `.bas` source files (extracted from `B4XDaisyUIKit.b4xlib`) | Component implementation |
-| [`B4A/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4A) | All `B4XPage*.bas` demo pages — verified API usage examples | Demo code |
+| [`B4A/`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/tree/main/B4A) | All `B4XPage*.bas` demo pages — inspect for API usage examples | Demo code |
 
 Every component spec in `components/<name>.md` carries direct links:
 - **Library Source** → the `.bas` implementation file in `B4XDaisyUIKit/`. **For reading/understanding only. Never add these files to a user project.**
-- **Verified Demo Source** → the `B4XPage*.bas` demo file(s) in `B4A/`. Read these for API usage examples.
+- **Demo Reference** → a `B4XPage*.bas` file containing a textual reference to the component. Inspect it to confirm actual instantiation and usage before treating it as an example.
 
 > [!CAUTION]
 > **Never copy or add any `B4XDaisyXxx.bas` file to a user's project.**
@@ -57,7 +57,7 @@ A user's project starts as a standard B4A project. It contains:
   - `B4XPageNavDock.template.bas` — top-level pages with pinned navbar and bottom dock tabs
   - `B4XPageNavOnly.template.bas` — sub-pages with navbar and back button, no dock
   - `B4XPage.template.bas` — bare page for custom layouts
-- **Component usage** — read the `Verified Demo Source` links in `components/<name>.md` to learn how to initialize, configure, and wire a component. Extract only the component code blocks. The surrounding demo page structure is irrelevant.
+- **Component usage** — inspect the `Demo Reference` links in `components/<name>.md` for actual initialization, configuration, and event wiring. A listed reference is a text match, not proof that the demo instantiates or exercises the component. Extract only relevant component code; the surrounding demo page structure is not a template.
 
 You write app-specific `B4XPage*.bas` files using the component APIs from [component-manifest.md](references/component-manifest.md), with page scaffolding drawn from the templates above and component patterns drawn from the demo source.
 
@@ -69,7 +69,7 @@ For core interaction design, quantitative laws (Fitts, Hick, Miller), WCAG contr
 
 For every component you use, consult **[component-manifest.md](references/component-manifest.md)**.
 
-For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all library components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is an auto-generated index of the packaged library (not ground truth itself); conflicts resolve to the `.b4xlib` via `component-api.json` + provenance. Demo safety: only the manifest Support index proves a component is safe to use.
+For exhaustive method signatures, properties, setter/getter parameters, return types, and event hooks across all library components, consult **[api-cheat-sheet.md](references/api-cheat-sheet.md)**. It is an auto-generated index of the packaged library (not ground truth itself); conflicts resolve to the `.b4xlib` via `component-api.json` + provenance. A Support index entry only means a demo text reference was found; inspect that demo and the component reference before relying on the usage pattern.
 
 Before mounting any component, confirm its creation order in **[component-creation-patterns.md](references/component-creation-patterns.md)**. Most components use the default 3-step (`Initialize` → `AddToParent` → properties), but containers (`Stat`, `Dock`, `Timeline`, `Carousel`, `Accordion`) and `SweetAlert` deviate. The file lists every deviation with the B4XPage demo that proves it.
 
@@ -104,12 +104,14 @@ Deep, multi-component B4XPage recipes organized by real-world UI domain:
 
 ---
 
-## Component Status: Demonstrated vs. Documented-only
+## Component Status: Demo-referenced vs. Documented-only
 
 The manifest classifies every component as one of two statuses:
 
-- **Demonstrated** — the component has at least one verified `B4XPage*.bas` demo. Use freely in the patterns shown by that demo.
-- **Documented-only** — the API is known but no demo exists. Do not use in generated app UI without explicit user approval.
+- **Demo-referenced** — a demo source contains a textual reference to the component. Inspect the linked source and confirm the relevant API usage before relying on it as a demonstrated pattern.
+- **Documented-only** — no demo source contains a textual reference. The API is extracted from the library source, but no demo reference was found; follow documented API constraints and approval rules for unsupported composition.
+
+These statuses describe source references, not successful compilation, runtime behavior, or visual styling verification. Report those checks separately and only when performed.
 
 Never invent a property, method, event, or enum value. If it is not in the manifest, it does not exist.
 
@@ -117,12 +119,14 @@ Never invent a property, method, event, or enum value. If it is not in the manif
 
 ## Component Discovery Protocol
 
-## The 6-Stage Blueprint Agentic Workflow (+ Orchestrator)
+## Scope-Aware UI Composition Workflow
 
-When building screens, features, or complete apps, execute through these 6 mandatory stages in sequential order. For full-app / release-blocking runs, wrap with `b4x-orchestrator` (thin `L5` sequencer, no new knowledge).
+Choose the workflow by task size. For a bounded change to an existing screen, reuse the app's approved contracts, visual direction, and page architecture; inspect only the relevant rules and component references, then run the verification appropriate to the changed code. Do not create a second screen contract or repeat the full app pipeline just to compose or adjust a component.
+
+Use the full sequence below for a new app, a substantial feature or screen, a navigation or architecture change, or release work. The application planner owns application and screen contracts; this skill confirms and follows the canonical contract rather than creating a duplicate. Use `b4x-orchestrator` for multi-scope or release-blocking delivery.
 
 ```text
-STAGE 0: Screen Contract — fill ../b4x-orchestrator/references/screen-contract.template.md per screen (L5 gate, orchestrator blocks without it)
+STAGE 0: Confirm the canonical screen contract (planner owns contract/screens/<screen>.md; create for new scope or update when approved requirements change)
    ↓
 STAGE 1: Setup & Environment Check (b4x-project-bootstrap)
    ↓
@@ -134,46 +138,50 @@ STAGE 4: Page Architecture Selection (references/page-architectures.md)
    ↓
 STAGE 5: Component Syntax Retrieval (component-manifest.md & components/<name>.md)
    ↓
-STAGE 6: Quality Inspector & Conformance Gate (b4x-verify → pre-scan L4 → verify-conformance L5 → build-watch L4 → capture L3 → ux-review L5)
+STAGE 6: Verify the changed UI (b4x-verify; orchestrator owns full downstream gates when selected)
 ```
 
-> **Orchestrated mode:** `b4x-orchestrator` enforces `contract → pre-scan → verify → install → build-watch → capture → ux-review → remediation loop (cap 3) → release bundle` with hard `exit 1` gates. No bypass.
+> **Orchestrated mode:** `b4x-orchestrator` owns the full contract-to-release gate chain and remediation cap. Do not repeat its sequencing here.
 
 ---
 
+### Stage 0: Planning & Contract (for the full workflow)
+* Reuse the approved application and screen contracts. If a new screen or changed requirement needs a contract, have `b4x-application-planner` create or update the canonical `contract/screens/<screen>.md` before composition.
+* This UI skill does not create a duplicate screen contract. A bounded composition change that does not change requirements or scope can proceed from the existing app context without adding a contract artifact.
+
 ### Stage 1: Setup & Environment Check
 * For greenfield apps, invoke `b4x-project-bootstrap` to scaffold the shell (`B4XMainPage.bas`, `project.template.b4a`, `install.ps1`).
-* For existing projects, inspect `<AppName>.b4a` to verify package name, `NumberOfModules`, and existing page modules.
+* For existing projects, inspect only the project wiring or page modules affected by the requested change; preserve established structure otherwise.
 
 ### Stage 2: Rules Enforcer
 * Review and adhere to the non-negotiable constraints in **[rules-enforcer.md](references/rules-enforcer.md)** (each rule marked `L1-L5` with script link — `L4/L5` are hard gates in `b4x-verify`).
 * Cite relevant rule IDs (e.g. `RULE-LAYOUT-003` for `AutoFit`, `RULE-INTERACT-001` for `navbar.BringToFront`, `RULE-SETUP-004` for module wiring) in your reasoning trace — orchestrator audits this trace.
 
-### Stage 3: Creative Director + Screen Contract (Design Reasoning)
-* Fill **Screen Contract** `../b4x-orchestrator/references/screen-contract.template.md` per screen before picking components, then formulate UX direction per **[creative-director.md](references/creative-director.md)**:
-  * Define ergonomic hierarchy (thumb reach vs context bar).
-  * Select density level (High / Comfortable / Hero).
-  * Assign semantic color roles (`primary`, `secondary`, `accent`, `neutral`, `error`).
-  * Ensure full 4-state coverage (Loading, Populated, Empty, Error) — contract §6.
+### Stage 3: Creative Director & Design Direction
+* Before selecting components, decide whether this screen should **inherit**, **extend**, or **replace** the app's established visual direction. Preserve existing product and brand decisions by default; replace them only when the request calls for a redesign.
+* For a new or materially changed screen, record the direction in the existing canonical screen contract's `Visual Direction` section, following **[creative-director.md](references/creative-director.md)**. If no contract change is needed, use the established direction without creating a separate artifact. Cover the user's task and operating context, visual character, hierarchy and density, semantic theme roles, typography and spacing, component surface treatment, and interaction/motion where relevant.
+* Translate the direction into semantic B4XDaisyUIKit tokens and manifest-verified native components. A visual idea is a design constraint, not permission to invent component APIs, bypass platform conventions, or use HTML/CSS/WebView.
+* Ensure full state coverage (Loading, Populated, Empty, Error) and preserve the ergonomic, accessibility, and implementation rules in the UX doctrine and rules enforcer. When context needed to choose a direction is missing, ask only about that material gap; otherwise inherit the established system and proceed.
 
 ### Stage 4: Page Architect
-* Select a proven native page model from **[page-architectures.md](references/page-architectures.md)** (e.g. `ARCH-01 NavScrollDock`, `ARCH-02 Auth/OTP`, `ARCH-03 Dashboard`, `ARCH-04 Form/CRUD`, `ARCH-05 Master-Detail`, `ARCH-06 Stock-Take`, `ARCH-07 Wizard`).
+* For a new page or structural change, select a proven native page model from **[page-architectures.md](references/page-architectures.md)** (e.g. `ARCH-01 NavScrollDock`, `ARCH-02 Auth/OTP`, `ARCH-03 Dashboard`, `ARCH-04 Form/CRUD`, `ARCH-05 Master-Detail`, `ARCH-06 Stock-Take`, `ARCH-07 Wizard`). For a bounded edit, preserve the existing page model.
 * When converting existing designs, follow **[conversion-workflows.md](references/conversion-workflows.md)** (Web HTML / Figma / Screenshot $\rightarrow$ B4XDaisy).
 
 ### Stage 5: Component Syntax Expert
 * Map the user's intent to components via **[intent-to-component.md](references/intent-to-component.md)** (intent → interaction pattern → component) before retrieving syntax.
 * Retrieve exact constructor signatures, properties, events, and mount sequences:
-  * Consult **[component-manifest.md](references/component-manifest.md)** for component status (Demonstrated vs Documented-only); retrieve exact member signatures from **[api-cheat-sheet.md](references/api-cheat-sheet.md)** `## <Class>` sections and `component-api.json` (only use members recorded there).
-  * Consult individual component specs in **`components/<name>.md`** (108 spec files covering 104 library modules; compose only from rows the manifest marks Demonstrated).
+  * Consult **[component-manifest.md](references/component-manifest.md)** for component status (Demo-referenced vs Documented-only); retrieve exact member signatures from **[api-cheat-sheet.md](references/api-cheat-sheet.md)** `## <Class>` sections and `component-api.json` (only use members recorded there).
+  * Consult individual component specs in **`components/<name>.md`** (108 spec files covering 104 library modules; inspect the linked source before treating a Demo-referenced component as demonstrated).
   * Verify initialization order in **[component-creation-patterns.md](references/component-creation-patterns.md)** (watch for container deviations like `Stat`, `Dock`, `Timeline`, `Accordion`, `SweetAlert`).
 
 ### Stage 6: Quality Inspector & Repair Loop
-* Run `b4x-verify` (`verify-conformance.ps1`) to validate:
+* For code-producing UI work, use `b4x-verify` to validate the affected app code. Full build, runtime, capture, UX, regression, and release gates apply when required by the task scope or orchestrator; do not imply those gates passed if they were not run. The orchestrator owns the cap-3 repair loop for orchestrated work.
+* The relevant static checks validate:
   1. Conformance (no invented APIs).
   2. Documented-only component approval.
   3. Compile-readiness (`.b4a` headers, module counts, file groups).
   4. Static layout integrity (`pageScroll.AutoFit`, `navbar.BringToFront`).
-* If any check fails, trigger an automated repair loop and re-inspect until PASS.
+* If a check fails, fix the issue and re-run the affected check. Do not claim PASS until the required check passes.
 
 ---
 
@@ -227,7 +235,7 @@ If you catch yourself thinking any of these, stop. You are rationalizing.
 |---------|---------|
 | "This setter probably exists on the component" | If it is not in [component-manifest.md](references/component-manifest.md), it does not exist. You are inventing it. |
 | "I'll add the missing method to the library .bas" | `B4A/*.bas` are immutable. Compose with what exists, do not extend the library. |
-| "Grid/FlexLayout will work for this layout" | Both are `Documented-only`. No demo proves them. Do not use without explicit user approval. |
+| "Grid/FlexLayout will work for this layout" | Both are `Documented-only`; no demo reference was found. Do not use without explicit user approval. |
 | "I'll just set `.Width` / `.Height` directly" | Banned on B4XDaisy components. Use the component's sizing setters or `AddToParent` with computed dims. |
 | "This DaisyUI class has an obvious native equivalent" | Many do not. Report a partial mapping instead of fabricating one. |
 | "A little HTML/CSS wrapper is fine here" | No. Native B4X only. No HTML, CSS, Tailwind, WebView, ever. |
@@ -243,7 +251,7 @@ If you catch yourself thinking any of these, stop. You are rationalizing.
 Before delivering any output, verify every item:
 
 - [ ] Every B4XDaisy class, property, method, and event exists in [component-manifest.md](references/component-manifest.md).
-- [ ] Every component used is **Demonstrated**, or explicit user approval covers a Documented-only use.
+- [ ] For each component used, inspect its Demo Reference(s) when present and identify the component reference/API declarations consulted; a textual demo reference alone is not evidence of actual usage.
 - [ ] All components are mounted with `.AddToParent`, not `Parent.AddView`.
 - [ ] Each component's creation order matches [component-creation-patterns.md](references/component-creation-patterns.md) (default 3-step, or the documented deviation for containers / `SweetAlert`).
 - [ ] No `.Width = N` or `.Height = N` direct assignments on B4XDaisy components.
@@ -251,4 +259,4 @@ Before delivering any output, verify every item:
 - [ ] Output contains only native B4X code. No HTML, CSS, Tailwind, or browser logic.
 - [ ] Event handler names and parameter signatures match the manifest exactly.
 - [ ] All tokens (colors, sizes, variants) are values declared in [design-tokens.md](references/design-tokens.md) or [api-cheat-sheet.md](references/api-cheat-sheet.md).
-- [ ] The response states which demo(s) were adapted and confirms `B4A verified`.
+- [ ] The response says API usage was **checked against** the named demo(s) or component reference(s). This is reference-level evidence only; report static verification, a successful build, or runtime verification separately and only if that check ran.

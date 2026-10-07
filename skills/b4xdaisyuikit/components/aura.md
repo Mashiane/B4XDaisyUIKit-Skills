@@ -6,7 +6,7 @@ DaisyUI `Aura` component for B4X (B4A Android).
 - **Class**: `B4XDaisyAura`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAura.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAura.bas)
-- **Verified Demo Source**: B4XPageAura.bas
+- **Demo Reference**: B4XPageAura.bas
 - **Web DaisyUI Mapping**: `.aura` → `B4XDaisyAura`
 
 ## DaisyUI Web Class Translation

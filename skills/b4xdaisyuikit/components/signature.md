@@ -6,7 +6,7 @@ DaisyUI `Signature` component for B4X (B4A Android).
 - **Class**: `B4XDaisySignature`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySignature.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySignature.bas)
-- **Verified Demo Source**: B4XPageSignaturePad.bas
+- **Demo Reference**: B4XPageSignaturePad.bas
 - **Web DaisyUI Mapping**: `.signature` → `B4XDaisySignature`
 
 ## 2. Verified B4X Syntax & Recipe

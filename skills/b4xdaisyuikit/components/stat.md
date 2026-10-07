@@ -6,7 +6,7 @@ DaisyUI `Stat` component for B4X (B4A Android).
 - **Class**: `B4XDaisyStat`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStat.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStat.bas)
-- **Verified Demo Source**: B4XPageDrawerRail.bas, B4XPageStat.bas
+- **Demo Reference**: B4XPageDrawerRail.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.stat` → `B4XDaisyStat`
 
 ## DaisyUI Web Class Translation

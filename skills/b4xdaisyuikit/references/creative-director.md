@@ -97,11 +97,16 @@ Every professional mobile screen must handle all four lifecycle states:
 
 ---
 
-## 5. Creative Director Reasoning Checklist
+## 5. Screen Design Direction
 
-Before writing any B4X code, state your Creative Direction:
-1. **Target Product & Workflow**: What is the user's primary goal on this screen?
-2. **Ergonomic Hierarchy**: Which action belongs in the thumb zone vs top context bar?
-3. **Density Choice**: High (telemetry/table) vs Comfortable (form) vs Spacious (welcome/hero)?
-4. **Semantic Color Mapping**: Which component receives `primary`, `secondary`, or `neutral` roles?
-5. **State Handling**: How are loading, empty, error, and confirmation states presented?
+Complete this short direction before selecting components. Record it in the screen contract so implementation and screenshot review share the same intent.
+
+1. **Relationship to the existing system**: Inherit, extend, or replace? Name the screen or app visual system being carried forward. Preserve it by default; replacement requires a redesign request or an approved change.
+2. **User and operating context**: What is the user's primary task, how often do they do it, and where or how will they use this screen?
+3. **Visual character**: Describe the intended feel and one distinctive visual idea that supports the product and task. Avoid generic category styling and decorative ideas that compete with the task.
+4. **Hierarchy and density**: State the primary information/action, supporting content, density level, and thumb-zone versus top-context placement.
+5. **Native visual system**: Map semantic color roles, available typography, spacing, and surface treatments to supported B4XDaisyUIKit tokens and demonstrated components. Do not invent fonts, component members, or theme APIs.
+6. **Interaction and states**: Describe relevant feedback or motion and how loading, populated, empty, error, and confirmation states retain the same hierarchy and visual character.
+7. **Guardrails and review**: Name what must remain consistent and what to avoid. Write one or more observable screenshot criteria that show whether the direction was achieved.
+
+If the request or existing app already settles these choices, carry them through without asking the user to choose an aesthetic. Ask only when a missing product, brand, or usage fact would materially change the direction. Accessibility, B4X platform conventions, approved product requirements, and verified component APIs remain binding constraints.

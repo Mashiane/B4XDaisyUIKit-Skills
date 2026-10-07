@@ -6,7 +6,7 @@ DaisyUI `Alert` component for B4X (B4A Android).
 - **Class**: `B4XDaisyAlert`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAlert.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAlert.bas)
-- **Verified Demo Source**: B4XPageAlert.bas
+- **Demo Reference**: B4XPageAlert.bas
 - **Web DaisyUI Mapping**: `.alert` → `B4XDaisyAlert`
 
 ## DaisyUI Web Class Translation

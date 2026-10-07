@@ -6,7 +6,7 @@ DaisyUI `Countdown` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCountdown`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCountdown.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCountdown.bas)
-- **Verified Demo Source**: B4XPageCountdown.bas
+- **Demo Reference**: B4XPageCountdown.bas
 - **Web DaisyUI Mapping**: `.countdown` → `B4XDaisyCountdown`
 
 ## DaisyUI Web Class Translation

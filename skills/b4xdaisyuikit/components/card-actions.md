@@ -6,7 +6,7 @@ DaisyUI `CardActions` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCardActions`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCardActions.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCardActions.bas)
-- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
+- **Demo Reference**: (none found — Documented-only; API extracted from library source)
 - **Web DaisyUI Mapping**: `.card-actions` → `B4XDaisyCardActions`
 
 ## 2. Verified B4X Syntax & Recipe

@@ -6,7 +6,7 @@ DaisyUI `SweetAlert` component for B4X (B4A Android).
 - **Class**: `B4XDaisySweetAlert`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySweetAlert.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySweetAlert.bas)
-- **Verified Demo Source**: B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas
+- **Demo Reference**: B4XPageSweetAlert.bas, B4XPageSweetAlertInputs.bas
 - **Web DaisyUI Mapping**: `.sweet-alert` → `B4XDaisySweetAlert`
 
 ## 2. Verified B4X Syntax & Recipe

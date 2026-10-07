@@ -6,7 +6,7 @@ DaisyUI `Timeline` component for B4X (B4A Android).
 - **Class**: `B4XDaisyTimeline`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTimeline.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTimeline.bas)
-- **Verified Demo Source**: B4XPageTimeline.bas
+- **Demo Reference**: B4XPageTimeline.bas
 - **Web DaisyUI Mapping**: `.timeline` → `B4XDaisyTimeline`
 
 ## DaisyUI Web Class Translation

@@ -6,7 +6,7 @@ DaisyUI `Tooltip` component for B4X (B4A Android).
 - **Class**: `B4XDaisyTooltip`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTooltip.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTooltip.bas)
-- **Verified Demo Source**: B4XPageTooltip.bas
+- **Demo Reference**: B4XPageTooltip.bas
 - **Web DaisyUI Mapping**: `.tooltip` → `B4XDaisyTooltip`
 
 ## DaisyUI Web Class Translation

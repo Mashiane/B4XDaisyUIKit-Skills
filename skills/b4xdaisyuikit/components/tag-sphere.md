@@ -6,7 +6,7 @@ DaisyUI `TagSphere` component for B4X (B4A Android).
 - **Class**: `B4XDaisyTagSphere`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyTagSphere.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyTagSphere.bas)
-- **Verified Demo Source**: B4XPageTagSphere.bas
+- **Demo Reference**: B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.tag-sphere` → `B4XDaisyTagSphere`
 
 ## 2. Verified B4X Syntax & Recipe

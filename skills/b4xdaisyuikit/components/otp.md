@@ -6,7 +6,7 @@ DaisyUI `OTP` component for B4X (B4A Android).
 - **Class**: `B4XDaisyOTP`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyOTP.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyOTP.bas)
-- **Verified Demo Source**: B4XPageOTP.bas
+- **Demo Reference**: B4XPageOTP.bas
 - **Web DaisyUI Mapping**: `.otp` → `B4XDaisyOTP`
 
 ## DaisyUI Web Class Translation

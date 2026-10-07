@@ -6,7 +6,7 @@ DaisyUI `Fieldset` component for B4X (B4A Android).
 - **Class**: `B4XDaisyFieldset`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFieldset.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFieldset.bas)
-- **Verified Demo Source**: B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageFieldset.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas
+- **Demo Reference**: B4XPageCheckbox.bas, B4XPageCheckboxGroup.bas, B4XPageFieldset.bas, B4XPageRadio.bas, B4XPageRadioGroup.bas, B4XPageToggle.bas, B4XPageToggleGroup.bas
 - **Web DaisyUI Mapping**: `.fieldset` → `B4XDaisyFieldset`
 
 ## DaisyUI Web Class Translation

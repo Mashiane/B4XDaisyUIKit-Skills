@@ -147,7 +147,8 @@ Rules: hermetic tests (no shared mutable state), factories over copy-paste fixtu
    reference, replace with a real component/recipe from the `b4xdaisyuikit`
    skill. Do NOT "fix" by editing the library.
 4. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
-   `Demonstrated` component.
+   `Demo-referenced` component after inspecting its linked demo and confirming
+   the relevant API is actually used there.
 5. If API-member or COMPILE-READINESS fails: replace the invalid member, or add the missing `ModuleN=<Name>` line to the
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
@@ -188,6 +189,9 @@ empty state, or a primary action buried below the fold.
 ### Procedure
 
 1. **Build + install**: `./install.ps1` (builds + installs to device/emulator).
+   The default install updates the app and preserves local data. Use
+   `-CleanInstall` only when intentionally uninstalling the package and clearing
+   its data; use `-DeviceId <id>` to limit installation to one device.
 2. **Capture screenshots** (auto, adb):
    ```powershell
    pwsh -File <skill>/references/capture-screens.ps1 -AppFolder C:\b4a\workspace\<AppName> -Label "LoginPage"

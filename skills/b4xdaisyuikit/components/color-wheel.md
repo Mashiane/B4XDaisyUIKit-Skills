@@ -6,7 +6,7 @@ DaisyUI `ColorWheel` component for B4X (B4A Android).
 - **Class**: `B4XDaisyColorWheel`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyColorWheel.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyColorWheel.bas)
-- **Verified Demo Source**: B4XPageColorWheel.bas
+- **Demo Reference**: B4XPageColorWheel.bas
 - **Web DaisyUI Mapping**: `.color-wheel` → `B4XDaisyColorWheel`
 
 ## 2. Verified B4X Syntax & Recipe

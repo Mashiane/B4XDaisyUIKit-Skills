@@ -6,7 +6,7 @@ DaisyUI `Modal` component for B4X (B4A Android).
 - **Class**: `B4XDaisyModal`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyModal.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyModal.bas)
-- **Verified Demo Source**: B4XPageColorWheel.bas, B4XPageModal.bas, B4XPagePicker.bas
+- **Demo Reference**: B4XPageColorWheel.bas, B4XPageModal.bas, B4XPagePicker.bas
 - **Web DaisyUI Mapping**: `.modal` → `B4XDaisyModal`
 
 ## DaisyUI Web Class Translation

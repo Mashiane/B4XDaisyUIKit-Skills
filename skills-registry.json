@@ -31,7 +31,7 @@
                                       ],
                        "risk":  "safe",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  4,
@@ -62,7 +62,7 @@
                                       ],
                        "risk":  "code-generation",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  4,
@@ -97,7 +97,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  4,
@@ -139,7 +139,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  4,
@@ -170,7 +170,7 @@
                                       ],
                        "risk":  "safe",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  4,
@@ -214,7 +214,7 @@
                                       ],
                        "risk":  "file-mutation",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    },
                    {
                        "authority":  2,
@@ -222,7 +222,7 @@
                        "depends":  [
 
                                    ],
-                       "description":  "Native Android UI/UX composition from B4XDaisyUIKit (108 components, 9 chapters, 20 references).",
+                       "description":  "Native Android UI/UX composition from B4XDaisyUIKit (104 library source modules, 108 component guidance files, 9 chapters, 20 references).",
                        "entry":  "skills/b4xdaisyuikit/SKILL.md",
                        "id":  "b4xdaisyuikit",
                        "keywords":  [
@@ -259,7 +259,7 @@
                                       ],
                        "risk":  "code-generation",
                        "status":  "stable",
-                       "version":  "1.4.6"
+                       "version":  "1.4.7"
                    }
                ]
 }

@@ -2,7 +2,7 @@
 
 This document lists all available custom views, their event hooks, designer properties, and public methods. Use this reference when building user interfaces dynamically.
 
-Auto-generated from the packaged library source (v0.96) on 2026-09-16 08:16 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
+Auto-generated from the packaged library source (v0.96) on 2026-10-07 01:12 UTC. Do not edit by hand — regenerate with sd5-book-to-skill/scripts.
 
 ## Table of Contents
 
@@ -3636,7 +3636,6 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-16 08:16 UTC.
 - `getWidth As Int`
 - `setHeight(Value As Int)`
 - `getHeight As Int`
-- `BringToFront`
 - `SendToBack`
 
 ---
@@ -5737,7 +5736,6 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-16 08:16 UTC.
 - `setRightBorder(Value As Boolean)`
 - `getRightBorder As Boolean`
 - `setRightBorderColor(Value As Int)`
-- `BringToFront`
 - `SendToBack`
 
 ---
@@ -9745,6 +9743,9 @@ Auto-generated from the packaged library source (v0.96) on 2026-09-16 08:16 UTC.
 - `ResolveLabelSizeDip(SizeToken As String) As Float`
 - `MeasureTextWidthSafe(Text As String, TextSize As Float, Tf As Object, BufferDip As Float) As Int`
 - `MeasureTextHeightSafe(Text As String, TextSize As Float, Tf As Object, Width As Int, BufferDip As Float) As Int`
+- `EnjoyHintFontCached As Boolean`
+- `GetEnjoyHintFont As B4XFont`
+- `SetEnjoyHintFont(fntFont As B4XFont)`
 - `GetGlassSpec As Map`
 - `GetGlassSpecForSize(Size As String) As Map`
 - `ApplyGlassStyle(Target As B4XView, RadiusDip As Float, Size As String)`

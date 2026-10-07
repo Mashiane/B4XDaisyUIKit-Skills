@@ -6,7 +6,7 @@ DaisyUI `Accordion` component for B4X (B4A Android).
 - **Class**: `B4XDaisyAccordion`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAccordion.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAccordion.bas)
-- **Verified Demo Source**: B4XPageAccordion.bas
+- **Demo Reference**: B4XPageAccordion.bas
 - **Web DaisyUI Mapping**: `.accordion` → `B4XDaisyAccordion`
 
 ## DaisyUI Web Class Translation

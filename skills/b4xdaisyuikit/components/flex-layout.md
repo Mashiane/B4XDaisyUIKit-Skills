@@ -6,7 +6,7 @@ DaisyUI `FlexLayout` component for B4X (B4A Android).
 - **Class**: `B4XDaisyFlexLayout`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyFlexLayout.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyFlexLayout.bas)
-- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
+- **Demo Reference**: (none found — Documented-only; API extracted from library source)
 - **Web DaisyUI Mapping**: `.flex-layout` → `B4XDaisyFlexLayout`
 
 ## 2. Verified B4X Syntax & Recipe

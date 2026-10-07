@@ -73,7 +73,10 @@ Follow `references/bootstrap-workflow.md` end to end. Summary:
    place them in `<AppName>\Files\`, append `FileN=` and `FileGroupN=Default Group`
    in `<AppName>.b4a`, and bump `NumberOfFiles`.
 7. Prune unused libraries from the template defaults.
-8. Run `./install.ps1` to build, install, and launch.
+8. Run `./install.ps1` to build, update/install, and launch. The default update
+   preserves local app data; add `-CleanInstall` only when intentionally
+   uninstalling the app and clearing its data. Use `-DeviceId <id>` to target a
+   single connected device.
 
 ## Critical rules (hard failures if broken)
 
@@ -101,7 +104,9 @@ Follow `references/bootstrap-workflow.md` end to end. Summary:
   generated `.b4a` and `B4XMainPage.bas` must stay that way: clean shell,
   no template doc comments.
 - Never edit `B4A/*.bas` library source. New pages live in the app folder.
-- Never call `B4ABuilder.exe` or `adb` directly; use `./install.ps1`.
+- Never call `B4ABuilder.exe` or `adb` directly; use `./install.ps1`. Its
+  default update preserves local app data; `-CleanInstall` explicitly removes
+  the package first and clears that data.
 - Never git-restore/checkout library files to "fix" a build; ask first.
 
 ## Red flags (STOP and reconsider)

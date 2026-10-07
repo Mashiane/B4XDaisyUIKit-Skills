@@ -6,7 +6,7 @@ DaisyUI `SignaturePad` component for B4X (B4A Android).
 - **Class**: `B4XDaisySignaturePad`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySignaturePad.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySignaturePad.bas)
-- **Verified Demo Source**: B4XPageSignaturePad.bas
+- **Demo Reference**: B4XPageSignaturePad.bas
 - **Web DaisyUI Mapping**: `.signature-pad` → `B4XDaisySignaturePad`
 
 ## 2. Verified B4X Syntax & Recipe

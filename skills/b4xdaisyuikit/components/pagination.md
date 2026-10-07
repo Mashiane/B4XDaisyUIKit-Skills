@@ -6,7 +6,7 @@ DaisyUI `Pagination` component for B4X (B4A Android).
 - **Class**: `B4XDaisyPagination`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPagination.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPagination.bas)
-- **Verified Demo Source**: B4XPagePagination.bas
+- **Demo Reference**: B4XPagePagination.bas
 - **Web DaisyUI Mapping**: `.pagination` → `B4XDaisyPagination`
 
 ## DaisyUI Web Class Translation

@@ -284,7 +284,7 @@ Root (B4XPage)
 Rules:
 1. Every Stage 0 region appears exactly once as a node. Orphan regions = missed segmentation; revisit Stage 0.
 2. Child views mount inside the parent's exposed content panel (`getBodyContainer`, `getContentView`), never directly on `pnlHost` when the parent is a container component.
-3. Verify every chosen component exists and is **Demonstrated** in [`component-manifest.md`](component-manifest.md) before committing it to the tree.
+3. Verify every chosen component exists in [`component-manifest.md`](component-manifest.md). If it is Demo-referenced, inspect the linked source and confirm actual use of the relevant API before relying on that pattern.
 
 ### Stage 4: Dynamic State & Geometry Formulation
 1. Convert visual spacing to the token scale (`dip = step × 4dip`, [`design-tokens.md`](design-tokens.md) §2): estimate gaps as `YGap` (8–20dip by density level, `creative-director.md` §2) and page padding as `PagePadding` (16/20dip).

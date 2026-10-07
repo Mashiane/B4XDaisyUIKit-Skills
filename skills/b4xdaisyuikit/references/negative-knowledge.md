@@ -20,7 +20,7 @@ pageScroll.AddToParent(Root, 0, 0, Root.Width, Root.Height)
 
 ```
 
-`B4XDaisyFlexPanel` is the only flex-style component that is Demonstrated, and only inside the inline joined-control pattern (`B4XPageInput.bas`). Do not use it as a page wrapper.
+`B4XDaisyFlexPanel` has a specific usage pattern in `B4XPageInput.bas`, limited to inline joined controls. Inspect that source before relying on the pattern. Do not use it as a page wrapper.
 
 ### Do NOT size components with direct property assignment
 ```vb
@@ -232,4 +232,4 @@ CORRECT: "This region groups related form inputs with a legend"  →  B4XDaisyFi
 
 A region is a **semantic area** first. Determine what it *means* (self-contained object? form grouping? data list? attention hook? status chip?) before choosing its native expression. Visual similarity is not semantic equivalence — a Card cannot be filtered, a Fieldset has no actions panel, a Badge is not a Filter.
 
-Apply the Stage 0 semantic classification gate in `conversion-workflows.md` §2 and, when the intent is ambiguous, resolve it via `intent-to-component.md` (intent → interaction pattern → component). Every final choice must still exist as **Demonstrated** in `component-manifest.md`.
+Apply the Stage 0 semantic classification gate in `conversion-workflows.md` §2 and, when the intent is ambiguous, resolve it via `intent-to-component.md` (intent → interaction pattern → component). Every final choice must exist in `component-manifest.md`; inspect any linked demo before treating its pattern as demonstrated.

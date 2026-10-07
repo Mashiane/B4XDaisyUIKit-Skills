@@ -6,7 +6,7 @@ DaisyUI `List` component for B4X (B4A Android).
 - **Class**: `B4XDaisyList`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyList.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyList.bas)
-- **Verified Demo Source**: B4XPageList.bas, B4XPageList1K.bas
+- **Demo Reference**: B4XPageList.bas, B4XPageList1K.bas
 - **Web DaisyUI Mapping**: `.list` → `B4XDaisyList`
 
 ## DaisyUI Web Class Translation

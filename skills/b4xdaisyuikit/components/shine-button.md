@@ -6,7 +6,7 @@ DaisyUI `ShineButton` component for B4X (B4A Android).
 - **Class**: `B4XDaisyShineButton`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyShineButton.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyShineButton.bas)
-- **Verified Demo Source**: B4XPageShineButton.bas
+- **Demo Reference**: B4XPageShineButton.bas
 - **Web DaisyUI Mapping**: `.shine-button` → `B4XDaisyShineButton`
 
 ## 2. Verified B4X Syntax & Recipe

@@ -6,7 +6,7 @@ DaisyUI `SvgIcon` component for B4X (B4A Android).
 - **Class**: `B4XDaisySvgIcon`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySvgIcon.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySvgIcon.bas)
-- **Verified Demo Source**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
+- **Demo Reference**: B4XPageDropdown.bas, B4XPageIndicator.bas, B4XPageNavbar.bas, B4XPageSvgIcon.bas
 - **Web DaisyUI Mapping**: `.svg-icon` → `B4XDaisySvgIcon`
 
 ## 2. Verified B4X Syntax & Recipe

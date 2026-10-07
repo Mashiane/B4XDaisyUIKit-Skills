@@ -6,7 +6,7 @@ DaisyUI `Dropdown` component for B4X (B4A Android).
 - **Class**: `B4XDaisyDropdown`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDropdown.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDropdown.bas)
-- **Verified Demo Source**: B4XPageDropdown.bas
+- **Demo Reference**: B4XPageDropdown.bas
 - **Web DaisyUI Mapping**: `.dropdown` → `B4XDaisyDropdown`
 
 ## DaisyUI Web Class Translation
@@ -180,7 +180,6 @@ dd.AttachTo(triggerView)
 - `getWidth As Int`
 - `setHeight(Value As Int)`
 - `getHeight As Int`
-- `BringToFront`
 - `SendToBack`
 
 ## 7. Public Fields

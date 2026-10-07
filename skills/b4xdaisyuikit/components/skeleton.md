@@ -7,9 +7,9 @@ In B4XDaisyUIKit, skeleton screens are composed natively using `B4XDaisyDivision
 
 ## 1. Overview
 - **Class**: `B4XDaisyDivision` / `B4XDaisyLoading`
-- **Status**: `Demonstrated`
+- **Status**: `Demo-referenced`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDivision.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDivision.bas)
-- **Verified Demo Source**: B4XPageDivider.bas, B4XPageIndicator.bas, B4XPageSkeleton.bas, B4XPageStack.bas
+- **Demo Reference**: B4XPageDivider.bas, B4XPageIndicator.bas, B4XPageSkeleton.bas, B4XPageStack.bas
 - **Web DaisyUI Mapping**: `.skeleton` → `B4XDaisyDivision (Skeleton Placeholder)`
 
 ## 2. Verified B4X Syntax & Recipe

@@ -14,10 +14,15 @@
 .PARAMETER DeviceId
     Optional. Specifies the Android device ID to install the APK to.
     If not specified, installs to all connected devices.
+
+.PARAMETER CleanInstall
+    Optional. Uninstalls the app before installing. Android uninstall removes
+    the app's local data. By default, install -r updates the app and preserves data.
 #>
 
 param(
-    [string]$DeviceId
+    [string]$DeviceId,
+    [switch]$CleanInstall
 )
 
 $ErrorActionPreference = "Continue"
@@ -159,22 +164,28 @@ Write-Host "Target device(s): $($devices -join ', ')" -ForegroundColor Gray
 foreach ($dev in $devices) {
     Write-Host "Installing to $dev..." -ForegroundColor Gray
 
-    # Uninstall stale app
-    Write-Host "  Uninstalling stale $packageName on $dev..." -ForegroundColor Gray
-    $null = & $adbPath -s $dev uninstall $packageName 2>$null
+    if ($CleanInstall) {
+        Write-Host "  Clean install requested: uninstalling $packageName on $dev (local app data will be removed)..." -ForegroundColor Yellow
+        $null = & $adbPath -s $dev uninstall $packageName 2>$null
+    } else {
+        Write-Host "  Updating $packageName on $dev (preserving local app data)..." -ForegroundColor Gray
+    }
 
     # Install APK
     $installOutput = & $adbPath -s $dev install -r $apkFile.FullName 2>&1
+    $installExitCode = $LASTEXITCODE
     $installSuccess = $false
     foreach ($outLine in $installOutput) {
-        if ($outLine -match "Success") {
+        if ([string]$outLine -match '^\s*Success\s*$') {
             $installSuccess = $true
             Write-Host "  Success: $dev" -ForegroundColor Green
         }
     }
 
-    if (-not $installSuccess) {
-        Write-Host "  Install output: $($installOutput -join ' ')" -ForegroundColor Yellow
+    if (-not $installSuccess -or $installExitCode -ne 0) {
+        Write-Host "ERROR: APK installation failed on $dev (adb exit code $installExitCode)." -ForegroundColor Red
+        Write-Host "  Install output: $($installOutput -join ' ')" -ForegroundColor Red
+        exit 1
     }
 
     # Refresh launcher

@@ -6,7 +6,7 @@ DaisyUI `Animation` component for B4X (B4A Android).
 - **Class**: `B4XDaisyAnimation`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAnimation.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAnimation.bas)
-- **Verified Demo Source**: B4XPageEasing.bas
+- **Demo Reference**: B4XPageEasing.bas
 - **Web DaisyUI Mapping**: `.animation` → `B4XDaisyAnimation`
 
 ## 2. Verified B4X Syntax & Recipe

@@ -6,7 +6,7 @@ DaisyUI `CheckboxGroup` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCheckboxGroup`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCheckboxGroup.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCheckboxGroup.bas)
-- **Verified Demo Source**: B4XPageCheckboxGroup.bas
+- **Demo Reference**: B4XPageCheckboxGroup.bas
 - **Web DaisyUI Mapping**: `.checkbox-group` → `B4XDaisyCheckboxGroup`
 
 ## 2. Verified B4X Syntax & Recipe

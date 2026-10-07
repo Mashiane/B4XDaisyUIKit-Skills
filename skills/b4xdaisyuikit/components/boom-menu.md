@@ -6,7 +6,7 @@ DaisyUI `BoomMenu` component for B4X (B4A Android).
 - **Class**: `B4XDaisyBoomMenu`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBoomMenu.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBoomMenu.bas)
-- **Verified Demo Source**: B4XPageBoomMenu.bas
+- **Demo Reference**: B4XPageBoomMenu.bas
 - **Web DaisyUI Mapping**: `.boom-menu` → `B4XDaisyBoomMenu`
 
 ## 2. Verified B4X Syntax & Recipe

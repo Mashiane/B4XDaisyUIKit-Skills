@@ -6,7 +6,7 @@ DaisyUI `ChatBubble` component for B4X (B4A Android).
 - **Class**: `B4XDaisyChatBubble`
 - **Lifecycle Type**: `UNVERIFIED (no demo found)`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyChatBubble.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyChatBubble.bas)
-- **Verified Demo Source**: (none — Documented-only; API extracted from packaged source)
+- **Demo Reference**: (none found — Documented-only; API extracted from library source)
 - **Web DaisyUI Mapping**: `.chat-bubble` → `B4XDaisyChatBubble`
 
 ## 2. Verified B4X Syntax & Recipe

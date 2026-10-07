@@ -6,7 +6,7 @@ DaisyUI `Status` component for B4X (B4A Android).
 - **Class**: `B4XDaisyStatus`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyStatus.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyStatus.bas)
-- **Verified Demo Source**: B4XPageStatus.bas
+- **Demo Reference**: B4XPageStatus.bas
 - **Web DaisyUI Mapping**: `.status` → `B4XDaisyStatus`
 
 ## DaisyUI Web Class Translation

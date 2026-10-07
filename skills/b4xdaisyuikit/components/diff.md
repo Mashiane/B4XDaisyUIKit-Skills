@@ -6,7 +6,7 @@ DaisyUI `Diff` component for B4X (B4A Android).
 - **Class**: `B4XDaisyDiff`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDiff.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDiff.bas)
-- **Verified Demo Source**: B4XPageDiff.bas
+- **Demo Reference**: B4XPageDiff.bas
 - **Web DaisyUI Mapping**: `.diff` → `B4XDaisyDiff`
 
 ## DaisyUI Web Class Translation

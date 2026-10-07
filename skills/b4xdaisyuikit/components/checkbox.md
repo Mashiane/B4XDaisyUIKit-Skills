@@ -6,7 +6,7 @@ DaisyUI `Checkbox` component for B4X (B4A Android).
 - **Class**: `B4XDaisyCheckbox`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyCheckbox.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyCheckbox.bas)
-- **Verified Demo Source**: B4XPageCheckbox.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas
+- **Demo Reference**: B4XPageCheckbox.bas, B4XPageEnjoyHint.bas, B4XPageFocus.bas, B4XPageNavScrollDock.bas
 - **Web DaisyUI Mapping**: `.checkbox` → `B4XDaisyCheckbox`
 
 ## DaisyUI Web Class Translation

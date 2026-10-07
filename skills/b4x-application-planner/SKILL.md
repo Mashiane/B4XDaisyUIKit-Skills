@@ -11,6 +11,8 @@ metadata:
 
 Use this skill before implementing a complete application, a major feature, or a substantial change. It is the planning gate above `b4xdaisyuikit`, `b4x-project-bootstrap`, `b4x-feature-engineer`, and `b4x-verify`.
 
+For orchestrated work, create or update the plan and draft contracts before the orchestrator runs G0. G0 validates the generated contract index; a G0 failure returns here to resolve the planning or contract issue and must not prevent this planning step from running.
+
 ## Required behavior
 
 - Classify statements as `REQUIREMENT`, `CONSTRAINT`, `BUSINESS RULE`, `ASSUMPTION`, or `OPEN QUESTION`.

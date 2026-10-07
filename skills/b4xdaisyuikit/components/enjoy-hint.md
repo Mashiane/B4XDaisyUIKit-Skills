@@ -6,7 +6,7 @@ DaisyUI `EnjoyHint` component for B4X (B4A Android).
 - **Class**: `B4XDaisyEnjoyHint`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyEnjoyHint.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyEnjoyHint.bas)
-- **Verified Demo Source**: B4XPageEnjoyHint.bas
+- **Demo Reference**: B4XPageEnjoyHint.bas
 - **Web DaisyUI Mapping**: `.enjoy-hint` → `B4XDaisyEnjoyHint`
 
 ## 2. Verified B4X Syntax & Recipe

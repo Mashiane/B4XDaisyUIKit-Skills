@@ -6,7 +6,7 @@ DaisyUI `Segment` component for B4X (B4A Android).
 - **Class**: `B4XDaisySegment`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySegment.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySegment.bas)
-- **Verified Demo Source**: B4XPageSegment.bas, B4XPageTagSphere.bas
+- **Demo Reference**: B4XPageSegment.bas, B4XPageTagSphere.bas
 - **Web DaisyUI Mapping**: `.segment` → `B4XDaisySegment`
 
 ## 2. Verified B4X Syntax & Recipe

@@ -6,7 +6,7 @@ DaisyUI `Drawer` component for B4X (B4A Android).
 - **Class**: `B4XDaisyDrawer`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyDrawer.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyDrawer.bas)
-- **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas
+- **Demo Reference**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas
 - **Web DaisyUI Mapping**: `.drawer` → `B4XDaisyDrawer`
 
 ## DaisyUI Web Class Translation

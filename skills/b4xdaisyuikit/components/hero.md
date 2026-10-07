@@ -6,7 +6,7 @@ DaisyUI `Hero` component for B4X (B4A Android).
 - **Class**: `B4XDaisyHero`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyHero.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyHero.bas)
-- **Verified Demo Source**: B4XPageHero.bas
+- **Demo Reference**: B4XPageHero.bas
 - **Web DaisyUI Mapping**: `.hero` → `B4XDaisyHero`
 
 ## DaisyUI Web Class Translation

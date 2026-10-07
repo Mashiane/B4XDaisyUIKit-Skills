@@ -6,7 +6,7 @@ DaisyUI `Picker` component for B4X (B4A Android).
 - **Class**: `B4XDaisyPicker`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyPicker.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyPicker.bas)
-- **Verified Demo Source**: B4XPagePicker.bas
+- **Demo Reference**: B4XPagePicker.bas
 - **Web DaisyUI Mapping**: `.picker` → `B4XDaisyPicker`
 
 ## DaisyUI Web Class Translation

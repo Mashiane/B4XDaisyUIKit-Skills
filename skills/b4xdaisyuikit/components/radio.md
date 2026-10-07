@@ -6,7 +6,7 @@ DaisyUI `Radio` component for B4X (B4A Android).
 - **Class**: `B4XDaisyRadio`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyRadio.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyRadio.bas)
-- **Verified Demo Source**: B4XPageFocus.bas, B4XPageRadio.bas
+- **Demo Reference**: B4XPageFocus.bas, B4XPageRadio.bas
 - **Web DaisyUI Mapping**: `.radio` → `B4XDaisyRadio`
 
 ## DaisyUI Web Class Translation

@@ -29,6 +29,16 @@ depends-on: [<FEATURE-###>]
 
 ## User Goal
 
+## Visual Direction
+
+- Relationship to existing system: inherit | extend | replace — <name the system or source screen; replacement requires an approved redesign>
+- User and operating context: <primary task, frequency, and usage conditions>
+- Visual character: <intended feel and one task-supporting visual idea>
+- Hierarchy and density: <primary information/action, supporting content, and density level>
+- Native visual system: <semantic theme roles, typography, spacing, and surfaces using supported tokens>
+- Interaction and states: <relevant feedback/motion; how required states retain the direction>
+- Guardrails: <brand/product decisions to preserve and visual treatments to avoid>
+
 ## Entry Conditions
 
 ## Exit Conditions
@@ -85,6 +95,8 @@ B4XDaisy<Name> (schema §2). `provenance-checked: yes` required before APPROVED.
 - [ ] UX review has no severity 4 or 5 findings.
 
 ## Visual Review Criteria
+
+- <observable screenshot evidence that confirms the intended hierarchy, visual character, and task clarity; avoid taste-only criteria>
 
 ## Rule Trace
 

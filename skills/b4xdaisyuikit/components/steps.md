@@ -6,7 +6,7 @@ DaisyUI `Steps` component for B4X (B4A Android).
 - **Class**: `B4XDaisySteps`
 - **Lifecycle Type**: `Non-standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisySteps.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisySteps.bas)
-- **Verified Demo Source**: B4XPageSteps.bas
+- **Demo Reference**: B4XPageSteps.bas
 - **Web DaisyUI Mapping**: `.steps` → `B4XDaisySteps`
 
 ## DaisyUI Web Class Translation

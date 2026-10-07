@@ -40,7 +40,8 @@ $chapterCount   = $chapters.Count
 $referenceCount = $references.Count
 
 $reg = Get-Content -LiteralPath $regPath -Raw -Encoding UTF8 | ConvertFrom-Json
-$skillsCount = @($reg.skills).Count
+$publicSkills = @($reg.skills | Where-Object { $_.id -ne 'sd5-book-to-skill' })
+$skillsCount = $publicSkills.Count
 
 # Determine Version
 if ([string]::IsNullOrWhiteSpace($Version)) {
@@ -65,7 +66,7 @@ $matrixSb = New-Object System.Text.StringBuilder
 [void]$matrixSb.AppendLine('| Skill | Authority | Category | When to Use (Triggers) | Core Objective & Output |')
 [void]$matrixSb.AppendLine('| :--- | :---: | :---: | :--- | :--- |')
 
-foreach ($s in $reg.skills) {
+foreach ($s in $publicSkills) {
     $authStr = "L$($s.authority)"
     $triggers = ($s.keywords[0..4] -join ', ')
     if ($s.keywords.Count -gt 5) { $triggers += '...' }
@@ -84,13 +85,14 @@ if (Test-Path $intentPath) {
     foreach ($line in (Get-Content -LiteralPath $intentPath -Encoding UTF8)) {
         if ($line -match '^\|(.+)\|$') {
             $cells = ($line.Trim('|') -split '\|').ForEach({ $_.Trim() })
-            if ($cells[0] -eq 'Task keywords' -or $cells[0] -match '^-+$') { continue }
+            if ($cells[0] -eq 'Task keywords' -or $cells[0] -match '^:?-+:?$') { continue }
             if ($cells.Count -ge 4) {
                 $terms = $cells[0]
                 $sel   = $cells[1]
                 $why   = $cells[2]
                 $rej   = $cells[3]
-                [void]$routerSb.AppendLine("| **$terms** | `$sel` | $why | $rej |")
+                if ($sel -match 'sd5-book-to-skill') { continue }
+                [void]$routerSb.AppendLine("| **$terms** | $sel | $why | $rej |")
             }
         }
     }
@@ -106,6 +108,8 @@ $readmeContent = $readmeContent -replace '(\[!\[Library Parity\]\(https://img\.s
 $readmeContent = $readmeContent -replace '(\[!\[Skills Suite\]\(https://img\.shields\.io/badge/Skills-)[0-9]+(_Modules-purple\.svg\))', "`${1}$($skillsCount)_Modules-purple.svg)"
 
 # Update text references to component count & skills count if present
+$readmeContent = $readmeContent -replace 'The suite is comprised of \d+ specialized skills', "The suite includes $skillsCount production skills"
+$readmeContent = $readmeContent -replace 'Machine-readable skill index \(\d+ skills\)', 'Machine-readable skill index (production skills)'
 $readmeContent = $readmeContent -replace '\b[0-9]+ Self-Contained Component Skill Files\b', "$componentCount Self-Contained Component Skill Files"
 $readmeContent = $readmeContent -replace '\bacross [0-9]+ native component classes\b', "across $componentCount native component classes"
 $readmeContent = $readmeContent -replace '\b\([0-9]+ components, [0-9]+ chapters, [0-9]+ references\)\b', "($componentCount components, $chapterCount chapters, $referenceCount references)"

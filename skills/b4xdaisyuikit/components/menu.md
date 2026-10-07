@@ -6,7 +6,7 @@ DaisyUI `Menu` component for B4X (B4A Android).
 - **Class**: `B4XDaisyMenu`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyMenu.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyMenu.bas)
-- **Verified Demo Source**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas
+- **Demo Reference**: B4XPageDrawer.bas, B4XPageDrawerRail.bas, B4XPageDrawerTree.bas, B4XPageDropdown.bas, B4XPageMenu.bas, B4XPageMenuRuntime.bas, B4XPageMenuRuntime2.bas
 - **Web DaisyUI Mapping**: `.menu` → `B4XDaisyMenu`
 
 ## DaisyUI Web Class Translation
@@ -233,7 +233,6 @@ End Sub
 - `setRightBorder(Value As Boolean)`
 - `getRightBorder As Boolean`
 - `setRightBorderColor(Value As Int)`
-- `BringToFront`
 - `SendToBack`
 
 ## 7. Public Fields

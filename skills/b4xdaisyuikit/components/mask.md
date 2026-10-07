@@ -7,9 +7,9 @@ In B4XDaisyUIKit, shape masking is integrated directly into `B4XDaisyAvatar` usi
 
 ## 1. Overview
 - **Class**: `B4XDaisyAvatar`
-- **Status**: `Demonstrated`
+- **Status**: `Demo-referenced`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyAvatar.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyAvatar.bas)
-- **Verified Demo Source**: B4XPageAvatar.bas, B4XPageDropdown.bas, B4XPageEnjoyHint.bas, B4XPageIndicator.bas, B4XPageList.bas, B4XPageMask.bas, B4XPageNavbar.bas, B4XPageScrollDemo.bas, B4XPageStack.bas, B4XPageStat.bas
+- **Demo Reference**: B4XPageAvatar.bas, B4XPageDropdown.bas, B4XPageEnjoyHint.bas, B4XPageIndicator.bas, B4XPageList.bas, B4XPageMask.bas, B4XPageNavbar.bas, B4XPageScrollDemo.bas, B4XPageStack.bas, B4XPageStat.bas
 - **Web DaisyUI Mapping**: `.mask` / `.mask-*` → `B4XDaisyAvatar.SetAvatarMask(...)`
 - **Companion Reference**: See [avatar.md](file:///c:/b4a/workspace/0SithasoDaisyUIKit/b4xdaisyuikit-skills/skills/b4xdaisyuikit/components/avatar.md) for full avatar options.
 

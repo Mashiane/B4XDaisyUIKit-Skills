@@ -1,6 +1,6 @@
 ﻿# B4XDaisyUIKit App Scaffolds
 
-Every code block in this file uses only methods confirmed in `component-manifest.md`. Method signatures are quoted exactly from the manifest.
+Every code block in this file uses only methods listed in `component-manifest.md`. Method signatures are quoted exactly from the generated manifest.
 
 ---
 
@@ -10,8 +10,8 @@ Each code block notes which manifest entries it relies on:
 
 | Notation | Meaning |
 |---|---|
-| `[M]` | Method confirmed in component manifest |
-| `[P]` | Designer property confirmed in manifest |
+| `[M]` | Method extracted into the component manifest |
+| `[P]` | Designer property extracted into the manifest |
 | `[B4X]` | Standard B4X/B4XPages platform API, not library-specific |
 
 ## 0. Standard .b4a Project File Template

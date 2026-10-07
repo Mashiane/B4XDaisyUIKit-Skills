@@ -6,7 +6,7 @@ DaisyUI `BadgeGroupSelect` component for B4X (B4A Android).
 - **Class**: `B4XDaisyBadgeGroupSelect`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyBadgeGroupSelect.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyBadgeGroupSelect.bas)
-- **Verified Demo Source**: B4XPageBadge.bas
+- **Demo Reference**: B4XPageBadge.bas
 - **Web DaisyUI Mapping**: `.badge-group-select` → `B4XDaisyBadgeGroupSelect`
 
 ## 2. Verified B4X Syntax & Recipe

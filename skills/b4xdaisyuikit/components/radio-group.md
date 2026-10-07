@@ -6,7 +6,7 @@ DaisyUI `RadioGroup` component for B4X (B4A Android).
 - **Class**: `B4XDaisyRadioGroup`
 - **Lifecycle Type**: `Standard`
 - **Library Source** *(read-only reference — never add to user project)*: [`B4XDaisyRadioGroup.bas`](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI/blob/main/B4XDaisyUIKit/B4XDaisyRadioGroup.bas)
-- **Verified Demo Source**: B4XPageRadioGroup.bas
+- **Demo Reference**: B4XPageRadioGroup.bas
 - **Web DaisyUI Mapping**: `.radio-group` → `B4XDaisyRadioGroup`
 
 ## 2. Verified B4X Syntax & Recipe
