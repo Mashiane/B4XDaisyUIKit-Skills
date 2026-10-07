@@ -3,7 +3,7 @@
 > **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4A (Android) apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.4.7-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![GitHub Release](https://img.shields.io/badge/Release-v1.4.8-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
 [![Skills Suite](https://img.shields.io/badge/Skills-7_Modules-purple.svg)](#-skill-suite-architecture--capability-matrix)
 [![Library Parity](https://img.shields.io/badge/Library-104_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -66,7 +66,7 @@ The suite includes 7 production skills with strict authority tiers (mirroring `E
 | **b4x-project-bootstrap** | L4 | scaffolding | new app, new project, scaffold app, bootstrap b4x, b4xmainpage... | Use when scaffolding a brand-new native Android app built on the B4XDaisyUIKit component library, when creating a new B4A project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition. |
 | **b4x-regression** | L4 | quality | regression, modify existing app, refactor, bug fix, verify change... | Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence. |
 | **b4x-verify** | L4 | verification | verify app, conformance check, invented api, module wiring, NumberOfModules... | Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA. |
-| **b4xdaisyuikit** | L2 | domain | b4xdaisy, b4x page, b4a screen, compose ui, daisyui native... | Native Android UI/UX composition from B4XDaisyUIKit (104 library source modules, 108 component guidance files, 9 chapters, 20 references). |
+| **b4xdaisyuikit** | L2 | domain | b4xdaisy, b4x page, b4a screen, compose ui, daisyui native... | Native Android UI/UX composition from B4XDaisyUIKit (108 component guidance files, 9 chapters, 20 references). |
 <!-- AUTOGEN_SKILLS_END -->
 
 ---
@@ -304,6 +304,16 @@ pwsh -File tools/check-discovery.ps1
 # 3. Synchronize README metrics with skills-registry and components
 pwsh -File tools/sync-skills-readme.ps1
 ```
+
+---
+
+## Related Content
+
+- [10 AI Mobile App Design Examples with Prompts You Can Copy](https://sleek.design/blog/ai-mobile-app-design-examples)
+- [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills)
+- [B4X Skill for Claude Code](https://github.com/Jerryk133/b4x-skill)
+- [MCP Server for B4A](https://github.com/unmateria/MCP-B4A)
+- [UIZZE](https://github.com/uizze)
 
 ---
 

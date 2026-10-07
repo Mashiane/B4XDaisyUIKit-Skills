@@ -167,7 +167,7 @@ foreach ($sf in $skillFiles) {
     # Description
     $description = $fm.Description
     if ($skillId -eq 'b4xdaisyuikit') {
-        $description = "Native Android UI/UX composition from B4XDaisyUIKit ($compCount components, $chapCount chapters, $refCount references)."
+        $description = "Native Android UI/UX composition from B4XDaisyUIKit ($compCount component guidance files, $chapCount chapters, $refCount references)."
     } elseif ([string]::IsNullOrWhiteSpace($description) -and $existing) {
         $description = $existing.description
     }

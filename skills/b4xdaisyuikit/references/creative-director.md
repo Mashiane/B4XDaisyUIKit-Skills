@@ -74,15 +74,16 @@ variants.ApplyThemeToPage("light", Root)
 
 ## 4. State Completeness Standard (No "Blank" Screens)
 
-Every professional mobile screen must handle all four lifecycle states:
+Use these states as a completeness guide for screens that load or manage variable data:
 
 ```text
-┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-│   LOADING    │ ──► │    ACTIVE    │ ──► │    EMPTY     │ ──► │    ERROR     │
-│   (Spinner / │     │  (Populated  │     │   (Hero /    │     │   (Alert /   │
-│   Skeleton)  │     │   Content)   │     │  Action CTA) │     │  Retry CTA)  │
-└──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
+                       ┌── success with data ──► POPULATED
+LOADING / REQUEST ─────┤
+                       ├── success without data ► EMPTY
+                       └── failure ─────────────► ERROR ── retry ──► LOADING
 ```
+
+Consider loading, populated, empty, and error for each relevant data source or operation, but implement only states the screen can actually reach. A static screen or an action without an asynchronous or variable-data path does not need fabricated state UI. Do not omit a reachable state; provide a recovery path for recoverable errors. Confirmation is a separate interaction state for irreversible or critical actions.
 
 1. **Loading State**:
    - Use `MainPage.ShowPageWithLoader("Loading Data...")` or `B4XDaisyLoading` / `B4XDaisyDivision.IsSkeleton = True`.
@@ -106,7 +107,7 @@ Complete this short direction before selecting components. Record it in the scre
 3. **Visual character**: Describe the intended feel and one distinctive visual idea that supports the product and task. Avoid generic category styling and decorative ideas that compete with the task.
 4. **Hierarchy and density**: State the primary information/action, supporting content, density level, and thumb-zone versus top-context placement.
 5. **Native visual system**: Map semantic color roles, available typography, spacing, and surface treatments to supported B4XDaisyUIKit tokens and demonstrated components. Do not invent fonts, component members, or theme APIs.
-6. **Interaction and states**: Describe relevant feedback or motion and how loading, populated, empty, error, and confirmation states retain the same hierarchy and visual character.
+6. **Interaction and states**: Describe relevant feedback or motion and how the states this screen can actually reach retain the same hierarchy and visual character. Use loading, populated, empty, error, and confirmation as applicable; do not invent unreachable states.
 7. **Guardrails and review**: Name what must remain consistent and what to avoid. Write one or more observable screenshot criteria that show whether the direction was achieved.
 
 If the request or existing app already settles these choices, carry them through without asking the user to choose an aesthetic. Ask only when a missing product, brand, or usage fact would materially change the direction. Accessibility, B4X platform conventions, approved product requirements, and verified component APIs remain binding constraints.
