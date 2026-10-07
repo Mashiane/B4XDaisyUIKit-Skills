@@ -18,7 +18,7 @@ The suite provides reusable workflows, component references, and verification ga
 
 ## 📝 Changelog
 
-### 1.4.9 — Upcoming (changes since 1.4.8)
+### 1.4.9 (changes since 1.4.8)
 
 - **Build screens from visual references.** Added `b4x-screenshot-engineer` for single images or screenshot folders. It inventories screens and variants, records observed details separately from inference, and hands contract-ready visual evidence to the planner and native UI skill. It supports faithful references, inspiration adapted to the destination app's design system, and current-screen comparisons against a separately identified target.
 - **Inspect Android screens through the UI hierarchy.** `b4x-verify` now includes compact UI snapshots plus text, content-description, and resource-ID lookup and wait-for-element actions. Results include visible labels, classes, bounds, centers, and common interaction flags, making accessible controls addressable without guessing coordinates.
@@ -27,7 +27,6 @@ The suite provides reusable workflows, component references, and verification ga
 - **Expand deterministic screenshot routing.** The registry now recognizes requests to recreate, adapt, take inspiration from, add screens from, or compare screenshots. Existing-app requests route through impact and regression safeguards; new-app requests can include the bootstrap workflow.
 - **Refresh the production suite to eight skills.** The capability matrix and router document the new screenshot workflow alongside planning, scaffolding, implementation, native composition, verification, regression, and orchestration.
 
-The release badge remains at **1.4.8** until the 1.4.9 package version is cut.
 
 ---
 
