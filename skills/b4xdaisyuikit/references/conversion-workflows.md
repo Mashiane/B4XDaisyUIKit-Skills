@@ -244,9 +244,7 @@ A visual region in the reference image is a **semantic area**, not a component. 
 Misclassification shows up later as wrong interaction models (a Card cannot be filtered; a Fieldset has no actions panel). When in doubt, check the intent-level mapping in [`intent-to-component.md`](intent-to-component.md) before Stage 5.
 
 ### Stage 0: Semantic Region Classification (Anti-Cargo-Culting Gate)
-1. Segment the reference into **census regions** (every visually distinct block, counted and listed).
-2. For each region, answer the semantic questions above and write one line: `Region 4: "grouped form controls" → B4XDaisyFieldset`.
-3. Only after every region has a semantic label, proceed to Stage 1.
+Use the screenshot engineer's visual evidence recorded in the canonical screen contract as the region inventory; do not repeat image reconnaissance or create a second census. For each region, answer the semantic questions above and record its meaning before choosing a native expression. The screenshot engineer does not select components. Only after the regions have semantic labels should composition proceed to Stage 1.
 
 ### Stage 1: Spatial Inset & Shell Segmentation
 1. **Top Inset (Status + Navbar):** Pinned title/action bar detected $\rightarrow$ Map to `B4XDaisyNavbar` (`Top = 0, Height = 56dip` — matches `screen-contract.template.md` inset contract).
@@ -300,14 +298,14 @@ Rules:
 ### Stage 6: Screenshot-vs-Reference Comparison & Correction
 The reference is not "done" until the rendered result is compared against it:
 
-1. **Build + install** (`b4x-verify` Gate 5), then capture the generated screen (`capture-screens.ps1`).
-2. **Compare** generated PNG against the reference image on: inset placement (navbar/dock/FAB), section order, density and spacing rhythm, color-role mapping, component type per Stage 0 region.
+1. **Build + install** (`b4x-verify` Gate 5), then capture the generated screen (`capture-screens.ps1`) at the reference dimensions and orientation when available. Otherwise use the closest available device viewport and record the difference.
+2. **Compare** generated PNG against the reference image on: inset placement (navbar/dock/FAB), section order, every Stage 0 region and legible label, relative geometry and spacing, color-role mapping, visible icon/asset completeness and framing, and chart/proportional-graphic structure when present. Use a side-by-side view; an image-diff overlay may locate mismatches but is diagnostic, not a numeric pass threshold.
 3. **Correct criteria** — a mismatch requires a fix ticket when:
    - A Stage 0 semantic region rendered as a different component than the tree says.
    - A color appears as arbitrary hex instead of its assigned token.
    - Section order or inset geometry deviates from Stage 1.
    - The 4/5 required states from the Screen Contract are missing.
-4. Apply corrections, re-render, re-compare. **Cap: 2 comparison rounds**; after that, record residual deviations in the UX review report instead of looping.
+4. Keep a concise mismatch list ordered by visual impact. Route fixes through the existing fix-ticket and unlock flow, then re-render and re-compare through the orchestrator remediation loop (maximum 3 attempts per gate and screen scope). If the cap is reached, record the remaining mismatches and their impact in the UX review report; do not claim a close match while material differences remain.
 
 ---
 

@@ -1,4 +1,4 @@
-﻿# intent-to-skill — deterministic task → skill resolution
+# intent-to-skill — deterministic task → skill resolution
 
 Deterministic first: keyword match against `skills-registry.json` keywords/triggers → filter by platform + status (exclude deprecated unless explicitly requested) → resolve `depends` transitively → order by authority (domain first) → emit selected + rejected-with-reason. No embeddings. This file is the human-readable form of that rule; the registry is the machine-readable form.
 
@@ -12,6 +12,9 @@ Deterministic first: keyword match against `skills-registry.json` keywords/trigg
 | plan app, feature planning, requirements, architecture | b4x-application-planner (+ orchestrator for full build) | contract set before code; no contract = no gen | b4x-feature-engineer (no contract yet), bootstrap (plan before shell) |
 | implement feature, vertical slice, connect screen | b4x-feature-engineer, b4xdaisyuikit, b4x-verify | slice needs domain + gate | bootstrap (not greenfield), orchestrator (single feature, not release) |
 | compose UI, screen, form, dashboard, navbar, modal, DaisyUI native | b4xdaisyuikit, b4x-verify | domain generation + conformance gate | generic styling skill (platform mismatch; authority 6 loses to 2) |
+| screenshot to app, recreate screenshot, wireframe to B4A, add screen from screenshot | b4x-screenshot-engineer + b4x-application-planner + b4xdaisyuikit + b4x-verify; add b4x-project-bootstrap for a new app and b4x-regression for an existing app | visual evidence → canonical screen contract → verified native mapping → appropriate app gates | image-to-code workflow (skips contracts, API truth, or existing-app impact) |
+| adapt another app's screenshot, use screenshot as inspiration | b4x-screenshot-engineer + b4x-application-planner + b4xdaisyuikit + b4x-verify when implementing | extract structure and hierarchy while preserving the destination app's approved design system | faithful brand copy when the user asked for adaptation |
+| compare current app screenshot with target | b4x-screenshot-engineer + b4x-regression + b4xdaisyuikit + b4x-verify when changing the app; b4x-verify for review only | classify current-state evidence, protect existing behavior, and review the rendered result against the target | treating the current screenshot as the target without user intent |
 | verify, conformance, invented API, module wiring, before build | b4x-verify | static gate before compile | — (gate never skipped; failed gate blocks) |
 | release, ship app, end-to-end, full app, screen contract | b4x-orchestrator + all depends | thin sequencer owns G0-G8 for multi-scope release | single-component shortcut (release requires full gate chain) |
 | change existing app, fix, regression, impact | b4x-regression, b4x-verify | baseline → impact → targeted + smoke | bootstrap (not greenfield), planner (unless contract changes) |

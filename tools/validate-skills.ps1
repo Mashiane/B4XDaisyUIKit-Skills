@@ -15,7 +15,7 @@ $regPath = Join-Path $RepoRoot 'skills-registry.json'
 if (-not (Test-Path -LiteralPath $regPath)) { Fail('missing skills-registry.json'); }
 $reg = $null
 try { $reg = Get-Content -LiteralPath $regPath -Raw | ConvertFrom-Json } catch { Fail("registry JSON parse: $_") }
-$validCats = @('domain','orchestration','planning','implementation','verification','scaffolding','quality','tooling')
+$validCats = @('domain','orchestration','planning','implementation','verification','scaffolding','quality','tooling','visual-analysis')
 $validStatus = @('draft','experimental','verified','stable','deprecated','retired')
 $validRisk = @('safe','code-generation','file-mutation','shell','network','destructive')
 $ids = @{}
@@ -82,8 +82,15 @@ foreach ($sf in ($mdFiles | Where-Object { $_.Name -eq 'SKILL.md' })) {
   if (Select-String -LiteralPath $sf.FullName -Pattern 'LOGIC GAPS' -SimpleMatch -Quiet) { $truthHits++ }
 }
 if ($truthHits -gt 1) { Warn("truth block duplicated in $truthHits SKILL.md files; extract to shared ref (AUDIT Sec.9)") }
-# oversize references
-foreach ($f in (Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'skills') -Recurse -File | Where-Object { $_.Length -gt 400KB })) { Warn("oversize file ($([math]::Round($f.Length/1KB)) KB): $($f.FullName.Replace($RepoRoot,''))") }
+# Oversize references. Generated component truth JSON and canonical corpus
+# snapshots are data-dense and have explicit ceilings; other files retain the
+# 400 KB advisory limit.
+foreach ($f in (Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'skills') -Recurse -File)) {
+  $isComponentTruth = $f.FullName -match '[\\/]references[\\/]component-(api|events|properties|provenance)\.json$'
+  $isCorpusSnapshot = $f.FullName -match '[\\/]sd5-book-to-skill[\\/]work[\\/]components(?:\.prev|\.v\d+)?\.json$'
+  $limit = if ($isComponentTruth) { 1MB } elseif ($isCorpusSnapshot) { 4MB } else { 400KB }
+  if ($f.Length -gt $limit) { Warn("oversize file ($([math]::Round($f.Length/1KB)) KB; limit $([math]::Round($limit/1KB)) KB): $($f.FullName.Replace($RepoRoot,''))") }
+}
 # supply-chain scan (advisory WARN only; first-party repo)
 $scanPatterns = @('invoke (the )?skills? before any response','even a 1% chance','you must invoke the skill')
 foreach ($f in $mdFiles) {

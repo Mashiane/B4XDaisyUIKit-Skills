@@ -22,6 +22,10 @@ For orchestrated work, create or update the plan and draft contracts before the 
 - Every screen belongs to exactly one feature and user journey.
 - Treat the B4XDaisyUIKit library as immutable application infrastructure.
 
+## Conditional Screenshot Reconnaissance
+
+When screenshots or wireframes are supplied, use `b4x-screenshot-engineer` to analyze the visual evidence before drafting or updating screen contracts. Keep the planner as the owner of requirements, assumptions, screen scope, and canonical contracts; record the findings in the existing contract fields. Resolve only screenshot ambiguities that materially affect architecture, data, navigation, or behavior. Skip this pass when no visual reference is supplied.
+
 ## Required artifacts
 
 Create or update the canonical contract set:

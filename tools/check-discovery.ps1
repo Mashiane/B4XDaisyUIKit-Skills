@@ -29,12 +29,20 @@ foreach ($line in (Get-Content -LiteralPath $tablePath -Encoding UTF8)) {
 function Expand-Selected([string]$sel) {
   $clean = $sel -replace '\([^)]*\)',''
   $ids = @()
-  foreach ($part in ($clean -split ',')) {
-    $p = $part.Trim()
-    if ($p -match '^(\S+)\s*\+\s*all depends$') {
-      $base = $Matches[1]; $ids += $base
-      if ($byId.ContainsKey($base)) { $ids += $byId[$base].depends }
-    } elseif ($p -match '^(\S+)$') { $ids += $Matches[1] }
+  # Intent rows may use comma-separated IDs, '+' chains, and explanatory
+  # conditions such as "when implementing". Extract IDs wherever they occur.
+  $knownIds = @($byId.Keys | Sort-Object { $_.Length } -Descending | ForEach-Object { [regex]::Escape($_) })
+  $knownPattern = $knownIds -join '|'
+  $idPattern = "(?<![a-z0-9-])(?:$knownPattern|[a-z0-9]+(?:-[a-z0-9]+)+)(?![a-z0-9-])"
+  foreach ($match in [regex]::Matches($clean, $idPattern)) {
+    $id = $match.Value
+    $ids += $id
+    # Golden tasks can explicitly request a skill plus its transitive
+    # dependency set; ordinary intent rows list their chosen skills directly.
+    $tail = $clean.Substring($match.Index + $match.Length)
+    if ($tail -match '^\s*\+\s*all depends\b' -and $byId.ContainsKey($id)) {
+      $ids += $byId[$id].depends
+    }
   }
   return $ids
 }
@@ -56,7 +64,13 @@ foreach ($r in $rows) {
     }
     if (-not $hit) { $errors += "unreachable term '$($term.Trim())' in row [$($r.Terms)]" }
   }
-  if ($r.Rejected -notmatch '\S+\s+\(') { $warns += "rejected entry without reason: $($r.Rejected)" }
+  # A rejection is justified by either a parenthesized reason or freeform
+  # explanatory prose after the rejected item. The em dash form is an
+  # intentional empty rejection list and may include an explanatory note.
+  $rejected = $r.Rejected.Trim()
+  if ($rejected -and $rejected -ne '—' -and $rejected -notmatch '\S+\s+\S+') {
+    $warns += "rejected entry without reason: $rejected"
+  }
 }
 $goldenPath = Join-Path $root 'eval/golden'
 $goldenCount = 0

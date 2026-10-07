@@ -1,9 +1,9 @@
 ﻿---
 name: b4x-verify
-description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA.
+description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate), inspecting or navigating a built app on an Android device, OR when running a post-build visual UX review of rendered screens against supplied screenshot references, approved visual direction, Nielsen heuristics, Material Design, and WCAG 2.2 AA.
 metadata:
   category: technique
-  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review
+  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review, ADB UI hierarchy, UI tree, find Android element, wait for element, device navigation, navigation evidence
 ---
 
 
@@ -24,6 +24,7 @@ G0 contract       ->  verify-contract.ps1 (schema gate; build-manifest.ps1
                       regenerates application-manifest.json)  ->
 Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
   ./install.ps1  (auto-runs build-watch.ps1 after launch)  ->
+  ui-inspect.ps1 / navigate.ps1 (optional device interaction)  ->
   capture-screens.ps1  ->  ux-review.md (consumes BUILD-WATCH report)
 ```
 
@@ -48,8 +49,9 @@ Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
   prove (crash/ClassNotFound, touch-target dp, TalkBack labels, startup time,
   jank). Writes `ux-review/BUILD-WATCH-<YYYYMMDD>.md`.
 - **capture-screens.ps1** + **ux-review.md** (this skill): post-build visual
-  review. Reads the BUILD-WATCH report and marks its verified items as
-  **Verified at build** instead of Verification Required.
+  review. When source screenshots are supplied, compares each rendered screen
+  with its corresponding reference. Reads the BUILD-WATCH report and marks its
+  verified items as **Verified at build** instead of Verification Required.
 
 ## When to Use
 
@@ -57,6 +59,7 @@ Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
   `./install.ps1`.
 - A page compiles standalone but the build omits it (module not wired).
 - Suspecting a referenced component method/property does not actually exist.
+- Inspecting a built app's Android UI hierarchy or running a guarded device navigation plan with evidence.
 - Final check before declaring a generated app done.
 
 ## When NOT to Use
@@ -192,22 +195,35 @@ empty state, or a primary action buried below the fold.
    The default install updates the app and preserves local data. Use
    `-CleanInstall` only when intentionally uninstalling the package and clearing
    its data; use `-DeviceId <id>` to limit installation to one device.
-2. **Capture screenshots** (auto, adb):
+2. **Select and inspect the device** with `references/device-info.ps1`. If one
+   device is connected, the helper selects it; with multiple devices, pass
+   `-DeviceId` explicitly. Use that same ID for install, capture, logcat, and
+   every later ADB operation. Read `references/device-interaction.md` before
+   coordinate-driven interaction or when inspecting canvas-rendered content.
+   Pass the selected serial as `-DeviceId` to the capture and logcat helpers too.
+   Use `references/ui-inspect.ps1` for compact hierarchy snapshots, text/resource
+   ID lookup, and wait-for-element checks. For repeatable journeys with
+   accessible postconditions, use `references/navigate.ps1`; read
+   `references/device-interaction.md` for its JSON plan and evidence format.
+3. **Capture screenshots** (auto, adb):
    ```powershell
-   pwsh -File <skill>/references/capture-screens.ps1 -AppFolder C:\b4a\workspace\<AppName> -Label "LoginPage"
+   pwsh -File <skill>/references/capture-screens.ps1 -AppFolder C:\b4a\workspace\<AppName> -Label "LoginPage" -DeviceId "emulator-5554"
    ```
    Navigate the app to the next screen, re-run with a new `-Label`. With no
    device attached, the script prints the fallback folder
    (`<AppFolder>/ux-review/screens/`); drop PNGs there manually. Manually
    dropped PNGs are unverified evidence — G6 stays OPEN until provenance
    (adb capture or human DECISION accepting the shots) is recorded.
-3. **Read the build-stage report first**: open
+4. **Read the build-stage report first**: open
    `<AppFolder>/ux-review/BUILD-WATCH-<YYYYMMDD>.md` (auto-generated by
    build-watch.ps1 during install). Mark its **Verified at build** items
    (crash-free, touch-target dp, TalkBack labels, startup time, jank) as
    verified in the UX review, not Verification Required. Carry its warnings
    and errors into the Issue Register.
-4. **Review**: follow `references/ux-review.md`. Two modes: `quick`
+5. **Review**: follow `references/ux-review.md`. When a screen contract has a
+   source screenshot, include it in the direct reference-to-render comparison;
+   if no reference is available, review against the approved visual direction
+   and app conventions. Two modes: `quick`
    (7-category UX pass) for fast iteration, `full` (14-category audit before
    ship: Visual UI, Visual Hierarchy, UX Heuristics, Material/Android,
    Accessibility, Touch Targets, Form Usability, Information Architecture,
@@ -223,8 +239,8 @@ empty state, or a primary action buried below the fold.
    Checklist, Performance Perception Risks, Strengths, Design Consistency
    Risks), Flow Assessment (multi-screen), and Final Assessment (Release
    Readiness tier).
-5. **Apply fixes**: the user unlocks the flagged app-authored page `.bas` (orchestrator/human unlock flow with existing tooling), pastes the drafted snippet, re-locks. Do not edit `B4A/B4XDaisy*.bas` library source; app-authored page `.bas` remain agent-editable pre-release per Constitution Art II.5.
-6. **Re-verify (cap 3 per `(gate, scope)`, then escalate):** re-run the static gate, re-capture, re-review until no severity >= 4 remains, subject to the same cap-3 per `(G6, screen)` rule as the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
+6. **Apply fixes**: the user unlocks the flagged app-authored page `.bas` (orchestrator/human unlock flow with existing tooling), pastes the drafted snippet, re-locks. Do not edit `B4A/B4XDaisy*.bas` library source; app-authored page `.bas` remain agent-editable pre-release per Constitution Art II.5.
+7. **Re-verify (cap 3 per `(gate, scope)`, then escalate):** re-run the static gate, re-capture, re-review until no severity >= 4 remains, subject to the same cap-3 per `(G6, screen)` rule as the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
 
 ### Output Contract
 
@@ -250,6 +266,11 @@ empty state, or a primary action buried below the fold.
 - `references/verify-conformance.ps1` (static pre-build gate script)
 - `references/production-hardening.md` and `references/verify-production-hardening.ps1` (release-only security gate)
 - `references/capture-screens.ps1` (Phase 2 adb screenshot capture)
+- `references/device-info.ps1` (ADB device selection and diagnostics)
+- `references/device-interaction.md` (coordinate mapping, safe input, and canvas targeting)
+- `references/input.ps1` (ADB tap, swipe, text, and key-event wrapper)
+- `references/adb-ui-common.ps1`, `references/ui-inspect.ps1`, and `references/navigate.ps1` (compact hierarchy, selectors/waits, guarded navigation, JSON evidence)
+- `references/find-colors.py` (Pillow-based color cluster finder for screenshot/canvas content)
 - `references/ux-review.md` (Phase 2 reviewer prompt + report format)
 - `../b4x-project-bootstrap/references/build-watch.template.ps1` (build-stage runtime gate; dropped as `build-watch.ps1` and auto-run by `install.ps1`; writes `ux-review/BUILD-WATCH-<YYYYMMDD>.md` consumed by Phase 2)
 - `../b4xdaisyuikit/references/component-manifest.md` (source of truth, read-only)

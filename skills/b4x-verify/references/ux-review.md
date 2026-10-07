@@ -60,6 +60,34 @@ exists.
 
 ## Audit Categories
 
+### Screenshot-to-Render Fidelity (when a source reference exists)
+
+For each screen contract with a `Design Reference`, compare its source image
+directly with the corresponding rendered app screenshot. Use the same device
+orientation and the closest available viewport; account for screenshot scaling
+and device-frame margins rather than treating them as app content. Check the
+Use these focused passes, in order:
+
+1. **Composition:** compare major regions, boundaries, relative proportions,
+   alignment, and scroll/fixed areas.
+2. **Content and detail:** check legible copy, icon/control completeness,
+   typography, colors and surfaces, image framing, and chart or proportional-
+   graphic geometry when present.
+3. **Fragility:** check crowded rows, clipping, wrapping, overlaps, tight card
+   edges, and neighbouring components that may collide as content grows.
+
+Keep a short mismatch list ordered by visual impact and use the existing
+remediation loop to address it. Capture focused crops for dense or fragile
+components when available. An image-diff overlay or metric may help locate
+mismatches, but is diagnostic only: do not use a numeric threshold as a pass
+condition or let a low overall difference hide a missing control or wrong text.
+Do not claim exact pixel/color values when the images do not support
+measurement. Record concrete mismatches in the existing Issue Register with
+both reference and rendered image paths; do not duplicate a finding already
+covered by another category. A static screenshot does not establish pressed
+states or hidden flows. If no source image is available, skip this comparison
+and review the approved Visual Direction and existing app conventions instead.
+
 ### 1. Visual UI Design
 Alignment; spacing, padding, margins; grid consistency; typography and
 readability; color and contrast; iconography; shape consistency; component

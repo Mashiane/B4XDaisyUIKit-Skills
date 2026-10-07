@@ -60,6 +60,14 @@ v2 gate mapping (normative detail in `docs/architecture/GATE-STATE-MACHINE.md` Â
 - Single-component question (use `b4xdaisyuikit` directly)
 - Greenfield scaffold only (use `b4x-project-bootstrap`)
 
+## Screenshot-Driven Intake
+
+Accept an attached screenshot, a screenshot path, or a folder of screenshots as the visual input. Determine the destination from context: new app, additional screen, or change to an existing screen. Separately determine whether each image is a faithful target, inspiration to adapt, or evidence of the current app. Do not conflate screenshot intent with project destination.
+
+Run `b4x-screenshot-engineer` during planning to inventory and analyze supplied images before the planner drafts or updates screen contracts. The screenshot engineer returns visual evidence; the planner writes it into the canonical contracts. For an existing app, inspect its contracts, page modules, conventions, and regression baseline before implementation. Bootstrap only for a new app.
+
+Preserve source references in the contracts. The screenshot engineer separates visible facts from inferred navigation and interactions; `b4xdaisyuikit` verifies component fit against the manifest, component references, and demos. Consolidate only materially blocking questions across a batch. Do not guess unsupported APIs or silently replace reference patterns. Implement in dependency-ordered screen/feature batches, then run the normal conformance, build, runtime, capture, visual review, and regression gates required by scope.
+
 ## Procedure (hard gates, not advice)
 
 ### 0. Plan and Draft Contracts

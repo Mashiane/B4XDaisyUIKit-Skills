@@ -1,265 +1,290 @@
-﻿{
-    "$schema":  "https://json-schema.org/draft/2020-12/schema",
-    "description":  "Machine-readable skill registry for B4XDaisyUIKit-Skills. Authority scale mirrors ENGINEERING-CONSTITUTION.md Art I (0 repo rules highest, 6 generic lowest).",
-    "skills":  [
-                   {
-                       "authority":  4,
-                       "category":  "planning",
-                       "depends":  [
-
-                                   ],
-                       "description":  "Plan a complete B4A application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md.",
-                       "entry":  "skills/b4x-application-planner/SKILL.md",
-                       "id":  "b4x-application-planner",
-                       "keywords":  [
-                                        "build app",
-                                        "create application",
-                                        "mobile app",
-                                        "b4a app",
-                                        "feature planning",
-                                        "application architecture",
-                                        "requirements",
-                                        "plan app",
-                                        "b4x app"
-                                    ],
-                       "name":  "b4x-application-planner",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-
-                                      ],
-                       "risk":  "safe",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  4,
-                       "category":  "implementation",
-                       "depends":  [
-                                       "b4x-application-planner",
-                                       "b4xdaisyuikit"
-                                   ],
-                       "description":  "Implement a B4A application feature as a traceable vertical slice from contract through domain, data, state, native UI, navigation, errors, acceptance tests, and verification.",
-                       "entry":  "skills/b4x-feature-engineer/SKILL.md",
-                       "id":  "b4x-feature-engineer",
-                       "keywords":  [
-                                        "implement feature",
-                                        "add feature",
-                                        "build feature",
-                                        "b4x feature",
-                                        "CRUD feature",
-                                        "backend integration",
-                                        "vertical slice",
-                                        "connect screen"
-                                    ],
-                       "name":  "b4x-feature-engineer",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-                                          "b4x-verify"
-                                      ],
-                       "risk":  "code-generation",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  4,
-                       "category":  "orchestration",
-                       "depends":  [
-                                       "b4x-application-planner",
-                                       "b4x-feature-engineer",
-                                       "b4x-project-bootstrap",
-                                       "b4xdaisyuikit",
-                                       "b4x-verify",
-                                       "b4x-regression"
-                                   ],
-                       "description":  "Thin orchestration layer for First-Time-Right delivery. Enforces contract → generate → pre-scan → verify-conformance → build → build-watch → capture → ux-review → remediation loop with hard exit codes. Use when building a complete app, releasing a screen, or needing a release-blocking gate instead of advisory checks.",
-                       "entry":  "skills/b4x-orchestrator/SKILL.md",
-                       "id":  "b4x-orchestrator",
-                       "keywords":  [
-                                        "orchestrate",
-                                        "release gate",
-                                        "first-time-right",
-                                        "ship app",
-                                        "build full app",
-                                        "end-to-end",
-                                        "screen contract",
-                                        "closed loop"
-                                    ],
-                       "name":  "b4x-orchestrator",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-
-                                      ],
-                       "risk":  "file-mutation",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  4,
-                       "category":  "scaffolding",
-                       "depends":  [
-
-                                   ],
-                       "description":  "Use when scaffolding a brand-new native Android app built on the B4XDaisyUIKit component library, when creating a new B4A project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition.",
-                       "entry":  "skills/b4x-project-bootstrap/SKILL.md",
-                       "id":  "b4x-project-bootstrap",
-                       "keywords":  [
-                                        "new app",
-                                        "new project",
-                                        "scaffold app",
-                                        "bootstrap b4x",
-                                        "b4xmainpage",
-                                        "project file",
-                                        "install.ps1",
-                                        "greenfield app",
-                                        "navigation shell",
-                                        "multi-page app",
-                                        "navdock",
-                                        "back behavior",
-                                        "b4a template",
-                                        "user interface",
-                                        "development",
-                                        "user experience",
-                                        "tailwindcss",
-                                        "native",
-                                        "android"
-                                    ],
-                       "name":  "b4x-project-bootstrap",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-                                          "b4xdaisyuikit",
-                                          "b4x-verify"
-                                      ],
-                       "risk":  "file-mutation",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  4,
-                       "category":  "quality",
-                       "depends":  [
-                                       "b4x-verify"
-                                   ],
-                       "description":  "Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence.",
-                       "entry":  "skills/b4x-regression/SKILL.md",
-                       "id":  "b4x-regression",
-                       "keywords":  [
-                                        "regression",
-                                        "modify existing app",
-                                        "refactor",
-                                        "bug fix",
-                                        "verify change",
-                                        "prevent breakage",
-                                        "change existing app",
-                                        "change feature",
-                                        "impact"
-                                    ],
-                       "name":  "b4x-regression",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-
-                                      ],
-                       "risk":  "safe",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  4,
-                       "category":  "verification",
-                       "depends":  [
-                                       "b4xdaisyuikit"
-                                   ],
-                       "description":  "Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate) OR when running a post-build visual UX review of rendered Android screens against Nielsen heuristics, Material Design, and WCAG 2.2 AA.",
-                       "entry":  "skills/b4x-verify/SKILL.md",
-                       "id":  "b4x-verify",
-                       "keywords":  [
-                                        "verify app",
-                                        "conformance check",
-                                        "invented api",
-                                        "module wiring",
-                                        "NumberOfModules",
-                                        "before build",
-                                        "gate",
-                                        "ux review",
-                                        "visual review",
-                                        "accessibility audit",
-                                        "before install",
-                                        "coverage",
-                                        "user interface",
-                                        "development",
-                                        "user experience",
-                                        "tailwindcss",
-                                        "native",
-                                        "android",
-                                        "ui review",
-                                        "screenshot review",
-                                        "mobile ux review",
-                                        "post-build review"
-                                    ],
-                       "name":  "b4x-verify",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-
-                                      ],
-                       "risk":  "file-mutation",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   },
-                   {
-                       "authority":  2,
-                       "category":  "domain",
-                       "depends":  [
-
-                                   ],
-                       "description":  "Native Android UI/UX composition from B4XDaisyUIKit (108 component guidance files, 9 chapters, 20 references).",
-                       "entry":  "skills/b4xdaisyuikit/SKILL.md",
-                       "id":  "b4xdaisyuikit",
-                       "keywords":  [
-                                        "b4xdaisy",
-                                        "b4x page",
-                                        "b4a screen",
-                                        "compose ui",
-                                        "daisyui native",
-                                        "form",
-                                        "dashboard",
-                                        "navbar",
-                                        "modal",
-                                        "sweetalert",
-                                        "component recipe",
-                                        "validate controls",
-                                        "native",
-                                        "android",
-                                        "navscrolldock",
-                                        "login screen",
-                                        "settings screen",
-                                        "navigation",
-                                        "auth flow",
-                                        "user interface",
-                                        "development",
-                                        "user experience",
-                                        "tailwindcss"
-                                    ],
-                       "name":  "b4xdaisyuikit",
-                       "platforms":  [
-                                         "b4a"
-                                     ],
-                       "recommends":  [
-                                          "b4x-verify"
-                                      ],
-                       "risk":  "code-generation",
-                       "status":  "stable",
-                       "version":  "1.4.8"
-                   }
-               ]
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Machine-readable skill registry for B4XDaisyUIKit-Skills. Authority scale mirrors ENGINEERING-CONSTITUTION.md Art I (0 repo rules highest, 6 generic lowest).",
+  "skills": [
+    {
+      "authority": 4,
+      "category": "planning",
+      "depends": [],
+      "description": "Plan a complete B4A application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md.",
+      "entry": "skills/b4x-application-planner/SKILL.md",
+      "id": "b4x-application-planner",
+      "keywords": [
+        "build app",
+        "create application",
+        "mobile app",
+        "b4a app",
+        "feature planning",
+        "application architecture",
+        "requirements",
+        "plan app",
+        "b4x app"
+      ],
+      "name": "b4x-application-planner",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [],
+      "risk": "safe",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 4,
+      "category": "implementation",
+      "depends": [
+        "b4x-application-planner",
+        "b4xdaisyuikit"
+      ],
+      "description": "Implement a B4A application feature as a traceable vertical slice from contract through domain, data, state, native UI, navigation, errors, acceptance tests, and verification.",
+      "entry": "skills/b4x-feature-engineer/SKILL.md",
+      "id": "b4x-feature-engineer",
+      "keywords": [
+        "implement feature",
+        "add feature",
+        "build feature",
+        "b4x feature",
+        "CRUD feature",
+        "backend integration",
+        "vertical slice",
+        "connect screen"
+      ],
+      "name": "b4x-feature-engineer",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [
+        "b4x-verify"
+      ],
+      "risk": "code-generation",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 4,
+      "category": "orchestration",
+      "depends": [
+        "b4x-application-planner",
+        "b4x-feature-engineer",
+        "b4x-project-bootstrap",
+        "b4xdaisyuikit",
+        "b4x-verify",
+        "b4x-regression"
+      ],
+      "description": "Thin orchestration layer for First-Time-Right delivery. Enforces contract → generate → pre-scan → verify-conformance → build → build-watch → capture → ux-review → remediation loop with hard exit codes. Use when building a complete app, releasing a screen, or needing a release-blocking gate instead of advisory checks.",
+      "entry": "skills/b4x-orchestrator/SKILL.md",
+      "id": "b4x-orchestrator",
+      "keywords": [
+        "orchestrate",
+        "release gate",
+        "first-time-right",
+        "ship app",
+        "build full app",
+        "end-to-end",
+        "screen contract",
+        "closed loop"
+      ],
+      "name": "b4x-orchestrator",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [],
+      "risk": "file-mutation",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 4,
+      "category": "scaffolding",
+      "depends": [],
+      "description": "Use when scaffolding a brand-new native Android app built on the B4XDaisyUIKit component library, when creating a new B4A project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition.",
+      "entry": "skills/b4x-project-bootstrap/SKILL.md",
+      "id": "b4x-project-bootstrap",
+      "keywords": [
+        "new app",
+        "new project",
+        "scaffold app",
+        "bootstrap b4x",
+        "b4xmainpage",
+        "project file",
+        "install.ps1",
+        "greenfield app",
+        "navigation shell",
+        "multi-page app",
+        "navdock",
+        "back behavior",
+        "b4a template",
+        "user interface",
+        "development",
+        "user experience",
+        "tailwindcss",
+        "native",
+        "android"
+      ],
+      "name": "b4x-project-bootstrap",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [
+        "b4xdaisyuikit",
+        "b4x-verify"
+      ],
+      "risk": "file-mutation",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 4,
+      "category": "quality",
+      "depends": [
+        "b4x-verify"
+      ],
+      "description": "Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence.",
+      "entry": "skills/b4x-regression/SKILL.md",
+      "id": "b4x-regression",
+      "keywords": [
+        "regression",
+        "modify existing app",
+        "refactor",
+        "bug fix",
+        "verify change",
+        "prevent breakage",
+        "change existing app",
+        "change feature",
+        "impact"
+      ],
+      "name": "b4x-regression",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [],
+      "risk": "safe",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 3,
+      "category": "visual-analysis",
+      "depends": [],
+      "description": "Reconstruct mobile app screenshots or wireframes as contract-ready visual evidence for native B4A screens built with B4XDaisyUIKit. Use when screenshots are supplied as design references; use b4x-verify for post-build review of rendered screens.",
+      "entry": "skills/b4x-screenshot-engineer/SKILL.md",
+      "id": "b4x-screenshot-engineer",
+      "keywords": [
+        "screenshot to UI",
+        "screenshot to app",
+        "recreate mobile screen",
+        "build from screenshot",
+        "add screen from screenshot",
+        "wireframe to B4A",
+        "visual reference analysis",
+        "recreate screenshot",
+        "adapt another app's screenshot",
+        "use screenshot as inspiration",
+        "compare current app screenshot with target"
+      ],
+      "name": "b4x-screenshot-engineer",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [
+        "b4x-application-planner",
+        "b4xdaisyuikit",
+        "b4x-verify"
+      ],
+      "risk": "safe",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 4,
+      "category": "verification",
+      "depends": [
+        "b4xdaisyuikit"
+      ],
+      "description": "Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate), inspecting or navigating a built app on an Android device, OR when running a post-build visual UX review of rendered screens against supplied screenshot references, approved visual direction, Nielsen heuristics, Material Design, and WCAG 2.2 AA.",
+      "entry": "skills/b4x-verify/SKILL.md",
+      "id": "b4x-verify",
+      "keywords": [
+        "verify app",
+        "conformance check",
+        "invented api",
+        "module wiring",
+        "NumberOfModules",
+        "before build",
+        "gate",
+        "ux review",
+        "visual review",
+        "accessibility audit",
+        "before install",
+        "coverage",
+        "user interface",
+        "development",
+        "user experience",
+        "tailwindcss",
+        "native",
+        "android",
+        "ui review",
+        "screenshot review",
+        "mobile ux review",
+        "post-build review",
+        "ADB UI hierarchy",
+        "UI tree",
+        "find Android element",
+        "wait for element",
+        "device navigation",
+        "navigation evidence"
+      ],
+      "name": "b4x-verify",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [],
+      "risk": "file-mutation",
+      "status": "stable",
+      "version": "1.4.9"
+    },
+    {
+      "authority": 2,
+      "category": "domain",
+      "depends": [],
+      "description": "Native Android UI/UX composition from B4XDaisyUIKit (108 component guidance files, 9 chapters, 20 references).",
+      "entry": "skills/b4xdaisyuikit/SKILL.md",
+      "id": "b4xdaisyuikit",
+      "keywords": [
+        "b4xdaisy",
+        "b4x page",
+        "b4a screen",
+        "compose ui",
+        "daisyui native",
+        "form",
+        "dashboard",
+        "navbar",
+        "modal",
+        "sweetalert",
+        "component recipe",
+        "validate controls",
+        "native",
+        "android",
+        "navscrolldock",
+        "login screen",
+        "settings screen",
+        "navigation",
+        "auth flow",
+        "user interface",
+        "development",
+        "user experience",
+        "tailwindcss"
+      ],
+      "name": "b4xdaisyuikit",
+      "platforms": [
+        "b4a"
+      ],
+      "recommends": [
+        "b4x-verify"
+      ],
+      "risk": "code-generation",
+      "status": "stable",
+      "version": "1.4.9"
+    }
+  ]
 }

@@ -39,6 +39,14 @@ depends-on: [<FEATURE-###>]
 - Interaction and states: <relevant feedback/motion; how required states retain the direction>
 - Guardrails: <brand/product decisions to preserve and visual treatments to avoid>
 
+## Design Reference
+
+- Source image(s): <attachment name/path or none>
+- Viewport: <dimensions/device when known; otherwise unknown>
+- Observed: <visible hierarchy, legible content, styling, controls, and important icons/assets>
+- Inferred / open: <behavior or details the reference does not establish>
+- Framework / asset gaps: <patterns without a verified component or recipe, or important missing assets; none if applicable>
+
 ## Entry Conditions
 
 ## Exit Conditions

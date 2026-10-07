@@ -69,15 +69,25 @@ if (-not $adb) {
 # --- pick device ---
 $deviceArgs = @()
 if ($DeviceId) {
+    $lines = @(& $adb devices 2>&1 | Select-Object -Skip 1 | Where-Object { $_ -match '^\S+\s+device$' })
+    $selected = $lines | Where-Object { ($_ -split '\s+')[0] -eq $DeviceId } | Select-Object -First 1
+    if (-not $selected) {
+        Write-Error "Device '$DeviceId' is not ready. Check `adb devices -l`."
+        exit 1
+    }
     $deviceArgs = @("-s", $DeviceId)
 } else {
-    $lines = & $adb devices 2>&1 | Select-String "device$"
-    if (-not $lines) {
+    $lines = @(& $adb devices 2>&1 | Select-Object -Skip 1 | Where-Object { $_ -match '^\S+\s+device$' })
+    if ($lines.Count -eq 0) {
         Write-Host "ERROR: No Android device or emulator connected via ADB." -ForegroundColor Red
         exit 1
     }
-    $first = ($lines[0] -split "`t")[0]
-    $deviceArgs = @("-s", $first)
+    if ($lines.Count -gt 1) {
+        Write-Error "Multiple devices are ready. Re-run with -DeviceId <serial> to choose one."
+        exit 1
+    }
+    $serial = ($lines[0] -split '\s+')[0]
+    $deviceArgs = @("-s", $serial)
 }
 
 if ($Clear) {

@@ -129,6 +129,7 @@ $knownGovernance = @{
     'b4x-verify' = @{ authority = 4; category = 'verification'; depends = @('b4xdaisyuikit'); recommends = @(); risk = 'file-mutation'; status = 'stable' }
     'b4x-project-bootstrap' = @{ authority = 4; category = 'scaffolding'; depends = @(); recommends = @('b4xdaisyuikit', 'b4x-verify'); risk = 'file-mutation'; status = 'stable' }
     'b4x-application-planner' = @{ authority = 4; category = 'planning'; depends = @(); recommends = @(); risk = 'safe'; status = 'stable' }
+    'b4x-screenshot-engineer' = @{ authority = 3; category = 'visual-analysis'; depends = @(); recommends = @('b4x-application-planner', 'b4xdaisyuikit', 'b4x-verify'); risk = 'safe'; status = 'stable' }
     'b4x-feature-engineer' = @{ authority = 4; category = 'implementation'; depends = @('b4x-application-planner', 'b4xdaisyuikit'); recommends = @('b4x-verify'); risk = 'code-generation'; status = 'stable' }
     'b4x-regression' = @{ authority = 4; category = 'quality'; depends = @('b4x-verify'); recommends = @(); risk = 'safe'; status = 'stable' }
     'sd5-book-to-skill' = @{ authority = 3; category = 'tooling'; depends = @(); recommends = @(); risk = 'shell'; status = 'stable' }

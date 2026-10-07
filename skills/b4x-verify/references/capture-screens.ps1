@@ -93,10 +93,17 @@ if (-not $adb) {
 
 # --- pick a device ---
 $deviceArgs = @()
-if ($DeviceId) { $deviceArgs = @("-s", $DeviceId) }
-else {
-    $lines = & $adb devices 2>&1 | Select-String "device$"
-    if (-not $lines) {
+if ($DeviceId) {
+    $lines = @(& $adb devices 2>&1 | Select-Object -Skip 1 | Where-Object { $_ -match '^\S+\s+device$' })
+    $selected = $lines | Where-Object { ($_ -split '\s+')[0] -eq $DeviceId } | Select-Object -First 1
+    if (-not $selected) {
+        Write-Error "Device '$DeviceId' is not ready. Run device-info.ps1 -Action List to inspect device state."
+        exit 1
+    }
+    $deviceArgs = @("-s", $DeviceId)
+} else {
+    $lines = @(& $adb devices 2>&1 | Select-Object -Skip 1 | Where-Object { $_ -match '^\S+\s+device$' })
+    if ($lines.Count -eq 0) {
         Write-Host ""
         Write-Host "UX-REVIEW CAPTURE: no device attached to adb." -ForegroundColor Yellow
         Write-Host "Fallback: drop PNG screenshots into:" -ForegroundColor Yellow
@@ -104,8 +111,12 @@ else {
         Write-Host "Then run the visual UX review pass (references/ux-review.md)." -ForegroundColor Yellow
         exit 0
     }
-    $first = ($lines[0] -split "`t")[0]
-    $deviceArgs = @("-s", $first)
+    if ($lines.Count -gt 1) {
+        Write-Error "Multiple devices are ready. Re-run with -DeviceId <serial> to choose one."
+        exit 1
+    }
+    $serial = ($lines[0] -split '\s+')[0]
+    $deviceArgs = @("-s", $serial)
 }
 
 # --- prep output dir ---
