@@ -8,6 +8,9 @@ metadata:
 
 # B4X Screenshot Engineer
 
+> [!NOTE]
+> **Prerequisites:** Downstream screen generation and composition rely on **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) for base language semantics and `b4xdaisyuikit` for component mapping.
+
 Turn supplied mobile screenshots or wireframes into reliable visual evidence that the existing B4A planning and UI skills can use. Analyze what the image shows; do not generate B4A code or choose B4XDaisyUIKit APIs.
 
 ## Ownership

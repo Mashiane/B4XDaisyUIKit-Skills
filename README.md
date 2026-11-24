@@ -1,10 +1,10 @@
-# ⚡ B4XDaisyUIKit-Skills
+﻿# ⚡ B4XDaisyUIKit-Skills
 
 > **Supercharge Claude Code, Antigravity, OpenCode, Codex & AI Coding Agents to build 100% native B4A (Android) apps with DaisyUI / Tailwind CSS design semantics.**
 
 [![B4X Forum Thread](https://img.shields.io/badge/B4X_Forum-Thread_#171762-007ACC?style=flat&logo=android)](https://www.b4x.com/android/forum/threads/ai-skills-b4xdaisyuikit-skills-supercharge-claude-to-code-b4xdaisyuikit-instantly-beta.171762/)
-[![GitHub Release](https://img.shields.io/badge/Release-v1.4.9-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
-[![Skills Suite](https://img.shields.io/badge/Skills-8_Modules-purple.svg)](#-skill-suite-architecture--capability-matrix)
+[![GitHub Release](https://img.shields.io/badge/Release-v14.90-blue.svg)](https://github.com/Mashiane/B4XDaisyUIKit-Skills/releases)
+[![Skills Suite](https://img.shields.io/badge/Skills-9_Modules-purple.svg)](#-skill-suite-architecture--capability-matrix)
 [![Library Parity](https://img.shields.io/badge/Library-104_Classes-brightgreen.svg)](https://github.com/Mashiane/Sithaso-B4XDaisy-UIKit---Native-Android-Components-inspired-by-DaisyUI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -17,6 +17,66 @@
 The suite provides reusable workflows, component references, and verification gates. It helps agents avoid unsupported APIs and report what they checked. Build and runtime success are established only when those checks are actually run.
 
 ## 📝 Changelog
+
+### 14.90 (Comprehensive Major Release: Parity Benchmark, Anti-Slop, Default Traps & Negative Knowledge)
+
+This major release elevates **B4XDaisyUIKit-Skills** from an initial 8-skill baseline (`v1.4.x` / `v1.4.9` published on GitHub) into an enterprise-grade agent engineering and verification suite (`v14.90`). It bridges the gap between web DaisyUI v5 paradigms and native Android execution through rigorous mathematical floors, formal anti-patterns, automated benchmarking, and design quality playbooks.
+
+#### 🎯 Upstream daisyUI v5 Native Parity Benchmark (100.0% - 68/68 Components)
+- **Automated Parity Benchmark Harness**: Added `benchmarks/run_native_parity.py` and comprehensive report `references/daisyui-parity-benchmark.md`.
+- **100% Native Mapping**: Audited all 68 upstream daisyUI v5 web components against native B4X custom views. Confirmed **100.0% coverage** (68 direct 1:1 classes or verified native composition patterns).
+- **Native Implementation Matrix**: Documented native Android mappings for every upstream component category: Actions, Data Display, Navigation, Feedback, Layout, and Data Input.
+- **Machine-Readable Audit Trail**: Preserved raw benchmark JSON evidence at `benchmarks/daisyui-parity/native_parity_results.json`.
+
+#### 🛡️ Component Default Traps & Blindspots Reference (`references/component-default-traps.md`)
+- **Full Library AST & Property Audit**: Scanned all 107 native custom view `.bas` files and 1,591 `#DesignerProperty` directives.
+- **58 Content / Text Traps**: Cataloged components that render unwanted placeholder text (e.g. `"Text"`, `"Item"`, `"Badge"`, `"Title"`) unless explicitly cleared or bound.
+- **177 Structural False Defaults**: Identified booleans default-set to `False` (e.g. `HasIcon`, `ShowClose`, `Bordered`) that require explicit activation in contracts.
+- **206 Layout & Sizing Constraints**: Identified default dimensions, fixed aspect ratios, and badge offsets requiring dynamic layout adjustments via vertical accumulators.
+- **Defensive Generation Patterns**: Provided agents with concrete code recipes to eliminate phantom defaults and visual artifacts in generated UIs.
+
+#### 🚫 Formalized Negative Knowledge Registry (`NEG-001` – `NEG-050`)
+- **Numbered Anti-Pattern Guardrails**: Introduced 50 citeable negative knowledge rules in `references/negative-knowledge.md` across 6 core domains:
+  - *Web/DOM Leaks (`NEG-001` - `NEG-004`)*: Hard prohibitions on HTML tags, CSS styling strings, and WebView wrapping.
+  - *Geometry & Layout Math (`NEG-005` - `NEG-012`)*: Strict vertical accumulator math (`y = y + h + gap`), dynamic coordinate calculation, and scroll containers.
+  - *Component API Inventions (`NEG-013` - `NEG-023`)*: Banned hallucinated methods, direct `.Width`/`.Height` mutations, and undeclared event hooks.
+  - *Mobile Touch & Hierarchy Traps (`NEG-024` - `NEG-032`)*: Parent scroll disallowance enforcement and gesture conflict prevention.
+  - *Styling & Theming Hallucinations (`NEG-033` - `NEG-042`)*: Explicit theme token resolution and native palette binding.
+  - *B4X Language & Lifecycle Pitfalls (`NEG-043` - `NEG-050`)*: Strict Hungarian parameter naming, gated debug logging in `Catch` blocks, and type placement inside `Class_Globals`.
+- **Static Gate Pre-Scan Integration**: Wired rule IDs directly into `tools/pre-scan.ps1` for immediate failure detection before compilation.
+
+#### 🎨 Anti-Slop & Mobile Design Quality Playbooks
+- **Anti-Slop Review (`references/anti-slop.md`)**:
+  - Defined 4 focused review modes: *Surface Elevation*, *Micro-Interactions*, *Visual Hierarchy*, and *Mobile Calibration*.
+  - Enforced 3-finding cap per review pass to prevent infinite review loops and focus on high-impact ergonomics.
+  - Mobile calibration rules: $\ge 48\text{dip}$ touch targets, thumb-zone placement, and strict visual density standards.
+- **Design Quality Playbook (`references/design-quality-playbook.md`)**:
+  - Implemented standard *Mobile Creative Brief* template (Intent, Palette, Typography, Spatial Rhythm, Key States).
+  - Established 5-dimension scoring model (0–4 scale): Intent Alignment, Spatial Rhythm, Hierarchy & Typography, Feedback & Motion, and Native Integration.
+  - Gated G6 UX Release Gate: requires minimum score of $\ge 16/20$ with zero 0-rated dimensions.
+
+#### 🔒 Quality Ratchet Architecture & Tooling (`CONSTRAINTS.md`)
+- **Automated Enforcement**: Implemented `tools/check-constraints.ps1` with `-Strict` mode to prevent backward documentation drift.
+- **Enforced Metric Floors**: Mechanically locks repository metrics at:
+  - Documented Components: $\ge 108$ (currently 108)
+  - Reference Guides: $\ge 20$ (currently 25)
+  - Domain Cookbooks: $\ge 9$ (currently 9)
+  - Formalized Negative Rules: $\ge 50$ (currently 50)
+  - Upstream daisyUI v5 Parity: $\ge 95\%$ (currently 100.0%)
+  - Validation Errors: 0
+
+#### 🧹 Code Smells & Engineering Standards (`b4x-code-smells`)
+- **Expanded Suite**: Added `b4x-code-smells` skill providing detection and remediation recipes for 20 common mobile anti-patterns.
+- **Naming & Shadowing Guardrails**: Standardized Hungarian type-prefixed naming (`sText`, `iLeft`, `bEnabled`, `vParent`, `mProps`, `lstItems`, `bmpImage`, `joView`) to prevent compiler shadowing.
+- **Error Handling Integrity**: Gated logging on all `Catch` blocks (`If B4XDaisyApp.DebugLogs Then Log(...)`), completely eliminating empty catch blocks across the codebase.
+
+#### 📚 Expanded Doctrine Reference Library (20 → 25 References)
+- Added 5 new authoritative references to `skills/b4xdaisyuikit/references/`:
+  - `negative-knowledge.md`
+  - `component-default-traps.md`
+  - `daisyui-parity-benchmark.md`
+  - `anti-slop.md`
+  - `design-quality-playbook.md`
 
 ### 1.4.9 (changes since 1.4.8)
 
@@ -76,13 +136,14 @@ The suite includes 8 production skills with strict authority tiers (mirroring `E
 | Skill | Authority | Category | When to Use (Triggers) | Core Objective & Output |
 | :--- | :---: | :---: | :--- | :--- |
 | **b4x-application-planner** | L4 | planning | build app, create application, mobile app, b4a app, feature planning... | Plan a complete B4A application or substantial feature before implementation. Produces traceable application, feature, domain, data, navigation, screen, and acceptance contracts without inventing B4XDaisyUIKit or backend APIs. Enforces engineering constitution gates G0-G8 per GATE-STATE-MACHINE.md. |
+| **b4x-code-smells** | L4 | quality | code-smell, quality, refactoring, validation, clean-code... | Detect and remediate code smells from codesmells.org catalog across B4XDaisyUIKit skills |
 | **b4x-feature-engineer** | L4 | implementation | implement feature, add feature, build feature, b4x feature, CRUD feature... | Implement a B4A application feature as a traceable vertical slice from contract through domain, data, state, native UI, navigation, errors, acceptance tests, and verification. |
 | **b4x-orchestrator** | L4 | orchestration | orchestrate, release gate, first-time-right, ship app, build full app... | Thin orchestration layer for First-Time-Right delivery. Enforces contract → generate → pre-scan → verify-conformance → build → build-watch → capture → ux-review → remediation loop with hard exit codes. Use when building a complete app, releasing a screen, or needing a release-blocking gate instead of advisory checks. |
 | **b4x-project-bootstrap** | L4 | scaffolding | new app, new project, scaffold app, bootstrap b4x, b4xmainpage... | Use when scaffolding a brand-new native Android app built on the B4XDaisyUIKit component library, when creating a new B4A project folder from scratch, or when wiring B4XMainPage shell + .b4a project file + install script for an app. Produces the standard bootstrap shell (loader, SweetAlert, animation, pin-to-home) ready for page composition. |
 | **b4x-regression** | L4 | quality | regression, modify existing app, refactor, bug fix, verify change... | Safely change an existing B4A application by establishing a baseline, analyzing impact, running targeted and critical-journey regression checks, and producing release evidence. |
 | **b4x-screenshot-engineer** | L3 | visual-analysis | screenshot to UI, screenshot to app, recreate mobile screen, build from screenshot, add screen from screenshot... | Reconstruct mobile app screenshots or wireframes as contract-ready visual evidence for native B4A screens built with B4XDaisyUIKit. Use when screenshots are supplied as design references; use b4x-verify for post-build review of rendered screens. |
 | **b4x-verify** | L4 | verification | verify app, conformance check, invented api, module wiring, NumberOfModules... | Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate), inspecting or navigating a built app on an Android device, OR when running a post-build visual UX review of rendered screens against supplied screenshot references, approved visual direction, Nielsen heuristics, Material Design, and WCAG 2.2 AA. |
-| **b4xdaisyuikit** | L2 | domain | b4xdaisy, b4x page, b4a screen, compose ui, daisyui native... | Native Android UI/UX composition from B4XDaisyUIKit (108 component guidance files, 9 chapters, 20 references). |
+| **b4xdaisyuikit** | L2 | domain | b4xdaisy, b4x page, b4a screen, compose ui, daisyui native... | Native Android UI/UX composition from B4XDaisyUIKit (108 component guidance files, 9 chapters, 25 references). |
 <!-- AUTOGEN_SKILLS_END -->
 
 ---
@@ -283,6 +344,8 @@ Every state-changing step must prove a new expected state. Selector taps must id
 
 * **Target Platform:** Native Android APKs generated via B4A (Basic4Android). B4XDaisyUIKit targets B4A/Android only.
 * **Host Operating System:** Windows 10/11 (standard B4A development environment).
+* **Prerequisite AI Coding Skill:**
+  - **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`): **Mandatory Prerequisite**. The foundational B4X development skill for AI assistants (Claude Code, Antigravity, OpenCode, Codex). Enforces core B4X language semantics, prevents VB.NET / Java hallucinations, and guides B4XPages lifecycle, XUI cross-platform view patterns, Resumable Subs (`Sleep` / `Wait For`), network (`HttpJob`), and SQLite data persistence.
 * **Required Tooling:**
   - **B4A 12+** with `B4XDaisyUIKit.b4xlib` in Additional Libraries.
   - **Android SDK** (`platform-tools/adb.exe` in PATH or standard SDK locations).
@@ -299,13 +362,17 @@ Every state-changing step must prove a new expected state. Selector taps must id
 
 ### 1. Install via Claude Code Plugin Marketplace (Recommended)
 
-Add the marketplace repository and install the plugin suite directly in your Claude Code session:
+Install the prerequisite core B4X language skill, then install the B4XDaisyUIKit skills suite:
 
 ```bash
-# Step 1: Register the marketplace source
+# Step 1: Install prerequisite core B4X language & framework skill
+/plugin marketplace add Jerryk133/b4x-skill
+/plugin install b4x@b4x-marketplace
+
+# Step 2: Register the B4XDaisyUIKit marketplace source
 /plugin marketplace add Mashiane/B4XDaisyUIKit-Skills
 
-# Step 2: Install the skills suite
+# Step 3: Install the B4XDaisyUIKit skills suite
 /plugin install b4xdaisyuikit-skills@b4xdaisyuikit-skills
 ```
 
@@ -344,6 +411,7 @@ b4xdaisyuikit-skills/
 │   └── check-discovery.ps1                  # Discovery check: intent-to-skill resolution
 └── skills/
     ├── b4x-application-planner/             # Requirements, architecture, and contract planning
+    ├── b4x-code-smells/                     # Code smell detection and remediation engine
     ├── b4x-feature-engineer/                # Contract-to-code vertical-slice implementation
     ├── b4x-orchestrator/                    # First-Time-Right release pipeline sequencer
     ├── b4x-project-bootstrap/               # Greenfield app generator & templates
@@ -368,7 +436,7 @@ b4xdaisyuikit-skills/
         │   ├── list.md                      # 3-pillar virtualized recycling pattern
         │   ├── sweet-alert.md               # Async modal confirmation dialogs
         │   └── ...                          # (Remaining component guidance files)
-        └── references/                      # 20 Architectural & API Doctrine References
+        └── references/                      # 25 Architectural & API Doctrine References
             ├── api-cheat-sheet.md           # Exhaustive API reference
             ├── colors-and-themes.md         # Theme tokens & palette resolution
             ├── negative-knowledge.md        # Anti-hallucination rules & banned APIs
@@ -402,7 +470,7 @@ pwsh -File tools/sync-skills-readme.ps1
 - [Mobbin](https://mobbin.com/)
 - [Recreate Mobile UI](https://github.com/vincent-peng/recreate-mobile-ui)
 - [Agentic Awesome Skills](https://github.com/sickn33/agentic-awesome-skills)
-- [B4X Skill for Claude Code](https://github.com/Jerryk133/b4x-skill)
+- [B4X Skill for Claude Code (Prerequisite Foundation)](https://github.com/Jerryk133/b4x-skill)
 - [MCP Server for B4A](https://github.com/unmateria/MCP-B4A)
 - [UIZZE](https://github.com/uizze)
 

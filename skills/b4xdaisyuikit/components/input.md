@@ -135,6 +135,19 @@ DaisyUI `Input` component for B4X (B4A Android).
 - `DateSelected (DateTick As Long, FormattedDate As String)`
 - `TimeSelected (Hour As Int, Minute As Int)`
 
+### IME and focus behavior
+
+`ImeOptions` controls the soft keyboard action label/action. `EnterPressed`
+does not define a form's next target by itself: wire an explicit
+`EnterPressed(Text As String)` handler that maps `Sender` to the intended next
+input or final action. Use `RequestFocus` for a known next `B4XDaisyInput`.
+Track the active field with `FocusChanged(HasFocus As Boolean)` when implementing
+page-level keyboard visibility handling. See
+[`ch02-interactive-forms.md`](../chapters/ch02-interactive-forms.md) for the
+complete IME, focus-order, and scroll-visibility pattern. `getEditText As B4XView`
+returns the native editor view when geometry must be measured; the component's
+`View` is its wrapper.
+
 ## 6. Public Methods & APIs
 - `AddToParent(vParent As B4XView, iLeft As Int, iTop As Int, iWidth As Int, iHeight As Int) As B4XView`
 - `BringToFront`

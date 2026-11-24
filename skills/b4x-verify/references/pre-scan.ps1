@@ -66,44 +66,44 @@ foreach ($f in $basFiles) {
     $text = Get-Content $f.FullName -Raw
     $name = $f.Name
 
-    # 1. Web tech ban - native B4X only, no HTML/CSS/Tailwind/WebView.
+    # 1. Web tech ban (NEG-001 - NEG-004) - native B4X only, no HTML/CSS/Tailwind/WebView.
     #    FAIL on actual HTML tags (a real HTML emit). B4XDaisy's .Style property
     #    (soft/outline/dash) and the words class/tailwind in comments are NOT
     #    web tech, so they are excluded from FAIL.
     if ($text -match '<\s*/?(html|head|body|div|span|script|style|css|table|tr|td|th|button|input|form|img|nav|section|header|footer|ul|ol|li|label|p|h[1-6])\b') {
-        $errors += "$name : HTML tag detected - native B4X only, no HTML/CSS/Tailwind/WebView"
+        $errors += "$name : [NEG-001] HTML tag detected - native B4X only, no HTML/CSS/Tailwind/WebView"
     }
     if ($text -match '(?<![\w.])class\s*=\s*["'']') {
-        $warnings += "$name : class= attribute syntax found - review, could be an HTML class string (native B4X uses token setters, not class=)"
+        $warnings += "$name : [NEG-002] class= attribute syntax found - review, could be an HTML class string (native B4X uses token setters, not class=)"
     }
 
-    # 2. Flex/Grid layout ban - never factored into verified examples.
+    # 2. Flex/Grid layout ban (NEG-008, NEG-009) - never factored into verified examples.
     if ($text -match 'B4XDaisyFlexPanel|B4XDaisyFlexLayout|B4XDaisyGrid') {
-        $errors += "$name : banned layout container (FlexPanel/FlexLayout/Grid) - use PageScroll + coordinate arithmetic"
+        $errors += "$name : [NEG-008] banned layout container (FlexPanel/FlexLayout/Grid) - use PageScroll + coordinate arithmetic"
     }
 
-    # 3. Parent.AddView - mounting B4XDaisy components must use .AddToParent.
+    # 3. Parent.AddView (NEG-013) - mounting B4XDaisy components must use .AddToParent.
     # Native panels legitimately call .AddView for non-B4XDaisy views, so this
     # is a WARN for review, not a hard fail.
     if ($text -match '\.AddView\s*\(') {
-        $warnings += "$name : .AddView(...) found - confirm it is not mounting a B4XDaisy component (use component.AddToParent)"
+        $warnings += "$name : [NEG-013] .AddView(...) found - confirm it is not mounting a B4XDaisy component (use component.AddToParent)"
     }
 
-    # 4. Direct sizing on components (RULE-MOUNT) - use setWidth/setHeight tokens.
+    # 4. Direct sizing on components (NEG-006) - use AddToParent with explicit dimensions.
     $directSize = [regex]::Matches($text, '(?mi)\.\s*(Width|Height)\s*=\s*\d')
     if ($directSize.Count -gt 0) {
-        $warnings += "$name : $($directSize.Count) direct .Width/.Height = N assignment(s) - confirm not on a B4XDaisy component (use setWidth/setHeight)"
+        $warnings += "$name : [NEG-006] $($directSize.Count) direct .Width/.Height = N assignment(s) - confirm not on a B4XDaisy component (use AddToParent)"
     }
 
-    # 5. Broken validator - ValidateRequiredControls throws + non-short-circuit And.
+    # 5. Broken validator (NEG-027) - ValidateRequiredControls throws + non-short-circuit And.
     if ($text -match 'ValidateRequiredControls|ValidateControls\s*\(') {
-        $warnings += "$name : ValidateRequiredControls/ValidateControls(List) is broken - use per-component Validate() + branch"
+        $warnings += "$name : [NEG-027] ValidateRequiredControls/ValidateControls(List) is broken - use per-component Validate() + branch"
     }
 
-    # 6. Documented-only components used without approval.
+    # 6. Documented-only components used without approval (NEG-029, NEG-038).
     foreach ($d in $docOnly) {
         if ($text -match $d) {
-            $warnings += "$name : $d is Documented-only - needs explicit user approval before use"
+            $warnings += "$name : [NEG-029/NEG-038] $d is Documented-only - needs explicit user approval before use"
         }
     }
 }

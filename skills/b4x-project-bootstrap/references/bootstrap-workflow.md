@@ -64,6 +64,15 @@ generic app shell. Do not hand-write the shell from scratch.
 5. **Create the page `.bas` files.**
    - For main screens with top-level tabs: start from `B4XPageNavDock.template.bas`.
    - For sub-pages/detail forms: start from `B4XPageNavOnly.template.bas`.
+   - For forms using `B4XDaisyInput`, preserve the project template's single
+     Activity-level `AddHeightChangedEvent` registration and active-page
+     dispatch. Keep viewport math page-specific, then define an explicit
+     input-to-input Enter map in the form page. Do not register another
+     height-change event source per page or assume `actionNext` alone
+     establishes form order. Follow
+     `b4xdaisyuikit/chapters/ch02-interactive-forms.md`. Before building, run
+     `b4x-verify/references/verify-ime-forms.ps1 -Phase Static`; after device
+     checks, run it again with `-Phase Runtime` before marking the form done.
    - Use the `b4xdaisyuikit` skill for page composition (components,
      NavScrollDock inset pattern, validation).
    - Always call `navbar.BringToFront` directly.

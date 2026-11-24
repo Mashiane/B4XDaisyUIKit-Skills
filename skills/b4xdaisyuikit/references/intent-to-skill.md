@@ -1,4 +1,4 @@
-# intent-to-skill — deterministic task → skill resolution
+﻿# intent-to-skill — deterministic task → skill resolution
 
 Deterministic first: keyword match against `skills-registry.json` keywords/triggers → filter by platform + status (exclude deprecated unless explicitly requested) → resolve `depends` transitively → order by authority (domain first) → emit selected + rejected-with-reason. No embeddings. This file is the human-readable form of that rule; the registry is the machine-readable form.
 

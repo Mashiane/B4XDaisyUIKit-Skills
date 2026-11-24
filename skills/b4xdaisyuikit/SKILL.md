@@ -77,6 +77,21 @@ For semantic color naming, role definitions, theme tokens, and dynamic palette s
 
 ---
 
+## Prerequisites: Core B4X Language Skill
+
+> [!IMPORTANT]
+> **Mandatory Prerequisite:** **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`)
+> B4XDaisyUIKit is a specialized native Android UI/UX layer built on top of the B4X and B4XPages framework. Before composing screens or implementing features, ensure the foundational B4X skill is active.
+> `Jerryk133/b4x-skill` establishes essential B4X language semantics, syntax guardrails (preventing Java / VB.NET contamination), B4XPages lifecycle management, XUI cross-platform view patterns, resumable subs (`Sleep` / `Wait For`), network (`HttpJob`), and SQLite data handling.
+>
+> **Installation:**
+> ```bash
+> /plugin marketplace add Jerryk133/b4x-skill
+> /plugin install b4x@b4x-marketplace
+> ```
+
+---
+
 ## Recommended Companion Skills
 
 To achieve production-grade design and complete full-stack functionality, pair this native UI component skill with the following official companion skills:
@@ -85,7 +100,9 @@ To achieve production-grade design and complete full-stack functionality, pair t
 For visual styles, curated 160+ color palettes, accessible contrast ratios, font pairings, mobile thumb-zone ergonomics, and chart choices, consult the `ui-ux-pro-max` skill or [ux-master-doctrine.md](references/ux-master-doctrine.md).
 
 ### 2. Core Language & Backend Logic (B4X)
-For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests, consult the `b4x-development` skill or [b4x-primer.md](references/b4x-primer.md).
+For core B4X language semantics, Resumable Subs / `Wait For`, SQLite database persistence, network calls (`HttpJob`), and native Android permissions/manifests, consult the prerequisite [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) and [b4x-primer.md](references/b4x-primer.md).
+
+For code generation hygiene, Hungarian parameter naming, structured error handling, and target boundaries, adhere to **[b4x-code-generation-conventions.md](references/b4x-code-generation-conventions.md)**. B4XDaisyUIKit components and screen templates currently target **B4A/Android only**; any B4J references in components represent projections for future roadmap expansion.
 
 ---
 
@@ -258,5 +275,7 @@ Before delivering any output, verify every item:
 - [ ] Page lifecycle follows a named B4XPage demo: `B4XPage_Created` → `pageScroll.Initialize` → `RenderPage`. `B4XPage_Resize` calls `pageScroll.Base_Resize` then `RenderPage`. `pageScroll.Clear` is first inside `RenderPage`. `pageScroll.AutoFit` is last.
 - [ ] Output contains only native B4X code. No HTML, CSS, Tailwind, or browser logic.
 - [ ] Event handler names and parameter signatures match the manifest exactly.
+- [ ] For every form with `B4XDaisyInput`, the screen contract and implementation define explicit IME Enter targets, final action, multiline behavior, and page-specific IME viewport handling. Treat IME actions, hardware Tab traversal, and TalkBack focus as distinct behaviors; see [ch02-interactive-forms.md](chapters/ch02-interactive-forms.md).
+- [ ] Run `b4x-verify/references/verify-ime-forms.ps1 -Phase Static` before building and `-Phase Runtime` before declaring a form complete. Runtime `NOT_RUN` or `FAIL` blocks completion; hardware Tab may be `NOT_IN_SCOPE` only with a recorded reason.
 - [ ] All tokens (colors, sizes, variants) are values declared in [design-tokens.md](references/design-tokens.md) or [api-cheat-sheet.md](references/api-cheat-sheet.md).
 - [ ] The response says API usage was **checked against** the named demo(s) or component reference(s). This is reference-level evidence only; report static verification, a successful build, or runtime verification separately and only if that check ran.

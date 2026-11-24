@@ -10,6 +10,9 @@ Sub Class_Globals
 	Private Root As B4XView
 	Private xui As XUI
 	Private focusedInput As B4XDaisyInput
+	Private imeVisible As Boolean
+	Private scrollPositionBeforeFocus As Int
+	Private imeScrollHandled As Boolean
 	#If B4A
 	Private ime As IME
 	#End If
@@ -63,7 +66,9 @@ Private Sub B4XPage_Resize(iWidth As Int, iHeight As Int)
 	If navbar.IsInitialized Then navbar.SetLayoutAnimated(0, 0, 0, iWidth, NAVBAR_H)
 	If dock.IsInitialized Then dock.View.SetLayoutAnimated(0, 0, iHeight - DOCK_H, iWidth, DOCK_H)
 	If pageScroll.IsInitialized Then
-		pageScroll.Base_Resize(iWidth, iHeight - NAVBAR_H - DOCK_H)
+		Dim scrollHeight As Int = iHeight - NAVBAR_H
+		If imeVisible = False Then scrollHeight = scrollHeight - DOCK_H
+		pageScroll.Base_Resize(iWidth, scrollHeight)
 		If lastWidth <> iWidth Then
 			lastWidth = iWidth
 			RenderContent
@@ -146,49 +151,73 @@ Public Sub IME_HeightChanged(iNewHeight As Int, iOldHeight As Int)
 	Try
 		If pageScroll.IsInitialized = False Then Return
 		If iNewHeight < iOldHeight Then
-			' Keyboard opened: hide dock, shrink scroll view to available viewport height
+			imeVisible = True
 			If dock.IsInitialized Then dock.Visible = False
 			pageScroll.SetLayoutAnimated(0, 0, NAVBAR_H, Root.Width, iNewHeight - NAVBAR_H)
+			pageScroll.Base_Resize(Root.Width, iNewHeight - NAVBAR_H)
 			Sleep(50)
-			ScrollFocusedInputIntoView
+			If focusedInput.IsInitialized Then ScrollInputIfCompletelyHidden(focusedInput, scrollPositionBeforeFocus)
 		Else
-			' Keyboard closed: restore dock and scroll view to full page height
+			imeVisible = False
 			If dock.IsInitialized Then dock.Visible = True
 			pageScroll.SetLayoutAnimated(0, 0, NAVBAR_H, Root.Width, Root.Height - NAVBAR_H - DOCK_H)
+			pageScroll.Base_Resize(Root.Width, Root.Height - NAVBAR_H - DOCK_H)
 		End If
 	Catch
 		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.IME_HeightChanged: " & LastException.Message)
 	End Try
 End Sub
 
-Public Sub ScrollFocusedInputIntoView
-	Try
-		If focusedInput.IsInitialized = False Or pageScroll.IsInitialized = False Then Return
-		pageScroll.ScrollToViewWithMargin(focusedInput.View, 28dip, True)
-	Catch
-		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.ScrollFocusedInputIntoView: " & LastException.Message)
-	End Try
+Private Sub inp_FocusChanged(HasFocus As Boolean)
+	Dim activeInput As B4XDaisyInput = Sender
+	HandleInputFocus(activeInput, HasFocus)
 End Sub
 
-Private Sub HandleInputFocus(bHasFocus As Boolean)
+Private Sub HandleInputFocus(Input As B4XDaisyInput, HasFocus As Boolean)
 	Try
-		If bHasFocus Then
-			If Sender Is B4XDaisyInput Then
-				focusedInput = Sender
-				If pageScroll.IsInitialized And pageScroll.mBase.Height < Root.Height Then
-					Sleep(50)
-					ScrollFocusedInputIntoView
-				End If
+		If HasFocus Then
+			scrollPositionBeforeFocus = pageScroll.GetScrollPosition
+			imeScrollHandled = False
+			focusedInput = Input
+			If imeVisible Then
+				Sleep(50)
+				If focusedInput = Input Then ScrollInputIfCompletelyHidden(Input, scrollPositionBeforeFocus)
 			End If
-		Else
-			If Sender = focusedInput Then
-				Dim emptyInput As B4XDaisyInput
-				focusedInput = emptyInput
-			End If
+		Else If focusedInput = Input Then
+			Dim emptyInput As B4XDaisyInput
+			focusedInput = emptyInput
 		End If
 	Catch
 		If B4XDaisyApp.DebugLogs Then Log("B4XPageNavDock.HandleInputFocus: " & LastException.Message)
 	End Try
+End Sub
+
+Private Sub ScrollInputIfCompletelyHidden(Input As B4XDaisyInput, PreviousScrollPosition As Int)
+	If imeScrollHandled Or pageScroll.IsInitialized = False Then Return
+	Dim inputView As B4XView = Input.getEditText
+	Dim inputTop As Int = GetInputTopInScrollContent(inputView)
+	If inputTop < 0 Then Return
+	Dim viewportBottom As Int = PreviousScrollPosition + pageScroll.Height
+	If inputTop >= viewportBottom Then
+		imeScrollHandled = True
+		pageScroll.ScrollToViewWithMargin(inputView, 28dip, False)
+	Else If pageScroll.GetScrollPosition <> PreviousScrollPosition Then
+		pageScroll.ScrollToPosition(PreviousScrollPosition, False)
+	End If
+End Sub
+
+Private Sub GetInputTopInScrollContent(InputView As B4XView) As Int
+	Dim inputTop As Int = InputView.Top
+	Dim parent As B4XView = InputView.Parent
+	Dim guard As Int
+	Do While parent.IsInitialized
+		If parent = pnlHost Then Return inputTop
+		inputTop = inputTop + parent.Top
+		parent = parent.Parent
+		guard = guard + 1
+		If guard > 16 Then Exit
+	Loop
+	Return -1
 End Sub
 
 Public Sub HideKeyboard
@@ -198,12 +227,8 @@ End Sub
 Public Sub ShowKeyboard(inpTarget As B4XDaisyInput)
 	If inpTarget.IsInitialized Then
 		inpTarget.RequestFocus
-		ime.ShowKeyboard(inpTarget.EditText)
+		ime.ShowKeyboard(inpTarget.getEditText)
 	End If
-End Sub
-
-Private Sub HandleInputEnter(sText As String)
-	HideKeyboard
 End Sub
 #End If
 #End Region

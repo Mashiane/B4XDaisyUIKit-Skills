@@ -189,3 +189,105 @@ Private Sub SaveProfileToDatabase(ProfileMap As Map)
 End Sub
 
 ```
+
+## Android IME, Focus Order, and Form Navigation
+
+Every form that uses `B4XDaisyInput` must define its keyboard behavior as part
+of the form contract. The soft-keyboard action key, hardware Tab traversal,
+and TalkBack accessibility focus are separate paths; verify each that the
+form supports. The viewport and Enter mapping below follow the user's
+device-tested Kuza Mobility implementation. Do not assume
+`ImeOptions = "actionNext"` alone moves focus.
+
+The documented `B4XDaisyInput` API has no `TabOrder` property. Do not invent
+one; record the desired order in the screen contract and verify the platform's
+actual hardware-keyboard traversal separately.
+
+### Establish the input sequence
+
+Mount fields in the intended reading and completion order. Set `ImeOptions`
+per field: use `actionNext` only when Enter should move to a specific next
+input, and choose a final action such as `actionDone` when the next action is
+submission or completion. Use the same event name for inputs whose shared
+`EnterPressed` and `FocusChanged` handlers dispatch on `Sender`.
+
+```b4x
+' In RenderForm, after each input is initialized and mounted:
+inputEmail.Initialize(Me, "inp")
+inputEmail.AddToParent(pnlHost, pad, y, maxW, 60dip)
+inputEmail.ImeOptions = "actionNext"
+
+inputPassword.Initialize(Me, "inp")
+inputPassword.AddToParent(pnlHost, pad, y, maxW, 60dip)
+inputPassword.ImeOptions = "actionDone"
+```
+
+Map Enter explicitly. Do not infer the next field by walking every view in the
+scroll panel: forms may have selects, checkboxes, radio groups, conditional
+fields, or submit actions between text inputs. Route those cases deliberately.
+
+```b4x
+Private Sub inp_EnterPressed(Text As String)
+    Dim activeInput As B4XDaisyInput = Sender
+    If activeInput = inputEmail Then
+        If inputPassword.IsInitialized Then inputPassword.RequestFocus
+    Else If activeInput = inputPassword Then
+        HideKeyboard
+        ' Call this form's validated submit routine here.
+    End If
+End Sub
+
+Private Sub inp_FocusChanged(HasFocus As Boolean)
+    Dim activeInput As B4XDaisyInput = Sender
+    HandleInputFocus(activeInput, HasFocus)
+End Sub
+```
+
+The event handler name and parameters must match the shared event name and
+`B4XDaisyInput` declarations. For every branch, ensure the target exists and is
+currently enabled/visible. Keep multiline inputs' newline behavior unless the
+screen contract explicitly assigns Enter another action. Do not skip an
+intervening non-text control without an intentional, accessible transition.
+
+### Resize and reveal the focused field
+
+The project template already sets `android:windowSoftInputMode` to
+`adjustResize|stateHidden`, initializes one Activity-level `IME`, and forwards
+`IME_HeightChanged` to the active B4XPage. Keep `AddHeightChangedEvent` at
+Activity scope only; page-level IME objects may provide Show/HideKeyboard but
+must not register another height-change event source.
+Each page owns only its own scroll geometry: account for fixed navbar/dock
+heights, resize the page scroll viewport, and restore its full available height
+when the keyboard closes.
+
+On focus, save `pageScroll.GetScrollPosition`, reset a per-focus
+`imeScrollHandled` flag, and track the active `B4XDaisyInput`. After the IME
+resize settles, inspect `Input.getEditText` (the native editor), not
+`Input.View` (the wrapper). Convert the editor's top coordinate to the scroll
+content by summing ancestor offsets up to `pnlHost`. Scroll only if the editor
+is completely below the visible viewport; if it is already visible or partly
+visible, restore the saved scroll position to avoid Android auto-scroll jumps.
+Handle this once per focus transition. The full page templates implement the
+geometry-specific callback and guard logic; adapt their navbar/dock offsets,
+never copy one layout's constants into another.
+
+`B4XDaisyPageScroll.ScrollToViewWithMargin` is available, but do not call it
+unconditionally from every focus or IME event. Use it only after the
+visibility check and pass the native editor view. The component's convenience
+IME callback does not replace page-specific inset calculations.
+
+### Keyboard and accessibility verification
+
+- Physically test each text input's soft-keyboard action: expected next field,
+  intentional non-text stop, multiline newline, and final Done/submit behavior.
+- Test hardware Tab and Shift+Tab separately where a hardware keyboard is in
+  scope. Confirm traversal order, no hidden/disabled targets, and no focus
+  traps. Do not claim this is guaranteed by IME action configuration.
+- Test TalkBack focus separately; check labels, focus visibility, and that
+  moving focus does not unexpectedly submit or dismiss the form.
+- Open the keyboard on fields near the top, middle, and bottom, including
+  numeric/decimal editors; confirm the focused text is visible, partial native
+  scroll is not undone incorrectly, and closing the keyboard restores the
+  expected viewport.
+- Record device/OS and keyboard used for runtime claims. A source-level check
+  is not device verification.

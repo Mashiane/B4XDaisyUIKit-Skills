@@ -86,6 +86,20 @@ B4XDaisy<Name> (schema §2). `provenance-checked: yes` required before APPROVED.
 
 ## Validation
 
+## Form Keyboard & Focus Order
+
+Complete when the screen contains `B4XDaisyInput`; otherwise mark N/A.
+
+| Order | Control | Soft-keyboard action | Enter / next target | Hardware Tab target | Notes (multiline, conditional, final action) |
+|---|---|---|---|---|---|
+
+Use each input's B4X variable name in `Control`; record the exact `ImeOptions`
+value and explicit Enter target/action. Keep these entries aligned with
+`ux-review/IME-VERIFICATION.json` so the static gate can compare them.
+
+- IME viewport behavior: <tested device/OS/keyboard or Verification Required>
+- TalkBack focus behavior: <tested device/OS or Verification Required>
+
 ## Data Dependencies
 
 ## Accessibility

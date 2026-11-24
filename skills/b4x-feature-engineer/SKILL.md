@@ -8,6 +8,9 @@ metadata:
 
 # B4X Feature Engineer
 
+> [!IMPORTANT]
+> **Prerequisite:** **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) is a required prerequisite for core B4X language semantics, resumable sub conventions (`Wait For` / `Sleep` with Sender filters), repository / SQLite persistence, and `HttpJob` network workflows.
+
 Implement features as coherent vertical slices. Read the application and feature contracts before coding, and stop when a critical contract or API is missing instead of guessing.
 
 ## Slice

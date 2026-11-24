@@ -2,8 +2,8 @@
 
 B4X is a BASIC-inspired language for native Android (B4A), iOS (B4i), and desktop (B4J) development; B4XDaisyUIKit itself targets B4A Android only. This primer covers every language construct you will encounter when writing B4XDaisyUIKit UI code. Read this before writing any B4X code.
 
-> [!TIP]
-> **Companion Skill**: For deep general-purpose B4X syntax, resumable subs, SQLite database operations, and Android manifest editing, install the complementary B4X skill:
+> [!IMPORTANT]
+> **Mandatory Prerequisite Skill**: **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) is a required prerequisite for all B4X development. It provides the core language model context, syntax guardrails (avoiding VB/Java contamination), B4XPages lifecycle, Resumable Subs, SQLite database operations, and Android manifest editing:
 > ```bash
 > /plugin marketplace add Jerryk133/b4x-skill
 > /plugin install b4x@b4x-marketplace
@@ -234,6 +234,7 @@ End Sub
 | B4XDaisyButton | `btnX_Click` | `Tag As Object` |
 | B4XDaisyInput | `inputX_TextChanged` | `Old As String, New As String` |
 | B4XDaisyInput | `inputX_FocusChanged` | `HasFocus As Boolean` |
+| B4XDaisyInput | `inputX_EnterPressed` | `Text As String` |
 | B4XDaisyCheckbox | `chkX_Checked` | `Checked As Boolean` |
 | B4XDaisyRadio | `radX_Checked` | `Checked As Boolean` |
 | B4XDaisyToggle | `togX_Checked` | `Checked As Boolean` |

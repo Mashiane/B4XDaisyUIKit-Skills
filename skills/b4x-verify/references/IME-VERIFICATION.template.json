@@ -1,0 +1,27 @@
+{
+  "forms": [
+    {
+      "module": "<PageModule>",
+      "screenContract": "contract/screens/<screen-contract>.md",
+      "fields": [
+        {
+          "name": "<inputVariable>",
+          "eventName": "<InitializeEventName>",
+          "imeAction": "actionNext",
+          "enterTarget": "<nextInputOrFinalAction>"
+        }
+      ],
+      "runtime": {
+        "deviceModel": "",
+        "androidVersion": "",
+        "keyboard": "",
+        "imeActions": "NOT_RUN",
+        "imeViewport": "NOT_RUN",
+        "hardwareTab": "NOT_RUN",
+        "talkBack": "NOT_RUN",
+        "notInScopeReason": "",
+        "evidenceFile": ""
+      }
+    }
+  ]
+}

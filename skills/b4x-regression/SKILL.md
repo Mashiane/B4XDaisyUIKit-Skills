@@ -8,6 +8,9 @@ metadata:
 
 # B4X Regression Engineer
 
+> [!NOTE]
+> **Prerequisite:** **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) is required for foundational B4X language rules and patterns during impact baselining and regression checks.
+
 Use this skill for changes to an existing application. A failed regression gate blocks release.
 
 ## Required loop

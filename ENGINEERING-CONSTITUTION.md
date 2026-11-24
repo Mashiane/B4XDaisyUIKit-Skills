@@ -5,6 +5,7 @@
 that generate, modify, verify, or release B4A apps on B4XDaisyUIKit.
 **Scope:** B4A Android only. `B4XView`/`XUI` being cross-platform does
 not make the component library cross-platform. Not B4J/BANano/MDC.
+**Prerequisite Skill:** All agents operate with the foundational **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) active as a prerequisite. Base B4X syntax rules, B4XPages lifecycle, Resumable Subs, and anti-hallucination guardrails flow from that prerequisite; this Constitution and B4XDaisyUIKit skills govern the component library, UI architecture, and verification gates.
 **Source:** Adopted from Draft v0.1 (2026-09-09). Amend per Art XI.
 
 > Generative agents produce claims. Deterministic tooling produces evidence.

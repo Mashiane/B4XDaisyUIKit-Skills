@@ -54,11 +54,27 @@ if ($reg -and $reg.skills) {
 $mdFiles = Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'skills') -Recurse -Filter '*.md' -File
 foreach ($f in $mdFiles) {
   $text = Get-Content -LiteralPath $f.FullName -Raw
-  foreach ($m in [regex]::Matches($text, '\]\(([^)#:]+\.(?:md|ps1|json|bas|b4a))[^)]*\)')) {
+  foreach ($m in [regex]::Matches($text, '\]\(([^)#:]+\.(?:md|ps1|json|bas|b4a))(?:#([^)]+))?\)')) {
     $rel = $m.Groups[1].Value -replace '/','\'
     if ([IO.Path]::IsPathRooted($rel)) { continue }
     $target = Join-Path $f.DirectoryName $rel
-    if (-not (Test-Path -LiteralPath $target)) { Fail("broken ref: $($f.FullName.Replace($RepoRoot,'')) -> $($m.Groups[1].Value)") }
+    if (-not (Test-Path -LiteralPath $target)) {
+      Fail("broken ref: $($f.FullName.Replace($RepoRoot,'')) -> $($m.Groups[1].Value)")
+    } elseif ($m.Groups[2].Success -and $target.EndsWith('.md', [System.StringComparison]::OrdinalIgnoreCase)) {
+      $anchor = $m.Groups[2].Value.ToLower().TrimStart('#')
+      $targetText = Get-Content -LiteralPath $target -Raw
+      $headings = [regex]::Matches($targetText, '(?m)^#+\s+(.+)$')
+      $anchorFound = $false
+      foreach ($h in $headings) {
+        $slug = ($h.Groups[1].Value.ToLower() -replace '[^\w\s-]', '') -replace '\s+', '-'
+        if ($slug -eq $anchor -or $slug.Contains($anchor) -or $anchor.Contains($slug)) {
+          $anchorFound = $true; break
+        }
+      }
+      if (-not $anchorFound) {
+        Fail("broken anchor: $($f.FullName.Replace($RepoRoot,'')) -> $($m.Groups[1].Value)#$anchor")
+      }
+    }
   }
 }
 

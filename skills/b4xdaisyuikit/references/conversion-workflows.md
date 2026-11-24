@@ -343,3 +343,9 @@ A rough sketch or wireframe is a **layout-intent** input, not a style input. A g
 2. **Skip Stage 2.** Assign neutral/default theme tokens (`base-100` surfaces, one `primary` action) unless the user supplied brand colors; if unspecified, ask once rather than inventing a palette.
 3. **Run Stages 1, 3, 4, 5 as normal** (insets → view tree → geometry → code → verify), then the Stage 6 comparison uses the *sketch* as the structural reference: section order, inset presence, and region count must match; visual polish differences do not count as mismatches.
 4. **Ask, don't guess, on ambiguity.** A sketch box can mean Card, Fieldset, List row, or plain grouping — if the drawing cannot disambiguate, apply the semantic questions in §2's anti-cargo-culting rule and state the interpretation chosen in the reasoning trace.
+
+---
+
+## 🧰 B4X & B4A Code Generation Conventions
+
+Apply the B4X and B4A coding conventions in [b4x-code-generation-conventions.md](b4x-code-generation-conventions.md) when converting or generating source. B4XDaisyUIKit screen composition and UI execution currently target **B4A/Android only**; any B4J references in component code represent future roadmap projections.

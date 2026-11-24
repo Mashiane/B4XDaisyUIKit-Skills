@@ -31,9 +31,12 @@ component composition, and the `b4x-verify` skill for the conformance gate.
   immutable `B4A/*.bas` library).
 - Editing library source files directly. Always generate new project folders.
 
-## Recommended Companion Skill
+## Prerequisites & Recommended Companion Skills
 
-For general B4X development conventions, database storage, and manifest configuration, consult the companion `b4x-development` skill or `b4x-primer.md` in `references/`.
+> [!IMPORTANT]
+> **Prerequisite:** **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) is required as the foundational B4X skill for project architecture, `.b4a` project structure, `Main.Process_Globals` vs `B4XMainPage.Class_Globals`, Android manifests, and runtime permissions.
+
+For general B4X development conventions, database storage, and manifest configuration, consult the prerequisite [Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill) and `b4x-primer.md` in `references/`.
 
 ## The template files
 

@@ -3,7 +3,7 @@ name: b4x-verify
 description: Use when validating a generated B4XDaisyUIKit user interface app before build (conformance / compile-readiness / static layout gate), inspecting or navigating a built app on an Android device, OR when running a post-build visual UX review of rendered screens against supplied screenshot references, approved visual direction, Nielsen heuristics, Material Design, and WCAG 2.2 AA.
 metadata:
   category: technique
-  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review, ADB UI hierarchy, UI tree, find Android element, wait for element, device navigation, navigation evidence
+  triggers: verify app, conformance check, invented api, module wiring, NumberOfModules, before build, before install, gate, coverage, user interface, development, user experience, tailwindcss, native, android, ux review, ui review, screenshot review, visual review, mobile ux review, accessibility audit, post-build review, IME form handling, keyboard form navigation, hardware Tab order, ADB UI hierarchy, UI tree, find Android element, wait for element, device navigation, navigation evidence
 ---
 
 
@@ -15,7 +15,7 @@ See [truth-and-accuracy.md](../b4xdaisyuikit/references/truth-and-accuracy.md) �
 
 The gate between composition and build. Catches the two failure modes that
 silently break a generated B4XDaisyUIKit app: invented component APIs, and
-unwired page modules.
+unwired page modules. Operates in synergy with the core B4X compile checklist and syntax rules established by prerequisite **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)**.
 
 ## Full Pipeline (shift-left)
 
@@ -23,9 +23,11 @@ unwired page modules.
 G0 contract       ->  verify-contract.ps1 (schema gate; build-manifest.ps1
                       regenerates application-manifest.json)  ->
 Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
+  verify-ime-forms.ps1 -Phase Static  ->
   ./install.ps1  (auto-runs build-watch.ps1 after launch)  ->
   ui-inspect.ps1 / navigate.ps1 (optional device interaction)  ->
-  capture-screens.ps1  ->  ux-review.md (consumes BUILD-WATCH report)
+  capture-screens.ps1  ->  verify-ime-forms.ps1 -Phase Runtime  ->
+  ux-review.md (consumes BUILD-WATCH + IME reports)
 ```
 
 - **verify-contract.ps1** (this skill): G0 contract-schema gate
@@ -44,6 +46,12 @@ Stage 5 generate  ->  pre-scan.ps1  ->  verify-conformance.ps1  ->
 - **verify-conformance.ps1** (this skill): authoritative pre-build gate
   (conformance, documented-only, compile-readiness, static layout). Exit 1 = do
   not build.
+- **verify-ime-forms.ps1** (this skill): form-specific gate. `-Phase Static`
+  blocks builds when a `B4XDaisyInput` form lacks a declared focus-order
+  contract, explicit IME action/Enter mapping, focus/IME handlers, or the
+  Activity-level resize and event dispatch. `-Phase Runtime` blocks release
+  readiness until IME actions, viewport behavior, hardware Tab (or a justified
+  out-of-scope result), and TalkBack have device evidence.
 - **build-watch.ps1** (b4x-project-bootstrap skill, auto-run by install.ps1):
   build-stage runtime gate. Evidences the UX-review items a screenshot cannot
   prove (crash/ClassNotFound, touch-target dp, TalkBack labels, startup time,
@@ -99,6 +107,46 @@ Exit 0 = pass, 1 = fail.
 
 ---
 
+## B4XDaisyInput Form Navigation Gate
+
+Run this gate for every app with app-authored `B4XDaisyInput` fields. Apps with
+no such forms pass as not applicable.
+
+1. Copy `references/IME-VERIFICATION.template.json` to
+   `<AppFolder>/ux-review/IME-VERIFICATION.json` and record every form module,
+   its screen contract, each input's `Initialize` event name, `ImeOptions`
+   action, and explicit Enter target or final action. Use `NEWLINE` as the
+   target for multiline fields that preserve Enter as a newline.
+2. Run the static gate before build:
+
+   ```powershell
+   pwsh -File <skill>/references/verify-ime-forms.ps1 `
+     -AppFolder C:\b4a\workspace\<AppName> -Phase Static
+   ```
+
+   Exit 1 blocks `./install.ps1`. Fix missing or inconsistent implementation
+   and contract rows first. The gate confirms source declarations and wiring;
+   it cannot prove keyboard behavior on a device.
+3. After build, test every form on device. Record device model, Android
+   version, keyboard, evidence file, and results in the JSON report. Use
+   `PASS` only for behavior actually tested. Use `NOT_IN_SCOPE` only with a
+   reason; `NOT_RUN` and `FAIL` block completion.
+4. Run the runtime gate before marking UX review or release readiness complete:
+
+   ```powershell
+   pwsh -File <skill>/references/verify-ime-forms.ps1 `
+     -AppFolder C:\b4a\workspace\<AppName> -Phase Runtime
+   ```
+
+   This separately checks soft-keyboard Enter actions, IME viewport resize and
+   restoration, hardware Tab/Shift+Tab, and TalkBack focus. A build-watch report
+   or screenshot does not substitute for these results.
+
+The gate report belongs to the app's review artifacts. Do not edit the
+read-only B4XDaisyUIKit library to satisfy it.
+
+---
+
 ## Automated Inspection & Repair Loop
 
 ```text
@@ -146,19 +194,27 @@ Rules: hermetic tests (no shared mutable state), factories over copy-paste fixtu
    Fix any FAIL (web tech, Flex/Grid, Parent.AddView) and review WARN (direct
    sizing, broken validator, documented-only) before running the gate.
 2. Run the conformance checker against the app folder.
-3. If CONFORMANCE fails: open each flagged file, find the invented
+3. If the app contains `B4XDaisyInput`, prepare
+   `<AppFolder>/ux-review/IME-VERIFICATION.json` from
+   `references/IME-VERIFICATION.template.json` and run the IME gate in Static
+   mode. A failed or missing IME contract blocks the build. Apps without forms
+   pass as not applicable.
+4. If CONFORMANCE fails: open each flagged file, find the invented
    reference, replace with a real component/recipe from the `b4xdaisyuikit`
    skill. Do NOT "fix" by editing the library.
-4. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
+5. If DOCUMENTED-ONLY warns: confirm the user approved each, or swap to a
    `Demo-referenced` component after inspecting its linked demo and confirming
    the relevant API is actually used there.
-5. If API-member or COMPILE-READINESS fails: replace the invalid member, or add the missing `ModuleN=<Name>` line to the
+6. If API-member or COMPILE-READINESS fails: replace the invalid member, or add the missing `ModuleN=<Name>` line to the
    `.b4a`, bump `NumberOfModules`, or create the missing `.bas`. Check
    `B4XMainPage` is present and named exactly.
-6. Re-run until PASS subject to the same cap-3 per `(gate, scope)` rule as step 4 of the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
-7. Then run `./install.ps1` for the real build ONLY on PASS or human override recorded in DECISIONS.md. install.ps1 auto-runs
+7. Re-run every failed static gate until PASS subject to the same cap-3 per `(gate, scope)` rule as step 4 of the Repair Loop above (counter in `.agent/STATE.md`, new `GATE-INSTANCE` per attempt, escalate — never a 4th attempt — per Constitution Art X).
+8. Then run `./install.ps1` for the real build ONLY on PASS or human override recorded in DECISIONS.md. install.ps1 auto-runs
    build-watch.ps1 after launch; read its `ux-review/BUILD-WATCH-*.md` output
    before the post-build visual review.
+9. For each form, complete the device results and evidence paths in
+   `IME-VERIFICATION.json`, then run `verify-ime-forms.ps1 -Phase Runtime`.
+   Runtime FAIL or NOT_RUN blocks form completion and release readiness.
 
 ## Red flags (STOP)
 
@@ -264,6 +320,8 @@ empty state, or a primary action buried below the fold.
 - `references/build-manifest.ps1` (application-manifest.json generator + gate evidence write-back per docs/architecture/MANIFEST-GENERATOR.md)
 - `references/pre-scan.ps1` (fast negative-knowledge pre-scan, run before the gate)
 - `references/verify-conformance.ps1` (static pre-build gate script)
+- `references/verify-ime-forms.ps1` (B4XDaisyInput static + runtime gate)
+- `references/IME-VERIFICATION.template.json` (per-form gate evidence template)
 - `references/production-hardening.md` and `references/verify-production-hardening.ps1` (release-only security gate)
 - `references/capture-screens.ps1` (Phase 2 adb screenshot capture)
 - `references/device-info.ps1` (ADB device selection and diagnostics)

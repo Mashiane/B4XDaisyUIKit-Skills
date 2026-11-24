@@ -51,6 +51,9 @@ RELEASE BUNDLE (PASS: contract + BUILD-WATCH + PNGs + UX-REVIEW + regression rep
 
 v2 gate mapping (normative detail in `docs/architecture/GATE-STATE-MACHINE.md` §1–§2): G0→contract index + verification, G1→architecture/navigation/data contracts, G2→feature implementation with component provenance, G3→pre-scan+verify-conformance, G4→install exit 0, G5→build-watch launch/scenarios, G6→capture+ux-review, G7→regression, G8→release bundle. Constitution: `ENGINEERING-CONSTITUTION.md`.
 
+## Prerequisites
+This orchestration skill and its First-Time-Right pipeline require the foundational **[Jerryk133/b4x-skill](https://github.com/Jerryk133/b4x-skill)** (`b4x`) to be active. It enforces baseline B4X compilation rules, module separation (`Process_Globals` vs `Class_Globals`), and resumable sub conventions during feature implementation and code generation.
+
 ## When to Use
 - "Build a stock-taking app / store / full app"
 - "Ship this screen" / "release gate" / "first-time-right"
